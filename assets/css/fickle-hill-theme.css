@@ -1,0 +1,747 @@
+/* Fickle Hill dusk theme for MATH 107 */
+/* Colors sampled from the Cal Poly Humboldt overlook photograph */
+
+/* Color palette */
+:root {
+  --dusk-bg: #1c1822;           /* Near-black plum, forest shadow */
+  --dusk-navbar: #141018;       /* Slightly darker nav bar */
+  --dusk-surface: #2a2433;      /* Raised panels, cards, callouts */
+  --dusk-ridge: #746988;        /* Hazy ridge — borders and rules */
+  --dusk-title: #fde6dc;        /* Warm sky — lighter than body so headings pop */
+  --dusk-text: #f3e6e4;         /* Pale peach body text */
+  --dusk-muted: #b9a9bd;        /* Sky mauve, secondary text */
+  --dusk-lilac: #d1b4d5;        /* Haze lilac links */
+  --dusk-peach: #fccbad;        /* Sun — horizon line and still accents */
+
+  /* Same roles as the old redwood theme, remapped to dusk */
+  --redwood-dark: var(--dusk-bg);
+  --redwood-medium: var(--dusk-surface);
+  --redwood-light: var(--dusk-title);
+  --forest-green: var(--dusk-ridge);
+  --sage-green: var(--dusk-lilac);
+  --sand-light: var(--dusk-text);
+  --ocean-blue: var(--dusk-lilac);
+  --fog-gray: var(--dusk-muted);
+}
+
+/* Typography and base styling */
+body, body.quarto-light, body.quarto-dark {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  background-color: var(--redwood-dark) !important;
+  color: var(--sand-light) !important;
+}
+
+/* Override default theme colors */
+:root {
+  --bs-body-bg: var(--redwood-dark) !important;
+  --bs-body-color: var(--sand-light) !important;
+}
+
+/* Force background color on main content areas */
+#quarto-content, .quarto-container, .content, .column-page-left {
+  background-color: var(--redwood-dark) !important;
+  color: var(--sand-light) !important;
+}
+
+/* Override Bootstrap's default white background */
+.quarto-light, .quarto-light body, .quarto-light #quarto-content {
+  background-color: var(--redwood-dark) !important;
+  color: var(--sand-light) !important;
+}
+
+/* Target the main content wrapper specifically */
+#quarto-content {
+  background-color: var(--redwood-dark) !important;
+}
+
+/* Override any Bootstrap container backgrounds */
+.container, .container-fluid {
+  background-color: transparent !important;
+}
+
+/* Main content area with card-like appearance */
+#quarto-content > div {
+  background: var(--redwood-dark) !important;
+  color: var(--sand-light) !important;
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  margin: 1rem 0 !important;
+}
+
+/* Headings: sky color, thin peach underline so sections read as headers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dusk-title) !important;
+}
+
+h2, h3, h4, h5, h6 {
+  margin-top: 2rem !important;
+  border-bottom: 1px solid var(--dusk-peach) !important;
+  padding-bottom: 0.4rem !important;
+}
+
+/* Fickle Hill banner: full width. Height tracks the photo, so the
+   crop is the same at any window size (not a short cover-strip).
+   Sky above the sun is cropped; more of the forest/cliff stays in frame. */
+header#title-block-header {
+  position: relative;
+  background: transparent !important;
+  padding-top: 0 !important;
+}
+
+header#title-block-header::before {
+  content: "";
+  display: block;
+  width: 100%;
+  aspect-ratio: 1024 / 478;
+  height: auto;
+  margin: 0 0 1.25rem 0;
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent 70%,
+      rgba(28, 24, 34, 0.45) 88%,
+      var(--dusk-bg) 100%
+    ),
+    url("../images/humboldt-overlook.png");
+  background-size: cover;
+  background-position: 42% 73%;
+  background-repeat: no-repeat;
+}
+
+header#title-block-header::after {
+  content: none;
+}
+
+@media (max-width: 768px) {
+  header#title-block-header::before {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+}
+
+@media print {
+  header#title-block-header::before {
+    display: none;
+  }
+}
+
+/* One horizon under the page title */
+header#title-block-header,
+h1.title,
+.page-title {
+  border-bottom: 2px solid var(--dusk-peach) !important;
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+header#title-block-header h1.title {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Navbar styling */
+.navbar, .navbar-default, .navbar-inverse {
+  background: var(--dusk-navbar) !important;
+  border-bottom: 1px solid var(--dusk-peach) !important;
+}
+
+.navbar-brand {
+  color: var(--dusk-title) !important;
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.navbar-nav .nav-link {
+  color: var(--dusk-text) !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--dusk-lilac) !important;
+}
+
+.title,
+.quarto-title .title,
+header#title-block-header .title {
+  color: #fff1ea !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.9rem, 3.4vw, 2.45rem) !important;
+  letter-spacing: 0.01em;
+}
+
+.subtitle,
+.quarto-title .subtitle,
+header#title-block-header .subtitle {
+  color: var(--dusk-muted) !important;
+}
+
+/* Sidebar navigation styling */
+.sidebar nav[role="doc-toc"] ul > li > a,
+.sidebar nav[role="doc-toc"] ul > li > a:hover,
+.sidebar nav[role="doc-toc"] ul > li > a:focus,
+.sidebar nav[role="doc-toc"] ul > li > a.active {
+  color: var(--sage-green) !important;
+  text-decoration: none !important;
+}
+
+.sidebar nav[role="doc-toc"] ul > li > a:hover,
+.sidebar nav[role="doc-toc"] ul > li > a:focus,
+.sidebar nav[role="doc-toc"] ul > li > a.active {
+  color: var(--redwood-light) !important;
+  background-color: rgba(116, 105, 136, 0.15) !important;
+}
+
+/* Sidebar container styling */
+.sidebar {
+  background-color: var(--redwood-dark) !important;
+  border-right: 2px solid var(--redwood-medium) !important;
+}
+
+/* Sidebar title */
+.sidebar-title {
+  color: var(--dusk-title) !important;
+  border-bottom: 1px solid var(--dusk-ridge) !important;
+}
+
+/* Override any Bootstrap default sidebar colors */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: var(--redwood-medium) !important;
+  color: var(--sand-light) !important;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: rgba(116, 105, 136, 0.3) !important;
+  color: var(--redwood-light) !important;
+}
+
+/* Scrollspy progress bar styling */
+.sidebar nav[role="doc-toc"] ul > li > a.active {
+  color: var(--redwood-light) !important;
+  background-color: var(--redwood-medium) !important;
+  border-left: 3px solid var(--redwood-light) !important;
+}
+
+/* Keyboard navigation highlighting */
+.sidebar nav[role="doc-toc"] ul > li > a:focus,
+.sidebar nav[role="doc-toc"] ul > li > a:focus-visible {
+  color: var(--redwood-light) !important;
+  background-color: rgba(116, 105, 136, 0.2) !important;
+  outline: 2px solid var(--redwood-light) !important;
+  outline-offset: 2px !important;
+}
+
+/* Override any remaining Bootstrap blue colors in sidebar */
+.sidebar a,
+.sidebar .nav-link,
+.sidebar .nav-item .nav-link {
+  color: var(--sage-green) !important;
+}
+
+.sidebar a:hover,
+.sidebar .nav-link:hover,
+.sidebar .nav-item .nav-link:hover,
+.sidebar a:focus,
+.sidebar .nav-link:focus,
+.sidebar .nav-item .nav-link:focus {
+  color: var(--redwood-light) !important;
+  background-color: rgba(116, 105, 136, 0.15) !important;
+}
+
+.sidebar a.active,
+.sidebar .nav-link.active,
+.sidebar .nav-item .nav-link.active {
+  color: var(--redwood-light) !important;
+  background-color: var(--redwood-medium) !important;
+}
+
+/* Nested sidebar navigation items */
+.sidebar nav[role="doc-toc"] ul ul > li > a,
+.sidebar nav[role="doc-toc"] ul ul ul > li > a {
+  color: var(--sage-green) !important;
+  padding-left: 1.5rem !important;
+}
+
+.sidebar nav[role="doc-toc"] ul ul > li > a:hover,
+.sidebar nav[role="doc-toc"] ul ul ul > li > a:hover,
+.sidebar nav[role="doc-toc"] ul ul > li > a:focus,
+.sidebar nav[role="doc-toc"] ul ul ul > li > a:focus {
+  color: var(--redwood-light) !important;
+  background-color: rgba(116, 105, 136, 0.15) !important;
+}
+
+.sidebar nav[role="doc-toc"] ul ul > li > a.active,
+.sidebar nav[role="doc-toc"] ul ul ul > li > a.active {
+  color: var(--redwood-light) !important;
+  background-color: var(--redwood-medium) !important;
+  border-left: 3px solid var(--redwood-light) !important;
+}
+
+/* Target all nested levels generically */
+.sidebar nav[role="doc-toc"] ul li ul li a {
+  color: var(--sage-green) !important;
+}
+
+.sidebar nav[role="doc-toc"] ul li ul li a:hover,
+.sidebar nav[role="doc-toc"] ul li ul li a:focus {
+  color: var(--redwood-light) !important;
+  background-color: rgba(116, 105, 136, 0.15) !important;
+}
+
+.sidebar nav[role="doc-toc"] ul li ul li a.active {
+  color: var(--redwood-light) !important;
+  background-color: var(--redwood-medium) !important;
+  border-left: 3px solid var(--redwood-light) !important;
+}
+
+/* Page header styling */
+.page-header {
+  background: linear-gradient(135deg, var(--redwood-medium) 0%, var(--forest-green) 100%);
+  color: var(--sand-light);
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  color: var(--dusk-title);
+}
+
+/* Course cards */
+.course-card {
+  background: var(--redwood-medium);
+  border: 2px solid var(--sage-green);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+  color: var(--sand-light);
+}
+
+.course-card:hover {
+  box-shadow: 0 4px 12px rgba(45, 24, 16, 0.4);
+  transform: translateY(-2px);
+}
+
+.course-card h3 {
+  color: var(--dusk-title);
+  border-bottom: 1px solid var(--dusk-peach);
+  padding-bottom: 0.4rem;
+}
+
+/* Links */
+a {
+  color: var(--sage-green);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--dusk-peach);
+  text-decoration: underline;
+}
+
+/* Callouts */
+.callout-note {
+  background: linear-gradient(135deg, var(--redwood-medium) 0%, var(--redwood-dark) 100%) !important;
+  border-left: 4px solid var(--dusk-peach) !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+  border-radius: 4px !important;
+  color: var(--sand-light) !important;
+  box-shadow: none !important;
+}
+
+.callout-tip {
+  background: linear-gradient(135deg, var(--forest-green) 0%, var(--sage-green) 100%);
+  border-left: 4px solid var(--dusk-peach);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  color: var(--sand-light);
+}
+
+/* Buttons */
+.btn-primary {
+  background: transparent;
+  border: 1px solid var(--dusk-lilac);
+  color: var(--dusk-lilac);
+}
+
+.btn-primary:hover {
+  background: rgba(209, 180, 213, 0.12);
+  border-color: var(--dusk-peach);
+  color: var(--dusk-peach);
+}
+
+/* Footer and license / reuse blocks */
+.footer,
+footer.footer {
+  background: var(--redwood-dark) !important;
+  color: var(--sand-light) !important;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 1px solid var(--redwood-medium) !important;
+}
+
+footer.footer .nav-footer {
+  background: var(--redwood-dark) !important;
+  color: var(--sand-light) !important;
+}
+
+footer.footer a {
+  color: var(--sage-green) !important;
+}
+
+footer.footer a:hover {
+  color: var(--dusk-peach) !important;
+}
+
+footer.footer .fickle-photo-credit {
+  margin: 0 0 1.1rem 0;
+  font-size: 0.8em;
+  color: var(--dusk-muted) !important;
+}
+
+footer.footer .fickle-photo-credit a {
+  color: var(--dusk-muted) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+footer.footer .fickle-photo-credit a:hover {
+  color: var(--dusk-peach) !important;
+}
+
+/* Quarto "Reuse" license appendix (default is white) */
+#quarto-appendix.default {
+  background-color: var(--redwood-dark) !important;
+  color: var(--sand-light) !important;
+  border-top: 1px solid var(--redwood-medium) !important;
+}
+
+#quarto-appendix.default .quarto-appendix-heading {
+  color: var(--sand-light) !important;
+  border-bottom: none !important;
+}
+
+#quarto-appendix.default .quarto-appendix-contents,
+#quarto-appendix.default section,
+#quarto-appendix.default section *:not(a) {
+  color: var(--sand-light) !important;
+}
+
+#quarto-appendix.default a {
+  color: var(--sage-green) !important;
+}
+
+#quarto-appendix.default a:hover {
+  color: var(--dusk-peach) !important;
+}
+
+#quarto-content blockquote,
+#quarto-content .blockquote {
+  background-color: rgba(42, 36, 51, 0.9) !important;
+  border-left: 4px solid var(--dusk-lilac) !important;
+}
+
+/* Main content area */
+.main-content {
+  background: var(--redwood-medium);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 1rem 0;
+  color: var(--sand-light);
+}
+
+/* Calendar-specific styling for a clean, minimalist look */
+
+/* Style for the main calendar container to ensure consistent theming */
+#course-calendar, .calendar {
+  padding: 2rem !important;
+  border-radius: 8px !important;
+  color: var(--sand-light) !important;
+}
+
+/* Weekly section headings - simple and elegant */
+#course-calendar h2,
+.calendar h2,
+h2[id*="week"],
+#course-calendar h3,
+.calendar h3,
+h3[id*="week"] {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--dusk-peach) !important;
+  color: var(--dusk-title) !important;
+  padding: 0.5rem 0 !important;
+  margin: 2.5rem 0 1.5rem 0 !important; /* More space between weeks */
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+/* Clean and minimalist calendar tables */
+#course-calendar table,
+.calendar table,
+table {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  border-collapse: collapse !important; /* For clean lines */
+  margin: 0 !important;
+}
+
+/* Table headers with subtle coloring */
+#course-calendar table thead th,
+.calendar table thead th,
+table thead th,
+th {
+  background: transparent !important;
+  color: var(--sage-green) !important; /* Softer color for headers */
+  border-bottom: 1px solid var(--dusk-ridge) !important;
+  padding: 0.75rem !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+}
+
+/* Table cells with very subtle row dividers */
+#course-calendar table tbody td,
+.calendar table tbody td,
+table tbody td,
+td {
+  background: transparent !important;
+  color: var(--sand-light) !important;
+  border-bottom: 1px solid var(--redwood-medium) !important;
+  padding: 1rem 0.75rem !important;
+  vertical-align: middle !important;
+}
+
+/* Subtle hover effect for table rows */
+#course-calendar table tbody tr:hover,
+.calendar table tbody tr:hover,
+table tbody tr:hover,
+tr:hover {
+  background: rgba(209, 180, 213, 0.08) !important;
+}
+
+/* Ensure last row in a table has no bottom border */
+#course-calendar table tbody tr:last-child td,
+.calendar table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Links within the calendar */
+#course-calendar table a,
+.calendar table a {
+  color: var(--sage-green) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease-in-out;
+}
+
+#course-calendar table a:hover,
+.calendar table a:hover {
+  color: var(--dusk-peach) !important;
+  text-decoration: underline !important;
+}
+
+/* Section dividers (hr) - clean and simple */
+#course-calendar hr,
+.calendar hr {
+  border: none !important;
+  height: 1px !important;
+  background-color: var(--redwood-medium) !important;
+  margin: 3rem 0 !important;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  #course-calendar, .calendar {
+    padding: 1rem !important;
+  }
+
+  #course-calendar h2,
+  .calendar h2,
+  h2[id*="week"],
+  #course-calendar h3,
+  .calendar h3,
+  h3[id*="week"] {
+    margin: 2rem 0 1rem 0 !important;
+    font-size: 1.2rem !important;
+  }
+
+  #course-calendar table,
+  .calendar table {
+    font-size: 0.95rem !important;
+  }
+
+  #course-calendar table thead th,
+  .calendar table thead th,
+  #course-calendar table tbody td,
+  .calendar table tbody td {
+    padding: 0.75rem 0.5rem !important;
+  }
+}
+
+/* Override Bootstrap table styling more aggressively */
+.table, .table-striped, .table-bordered, .table-hover {
+  background-color: transparent !important;
+  color: var(--sand-light) !important;
+}
+
+/* Override Bootstrap callout styling */
+.callout, .callout-note, .callout-tip, .callout-warning, .callout-important {
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove Bootstrap callout header styling */
+.callout-header, .callout-note .callout-header, .callout-tip .callout-header {
+  background: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  color: var(--sand-light) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.callout,
+.callout-note,
+.callout-tip,
+.callout-warning,
+.callout-important {
+  border-left: 4px solid var(--dusk-peach) !important;
+}
+
+.table > :not(caption) > * > * {
+  background-color: transparent !important;
+  color: var(--sand-light) !important;
+  border-color: var(--redwood-medium) !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: transparent !important;
+}
+
+.table-hover > tbody > tr:hover > * {
+  background-color: rgba(209, 180, 213, 0.08) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Code blocks & inline code — light text on dark dusk panel */
+/* -------------------------------------------------------------------------- */
+
+#quarto-content pre.sourceCode,
+#quarto-content div.sourceCode pre,
+#quarto-content .cell-code,
+#quarto-content .cell-code pre,
+#quarto-content div.cell div.sourceCode pre {
+  background-color: rgba(0, 0, 0, 0.42) !important;
+  color: var(--sand-light) !important;
+  border: 1px solid var(--redwood-medium) !important;
+  border-radius: 6px !important;
+  padding: 0.75rem 1rem !important;
+}
+
+#quarto-content pre.sourceCode code,
+#quarto-content .cell-code pre code {
+  color: var(--sand-light) !important;
+  background: transparent !important;
+}
+
+/* Skylighting / Pandoc token classes (R and other languages) */
+#quarto-content pre.sourceCode span,
+#quarto-content .cell-code pre span {
+  background: transparent !important;
+}
+
+#quarto-content pre.sourceCode .kw,
+#quarto-content pre.sourceCode .cf,
+#quarto-content pre.sourceCode .op {
+  color: #c5b8e8 !important;
+}
+
+#quarto-content pre.sourceCode .co {
+  color: #b9a9bd !important;
+}
+
+#quarto-content pre.sourceCode .st,
+#quarto-content pre.sourceCode .ch {
+  color: #fccbad !important;
+}
+
+#quarto-content pre.sourceCode .dv,
+#quarto-content pre.sourceCode .fl,
+#quarto-content pre.sourceCode .bn {
+  color: #d1b4d5 !important;
+}
+
+#quarto-content pre.sourceCode .fu,
+#quarto-content pre.sourceCode .ot {
+  color: #e4c8d4 !important;
+}
+
+#quarto-content pre.sourceCode .va,
+#quarto-content pre.sourceCode .at {
+  color: #dccce4 !important;
+}
+
+#quarto-content pre.sourceCode .er {
+  color: #ff9a9a !important;
+}
+
+/* Fallback: any span not matched above inherits readable light text */
+#quarto-content pre.sourceCode span:not([class]) {
+  color: var(--sand-light) !important;
+}
+
+/* Inline code (outside pre) */
+#quarto-content p code:not(pre code),
+#quarto-content li code:not(pre code),
+#quarto-content td code:not(pre code),
+#quarto-content .callout code:not(pre code) {
+  color: var(--fog-gray) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  padding: 0.12em 0.45em;
+  border-radius: 4px;
+  border: 1px solid rgba(116, 105, 136, 0.5);
+}
+
+/* Chunk output text (stdout/results) */
+#quarto-content .cell-output,
+#quarto-content .cell-output pre,
+#quarto-content .cell-output code,
+#quarto-content .cell-output-stdout,
+#quarto-content .cell-output-stderr {
+  color: var(--sand-light) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border-radius: 6px !important;
+}
+
+/* Plot output panel so white plot regions are visible */
+#quarto-content .cell-output-display,
+#quarto-content .quarto-figure,
+#quarto-content .figure {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid var(--redwood-medium) !important;
+  border-radius: 6px !important;
+  padding: 0.6rem !important;
+}
+
+/* Keep image plots visible and clean */
+#quarto-content .cell-output-display img,
+#quarto-content .quarto-figure img,
+#quarto-content .figure img {
+  background-color: #ffffff !important;
+  border-radius: 4px !important;
+}

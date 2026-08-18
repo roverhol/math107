@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Lab 0 — Computers Speak Vectors – MATH 107 - Introduction to Linear Algebra</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
+</head>
+
+<body class="floating quarto-light">
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#indexing-read-this-first" id="toc-indexing-read-this-first" class="nav-link active" data-scroll-target="#indexing-read-this-first">Indexing (read this first)</a></li>
+  <li><a href="#what-to-submit" id="toc-what-to-submit" class="nav-link" data-scroll-target="#what-to-submit">What to submit</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
+  <li><a href="#c0.1-enter-and-index" id="toc-c0.1-enter-and-index" class="nav-link" data-scroll-target="#c0.1-enter-and-index">C0.1 — Enter and index</a></li>
+  <li><a href="#c0.2-modify-two-entries" id="toc-c0.2-modify-two-entries" class="nav-link" data-scroll-target="#c0.2-modify-two-entries">C0.2 — Modify two entries</a></li>
+  <li><a href="#c0.3-plot-x-2x-and--x" id="toc-c0.3-plot-x-2x-and--x" class="nav-link" data-scroll-target="#c0.3-plot-x-2x-and--x">C0.3 — Plot <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span>, and <span class="math inline">\(-x\)</span></a></li>
+  <li><a href="#if-something-breaks" id="toc-if-something-breaks" class="nav-link" data-scroll-target="#if-something-breaks">If something breaks</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-00.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Lab 0 — Computers Speak Vectors</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Friday, August 28</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-page-right">
+
+    
+  
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 18, 2026</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><a href="lab-00.pdf">Download PDF</a></p>
+<p>Last updated: August 18, 2026.</p>
+<p>In class Friday, August 28 (same day as <a href="../lectures/lecture-03.html">Lecture 03</a>). Due date is on the <a href="../schedule.html">schedule</a>. Submit in <strong>Canvas</strong>.</p>
+<p>Pick <strong>Octave or Python</strong> and stay with that language this term. No prior coding is assumed. Bring a laptop, or use a campus lab machine.</p>
+<p>Software: <a href="https://octave.org/">GNU Octave</a> or Python with <a href="https://numpy.org/">NumPy</a> and <a href="https://matplotlib.org/">Matplotlib</a>. See <a href="../resources.html">Resources</a>.</p>
+<section id="indexing-read-this-first" class="level2">
+<h2 class="anchored" data-anchor-id="indexing-read-this-first">Indexing (read this first)</h2>
+<p>Boyd writes <span class="math inline">\(x_1\)</span> for the first entry. Octave counts from <strong>1</strong>. Python/NumPy count from <strong>0</strong>.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Meaning</th>
+<th>Boyd</th>
+<th>Octave</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>first entry of <span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(x_1\)</span></td>
+<td><code>x(1)</code></td>
+<td><code>x[0]</code></td>
+</tr>
+<tr class="even">
+<td>second entry</td>
+<td><span class="math inline">\(x_2\)</span></td>
+<td><code>x(2)</code></td>
+<td><code>x[1]</code></td>
+</tr>
+<tr class="odd">
+<td>length <span class="math inline">\(n\)</span></td>
+<td><span class="math inline">\(n\)</span></td>
+<td><code>length(x)</code></td>
+<td><code>len(x)</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-to-submit" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-submit">What to submit</h2>
+<p>Upload one file (<code>.m</code>, <code>.py</code>, or a PDF/screenshot of your session) <strong>and</strong> type short written answers in the Canvas text box, or include them in the same document.</p>
+<p>You should have:</p>
+<ol type="1">
+<li>Code that creates the vector and prints the requested entries.</li>
+<li>A sentence about the two modified entries.</li>
+<li>A plot of <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span>, and <span class="math inline">\(-x\)</span> (screenshot or saved image) and two sentences on the geometry.</li>
+</ol>
+</section>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The data</h2>
+<p>Use this 6-vector of <strong>Arcata morning temperatures</strong>, in °F, for six successive hours: <span class="math display">\[
+x = (52, 51, 53, 55, 58, 60).
+\]</span> Entry <span class="math inline">\(x_1\)</span> is 7 a.m.; <span class="math inline">\(x_6\)</span> is noon.</p>
+</section>
+<section id="c0.1-enter-and-index" class="level2">
+<h2 class="anchored" data-anchor-id="c0.1-enter-and-index">C0.1 — Enter and index</h2>
+<p>Create <span class="math inline">\(x\)</span> in software. Print <span class="math inline">\(n\)</span>, the first entry, the last entry, and <span class="math inline">\(x_3\)</span>.</p>
+<p>Octave:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">52</span><span class="op">,</span> <span class="fl">51</span><span class="op">,</span> <span class="fl">53</span><span class="op">,</span> <span class="fl">55</span><span class="op">,</span> <span class="fl">58</span><span class="op">,</span> <span class="fl">60</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="va">length</span>(<span class="va">x</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="fl">1</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="va">n</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="fl">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Python:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">52</span>, <span class="dv">51</span>, <span class="dv">53</span>, <span class="dv">55</span>, <span class="dv">58</span>, <span class="dv">60</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(x)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(n, x[<span class="dv">0</span>], x[<span class="op">-</span><span class="dv">1</span>], x[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Written:</strong> In one sentence, what quantity does <span class="math inline">\(x_3\)</span> represent, including units?</p>
+</section>
+<section id="c0.2-modify-two-entries" class="level2">
+<h2 class="anchored" data-anchor-id="c0.2-modify-two-entries">C0.2 — Modify two entries</h2>
+<p>The 9 a.m. reading was mistyped: it should be <span class="math inline">\(54\)</span> instead of <span class="math inline">\(53\)</span>. The noon reading should be <span class="math inline">\(61\)</span> instead of <span class="math inline">\(60\)</span>. Change those two entries. Print the new vector.</p>
+<p><strong>Written:</strong> Which Boyd indices did you change, and what changed in the weather story?</p>
+</section>
+<section id="c0.3-plot-x-2x-and--x" class="level2">
+<h2 class="anchored" data-anchor-id="c0.3-plot-x-2x-and--x">C0.3 — Plot <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span>, and <span class="math inline">\(-x\)</span></h2>
+<p>Plot the original <span class="math inline">\(x\)</span>, the scaled vector <span class="math inline">\(2x\)</span>, and the vector <span class="math inline">\(-x\)</span>. Use hour index <span class="math inline">\(i=1,\ldots,6\)</span> on the horizontal axis (or hours 7 a.m. to noon). Include a legend.</p>
+<p>Octave:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">i</span><span class="op">,</span> <span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="op">-</span><span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">legend</span>(<span class="ss">'x'</span><span class="op">,</span><span class="ss">'2x'</span><span class="op">,</span><span class="ss">'-x'</span>)<span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">xlabel</span>(<span class="ss">'hour index i'</span>)<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="va">ylabel</span>(<span class="ss">'value'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Python:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">7</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.plot(i, x, <span class="st">'-o'</span>, label<span class="op">=</span><span class="st">'x'</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.plot(i, <span class="dv">2</span><span class="op">*</span>x, <span class="st">'-o'</span>, label<span class="op">=</span><span class="st">'2x'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.plot(i, <span class="op">-</span>x, <span class="st">'-o'</span>, label<span class="op">=</span><span class="st">'-x'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'hour index i'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'value'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Written:</strong> In two sentences, what did multiplying by <span class="math inline">\(2\)</span> do geometrically, and what did multiplying by <span class="math inline">\(-1\)</span> do? (Temperature units on <span class="math inline">\(-x\)</span> will look odd; that is the point—the picture is about the vector operation, not a new weather forecast.)</p>
+</section>
+<section id="if-something-breaks" class="level2">
+<h2 class="anchored" data-anchor-id="if-something-breaks">If something breaks</h2>
+<p>Copy the error message into your Canvas submission and say which line you changed. We would rather see a debug note than a blank upload.</p>
+
+
+<!-- -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 0 — Computers Speak Vectors"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, August 28"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-00.pdf)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>In class Friday, August 28 (same day as <span class="co">[</span><span class="ot">Lecture 03</span><span class="co">](../lectures/lecture-03.qmd)</span>). Due date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Submit in **Canvas**.</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>Pick **Octave or Python** and stay with that language this term. No prior coding is assumed. Bring a laptop, or use a campus lab machine.</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>Software: <span class="co">[</span><span class="ot">GNU Octave</span><span class="co">](https://octave.org/)</span> or Python with <span class="co">[</span><span class="ot">NumPy</span><span class="co">](https://numpy.org/)</span> and <span class="co">[</span><span class="ot">Matplotlib</span><span class="co">](https://matplotlib.org/)</span>. See <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Indexing (read this first)</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>Boyd writes $x_1$ for the first entry. Octave counts from **1**. Python/NumPy count from **0**.</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Meaning <span class="pp">|</span> Boyd <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|------|--------|--------|</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> first entry of $x$ <span class="pp">|</span> $x_1$ <span class="pp">|</span> <span class="in">`x(1)`</span> <span class="pp">|</span> <span class="in">`x[0]`</span> <span class="pp">|</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> second entry <span class="pp">|</span> $x_2$ <span class="pp">|</span> <span class="in">`x(2)`</span> <span class="pp">|</span> <span class="in">`x[1]`</span> <span class="pp">|</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> length $n$ <span class="pp">|</span> $n$ <span class="pp">|</span> <span class="in">`length(x)`</span> <span class="pp">|</span> <span class="in">`len(x)`</span> <span class="pp">|</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to submit</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>Upload one file (<span class="in">`.m`</span>, <span class="in">`.py`</span>, or a PDF/screenshot of your session) **and** type short written answers in the Canvas text box, or include them in the same document.</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>You should have:</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Code that creates the vector and prints the requested entries.</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>A sentence about the two modified entries.</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>A plot of $x$, $2x$, and $-x$ (screenshot or saved image) and two sentences on the geometry.</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## The data</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>Use this 6-vector of **Arcata morning temperatures**, in °F, for six successive hours:</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>x = (52, 51, 53, 55, 58, 60).</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>Entry $x_1$ is 7 a.m.; $x_6$ is noon.</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="fu">## C0.1 — Enter and index</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>Create $x$ in software. Print $n$, the first entry, the last entry, and $x_3$.</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>Octave:</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">52</span><span class="op">,</span> <span class="fl">51</span><span class="op">,</span> <span class="fl">53</span><span class="op">,</span> <span class="fl">55</span><span class="op">,</span> <span class="fl">58</span><span class="op">,</span> <span class="fl">60</span>]<span class="op">;</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="va">length</span>(<span class="va">x</span>)</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="fl">1</span>)</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="va">n</span>)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="va">x</span>(<span class="fl">3</span>)</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="va">Python</span><span class="op">:</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">52</span><span class="op">,</span> <span class="fl">51</span><span class="op">,</span> <span class="fl">53</span><span class="op">,</span> <span class="fl">55</span><span class="op">,</span> <span class="fl">58</span><span class="op">,</span> <span class="fl">60</span>])</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="va">len</span>(<span class="va">x</span>)</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="va">n</span><span class="op">,</span> <span class="va">x</span>[<span class="fl">0</span>]<span class="op">,</span> <span class="va">x</span>[<span class="op">-</span><span class="fl">1</span>]<span class="op">,</span> <span class="va">x</span>[<span class="fl">2</span>])</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Written</span><span class="op">:**</span> <span class="va">In</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">,</span> <span class="va">what</span> <span class="va">quantity</span> <span class="va">does</span> $<span class="va">x_3</span>$ <span class="va">represent</span><span class="op">,</span> <span class="va">including</span> <span class="va">units</span>?</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>## <span class="va">C0</span><span class="fl">.2</span> — <span class="va">Modify</span> <span class="va">two</span> <span class="va">entries</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="va">The</span> <span class="fl">9</span> <span class="va">a</span>.<span class="va">m</span>. <span class="va">reading</span> <span class="va">was</span> <span class="va">mistyped</span><span class="op">:</span> <span class="va">it</span> <span class="va">should</span> <span class="va">be</span> $<span class="fl">54</span>$ <span class="va">instead</span> <span class="va">of</span> $<span class="fl">53</span>$. <span class="va">The</span> <span class="va">noon</span> <span class="va">reading</span> <span class="va">should</span> <span class="va">be</span> $<span class="fl">61</span>$ <span class="va">instead</span> <span class="va">of</span> $<span class="fl">60</span>$. <span class="va">Change</span> <span class="va">those</span> <span class="va">two</span> <span class="va">entries</span>. <span class="va">Print</span> <span class="va">the</span> <span class="va">new</span> <span class="va">vector</span>.</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Written</span><span class="op">:**</span> <span class="va">Which</span> <span class="va">Boyd</span> <span class="va">indices</span> <span class="va">did</span> <span class="va">you</span> <span class="va">change</span><span class="op">,</span> <span class="va">and</span> <span class="va">what</span> <span class="va">changed</span> <span class="va">in</span> <span class="va">the</span> <span class="va">weather</span> <span class="va">story</span>?</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>## <span class="va">C0</span><span class="fl">.3</span> — <span class="va">Plot</span> $<span class="va">x</span>$<span class="op">,</span> $<span class="fl">2</span><span class="va">x</span>$<span class="op">,</span> <span class="va">and</span> $<span class="op">-</span><span class="va">x</span>$</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="va">Plot</span> <span class="va">the</span> <span class="va">original</span> $<span class="va">x</span>$<span class="op">,</span> <span class="va">the</span> <span class="va">scaled</span> <span class="va">vector</span> $<span class="fl">2</span><span class="va">x</span>$<span class="op">,</span> <span class="va">and</span> <span class="va">the</span> <span class="va">vector</span> $<span class="op">-</span><span class="va">x</span>$. <span class="va">Use</span> <span class="va">hour</span> <span class="va">index</span> $<span class="va">i</span><span class="op">=</span><span class="fl">1</span><span class="op">,\</span><span class="va">ldots</span><span class="op">,</span><span class="fl">6</span>$ <span class="va">on</span> <span class="va">the</span> <span class="va">horizontal</span> <span class="va">axis</span> (<span class="va">or</span> <span class="va">hours</span> <span class="fl">7</span> <span class="va">a</span>.<span class="va">m</span>. <span class="va">to</span> <span class="va">noon</span>). <span class="va">Include</span> <span class="va">a</span> <span class="va">legend</span>.</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="va">Octave</span><span class="op">:</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>```<span class="va">matlab</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">;</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">i</span><span class="op">,</span> <span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="op">-</span><span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span>)<span class="op">;</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="va">legend</span>(<span class="ss">'x'</span><span class="op">,</span><span class="ss">'2x'</span><span class="op">,</span><span class="ss">'-x'</span>)<span class="op">;</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="va">xlabel</span>(<span class="ss">'hour index i'</span>)<span class="op">;</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="va">ylabel</span>(<span class="ss">'value'</span>)<span class="op">;</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="va">Python</span><span class="op">:</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">matplotlib</span>.<span class="va">pyplot</span> <span class="va">as</span> <span class="va">plt</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="va">i</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">arange</span>(<span class="fl">1</span><span class="op">,</span> <span class="fl">7</span>)</span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">plot</span>(<span class="va">i</span><span class="op">,</span> <span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span><span class="op">,</span> <span class="va">label</span><span class="op">=</span><span class="ss">'x'</span>)</span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">plot</span>(<span class="va">i</span><span class="op">,</span> <span class="fl">2</span><span class="op">*</span><span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span><span class="op">,</span> <span class="va">label</span><span class="op">=</span><span class="ss">'2x'</span>)</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">plot</span>(<span class="va">i</span><span class="op">,</span> <span class="op">-</span><span class="va">x</span><span class="op">,</span> <span class="ss">'-o'</span><span class="op">,</span> <span class="va">label</span><span class="op">=</span><span class="ss">'-x'</span>)</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">xlabel</span>(<span class="ss">'hour index i'</span>)</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">ylabel</span>(<span class="ss">'value'</span>)</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">legend</span>()</span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">show</span>()</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Written</span><span class="op">:**</span> <span class="va">In</span> <span class="va">two</span> <span class="va">sentences</span><span class="op">,</span> <span class="va">what</span> <span class="va">did</span> <span class="va">multiplying</span> <span class="va">by</span> $<span class="fl">2</span>$ <span class="va">do</span> <span class="va">geometrically</span><span class="op">,</span> <span class="va">and</span> <span class="va">what</span> <span class="va">did</span> <span class="va">multiplying</span> <span class="va">by</span> $<span class="op">-</span><span class="fl">1</span>$ <span class="va">do</span>? (<span class="va">Temperature</span> <span class="va">units</span> <span class="va">on</span> $<span class="op">-</span><span class="va">x</span>$ <span class="va">will</span> <span class="va">look</span> <span class="va">odd</span><span class="op">;</span> <span class="va">that</span> <span class="va">is</span> <span class="va">the</span> <span class="va">point</span>—<span class="va">the</span> <span class="va">picture</span> <span class="va">is</span> <span class="va">about</span> <span class="va">the</span> <span class="va">vector</span> <span class="va">operation</span><span class="op">,</span> <span class="va">not</span> <span class="va">a</span> <span class="va">new</span> <span class="va">weather</span> <span class="va">forecast</span>.)</span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>## <span class="va">If</span> <span class="va">something</span> <span class="va">breaks</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="va">Copy</span> <span class="va">the</span> <span class="va">error</span> <span class="va">message</span> <span class="va">into</span> <span class="va">your</span> <span class="va">Canvas</span> <span class="va">submission</span> <span class="va">and</span> <span class="va">say</span> <span class="va">which</span> <span class="va">line</span> <span class="va">you</span> <span class="va">changed</span>. <span class="va">We</span> <span class="va">would</span> <span class="va">rather</span> <span class="va">see</span> <span class="va">a</span> <span class="va">debug</span> <span class="va">note</span> <span class="va">than</span> <span class="va">a</span> <span class="va">blank</span> <span class="va">upload</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
