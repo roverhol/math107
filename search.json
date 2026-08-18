@@ -42,62 +42,6 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
-    "objectID": "labs/lab-00.html",
-    "href": "labs/lab-00.html",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nIn class Friday, August 28 (same day as Lecture 03). Due date is on the schedule. Submit in Canvas.\nPick Octave or Python and stay with that language this term. No prior coding is assumed. Bring a laptop, or use a campus lab machine.\nSoftware: GNU Octave or Python with NumPy and Matplotlib. See Resources."
-  },
-  {
-    "objectID": "labs/lab-00.html#indexing-read-this-first",
-    "href": "labs/lab-00.html#indexing-read-this-first",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "Indexing (read this first)",
-    "text": "Indexing (read this first)\nBoyd writes \\(x_1\\) for the first entry. Octave counts from 1. Python/NumPy count from 0.\n\n\n\nMeaning\nBoyd\nOctave\nPython\n\n\n\n\nfirst entry of \\(x\\)\n\\(x_1\\)\nx(1)\nx[0]\n\n\nsecond entry\n\\(x_2\\)\nx(2)\nx[1]\n\n\nlength \\(n\\)\n\\(n\\)\nlength(x)\nlen(x)"
-  },
-  {
-    "objectID": "labs/lab-00.html#what-to-submit",
-    "href": "labs/lab-00.html#what-to-submit",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "What to submit",
-    "text": "What to submit\nUpload one file (.m, .py, or a PDF/screenshot of your session) and type short written answers in the Canvas text box, or include them in the same document.\nYou should have:\n\nCode that creates the vector and prints the requested entries.\nA sentence about the two modified entries.\nA plot of \\(x\\), \\(2x\\), and \\(-x\\) (screenshot or saved image) and two sentences on the geometry."
-  },
-  {
-    "objectID": "labs/lab-00.html#the-data",
-    "href": "labs/lab-00.html#the-data",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "The data",
-    "text": "The data\nUse this 6-vector of Arcata morning temperatures, in °F, for six successive hours: \\[\nx = (52, 51, 53, 55, 58, 60).\n\\] Entry \\(x_1\\) is 7 a.m.; \\(x_6\\) is noon."
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.1-enter-and-index",
-    "href": "labs/lab-00.html#c0.1-enter-and-index",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.1 — Enter and index",
-    "text": "C0.1 — Enter and index\nCreate \\(x\\) in software. Print \\(n\\), the first entry, the last entry, and \\(x_3\\).\nOctave:\nx = [52, 51, 53, 55, 58, 60];\nn = length(x)\nx(1)\nx(n)\nx(3)\nPython:\nimport numpy as np\nx = np.array([52, 51, 53, 55, 58, 60])\nn = len(x)\nprint(n, x[0], x[-1], x[2])\nWritten: In one sentence, what quantity does \\(x_3\\) represent, including units?"
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.2-modify-two-entries",
-    "href": "labs/lab-00.html#c0.2-modify-two-entries",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.2 — Modify two entries",
-    "text": "C0.2 — Modify two entries\nThe 9 a.m. reading was mistyped: it should be \\(54\\) instead of \\(53\\). The noon reading should be \\(61\\) instead of \\(60\\). Change those two entries. Print the new vector.\nWritten: Which Boyd indices did you change, and what changed in the weather story?"
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.3-plot-x-2x-and--x",
-    "href": "labs/lab-00.html#c0.3-plot-x-2x-and--x",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.3 — Plot \\(x\\), \\(2x\\), and \\(-x\\)",
-    "text": "C0.3 — Plot \\(x\\), \\(2x\\), and \\(-x\\)\nPlot the original \\(x\\), the scaled vector \\(2x\\), and the vector \\(-x\\). Use hour index \\(i=1,\\ldots,6\\) on the horizontal axis (or hours 7 a.m. to noon). Include a legend.\nOctave:\ni = 1:6;\nplot(i, x, '-o', i, 2*x, '-o', i, -x, '-o');\nlegend('x','2x','-x');\nxlabel('hour index i');\nylabel('value');\nPython:\nimport matplotlib.pyplot as plt\ni = np.arange(1, 7)\nplt.plot(i, x, '-o', label='x')\nplt.plot(i, 2*x, '-o', label='2x')\nplt.plot(i, -x, '-o', label='-x')\nplt.xlabel('hour index i')\nplt.ylabel('value')\nplt.legend()\nplt.show()\nWritten: In two sentences, what did multiplying by \\(2\\) do geometrically, and what did multiplying by \\(-1\\) do? (Temperature units on \\(-x\\) will look odd; that is the point—the picture is about the vector operation, not a new weather forecast.)"
-  },
-  {
-    "objectID": "labs/lab-00.html#if-something-breaks",
-    "href": "labs/lab-00.html#if-something-breaks",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "If something breaks",
-    "text": "If something breaks\nCopy the error message into your Canvas submission and say which line you changed. We would rather see a debug note than a blank upload."
-  },
-  {
     "objectID": "lectures/lecture-01.html",
     "href": "lectures/lecture-01.html",
     "title": "Lecture 01 — Why linear algebra? Vectors as representations",
