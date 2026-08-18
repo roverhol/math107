@@ -193,6 +193,7 @@ window.Quarto = {
 <p><a href="capstone.pdf">Download PDF</a></p>
 <p>Last updated: August 18, 2026.</p>
 <p>Dates are on the <a href="../schedule.html">schedule</a>. Full write-up instructions will be added here. Use this packet to prepare; there is no quiz on SVD.</p>
+<p>Octave syntax: Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). One PDF on <a href="../resources.html">Resources</a>; this handout is the assigned work.</p>
 <p>Computing an SVD does <strong>not</strong> automatically make every later calculation faster. The factorization itself can be expensive. Compression or faster multiplication is valuable when the matrix is well approximated at low rank <strong>and</strong> the representation will be stored, transmitted, or reused enough times to justify that initial cost. Image examples are instructional; adaptive SVD representations can themselves be expensive.</p>
 <section id="practice-packet" class="level2">
 <h2 class="anchored" data-anchor-id="practice-packet">Practice packet</h2>
@@ -342,7 +343,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/roverhol\.github\.io\/math107");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -689,24 +690,26 @@ window.Quarto = {
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Dates are on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Full write-up instructions will be added here. Use this packet to prepare; there is no quiz on SVD.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Computing an SVD does **not** automatically make every later calculation faster. The factorization itself can be expensive. Compression or faster multiplication is valuable when the matrix is well approximated at low rank **and** the representation will be stored, transmitted, or reused enough times to justify that initial cost. Image examples are instructional; adaptive SVD representations can themselves be expensive.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Octave syntax: Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). One PDF on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>; this handout is the assigned work.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice packet</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Computing an SVD does **not** automatically make every later calculation faster. The factorization itself can be expensive. Compression or faster multiplication is valuable when the matrix is well approximated at low rank **and** the representation will be stored, transmitted, or reused enough times to justify that initial cost. Image examples are instructional; adaptive SVD representations can themselves be expensive.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>About 14 prompts. Source key: <span class="co">[</span><span class="ot">Assessments</span><span class="co">](../assessments.qmd#source-key)</span>.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice packet</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>S 7.1 #1, #2, #3, #5, #6</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 7: small SVD</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 8: pseudoinverse/least-squares connection</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 7 Project 7.1, Problems 1–3: image compression</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.1: Derive full storage $mn$.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.2: Derive rank-$k$ storage $k(m+n+1)$.</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.3: Plot relative reconstruction error versus $k$.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.4: Compare full and factorized matrix-vector multiplication times and estimate when the initial SVD cost pays for itself.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives (launch day)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>About 14 prompts. Source key: <span class="co">[</span><span class="ot">Assessments</span><span class="co">](../assessments.qmd#source-key)</span>.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>S 7.1 #1, #2, #3, #5, #6</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 7: small SVD</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 8: pseudoinverse/least-squares connection</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 7 Project 7.1, Problems 1–3: image compression</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.1: Derive full storage $mn$.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.2: Derive rank-$k$ storage $k(m+n+1)$.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.3: Plot relative reconstruction error versus $k$.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C-Cap.4: Compare full and factorized matrix-vector multiplication times and estimate when the initial SVD cost pays for itself.</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures.qmd#lecture-40)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives (launch day)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures.qmd#lecture-40)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
