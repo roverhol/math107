@@ -42,6 +42,90 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
+    "objectID": "lectures/lecture-01.html",
+    "href": "lectures/lecture-01.html",
+    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
+    "section": "",
+    "text": "Download PDF\nLast updated: August 20, 2026.\nReading: Boyd 1.1. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#learning-objectives",
+    "href": "lectures/lecture-01.html#learning-objectives",
+    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nIdentify objects that can be represented as vectors.\nInterpret vector entries, units, and indexing in context.\nDistinguish scalars from vectors.\nTranslate a small data, position, signal, or measurement problem into vector form."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#warm-up",
+    "href": "lectures/lecture-01.html#warm-up",
+    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
+    "section": "Warm-up",
+    "text": "Warm-up\nFor each description, decide: could this naturally be written as a vector? If yes, guess a sensible \\(n\\) and what the entries would mean. If no, say why not.\n\nToday’s high temperature in Arcata, in °F.\nHigh temperatures in Arcata on Mon–Thu this week, in °F.\nThe phrase “mostly foggy.”\nAn RGB screen color with red, green, and blue intensities between \\(0\\) and \\(1\\)."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#fill-in",
+    "href": "lectures/lecture-01.html#fill-in",
+    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
+    "section": "Fill in",
+    "text": "Fill in\nAn \\(n\\)-vector is an ordered list of \\(\\underline{\\hspace{2.4cm}}\\) numbers, written \\[\nx = (x_1, x_2, \\ldots, x_n)\n\\quad\\text{or}\\quad\nx =\n\\begin{bmatrix}\nx_1 \\\\\nx_2 \\\\\n\\vdots \\\\\nx_n\n\\end{bmatrix}.\n\\] The number \\(n\\) is the \\(\\underline{\\hspace{2.4cm}}\\) (or dimension) of \\(x\\). Each \\(x_i\\) is an \\(\\underline{\\hspace{2.4cm}}\\) of \\(x\\). In this course we index from \\(i=1\\) to \\(i=n\\) (Boyd’s convention).\nTwo \\(n\\)-vectors \\(a\\) and \\(b\\) are equal when \\(\\underline{\\hspace{3.2cm}}\\).\nA scalar is \\(\\underline{\\hspace{3.2cm}}\\). The number \\(x_3\\) is a \\(\\underline{\\hspace{2.0cm}}\\); the list \\(x\\) is a \\(\\underline{\\hspace{2.0cm}}\\).\nThe zero vector \\(0\\) has \\(\\underline{\\hspace{2.4cm}}\\). The ones vector \\(\\mathbf{1}\\) has \\(\\underline{\\hspace{2.4cm}}\\). The standard unit vector \\(e_i\\) has \\(\\underline{\\hspace{3.6cm}}\\).\nIn an application, we often keep a separate list of \\(\\underline{\\hspace{2.4cm}}\\) so that we know what each entry means and what \\(\\underline{\\hspace{2.0cm}}\\) it has. Entries with different units are still allowed in one vector; comparing them as “the same kind of quantity” is \\(\\underline{\\hspace{2.4cm}}\\)."
+  },
+  {
+    "objectID": "lectures/lecture-01.html#worked-in-class",
+    "href": "lectures/lecture-01.html#worked-in-class",
+    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. An Arcata weather station records four successive high temperatures, in °F: \\[\nt = (63, 59, 61, 66).\n\\] What is \\(n\\)? What is \\(t_3\\), and what does it mean in context? Is \\(63\\) a vector or a scalar? Could you add a fifth day without changing the meaning of \\(t_1,\\ldots,t_4\\)?\nW2. A redwood seedling is described by height in cm, basal diameter in mm, and soil moisture in percent. Write a 3-vector \\(f\\) for a seedling that is \\(18\\) cm tall, \\(4\\) mm across, and \\(27\\%\\) moisture. Give an entry label for each index. Which entries are allowed to be compared as “the same kind of quantity,” and which are not?"
+  },
+  {
+    "objectID": "lectures/lecture-01.html#your-turn",
+    "href": "lectures/lecture-01.html#your-turn",
+    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
+    "section": "Your turn",
+    "text": "Your turn\nY1. An RGB color is the 3-vector \\(c = (0.15, 0.80, 0.35)\\), with entries between \\(0\\) and \\(1\\) for red, green, and blue. Which entry is largest, and what color does that suggest? What 3-vector is black in this encoding?\nY2. A short field note is scored against the dictionary (fog, rain, wind). The word-count vector is \\(w = (7, 2, 0)\\). What is \\(n\\)? What does \\(w_1\\) mean? What does \\(w_3 = 0\\) tell you?\nY3. A trail junction is \\(120\\) m east and \\(40\\) m north of a trailhead. Write a 2-vector \\(p\\) for that location in (east, north) meters. What would \\((-20, 10)\\) mean as a second location in the same encoding?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. The second entry is largest, so the color is mostly green. Black is \\((0,0,0)\\).\nY2. \\(n=3\\). The word fog appears 7 times. Wind does not appear.\nY3. \\(p=(120,40)\\). The point \\((-20,10)\\) is \\(20\\) m west and \\(10\\) m north of the trailhead."
+  },
+  {
+    "objectID": "lectures/lecture-02.html",
+    "href": "lectures/lecture-02.html",
+    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "section": "",
+    "text": "Download PDF\nLast updated: August 20, 2026.\nReading: Boyd 1.2–1.3. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
+  },
+  {
+    "objectID": "lectures/lecture-02.html#learning-objectives",
+    "href": "lectures/lecture-02.html#learning-objectives",
+    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nAdd, subtract, and scale vectors.\nInterpret those operations geometrically.\nPlot vectors in \\(\\mathbb{R}^2\\) and recognize corresponding operations in \\(\\mathbb{R}^3\\).\nCheck whether an answer has sensible dimensions and units."
+  },
+  {
+    "objectID": "lectures/lecture-02.html#warm-up",
+    "href": "lectures/lecture-02.html#warm-up",
+    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "section": "Warm-up",
+    "text": "Warm-up\nYesterday’s highs (Mon–Thu), in °F, were \\[\nt = (63, 59, 61, 66).\n\\] What is \\(n\\)? What is \\(t_2\\), and what does it mean? Is \\(61\\) a scalar or a vector? Write the 4-vector of “each day five degrees cooler than \\(t\\)” if you already know how — otherwise leave it blank and we will return to it."
+  },
+  {
+    "objectID": "lectures/lecture-02.html#fill-in",
+    "href": "lectures/lecture-02.html#fill-in",
+    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "section": "Fill in",
+    "text": "Fill in\nIf \\(a\\) and \\(b\\) are \\(n\\)-vectors, the sum \\(a+b\\) is the \\(n\\)-vector whose \\(i\\)th entry is \\(\\underline{\\hspace{2.8cm}}\\). Addition is only defined when \\(\\underline{\\hspace{3.0cm}}\\).\nThe identity for addition is \\(\\underline{\\hspace{1.6cm}}\\): \\(a+0=a\\). The difference \\(a-b\\) is \\(\\underline{\\hspace{2.4cm}}\\).\nIf \\(\\beta\\) is a scalar, the scalar–vector product \\(\\beta a\\) is the \\(n\\)-vector whose \\(i\\)th entry is \\(\\underline{\\hspace{2.4cm}}\\). In particular, \\((-1)a\\) is written \\(\\underline{\\hspace{1.2cm}}\\).\nGeometry in \\(\\mathbb{R}^2\\): draw \\(a\\) as an arrow. Then \\(\\beta a\\) with \\(\\beta&gt;0\\) points \\(\\underline{\\hspace{2.0cm}}\\) and has length scaled by \\(\\underline{\\hspace{1.4cm}}\\). If \\(\\beta&lt;0\\), the arrow points \\(\\underline{\\hspace{2.4cm}}\\). The sum \\(a+b\\) can be drawn tip-to-tail or as the diagonal of a \\(\\underline{\\hspace{2.4cm}}\\).\nThe same formulas work entrywise in \\(\\mathbb{R}^3\\); we just cannot sketch as easily on paper.\nAdding a scalar to a vector is \\(\\underline{\\hspace{2.4cm}}\\) in the mathematics of this course (even if some software will do it). Concatenating \\((1,2)\\) with \\((3,4)\\) is also \\(\\underline{\\hspace{2.4cm}}\\) vector addition."
+  },
+  {
+    "objectID": "lectures/lecture-02.html#worked-in-class",
+    "href": "lectures/lecture-02.html#worked-in-class",
+    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. A point on the quad is \\(p=(2,1)\\) (east, north, in 10 m units). A walk is the displacement \\(a=(3,-1)\\). Compute \\(p+a\\) and sketch \\(p\\), \\(a\\), and \\(p+a\\) in \\(\\mathbb{R}^2\\). Then compute \\(a-p\\). Does \\(a-p\\) have the same units as \\(p\\)?\nW2. Two rain gauges, in inches, over three days: \\[\nr = (0.40, 0, 1.10), \\qquad s = (0.15, 0.20, 0.30).\n\\] Compute \\(r+s\\) and \\(2r\\). Why is \\(r+(1,1)\\) not a valid vector sum here? (These are 3-vectors: same arithmetic as in \\(\\mathbb{R}^2\\), just one more entry.)\nW3. Sanity check: can you form \\((4,1)+(0,2,5)\\)? Can you form \\((18\\text{ cm}, 4\\text{ mm})+(1,1)\\) as a meaningful measurement vector?"
+  },
+  {
+    "objectID": "lectures/lecture-02.html#your-turn",
+    "href": "lectures/lecture-02.html#your-turn",
+    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "section": "Your turn",
+    "text": "Your turn\nY1. Compute \\[\n\\begin{bmatrix} 4 \\\\ -1 \\\\ 2 \\end{bmatrix}\n+\n\\begin{bmatrix} 1 \\\\ 3 \\\\ -2 \\end{bmatrix}\n\\qquad\\text{and}\\qquad\n(-2)\n\\begin{bmatrix} 1 \\\\ 0.5 \\end{bmatrix}.\n\\]\nY2. In \\(\\mathbb{R}^2\\), sketch \\(u=(3,1)\\) and \\(\\tfrac{1}{2}u\\). In words, what did scaling by \\(1/2\\) do? What would \\(-u\\) look like?\nY3. A 2-vector of temperatures in °C is \\(x=(10, 14)\\). A classmate types \\(x+5\\) in software and gets \\((15,19)\\). Is that the same as a vector sum \\(x+v\\) for some 2-vector \\(v\\)? If you need “five degrees warmer each day,” what vector should you add?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\((5,2,0)\\) and \\((-2,-1)\\).\nY2. \\(\\tfrac{1}{2}u\\) is the same direction, half as long. \\(-u\\) is the opposite direction, same length.\nY3. Software added the scalar \\(5\\) to each entry; that is not a vector–vector sum. Adding five degrees each day is the vector sum \\(x+(5,5)\\)."
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Course Syllabus",
