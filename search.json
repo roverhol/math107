@@ -1,5 +1,96 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MATH 107: Introduction to Linear Algebra",
+    "section": "",
+    "text": "Start with the course schedule for the recommended path through the material.\nSee the syllabus for policies and grading.\nReadings live under lectures.\nAssessments lists labs, quiz prep, exams, and the project.\nSoftware and references are on resources.\nCanvas is where you submit work, take graded quizzes, see grades, and get feedback.\n\nDownload this page as PDF"
+  },
+  {
+    "objectID": "index.html#quick-start",
+    "href": "index.html#quick-start",
+    "title": "MATH 107: Introduction to Linear Algebra",
+    "section": "",
+    "text": "Start with the course schedule for the recommended path through the material.\nSee the syllabus for policies and grading.\nReadings live under lectures.\nAssessments lists labs, quiz prep, exams, and the project.\nSoftware and references are on resources.\nCanvas is where you submit work, take graded quizzes, see grades, and get feedback.\n\nDownload this page as PDF"
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "MATH 107: Introduction to Linear Algebra",
+    "section": "Instructor",
+    "text": "Instructor\nDr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice: BSS 334\nOffice hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "MATH 107: Introduction to Linear Algebra",
+    "section": "Welcome",
+    "text": "Welcome\nThis website contains materials for MATH 107: Introduction to Linear Algebra (3 units, GE Area 2) at Cal Poly Humboldt. Class meets face to face Monday, Wednesday, and Friday, 10:00–10:50 a.m., in FR 201.\nCatalog description: Euclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nThis site follows three units: representing and comparing things with vectors; transforming, solving, simulating, and computing with matrices; then explaining dynamics, fitting data, and exploiting structure (eigenvectors, least squares, SVD). Daily learning objectives are on Lectures. Class outlines for later meetings will be posted before those days."
+  },
+  {
+    "objectID": "index.html#where-you-are",
+    "href": "index.html#where-you-are",
+    "title": "MATH 107: Introduction to Linear Algebra",
+    "section": "Where you are",
+    "text": "Where you are\nMost of what you read lives on this website: lecture outlines, labs, quiz preparation, exam reviews, and project instructions. Canvas is where you submit work, take graded quizzes, see grades, get feedback, and chat with classmates."
+  },
+  {
+    "objectID": "index.html#what-youll-learn",
+    "href": "index.html#what-youll-learn",
+    "title": "MATH 107: Introduction to Linear Algebra",
+    "section": "What you’ll learn",
+    "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
+  },
+  {
+    "objectID": "lectures/lecture-03.html",
+    "href": "lectures/lecture-03.html",
+    "title": "Lecture 03 — Linear combinations",
+    "section": "",
+    "text": "Download PDF\nLast updated: August 20, 2026.\nReading: class notes (Boyd 1.3, linear combinations), Lab 0, and Lachniet Ch. 1. Related objectives: Lectures. Schedule."
+  },
+  {
+    "objectID": "lectures/lecture-03.html#learning-objectives",
+    "href": "lectures/lecture-03.html#learning-objectives",
+    "title": "Lecture 03 — Linear combinations",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nForm and interpret linear combinations.\nExplain the meaning of coefficients in context.\nEnter, index, and modify vectors in Octave or Python.\nPerform vector arithmetic and create a basic plot.\nModify supplied code and explain its output or error message."
+  },
+  {
+    "objectID": "lectures/lecture-03.html#warm-up",
+    "href": "lectures/lecture-03.html#warm-up",
+    "title": "Lecture 03 — Linear combinations",
+    "section": "Warm-up",
+    "text": "Warm-up\nFrom Lecture 02, compute \\[\n2(3,-1)+(-1)(1,4).\n\\] Is the result a scalar or a vector? What is its length \\(n\\)?"
+  },
+  {
+    "objectID": "lectures/lecture-03.html#fill-in",
+    "href": "lectures/lecture-03.html#fill-in",
+    "title": "Lecture 03 — Linear combinations",
+    "section": "Fill in",
+    "text": "Fill in\nIf \\(a_1,\\ldots,a_m\\) are \\(n\\)-vectors and \\(\\beta_1,\\ldots,\\beta_m\\) are scalars, the vector \\[\n\\beta_1 a_1 + \\cdots + \\beta_m a_m\n\\] is a \\(\\underline{\\hspace{2.8cm}}\\) of \\(a_1,\\ldots,a_m\\). The numbers \\(\\beta_1,\\ldots,\\beta_m\\) are the \\(\\underline{\\hspace{2.4cm}}\\).\nAny \\(n\\)-vector \\(b\\) can be written using the standard unit vectors: \\[\nb = \\underline{\\hspace{3.6cm}}.\n\\]\nThe sum \\(a_1+\\cdots+a_m\\) is the linear combination whose coefficients are all \\(\\underline{\\hspace{1.2cm}}\\). The average is the linear combination whose coefficients are all \\(\\underline{\\hspace{1.6cm}}\\).\nA coefficient \\(\\beta_i\\) means \\(\\underline{\\hspace{4.0cm}}\\) in context (for example: how many copies of a recipe, how far to walk in a direction, how loud to mix a track)."
+  },
+  {
+    "objectID": "lectures/lecture-03.html#worked-in-class",
+    "href": "lectures/lecture-03.html#worked-in-class",
+    "title": "Lecture 03 — Linear combinations",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. Compute \\(2(1,0)+(-1)(0,1)\\) and sketch the result in \\(\\mathbb{R}^2\\).\nW2. Two shopping lists, in the order (apples, bread, milk): \\[\nx = (4, 1, 2), \\qquad y = (1, 0, 1).\n\\] Interpret \\(2x+y\\) as “two copies of list \\(x\\), plus list \\(y\\).” Compute it. What would the coefficient \\(-1\\) in front of \\(y\\) mean?\nW3. Write \\((3,-1)\\) as a linear combination of \\(e_1\\) and \\(e_2\\)."
+  },
+  {
+    "objectID": "lectures/lecture-03.html#your-turn",
+    "href": "lectures/lecture-03.html#your-turn",
+    "title": "Lecture 03 — Linear combinations",
+    "section": "Your turn",
+    "text": "Your turn\nY1. Compute \\(3(2,1,-1)+2(0,1,1)\\).\nY2. Let \\(u=(1,1)\\) and \\(v=(1,-1)\\). Find coefficients \\(\\beta,\\gamma\\) so that \\(\\beta u+\\gamma v=(4,2)\\), or show your system of two equations. (We will finish the algebra together if time is short.)\nY3. Lab preview (Boyd indexes from 1). If \\(x=(5,2,9)\\), what is \\(x_2\\) in Boyd’s notation? In 1-based software (Octave), which command prints that entry? In 0-based software (Python/NumPy), which index prints that entry?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\((6,5,-1)\\).\nY2. \\(\\beta u+\\gamma v=(\\beta+\\gamma,\\beta-\\gamma)=(4,2)\\), so \\(\\beta=3\\), \\(\\gamma=1\\). Check: \\(3(1,1)+1(1,-1)=(4,2)\\).\nY3. \\(x_2=2\\). Octave: x(2). Python: x[1]."
+  },
+  {
+    "objectID": "lectures/lecture-03.html#answers-your-turn",
+    "href": "lectures/lecture-03.html#answers-your-turn",
+    "title": "Lecture 03 — Linear combinations",
+    "section": "Answers (Your turn)",
+    "text": "Answers (Your turn)\nY1. \\((6,5,-1)\\).\nY2. \\(\\beta u+\\gamma v=(\\beta+\\gamma,\\beta-\\gamma)=(4,2)\\), so \\(\\beta=3\\), \\(\\gamma=1\\). Check: \\(3(1,1)+1(1,-1)=(4,2)\\).\nY3. \\(x_2=2\\). Octave: x(2). Python: x[1]."
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Course Syllabus",
@@ -70,494 +161,32 @@
     "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
   },
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "Download this page as PDF\nDaily reading assignments are listed with each meeting on Lectures."
+    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24Vectors\nAug 26Arithmetic\nAug 28CombinationsLab 0Lab 0 ticket\n\n\n2\nAug 31Inner product\nSep 2Linear functions\nSep 4ApplicationsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Norms\nSep 11AngleQuiz 2\n\n\n4\nSep 14Neighbors\nSep 16Clustering\nSep 18Similar thingsQuiz 3Lab 1\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25Basis\n\n\n6\nSep 28SynthesisQuiz 4\nSep 30Review\nOct 2Exam dayMidterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsLab 2\n\n\n8\nOct 12SystemsQuiz 5\nOct 14Elimination\nOct 16RREF\n\n\n9\nOct 19DynamicsQuiz 6\nOct 21Simulation\nOct 23Through timeLab 3\n\n\n10\nOct 26ProductsQuiz 7\nOct 28Powers\nOct 30CostMicro-lab\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 8\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Exam dayMidterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squaresQuiz 9\nDec 2FittingLab 5\nDec 4SVDQuiz 10Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
-    "objectID": "resources.html#python-google-colab",
-    "href": "resources.html#python-google-colab",
-    "title": "Resources",
-    "section": "Python / Google Colab",
-    "text": "Python / Google Colab\nIf you choose Python, use Google Colab for all Python labs. Colab is a hosted Jupyter notebook; you do not need to install Python locally. Each lab will have a Colab version alongside the Octave version.\n\n\n\nRole\nTool\nLink\n\n\n\n\nWhere we write and run Python\nGoogle Colab\ncolab.google\n\n\nOrganize and prepare tabular data\nPolars\nGetting started\n\n\nVectors, matrices, and linear algebra\nNumPy\nBeginner guide; later, linear algebra\n\n\nVisualize and communicate results\nPlotnine\nIntroductory guide\n\n\n\nPolars is for real tables: reading files, selecting columns, filtering, transforming, and handing numerical columns to NumPy. NumPy is for arrays, indexing, and later solve, eig, lstsq, svd, norms, and determinants. Plotnine is for scatterplots, line plots, fitted relationships, residual plots, clustering graphics, and other standard figures; it uses a grammar-of-graphics syntax and works directly with Polars DataFrames.\nAs with Lachniet, these pages support syntax. The lab handouts are the assigned work."
-  },
-  {
-    "objectID": "quizzes/quiz-09.html",
-    "href": "quizzes/quiz-09.html",
-    "title": "Quiz 9",
+    "objectID": "assessments.html",
+    "href": "assessments.html",
+    "title": "Assessments",
     "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Eigenvectors, Characteristic, Eigenbehavior.\nRelated lab: Lab 4.\nSchedule"
+    "text": "Download this page as PDF"
   },
   {
-    "objectID": "quizzes/quiz-09.html#core",
-    "href": "quizzes/quiz-09.html#core",
-    "title": "Quiz 9",
-    "section": "Core",
-    "text": "Core\n\nS 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17\nL Ch. 5 Ex. 1: selected hand/software eigenvalue parts\nL Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions\nL Ch. 5 Ex. 5: selected matrix-power portion\nC9.1: Verify \\(AV\\approx VD\\) from software output.\nC9.2: Interpret a dominant eigenvalue and eigenvector in context."
+    "objectID": "assessments.html#source-key",
+    "href": "assessments.html#source-key",
+    "title": "Assessments",
+    "section": "Source key",
+    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
   },
   {
-    "objectID": "quizzes/quiz-09.html#stretch",
-    "href": "quizzes/quiz-09.html#stretch",
-    "title": "Quiz 9",
-    "section": "Stretch",
-    "text": "Stretch\nS 6.1 #3 and #4."
-  },
-  {
-    "objectID": "quizzes/quiz-09.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-09.html#what-a-quiz-item-might-change",
-    "title": "Quiz 9",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nA new \\(2\\times 2\\) matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, or a rotation matrix with complex eigenvalues."
-  },
-  {
-    "objectID": "quizzes/quiz-07.html",
-    "href": "quizzes/quiz-07.html",
-    "title": "Quiz 7",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Dynamics, Simulation, Through time.\nRelated lab: Lab 3.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-07.html#core",
-    "href": "quizzes/quiz-07.html#core",
-    "title": "Quiz 7",
-    "section": "Core",
-    "text": "Core\n\nB 9.1\nB 9.2(a–b)\nB 9.3(a)\nL Ch. 5 Ex. 2, selected matrix-construction and simulation parts only\nC7.1: Build a transition matrix from a verbal description.\nC7.2: Compute two states by hand.\nC7.3: Simulate 50 states.\nC7.4: Plot every state component.\nC7.5: Check whether a conserved total remains constant.\nC7.6: Change one transition rate and compare outcomes.\nC7.7: Compare runtime for two simulation horizons."
-  },
-  {
-    "objectID": "quizzes/quiz-07.html#stretch",
-    "href": "quizzes/quiz-07.html#stretch",
-    "title": "Quiz 7",
-    "section": "Stretch",
-    "text": "Stretch\nB 9.3(b); design a three-state model from a context; identify one limitation of the model."
-  },
-  {
-    "objectID": "quizzes/quiz-07.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-07.html#what-a-quiz-item-might-change",
-    "title": "Quiz 7",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nOne transition percentage, a trajectory plot to interpret, or a three-compartment story from which you construct the matrix."
-  },
-  {
-    "objectID": "quizzes/quiz-05.html",
-    "href": "quizzes/quiz-05.html",
-    "title": "Quiz 5",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Matrices, \\(Ax\\), Transforms.\nRelated lab: Lab 2.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-05.html#core",
-    "href": "quizzes/quiz-05.html#core",
-    "title": "Quiz 5",
-    "section": "Core",
-    "text": "Core\n\nB 6.1, 6.2, 6.4, 6.6, 6.7, 6.8, 6.9, 6.10\nB 7.2, 7.3, 7.4\nLab 2 checkpoint: Predict and then plot a specified transformation."
-  },
-  {
-    "objectID": "quizzes/quiz-05.html#stretch",
-    "href": "quizzes/quiz-05.html#stretch",
-    "title": "Quiz 5",
-    "section": "Stretch",
-    "text": "Stretch\nB 6.12, 7.1, 7.8."
-  },
-  {
-    "objectID": "quizzes/quiz-05.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-05.html#what-a-quiz-item-might-change",
-    "title": "Quiz 5",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nA transformation matrix, the image of two points, matrix dimensions, or an interpretation of the columns of a matrix in context."
-  },
-  {
-    "objectID": "quizzes/quiz-03.html",
-    "href": "quizzes/quiz-03.html",
-    "title": "Quiz 3",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Norms, Angle, Neighbors.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-03.html#core",
-    "href": "quizzes/quiz-03.html#core",
-    "title": "Quiz 3",
-    "section": "Core",
-    "text": "Core\n\nB 3.1, 3.2, 3.10, 3.11, 3.12, 3.13, 3.15, 3.23, 3.24, 3.28\nL Ch. 1 Ex. 2(c–d), norm/unit-vector portions\nC1.1: Compute distances from one observation to five candidates.\nC1.2: Compare the nearest result before and after rescaling one feature."
-  },
-  {
-    "objectID": "quizzes/quiz-03.html#stretch",
-    "href": "quizzes/quiz-03.html#stretch",
-    "title": "Quiz 3",
-    "section": "Stretch",
-    "text": "Stretch\nB 3.9, 3.22, 3.26."
-  },
-  {
-    "objectID": "quizzes/quiz-03.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-03.html#what-a-quiz-item-might-change",
-    "title": "Quiz 3",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThree short vectors, one feature’s scale, or a choice between Euclidean distance and cosine similarity with a justification."
-  },
-  {
-    "objectID": "quizzes/quiz-01.html",
-    "href": "quizzes/quiz-01.html",
-    "title": "Quiz 1",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Vectors, Arithmetic, Combinations.\nRelated lab: Lab 0.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-01.html#core",
-    "href": "quizzes/quiz-01.html#core",
-    "title": "Quiz 1",
-    "section": "Core",
-    "text": "Core\n\nB 1.1, 1.2, 1.6, 1.7, 1.9, 1.13, 1.18\nL Ch. 1 Ex. 2(a), linear-combination portion\nC0.1: Enter and index a vector of measurements (Octave or Python).\nC0.2: Modify two entries and explain what changed in context.\nC0.3: Plot \\(x\\), \\(2x\\), and \\(-x\\), and describe the geometric changes."
-  },
-  {
-    "objectID": "quizzes/quiz-01.html#stretch",
-    "href": "quizzes/quiz-01.html#stretch",
-    "title": "Quiz 1",
-    "section": "Stretch",
-    "text": "Stretch\nB 1.5, 1.11, 1.20."
-  },
-  {
-    "objectID": "quizzes/quiz-01.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-01.html#what-a-quiz-item-might-change",
-    "title": "Quiz 1",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThe entries or units, a different linear combination, or four lines of Octave/Python whose resulting vector you predict."
-  },
-  {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all materials on this website are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\nYou are free to:\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\nUnder the following terms:\n\nAttribution — You must give appropriate credit to Dr. Rosanna Overholser, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\n\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\n\n\nWhen using or adapting these materials, please provide attribution in the following format:\n\nThis work is based on materials by Dr. Rosanna Overholser for MATH 107: Introduction to Linear Algebra, licensed under CC BY-NC 4.0.\n\n\n\n\nThe page-banner photograph, Best of Humboldt, is by Cal Poly Humboldt on Flickr and is all rights reserved. It is not covered by the CC BY-NC license for these course materials.\n\n\n\nProgramming practice lists selected exercises from Jeffrey Lachniet, Introduction to GNU Octave (3rd ed., 2020), licensed CC BY-SA 4.0. Direct adaptations of that text must keep attribution and share-alike terms. Other remixed materials will be noted with their original source and license. When remixing these materials, you must comply with both this license and the original source license.\n\n\n\nIf you have questions about using these materials or need clarification on the license terms, please contact Dr. Rosanna Overholser at rho3@humboldt.edu."
-  },
-  {
-    "objectID": "license.html#creative-commons-attribution-noncommercial-4.0-international-cc-by-nc-4.0",
-    "href": "license.html#creative-commons-attribution-noncommercial-4.0-international-cc-by-nc-4.0",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all materials on this website are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\nYou are free to:\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\nUnder the following terms:\n\nAttribution — You must give appropriate credit to Dr. Rosanna Overholser, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\n\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\n\n\nWhen using or adapting these materials, please provide attribution in the following format:\n\nThis work is based on materials by Dr. Rosanna Overholser for MATH 107: Introduction to Linear Algebra, licensed under CC BY-NC 4.0.\n\n\n\n\nThe page-banner photograph, Best of Humboldt, is by Cal Poly Humboldt on Flickr and is all rights reserved. It is not covered by the CC BY-NC license for these course materials.\n\n\n\nProgramming practice lists selected exercises from Jeffrey Lachniet, Introduction to GNU Octave (3rd ed., 2020), licensed CC BY-SA 4.0. Direct adaptations of that text must keep attribution and share-alike terms. Other remixed materials will be noted with their original source and license. When remixing these materials, you must comply with both this license and the original source license.\n\n\n\nIf you have questions about using these materials or need clarification on the license terms, please contact Dr. Rosanna Overholser at rho3@humboldt.edu."
-  },
-  {
-    "objectID": "lectures/lecture-42.html",
-    "href": "lectures/lecture-42.html",
-    "title": "Lecture 42 — Capstone presentations / gallery walk",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-42.html#learning-objectives",
-    "href": "lectures/lecture-42.html#learning-objectives",
-    "title": "Lecture 42 — Capstone presentations / gallery walk",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nExplain the problem and why SVD or another linear-algebra tool was appropriate.\nPresent quantitative evidence about accuracy and cost.\nDefend a choice of rank or representation.\nEvaluate classmates’ methods constructively.\nCommunicate the practical value and limitations of the result."
-  },
-  {
-    "objectID": "lectures/lecture-40.html",
-    "href": "lectures/lecture-40.html",
-    "title": "Lecture 40 — SVD, low-rank approximation, and capstone launch",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: selected Strang/MIT SVD slides, capstone launch, Lachniet Ch. 5 and Ch. 7. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-40.html#learning-objectives",
-    "href": "lectures/lecture-40.html#learning-objectives",
-    "title": "Lecture 40 — SVD, low-rank approximation, and capstone launch",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nInterpret \\(A=U\\Sigma V^{\\mathsf{T}}\\) conceptually.\nConstruct a rank-\\(k\\) approximation computationally.\nCompare singular-value decay for an image/frame and a frame-difference matrix.\nEncode three frames either independently or as \\(F_1\\), \\(D_2\\), \\(D_3\\).\nCompare reconstruction error and storage for the two approaches.\nFormulate a capstone question involving accuracy, storage, runtime, and resource use."
-  },
-  {
-    "objectID": "lectures/lecture-38.html",
-    "href": "lectures/lecture-38.html",
-    "title": "Lecture 38 — When \\(Ax=b\\) has no exact solution",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-38.html#learning-objectives",
-    "href": "lectures/lecture-38.html#learning-objectives",
-    "title": "Lecture 38 — When \\(Ax=b\\) has no exact solution",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nRecognize an inconsistent overdetermined system.\nFormulate the least-squares objective \\(\\min_x \\lVert Ax-b\\rVert\\).\nInterpret the fitted vector as the closest attainable vector.\nInterpret the residual geometrically.\nDistinguish an exact solution from a best approximate solution."
-  },
-  {
-    "objectID": "lectures/lecture-36.html",
-    "href": "lectures/lecture-36.html",
-    "title": "Lecture 36 — Characteristic equation, \\(2\times 2\\) eigenproblems, and complex numbers",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: Strang §6.1, characteristic equation and the complex-eigenvalue example. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-36.html#learning-objectives",
-    "href": "lectures/lecture-36.html#learning-objectives",
-    "title": "Lecture 36 — Characteristic equation, \\(2\times 2\\) eigenproblems, and complex numbers",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nInterpret \\(a+bi\\) algebraically and as a point/vector in the complex plane.\nPerform the basic complex arithmetic needed for eigenvalue calculations.\nForm and solve \\(\\det(A-\\lambda I)=0\\) for a \\(2\\times 2\\) matrix.\nFind corresponding eigenvectors.\nCheck real or complex eigenpairs by substitution."
-  },
-  {
-    "objectID": "lectures/lecture-34.html",
-    "href": "lectures/lecture-34.html",
-    "title": "Lecture 34 — Midterm 2",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-34.html#learning-objectives",
-    "href": "lectures/lecture-34.html#learning-objectives",
-    "title": "Lecture 34 — Midterm 2",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nAnalyze matrices as transformations and models.\nSolve and interpret systems.\nUse matrix products, powers, rank, inverses, and determinants appropriately.\nInterpret computational results in context."
-  },
-  {
-    "objectID": "lectures/lecture-32.html",
-    "href": "lectures/lecture-32.html",
-    "title": "Lecture 32 — Determinants, geometry, and invertibility",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-32.html#learning-objectives",
-    "href": "lectures/lecture-32.html#learning-objectives",
-    "title": "Lecture 32 — Determinants, geometry, and invertibility",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute determinants of \\(2\\times 2\\) and simple triangular matrices.\nInterpret determinant magnitude as area or volume scaling.\nConnect determinant zero with lost dimension and noninvertibility.\nRecognize the determinant of a triangular matrix from its diagonal.\nConnect determinants to the coming characteristic equation."
-  },
-  {
-    "objectID": "lectures/lecture-30.html",
-    "href": "lectures/lecture-30.html",
-    "title": "Lecture 30 — Inverses and solving",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-30.html#learning-objectives",
-    "href": "lectures/lecture-30.html#learning-objectives",
-    "title": "Lecture 30 — Inverses and solving",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nInterpret an inverse as undoing a transformation.\nDetermine whether a simple matrix is invertible.\nConnect invertibility to uniqueness of \\(Ax=b\\).\nExplain why solving \\(Ax=b\\) is generally preferable computationally to explicitly calculating \\(A^{-1}\\)."
-  },
-  {
-    "objectID": "lectures/lecture-28.html",
-    "href": "lectures/lecture-28.html",
-    "title": "Lecture 28 — Composition and matrix powers",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-28.html#learning-objectives",
-    "href": "lectures/lecture-28.html#learning-objectives",
-    "title": "Lecture 28 — Composition and matrix powers",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCombine multistage processes using a matrix product.\nConnect \\(A^k x\\) to repeated dynamics.\nInterpret selected entries of a matrix product or power.\nRecognize how network and transition information accumulates through powers."
-  },
-  {
-    "objectID": "lectures/lecture-26.html",
-    "href": "lectures/lecture-26.html",
-    "title": "Lecture 26 — Predict a system through time",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: Lab 3, Lachniet Ch. 2, and introductory programming/loops. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-26.html#learning-objectives",
-    "href": "lectures/lecture-26.html#learning-objectives",
-    "title": "Lecture 26 — Predict a system through time",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nImplement a linear dynamical model.\nWrite or complete a short iterative calculation.\nValidate the first steps by hand.\nCompare results under altered parameters or initial states.\nRecord an unexplained long-run pattern for later investigation."
-  },
-  {
-    "objectID": "lectures/lecture-24.html",
-    "href": "lectures/lecture-24.html",
-    "title": "Lecture 24 — Linear dynamical systems",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-24.html#learning-objectives",
-    "href": "lectures/lecture-24.html#learning-objectives",
-    "title": "Lecture 24 — Linear dynamical systems",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nRepresent an evolving system as \\(x_{t+1}=Ax_t\\).\nInterpret the state vector and transition matrix.\nBuild a transition matrix from a flow description.\nCompute and interpret the next few states."
-  },
-  {
-    "objectID": "lectures/lecture-22.html",
-    "href": "lectures/lecture-22.html",
-    "title": "Lecture 22 — Gaussian elimination",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: class notes and Lachniet Ch. 2 (systems, RREF). Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-22.html#learning-objectives",
-    "href": "lectures/lecture-22.html#learning-objectives",
-    "title": "Lecture 22 — Gaussian elimination",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nPerform elementary row operations.\nReduce a small augmented matrix to echelon form.\nSolve a small system using back substitution.\nExplain why row operations preserve the solution set."
-  },
-  {
-    "objectID": "lectures/lecture-20.html",
-    "href": "lectures/lecture-20.html",
-    "title": "Lecture 20 — Transforming space",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: Boyd 7.1–7.2, Lab 2, and Lachniet Ch. 2. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-20.html#learning-objectives",
-    "href": "lectures/lecture-20.html#learning-objectives",
-    "title": "Lecture 20 — Transforming space",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nPredict the effect of scaling, reflection, shear, and rotation matrices.\nApply matrices to many 2D or 3D points at once.\nPlot and compare original and transformed objects.\nAdapt a short program that implements a transformation.\nInterpret a matrix as a coordinate or physical-space transformation."
-  },
-  {
-    "objectID": "lectures/lecture-18.html",
-    "href": "lectures/lecture-18.html",
-    "title": "Lecture 18 — Matrices as data and structured objects",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-18.html#learning-objectives",
-    "href": "lectures/lecture-18.html#learning-objectives",
-    "title": "Lecture 18 — Matrices as data and structured objects",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nIdentify matrix dimensions, rows, columns, and entries.\nRepresent datasets, networks, images, or systems as matrices.\nPerform matrix addition, scaling, and transposition.\nRecognize zero, identity, diagonal, triangular, symmetric, and sparse matrices.\nExplain one practical consequence of matrix structure."
-  },
-  {
-    "objectID": "lectures/lecture-16.html",
-    "href": "lectures/lecture-16.html",
-    "title": "Lecture 16 — Midterm 1 review",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-16.html#learning-objectives",
-    "href": "lectures/lecture-16.html#learning-objectives",
-    "title": "Lecture 16 — Midterm 1 review",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nRetrieve major Unit I concepts without notes.\nSolve mixed rather than chapter-isolated problems.\nExplain reasoning collaboratively.\nIdentify gaps and make a targeted study plan."
-  },
-  {
-    "objectID": "lectures/lecture-14.html",
-    "href": "lectures/lecture-14.html",
-    "title": "Lecture 14 — Basis, dimension, and orthonormal vectors",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-14.html#learning-objectives",
-    "href": "lectures/lecture-14.html#learning-objectives",
-    "title": "Lecture 14 — Basis, dimension, and orthonormal vectors",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nExplain what a basis accomplishes.\nIdentify a basis and dimension in simple examples.\nUse linear combination, span, subspace, independence, basis, and dimension accurately.\nRecognize an orthonormal collection.\nExplain why orthonormal coordinates are convenient for measurement and reconstruction."
-  },
-  {
-    "objectID": "lectures/lecture-12.html",
-    "href": "lectures/lecture-12.html",
-    "title": "Lecture 12 — Linear dependence as redundancy",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-12.html#learning-objectives",
-    "href": "lectures/lecture-12.html#learning-objectives",
-    "title": "Lecture 12 — Linear dependence as redundancy",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nRecognize simple dependent and independent collections.\nConstruct a dependence relationship.\nInterpret dependence as redundant information.\nExplain why redundancy matters in data, measurement, and computation."
-  },
-  {
-    "objectID": "lectures/lecture-10.html",
-    "href": "lectures/lecture-10.html",
-    "title": "Lecture 10 — Clustering and \\(k\\)-means",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-10.html#learning-objectives",
-    "href": "lectures/lecture-10.html#learning-objectives",
-    "title": "Lecture 10 — Clustering and \\(k\\)-means",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nExplain the goal of clustering.\nCompute one assignment/update iteration of \\(k\\)-means.\nInterpret a centroid as a vector.\nRecognize that clustering output depends on representation, scaling, and initialization."
-  },
-  {
-    "objectID": "lectures/lecture-08.html",
-    "href": "lectures/lecture-08.html",
-    "title": "Lecture 08 — Angle and similarity",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-08.html#learning-objectives",
-    "href": "lectures/lecture-08.html#learning-objectives",
-    "title": "Lecture 08 — Angle and similarity",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute cosine similarity or an angle between vectors.\nDistinguish closeness in position from similarity in direction.\nChoose an appropriate similarity measure for a stated purpose.\nExplain why normalization may change a comparison."
-  },
-  {
-    "objectID": "lectures/lecture-06.html",
-    "href": "lectures/lecture-06.html",
-    "title": "Lecture 06 — Linear functions in applications",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-06.html#learning-objectives",
-    "href": "lectures/lecture-06.html#learning-objectives",
-    "title": "Lecture 06 — Linear functions in applications",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nModel a score, cost, prediction, or aggregate quantity.\nInterpret model coefficients and intercepts.\nCompare outputs from competing models.\nState a reasonable limitation or assumption of a linear model."
-  },
-  {
-    "objectID": "lectures/lecture-04.html",
-    "href": "lectures/lecture-04.html",
-    "title": "Lecture 04 — Inner product",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-04.html#learning-objectives",
-    "href": "lectures/lecture-04.html#learning-objectives",
-    "title": "Lecture 04 — Inner product",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute a dot product.\nInterpret it as a weighted sum.\nInterpret its sign and magnitude as alignment.\nRecognize orthogonal vectors from a zero dot product."
-  },
-  {
-    "objectID": "lectures/lecture-02.html",
-    "href": "lectures/lecture-02.html",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 20, 2026.\nReading: Boyd 1.2–1.3. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
-  },
-  {
-    "objectID": "lectures/lecture-02.html#learning-objectives",
-    "href": "lectures/lecture-02.html#learning-objectives",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nAdd, subtract, and scale vectors.\nInterpret those operations geometrically.\nPlot vectors in \\(\\mathbb{R}^2\\) and recognize corresponding operations in \\(\\mathbb{R}^3\\).\nCheck whether an answer has sensible dimensions and units."
-  },
-  {
-    "objectID": "lectures/lecture-02.html#warm-up",
-    "href": "lectures/lecture-02.html#warm-up",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Warm-up",
-    "text": "Warm-up\nYesterday’s highs (Mon–Thu), in °F, were \\[\nt = (63, 59, 61, 66).\n\\] What is \\(n\\)? What is \\(t_2\\), and what does it mean? Is \\(61\\) a scalar or a vector? Write the 4-vector of “each day five degrees cooler than \\(t\\)” if you already know how — otherwise leave it blank and we will return to it."
-  },
-  {
-    "objectID": "lectures/lecture-02.html#fill-in",
-    "href": "lectures/lecture-02.html#fill-in",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Fill in",
-    "text": "Fill in\nIf \\(a\\) and \\(b\\) are \\(n\\)-vectors, the sum \\(a+b\\) is the \\(n\\)-vector whose \\(i\\)th entry is \\(\\underline{\\hspace{2.8cm}}\\). Addition is only defined when \\(\\underline{\\hspace{3.0cm}}\\).\nThe identity for addition is \\(\\underline{\\hspace{1.6cm}}\\): \\(a+0=a\\). The difference \\(a-b\\) is \\(\\underline{\\hspace{2.4cm}}\\).\nIf \\(\\beta\\) is a scalar, the scalar–vector product \\(\\beta a\\) is the \\(n\\)-vector whose \\(i\\)th entry is \\(\\underline{\\hspace{2.4cm}}\\). In particular, \\((-1)a\\) is written \\(\\underline{\\hspace{1.2cm}}\\).\nGeometry in \\(\\mathbb{R}^2\\): draw \\(a\\) as an arrow. Then \\(\\beta a\\) with \\(\\beta&gt;0\\) points \\(\\underline{\\hspace{2.0cm}}\\) and has length scaled by \\(\\underline{\\hspace{1.4cm}}\\). If \\(\\beta&lt;0\\), the arrow points \\(\\underline{\\hspace{2.4cm}}\\). The sum \\(a+b\\) can be drawn tip-to-tail or as the diagonal of a \\(\\underline{\\hspace{2.4cm}}\\).\nThe same formulas work entrywise in \\(\\mathbb{R}^3\\); we just cannot sketch as easily on paper.\nAdding a scalar to a vector is \\(\\underline{\\hspace{2.4cm}}\\) in the mathematics of this course (even if some software will do it). Concatenating \\((1,2)\\) with \\((3,4)\\) is also \\(\\underline{\\hspace{2.4cm}}\\) vector addition."
-  },
-  {
-    "objectID": "lectures/lecture-02.html#worked-in-class",
-    "href": "lectures/lecture-02.html#worked-in-class",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. A point on the quad is \\(p=(2,1)\\) (east, north, in 10 m units). A walk is the displacement \\(a=(3,-1)\\). Compute \\(p+a\\) and sketch \\(p\\), \\(a\\), and \\(p+a\\) in \\(\\mathbb{R}^2\\). Then compute \\(a-p\\). Does \\(a-p\\) have the same units as \\(p\\)?\nW2. Two rain gauges, in inches, over three days: \\[\nr = (0.40, 0, 1.10), \\qquad s = (0.15, 0.20, 0.30).\n\\] Compute \\(r+s\\) and \\(2r\\). Why is \\(r+(1,1)\\) not a valid vector sum here? (These are 3-vectors: same arithmetic as in \\(\\mathbb{R}^2\\), just one more entry.)\nW3. Sanity check: can you form \\((4,1)+(0,2,5)\\)? Can you form \\((18\\text{ cm}, 4\\text{ mm})+(1,1)\\) as a meaningful measurement vector?"
-  },
-  {
-    "objectID": "lectures/lecture-02.html#your-turn",
-    "href": "lectures/lecture-02.html#your-turn",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Your turn",
-    "text": "Your turn\nY1. Compute \\[\n\\begin{bmatrix} 4 \\\\ -1 \\\\ 2 \\end{bmatrix}\n+\n\\begin{bmatrix} 1 \\\\ 3 \\\\ -2 \\end{bmatrix}\n\\qquad\\text{and}\\qquad\n(-2)\n\\begin{bmatrix} 1 \\\\ 0.5 \\end{bmatrix}.\n\\]\nY2. In \\(\\mathbb{R}^2\\), sketch \\(u=(3,1)\\) and \\(\\tfrac{1}{2}u\\). In words, what did scaling by \\(1/2\\) do? What would \\(-u\\) look like?\nY3. A 2-vector of temperatures in °C is \\(x=(10, 14)\\). A classmate types \\(x+5\\) in software and gets \\((15,19)\\). Is that the same as a vector sum \\(x+v\\) for some 2-vector \\(v\\)? If you need “five degrees warmer each day,” what vector should you add?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\((5,2,0)\\) and \\((-2,-1)\\).\nY2. \\(\\tfrac{1}{2}u\\) is the same direction, half as long. \\(-u\\) is the opposite direction, same length.\nY3. Software added the scalar \\(5\\) to each entry; that is not a vector–vector sum. Adding five degrees each day is the vector sum \\(x+(5,5)\\)."
+    "objectID": "assessments.html#clo-coverage",
+    "href": "assessments.html#clo-coverage",
+    "title": "Assessments",
+    "section": "CLO coverage",
+    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 4\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\n\n\n\nQuiz\nDate\nFocus\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, linear combinations, Lab 0\n\n\nQuiz 2\nFri Sep 11\nDot products and linear functions\n\n\nQuiz 3\nFri Sep 18\nNorm, distance, angle, and similarity\n\n\nQuiz 4\nMon Sep 28\nClustering, dependence, span, basis, and dimension\n\n\nQuiz 5\nMon Oct 12\nMatrices, \\(Ax\\), and transformations\n\n\nQuiz 6\nMon Oct 19\nSystems, elimination, and RREF\n\n\nQuiz 7\nMon Oct 26\nDynamics and Lab 3\n\n\nQuiz 8\nFri Nov 6\nMatrix multiplication, cost, and inverses\n\n\nQuiz 9\nMon Nov 30\nEigenvalues, complex numbers, Lab 4\n\n\nQuiz 10\nFri Dec 4\nLeast squares, residuals, and Lab 5\n\n\n\nThere is no quiz on rank/determinants the week of Midterm 2; use the Midterm 2 practice packet. SVD is not on Quiz 10; use the capstone practice packet."
   },
   {
     "objectID": "lectures.html",
@@ -973,787 +602,31 @@
     "text": "Fri Dec 11 — Cumulative final review\nLecture 43 page\nReading: Cumulative review\nNote: No routine quiz or new content.\nBy the end of class, students should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
   },
   {
-    "objectID": "labs/lab-06.html",
-    "href": "labs/lab-06.html",
-    "title": "Lab 6 — Capstone",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nSee the capstone. Due dates are on the schedule. Full write-up instructions will be posted before class.\nOctave syntax: Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). One PDF on Resources; the capstone handout is the assigned work.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+    "text": "Download this page as PDF\nDaily reading assignments are listed with each meeting on Lectures."
   },
   {
-    "objectID": "labs/lab-04.html",
-    "href": "labs/lab-04.html",
-    "title": "Lab 4 — Why Did the System Behave That Way?",
+    "objectID": "resources.html#python-google-colab",
+    "href": "resources.html#python-google-colab",
+    "title": "Resources",
+    "section": "Python / Google Colab",
+    "text": "Python / Google Colab\nIf you choose Python, use Google Colab for all Python labs. Colab is a hosted Jupyter notebook; you do not need to install Python locally. Each lab will have a Colab version alongside the Octave version.\n\n\n\nRole\nTool\nLink\n\n\n\n\nWhere we write and run Python\nGoogle Colab\ncolab.google\n\n\nOrganize and prepare tabular data\nPolars\nGetting started\n\n\nVectors, matrices, and linear algebra\nNumPy\nBeginner guide; later, linear algebra\n\n\nVisualize and communicate results\nPlotnine\nIntroductory guide\n\n\n\nPolars is for real tables: reading files, selecting columns, filtering, transforming, and handing numerical columns to NumPy. NumPy is for arrays, indexing, and later solve, eig, lstsq, svd, norms, and determinants. Plotnine is for scatterplots, line plots, fitted relationships, residual plots, clustering graphics, and other standard figures; it uses a grammar-of-graphics syntax and works directly with Polars DataFrames.\nAs with Lachniet, these pages support syntax. The lab handouts are the assigned work."
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
     "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nDue date is on the schedule. Instructions will be posted before class.\nOctave syntax: Lachniet Ch. 5 (eigenvalues/eigenvectors). One PDF on Resources; this handout is the assigned work.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+    "text": "Unless otherwise noted, all materials on this website are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\nYou are free to:\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\nUnder the following terms:\n\nAttribution — You must give appropriate credit to Dr. Rosanna Overholser, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\n\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\n\n\nWhen using or adapting these materials, please provide attribution in the following format:\n\nThis work is based on materials by Dr. Rosanna Overholser for MATH 107: Introduction to Linear Algebra, licensed under CC BY-NC 4.0.\n\n\n\n\nThe page-banner photograph, Best of Humboldt, is by Cal Poly Humboldt on Flickr and is all rights reserved. It is not covered by the CC BY-NC license for these course materials.\n\n\n\nProgramming practice lists selected exercises from Jeffrey Lachniet, Introduction to GNU Octave (3rd ed., 2020), licensed CC BY-SA 4.0. Direct adaptations of that text must keep attribution and share-alike terms. Other remixed materials will be noted with their original source and license. When remixing these materials, you must comply with both this license and the original source license.\n\n\n\nIf you have questions about using these materials or need clarification on the license terms, please contact Dr. Rosanna Overholser at rho3@humboldt.edu."
   },
   {
-    "objectID": "labs/lab-02.html",
-    "href": "labs/lab-02.html",
-    "title": "Lab 2 — Transforming Space",
+    "objectID": "license.html#creative-commons-attribution-noncommercial-4.0-international-cc-by-nc-4.0",
+    "href": "license.html#creative-commons-attribution-noncommercial-4.0-international-cc-by-nc-4.0",
+    "title": "License",
     "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nDue date is on the schedule. Instructions will be posted before class.\nOctave syntax: Lachniet Ch. 2 (matrices). One PDF on Resources; this handout is the assigned work.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "labs/lab-00.html",
-    "href": "labs/lab-00.html",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 20, 2026.\nIn class Friday, August 28 (same day as Lecture 03).\nCredit: Lab points are for effort in class, not for a Canvas file upload. Work the exercises in Octave or Python (bring a laptop; demos and both-language code are on this page). On lab day you get a hard copy with the exercises written out, space for answers and new syntax. Preview the one-pager; write on the hard copy handed out in class.\nPick Octave or Python No prior coding is assumed.\nSoftware: GNU Octave, or Python in Google Colab (no local install). Links for Lachniet, NumPy, Polars, and Plotnine are on Resources."
-  },
-  {
-    "objectID": "labs/lab-00.html#learning-objectives",
-    "href": "labs/lab-00.html#learning-objectives",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "Learning objectives",
-    "text": "Learning objectives\n\nEnter, index, and modify vectors in Octave or Python.\nPerform vector arithmetic and create a basic plot.\nModify supplied code and explain its output or error message."
-  },
-  {
-    "objectID": "labs/lab-00.html#math-connections",
-    "href": "labs/lab-00.html#math-connections",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "Math connections",
-    "text": "Math connections\nLinear combinations and scaling from Lecture 03; vector representation from Lecture 01."
-  },
-  {
-    "objectID": "labs/lab-00.html#key-syntax-this-lab",
-    "href": "labs/lab-00.html#key-syntax-this-lab",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "Key syntax (this lab)",
-    "text": "Key syntax (this lab)\n\nColor key (website): name — you chose this name 52 — you chose this value length — the language’s word (built-in)\n\n\n\n\nMeaning\nBoyd\nOctave\nPython\n\n\n\n\nfirst entry of \\(x\\)\n\\(x_1\\)\nx(1)\nx[0]\n\n\nsecond entry\n\\(x_2\\)\nx(2)\nx[1]\n\n\nlength \\(n\\)\n\\(n\\)\nlength(x)\nlen(x)\n\n\n\nResources: Lachniet Ch. 1; NumPy beginners; full list on Resources.\n\nAssignment vs equality\nIn math, \\(=\\) often means “these are equal.” In code, a single = almost always means assignment: “compute the right-hand side and store it under this name.”\nn = length(x)    % Octave: store the length of x in the name n\nn = len(x)       # Python: same idea\nAfter that line runs, n holds a number. Checking whether two things are equal uses a different symbol later (== in both languages); you do not need that today.\n\n\nFunctions look like \\(f(x)\\)\nA function has a name. You call it by writing the name, then parentheses, then an input.\n\n\n\n\n\n\n\n\nMath idea\nIn words\nRole in code\n\n\n\n\n\\(f\\)\nthe function’s name\noften a language word such as length or len\n\n\n\\(x\\)\nthe input you give it\noften a name you chose such as x\n\n\n\\(f(x)\\)\n“do \\(f\\) to this input”\nlength(x)\n\n\n\\(y = f(x)\\)\n“store the result as \\(y\\)”\nn=length(x)\n\n\n\nSo length(x) means: run the built-in named length on the object you named x. The result is a number (how many entries x has).\n\n\nWhere you type: Octave GUI\n\nInstall/open GNU Octave (the GUI is enough).\nUse the Command Window to type one line at a time and press Enter. Octave prints results below.\nOptional: open a new Editor tab, paste several lines (a short script), save as something like lab00.m, and run it. Same commands; easier to edit and re-run.\nIf a plot window appears, leave it open while you answer the ticket.\n\nLachniet Ch. 1 walks through the interface in more detail.\n\n\nWhere you type: Google Colab (Python)\n\nOpen Google Colab, sign in, and start a new notebook (File → Save a copy in Drive so you keep your work).\nA notebook mixes text cells (notes, like this page) and code cells (Python you run).\nClick a code cell, paste a demo, then run it with the play button or Shift+Enter. Output appears directly under that cell (numbers, errors, or plots).\nRun cells in order from top to bottom the first time. If something breaks, read the error under the cell and ask in lab."
-  },
-  {
-    "objectID": "labs/lab-00.html#indexing",
-    "href": "labs/lab-00.html#indexing",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "Indexing",
-    "text": "Indexing\nBoyd writes \\(x_1\\) for the first entry. Octave counts from 1. Python/NumPy count from 0."
-  },
-  {
-    "objectID": "labs/lab-00.html#the-data",
-    "href": "labs/lab-00.html#the-data",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "The data",
-    "text": "The data\nUse this 6-vector of Arcata morning temperatures, in °F, for six successive hours: \\[\nx = (52, 51, 53, 55, 58, 60).\n\\] Entry \\(x_1\\) is 7 a.m.; \\(x_6\\) is noon. Work C0.1–C0.6 in order."
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.1-enter-and-index",
-    "href": "labs/lab-00.html#c0.1-enter-and-index",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.1 — Enter and index",
-    "text": "C0.1 — Enter and index\nCreate a vector named x. Print n, the first entry, the last entry, and Boyd’s third entry \\(x_3\\).\nOctave (demo — run this):\nx = [52, 51, 53, 55, 58, 60];\nn = length(x)\nx(1)\nx(n)\nx(3)\nPython (demo — run this):\nimport numpy as np\nx = np.array([52, 51, 53, 55, 58, 60])\nn = len(x)\nprint(n, x[0], x[-1], x[2])\nExpected output (values): \\(n=6\\), first entry \\(52\\), last entry \\(60\\), third entry \\(53\\).\nCheck What quantity does \\(x_3\\) represent (include units)? Write the command that prints that entry."
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.2-modify-two-entries",
-    "href": "labs/lab-00.html#c0.2-modify-two-entries",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.2 — Modify two entries",
-    "text": "C0.2 — Modify two entries\nThe 9 a.m. reading was mistyped: it should be 54 instead of 53. The noon reading should be 61 instead of 60. Change those two entries of x. Print the new vector.\nExpected vector: \\((52, 51, 54, 55, 58, 61)\\).\nHints:\n% Octave\nx(3) = 54;\nx(6) = 61;\nx\n# Python\nx[2] = 54\nx[5] = 61\nprint(x)\nCheck: Record your new 6-vector."
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.3-scale",
-    "href": "labs/lab-00.html#c0.3-scale",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.3 — Scale",
-    "text": "C0.3 — Scale\nUsing your corrected x from C0.2, create a vector named doubled equal to 2*x. Print doubled.\nExpected output: \\((104, 102, 108, 110, 116, 122)\\).\nCheck: Write the assignment line you used. What does multiplying by \\(2\\) mean for these temperatures?"
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.4-add-a-vector",
-    "href": "labs/lab-00.html#c0.4-add-a-vector",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.4 — Add a vector",
-    "text": "C0.4 — Add a vector\nCreate a vector named ones6 of six ones (every entry \\(1\\)). Then create warmer by adding five degrees to every hour: warmer=x+5*ones6. Print warmer.\nExpected output: \\((57, 56, 59, 60, 63, 66)\\).\nHints for ones6: Octave ones(1,6) or [1,1,1,1,1,1]; Python np.ones(6) or np.array([1,1,1,1,1,1]).\nCheck: Record warmer. Why is x+5 (adding a scalar) not the same idea in the mathematics of this course, even if software accepts it?"
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.5-plot-x-2x-and--x",
-    "href": "labs/lab-00.html#c0.5-plot-x-2x-and--x",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.5 — Plot \\(x\\), \\(2x\\), and \\(-x\\)",
-    "text": "C0.5 — Plot \\(x\\), \\(2x\\), and \\(-x\\)\nPlot the corrected x, 2*x, and -x versus hour index \\(i=1,\\ldots,6\\). Include a legend.\nOctave:\ni = 1:6;\nplot(i, x, '-o', i, 2*x, '-o', i, -x, '-o');\nlegend('x','2x','-x');\nxlabel('hour index i');\nylabel('value');\nPython:\nimport matplotlib.pyplot as plt\ni = np.arange(1, 7)\nplt.plot(i, x, '-o', label='x')\nplt.plot(i, 2*x, '-o', label='2x')\nplt.plot(i, -x, '-o', label='-x')\nplt.xlabel('hour index i')\nplt.ylabel('value')\nplt.legend()\nplt.show()\nCheck: In one sentence, what did multiplying by \\(-1\\) do in the picture?"
-  },
-  {
-    "objectID": "labs/lab-00.html#c0.6-predict-then-check",
-    "href": "labs/lab-00.html#c0.6-predict-then-check",
-    "title": "Lab 0 — Computers Speak Vectors",
-    "section": "C0.6 — Predict, then check",
-    "text": "C0.6 — Predict, then check\nBefore running anything new, predict what the following prints. Then type it and compare.\nOctave:\nv = [10, 20, 30];\nv(2)\nPython:\nv = np.array([10, 20, 30])\nprint(v[1])\nExpected output: \\(20\\) (Boyd’s second entry \\(v_2\\)).\nCheck: Your prediction before running: ____. Actual output: ____. In Boyd indexing, that entry is \\(v_{\\underline{\\hspace{0.8cm}}}\\)."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MATH 107: Introduction to Linear Algebra",
-    "section": "",
-    "text": "Start with the course schedule for the recommended path through the material.\nSee the syllabus for policies and grading.\nReadings live under lectures.\nAssessments lists labs, quiz prep, exams, and the project.\nSoftware and references are on resources.\nCanvas is where you submit work, take graded quizzes, see grades, and get feedback.\n\nDownload this page as PDF"
-  },
-  {
-    "objectID": "index.html#quick-start",
-    "href": "index.html#quick-start",
-    "title": "MATH 107: Introduction to Linear Algebra",
-    "section": "",
-    "text": "Start with the course schedule for the recommended path through the material.\nSee the syllabus for policies and grading.\nReadings live under lectures.\nAssessments lists labs, quiz prep, exams, and the project.\nSoftware and references are on resources.\nCanvas is where you submit work, take graded quizzes, see grades, and get feedback.\n\nDownload this page as PDF"
-  },
-  {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "MATH 107: Introduction to Linear Algebra",
-    "section": "Instructor",
-    "text": "Instructor\nDr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice: BSS 334\nOffice hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment."
-  },
-  {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "MATH 107: Introduction to Linear Algebra",
-    "section": "Welcome",
-    "text": "Welcome\nThis website contains materials for MATH 107: Introduction to Linear Algebra (3 units, GE Area 2) at Cal Poly Humboldt. Class meets face to face Monday, Wednesday, and Friday, 10:00–10:50 a.m., in FR 201.\nCatalog description: Euclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nThis site follows three units: representing and comparing things with vectors; transforming, solving, simulating, and computing with matrices; then explaining dynamics, fitting data, and exploiting structure (eigenvectors, least squares, SVD). Daily learning objectives are on Lectures. Class outlines for later meetings will be posted before those days."
-  },
-  {
-    "objectID": "index.html#where-you-are",
-    "href": "index.html#where-you-are",
-    "title": "MATH 107: Introduction to Linear Algebra",
-    "section": "Where you are",
-    "text": "Where you are\nMost of what you read lives on this website: lecture outlines, labs, quiz preparation, exam reviews, and project instructions. Canvas is where you submit work, take graded quizzes, see grades, get feedback, and chat with classmates."
-  },
-  {
-    "objectID": "index.html#what-youll-learn",
-    "href": "index.html#what-youll-learn",
-    "title": "MATH 107: Introduction to Linear Algebra",
-    "section": "What you’ll learn",
-    "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
-  },
-  {
-    "objectID": "exams/midterm-1.html",
-    "href": "exams/midterm-1.html",
-    "title": "Midterm 1",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nIn class. Date is on the schedule."
-  },
-  {
-    "objectID": "exams/midterm-1.html#learning-objectives",
-    "href": "exams/midterm-1.html#learning-objectives",
-    "title": "Midterm 1",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of the exam, students should be able to:\n\nCompute with vectors and linear functions.\nInterpret vector operations in context.\nAnalyze distance, similarity, span, and independence.\nSelect and communicate an appropriate method."
-  },
-  {
-    "objectID": "assessments.html",
-    "href": "assessments.html",
-    "title": "Assessments",
-    "section": "",
-    "text": "Download this page as PDF"
-  },
-  {
-    "objectID": "assessments.html#source-key",
-    "href": "assessments.html#source-key",
-    "title": "Assessments",
-    "section": "Source key",
-    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
-  },
-  {
-    "objectID": "assessments.html#clo-coverage",
-    "href": "assessments.html#clo-coverage",
-    "title": "Assessments",
-    "section": "CLO coverage",
-    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 4\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\n\n\n\nQuiz\nDate\nFocus\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, linear combinations, Lab 0\n\n\nQuiz 2\nFri Sep 11\nDot products and linear functions\n\n\nQuiz 3\nFri Sep 18\nNorm, distance, angle, and similarity\n\n\nQuiz 4\nMon Sep 28\nClustering, dependence, span, basis, and dimension\n\n\nQuiz 5\nMon Oct 12\nMatrices, \\(Ax\\), and transformations\n\n\nQuiz 6\nMon Oct 19\nSystems, elimination, and RREF\n\n\nQuiz 7\nMon Oct 26\nDynamics and Lab 3\n\n\nQuiz 8\nFri Nov 6\nMatrix multiplication, cost, and inverses\n\n\nQuiz 9\nMon Nov 30\nEigenvalues, complex numbers, Lab 4\n\n\nQuiz 10\nFri Dec 4\nLeast squares, residuals, and Lab 5\n\n\n\nThere is no quiz on rank/determinants the week of Midterm 2; use the Midterm 2 practice packet. SVD is not on Quiz 10; use the capstone practice packet."
-  },
-  {
-    "objectID": "exams/final.html",
-    "href": "exams/final.html",
-    "title": "Final exam",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m. in FR 201. See the schedule."
-  },
-  {
-    "objectID": "exams/final.html#learning-objectives",
-    "href": "exams/final.html#learning-objectives",
-    "title": "Final exam",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of the exam, students should be able to:\n\nDemonstrate small-scale hand fluency.\nSelect tools in unfamiliar contexts.\nInterpret software-generated results.\nExplain connections among major concepts.\nApply linear algebra to quantitative problems."
-  },
-  {
-    "objectID": "exams/midterm-2.html",
-    "href": "exams/midterm-2.html",
-    "title": "Midterm 2",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nIn class. Date is on the schedule. There is no quiz this week; use the practice packet below. Boyd does not cover all of the rank, subspace, and determinant practice required by the course learning outcomes."
-  },
-  {
-    "objectID": "exams/midterm-2.html#practice-packet",
-    "href": "exams/midterm-2.html#practice-packet",
-    "title": "Midterm 2",
-    "section": "Practice packet",
-    "text": "Practice packet\nAbout 14 prompts.\n\nB 11.4, 11.10, 11.15, 11.25, 11.27, 11.28\nS 3.5 #1 and #2\nL Ch. 1 Ex. 3(a), 3(b), and 3(d): determinant, rank, and inverse portions\nL Ch. 2 Ex. 3 and Ex. 5\nC-M2.1: Determine area scaling from a \\(2\\times 2\\) determinant.\nC-M2.2: Find the determinant of a triangular matrix.\nC-M2.3: Find bases and dimensions from a given RREF.\n\nSource key: Assessments."
-  },
-  {
-    "objectID": "exams/midterm-2.html#learning-objectives",
-    "href": "exams/midterm-2.html#learning-objectives",
-    "title": "Midterm 2",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of the exam, students should be able to:\n\nAnalyze matrices as transformations and models.\nSolve and interpret systems.\nUse matrix products, powers, rank, inverses, and determinants appropriately.\nInterpret computational results in context."
-  },
-  {
-    "objectID": "labs/lab-00-ticket.html",
-    "href": "labs/lab-00-ticket.html",
-    "title": "Lab 0 ticket",
-    "section": "",
-    "text": "Download PDF\nLab 0 — Computers Speak Vectors · Fri Aug 28 · Laptop required · Handwrite on this hard copy · Get initials after check-in\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax (fill as you go)\n\n\n\nI needed to…\nCommand / pattern (your language)\n\n\n\n\nCreate vector x\n\n\n\nLength n\n\n\n\nPrint 3rd Boyd entry\n\n\n\nChange an entry\n\n\n\nScale / add vectors\n\n\n\nPlot\n\n\n\n\n\nData: \\(x=(52,51,53,55,58,60)\\) °F, hours 7 a.m.–noon. Boyd \\(x_1\\)…\\(x_6\\). Octave: 1-based. Python: 0-based. Do C0.1–C0.6 in order.\nC0.1 — Enter and index. Create x. Print \\(n\\), first, last, Boyd \\(x_3\\).\nExpected: \\(n=6\\), first \\(52\\), last \\(60\\), third \\(53\\).\nYours: \\(n=\\)____ first=____ last=____ third=____\nCommand that prints the third entry: ______________________________\n\\(x_3\\) means (quantity + units): ________________________________________\nC0.2 — Modify. Set 9 a.m. to \\(54\\), noon to \\(61\\). Print new x.\nExpected: \\((52,51,54,55,58,61)\\). Yours: ____________________________________\nC0.3 — Scale. doubled = 2*x (use corrected x). Print doubled.\nExpected: \\((104,102,108,110,116,122)\\).\nAssignment line: ________________________________________________\nMeaning of \\(\\times 2\\) here: ____________________________________________\nC0.4 — Add a vector. ones6 = six ones; warmer = x + 5*ones6. Print warmer.\nExpected: \\((57,56,59,60,63,66)\\). Yours: __________________________________\nWhy not use math-course “x+5” as vector addition? ______________________________\nC0.5 — Plot corrected x, 2*x, and -x vs \\(i=1..6\\) (legend).\nWhat did \\(\\times(-1)\\) do in the picture? ______________________________________\nC0.6 — Predict, then check. Before running: Octave v=[10,20,30]; v(2) or Python v=np.array([10,20,30]); print(v[1]).\nExpected: \\(20\\). Prediction: ____ Actual: ____ Boyd index: \\(v_{\\underline{\\hspace{0.7cm}}}\\)\nStuck on (optional): C0.__ ______________________________________________\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "labs/lab-01.html",
-    "href": "labs/lab-01.html",
-    "title": "Lab 1 — Finding Similar Things",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nDue date is on the schedule. Instructions will be posted before class.\nOctave syntax: Lachniet Ch. 1 (vectors, indexing, plots). One PDF on Resources; this handout is the assigned work.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "labs/lab-03.html",
-    "href": "labs/lab-03.html",
-    "title": "Lab 3 — Predict a System Through Time",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nDue date is on the schedule. Instructions will be posted before class.\nOctave syntax: Lachniet Ch. 2 (matrix operations) and the introductory programming/loops material. One PDF on Resources; this handout is the assigned work.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "labs/lab-05.html",
-    "href": "labs/lab-05.html",
-    "title": "Lab 5 — Impossible Equations",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nDue date is on the schedule. Instructions will be posted before class.\nOctave syntax: Lachniet Ch. 2, especially least-squares / data-fitting exercises. One PDF on Resources; this handout is the assigned work.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "labs/lab-cost.html",
-    "href": "labs/lab-cost.html",
-    "title": "Micro-lab — Computational cost",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nDue date is on the schedule. Instructions will be posted before class.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "lectures/lecture-01.html",
-    "href": "lectures/lecture-01.html",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 20, 2026.\nReading: Boyd 1.1. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
-  },
-  {
-    "objectID": "lectures/lecture-01.html#learning-objectives",
-    "href": "lectures/lecture-01.html#learning-objectives",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nIdentify objects that can be represented as vectors.\nInterpret vector entries, units, and indexing in context.\nDistinguish scalars from vectors.\nTranslate a small data, position, signal, or measurement problem into vector form."
-  },
-  {
-    "objectID": "lectures/lecture-01.html#warm-up",
-    "href": "lectures/lecture-01.html#warm-up",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Warm-up",
-    "text": "Warm-up\nFor each description, decide: could this naturally be written as a vector? If yes, guess a sensible \\(n\\) and what the entries would mean. If no, say why not.\n\nToday’s high temperature in Arcata, in °F.\nHigh temperatures in Arcata on Mon–Thu this week, in °F.\nThe phrase “mostly foggy.”\nAn RGB screen color with red, green, and blue intensities between \\(0\\) and \\(1\\)."
-  },
-  {
-    "objectID": "lectures/lecture-01.html#fill-in",
-    "href": "lectures/lecture-01.html#fill-in",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Fill in",
-    "text": "Fill in\nAn \\(n\\)-vector is an ordered list of \\(\\underline{\\hspace{2.4cm}}\\) numbers, written \\[\nx = (x_1, x_2, \\ldots, x_n)\n\\quad\\text{or}\\quad\nx =\n\\begin{bmatrix}\nx_1 \\\\\nx_2 \\\\\n\\vdots \\\\\nx_n\n\\end{bmatrix}.\n\\] The number \\(n\\) is the \\(\\underline{\\hspace{2.4cm}}\\) (or dimension) of \\(x\\). Each \\(x_i\\) is an \\(\\underline{\\hspace{2.4cm}}\\) of \\(x\\). In this course we index from \\(i=1\\) to \\(i=n\\) (Boyd’s convention).\nTwo \\(n\\)-vectors \\(a\\) and \\(b\\) are equal when \\(\\underline{\\hspace{3.2cm}}\\).\nA scalar is \\(\\underline{\\hspace{3.2cm}}\\). The number \\(x_3\\) is a \\(\\underline{\\hspace{2.0cm}}\\); the list \\(x\\) is a \\(\\underline{\\hspace{2.0cm}}\\).\nThe zero vector \\(0\\) has \\(\\underline{\\hspace{2.4cm}}\\). The ones vector \\(\\mathbf{1}\\) has \\(\\underline{\\hspace{2.4cm}}\\). The standard unit vector \\(e_i\\) has \\(\\underline{\\hspace{3.6cm}}\\).\nIn an application, we often keep a separate list of \\(\\underline{\\hspace{2.4cm}}\\) so that we know what each entry means and what \\(\\underline{\\hspace{2.0cm}}\\) it has. Entries with different units are still allowed in one vector; comparing them as “the same kind of quantity” is \\(\\underline{\\hspace{2.4cm}}\\)."
-  },
-  {
-    "objectID": "lectures/lecture-01.html#worked-in-class",
-    "href": "lectures/lecture-01.html#worked-in-class",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. An Arcata weather station records four successive high temperatures, in °F: \\[\nt = (63, 59, 61, 66).\n\\] What is \\(n\\)? What is \\(t_3\\), and what does it mean in context? Is \\(63\\) a vector or a scalar? Could you add a fifth day without changing the meaning of \\(t_1,\\ldots,t_4\\)?\nW2. A redwood seedling is described by height in cm, basal diameter in mm, and soil moisture in percent. Write a 3-vector \\(f\\) for a seedling that is \\(18\\) cm tall, \\(4\\) mm across, and \\(27\\%\\) moisture. Give an entry label for each index. Which entries are allowed to be compared as “the same kind of quantity,” and which are not?"
-  },
-  {
-    "objectID": "lectures/lecture-01.html#your-turn",
-    "href": "lectures/lecture-01.html#your-turn",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Your turn",
-    "text": "Your turn\nY1. An RGB color is the 3-vector \\(c = (0.15, 0.80, 0.35)\\), with entries between \\(0\\) and \\(1\\) for red, green, and blue. Which entry is largest, and what color does that suggest? What 3-vector is black in this encoding?\nY2. A short field note is scored against the dictionary (fog, rain, wind). The word-count vector is \\(w = (7, 2, 0)\\). What is \\(n\\)? What does \\(w_1\\) mean? What does \\(w_3 = 0\\) tell you?\nY3. A trail junction is \\(120\\) m east and \\(40\\) m north of a trailhead. Write a 2-vector \\(p\\) for that location in (east, north) meters. What would \\((-20, 10)\\) mean as a second location in the same encoding?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. The second entry is largest, so the color is mostly green. Black is \\((0,0,0)\\).\nY2. \\(n=3\\). The word fog appears 7 times. Wind does not appear.\nY3. \\(p=(120,40)\\). The point \\((-20,10)\\) is \\(20\\) m west and \\(10\\) m north of the trailhead."
-  },
-  {
-    "objectID": "lectures/lecture-03.html",
-    "href": "lectures/lecture-03.html",
-    "title": "Lecture 03 — Linear combinations",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nReading: class notes (Boyd 1.3, linear combinations), Lab 0, and Lachniet Ch. 1. Related objectives: Lectures. Schedule.\nNo prior coding is assumed. After the combinations work we will start Lab 0 in the same period."
-  },
-  {
-    "objectID": "lectures/lecture-03.html#learning-objectives",
-    "href": "lectures/lecture-03.html#learning-objectives",
-    "title": "Lecture 03 — Linear combinations",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nForm and interpret linear combinations.\nExplain the meaning of coefficients in context.\nEnter, index, and modify vectors in Octave or Python.\nPerform vector arithmetic and create a basic plot.\nModify supplied code and explain its output or error message."
-  },
-  {
-    "objectID": "lectures/lecture-03.html#fill-in",
-    "href": "lectures/lecture-03.html#fill-in",
-    "title": "Lecture 03 — Linear combinations",
-    "section": "Fill in",
-    "text": "Fill in\nIf \\(a_1,\\ldots,a_m\\) are \\(n\\)-vectors and \\(\\beta_1,\\ldots,\\beta_m\\) are scalars, the vector \\[\n\\beta_1 a_1 + \\cdots + \\beta_m a_m\n\\] is a \\(\\underline{\\hspace{2.8cm}}\\) of \\(a_1,\\ldots,a_m\\). The numbers \\(\\beta_1,\\ldots,\\beta_m\\) are the \\(\\underline{\\hspace{2.4cm}}\\).\nAny \\(n\\)-vector \\(b\\) can be written using the standard unit vectors: \\[\nb = \\underline{\\hspace{3.6cm}}.\n\\]\nThe sum \\(a_1+\\cdots+a_m\\) is the linear combination whose coefficients are all \\(\\underline{\\hspace{1.2cm}}\\). The average is the linear combination whose coefficients are all \\(\\underline{\\hspace{1.6cm}}\\).\nA coefficient \\(\\beta_i\\) means \\(\\underline{\\hspace{4.0cm}}\\) in context (for example: how many copies of a recipe, how far to walk in a direction, how loud to mix a track)."
-  },
-  {
-    "objectID": "lectures/lecture-03.html#worked-in-class",
-    "href": "lectures/lecture-03.html#worked-in-class",
-    "title": "Lecture 03 — Linear combinations",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Compute \\(2(1,0)+(-1)(0,1)\\) and sketch the result in \\(\\mathbb{R}^2\\).\nW2. Two shopping lists, in the order (apples, bread, milk): \\[\nx = (4, 1, 2), \\qquad y = (1, 0, 1).\n\\] Interpret \\(2x+y\\) as “two copies of list \\(x\\), plus list \\(y\\).” Compute it. What would the coefficient \\(-1\\) in front of \\(y\\) mean?\nW3. Write \\((3,-1)\\) as a linear combination of \\(e_1\\) and \\(e_2\\)."
-  },
-  {
-    "objectID": "lectures/lecture-03.html#your-turn",
-    "href": "lectures/lecture-03.html#your-turn",
-    "title": "Lecture 03 — Linear combinations",
-    "section": "Your turn",
-    "text": "Your turn\nY1. Compute \\(3(2,1,-1)+2(0,1,1)\\).\nY2. Let \\(u=(1,1)\\) and \\(v=(1,-1)\\). Find coefficients \\(\\beta,\\gamma\\) so that \\(\\beta u+\\gamma v=(4,2)\\), or show your system of two equations. (We will finish the algebra together if time is short.)\nY3. Lab preview (Boyd indexes from 1). If \\(x=(5,2,9)\\), what is \\(x_2\\) in Boyd’s notation? In 1-based software (Octave), which command prints that entry? In 0-based software (Python/NumPy), which index prints that entry?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\((6,5,-1)\\).\nY2. \\(\\beta u+\\gamma v=(\\beta+\\gamma,\\beta-\\gamma)=(4,2)\\), so \\(\\beta=3\\), \\(\\gamma=1\\). Check: \\(3(1,1)+1(1,-1)=(4,2)\\).\nY3. \\(x_2=2\\). Octave: x(2). Python: x[1]."
-  },
-  {
-    "objectID": "lectures/lecture-03.html#lab-0-same-day",
-    "href": "lectures/lecture-03.html#lab-0-same-day",
-    "title": "Lecture 03 — Linear combinations",
-    "section": "Lab 0, same day",
-    "text": "Lab 0, same day\nOpen Lab 0. Submit the lab in Canvas (not by email)."
-  },
-  {
-    "objectID": "lectures/lecture-05.html",
-    "href": "lectures/lecture-05.html",
-    "title": "Lecture 05 — Linear and affine functions",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-05.html#learning-objectives",
-    "href": "lectures/lecture-05.html#learning-objectives",
-    "title": "Lecture 05 — Linear and affine functions",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nDistinguish linear from affine functions in examples.\nTest superposition numerically on simple functions.\nConstruct a function \\(a^{\\mathsf{T}}x+b\\) for a contextual quantity.\nEvaluate a model by hand and computationally."
-  },
-  {
-    "objectID": "lectures/lecture-07.html",
-    "href": "lectures/lecture-07.html",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-07.html#learning-objectives",
-    "href": "lectures/lecture-07.html#learning-objectives",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute vector norms and distances.\nInterpret norm and distance geometrically and contextually.\nRelate norm to RMS and, where appropriate, variation around an average.\nUse software to calculate distances in dimensions too large for hand computation."
-  },
-  {
-    "objectID": "lectures/lecture-09.html",
-    "href": "lectures/lecture-09.html",
-    "title": "Lecture 09 — Nearest neighbors",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-09.html#learning-objectives",
-    "href": "lectures/lecture-09.html#learning-objectives",
-    "title": "Lecture 09 — Nearest neighbors",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nFormulate a nearest-neighbor question using vectors.\nFind a nearest neighbor in a small dataset by hand.\nExplain how feature scale can affect the answer.\nJustify a choice of distance or similarity measure."
-  },
-  {
-    "objectID": "lectures/lecture-11.html",
-    "href": "lectures/lecture-11.html",
-    "title": "Lecture 11 — Finding similar things",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: Lab 1 and Lachniet Ch. 1. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-11.html#learning-objectives",
-    "href": "lectures/lecture-11.html#learning-objectives",
-    "title": "Lecture 11 — Finding similar things",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nLoad and inspect a dataset represented by vectors.\nCompute many distances with Octave or Python.\nAdapt supplied code to identify nearest observations or clusters.\nValidate computational output on a small hand-checkable subset.\nInterpret results in the original context."
-  },
-  {
-    "objectID": "lectures/lecture-13.html",
-    "href": "lectures/lecture-13.html",
-    "title": "Lecture 13 — Span, independence, and subspaces",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-13.html#learning-objectives",
-    "href": "lectures/lecture-13.html#learning-objectives",
-    "title": "Lecture 13 — Span, independence, and subspaces",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nDefine span using linear combinations.\nDetermine whether a vector lies in a simple span.\nInterpret spans geometrically as lines, planes, or higher-dimensional collections.\nRecognize basic subspaces and distinguish them from shifted lines or planes."
-  },
-  {
-    "objectID": "lectures/lecture-15.html",
-    "href": "lectures/lecture-15.html",
-    "title": "Lecture 15 — Unit I synthesis",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-15.html#learning-objectives",
-    "href": "lectures/lecture-15.html#learning-objectives",
-    "title": "Lecture 15 — Unit I synthesis",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nConnect distance, similarity, span, and independence.\nSelect an appropriate vector tool for a new problem.\nMove between algebraic, geometric, computational, and contextual representations.\nDiagnose and explain common errors."
-  },
-  {
-    "objectID": "lectures/lecture-17.html",
-    "href": "lectures/lecture-17.html",
-    "title": "Lecture 17 — Midterm 1",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-17.html#learning-objectives",
-    "href": "lectures/lecture-17.html#learning-objectives",
-    "title": "Lecture 17 — Midterm 1",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute with vectors and linear functions.\nInterpret vector operations in context.\nAnalyze distance, similarity, span, and independence.\nSelect and communicate an appropriate method."
-  },
-  {
-    "objectID": "lectures/lecture-19.html",
-    "href": "lectures/lecture-19.html",
-    "title": "Lecture 19 — Matrix-vector multiplication",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-19.html#learning-objectives",
-    "href": "lectures/lecture-19.html#learning-objectives",
-    "title": "Lecture 19 — Matrix-vector multiplication",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute \\(Ax\\) by hand for a small matrix.\nInterpret \\(Ax\\) as a linear combination of the columns of \\(A\\).\nInterpret \\(A\\) as an input-output transformation.\nExplain how the dimensions of \\(A\\) determine the input and output spaces."
-  },
-  {
-    "objectID": "lectures/lecture-21.html",
-    "href": "lectures/lecture-21.html",
-    "title": "Lecture 21 — Systems and \\(Ax=b\\)",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-21.html#learning-objectives",
-    "href": "lectures/lecture-21.html#learning-objectives",
-    "title": "Lecture 21 — Systems and \\(Ax=b\\)",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nTranslate equations or contextual constraints into \\(Ax=b\\).\nInterpret \\(Ax=b\\) as asking whether \\(b\\) belongs to the span of the columns of \\(A\\).\nClassify systems as square, underdetermined, or overdetermined.\nAnticipate circumstances producing zero, one, or many solutions."
-  },
-  {
-    "objectID": "lectures/lecture-23.html",
-    "href": "lectures/lecture-23.html",
-    "title": "Lecture 23 — RREF, pivots, free variables, and software",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: RREF/software solvers and Lachniet Ch. 2. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-23.html#learning-objectives",
-    "href": "lectures/lecture-23.html#learning-objectives",
-    "title": "Lecture 23 — RREF, pivots, free variables, and software",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nInterpret reduced row echelon form.\nIdentify pivot and free variables.\nDescribe a solution set parametrically.\nDistinguish inconsistent, unique, and infinite-solution cases.\nUse software to solve or row-reduce a system and verify the answer using a residual."
-  },
-  {
-    "objectID": "lectures/lecture-25.html",
-    "href": "lectures/lecture-25.html",
-    "title": "Lecture 25 — Simulation and long-run behavior",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-25.html#learning-objectives",
-    "href": "lectures/lecture-25.html#learning-objectives",
-    "title": "Lecture 25 — Simulation and long-run behavior",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nSimulate many time steps computationally.\nPlot state components through time.\nRecognize stabilization, growth, decay, or oscillation.\nConduct a simple what-if simulation.\nState limitations of a linear dynamical model."
-  },
-  {
-    "objectID": "lectures/lecture-27.html",
-    "href": "lectures/lecture-27.html",
-    "title": "Lecture 27 — Matrix multiplication",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-27.html#learning-objectives",
-    "href": "lectures/lecture-27.html#learning-objectives",
-    "title": "Lecture 27 — Matrix multiplication",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nDetermine whether a product is defined and give its dimensions.\nCompute a small matrix product.\nInterpret \\(ABx\\) as a sequence of transformations.\nExplain why matrix multiplication is generally not commutative."
-  },
-  {
-    "objectID": "lectures/lecture-29.html",
-    "href": "lectures/lecture-29.html",
-    "title": "Lecture 29 — Same mathematics, very different computational cost",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-29.html#learning-objectives",
-    "href": "lectures/lecture-29.html#learning-objectives",
-    "title": "Lecture 29 — Same mathematics, very different computational cost",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompare algebraically equivalent orders of computation.\nCount intermediate values that must be stored.\nMeasure runtime for increasing problem sizes.\nExplain why forming a large intermediate matrix may be wasteful.\nChoose a computational order and justify it quantitatively."
-  },
-  {
-    "objectID": "lectures/lecture-31.html",
-    "href": "lectures/lecture-31.html",
-    "title": "Lecture 31 — Rank, column space, null space, and basis connections",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: Boyd plus selected portions of Strang §3.5. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-31.html#learning-objectives",
-    "href": "lectures/lecture-31.html#learning-objectives",
-    "title": "Lecture 31 — Rank, column space, null space, and basis connections",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nInterpret column space and null space through \\(Ax=b\\) and \\(Ax=0\\).\nDetermine rank from pivots or independent columns.\nFind simple bases for column or null spaces.\nConnect rank to consistency, independence, and dimension.\nUse subspace, basis, dimension, rank, column space, and null space correctly."
-  },
-  {
-    "objectID": "lectures/lecture-33.html",
-    "href": "lectures/lecture-33.html",
-    "title": "Lecture 33 — Midterm 2 review and synthesis",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-33.html#learning-objectives",
-    "href": "lectures/lecture-33.html#learning-objectives",
-    "title": "Lecture 33 — Midterm 2 review and synthesis",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nConnect transformations, systems, dynamics, rank, inverses, and determinants.\nCompare hand and computational solution methods.\nInterpret software output instead of merely reporting it.\nSolve a new application requiring more than one concept."
-  },
-  {
-    "objectID": "lectures/lecture-35.html",
-    "href": "lectures/lecture-35.html",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: beginning of Strang §6.1. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-35.html#learning-objectives",
-    "href": "lectures/lecture-35.html#learning-objectives",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
-  },
-  {
-    "objectID": "lectures/lecture-37.html",
-    "href": "lectures/lecture-37.html",
-    "title": "Lecture 37 — Why did the system behave that way?",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: Strang §6.1, Lab 4, and Lachniet Ch. 5. Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-37.html#learning-objectives",
-    "href": "lectures/lecture-37.html#learning-objectives",
-    "title": "Lecture 37 — Why did the system behave that way?",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute eigenvalues and eigenvectors of a general matrix with software.\nVerify \\(Av\\approx\\lambda v\\) numerically.\nUse dominant eigenbehavior to explain a simulated system.\nInterpret complex eigenvalues as rotation/oscillation behavior.\nExplore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors."
-  },
-  {
-    "objectID": "lectures/lecture-39.html",
-    "href": "lectures/lecture-39.html",
-    "title": "Lecture 39 — Least squares, data fitting, and positive definiteness",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nReading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, Lab 5, and Lachniet Ch. 2 (least squares). Related objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-39.html#learning-objectives",
-    "href": "lectures/lecture-39.html#learning-objectives",
-    "title": "Lecture 39 — Least squares, data fitting, and positive definiteness",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute a least-squares solution with Octave or Python.\nPlot observed and fitted values.\nInterpret residuals and an RMS error in context.\nCheck the residual’s orthogonality to the columns of \\(A\\).\nEvaluate whether a fitted model is useful rather than merely reporting coefficients.\nRecognize that \\(A^{\\mathsf{T}}A\\) is symmetric positive semidefinite, explain \\(x^{\\mathsf{T}}A^{\\mathsf{T}}Ax=\\lVert Ax\\rVert^2\\), and recognize that \\(A^{\\mathsf{T}}A\\) is positive definite when \\(A\\) has linearly independent columns."
-  },
-  {
-    "objectID": "lectures/lecture-41.html",
-    "href": "lectures/lecture-41.html",
-    "title": "Lecture 41 — Capstone studio",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-41.html#learning-objectives",
-    "href": "lectures/lecture-41.html#learning-objectives",
-    "title": "Lecture 41 — Capstone studio",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nImplement and validate a low-rank computational strategy.\nMeasure approximation error, storage, and runtime.\nSeparate one-time factorization cost from repeated-use cost.\nCompare theoretical operation/storage counts with empirical measurements.\nDebug and refine an analysis collaboratively while retaining individual understanding."
-  },
-  {
-    "objectID": "lectures/lecture-43.html",
-    "href": "lectures/lecture-43.html",
-    "title": "Lecture 43 — Cumulative final review",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nThe class outline for this day will be posted before class.\nRelated reading and the course-wide list of daily objectives: Lectures."
-  },
-  {
-    "objectID": "lectures/lecture-43.html#learning-objectives",
-    "href": "lectures/lecture-43.html#learning-objectives",
-    "title": "Lecture 43 — Cumulative final review",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
-  },
-  {
-    "objectID": "projects/capstone.html",
-    "href": "projects/capstone.html",
-    "title": "Capstone",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nDates are on the schedule. Full write-up instructions will be added here. Use this packet to prepare; there is no quiz on SVD.\nOctave syntax: Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). One PDF on Resources; this handout is the assigned work.\nComputing an SVD does not automatically make every later calculation faster. The factorization itself can be expensive. Compression or faster multiplication is valuable when the matrix is well approximated at low rank and the representation will be stored, transmitted, or reused enough times to justify that initial cost. Image examples are instructional; adaptive SVD representations can themselves be expensive."
-  },
-  {
-    "objectID": "projects/capstone.html#practice-packet",
-    "href": "projects/capstone.html#practice-packet",
-    "title": "Capstone",
-    "section": "Practice packet",
-    "text": "Practice packet\nAbout 14 prompts. Source key: Assessments.\n\nS 7.1 #1, #2, #3, #5, #6\nL Ch. 5 Ex. 7: small SVD\nL Ch. 5 Ex. 8: pseudoinverse/least-squares connection\nL Ch. 7 Project 7.1, Problems 1–3: image compression\nC-Cap.1: Derive full storage \\(mn\\).\nC-Cap.2: Derive rank-\\(k\\) storage \\(k(m+n+1)\\).\nC-Cap.3: Plot relative reconstruction error versus \\(k\\).\nC-Cap.4: Compare full and factorized matrix-vector multiplication times and estimate when the initial SVD cost pays for itself."
-  },
-  {
-    "objectID": "projects/capstone.html#learning-objectives-launch-day",
-    "href": "projects/capstone.html#learning-objectives-launch-day",
-    "title": "Capstone",
-    "section": "Learning objectives (launch day)",
-    "text": "Learning objectives (launch day)\nSee Lecture 40."
-  },
-  {
-    "objectID": "quizzes/quiz-02.html",
-    "href": "quizzes/quiz-02.html",
-    "title": "Quiz 2",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Inner product, Linear functions, Applications.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-02.html#core",
-    "href": "quizzes/quiz-02.html#core",
-    "title": "Quiz 2",
-    "section": "Core",
-    "text": "Core\n\nB 1.8, 1.10, 1.12, 1.14, 1.15, 1.17\nB 2.1(a), 2.1(c), 2.1(e), treated as three short classifications\nB 2.2, 2.4, 2.6\nL Ch. 1 Ex. 2(b), dot-product portion"
-  },
-  {
-    "objectID": "quizzes/quiz-02.html#stretch",
-    "href": "quizzes/quiz-02.html#stretch",
-    "title": "Quiz 2",
-    "section": "Stretch",
-    "text": "Stretch\nB 2.5, 2.10, 2.12."
-  },
-  {
-    "objectID": "quizzes/quiz-02.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-02.html#what-a-quiz-item-might-change",
-    "title": "Quiz 2",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThe weights in a score or cost function, an affine intercept, or whether a slightly different function is linear or affine."
-  },
-  {
-    "objectID": "quizzes/quiz-04.html",
-    "href": "quizzes/quiz-04.html",
-    "title": "Quiz 4",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Clustering, Similar things, Dependence, Span, Basis.\nRelated lab: Lab 1.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-04.html#core",
-    "href": "quizzes/quiz-04.html#core",
-    "title": "Quiz 4",
-    "section": "Core",
-    "text": "Core\n\nB 4.2, 4.3, 4.4\nB 5.1, 5.2, 5.3, 5.4, 5.5\nC4.1: Determine whether a given vector belongs to a simple span.\nC4.2: Select a basis from a redundant collection and state its dimension.\nC4.3: Explain dependence as redundancy in a sensor or feature example.\nLab 1 reflection: Explain whether a cluster result changes under feature rescaling."
-  },
-  {
-    "objectID": "quizzes/quiz-04.html#stretch",
-    "href": "quizzes/quiz-04.html#stretch",
-    "title": "Quiz 4",
-    "section": "Stretch",
-    "text": "Stretch\nB 4.1, 5.6, 5.8."
-  },
-  {
-    "objectID": "quizzes/quiz-04.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-04.html#what-a-quiz-item-might-change",
-    "title": "Quiz 4",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nNew cluster centers, one vector in a candidate basis, or whether three displayed vectors can form a basis for \\(\\mathbb{R}^2\\)."
-  },
-  {
-    "objectID": "quizzes/quiz-06.html",
-    "href": "quizzes/quiz-06.html",
-    "title": "Quiz 6",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Systems, Elimination, RREF.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-06.html#core",
-    "href": "quizzes/quiz-06.html#core",
-    "title": "Quiz 6",
-    "section": "Core",
-    "text": "Core\n\nB 8.6(a), 8.9, 8.10, 8.13, 8.15\nL Ch. 2 Ex. 1: Gaussian-elimination and back-substitution portions\nL Ch. 2 Ex. 3: Compare a direct solution and RREF\nL Ch. 2 Ex. 5: Inconsistent and infinite-solution cases\nC6.1: One small unique-solution system by hand\nC6.2: One infinite-solution system with a parameter\nC6.3: One inconsistent system\nC6.4: Verify a software result by computing \\(Ax-b\\)"
-  },
-  {
-    "objectID": "quizzes/quiz-06.html#stretch",
-    "href": "quizzes/quiz-06.html#stretch",
-    "title": "Quiz 6",
-    "section": "Stretch",
-    "text": "Stretch\nB 8.4(a–b), B 8.16, L Ch. 2 Ex. 6."
-  },
-  {
-    "objectID": "quizzes/quiz-06.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-06.html#what-a-quiz-item-might-change",
-    "title": "Quiz 6",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThe right-hand side with the same coefficient matrix, an RREF whose original solution set you describe, or software output with a small residual."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html",
-    "href": "quizzes/quiz-08.html",
-    "title": "Quiz 8",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Products, Powers, Cost, Inverses.\nRelated lab: Micro-lab: computational cost.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-08.html#core",
-    "href": "quizzes/quiz-08.html#core",
-    "title": "Quiz 8",
-    "section": "Core",
-    "text": "Core\n\nB 10.3, 10.5, 10.6, 10.7, 10.9, 10.10, 10.13, 10.14, 10.15, 10.22\nB 11.1, 11.2\nC8.1: Compare \\((ab^{\\mathsf{T}})c\\) with \\(a(b^{\\mathsf{T}}c)\\).\nC8.2: Count intermediate stored values for both evaluation orders."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html#stretch",
-    "href": "quizzes/quiz-08.html#stretch",
-    "title": "Quiz 8",
-    "section": "Stretch",
-    "text": "Stretch\nB 10.18, 10.23, 11.10, 11.25."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-08.html#what-a-quiz-item-might-change",
-    "title": "Quiz 8",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThe order of two transformations, matrix dimensions, whether an inverse exists conceptually, or timing output from two equivalent computations."
-  },
-  {
-    "objectID": "quizzes/quiz-10.html",
-    "href": "quizzes/quiz-10.html",
-    "title": "Quiz 10",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 18, 2026.\nRelated lectures: Least squares, Fitting.\nRelated lab: Lab 5.\nSchedule\nSVD is not on this quiz; it is introduced afterward. See the capstone packet for SVD practice."
-  },
-  {
-    "objectID": "quizzes/quiz-10.html#core",
-    "href": "quizzes/quiz-10.html#core",
-    "title": "Quiz 10",
-    "section": "Core",
-    "text": "Core\n\nB 12.1, 12.4, 12.10, 12.12\nB 13.1, 13.3, 13.6, 13.11, 13.14\nL Ch. 2 Ex. 7: least-squares line fit\nL Ch. 2 Ex. 8: simulated data and fitting\nC10.1: Compute and interpret a residual vector.\nC10.2: Compare two fits using RMS residual.\nC10.3: Given information about the columns of \\(A\\), decide whether \\(A^{\\mathsf{T}}A\\) is positive definite and explain."
-  },
-  {
-    "objectID": "quizzes/quiz-10.html#stretch",
-    "href": "quizzes/quiz-10.html#stretch",
-    "title": "Quiz 10",
-    "section": "Stretch",
-    "text": "Stretch\nB 12.2, 12.7, 13.4."
-  },
-  {
-    "objectID": "quizzes/quiz-10.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-10.html#what-a-quiz-item-might-change",
-    "title": "Quiz 10",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nOne observation in a tiny dataset, a fitted line whose residuals you interpret, two RMS errors to compare, or why \\(A^{\\mathsf{T}}A\\) is positive definite when \\(A\\) has independent columns."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24Vectors\nAug 26Arithmetic\nAug 28CombinationsLab 0Lab 0 ticket\n\n\n2\nAug 31Inner product\nSep 2Linear functions\nSep 4ApplicationsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Norms\nSep 11AngleQuiz 2\n\n\n4\nSep 14Neighbors\nSep 16Clustering\nSep 18Similar thingsQuiz 3Lab 1\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25Basis\n\n\n6\nSep 28SynthesisQuiz 4\nSep 30Review\nOct 2Exam dayMidterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsLab 2\n\n\n8\nOct 12SystemsQuiz 5\nOct 14Elimination\nOct 16RREF\n\n\n9\nOct 19DynamicsQuiz 6\nOct 21Simulation\nOct 23Through timeLab 3\n\n\n10\nOct 26ProductsQuiz 7\nOct 28Powers\nOct 30CostMicro-lab\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 8\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Exam dayMidterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squaresQuiz 9\nDec 2FittingLab 5\nDec 4SVDQuiz 10Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+    "text": "Unless otherwise noted, all materials on this website are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.\n\n\nYou are free to:\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\nUnder the following terms:\n\nAttribution — You must give appropriate credit to Dr. Rosanna Overholser, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\n\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\n\n\nWhen using or adapting these materials, please provide attribution in the following format:\n\nThis work is based on materials by Dr. Rosanna Overholser for MATH 107: Introduction to Linear Algebra, licensed under CC BY-NC 4.0.\n\n\n\n\nThe page-banner photograph, Best of Humboldt, is by Cal Poly Humboldt on Flickr and is all rights reserved. It is not covered by the CC BY-NC license for these course materials.\n\n\n\nProgramming practice lists selected exercises from Jeffrey Lachniet, Introduction to GNU Octave (3rd ed., 2020), licensed CC BY-SA 4.0. Direct adaptations of that text must keep attribution and share-alike terms. Other remixed materials will be noted with their original source and license. When remixing these materials, you must comply with both this license and the original source license.\n\n\n\nIf you have questions about using these materials or need clarification on the license terms, please contact Dr. Rosanna Overholser at rho3@humboldt.edu."
   }
 ]
