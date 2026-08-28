@@ -705,12 +705,12 @@ tr:hover {
   color: var(--sand-light) !important;
 }
 
-/* Inline code (outside pre) */
-#quarto-content p code:not(pre code),
-#quarto-content li code:not(pre code),
-#quarto-content td code:not(pre code),
-#quarto-content .callout code:not(pre code) {
-  color: var(--fog-gray) !important;
+/* Inline code (outside pre) — skip lab syntax role classes */
+#quarto-content p code:not(pre code):not(.syn-name):not(.syn-value):not(.syn-lang),
+#quarto-content li code:not(pre code):not(.syn-name):not(.syn-value):not(.syn-lang),
+#quarto-content td code:not(pre code):not(.syn-name):not(.syn-value):not(.syn-lang),
+#quarto-content .callout code:not(pre code):not(.syn-name):not(.syn-value):not(.syn-lang) {
+  color: var(--sand-light) !important;
   background-color: rgba(0, 0, 0, 0.35) !important;
   padding: 0.12em 0.45em;
   border-radius: 4px;
@@ -751,44 +751,52 @@ tr:hover {
   --syn-name: #7dd3fc;   /* user-chosen names */
   --syn-value: #fbbf24;  /* user-chosen numbers / literals */
   --syn-lang: #c4b5fd;   /* language / built-in words */
+  --syn-base: #f3e6e4;    /* operators, punctuation, comments in demos */
 }
 
-code.syn-name,
-.syn-name,
-pre.syn-demo .syn-name {
+#quarto-content code.syn-name,
+#quarto-content .syn-name,
+#quarto-content pre.syn-demo .syn-name,
+#quarto-content .syn-legend code.syn-name {
   color: var(--syn-name) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
   font-weight: 600;
 }
 
-code.syn-value,
-.syn-value,
-pre.syn-demo .syn-value {
+#quarto-content code.syn-value,
+#quarto-content .syn-value,
+#quarto-content pre.syn-demo .syn-value,
+#quarto-content .syn-legend code.syn-value {
   color: var(--syn-value) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
   font-weight: 600;
 }
 
-code.syn-lang,
-.syn-lang,
-pre.syn-demo .syn-lang {
+#quarto-content code.syn-lang,
+#quarto-content .syn-lang,
+#quarto-content pre.syn-demo .syn-lang,
+#quarto-content .syn-legend code.syn-lang {
   color: var(--syn-lang) !important;
+  background-color: rgba(0, 0, 0, 0.35) !important;
   font-weight: 600;
 }
 
-pre.syn-demo {
-  background-color: rgba(0, 0, 0, 0.45) !important;
+#quarto-content pre.syn-demo {
+  background-color: rgba(0, 0, 0, 0.58) !important;
+  color: var(--syn-base) !important;
   border: 1px solid var(--dusk-ridge) !important;
   border-radius: 6px !important;
   padding: 0.85rem 1rem !important;
   overflow-x: auto;
 }
 
-pre.syn-demo code {
-  color: var(--dusk-text) !important;
+#quarto-content pre.syn-demo code {
+  color: var(--syn-base) !important;
   background: transparent !important;
   font-size: 0.95em;
 }
 
-.syn-legend {
+#quarto-content .syn-legend {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.25rem;
@@ -800,6 +808,12 @@ pre.syn-demo code {
   font-size: 0.95rem;
 }
 
-.syn-legend span {
+#quarto-content .syn-legend span {
   white-space: nowrap;
+}
+
+#quarto-content .syn-legend code {
+  padding: 0.12em 0.45em;
+  border-radius: 4px;
+  border: 1px solid rgba(116, 105, 136, 0.5);
 }
