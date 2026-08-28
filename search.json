@@ -42,88 +42,102 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
-    "objectID": "lectures/lecture-01.html",
-    "href": "lectures/lecture-01.html",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
+    "objectID": "labs/lab-00-ticket.html",
+    "href": "labs/lab-00-ticket.html",
+    "title": "Lab 0 ticket",
     "section": "",
-    "text": "Download PDF\nLast updated: August 20, 2026.\nReading: Boyd 1.1. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
+    "text": "Download PDF\nLab 0 — Computers Speak Vectors · Fri Aug 28 · Laptop required · Handwrite on this hard copy · Get initials after check-in\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax (fill as you go)\n\n\n\nI needed to…\nCommand / pattern (your language)\n\n\n\n\nCreate vector x\n\n\n\nLength n\n\n\n\nPrint 3rd Boyd entry\n\n\n\nChange an entry\n\n\n\nScale / add vectors\n\n\n\nPlot\n\n\n\n\n\nData: \\(x=(52,51,53,55,58,60)\\) °F, hours 7 a.m.–noon. Boyd \\(x_1\\)…\\(x_6\\). Octave: 1-based. Python: 0-based. Do C0.1–C0.6 in order.\nC0.1 — Enter and index. Create x. Print \\(n\\), first, last, Boyd \\(x_3\\).\nExpected: \\(n=6\\), first \\(52\\), last \\(60\\), third \\(53\\).\nYours: \\(n=\\)____ first=____ last=____ third=____\nCommand that prints the third entry: ______________________________\n\\(x_3\\) means (quantity + units): ________________________________________\nC0.2 — Modify. Set 9 a.m. to \\(54\\), noon to \\(61\\). Print new x.\nExpected: \\((52,51,54,55,58,61)\\). Yours: ____________________________________\nC0.3 — Scale. doubled = 2*x (use corrected x). Print doubled.\nExpected: \\((104,102,108,110,116,122)\\).\nAssignment line: ________________________________________________\nMeaning of \\(\\times 2\\) here: ____________________________________________\nC0.4 — Add a vector. ones6 = six ones; warmer = x + 5*ones6. Print warmer.\nExpected: \\((57,56,59,60,63,66)\\). Yours: __________________________________\nWhy not use math-course “x+5” as vector addition? ______________________________\nC0.5 — Plot corrected x, 2*x, and -x vs \\(i=1..6\\) (legend).\nWhat did \\(\\times(-1)\\) do in the picture? ______________________________________\nC0.6 — Predict, then check. Before running: Octave v=[10,20,30]; v(2) or Python v=np.array([10,20,30]); print(v[1]).\nExpected: \\(20\\). Prediction: ____ Actual: ____ Boyd index: \\(v_{\\underline{\\hspace{0.7cm}}}\\)\nStuck on (optional): C0.__ ______________________________________________\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
-    "objectID": "lectures/lecture-01.html#learning-objectives",
-    "href": "lectures/lecture-01.html#learning-objectives",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nIdentify objects that can be represented as vectors.\nInterpret vector entries, units, and indexing in context.\nDistinguish scalars from vectors.\nTranslate a small data, position, signal, or measurement problem into vector form."
-  },
-  {
-    "objectID": "lectures/lecture-01.html#warm-up",
-    "href": "lectures/lecture-01.html#warm-up",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Warm-up",
-    "text": "Warm-up\nFor each description, decide: could this naturally be written as a vector? If yes, guess a sensible \\(n\\) and what the entries would mean. If no, say why not.\n\nToday’s high temperature in Arcata, in °F.\nHigh temperatures in Arcata on Mon–Thu this week, in °F.\nThe phrase “mostly foggy.”\nAn RGB screen color with red, green, and blue intensities between \\(0\\) and \\(1\\)."
-  },
-  {
-    "objectID": "lectures/lecture-01.html#fill-in",
-    "href": "lectures/lecture-01.html#fill-in",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Fill in",
-    "text": "Fill in\nAn \\(n\\)-vector is an ordered list of \\(\\underline{\\hspace{2.4cm}}\\) numbers, written \\[\nx = (x_1, x_2, \\ldots, x_n)\n\\quad\\text{or}\\quad\nx =\n\\begin{bmatrix}\nx_1 \\\\\nx_2 \\\\\n\\vdots \\\\\nx_n\n\\end{bmatrix}.\n\\] The number \\(n\\) is the \\(\\underline{\\hspace{2.4cm}}\\) (or dimension) of \\(x\\). Each \\(x_i\\) is an \\(\\underline{\\hspace{2.4cm}}\\) of \\(x\\). In this course we index from \\(i=1\\) to \\(i=n\\) (Boyd’s convention).\nTwo \\(n\\)-vectors \\(a\\) and \\(b\\) are equal when \\(\\underline{\\hspace{3.2cm}}\\).\nA scalar is \\(\\underline{\\hspace{3.2cm}}\\). The number \\(x_3\\) is a \\(\\underline{\\hspace{2.0cm}}\\); the list \\(x\\) is a \\(\\underline{\\hspace{2.0cm}}\\).\nThe zero vector \\(0\\) has \\(\\underline{\\hspace{2.4cm}}\\). The ones vector \\(\\mathbf{1}\\) has \\(\\underline{\\hspace{2.4cm}}\\). The standard unit vector \\(e_i\\) has \\(\\underline{\\hspace{3.6cm}}\\).\nIn an application, we often keep a separate list of \\(\\underline{\\hspace{2.4cm}}\\) so that we know what each entry means and what \\(\\underline{\\hspace{2.0cm}}\\) it has. Entries with different units are still allowed in one vector; comparing them as “the same kind of quantity” is \\(\\underline{\\hspace{2.4cm}}\\)."
-  },
-  {
-    "objectID": "lectures/lecture-01.html#worked-in-class",
-    "href": "lectures/lecture-01.html#worked-in-class",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. An Arcata weather station records four successive high temperatures, in °F: \\[\nt = (63, 59, 61, 66).\n\\] What is \\(n\\)? What is \\(t_3\\), and what does it mean in context? Is \\(63\\) a vector or a scalar? Could you add a fifth day without changing the meaning of \\(t_1,\\ldots,t_4\\)?\nW2. A redwood seedling is described by height in cm, basal diameter in mm, and soil moisture in percent. Write a 3-vector \\(f\\) for a seedling that is \\(18\\) cm tall, \\(4\\) mm across, and \\(27\\%\\) moisture. Give an entry label for each index. Which entries are allowed to be compared as “the same kind of quantity,” and which are not?"
-  },
-  {
-    "objectID": "lectures/lecture-01.html#your-turn",
-    "href": "lectures/lecture-01.html#your-turn",
-    "title": "Lecture 01 — Why linear algebra? Vectors as representations",
-    "section": "Your turn",
-    "text": "Your turn\nY1. An RGB color is the 3-vector \\(c = (0.15, 0.80, 0.35)\\), with entries between \\(0\\) and \\(1\\) for red, green, and blue. Which entry is largest, and what color does that suggest? What 3-vector is black in this encoding?\nY2. A short field note is scored against the dictionary (fog, rain, wind). The word-count vector is \\(w = (7, 2, 0)\\). What is \\(n\\)? What does \\(w_1\\) mean? What does \\(w_3 = 0\\) tell you?\nY3. A trail junction is \\(120\\) m east and \\(40\\) m north of a trailhead. Write a 2-vector \\(p\\) for that location in (east, north) meters. What would \\((-20, 10)\\) mean as a second location in the same encoding?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. The second entry is largest, so the color is mostly green. Black is \\((0,0,0)\\).\nY2. \\(n=3\\). The word fog appears 7 times. Wind does not appear.\nY3. \\(p=(120,40)\\). The point \\((-20,10)\\) is \\(20\\) m west and \\(10\\) m north of the trailhead."
-  },
-  {
-    "objectID": "lectures/lecture-02.html",
-    "href": "lectures/lecture-02.html",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "objectID": "labs/lab-00.html",
+    "href": "labs/lab-00.html",
+    "title": "Lab 0 — Computers Speak Vectors",
     "section": "",
-    "text": "Download PDF\nLast updated: August 20, 2026.\nReading: Boyd 1.2–1.3. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
+    "text": "Download PDF\nLast updated: August 20, 2026.\nIn class Friday, August 28 (same day as Lecture 03).\nCredit: Lab points are for effort in class, not for a Canvas file upload. Work the exercises in Octave or Python (bring a laptop; demos and both-language code are on this page). On lab day you get a hard copy with the exercises written out, space for answers and new syntax. Preview the one-pager; write on the hard copy handed out in class.\nPick Octave or Python No prior coding is assumed.\nSoftware: GNU Octave, or Python in Google Colab (no local install). Links for Lachniet, NumPy, Polars, and Plotnine are on Resources."
   },
   {
-    "objectID": "lectures/lecture-02.html#learning-objectives",
-    "href": "lectures/lecture-02.html#learning-objectives",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
+    "objectID": "labs/lab-00.html#learning-objectives",
+    "href": "labs/lab-00.html#learning-objectives",
+    "title": "Lab 0 — Computers Speak Vectors",
     "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nAdd, subtract, and scale vectors.\nInterpret those operations geometrically.\nPlot vectors in \\(\\mathbb{R}^2\\) and recognize corresponding operations in \\(\\mathbb{R}^3\\).\nCheck whether an answer has sensible dimensions and units."
+    "text": "Learning objectives\n\nEnter, index, and modify vectors in Octave or Python.\nPerform vector arithmetic and create a basic plot.\nModify supplied code and explain its output or error message."
   },
   {
-    "objectID": "lectures/lecture-02.html#warm-up",
-    "href": "lectures/lecture-02.html#warm-up",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Warm-up",
-    "text": "Warm-up\nYesterday’s highs (Mon–Thu), in °F, were \\[\nt = (63, 59, 61, 66).\n\\] What is \\(n\\)? What is \\(t_2\\), and what does it mean? Is \\(61\\) a scalar or a vector? Write the 4-vector of “each day five degrees cooler than \\(t\\)” if you already know how — otherwise leave it blank and we will return to it."
+    "objectID": "labs/lab-00.html#math-connections",
+    "href": "labs/lab-00.html#math-connections",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "Math connections",
+    "text": "Math connections\nLinear combinations and scaling from Lecture 03; vector representation from Lecture 01."
   },
   {
-    "objectID": "lectures/lecture-02.html#fill-in",
-    "href": "lectures/lecture-02.html#fill-in",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Fill in",
-    "text": "Fill in\nIf \\(a\\) and \\(b\\) are \\(n\\)-vectors, the sum \\(a+b\\) is the \\(n\\)-vector whose \\(i\\)th entry is \\(\\underline{\\hspace{2.8cm}}\\). Addition is only defined when \\(\\underline{\\hspace{3.0cm}}\\).\nThe identity for addition is \\(\\underline{\\hspace{1.6cm}}\\): \\(a+0=a\\). The difference \\(a-b\\) is \\(\\underline{\\hspace{2.4cm}}\\).\nIf \\(\\beta\\) is a scalar, the scalar–vector product \\(\\beta a\\) is the \\(n\\)-vector whose \\(i\\)th entry is \\(\\underline{\\hspace{2.4cm}}\\). In particular, \\((-1)a\\) is written \\(\\underline{\\hspace{1.2cm}}\\).\nGeometry in \\(\\mathbb{R}^2\\): draw \\(a\\) as an arrow. Then \\(\\beta a\\) with \\(\\beta&gt;0\\) points \\(\\underline{\\hspace{2.0cm}}\\) and has length scaled by \\(\\underline{\\hspace{1.4cm}}\\). If \\(\\beta&lt;0\\), the arrow points \\(\\underline{\\hspace{2.4cm}}\\). The sum \\(a+b\\) can be drawn tip-to-tail or as the diagonal of a \\(\\underline{\\hspace{2.4cm}}\\).\nThe same formulas work entrywise in \\(\\mathbb{R}^3\\); we just cannot sketch as easily on paper.\nAdding a scalar to a vector is \\(\\underline{\\hspace{2.4cm}}\\) in the mathematics of this course (even if some software will do it). Concatenating \\((1,2)\\) with \\((3,4)\\) is also \\(\\underline{\\hspace{2.4cm}}\\) vector addition."
+    "objectID": "labs/lab-00.html#key-syntax-this-lab",
+    "href": "labs/lab-00.html#key-syntax-this-lab",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "Key syntax (this lab)",
+    "text": "Key syntax (this lab)\n\nColor key (website): name — you chose this name 52 — you chose this value length — the language’s word (built-in)\n\n\n\n\nMeaning\nBoyd\nOctave\nPython\n\n\n\n\nfirst entry of \\(x\\)\n\\(x_1\\)\nx(1)\nx[0]\n\n\nsecond entry\n\\(x_2\\)\nx(2)\nx[1]\n\n\nlength \\(n\\)\n\\(n\\)\nlength(x)\nlen(x)\n\n\n\nResources: Lachniet Ch. 1; NumPy beginners; full list on Resources.\n\nAssignment vs equality\nIn math, \\(=\\) often means “these are equal.” In code, a single = almost always means assignment: “compute the right-hand side and store it under this name.”\nn = length(x)    % Octave: store the length of x in the name n\nn = len(x)       # Python: same idea\nAfter that line runs, n holds a number. Checking whether two things are equal uses a different symbol later (== in both languages); you do not need that today.\n\n\nFunctions look like \\(f(x)\\)\nA function has a name. You call it by writing the name, then parentheses, then an input.\n\n\n\n\n\n\n\n\nMath idea\nIn words\nRole in code\n\n\n\n\n\\(f\\)\nthe function’s name\noften a language word such as length or len\n\n\n\\(x\\)\nthe input you give it\noften a name you chose such as x\n\n\n\\(f(x)\\)\n“do \\(f\\) to this input”\nlength(x)\n\n\n\\(y = f(x)\\)\n“store the result as \\(y\\)”\nn=length(x)\n\n\n\nSo length(x) means: run the built-in named length on the object you named x. The result is a number (how many entries x has).\n\n\nWhere you type: Octave GUI\n\nInstall/open GNU Octave (the GUI is enough).\nUse the Command Window to type one line at a time and press Enter. Octave prints results below.\nOptional: open a new Editor tab, paste several lines (a short script), save as something like lab00.m, and run it. Same commands; easier to edit and re-run.\nIf a plot window appears, leave it open while you answer the ticket.\n\nLachniet Ch. 1 walks through the interface in more detail.\n\n\nWhere you type: Google Colab (Python)\n\nOpen Google Colab, sign in, and start a new notebook (File → Save a copy in Drive so you keep your work).\nA notebook mixes text cells (notes, like this page) and code cells (Python you run).\nClick a code cell, paste a demo, then run it with the play button or Shift+Enter. Output appears directly under that cell (numbers, errors, or plots).\nRun cells in order from top to bottom the first time. If something breaks, read the error under the cell and ask in lab."
   },
   {
-    "objectID": "lectures/lecture-02.html#worked-in-class",
-    "href": "lectures/lecture-02.html#worked-in-class",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. A point on the quad is \\(p=(2,1)\\) (east, north, in 10 m units). A walk is the displacement \\(a=(3,-1)\\). Compute \\(p+a\\) and sketch \\(p\\), \\(a\\), and \\(p+a\\) in \\(\\mathbb{R}^2\\). Then compute \\(a-p\\). Does \\(a-p\\) have the same units as \\(p\\)?\nW2. Two rain gauges, in inches, over three days: \\[\nr = (0.40, 0, 1.10), \\qquad s = (0.15, 0.20, 0.30).\n\\] Compute \\(r+s\\) and \\(2r\\). Why is \\(r+(1,1)\\) not a valid vector sum here? (These are 3-vectors: same arithmetic as in \\(\\mathbb{R}^2\\), just one more entry.)\nW3. Sanity check: can you form \\((4,1)+(0,2,5)\\)? Can you form \\((18\\text{ cm}, 4\\text{ mm})+(1,1)\\) as a meaningful measurement vector?"
+    "objectID": "labs/lab-00.html#indexing",
+    "href": "labs/lab-00.html#indexing",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "Indexing",
+    "text": "Indexing\nBoyd writes \\(x_1\\) for the first entry. Octave counts from 1. Python/NumPy count from 0."
   },
   {
-    "objectID": "lectures/lecture-02.html#your-turn",
-    "href": "lectures/lecture-02.html#your-turn",
-    "title": "Lecture 02 — Vector arithmetic and geometry",
-    "section": "Your turn",
-    "text": "Your turn\nY1. Compute \\[\n\\begin{bmatrix} 4 \\\\ -1 \\\\ 2 \\end{bmatrix}\n+\n\\begin{bmatrix} 1 \\\\ 3 \\\\ -2 \\end{bmatrix}\n\\qquad\\text{and}\\qquad\n(-2)\n\\begin{bmatrix} 1 \\\\ 0.5 \\end{bmatrix}.\n\\]\nY2. In \\(\\mathbb{R}^2\\), sketch \\(u=(3,1)\\) and \\(\\tfrac{1}{2}u\\). In words, what did scaling by \\(1/2\\) do? What would \\(-u\\) look like?\nY3. A 2-vector of temperatures in °C is \\(x=(10, 14)\\). A classmate types \\(x+5\\) in software and gets \\((15,19)\\). Is that the same as a vector sum \\(x+v\\) for some 2-vector \\(v\\)? If you need “five degrees warmer each day,” what vector should you add?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\((5,2,0)\\) and \\((-2,-1)\\).\nY2. \\(\\tfrac{1}{2}u\\) is the same direction, half as long. \\(-u\\) is the opposite direction, same length.\nY3. Software added the scalar \\(5\\) to each entry; that is not a vector–vector sum. Adding five degrees each day is the vector sum \\(x+(5,5)\\)."
+    "objectID": "labs/lab-00.html#the-data",
+    "href": "labs/lab-00.html#the-data",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "The data",
+    "text": "The data\nUse this 6-vector of Arcata morning temperatures, in °F, for six successive hours: \\[\nx = (52, 51, 53, 55, 58, 60).\n\\] Entry \\(x_1\\) is 7 a.m.; \\(x_6\\) is noon. Work C0.1–C0.6 in order."
+  },
+  {
+    "objectID": "labs/lab-00.html#c0.1-enter-and-index",
+    "href": "labs/lab-00.html#c0.1-enter-and-index",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "C0.1 — Enter and index",
+    "text": "C0.1 — Enter and index\nCreate a vector named x. Print n, the first entry, the last entry, and Boyd’s third entry \\(x_3\\).\nOctave (demo — run this):\nx = [52, 51, 53, 55, 58, 60];\nn = length(x)\nx(1)\nx(n)\nx(3)\nPython (demo — run this):\nimport numpy as np\nx = np.array([52, 51, 53, 55, 58, 60])\nn = len(x)\nprint(n, x[0], x[-1], x[2])\nExpected output (values): \\(n=6\\), first entry \\(52\\), last entry \\(60\\), third entry \\(53\\).\nCheck What quantity does \\(x_3\\) represent (include units)? Write the command that prints that entry."
+  },
+  {
+    "objectID": "labs/lab-00.html#c0.2-modify-two-entries",
+    "href": "labs/lab-00.html#c0.2-modify-two-entries",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "C0.2 — Modify two entries",
+    "text": "C0.2 — Modify two entries\nThe 9 a.m. reading was mistyped: it should be 54 instead of 53. The noon reading should be 61 instead of 60. Change those two entries of x. Print the new vector.\nExpected vector: \\((52, 51, 54, 55, 58, 61)\\).\nHints:\n% Octave\nx(3) = 54;\nx(6) = 61;\nx\n# Python\nx[2] = 54\nx[5] = 61\nprint(x)\nCheck: Record your new 6-vector."
+  },
+  {
+    "objectID": "labs/lab-00.html#c0.3-scale",
+    "href": "labs/lab-00.html#c0.3-scale",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "C0.3 — Scale",
+    "text": "C0.3 — Scale\nUsing your corrected x from C0.2, create a vector named doubled equal to 2*x. Print doubled.\nExpected output: \\((104, 102, 108, 110, 116, 122)\\).\nCheck: Write the assignment line you used. What does multiplying by \\(2\\) mean for these temperatures?"
+  },
+  {
+    "objectID": "labs/lab-00.html#c0.4-add-a-vector",
+    "href": "labs/lab-00.html#c0.4-add-a-vector",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "C0.4 — Add a vector",
+    "text": "C0.4 — Add a vector\nCreate a vector named ones6 of six ones (every entry \\(1\\)). Then create warmer by adding five degrees to every hour: warmer=x+5*ones6. Print warmer.\nExpected output: \\((57, 56, 59, 60, 63, 66)\\).\nHints for ones6: Octave ones(1,6) or [1,1,1,1,1,1]; Python np.ones(6) or np.array([1,1,1,1,1,1]).\nCheck: Record warmer. Why is x+5 (adding a scalar) not the same idea in the mathematics of this course, even if software accepts it?"
+  },
+  {
+    "objectID": "labs/lab-00.html#c0.5-plot-x-2x-and--x",
+    "href": "labs/lab-00.html#c0.5-plot-x-2x-and--x",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "C0.5 — Plot \\(x\\), \\(2x\\), and \\(-x\\)",
+    "text": "C0.5 — Plot \\(x\\), \\(2x\\), and \\(-x\\)\nPlot the corrected x, 2*x, and -x versus hour index \\(i=1,\\ldots,6\\). Include a legend.\nOctave:\ni = 1:6;\nplot(i, x, '-o', i, 2*x, '-o', i, -x, '-o');\nlegend('x','2x','-x');\nxlabel('hour index i');\nylabel('value');\nPython:\nimport matplotlib.pyplot as plt\ni = np.arange(1, 7)\nplt.plot(i, x, '-o', label='x')\nplt.plot(i, 2*x, '-o', label='2x')\nplt.plot(i, -x, '-o', label='-x')\nplt.xlabel('hour index i')\nplt.ylabel('value')\nplt.legend()\nplt.show()\nCheck: In one sentence, what did multiplying by \\(-1\\) do in the picture?"
+  },
+  {
+    "objectID": "labs/lab-00.html#c0.6-predict-then-check",
+    "href": "labs/lab-00.html#c0.6-predict-then-check",
+    "title": "Lab 0 — Computers Speak Vectors",
+    "section": "C0.6 — Predict, then check",
+    "text": "C0.6 — Predict, then check\nBefore running anything new, predict what the following prints. Then type it and compare.\nOctave:\nv = [10, 20, 30];\nv(2)\nPython:\nv = np.array([10, 20, 30])\nprint(v[1])\nExpected output: \\(20\\) (Boyd’s second entry \\(v_2\\)).\nCheck: Your prediction before running: ____. Actual output: ____. In Boyd indexing, that entry is \\(v_{\\underline{\\hspace{0.8cm}}}\\)."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24Vectors\nAug 26Arithmetic\nAug 28CombinationsLab 0Lab 0 ticket\n\n\n2\nAug 31Inner product\nSep 2Linear functions\nSep 4ApplicationsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Norms\nSep 11AngleQuiz 2\n\n\n4\nSep 14Neighbors\nSep 16Clustering\nSep 18Similar thingsQuiz 3Lab 1\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25Basis\n\n\n6\nSep 28SynthesisQuiz 4\nSep 30Review\nOct 2Exam dayMidterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsLab 2\n\n\n8\nOct 12SystemsQuiz 5\nOct 14Elimination\nOct 16RREF\n\n\n9\nOct 19DynamicsQuiz 6\nOct 21Simulation\nOct 23Through timeLab 3\n\n\n10\nOct 26ProductsQuiz 7\nOct 28Powers\nOct 30CostMicro-lab\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 8\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Exam dayMidterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squaresQuiz 9\nDec 2FittingLab 5\nDec 4SVDQuiz 10Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
     "objectID": "syllabus.html",
@@ -194,13 +208,6 @@
     "title": "Course Syllabus",
     "section": "License",
     "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24Vectors\nAug 26Arithmetic\nAug 28CombinationsLab 0\n\n\n2\nAug 31Inner product\nSep 2Linear functions\nSep 4ApplicationsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Norms\nSep 11AngleQuiz 2\n\n\n4\nSep 14Neighbors\nSep 16Clustering\nSep 18Similar thingsQuiz 3Lab 1\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25Basis\n\n\n6\nSep 28SynthesisQuiz 4\nSep 30Review\nOct 2Exam dayMidterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsLab 2\n\n\n8\nOct 12SystemsQuiz 5\nOct 14Elimination\nOct 16RREF\n\n\n9\nOct 19DynamicsQuiz 6\nOct 21Simulation\nOct 23Through timeLab 3\n\n\n10\nOct 26ProductsQuiz 7\nOct 28Powers\nOct 30CostMicro-lab\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 8\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Exam dayMidterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squaresQuiz 9\nDec 2FittingLab 5\nDec 4SVDQuiz 10Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
     "objectID": "assessments.html",
