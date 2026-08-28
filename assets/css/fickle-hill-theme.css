@@ -745,3 +745,61 @@ tr:hover {
   background-color: #ffffff !important;
   border-radius: 4px !important;
 }
+
+/* Lab syntax roles (beginner color key) — HTML labs */
+:root {
+  --syn-name: #7dd3fc;   /* user-chosen names */
+  --syn-value: #fbbf24;  /* user-chosen numbers / literals */
+  --syn-lang: #c4b5fd;   /* language / built-in words */
+}
+
+code.syn-name,
+.syn-name,
+pre.syn-demo .syn-name {
+  color: var(--syn-name) !important;
+  font-weight: 600;
+}
+
+code.syn-value,
+.syn-value,
+pre.syn-demo .syn-value {
+  color: var(--syn-value) !important;
+  font-weight: 600;
+}
+
+code.syn-lang,
+.syn-lang,
+pre.syn-demo .syn-lang {
+  color: var(--syn-lang) !important;
+  font-weight: 600;
+}
+
+pre.syn-demo {
+  background-color: rgba(0, 0, 0, 0.45) !important;
+  border: 1px solid var(--dusk-ridge) !important;
+  border-radius: 6px !important;
+  padding: 0.85rem 1rem !important;
+  overflow-x: auto;
+}
+
+pre.syn-demo code {
+  color: var(--dusk-text) !important;
+  background: transparent !important;
+  font-size: 0.95em;
+}
+
+.syn-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin: 0.75rem 0 1rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--dusk-surface);
+  border: 1px solid var(--dusk-ridge);
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.syn-legend span {
+  white-space: nowrap;
+}
