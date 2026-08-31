@@ -180,7 +180,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">August 31, 2026</p>
     </div>
   </div>
     
@@ -192,8 +192,8 @@ window.Quarto = {
 
 
 <p><a href="quiz-01.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>Related lectures: <a href="../lectures/lecture-01.html">Vectors</a>, <a href="../lectures/lecture-02.html">Arithmetic</a>, <a href="../lectures/lecture-03.html">Combinations</a>.</p>
+<p>Last updated: August 31, 2026.</p>
+<p>Related lectures: <a href="../lectures/lecture-01.html">Vectors</a>, <a href="../lectures/lecture-02.html">Arithmetic</a>, <a href="../lectures/lecture-03.html">Combinations</a>, <a href="../lectures/lecture-04.html">Inner product</a> (stack, slice, dot product).</p>
 <p>Related lab: <a href="../labs/lab-00.html">Lab 0</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
 <section id="core" class="level2">
@@ -201,9 +201,10 @@ window.Quarto = {
 <ul>
 <li>B 1.1, 1.2, 1.6, 1.7, 1.9, 1.13, 1.18</li>
 <li>L Ch. 1 Ex. 2(a), linear-combination portion</li>
-<li>C0.1: Enter and index a vector of measurements (Octave or Python).</li>
-<li>C0.2: Modify two entries and explain what changed in context.</li>
-<li>C0.3: Plot <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span>, and <span class="math inline">\(-x\)</span>, and describe the geometric changes.</li>
+<li>C0.1–C0.2: Enter, index, and modify a measurement vector (Octave or Python).</li>
+<li>C0.3–C0.4: Scale and add vectors; interpret in context.</li>
+<li>C0.5: Plot <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span>, and <span class="math inline">\(-x\)</span>, and describe the geometric changes.</li>
+<li>C0.6: Predict an indexed output, then check (Boyd vs software indexing).</li>
 </ul>
 </section>
 <section id="stretch" class="level2">
@@ -679,7 +680,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 1"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, September 4 — vectors, linear combinations, and Lab 0"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-31</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -687,9 +688,9 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](quiz-01.pdf)</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 31, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lectures: <span class="co">[</span><span class="ot">Vectors</span><span class="co">](../lectures/lecture-01.qmd)</span>, <span class="co">[</span><span class="ot">Arithmetic</span><span class="co">](../lectures/lecture-02.qmd)</span>, <span class="co">[</span><span class="ot">Combinations</span><span class="co">](../lectures/lecture-03.qmd)</span>.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lectures: <span class="co">[</span><span class="ot">Vectors</span><span class="co">](../lectures/lecture-01.qmd)</span>, <span class="co">[</span><span class="ot">Arithmetic</span><span class="co">](../lectures/lecture-02.qmd)</span>, <span class="co">[</span><span class="ot">Combinations</span><span class="co">](../lectures/lecture-03.qmd)</span>, <span class="co">[</span><span class="ot">Inner product</span><span class="co">](../lectures/lecture-04.qmd)</span> (stack, slice, dot product).</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related lab: <span class="co">[</span><span class="ot">Lab 0</span><span class="co">](../labs/lab-00.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
@@ -699,17 +700,18 @@ window.Quarto = {
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 1.1, 1.2, 1.6, 1.7, 1.9, 1.13, 1.18</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 1 Ex. 2(a), linear-combination portion</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C0.1: Enter and index a vector of measurements (Octave or Python).</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C0.2: Modify two entries and explain what changed in context.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C0.3: Plot $x$, $2x$, and $-x$, and describe the geometric changes.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>B 1.5, 1.11, 1.20.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>The entries or units, a different linear combination, or four lines of Octave/Python whose resulting vector you predict.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C0.1–C0.2: Enter, index, and modify a measurement vector (Octave or Python).</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C0.3–C0.4: Scale and add vectors; interpret in context.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C0.5: Plot $x$, $2x$, and $-x$, and describe the geometric changes.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C0.6: Predict an indexed output, then check (Boyd vs software indexing).</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>B 1.5, 1.11, 1.20.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The entries or units, a different linear combination, or four lines of Octave/Python whose resulting vector you predict.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
