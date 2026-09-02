@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -124,6 +153,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#check-yourself" id="toc-check-yourself" class="nav-link" data-scroll-target="#check-yourself">Check yourself</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-06.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -149,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">September 2, 2026</p>
     </div>
   </div>
     
@@ -161,9 +194,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lecture-06.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Related reading and the course-wide list of daily objectives: <a href="../lectures.html#lecture-06">Lectures</a>.</p>
+<p>Last updated: September 2, 2026.</p>
+<p>Reading: Boyd 2.1–2.3 applications (score, cost, temperature, regression). Quiz 2 prep: Boyd 1.12, 1.14, 1.15. Related objectives: <a href="../lectures.html#lecture-06">Lectures</a>. <a href="../schedule.html">Schedule</a>. <a href="../quizzes/quiz-02.html">Quiz 2</a> is Friday, September 11.</p>
+<p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and <strong>Check yourself</strong>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -173,6 +206,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Compare outputs from competing models.</li>
 <li>State a reasonable limitation or assumption of a linear model.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Is <span class="math inline">\(f(x)=5x_1+2x_2\)</span> linear, affine, or both? What about <span class="math inline">\(g(x)=5x_1+2x_2-3\)</span>?</p>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p>An <strong>affine model</strong> <span class="math inline">\(f(x)=a^{\mathsf{T}}x+b\)</span> often approximates a real quantity only over a limited range of inputs; outside that range the model may be <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span>.</p>
+<p>In a cost model <span class="math inline">\(c^{\mathsf{T}}q\)</span>, the entry <span class="math inline">\(c_i\)</span> is the cost per unit of material <span class="math inline">\(i\)</span>. The total cost is a <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> of the amounts <span class="math inline">\(q_i\)</span>.</p>
+<p>In Boyd 1.14, <span class="math inline">\(f^{\mathsf{T}}h\)</span> is <strong>sector exposure</strong>: net dollars invested in assets with <span class="math inline">\(f_i=1\)</span>. If <span class="math inline">\(f^{\mathsf{T}}h=0\)</span>, the portfolio is <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> to that sector.</p>
+<p>To pick the cheapest of <span class="math inline">\(K\)</span> suppliers with price vectors <span class="math inline">\(p_1,\ldots,p_K\)</span> for order <span class="math inline">\(q\)</span>, compare <span class="math inline">\(p_1^{\mathsf{T}}q,\ldots,p_K^{\mathsf{T}}q\)</span> and choose the <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span>.</p>
+<p>A regression model <span class="math inline">\(\hat{y}=\beta^{\mathsf{T}}x+v\)</span> is useful when the relationship is roughly <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> over the data range, but coefficients can be hard to interpret if features are <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span>.</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> A 30-question magazine quiz uses answers <span class="math inline">\(a_i\in\{1,2,3\}\)</span> (Rarely, Sometimes, Often). Questions 1–15: Sometimes <span class="math inline">\(+1\)</span>, Often <span class="math inline">\(+2\)</span>. Questions 16–30: Sometimes <span class="math inline">\(+2\)</span>, Often <span class="math inline">\(+4\)</span>. Rarely adds 0. Write total score <span class="math inline">\(s=w^{\mathsf{T}}a+v\)</span> (Boyd 2.6).</p>
+<p><strong>W2.</strong> Cash held in five currencies is <span class="math inline">\(c=(1000,500,-200,0,300)\)</span> (USD, RMB, EUR, GBP, JPY). Exchange rates to USD are <span class="math inline">\(r=(1,0.14,1.08,1.27,0.0067)\)</span>. Total USD value is <span class="math inline">\(r^{\mathsf{T}}c\)</span> (Boyd 1.12). Compute it (negative EUR is a liability).</p>
+<p><strong>W3.</strong> Three assets; pharma indicator <span class="math inline">\(f=(1,0,1)\)</span>. Portfolio <span class="math inline">\(h=(500,200,-100)\)</span> dollars (short on asset 2). Compute exposure <span class="math inline">\(f^{\mathsf{T}}h\)</span> (Boyd 1.14). In words, what does the sign mean?</p>
+<p><strong>W4.</strong> Order <span class="math inline">\(q=(10,5,20)\)</span> of three materials. Supplier A prices <span class="math inline">\(p_A=(2,4,1)\)</span>; supplier B prices <span class="math inline">\(p_B=(3,2,2)\)</span> per unit (Boyd 1.15). Which supplier is cheaper for the whole order? Compare <span class="math inline">\(p_A^{\mathsf{T}}q\)</span> and <span class="math inline">\(p_B^{\mathsf{T}}q\)</span>.</p>
+<p><strong>W5.</strong> Processor temperature is affine in power: <span class="math inline">\(T=a^{\mathsf{T}}P+b\)</span>. Idle <span class="math inline">\(P=(10,10,10)\)</span> gives <span class="math inline">\(T=30\)</span>. Full power on processor 1 only, <span class="math inline">\(P=(100,10,10)\)</span>, gives <span class="math inline">\(T=60\)</span>. Find <span class="math inline">\(a_1\)</span> from those two readings (Boyd 2.2 setup).</p>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<p><strong>C1.</strong> Two regression models for the same house: <span class="math inline">\(\hat{y}_A=200{,}000+120x_1+15{,}000x_2\)</span> and <span class="math inline">\(\hat{y}_B=180{,}000+130x_1+18{,}000x_2\)</span>, where <span class="math inline">\(x_1\)</span> is area (1000 ft²) and <span class="math inline">\(x_2\)</span> is bedrooms. For <span class="math inline">\(x=(2,3)\)</span>, compute both predictions. Which predicts higher?</p>
+<p><strong>C2.</strong> Boyd 2.4 style: <span class="math inline">\(\varphi(1,1,0)=-1\)</span>, <span class="math inline">\(\varphi(-1,1,1)=1\)</span>, <span class="math inline">\(\varphi(1,-1,-1)=1\)</span>. Could <span class="math inline">\(\varphi\)</span> be linear? Could it be affine? Brief reason.</p>
+<p><strong>C3.</strong> You must buy <span class="math inline">\(q=(4,2)\)</span>. Supplier 1: <span class="math inline">\(p_1=(5,3)\)</span>; supplier 2: <span class="math inline">\(p_2=(4,5)\)</span>. Which supplier wins on total cost <span class="math inline">\(p_k^{\mathsf{T}}q\)</span>?</p>
+<p><strong>C4.</strong> A long-only portfolio (<span class="math inline">\(h_i\geq 0\)</span>) is neutral to pharma (<span class="math inline">\(f^{\mathsf{T}}h=0\)</span> with <span class="math inline">\(f_i\in\{0,1\}\)</span>). In one sentence, what does that mean about pharma holdings?</p>
+<p><strong>C5.</strong> Name one reasonable <strong>limitation</strong> of using a linear model for café revenue <span class="math inline">\(p^{\mathsf{T}}x\)</span> when <span class="math inline">\(x\)</span> counts drinks sold.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Check yourself only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>C1. <span class="math inline">\(\hat{y}_A=200{,}000+120\cdot 2+15{,}000\cdot 3=245{,}240\)</span>. <span class="math inline">\(\hat{y}_B=180{,}000+130\cdot 2+18{,}000\cdot 3=248{,}260\)</span>. Model B predicts higher.</p>
+<p>C2. <strong>Cannot be linear:</strong> if <span class="math inline">\(\varphi(x)=a^{\mathsf{T}}x\)</span>, the three given values force an inconsistent system for <span class="math inline">\(a\)</span>. <strong>Could be affine:</strong> many choices of <span class="math inline">\(a,b\)</span> with <span class="math inline">\(\varphi(x)=a^{\mathsf{T}}x+b\)</span> fit three input–output pairs.</p>
+<p>C3. <span class="math inline">\(p_1^{\mathsf{T}}q=5\cdot 4+3\cdot 2=26\)</span>. <span class="math inline">\(p_2^{\mathsf{T}}q=4\cdot 4+5\cdot 2=26\)</span>. Tie.</p>
+<p>C4. No net dollar holdings in pharma stocks (long positions in pharma are fully offset by non-pharma or the portfolio holds none).</p>
+<p>C5. Sample: prices fixed but demand may saturate; loss leaders; does not model quantity discounts; assumes all drinks sold at listed price.</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -639,28 +720,110 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 06 — Linear functions in applications"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Sep 4"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-02</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-06.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-06.pdf)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: September 2, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related reading and the course-wide list of daily objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-06)</span>.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 2.1–2.3 applications (score, cost, temperature, regression). Quiz 2 prep: Boyd 1.12, 1.14, 1.15. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-06)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>. <span class="co">[</span><span class="ot">Quiz 2</span><span class="co">](../quizzes/quiz-02.qmd)</span> is Friday, September 11.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and **Check yourself**.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Model a score, cost, prediction, or aggregate quantity.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret model coefficients and intercepts.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Compare outputs from competing models.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>State a reasonable limitation or assumption of a linear model.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Model a score, cost, prediction, or aggregate quantity.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Interpret model coefficients and intercepts.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Compare outputs from competing models.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>State a reasonable limitation or assumption of a linear model.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Is $f(x)=5x_1+2x_2$ linear, affine, or both? What about $g(x)=5x_1+2x_2-3$?</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>An **affine model** $f(x)=a^{\mathsf{T}}x+b$ often approximates a real quantity only over a limited range of inputs; outside that range the model may be $\underline{\hspace{2.4cm}}$.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>In a cost model $c^{\mathsf{T}}q$, the entry $c_i$ is the cost per unit of material $i$. The total cost is a $\underline{\hspace{2.4cm}}$ of the amounts $q_i$.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>In Boyd 1.14, $f^{\mathsf{T}}h$ is **sector exposure**: net dollars invested in assets with $f_i=1$. If $f^{\mathsf{T}}h=0$, the portfolio is $\underline{\hspace{2.4cm}}$ to that sector.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>To pick the cheapest of $K$ suppliers with price vectors $p_1,\ldots,p_K$ for order $q$, compare $p_1^{\mathsf{T}}q,\ldots,p_K^{\mathsf{T}}q$ and choose the $\underline{\hspace{2.0cm}}$.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>A regression model $\hat{y}=\beta^{\mathsf{T}}x+v$ is useful when the relationship is roughly $\underline{\hspace{2.4cm}}$ over the data range, but coefficients can be hard to interpret if features are $\underline{\hspace{2.4cm}}$.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**W1.** A 30-question magazine quiz uses answers $a_i\in<span class="sc">\{</span>1,2,3<span class="sc">\}</span>$ (Rarely, Sometimes, Often). Questions 1–15: Sometimes $+1$, Often $+2$. Questions 16–30: Sometimes $+2$, Often $+4$. Rarely adds 0. Write total score $s=w^{\mathsf{T}}a+v$ (Boyd 2.6).</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>**W2.** Cash held in five currencies is $c=(1000,500,-200,0,300)$ (USD, RMB, EUR, GBP, JPY). Exchange rates to USD are $r=(1,0.14,1.08,1.27,0.0067)$. Total USD value is $r^{\mathsf{T}}c$ (Boyd 1.12). Compute it (negative EUR is a liability).</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**W3.** Three assets; pharma indicator $f=(1,0,1)$. Portfolio $h=(500,200,-100)$ dollars (short on asset 2). Compute exposure $f^{\mathsf{T}}h$ (Boyd 1.14). In words, what does the sign mean?</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>**W4.** Order $q=(10,5,20)$ of three materials. Supplier A prices $p_A=(2,4,1)$; supplier B prices $p_B=(3,2,2)$ per unit (Boyd 1.15). Which supplier is cheaper for the whole order? Compare $p_A^{\mathsf{T}}q$ and $p_B^{\mathsf{T}}q$.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**W5.** Processor temperature is affine in power: $T=a^{\mathsf{T}}P+b$. Idle $P=(10,10,10)$ gives $T=30$. Full power on processor 1 only, $P=(100,10,10)$, gives $T=60$. Find $a_1$ from those two readings (Boyd 2.2 setup).</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Check yourself</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>**C1.** Two regression models for the same house: $\hat{y}_A=200{,}000+120x_1+15{,}000x_2$ and $\hat{y}_B=180{,}000+130x_1+18{,}000x_2$, where $x_1$ is area (1000 ft²) and $x_2$ is bedrooms. For $x=(2,3)$, compute both predictions. Which predicts higher?</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>**C2.** Boyd 2.4 style: $\varphi(1,1,0)=-1$, $\varphi(-1,1,1)=1$, $\varphi(1,-1,-1)=1$. Could $\varphi$ be linear? Could it be affine? Brief reason.</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>**C3.** You must buy $q=(4,2)$. Supplier 1: $p_1=(5,3)$; supplier 2: $p_2=(4,5)$. Which supplier wins on total cost $p_k^{\mathsf{T}}q$?</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>**C4.** A long-only portfolio ($h_i\geq 0$) is neutral to pharma ($f^{\mathsf{T}}h=0$ with $f_i\in<span class="sc">\{</span>0,1<span class="sc">\}</span>$). In one sentence, what does that mean about pharma holdings?</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>**C5.** Name one reasonable **limitation** of using a linear model for café revenue $p^{\mathsf{T}}x$ when $x$ counts drinks sold.</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Check yourself only)</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-06.qmd &gt;}}</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Check yourself)</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-06.qmd &gt;}}</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -42,6 +42,181 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
+    "objectID": "lectures/lecture-05.html",
+    "href": "lectures/lecture-05.html",
+    "title": "Lecture 05 — Linear and affine functions",
+    "section": "",
+    "text": "Download PDF\nLast updated: September 2, 2026.\nReading: Boyd 2.1 and 2.3 (linear and affine functions; regression model). Related objectives: Lectures. Schedule."
+  },
+  {
+    "objectID": "lectures/lecture-05.html#learning-objectives",
+    "href": "lectures/lecture-05.html#learning-objectives",
+    "title": "Lecture 05 — Linear and affine functions",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nDistinguish linear from affine functions in examples.\nTest superposition numerically on simple functions.\nConstruct a function \\(a^{\\mathsf{T}}x+b\\) for a contextual quantity.\nEvaluate a model by hand and computationally."
+  },
+  {
+    "objectID": "lectures/lecture-05.html#fill-in",
+    "href": "lectures/lecture-05.html#fill-in",
+    "title": "Lecture 05 — Linear and affine functions",
+    "section": "Fill in",
+    "text": "Fill in\nA function \\(f:\\mathbb{R}^n \\to \\mathbb{R}\\) is linear if for all \\(n\\)-vectors \\(x,y\\) and scalars \\(\\alpha,\\beta\\), \\[\nf(\\alpha x + \\beta y) = \\alpha f(x) + \\beta f(y).\n\\] This property is called \\(\\underline{\\hspace{2.4cm}}\\).\nEquivalently, linear functions satisfy homogeneity \\(f(\\alpha x)=\\alpha f(x)\\) and additivity \\(f(x+y)=f(x)+f(y)\\).\nEvery linear function can be written as an inner product: \\(f(x) = \\underline{\\hspace{2.0cm}}\\) for some fixed \\(n\\)-vector \\(a\\).\nA function is affine if it has the form \\(f(x) = a^{\\mathsf{T}}x + b\\) for some \\(n\\)-vector \\(a\\) and scalar \\(b\\). The number \\(b\\) is the \\(\\underline{\\hspace{2.0cm}}\\) (or intercept).\nAffine functions satisfy a restricted superposition rule: \\(f(\\alpha x + \\beta y) = \\alpha f(x) + \\beta f(y)\\) only when \\(\\alpha + \\beta = \\underline{\\hspace{1.2cm}}\\).\nIf \\(b \\neq 0\\), the function \\(f(x)=a^{\\mathsf{T}}x+b\\) is affine but \\(\\underline{\\hspace{2.4cm}}\\) linear.\nThe average \\(\\mathrm{avg}(x)=\\frac{1}{n}(x_1+\\cdots+x_n)\\) is \\(\\underline{\\hspace{2.0cm}}\\); the maximum entry \\(\\max(x_1,\\ldots,x_n)\\) is not (for \\(n\\geq 2\\)).\nA regression model \\(\\hat{y} = \\beta^{\\mathsf{T}}x + v\\) predicts a scalar from features \\(x\\). The entry \\(\\beta_i\\) tells how \\(\\hat{y}\\) changes when feature \\(x_i\\) increases by one, holding other features fixed. The offset \\(v\\) is the predicted value when \\(\\underline{\\hspace{2.8cm}}\\)."
+  },
+  {
+    "objectID": "lectures/lecture-05.html#worked-in-class",
+    "href": "lectures/lecture-05.html#worked-in-class",
+    "title": "Lecture 05 — Linear and affine functions",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. Classify each function below as linear, affine but not linear, or neither. If linear, write \\(f(x)=a^{\\mathsf{T}}x\\).\n\n\\(f(x)=x_n-x_1\\) (Boyd 2.1(b)).\n\\(f(x)=3x_1-2x_2+7\\).\n\\(f(x)=\\max(x_1,x_2)\\) for \\(n=2\\).\n\nW2. Superposition check. For \\(f(x)=\\max(x_1,x_2)\\), let \\(x=(1,-1)\\), \\(y=(-1,1)\\), \\(\\alpha=\\beta=\\tfrac{1}{2}\\). Compute \\(f(\\alpha x+\\beta y)\\) and \\(\\alpha f(x)+\\beta f(y)\\). What does this show?\nW3. A 10-vector \\(r\\) stores course grades: \\(r_1,\\ldots,r_8\\) are homework scores (0–10 each), \\(r_9\\) is midterm (0–120), \\(r_10\\) is final (0–160). Total score on 0–100 is 25% homework, 35% midterm, 40% final. Write \\(s=w^{\\mathsf{T}}r\\) and give \\(w\\) (Boyd 1.10 style).\nW4. Profit per unit is \\(p=(4,2,-1)\\) dollars for three items (item 3 is a loss leader). Monthly sales are \\(s=(100,50,30)\\) units. Total profit is \\(p^{\\mathsf{T}}s\\) (Boyd 1.8). Compute it and interpret item 3’s sign."
+  },
+  {
+    "objectID": "lectures/lecture-05.html#check-yourself",
+    "href": "lectures/lecture-05.html#check-yourself",
+    "title": "Lecture 05 — Linear and affine functions",
+    "section": "Check yourself",
+    "text": "Check yourself\nC1. Boyd 2.1(a): \\(f(x)=\\max_k x_k - \\min_k x_k\\) (spread). Linear or not? One sentence why.\nC2. Boyd 2.1(e): \\(f(x)=x_n+(x_n-x_{n-1})\\) (extrapolation). Linear or not? If linear, find \\(a\\) with \\(f(x)=a^{\\mathsf{T}}x\\).\nC3. Is \\(g(x)=2x_1-x_3+5\\) linear, affine, or neither? Write it as \\(a^{\\mathsf{T}}x+b\\) if affine.\nC4. Lachniet Ch. 1 Ex. 2(b): \\(u=(2,-4,0)\\), \\(v=(3,1.5,-7)\\). Find \\(d=u^{\\mathsf{T}}v\\) (dot product). What does \\(d=0\\) suggest about direction?\nC5. A café bill is \\(f(x)=p^{\\mathsf{T}}x\\) with \\(p=(3.50,2.00,1.25)\\) and \\(x=(2,1,0)\\) (drinks ordered). Compute \\(f(x)\\) and state whether \\(f\\) is linear or affine.\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. Not linear (nor affine): spread fails superposition (Boyd uses \\(x=(1,-1)\\), \\(y=(-1,1)\\), \\(\\alpha=\\beta=1/2\\)).\nC2. Linear: \\(f(x)=x_n+(x_n-x_{n-1})=2x_n-x_{n-1}\\), so \\(a=(0,\\ldots,0,-1,2)\\) with \\(a_{n-1}=-1\\), \\(a_n=2\\).\nC3. Affine but not linear: \\(a=(2,0,-1)^{\\mathsf{T}}\\), \\(b=5\\).\nC4. \\(d=2\\cdot 3+(-4)\\cdot 1.5+0=6-6=0\\). The vectors are orthogonal (perpendicular in 3D).\nC5. \\(f(x)=3.50\\cdot 2+2.00\\cdot 1+1.25\\cdot 0=9.00\\) dollars. Linear (also affine with \\(b=0\\))."
+  },
+  {
+    "objectID": "lectures/lecture-06.html",
+    "href": "lectures/lecture-06.html",
+    "title": "Lecture 06 — Linear functions in applications",
+    "section": "",
+    "text": "Download PDF\nLast updated: September 2, 2026.\nReading: Boyd 2.1–2.3 applications (score, cost, temperature, regression). Quiz 2 prep: Boyd 1.12, 1.14, 1.15. Related objectives: Lectures. Schedule. Quiz 2 is Friday, September 11.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Check yourself."
+  },
+  {
+    "objectID": "lectures/lecture-06.html#learning-objectives",
+    "href": "lectures/lecture-06.html#learning-objectives",
+    "title": "Lecture 06 — Linear functions in applications",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nModel a score, cost, prediction, or aggregate quantity.\nInterpret model coefficients and intercepts.\nCompare outputs from competing models.\nState a reasonable limitation or assumption of a linear model."
+  },
+  {
+    "objectID": "lectures/lecture-06.html#warm-up",
+    "href": "lectures/lecture-06.html#warm-up",
+    "title": "Lecture 06 — Linear functions in applications",
+    "section": "Warm-up",
+    "text": "Warm-up\nIs \\(f(x)=5x_1+2x_2\\) linear, affine, or both? What about \\(g(x)=5x_1+2x_2-3\\)?"
+  },
+  {
+    "objectID": "lectures/lecture-06.html#fill-in",
+    "href": "lectures/lecture-06.html#fill-in",
+    "title": "Lecture 06 — Linear functions in applications",
+    "section": "Fill in",
+    "text": "Fill in\nAn affine model \\(f(x)=a^{\\mathsf{T}}x+b\\) often approximates a real quantity only over a limited range of inputs; outside that range the model may be \\(\\underline{\\hspace{2.4cm}}\\).\nIn a cost model \\(c^{\\mathsf{T}}q\\), the entry \\(c_i\\) is the cost per unit of material \\(i\\). The total cost is a \\(\\underline{\\hspace{2.4cm}}\\) of the amounts \\(q_i\\).\nIn Boyd 1.14, \\(f^{\\mathsf{T}}h\\) is sector exposure: net dollars invested in assets with \\(f_i=1\\). If \\(f^{\\mathsf{T}}h=0\\), the portfolio is \\(\\underline{\\hspace{2.4cm}}\\) to that sector.\nTo pick the cheapest of \\(K\\) suppliers with price vectors \\(p_1,\\ldots,p_K\\) for order \\(q\\), compare \\(p_1^{\\mathsf{T}}q,\\ldots,p_K^{\\mathsf{T}}q\\) and choose the \\(\\underline{\\hspace{2.0cm}}\\).\nA regression model \\(\\hat{y}=\\beta^{\\mathsf{T}}x+v\\) is useful when the relationship is roughly \\(\\underline{\\hspace{2.4cm}}\\) over the data range, but coefficients can be hard to interpret if features are \\(\\underline{\\hspace{2.4cm}}\\)."
+  },
+  {
+    "objectID": "lectures/lecture-06.html#worked-in-class",
+    "href": "lectures/lecture-06.html#worked-in-class",
+    "title": "Lecture 06 — Linear functions in applications",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. A 30-question magazine quiz uses answers \\(a_i\\in\\{1,2,3\\}\\) (Rarely, Sometimes, Often). Questions 1–15: Sometimes \\(+1\\), Often \\(+2\\). Questions 16–30: Sometimes \\(+2\\), Often \\(+4\\). Rarely adds 0. Write total score \\(s=w^{\\mathsf{T}}a+v\\) (Boyd 2.6).\nW2. Cash held in five currencies is \\(c=(1000,500,-200,0,300)\\) (USD, RMB, EUR, GBP, JPY). Exchange rates to USD are \\(r=(1,0.14,1.08,1.27,0.0067)\\). Total USD value is \\(r^{\\mathsf{T}}c\\) (Boyd 1.12). Compute it (negative EUR is a liability).\nW3. Three assets; pharma indicator \\(f=(1,0,1)\\). Portfolio \\(h=(500,200,-100)\\) dollars (short on asset 2). Compute exposure \\(f^{\\mathsf{T}}h\\) (Boyd 1.14). In words, what does the sign mean?\nW4. Order \\(q=(10,5,20)\\) of three materials. Supplier A prices \\(p_A=(2,4,1)\\); supplier B prices \\(p_B=(3,2,2)\\) per unit (Boyd 1.15). Which supplier is cheaper for the whole order? Compare \\(p_A^{\\mathsf{T}}q\\) and \\(p_B^{\\mathsf{T}}q\\).\nW5. Processor temperature is affine in power: \\(T=a^{\\mathsf{T}}P+b\\). Idle \\(P=(10,10,10)\\) gives \\(T=30\\). Full power on processor 1 only, \\(P=(100,10,10)\\), gives \\(T=60\\). Find \\(a_1\\) from those two readings (Boyd 2.2 setup)."
+  },
+  {
+    "objectID": "lectures/lecture-06.html#check-yourself",
+    "href": "lectures/lecture-06.html#check-yourself",
+    "title": "Lecture 06 — Linear functions in applications",
+    "section": "Check yourself",
+    "text": "Check yourself\nC1. Two regression models for the same house: \\(\\hat{y}_A=200{,}000+120x_1+15{,}000x_2\\) and \\(\\hat{y}_B=180{,}000+130x_1+18{,}000x_2\\), where \\(x_1\\) is area (1000 ft²) and \\(x_2\\) is bedrooms. For \\(x=(2,3)\\), compute both predictions. Which predicts higher?\nC2. Boyd 2.4 style: \\(\\varphi(1,1,0)=-1\\), \\(\\varphi(-1,1,1)=1\\), \\(\\varphi(1,-1,-1)=1\\). Could \\(\\varphi\\) be linear? Could it be affine? Brief reason.\nC3. You must buy \\(q=(4,2)\\). Supplier 1: \\(p_1=(5,3)\\); supplier 2: \\(p_2=(4,5)\\). Which supplier wins on total cost \\(p_k^{\\mathsf{T}}q\\)?\nC4. A long-only portfolio (\\(h_i\\geq 0\\)) is neutral to pharma (\\(f^{\\mathsf{T}}h=0\\) with \\(f_i\\in\\{0,1\\}\\)). In one sentence, what does that mean about pharma holdings?\nC5. Name one reasonable limitation of using a linear model for café revenue \\(p^{\\mathsf{T}}x\\) when \\(x\\) counts drinks sold.\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. \\(\\hat{y}_A=200{,}000+120\\cdot 2+15{,}000\\cdot 3=245{,}240\\). \\(\\hat{y}_B=180{,}000+130\\cdot 2+18{,}000\\cdot 3=248{,}260\\). Model B predicts higher.\nC2. Cannot be linear: if \\(\\varphi(x)=a^{\\mathsf{T}}x\\), the three given values force an inconsistent system for \\(a\\). Could be affine: many choices of \\(a,b\\) with \\(\\varphi(x)=a^{\\mathsf{T}}x+b\\) fit three input–output pairs.\nC3. \\(p_1^{\\mathsf{T}}q=5\\cdot 4+3\\cdot 2=26\\). \\(p_2^{\\mathsf{T}}q=4\\cdot 4+5\\cdot 2=26\\). Tie.\nC4. No net dollar holdings in pharma stocks (long positions in pharma are fully offset by non-pharma or the portfolio holds none).\nC5. Sample: prices fixed but demand may saturate; loss leaders; does not model quantity discounts; assumes all drinks sold at listed price."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Download this page as PDF"
+  },
+  {
+    "objectID": "syllabus.html#course-information",
+    "href": "syllabus.html#course-information",
+    "title": "Course Syllabus",
+    "section": "Course Information",
+    "text": "Course Information\nCourse Number: MATH 107\nCourse Title: Introduction to Linear Algebra\nClass Number: 42493\nSection: 1\nSession: Regular Academic Session\nUnits: 3\nSemester: Fall 2026\nMode of Instruction: Face to Face Instruction ONLY\nGeneral Education: GE Area 2 — Mathematics\n\nLecture\nDays/Time: Monday, Wednesday, Friday, 10:00–10:50 a.m.\nLocation: FR 201\n\n\nFinal Exam\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m., FR 201.\n\n\nInstructor Information\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment.\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
+  },
+  {
+    "objectID": "syllabus.html#course-description-catalog-description",
+    "href": "syllabus.html#course-description-catalog-description",
+    "title": "Course Syllabus",
+    "section": "Course Description (Catalog Description)",
+    "text": "Course Description (Catalog Description)\nEuclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nDivision: Lower Division.\nWeekly: Lecture 3 hrs.\nInstruction Mode: Face to face only.\nPrerequisite: (MATH 101 and MATH 101T) or MATH 102 or ALEKS PPL assessment score 78–100 or appropriate high school coursework. All prerequisite courses must be passed with a grade of C− or higher. See Math Placement and ALEKS PPL for details.\nNote: if you plan to use MATH 107 as a prerequisite for another MATH, DATA, or STAT course, you must have a grade of C− or better in this course.\n\nCourse Learning Outcomes\nBy the end of this course, students will be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily learning objectives for each meeting are on Lectures.\n\n\nGeneral Education & Institutional Learning Outcomes\nThis course fulfills Lower Division General Education Area 2 (Mathematics) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
+  },
+  {
+    "objectID": "syllabus.html#course-materials-workload",
+    "href": "syllabus.html#course-materials-workload",
+    "title": "Course Syllabus",
+    "section": "Course Materials & Workload",
+    "text": "Course Materials & Workload\nMATH 107 includes three weekly lecture meetings. Some Fridays (and a few other days) include a lab, quiz, or exam as marked on the schedule.\nIn this 3-unit course, students should expect to spend approximately 9 hours per week on course-related work, including time in class (3 hours) and time outside of class on reading, practice, labs, and exam preparation (6 hours).\n\nRequired Materials\nCourse website: Canvas and https://roverhol.github.io/math107\nTextbooks (free):\n\nStephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares (VMLS).\nGilbert Strang, Introduction to Linear Algebra: selected free MIT samples only (§3.5, §6.1, and SVD slides), so you do not need to buy it.\n\nSoftware: Octave, free to download at https://octave.org/. I will also provide an optional Python/Colab version of each lab.\nOther Technology: A scientific calculator for in-class assessments and regular access to a computer with reliable internet. Bring a laptop on lab days, or let me know a day ahead that I should bring one for you to use. Please bring paper and a pen or pencil to class each day.\n\n\nAccess & Affordability\nStudents who do not have personal access to required technology may use computers either in campus labs or checked out from the library. Calculators are also available for check out from the library’s front desk. If you want to get a free used computer, please check to see if our campus’s Reusable Office Supply Exchange (ROSE) has one available.\n\n\nFees\nThere are no additional course fees beyond standard tuition and registration fees."
+  },
+  {
+    "objectID": "syllabus.html#course-feedback-assessment",
+    "href": "syllabus.html#course-feedback-assessment",
+    "title": "Course Syllabus",
+    "section": "Course Feedback & Assessment",
+    "text": "Course Feedback & Assessment\nStudents will receive feedback and complete assessments in a variety of ways:\n\nClass participation in daily in-class activities\nComputational labs in Octave (about every two weeks)\nIn-class quizzes (ten quizzes, first 10 minutes of class; the lowest two scores are dropped)\nTwo midterms (Friday, October 2 and Friday, November 13, in class)\nA final exam (Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201)\nA capstone project (end of the semester)\n\n\n\nGrading\n\n\n\nComponent\nWeight\n\n\n\n\nParticipation / in-class work\n5%\n\n\nLabs\n10%\n\n\nQuizzes\n25%\n\n\nTwo midterms\n35%\n\n\nCapstone\n10%\n\n\nFinal\n15%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93–100% A−: 90–92% B+: 87–89% B: 83–86% B−: 80–82% C+: 77–79% C: 73–76% C−: 70–72% D: 60–69% F: 0–59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C− is required for the course to count as a prerequisite for other MATH or DATA classes.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\nAttendance & Participation\nRegular attendance and active participation are required because they are essential for the success of everyone in this course. Up to 10 days may be missed without penalty to your course grade: these days should be reserved for use in times of illness or other obligations.\nIf you must miss class, you are responsible for obtaining notes from me or a classmate and keeping up with course material."
+  },
+  {
+    "objectID": "syllabus.html#late-or-missed-work-policies",
+    "href": "syllabus.html#late-or-missed-work-policies",
+    "title": "Course Syllabus",
+    "section": "Late or Missed Work Policies",
+    "text": "Late or Missed Work Policies\nThe policies for late or missed work are as follows:\n\nLecture attendance is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 lecture days without penalty and without contacting me. Reserve these days for emergencies. In my experience, it is rare for a student to succeed if they regularly miss class or are absent for more than two weeks, so if you find yourself in that situation, please communicate with me and your advisor so we can help you find a solution.\nQuizzes are in the first 10 minutes of class. The lowest two quiz scores are dropped. If you must miss a quiz due to illness or another emergency, please contact me to arrange a makeup.\nLabs are due on the dates on the schedule. After a week, late labs are not accepted.\nCapstone work is due on the dates on the schedule. Late project work cannot be turned in due to the end of the semester and course grades being due. If you are unable to complete the project in time, you should consider whether your situation is such that an Incomplete grade is appropriate. This would give you more time to complete the course.\nMidterms and the final exam are required. If you need to miss a midterm due to illness or another emergency, communicate with me as soon as possible to reschedule.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\nAI Policy\nMuch of your course grade will be based on work you produce in class (quizzes and exams) without having the option of using AI as a resource.\nOutside of in-class assessments, you may use AI, such as NotebookLM or ChatGPT, to help you learn the material or to get unstuck on labs or the capstone.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nIf you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\nBe responsible for the correctness and appropriateness of all (AI-assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking whether an assignment is appropriate for a college-level course or whether the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
+  },
+  {
+    "objectID": "syllabus.html#course-topics-schedule",
+    "href": "syllabus.html#course-topics-schedule",
+    "title": "Course Syllabus",
+    "section": "Course Topics & Schedule",
+    "text": "Course Topics & Schedule\n\nTopics (Approximate Order)\n\nVectors as representations; arithmetic, linear combinations, and inner products\nLinear and affine functions; norms, angle, neighbors, and clustering\nLinear dependence, span, and bases\nMatrices, \\(Ax\\), transformations, and linear systems\nDynamics, simulation, products, powers, and computational cost\nInverses, rank, and determinants\nEigenvectors and eigenvalues\nLeast squares, fitting, and SVD\nAccuracy, memory, runtime, and communication\n\n\n\nSummary of Schedule and Important Dates\nNote: The schedule has a detailed list of the course. Please check it regularly for updates.\n\n\n\nDate\nEvent\n\n\n\n\nAugust 24\nFirst class\n\n\nAugust 28\nLab 0\n\n\nSeptember 4\nQuiz 1\n\n\nSeptember 7\nLabor Day (no class)\n\n\nOctober 2\nMidterm 1\n\n\nNovember 11\nVeterans Day (no class)\n\n\nNovember 13\nMidterm 2\n\n\nNovember 23–27\nFall break (no class)\n\n\nDecember 9\nCapstone gallery\n\n\nDecember 11\nFinal review (last class meeting)\n\n\nDecember 16\nFinal exam, 10:20 a.m.–12:10 p.m., FR 201\n\n\n\nAdd/drop and other university deadlines follow the Cal Poly Humboldt academic calendar."
+  },
+  {
+    "objectID": "syllabus.html#university-policies-resources",
+    "href": "syllabus.html#university-policies-resources",
+    "title": "Course Syllabus",
+    "section": "University Policies & Resources",
+    "text": "University Policies & Resources\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\nAccommodations\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\nClassroom & Online Conduct\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
+  },
+  {
+    "objectID": "syllabus.html#changes-to-the-syllabus",
+    "href": "syllabus.html#changes-to-the-syllabus",
+    "title": "Course Syllabus",
+    "section": "Changes to the Syllabus",
+    "text": "Changes to the Syllabus\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
+  },
+  {
+    "objectID": "syllabus.html#license",
+    "href": "syllabus.html#license",
+    "title": "Course Syllabus",
+    "section": "License",
+    "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24Vectors\nAug 26Arithmetic\nAug 28CombinationsLab 0Lab 0 ticket\n\n\n2\nAug 31Inner product\nSep 2Linear functions\nSep 4ApplicationsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Norms\nSep 11AngleQuiz 2\n\n\n4\nSep 14Neighbors\nSep 16Clustering\nSep 18Similar thingsQuiz 3Lab 1\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25Basis\n\n\n6\nSep 28SynthesisQuiz 4\nSep 30Review\nOct 2Exam dayMidterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsLab 2\n\n\n8\nOct 12SystemsQuiz 5\nOct 14Elimination\nOct 16RREF\n\n\n9\nOct 19DynamicsQuiz 6\nOct 21Simulation\nOct 23Through timeLab 3\n\n\n10\nOct 26ProductsQuiz 7\nOct 28Powers\nOct 30CostMicro-lab\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 8\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Exam dayMidterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squaresQuiz 9\nDec 2FittingLab 5\nDec 4SVDQuiz 10Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
+    "objectID": "assessments.html",
+    "href": "assessments.html",
+    "title": "Assessments",
+    "section": "",
+    "text": "Download this page as PDF"
+  },
+  {
+    "objectID": "assessments.html#source-key",
+    "href": "assessments.html#source-key",
+    "title": "Assessments",
+    "section": "Source key",
+    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
+  },
+  {
+    "objectID": "assessments.html#clo-coverage",
+    "href": "assessments.html#clo-coverage",
+    "title": "Assessments",
+    "section": "CLO coverage",
+    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 4\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\n\n\n\nQuiz\nDate\nFocus\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, linear combinations, Lab 0\n\n\nQuiz 2\nFri Sep 11\nDot products and linear functions\n\n\nQuiz 3\nFri Sep 18\nNorm, distance, angle, and similarity\n\n\nQuiz 4\nMon Sep 28\nClustering, dependence, span, basis, and dimension\n\n\nQuiz 5\nMon Oct 12\nMatrices, \\(Ax\\), and transformations\n\n\nQuiz 6\nMon Oct 19\nSystems, elimination, and RREF\n\n\nQuiz 7\nMon Oct 26\nDynamics and Lab 3\n\n\nQuiz 8\nFri Nov 6\nMatrix multiplication, cost, and inverses\n\n\nQuiz 9\nMon Nov 30\nEigenvalues, complex numbers, Lab 4\n\n\nQuiz 10\nFri Dec 4\nLeast squares, residuals, and Lab 5\n\n\n\nThere is no quiz on rank/determinants the week of Midterm 2; use the Midterm 2 practice packet. SVD is not on Quiz 10; use the capstone practice packet."
+  },
+  {
     "objectID": "lectures.html",
     "href": "lectures.html",
     "title": "Lectures",
@@ -453,174 +628,6 @@
     "title": "Lectures",
     "section": "Fri Dec 11 — Cumulative final review",
     "text": "Fri Dec 11 — Cumulative final review\nLecture 43 page\nReading: Cumulative review\nNote: No routine quiz or new content.\nBy the end of class, students should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
-  },
-  {
-    "objectID": "lectures/lecture-04.html",
-    "href": "lectures/lecture-04.html",
-    "title": "Lecture 04 — Inner product",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 31, 2026.\nReading: Boyd 1.4 (inner product); Boyd 1.1 stack and slice (Quiz 1 prep)."
-  },
-  {
-    "objectID": "lectures/lecture-04.html#learning-objectives",
-    "href": "lectures/lecture-04.html#learning-objectives",
-    "title": "Lecture 04 — Inner product",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute a dot product.\nInterpret it as a weighted sum.\nInterpret its sign and magnitude as alignment.\nRecognize orthogonal vectors from a zero dot product."
-  },
-  {
-    "objectID": "lectures/lecture-04.html#fill-in-stack-and-slice",
-    "href": "lectures/lecture-04.html#fill-in-stack-and-slice",
-    "title": "Lecture 04 — Inner product",
-    "section": "Fill in — stack and slice",
-    "text": "Fill in — stack and slice\nA stacked (or block) vector lists the entries of one vector after another. If \\(b\\) is an \\(m\\)-vector and \\(c\\) is an \\(n\\)-vector, then \\[\n(b, c) = (b_1,\\ldots,b_m,\\ c_1,\\ldots,c_n)\n\\] is an \\((m+n)\\)-vector. A scalar can be stacked with a vector: if \\(a\\) is a 3-vector, then \\((1,a)\\) is a \\(\\underline{\\hspace{1.6cm}}\\)-vector with first entry \\(1\\), then \\(a_1,a_2,a_3\\).\nStacking is not vector addition: \\((a,b)\\) has length \\(m+n\\), not \\(m\\).\nA slice (or subvector) takes a contiguous block of entries. Boyd’s notation \\(x_{r:s}\\) means the vector of entries \\(x_r, x_{r+1}, \\ldots, x_s\\). It has length \\(\\underline{\\hspace{2.0cm}}\\). The endpoints are inclusive.\nExample: if \\(z=(1,-1,2,0)\\), then \\(z_{2:3} = \\underline{\\hspace{2.4cm}}\\).\nIf \\(a\\) and \\(b\\) are 10-vectors and \\(c\\) is a 20-vector, then \\((a,b,c_{3:13})\\) has length \\(\\underline{\\hspace{2.0cm}}\\)."
-  },
-  {
-    "objectID": "lectures/lecture-04.html#fill-in",
-    "href": "lectures/lecture-04.html#fill-in",
-    "title": "Lecture 04 — Inner product",
-    "section": "Fill in",
-    "text": "Fill in\nFor \\(n\\)-vectors \\(a\\) and \\(b\\), the inner product (or dot product) is the scalar \\[\na^{\\mathsf{T}}b = a_1 b_1 + a_2 b_2 + \\cdots + a_n b_n = \\sum_{i=1}^n \\underline{\\hspace{2.4cm}}.\n\\] It is only defined when \\(a\\) and \\(b\\) have the same \\(\\underline{\\hspace{1.6cm}}\\).\nIf \\(w\\) is a weight vector and \\(x\\) is a data vector (same length), then \\(w^{\\mathsf{T}}x\\) is a \\(\\underline{\\hspace{3.2cm}}\\) of the entries of \\(x\\), using the weights in \\(w\\).\nGeometrically in \\(\\mathbb{R}^2\\) (and similarly in \\(\\mathbb{R}^3\\)): if \\(a^{\\mathsf{T}}b&gt;0\\), the arrows point roughly the \\(\\underline{\\hspace{2.4cm}}\\) direction; if \\(a^{\\mathsf{T}}b&lt;0\\), they point roughly \\(\\underline{\\hspace{2.0cm}}\\) directions; if \\(a^{\\mathsf{T}}b=0\\), the vectors are \\(\\underline{\\hspace{2.4cm}}\\).\nTwo vectors with \\(a^{\\mathsf{T}}b=0\\) are orthogonal (perpendicular). The inner product is commutative: \\(a^{\\mathsf{T}}b = \\underline{\\hspace{2.0cm}}\\).\nThe quantity \\(a^{\\mathsf{T}}a = a_1^2 + \\cdots + a_n^2\\) is always \\(\\underline{\\hspace{1.6cm}}\\) (never negative)."
-  },
-  {
-    "objectID": "lectures/lecture-04.html#worked-in-class",
-    "href": "lectures/lecture-04.html#worked-in-class",
-    "title": "Lecture 04 — Inner product",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Let \\(b=(2,-1)\\) and \\(c=(0,3,1)\\). Write the stacked vector \\((b,c)\\) explicitly. What is its length?\nW2. Let \\(z=(1,-1,2,0)\\). Write \\(z_{2:3}\\) and \\(z_{1:2}\\). If \\(x=(63,59,61,66)\\) is four daily high temperatures (°F), write the 3-vector of day-to-day changes as \\(x_{2:4} - x_{1:3}\\).\nW3. Compute \\(u^{\\mathsf{T}}v\\) for \\(u=(1,1)\\) and \\(v=(1,-1)\\). Sketch both arrows in \\(\\mathbb{R}^2\\) from the origin. How does the zero dot product match the picture?\nW4. Three quiz parts have scores (out of 1): \\[\ng = (0.80,\\ 0.90,\\ 0.70),\n\\] with weights \\[\nw = (0.50,\\ 0.30,\\ 0.20).\n\\] Compute the weighted total \\(w^{\\mathsf{T}}g\\). (Same idea as a weighted average when the weights sum to 1.)\nW5. Morning wind displacements (east, north), in km/h: \\[\na = (3, 1), \\qquad b = (-1, 3).\n\\] Compute \\(a^{\\mathsf{T}}b\\). Is it positive, negative, or zero? In one sentence, what does the sign tell you about how the two directions line up?"
-  },
-  {
-    "objectID": "lectures/lecture-04.html#your-turn",
-    "href": "lectures/lecture-04.html#your-turn",
-    "title": "Lecture 04 — Inner product",
-    "section": "Your turn",
-    "text": "Your turn\nY1. Let \\(a=(4,1,2)\\) and \\(b=(1,0,1)\\) be shopping lists (apples, bread, milk). Write \\((a,b)\\) and state its length.\nY2. Let \\(c=(10,12,11,14,13)\\) be five daily counts. Find \\(c_{2:4}\\).\nY3. Compute \\((2,-1)^{\\mathsf{T}}(3,4)\\) and \\((1,0)^{\\mathsf{T}}(0,1)\\).\nY4. A café tracks daily sales in the order (espresso, milk, syrup): \\[\nx = (40,\\ 30,\\ 10),\n\\] with prices in dollars \\[\np = (3,\\ 2,\\ 1).\n\\] What quantity does \\(p^{\\mathsf{T}}x\\) represent? Compute it.\nY5. Two shopping lists, in the order (apples, bread, milk): \\[\nr = (2,\\ 1,\\ 3), \\qquad s = (4,\\ 2,\\ 6).\n\\] Compute \\(r^{\\mathsf{T}}s\\). Notice anything about \\(r\\) and \\(s\\)? If \\(t=(1,0,-1)\\), compute \\(r^{\\mathsf{T}}t\\) and say whether \\(r\\) and \\(t\\) are orthogonal.\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\((a,b)=(4,1,2,1,0,1)\\); length \\(6\\).\nY2. \\(c_{2:4}=(12,11,14)\\).\nY3. \\((2,-1)^{\\mathsf{T}}(3,4)=2\\cdot 3+(-1)\\cdot 4=2\\). \\((1,0)^{\\mathsf{T}}(0,1)=0\\) (orthogonal).\nY4. Total revenue in dollars: \\(p^{\\mathsf{T}}x=3\\cdot 40+2\\cdot 30+1\\cdot 10=120+60+10=190\\) dollars.\nY5. \\(r^{\\mathsf{T}}s=2\\cdot 4+1\\cdot 2+3\\cdot 6=8+2+18=28\\). Also \\(s=2r\\), so the lists are proportional (same “direction” in data space). \\(r^{\\mathsf{T}}t=2\\cdot 1+1\\cdot 0+3\\cdot(-1)=2-3=-1\\neq 0\\), so \\(r\\) and \\(t\\) are not orthogonal."
-  },
-  {
-    "objectID": "quizzes/quiz-01.html",
-    "href": "quizzes/quiz-01.html",
-    "title": "Quiz 1",
-    "section": "",
-    "text": "Download PDF\nLast updated: August 31, 2026.\nRelated lectures: Vectors, Arithmetic, Combinations, Inner product (stack, slice, dot product).\nRelated lab: Lab 0.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-01.html#core",
-    "href": "quizzes/quiz-01.html#core",
-    "title": "Quiz 1",
-    "section": "Core",
-    "text": "Core\n\nB 1.1, 1.2, 1.6, 1.7, 1.9, 1.13, 1.18\nL Ch. 1 Ex. 2(a), linear-combination portion\nC0.1–C0.2: Enter, index, and modify a measurement vector (Octave or Python).\nC0.3–C0.4: Scale and add vectors; interpret in context.\nC0.5: Plot \\(x\\), \\(2x\\), and \\(-x\\), and describe the geometric changes.\nC0.6: Predict an indexed output, then check (Boyd vs software indexing)."
-  },
-  {
-    "objectID": "quizzes/quiz-01.html#stretch",
-    "href": "quizzes/quiz-01.html#stretch",
-    "title": "Quiz 1",
-    "section": "Stretch",
-    "text": "Stretch\nB 1.5, 1.11, 1.20."
-  },
-  {
-    "objectID": "quizzes/quiz-01.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-01.html#what-a-quiz-item-might-change",
-    "title": "Quiz 1",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThe entries or units, a different linear combination, or four lines of Octave/Python whose resulting vector you predict."
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Course Syllabus",
-    "section": "",
-    "text": "Download this page as PDF"
-  },
-  {
-    "objectID": "syllabus.html#course-information",
-    "href": "syllabus.html#course-information",
-    "title": "Course Syllabus",
-    "section": "Course Information",
-    "text": "Course Information\nCourse Number: MATH 107\nCourse Title: Introduction to Linear Algebra\nClass Number: 42493\nSection: 1\nSession: Regular Academic Session\nUnits: 3\nSemester: Fall 2026\nMode of Instruction: Face to Face Instruction ONLY\nGeneral Education: GE Area 2 — Mathematics\n\nLecture\nDays/Time: Monday, Wednesday, Friday, 10:00–10:50 a.m.\nLocation: FR 201\n\n\nFinal Exam\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m., FR 201.\n\n\nInstructor Information\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment.\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
-  },
-  {
-    "objectID": "syllabus.html#course-description-catalog-description",
-    "href": "syllabus.html#course-description-catalog-description",
-    "title": "Course Syllabus",
-    "section": "Course Description (Catalog Description)",
-    "text": "Course Description (Catalog Description)\nEuclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nDivision: Lower Division.\nWeekly: Lecture 3 hrs.\nInstruction Mode: Face to face only.\nPrerequisite: (MATH 101 and MATH 101T) or MATH 102 or ALEKS PPL assessment score 78–100 or appropriate high school coursework. All prerequisite courses must be passed with a grade of C− or higher. See Math Placement and ALEKS PPL for details.\nNote: if you plan to use MATH 107 as a prerequisite for another MATH, DATA, or STAT course, you must have a grade of C− or better in this course.\n\nCourse Learning Outcomes\nBy the end of this course, students will be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily learning objectives for each meeting are on Lectures.\n\n\nGeneral Education & Institutional Learning Outcomes\nThis course fulfills Lower Division General Education Area 2 (Mathematics) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
-  },
-  {
-    "objectID": "syllabus.html#course-materials-workload",
-    "href": "syllabus.html#course-materials-workload",
-    "title": "Course Syllabus",
-    "section": "Course Materials & Workload",
-    "text": "Course Materials & Workload\nMATH 107 includes three weekly lecture meetings. Some Fridays (and a few other days) include a lab, quiz, or exam as marked on the schedule.\nIn this 3-unit course, students should expect to spend approximately 9 hours per week on course-related work, including time in class (3 hours) and time outside of class on reading, practice, labs, and exam preparation (6 hours).\n\nRequired Materials\nCourse website: Canvas and https://roverhol.github.io/math107\nTextbooks (free):\n\nStephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares (VMLS).\nGilbert Strang, Introduction to Linear Algebra: selected free MIT samples only (§3.5, §6.1, and SVD slides), so you do not need to buy it.\n\nSoftware: Octave, free to download at https://octave.org/. I will also provide an optional Python/Colab version of each lab.\nOther Technology: A scientific calculator for in-class assessments and regular access to a computer with reliable internet. Bring a laptop on lab days, or let me know a day ahead that I should bring one for you to use. Please bring paper and a pen or pencil to class each day.\n\n\nAccess & Affordability\nStudents who do not have personal access to required technology may use computers either in campus labs or checked out from the library. Calculators are also available for check out from the library’s front desk. If you want to get a free used computer, please check to see if our campus’s Reusable Office Supply Exchange (ROSE) has one available.\n\n\nFees\nThere are no additional course fees beyond standard tuition and registration fees."
-  },
-  {
-    "objectID": "syllabus.html#course-feedback-assessment",
-    "href": "syllabus.html#course-feedback-assessment",
-    "title": "Course Syllabus",
-    "section": "Course Feedback & Assessment",
-    "text": "Course Feedback & Assessment\nStudents will receive feedback and complete assessments in a variety of ways:\n\nClass participation in daily in-class activities\nComputational labs in Octave (about every two weeks)\nIn-class quizzes (ten quizzes, first 10 minutes of class; the lowest two scores are dropped)\nTwo midterms (Friday, October 2 and Friday, November 13, in class)\nA final exam (Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201)\nA capstone project (end of the semester)\n\n\n\nGrading\n\n\n\nComponent\nWeight\n\n\n\n\nParticipation / in-class work\n5%\n\n\nLabs\n10%\n\n\nQuizzes\n25%\n\n\nTwo midterms\n35%\n\n\nCapstone\n10%\n\n\nFinal\n15%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93–100% A−: 90–92% B+: 87–89% B: 83–86% B−: 80–82% C+: 77–79% C: 73–76% C−: 70–72% D: 60–69% F: 0–59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C− is required for the course to count as a prerequisite for other MATH or DATA classes.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\nAttendance & Participation\nRegular attendance and active participation are required because they are essential for the success of everyone in this course. Up to 10 days may be missed without penalty to your course grade: these days should be reserved for use in times of illness or other obligations.\nIf you must miss class, you are responsible for obtaining notes from me or a classmate and keeping up with course material."
-  },
-  {
-    "objectID": "syllabus.html#late-or-missed-work-policies",
-    "href": "syllabus.html#late-or-missed-work-policies",
-    "title": "Course Syllabus",
-    "section": "Late or Missed Work Policies",
-    "text": "Late or Missed Work Policies\nThe policies for late or missed work are as follows:\n\nLecture attendance is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 lecture days without penalty and without contacting me. Reserve these days for emergencies. In my experience, it is rare for a student to succeed if they regularly miss class or are absent for more than two weeks, so if you find yourself in that situation, please communicate with me and your advisor so we can help you find a solution.\nQuizzes are in the first 10 minutes of class. The lowest two quiz scores are dropped. If you must miss a quiz due to illness or another emergency, please contact me to arrange a makeup.\nLabs are due on the dates on the schedule. After a week, late labs are not accepted.\nCapstone work is due on the dates on the schedule. Late project work cannot be turned in due to the end of the semester and course grades being due. If you are unable to complete the project in time, you should consider whether your situation is such that an Incomplete grade is appropriate. This would give you more time to complete the course.\nMidterms and the final exam are required. If you need to miss a midterm due to illness or another emergency, communicate with me as soon as possible to reschedule.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\nAI Policy\nMuch of your course grade will be based on work you produce in class (quizzes and exams) without having the option of using AI as a resource.\nOutside of in-class assessments, you may use AI, such as NotebookLM or ChatGPT, to help you learn the material or to get unstuck on labs or the capstone.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nIf you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\nBe responsible for the correctness and appropriateness of all (AI-assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking whether an assignment is appropriate for a college-level course or whether the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
-  },
-  {
-    "objectID": "syllabus.html#course-topics-schedule",
-    "href": "syllabus.html#course-topics-schedule",
-    "title": "Course Syllabus",
-    "section": "Course Topics & Schedule",
-    "text": "Course Topics & Schedule\n\nTopics (Approximate Order)\n\nVectors as representations; arithmetic, linear combinations, and inner products\nLinear and affine functions; norms, angle, neighbors, and clustering\nLinear dependence, span, and bases\nMatrices, \\(Ax\\), transformations, and linear systems\nDynamics, simulation, products, powers, and computational cost\nInverses, rank, and determinants\nEigenvectors and eigenvalues\nLeast squares, fitting, and SVD\nAccuracy, memory, runtime, and communication\n\n\n\nSummary of Schedule and Important Dates\nNote: The schedule has a detailed list of the course. Please check it regularly for updates.\n\n\n\nDate\nEvent\n\n\n\n\nAugust 24\nFirst class\n\n\nAugust 28\nLab 0\n\n\nSeptember 4\nQuiz 1\n\n\nSeptember 7\nLabor Day (no class)\n\n\nOctober 2\nMidterm 1\n\n\nNovember 11\nVeterans Day (no class)\n\n\nNovember 13\nMidterm 2\n\n\nNovember 23–27\nFall break (no class)\n\n\nDecember 9\nCapstone gallery\n\n\nDecember 11\nFinal review (last class meeting)\n\n\nDecember 16\nFinal exam, 10:20 a.m.–12:10 p.m., FR 201\n\n\n\nAdd/drop and other university deadlines follow the Cal Poly Humboldt academic calendar."
-  },
-  {
-    "objectID": "syllabus.html#university-policies-resources",
-    "href": "syllabus.html#university-policies-resources",
-    "title": "Course Syllabus",
-    "section": "University Policies & Resources",
-    "text": "University Policies & Resources\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\nAccommodations\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\nClassroom & Online Conduct\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
-  },
-  {
-    "objectID": "syllabus.html#changes-to-the-syllabus",
-    "href": "syllabus.html#changes-to-the-syllabus",
-    "title": "Course Syllabus",
-    "section": "Changes to the Syllabus",
-    "text": "Changes to the Syllabus\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
-  },
-  {
-    "objectID": "syllabus.html#license",
-    "href": "syllabus.html#license",
-    "title": "Course Syllabus",
-    "section": "License",
-    "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24Vectors\nAug 26Arithmetic\nAug 28CombinationsLab 0Lab 0 ticket\n\n\n2\nAug 31Inner product\nSep 2Linear functions\nSep 4ApplicationsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Norms\nSep 11AngleQuiz 2\n\n\n4\nSep 14Neighbors\nSep 16Clustering\nSep 18Similar thingsQuiz 3Lab 1\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25Basis\n\n\n6\nSep 28SynthesisQuiz 4\nSep 30Review\nOct 2Exam dayMidterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsLab 2\n\n\n8\nOct 12SystemsQuiz 5\nOct 14Elimination\nOct 16RREF\n\n\n9\nOct 19DynamicsQuiz 6\nOct 21Simulation\nOct 23Through timeLab 3\n\n\n10\nOct 26ProductsQuiz 7\nOct 28Powers\nOct 30CostMicro-lab\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 8\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Exam dayMidterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squaresQuiz 9\nDec 2FittingLab 5\nDec 4SVDQuiz 10Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "assessments.html",
-    "href": "assessments.html",
-    "title": "Assessments",
-    "section": "",
-    "text": "Download this page as PDF"
-  },
-  {
-    "objectID": "assessments.html#source-key",
-    "href": "assessments.html#source-key",
-    "title": "Assessments",
-    "section": "Source key",
-    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
-  },
-  {
-    "objectID": "assessments.html#clo-coverage",
-    "href": "assessments.html#clo-coverage",
-    "title": "Assessments",
-    "section": "CLO coverage",
-    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 4\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\n\n\n\nQuiz\nDate\nFocus\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, linear combinations, Lab 0\n\n\nQuiz 2\nFri Sep 11\nDot products and linear functions\n\n\nQuiz 3\nFri Sep 18\nNorm, distance, angle, and similarity\n\n\nQuiz 4\nMon Sep 28\nClustering, dependence, span, basis, and dimension\n\n\nQuiz 5\nMon Oct 12\nMatrices, \\(Ax\\), and transformations\n\n\nQuiz 6\nMon Oct 19\nSystems, elimination, and RREF\n\n\nQuiz 7\nMon Oct 26\nDynamics and Lab 3\n\n\nQuiz 8\nFri Nov 6\nMatrix multiplication, cost, and inverses\n\n\nQuiz 9\nMon Nov 30\nEigenvalues, complex numbers, Lab 4\n\n\nQuiz 10\nFri Dec 4\nLeast squares, residuals, and Lab 5\n\n\n\nThere is no quiz on rank/determinants the week of Midterm 2; use the Midterm 2 practice packet. SVD is not on Quiz 10; use the capstone practice packet."
   },
   {
     "objectID": "resources.html",
