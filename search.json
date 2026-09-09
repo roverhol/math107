@@ -42,81 +42,445 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
-    "objectID": "lectures/lecture-05.html",
-    "href": "lectures/lecture-05.html",
-    "title": "Lecture 05 — Linear and affine functions",
+    "objectID": "lectures.html",
+    "href": "lectures.html",
+    "title": "Lectures",
     "section": "",
-    "text": "Download PDF\nLast updated: September 2, 2026.\nReading: Boyd 2.1 and 2.3 (linear and affine functions; regression model). Related objectives: Lectures. Schedule."
+    "text": "Download this page as PDF\nDaily reading is listed with each meeting. Free Strang/MIT files and the Lachniet Octave PDF are collected on Resources.\nWeeks 1–3 outlines are posted. Each lecture is one class day later than the original calendar, starting with Lecture 01 on Wednesday, August 26. Monday, September 7 was Labor Day. Quizzes stay on their original dates."
   },
   {
-    "objectID": "lectures/lecture-05.html#learning-objectives",
-    "href": "lectures/lecture-05.html#learning-objectives",
-    "title": "Lecture 05 — Linear and affine functions",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nDistinguish linear from affine functions in examples.\nTest superposition numerically on simple functions.\nConstruct a function \\(a^{\\mathsf{T}}x+b\\) for a contextual quantity.\nEvaluate a model by hand and computationally."
+    "objectID": "lectures.html#week-1",
+    "href": "lectures.html#week-1",
+    "title": "Lectures",
+    "section": "Week 1",
+    "text": "Week 1"
   },
   {
-    "objectID": "lectures/lecture-05.html#fill-in",
-    "href": "lectures/lecture-05.html#fill-in",
-    "title": "Lecture 05 — Linear and affine functions",
-    "section": "Fill in",
-    "text": "Fill in\nA function \\(f:\\mathbb{R}^n \\to \\mathbb{R}\\) is linear if for all \\(n\\)-vectors \\(x,y\\) and scalars \\(\\alpha,\\beta\\), \\[\nf(\\alpha x + \\beta y) = \\alpha f(x) + \\beta f(y).\n\\] This property is called \\(\\underline{\\hspace{2.4cm}}\\).\nEquivalently, linear functions satisfy homogeneity \\(f(\\alpha x)=\\alpha f(x)\\) and additivity \\(f(x+y)=f(x)+f(y)\\).\nEvery linear function can be written as an inner product: \\(f(x) = \\underline{\\hspace{2.0cm}}\\) for some fixed \\(n\\)-vector \\(a\\).\nA function is affine if it has the form \\(f(x) = a^{\\mathsf{T}}x + b\\) for some \\(n\\)-vector \\(a\\) and scalar \\(b\\). The number \\(b\\) is the \\(\\underline{\\hspace{2.0cm}}\\) (or intercept).\nAffine functions satisfy a restricted superposition rule: \\(f(\\alpha x + \\beta y) = \\alpha f(x) + \\beta f(y)\\) only when \\(\\alpha + \\beta = \\underline{\\hspace{1.2cm}}\\).\nIf \\(b \\neq 0\\), the function \\(f(x)=a^{\\mathsf{T}}x+b\\) is affine but \\(\\underline{\\hspace{2.4cm}}\\) linear.\nThe average \\(\\mathrm{avg}(x)=\\frac{1}{n}(x_1+\\cdots+x_n)\\) is \\(\\underline{\\hspace{2.0cm}}\\); the maximum entry \\(\\max(x_1,\\ldots,x_n)\\) is not (for \\(n\\geq 2\\)).\nA regression model \\(\\hat{y} = \\beta^{\\mathsf{T}}x + v\\) predicts a scalar from features \\(x\\). The entry \\(\\beta_i\\) tells how \\(\\hat{y}\\) changes when feature \\(x_i\\) increases by one, holding other features fixed. The offset \\(v\\) is the predicted value when \\(\\underline{\\hspace{2.8cm}}\\)."
+    "objectID": "lectures.html#mon-aug-24-first-day",
+    "href": "lectures.html#mon-aug-24-first-day",
+    "title": "Lectures",
+    "section": "Mon Aug 24 — First day",
+    "text": "Mon Aug 24 — First day\nNo lecture outline. Class started Wednesday, August 26 with Lecture 01."
   },
   {
-    "objectID": "lectures/lecture-05.html#worked-in-class",
-    "href": "lectures/lecture-05.html#worked-in-class",
-    "title": "Lecture 05 — Linear and affine functions",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Classify each function below as linear, affine but not linear, or neither. If linear, write \\(f(x)=a^{\\mathsf{T}}x\\).\n\n\\(f(x)=x_n-x_1\\) (Boyd 2.1(b)).\n\\(f(x)=3x_1-2x_2+7\\).\n\\(f(x)=\\max(x_1,x_2)\\) for \\(n=2\\).\n\nW2. Superposition check. For \\(f(x)=\\max(x_1,x_2)\\), let \\(x=(1,-1)\\), \\(y=(-1,1)\\), \\(\\alpha=\\beta=\\tfrac{1}{2}\\). Compute \\(f(\\alpha x+\\beta y)\\) and \\(\\alpha f(x)+\\beta f(y)\\). What does this show?\nW3. A 10-vector \\(r\\) stores course grades: \\(r_1,\\ldots,r_8\\) are homework scores (0–10 each), \\(r_9\\) is midterm (0–120), \\(r_10\\) is final (0–160). Total score on 0–100 is 25% homework, 35% midterm, 40% final. Write \\(s=w^{\\mathsf{T}}r\\) and give \\(w\\) (Boyd 1.10 style).\nW4. Profit per unit is \\(p=(4,2,-1)\\) dollars for three items (item 3 is a loss leader). Monthly sales are \\(s=(100,50,30)\\) units. Total profit is \\(p^{\\mathsf{T}}s\\) (Boyd 1.8). Compute it and interpret item 3’s sign."
+    "objectID": "lectures.html#lecture-01",
+    "href": "lectures.html#lecture-01",
+    "title": "Lectures",
+    "section": "Wed Aug 26 — Why linear algebra? Vectors as representations",
+    "text": "Wed Aug 26 — Why linear algebra? Vectors as representations\nLecture 01 page\nReading: Boyd 1.1\nBy the end of class, students should be able to:\n\nIdentify objects that can be represented as vectors.\nInterpret vector entries, units, and indexing in context.\nDistinguish scalars from vectors.\nTranslate a small data, position, signal, or measurement problem into vector form."
   },
   {
-    "objectID": "lectures/lecture-05.html#check-yourself",
-    "href": "lectures/lecture-05.html#check-yourself",
-    "title": "Lecture 05 — Linear and affine functions",
-    "section": "Check yourself",
-    "text": "Check yourself\nC1. Boyd 2.1(a): \\(f(x)=\\max_k x_k - \\min_k x_k\\) (spread). Linear or not? One sentence why.\nC2. Boyd 2.1(e): \\(f(x)=x_n+(x_n-x_{n-1})\\) (extrapolation). Linear or not? If linear, find \\(a\\) with \\(f(x)=a^{\\mathsf{T}}x\\).\nC3. Is \\(g(x)=2x_1-x_3+5\\) linear, affine, or neither? Write it as \\(a^{\\mathsf{T}}x+b\\) if affine.\nC4. Lachniet Ch. 1 Ex. 2(b): \\(u=(2,-4,0)\\), \\(v=(3,1.5,-7)\\). Find \\(d=u^{\\mathsf{T}}v\\) (dot product). What does \\(d=0\\) suggest about direction?\nC5. A café bill is \\(f(x)=p^{\\mathsf{T}}x\\) with \\(p=(3.50,2.00,1.25)\\) and \\(x=(2,1,0)\\) (drinks ordered). Compute \\(f(x)\\) and state whether \\(f\\) is linear or affine.\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. Not linear (nor affine): spread fails superposition (Boyd uses \\(x=(1,-1)\\), \\(y=(-1,1)\\), \\(\\alpha=\\beta=1/2\\)).\nC2. Linear: \\(f(x)=x_n+(x_n-x_{n-1})=2x_n-x_{n-1}\\), so \\(a=(0,\\ldots,0,-1,2)\\) with \\(a_{n-1}=-1\\), \\(a_n=2\\).\nC3. Affine but not linear: \\(a=(2,0,-1)^{\\mathsf{T}}\\), \\(b=5\\).\nC4. \\(d=2\\cdot 3+(-4)\\cdot 1.5+0=6-6=0\\). The vectors are orthogonal (perpendicular in 3D).\nC5. \\(f(x)=3.50\\cdot 2+2.00\\cdot 1+1.25\\cdot 0=9.00\\) dollars. Linear (also affine with \\(b=0\\))."
+    "objectID": "lectures.html#lecture-02",
+    "href": "lectures.html#lecture-02",
+    "title": "Lectures",
+    "section": "Fri Aug 28 — Vector arithmetic and geometry",
+    "text": "Fri Aug 28 — Vector arithmetic and geometry\nLecture 02 page\nReading: Boyd 1.2–1.3\nBy the end of class, students should be able to:\n\nAdd, subtract, and scale vectors.\nInterpret those operations geometrically.\nPlot vectors in \\(\\mathbb{R}^2\\) and recognize corresponding operations in \\(\\mathbb{R}^3\\).\nCheck whether an answer has sensible dimensions and units."
   },
   {
-    "objectID": "lectures/lecture-06.html",
-    "href": "lectures/lecture-06.html",
-    "title": "Lecture 06 — Linear functions in applications",
+    "objectID": "lectures.html#week-2",
+    "href": "lectures.html#week-2",
+    "title": "Lectures",
+    "section": "Week 2",
+    "text": "Week 2"
+  },
+  {
+    "objectID": "lectures.html#lecture-03",
+    "href": "lectures.html#lecture-03",
+    "title": "Lectures",
+    "section": "Mon Aug 31 — Linear combinations",
+    "text": "Mon Aug 31 — Linear combinations\nLecture 03 page\nReading: Linear combinations (class notes), Lab 0, and Lachniet Ch. 1 (Getting Started).\nNote: No prior coding assumed. Lachniet is one PDF on Resources; chapters are listed here.\nBy the end of class, students should be able to:\n\nForm and interpret linear combinations.\nExplain the meaning of coefficients in context.\nEnter, index, and modify vectors in Octave or Python.\nPerform vector arithmetic and create a basic plot.\nModify supplied code and explain its output or error message."
+  },
+  {
+    "objectID": "lectures.html#lecture-04",
+    "href": "lectures.html#lecture-04",
+    "title": "Lectures",
+    "section": "Wed Sep 2 — Inner product",
+    "text": "Wed Sep 2 — Inner product\nLecture 04 page\nReading: Boyd 1.4; Boyd 1.1 stack and slice (Quiz 1 prep)\nBy the end of class, students should be able to:\n\nCompute a dot product.\nInterpret it as a weighted sum.\nInterpret its sign and magnitude as alignment.\nRecognize orthogonal vectors from a zero dot product."
+  },
+  {
+    "objectID": "lectures.html#lecture-05",
+    "href": "lectures.html#lecture-05",
+    "title": "Lectures",
+    "section": "Fri Sep 4 — Linear and affine functions",
+    "text": "Fri Sep 4 — Linear and affine functions\nLecture 05 page\nReading: Boyd 2.1 and 2.3\nNote: Boyd’s calculus-dependent Taylor-approximation material is optional.\nBy the end of class, students should be able to:\n\nDistinguish linear from affine functions in examples.\nTest superposition numerically on simple functions.\nConstruct a function \\(a^{\\mathsf{T}}x+b\\) for a contextual quantity.\nEvaluate a model by hand and computationally."
+  },
+  {
+    "objectID": "lectures.html#week-3",
+    "href": "lectures.html#week-3",
+    "title": "Lectures",
+    "section": "Week 3",
+    "text": "Week 3"
+  },
+  {
+    "objectID": "lectures.html#mon-sep-7-labor-day-no-class",
+    "href": "lectures.html#mon-sep-7-labor-day-no-class",
+    "title": "Lectures",
+    "section": "Mon Sep 7 — Labor Day — no class",
+    "text": "Mon Sep 7 — Labor Day — no class"
+  },
+  {
+    "objectID": "lectures.html#lecture-06",
+    "href": "lectures.html#lecture-06",
+    "title": "Lectures",
+    "section": "Wed Sep 9 — Linear functions in applications",
+    "text": "Wed Sep 9 — Linear functions in applications\nLecture 06 page\nReading: Applications of linear and affine models\nBy the end of class, students should be able to:\n\nModel a score, cost, prediction, or aggregate quantity.\nInterpret model coefficients and intercepts.\nCompare outputs from competing models.\nState a reasonable limitation or assumption of a linear model."
+  },
+  {
+    "objectID": "lectures.html#lecture-07",
+    "href": "lectures.html#lecture-07",
+    "title": "Lectures",
+    "section": "Fri Sep 11 — Norm, distance, RMS, and variation",
+    "text": "Fri Sep 11 — Norm, distance, RMS, and variation\nLecture 07 page\nReading: Boyd 3.1–3.3\nBy the end of class, students should be able to:\n\nCompute vector norms and distances.\nInterpret norm and distance geometrically and contextually.\nRelate norm to RMS and, where appropriate, variation around an average.\nUse software to calculate distances in dimensions too large for hand computation."
+  },
+  {
+    "objectID": "lectures.html#week-4",
+    "href": "lectures.html#week-4",
+    "title": "Lectures",
+    "section": "Week 4",
+    "text": "Week 4"
+  },
+  {
+    "objectID": "lectures.html#lecture-08",
+    "href": "lectures.html#lecture-08",
+    "title": "Lectures",
+    "section": "Mon Sep 14 — Angle and similarity",
+    "text": "Mon Sep 14 — Angle and similarity\nLecture 08 page\nReading: Boyd 3.4\nBy the end of class, students should be able to:\n\nCompute cosine similarity or an angle between vectors.\nDistinguish closeness in position from similarity in direction.\nChoose an appropriate similarity measure for a stated purpose.\nExplain why normalization may change a comparison."
+  },
+  {
+    "objectID": "lectures.html#lecture-09",
+    "href": "lectures.html#lecture-09",
+    "title": "Lectures",
+    "section": "Wed Sep 16 — Nearest neighbors",
+    "text": "Wed Sep 16 — Nearest neighbors\nLecture 09 page\nReading: Boyd 4.1\nNote: Possible contexts: species measurements, geographic sites, songs, or sensor readings.\nBy the end of class, students should be able to:\n\nFormulate a nearest-neighbor question using vectors.\nFind a nearest neighbor in a small dataset by hand.\nExplain how feature scale can affect the answer.\nJustify a choice of distance or similarity measure."
+  },
+  {
+    "objectID": "lectures.html#lecture-10",
+    "href": "lectures.html#lecture-10",
+    "title": "Lectures",
+    "section": "Fri Sep 18 — Clustering and \\(k\\)-means",
+    "text": "Fri Sep 18 — Clustering and \\(k\\)-means\nLecture 10 page\nReading: Boyd 4.2–4.3\nNote: Use a small dataset students can visualize.\nBy the end of class, students should be able to:\n\nExplain the goal of clustering.\nCompute one assignment/update iteration of \\(k\\)-means.\nInterpret a centroid as a vector.\nRecognize that clustering output depends on representation, scaling, and initialization."
+  },
+  {
+    "objectID": "lectures.html#week-5",
+    "href": "lectures.html#week-5",
+    "title": "Lectures",
+    "section": "Week 5",
+    "text": "Week 5"
+  },
+  {
+    "objectID": "lectures.html#lecture-11",
+    "href": "lectures.html#lecture-11",
+    "title": "Lectures",
+    "section": "Mon Sep 21 — Finding similar things",
+    "text": "Mon Sep 21 — Finding similar things\nLecture 11 page\nReading: Lab 1 and Lachniet Ch. 1 (vectors, matrix storage, indexing, plots).\nBy the end of class, students should be able to:\n\nLoad and inspect a dataset represented by vectors.\nCompute many distances with Octave or Python.\nAdapt supplied code to identify nearest observations or clusters.\nValidate computational output on a small hand-checkable subset.\nInterpret results in the original context."
+  },
+  {
+    "objectID": "lectures.html#lecture-12",
+    "href": "lectures.html#lecture-12",
+    "title": "Lectures",
+    "section": "Wed Sep 23 — Linear dependence as redundancy",
+    "text": "Wed Sep 23 — Linear dependence as redundancy\nLecture 12 page\nReading: Boyd 5.1\nBy the end of class, students should be able to:\n\nRecognize simple dependent and independent collections.\nConstruct a dependence relationship.\nInterpret dependence as redundant information.\nExplain why redundancy matters in data, measurement, and computation."
+  },
+  {
+    "objectID": "lectures.html#lecture-13",
+    "href": "lectures.html#lecture-13",
+    "title": "Lectures",
+    "section": "Fri Sep 25 — Span, independence, and subspaces",
+    "text": "Fri Sep 25 — Span, independence, and subspaces\nLecture 13 page\nReading: Traditional vocabulary supplement to Boyd\nBy the end of class, students should be able to:\n\nDefine span using linear combinations.\nDetermine whether a vector lies in a simple span.\nInterpret spans geometrically as lines, planes, or higher-dimensional collections.\nRecognize basic subspaces and distinguish them from shifted lines or planes."
+  },
+  {
+    "objectID": "lectures.html#week-6",
+    "href": "lectures.html#week-6",
+    "title": "Lectures",
+    "section": "Week 6",
+    "text": "Week 6"
+  },
+  {
+    "objectID": "lectures.html#lecture-14",
+    "href": "lectures.html#lecture-14",
+    "title": "Lectures",
+    "section": "Mon Sep 28 — Basis, dimension, and orthonormal vectors",
+    "text": "Mon Sep 28 — Basis, dimension, and orthonormal vectors\nLecture 14 page\nReading: Boyd 5.2–5.3\nNote: Gram–Schmidt is a important application.\nBy the end of class, students should be able to:\n\nExplain what a basis accomplishes.\nIdentify a basis and dimension in simple examples.\nUse linear combination, span, subspace, independence, basis, and dimension accurately.\nRecognize an orthonormal collection.\nExplain why orthonormal coordinates are convenient for measurement and reconstruction."
+  },
+  {
+    "objectID": "lectures.html#lecture-15",
+    "href": "lectures.html#lecture-15",
+    "title": "Lectures",
+    "section": "Wed Sep 30 — Unit I synthesis",
+    "text": "Wed Sep 30 — Unit I synthesis\nLecture 15 page\nReading: Unit I synthesis (no new Boyd section)\nBy the end of class, students should be able to:\n\nConnect distance, similarity, span, and independence.\nSelect an appropriate vector tool for a new problem.\nMove between algebraic, geometric, computational, and contextual representations.\nDiagnose and explain common errors."
+  },
+  {
+    "objectID": "lectures.html#lecture-16",
+    "href": "lectures.html#lecture-16",
+    "title": "Lectures",
+    "section": "Fri Oct 2 — Midterm 1 review",
+    "text": "Fri Oct 2 — Midterm 1 review\nLecture 16 page\nReading: Unit I review\nNote: Full review day.\nBy the end of class, students should be able to:\n\nRetrieve major Unit I concepts without notes.\nSolve mixed rather than chapter-isolated problems.\nExplain reasoning collaboratively.\nIdentify gaps and make a targeted study plan."
+  },
+  {
+    "objectID": "lectures.html#week-7",
+    "href": "lectures.html#week-7",
+    "title": "Lectures",
+    "section": "Week 7",
+    "text": "Week 7"
+  },
+  {
+    "objectID": "lectures.html#lecture-17",
+    "href": "lectures.html#lecture-17",
+    "title": "Lectures",
+    "section": "Mon Oct 5 — Midterm 1",
+    "text": "Mon Oct 5 — Midterm 1\nLecture 17 page\nReading: Midterm 1 (in class)\nBy the end of class, students should be able to:\n\nCompute with vectors and linear functions.\nInterpret vector operations in context.\nAnalyze distance, similarity, span, and independence.\nSelect and communicate an appropriate method."
+  },
+  {
+    "objectID": "lectures.html#lecture-18",
+    "href": "lectures.html#lecture-18",
+    "title": "Lectures",
+    "section": "Wed Oct 7 — Matrices as data and structured objects",
+    "text": "Wed Oct 7 — Matrices as data and structured objects\nLecture 18 page\nReading: Boyd 6.1–6.3\nBy the end of class, students should be able to:\n\nIdentify matrix dimensions, rows, columns, and entries.\nRepresent datasets, networks, images, or systems as matrices.\nPerform matrix addition, scaling, and transposition.\nRecognize zero, identity, diagonal, triangular, symmetric, and sparse matrices.\nExplain one practical consequence of matrix structure."
+  },
+  {
+    "objectID": "lectures.html#lecture-19",
+    "href": "lectures.html#lecture-19",
+    "title": "Lectures",
+    "section": "Fri Oct 9 — Matrix-vector multiplication",
+    "text": "Fri Oct 9 — Matrix-vector multiplication\nLecture 19 page\nReading: Boyd 6.4\nNote: Connect directly back to Week 1 linear combinations.\nBy the end of class, students should be able to:\n\nCompute \\(Ax\\) by hand for a small matrix.\nInterpret \\(Ax\\) as a linear combination of the columns of \\(A\\).\nInterpret \\(A\\) as an input-output transformation.\nExplain how the dimensions of \\(A\\) determine the input and output spaces."
+  },
+  {
+    "objectID": "lectures.html#week-8",
+    "href": "lectures.html#week-8",
+    "title": "Lectures",
+    "section": "Week 8",
+    "text": "Week 8"
+  },
+  {
+    "objectID": "lectures.html#lecture-20",
+    "href": "lectures.html#lecture-20",
+    "title": "Lectures",
+    "section": "Mon Oct 12 — Transforming space",
+    "text": "Mon Oct 12 — Transforming space\nLecture 20 page\nReading: Boyd 7.1–7.2, Lab 2, and Lachniet Ch. 2 (matrices and linear-algebra computations).\nNote: Include a 3D or coordinate-system example.\nBy the end of class, students should be able to:\n\nPredict the effect of scaling, reflection, shear, and rotation matrices.\nApply matrices to many 2D or 3D points at once.\nPlot and compare original and transformed objects.\nAdapt a short program that implements a transformation.\nInterpret a matrix as a coordinate or physical-space transformation."
+  },
+  {
+    "objectID": "lectures.html#lecture-21",
+    "href": "lectures.html#lecture-21",
+    "title": "Lectures",
+    "section": "Wed Oct 14 — Systems and \\(Ax=b\\)",
+    "text": "Wed Oct 14 — Systems and \\(Ax=b\\)\nLecture 21 page\nReading: Boyd 8.3\nBy the end of class, students should be able to:\n\nTranslate equations or contextual constraints into \\(Ax=b\\).\nInterpret \\(Ax=b\\) as asking whether \\(b\\) belongs to the span of the columns of \\(A\\).\nClassify systems as square, underdetermined, or overdetermined.\nAnticipate circumstances producing zero, one, or many solutions."
+  },
+  {
+    "objectID": "lectures.html#lecture-22",
+    "href": "lectures.html#lecture-22",
+    "title": "Lectures",
+    "section": "Fri Oct 16 — Gaussian elimination",
+    "text": "Fri Oct 16 — Gaussian elimination\nLecture 22 page\nReading: Gaussian elimination (class notes) and Lachniet Ch. 2 (solving systems, RREF).\nNote: Hand work first; software later.\nBy the end of class, students should be able to:\n\nPerform elementary row operations.\nReduce a small augmented matrix to echelon form.\nSolve a small system using back substitution.\nExplain why row operations preserve the solution set."
+  },
+  {
+    "objectID": "lectures.html#week-9",
+    "href": "lectures.html#week-9",
+    "title": "Lectures",
+    "section": "Week 9",
+    "text": "Week 9"
+  },
+  {
+    "objectID": "lectures.html#lecture-23",
+    "href": "lectures.html#lecture-23",
+    "title": "Lectures",
+    "section": "Mon Oct 19 — RREF, pivots, free variables, and software",
+    "text": "Mon Oct 19 — RREF, pivots, free variables, and software\nLecture 23 page\nReading: RREF and software solvers; Lachniet Ch. 2 (linear-system commands).\nNote: For Python, provide an RREF helper or use SymPy rather than making novices implement RREF.\nBy the end of class, students should be able to:\n\nInterpret reduced row echelon form.\nIdentify pivot and free variables.\nDescribe a solution set parametrically.\nDistinguish inconsistent, unique, and infinite-solution cases.\nUse software to solve or row-reduce a system and verify the answer using a residual."
+  },
+  {
+    "objectID": "lectures.html#lecture-24",
+    "href": "lectures.html#lecture-24",
+    "title": "Lectures",
+    "section": "Wed Oct 21 — Linear dynamical systems",
+    "text": "Wed Oct 21 — Linear dynamical systems\nLecture 24 page\nReading: Boyd 9.1–9.3\nBy the end of class, students should be able to:\n\nRepresent an evolving system as \\(x_{t+1}=Ax_t\\).\nInterpret the state vector and transition matrix.\nBuild a transition matrix from a flow description.\nCompute and interpret the next few states."
+  },
+  {
+    "objectID": "lectures.html#lecture-25",
+    "href": "lectures.html#lecture-25",
+    "title": "Lectures",
+    "section": "Fri Oct 23 — Simulation and long-run behavior",
+    "text": "Fri Oct 23 — Simulation and long-run behavior\nLecture 25 page\nReading: Simulation of linear dynamics\nNote: Do not explain the eigenvalue mechanism yet; let students form conjectures.\nBy the end of class, students should be able to:\n\nSimulate many time steps computationally.\nPlot state components through time.\nRecognize stabilization, growth, decay, or oscillation.\nConduct a simple what-if simulation.\nState limitations of a linear dynamical model."
+  },
+  {
+    "objectID": "lectures.html#week-10",
+    "href": "lectures.html#week-10",
+    "title": "Lectures",
+    "section": "Week 10",
+    "text": "Week 10"
+  },
+  {
+    "objectID": "lectures.html#lecture-26",
+    "href": "lectures.html#lecture-26",
+    "title": "Lectures",
+    "section": "Mon Oct 26 — Predict a system through time",
+    "text": "Mon Oct 26 — Predict a system through time\nLecture 26 page\nReading: Lab 3, Lachniet Ch. 2 (matrix operations), and Lachniet’s introductory programming/loops material.\nNote: This creates the eigenvalue “mystery.”\nBy the end of class, students should be able to:\n\nImplement a linear dynamical model.\nWrite or complete a short iterative calculation.\nValidate the first steps by hand.\nCompare results under altered parameters or initial states.\nRecord an unexplained long-run pattern for later investigation."
+  },
+  {
+    "objectID": "lectures.html#lecture-27",
+    "href": "lectures.html#lecture-27",
+    "title": "Lectures",
+    "section": "Wed Oct 28 — Matrix multiplication",
+    "text": "Wed Oct 28 — Matrix multiplication\nLecture 27 page\nReading: Boyd 10.1\nBy the end of class, students should be able to:\n\nDetermine whether a product is defined and give its dimensions.\nCompute a small matrix product.\nInterpret \\(ABx\\) as a sequence of transformations.\nExplain why matrix multiplication is generally not commutative."
+  },
+  {
+    "objectID": "lectures.html#lecture-28",
+    "href": "lectures.html#lecture-28",
+    "title": "Lectures",
+    "section": "Fri Oct 30 — Composition and matrix powers",
+    "text": "Fri Oct 30 — Composition and matrix powers\nLecture 28 page\nReading: Boyd 10.2–10.3\nNote: Return to the dynamics lab from a new viewpoint.\nBy the end of class, students should be able to:\n\nCombine multistage processes using a matrix product.\nConnect \\(A^k x\\) to repeated dynamics.\nInterpret selected entries of a matrix product or power.\nRecognize how network and transition information accumulates through powers."
+  },
+  {
+    "objectID": "lectures.html#week-11",
+    "href": "lectures.html#week-11",
+    "title": "Lectures",
+    "section": "Week 11",
+    "text": "Week 11"
+  },
+  {
+    "objectID": "lectures.html#lecture-29",
+    "href": "lectures.html#lecture-29",
+    "title": "Lectures",
+    "section": "Mon Nov 2 — Same mathematics, very different computational cost",
+    "text": "Mon Nov 2 — Same mathematics, very different computational cost\nLecture 29 page\nReading: Boyd’s \\(ab^{\\mathsf{T}}c\\) example (micro-lab)\nNote: Precursor to the capstone.\nBy the end of class, students should be able to:\n\nCompare algebraically equivalent orders of computation.\nCount intermediate values that must be stored.\nMeasure runtime for increasing problem sizes.\nExplain why forming a large intermediate matrix may be wasteful.\nChoose a computational order and justify it quantitatively."
+  },
+  {
+    "objectID": "lectures.html#lecture-30",
+    "href": "lectures.html#lecture-30",
+    "title": "Lectures",
+    "section": "Wed Nov 4 — Inverses and solving",
+    "text": "Wed Nov 4 — Inverses and solving\nLecture 30 page\nReading: Boyd 11.1–11.3\nBy the end of class, students should be able to:\n\nInterpret an inverse as undoing a transformation.\nDetermine whether a simple matrix is invertible.\nConnect invertibility to uniqueness of \\(Ax=b\\).\nExplain why solving \\(Ax=b\\) is generally preferable computationally to explicitly calculating \\(A^{-1}\\)."
+  },
+  {
+    "objectID": "lectures.html#lecture-31",
+    "href": "lectures.html#lecture-31",
+    "title": "Lectures",
+    "section": "Fri Nov 6 — Rank, column space, null space, and basis connections",
+    "text": "Fri Nov 6 — Rank, column space, null space, and basis connections\nLecture 31 page\nReading: Boyd plus selected portions of Strang §3.5, especially rank, column space, null space, basis, and dimension.\nNote: Not a full four-subspaces theory unit. Row space and left nullspace are enrichment, not quiz material.\nBy the end of class, students should be able to:\n\nInterpret column space and null space through \\(Ax=b\\) and \\(Ax=0\\).\nDetermine rank from pivots or independent columns.\nFind simple bases for column or null spaces.\nConnect rank to consistency, independence, and dimension.\nUse subspace, basis, dimension, rank, column space, and null space correctly."
+  },
+  {
+    "objectID": "lectures.html#week-12",
+    "href": "lectures.html#week-12",
+    "title": "Lectures",
+    "section": "Week 12",
+    "text": "Week 12"
+  },
+  {
+    "objectID": "lectures.html#lecture-32",
+    "href": "lectures.html#lecture-32",
+    "title": "Lectures",
+    "section": "Mon Nov 9 — Determinants, geometry, and invertibility",
+    "text": "Mon Nov 9 — Determinants, geometry, and invertibility\nLecture 32 page\nReading: Determinants (class notes)\nBy the end of class, students should be able to:\n\nCompute determinants of \\(2\\times 2\\) and simple triangular matrices.\nInterpret determinant magnitude as area or volume scaling.\nConnect determinant zero with lost dimension and noninvertibility.\nRecognize the determinant of a triangular matrix from its diagonal.\nConnect determinants to the coming characteristic equation."
+  },
+  {
+    "objectID": "lectures.html#wed-nov-11-veterans-day-no-class",
+    "href": "lectures.html#wed-nov-11-veterans-day-no-class",
+    "title": "Lectures",
+    "section": "Wed Nov 11 — Veterans Day — no class",
+    "text": "Wed Nov 11 — Veterans Day — no class"
+  },
+  {
+    "objectID": "lectures.html#lecture-33",
+    "href": "lectures.html#lecture-33",
+    "title": "Lectures",
+    "section": "Fri Nov 13 — Midterm 2 review and synthesis",
+    "text": "Fri Nov 13 — Midterm 2 review and synthesis\nLecture 33 page\nReading: Unit II review\nNote: Full review day.\nBy the end of class, students should be able to:\n\nConnect transformations, systems, dynamics, rank, inverses, and determinants.\nCompare hand and computational solution methods.\nInterpret software output instead of merely reporting it.\nSolve a new application requiring more than one concept."
+  },
+  {
+    "objectID": "lectures.html#week-13",
+    "href": "lectures.html#week-13",
+    "title": "Lectures",
+    "section": "Week 13",
+    "text": "Week 13"
+  },
+  {
+    "objectID": "lectures.html#lecture-34",
+    "href": "lectures.html#lecture-34",
+    "title": "Lectures",
+    "section": "Mon Nov 16 — Midterm 2",
+    "text": "Mon Nov 16 — Midterm 2\nLecture 34 page\nReading: Midterm 2 (in class)\nBy the end of class, students should be able to:\n\nAnalyze matrices as transformations and models.\nSolve and interpret systems.\nUse matrix products, powers, rank, inverses, and determinants appropriately.\nInterpret computational results in context."
+  },
+  {
+    "objectID": "lectures.html#lecture-35",
+    "href": "lectures.html#lecture-35",
+    "title": "Lectures",
+    "section": "Wed Nov 18 — Eigenvectors as persistent directions",
+    "text": "Wed Nov 18 — Eigenvectors as persistent directions\nLecture 35 page\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics.\nNote: Start with the unexplained behavior from Lab 3. The free PDF is only §6.1.\nBy the end of class, students should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
+  },
+  {
+    "objectID": "lectures.html#lecture-36",
+    "href": "lectures.html#lecture-36",
+    "title": "Lectures",
+    "section": "Fri Nov 20 — Characteristic equation, \\(2\\times 2\\) eigenproblems, and complex numbers",
+    "text": "Fri Nov 20 — Characteristic equation, \\(2\\times 2\\) eigenproblems, and complex numbers\nLecture 36 page\nReading: Strang §6.1, characteristic equation and the complex-eigenvalue (\\(90^\\circ\\) rotation) example.\nNote: Meets the explicit hand-calculation and complex-number CLOs. The same free §6.1 file is used Nov 16–20.\nBy the end of class, students should be able to:\n\nInterpret \\(a+bi\\) algebraically and as a point/vector in the complex plane.\nPerform the basic complex arithmetic needed for eigenvalue calculations.\nForm and solve \\(\\det(A-\\lambda I)=0\\) for a \\(2\\times 2\\) matrix.\nFind corresponding eigenvectors.\nCheck real or complex eigenpairs by substitution."
+  },
+  {
+    "objectID": "lectures.html#week-15",
+    "href": "lectures.html#week-15",
+    "title": "Lectures",
+    "section": "Week 15",
+    "text": "Week 15"
+  },
+  {
+    "objectID": "lectures.html#lecture-37",
+    "href": "lectures.html#lecture-37",
+    "title": "Lectures",
+    "section": "Mon Nov 30 — Why did the system behave that way?",
+    "text": "Mon Nov 30 — Why did the system behave that way?\nLecture 37 page\nReading: Strang §6.1, Lab 4, and Lachniet Ch. 5 (eigenvalues/eigenvectors).\nNote: Normal modes are an application/demo, not a differential-equations derivation. Students then use software in Lab 4.\nBy the end of class, students should be able to:\n\nCompute eigenvalues and eigenvectors of a general matrix with software.\nVerify \\(Av\\approx\\lambda v\\) numerically.\nUse dominant eigenbehavior to explain a simulated system.\nInterpret complex eigenvalues as rotation/oscillation behavior.\nExplore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors."
+  },
+  {
+    "objectID": "lectures.html#lecture-38",
+    "href": "lectures.html#lecture-38",
+    "title": "Lectures",
+    "section": "Wed Dec 2 — When \\(Ax=b\\) has no exact solution",
+    "text": "Wed Dec 2 — When \\(Ax=b\\) has no exact solution\nLecture 38 page\nReading: Boyd 12.1\nBy the end of class, students should be able to:\n\nRecognize an inconsistent overdetermined system.\nFormulate the least-squares objective \\(\\min_x \\lVert Ax-b\\rVert\\).\nInterpret the fitted vector as the closest attainable vector.\nInterpret the residual geometrically.\nDistinguish an exact solution from a best approximate solution."
+  },
+  {
+    "objectID": "lectures.html#lecture-39",
+    "href": "lectures.html#lecture-39",
+    "title": "Lectures",
+    "section": "Fri Dec 4 — Least squares, data fitting, and positive definiteness",
+    "text": "Fri Dec 4 — Least squares, data fitting, and positive definiteness\nLecture 39 page\nReading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, Lab 5, and Lachniet Ch. 2 (least-squares / data-fitting exercises).\nNote: Use a small real dataset. Positive definiteness is from Boyd and class notes, not later Strang sections.\nBy the end of class, students should be able to:\n\nCompute a least-squares solution with Octave or Python.\nPlot observed and fitted values.\nInterpret residuals and an RMS error in context.\nCheck the residual’s orthogonality to the columns of \\(A\\).\nEvaluate whether a fitted model is useful rather than merely reporting coefficients.\nRecognize that \\(A^{\\mathsf{T}}A\\) is symmetric positive semidefinite, explain \\(x^{\\mathsf{T}}A^{\\mathsf{T}}Ax=\\lVert Ax\\rVert^2\\), and recognize that \\(A^{\\mathsf{T}}A\\) is positive definite when \\(A\\) has linearly independent columns."
+  },
+  {
+    "objectID": "lectures.html#week-16",
+    "href": "lectures.html#week-16",
+    "title": "Lectures",
+    "section": "Week 16",
+    "text": "Week 16"
+  },
+  {
+    "objectID": "lectures.html#lecture-40",
+    "href": "lectures.html#lecture-40",
+    "title": "Lectures",
+    "section": "Mon Dec 7 — SVD, low-rank approximation, and capstone launch",
+    "text": "Mon Dec 7 — SVD, low-rank approximation, and capstone launch\nLecture 40 page\nReading: Selected slides from the Strang/MIT SVD slides (not all 17 pages), capstone launch, Lachniet Ch. 5 (SVD) and Ch. 7 (image compression).\nBy the end of class, students should be able to:\n\nInterpret \\(A=U\\Sigma V^{\\mathsf{T}}\\) conceptually.\nConstruct a rank-\\(k\\) approximation computationally.\nCompare singular-value decay for an image/frame and a frame-difference matrix.\nEncode three frames either independently or as \\(F_1\\), \\(D_2\\), \\(D_3\\).\nCompare reconstruction error and storage for the two approaches.\nFormulate a capstone question involving accuracy, storage, runtime, and resource use."
+  },
+  {
+    "objectID": "lectures.html#lecture-41",
+    "href": "lectures.html#lecture-41",
+    "title": "Lectures",
+    "section": "Wed Dec 9 — Capstone studio",
+    "text": "Wed Dec 9 — Capstone studio\nLecture 41 page\nReading: Capstone (no new mathematics)\nBy the end of class, students should be able to:\n\nImplement and validate a low-rank computational strategy.\nMeasure approximation error, storage, and runtime.\nSeparate one-time factorization cost from repeated-use cost.\nCompare theoretical operation/storage counts with empirical measurements.\nDebug and refine an analysis collaboratively while retaining individual understanding."
+  },
+  {
+    "objectID": "lectures.html#lecture-42",
+    "href": "lectures.html#lecture-42",
+    "title": "Lectures",
+    "section": "Fri Dec 11 — Capstone presentations / gallery walk",
+    "text": "Fri Dec 11 — Capstone presentations / gallery walk\nLecture 42 page\nReading: Capstone presentations\nNote: Pair lightning talks or gallery walk.\nBy the end of class, students should be able to:\n\nExplain the problem and why SVD or another linear-algebra tool was appropriate.\nPresent quantitative evidence about accuracy and cost.\nDefend a choice of rank or representation.\nEvaluate classmates’ methods constructively.\nCommunicate the practical value and limitations of the result."
+  },
+  {
+    "objectID": "lectures.html#lecture-43",
+    "href": "lectures.html#lecture-43",
+    "title": "Lectures",
+    "section": "Fri Dec 11 — Cumulative final review",
+    "text": "Fri Dec 11 — Cumulative final review\nLecture 43 page\nReading: Cumulative review\nNote: No routine quiz or new content.\nBy the end of class, students should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "Download PDF\nLast updated: September 2, 2026.\nReading: Boyd 2.1–2.3 applications (score, cost, temperature, regression). Quiz 2 prep: Boyd 1.12, 1.14, 1.15. Related objectives: Lectures. Schedule. Quiz 2 is Friday, September 11.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Check yourself."
-  },
-  {
-    "objectID": "lectures/lecture-06.html#learning-objectives",
-    "href": "lectures/lecture-06.html#learning-objectives",
-    "title": "Lecture 06 — Linear functions in applications",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nModel a score, cost, prediction, or aggregate quantity.\nInterpret model coefficients and intercepts.\nCompare outputs from competing models.\nState a reasonable limitation or assumption of a linear model."
-  },
-  {
-    "objectID": "lectures/lecture-06.html#warm-up",
-    "href": "lectures/lecture-06.html#warm-up",
-    "title": "Lecture 06 — Linear functions in applications",
-    "section": "Warm-up",
-    "text": "Warm-up\nIs \\(f(x)=5x_1+2x_2\\) linear, affine, or both? What about \\(g(x)=5x_1+2x_2-3\\)?"
-  },
-  {
-    "objectID": "lectures/lecture-06.html#fill-in",
-    "href": "lectures/lecture-06.html#fill-in",
-    "title": "Lecture 06 — Linear functions in applications",
-    "section": "Fill in",
-    "text": "Fill in\nAn affine model \\(f(x)=a^{\\mathsf{T}}x+b\\) often approximates a real quantity only over a limited range of inputs; outside that range the model may be \\(\\underline{\\hspace{2.4cm}}\\).\nIn a cost model \\(c^{\\mathsf{T}}q\\), the entry \\(c_i\\) is the cost per unit of material \\(i\\). The total cost is a \\(\\underline{\\hspace{2.4cm}}\\) of the amounts \\(q_i\\).\nIn Boyd 1.14, \\(f^{\\mathsf{T}}h\\) is sector exposure: net dollars invested in assets with \\(f_i=1\\). If \\(f^{\\mathsf{T}}h=0\\), the portfolio is \\(\\underline{\\hspace{2.4cm}}\\) to that sector.\nTo pick the cheapest of \\(K\\) suppliers with price vectors \\(p_1,\\ldots,p_K\\) for order \\(q\\), compare \\(p_1^{\\mathsf{T}}q,\\ldots,p_K^{\\mathsf{T}}q\\) and choose the \\(\\underline{\\hspace{2.0cm}}\\).\nA regression model \\(\\hat{y}=\\beta^{\\mathsf{T}}x+v\\) is useful when the relationship is roughly \\(\\underline{\\hspace{2.4cm}}\\) over the data range, but coefficients can be hard to interpret if features are \\(\\underline{\\hspace{2.4cm}}\\)."
-  },
-  {
-    "objectID": "lectures/lecture-06.html#worked-in-class",
-    "href": "lectures/lecture-06.html#worked-in-class",
-    "title": "Lecture 06 — Linear functions in applications",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. A 30-question magazine quiz uses answers \\(a_i\\in\\{1,2,3\\}\\) (Rarely, Sometimes, Often). Questions 1–15: Sometimes \\(+1\\), Often \\(+2\\). Questions 16–30: Sometimes \\(+2\\), Often \\(+4\\). Rarely adds 0. Write total score \\(s=w^{\\mathsf{T}}a+v\\) (Boyd 2.6).\nW2. Cash held in five currencies is \\(c=(1000,500,-200,0,300)\\) (USD, RMB, EUR, GBP, JPY). Exchange rates to USD are \\(r=(1,0.14,1.08,1.27,0.0067)\\). Total USD value is \\(r^{\\mathsf{T}}c\\) (Boyd 1.12). Compute it (negative EUR is a liability).\nW3. Three assets; pharma indicator \\(f=(1,0,1)\\). Portfolio \\(h=(500,200,-100)\\) dollars (short on asset 2). Compute exposure \\(f^{\\mathsf{T}}h\\) (Boyd 1.14). In words, what does the sign mean?\nW4. Order \\(q=(10,5,20)\\) of three materials. Supplier A prices \\(p_A=(2,4,1)\\); supplier B prices \\(p_B=(3,2,2)\\) per unit (Boyd 1.15). Which supplier is cheaper for the whole order? Compare \\(p_A^{\\mathsf{T}}q\\) and \\(p_B^{\\mathsf{T}}q\\).\nW5. Processor temperature is affine in power: \\(T=a^{\\mathsf{T}}P+b\\). Idle \\(P=(10,10,10)\\) gives \\(T=30\\). Full power on processor 1 only, \\(P=(100,10,10)\\), gives \\(T=60\\). Find \\(a_1\\) from those two readings (Boyd 2.2 setup)."
-  },
-  {
-    "objectID": "lectures/lecture-06.html#check-yourself",
-    "href": "lectures/lecture-06.html#check-yourself",
-    "title": "Lecture 06 — Linear functions in applications",
-    "section": "Check yourself",
-    "text": "Check yourself\nC1. Two regression models for the same house: \\(\\hat{y}_A=200{,}000+120x_1+15{,}000x_2\\) and \\(\\hat{y}_B=180{,}000+130x_1+18{,}000x_2\\), where \\(x_1\\) is area (1000 ft²) and \\(x_2\\) is bedrooms. For \\(x=(2,3)\\), compute both predictions. Which predicts higher?\nC2. Boyd 2.4 style: \\(\\varphi(1,1,0)=-1\\), \\(\\varphi(-1,1,1)=1\\), \\(\\varphi(1,-1,-1)=1\\). Could \\(\\varphi\\) be linear? Could it be affine? Brief reason.\nC3. You must buy \\(q=(4,2)\\). Supplier 1: \\(p_1=(5,3)\\); supplier 2: \\(p_2=(4,5)\\). Which supplier wins on total cost \\(p_k^{\\mathsf{T}}q\\)?\nC4. A long-only portfolio (\\(h_i\\geq 0\\)) is neutral to pharma (\\(f^{\\mathsf{T}}h=0\\) with \\(f_i\\in\\{0,1\\}\\)). In one sentence, what does that mean about pharma holdings?\nC5. Name one reasonable limitation of using a linear model for café revenue \\(p^{\\mathsf{T}}x\\) when \\(x\\) counts drinks sold.\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. \\(\\hat{y}_A=200{,}000+120\\cdot 2+15{,}000\\cdot 3=245{,}240\\). \\(\\hat{y}_B=180{,}000+130\\cdot 2+18{,}000\\cdot 3=248{,}260\\). Model B predicts higher.\nC2. Cannot be linear: if \\(\\varphi(x)=a^{\\mathsf{T}}x\\), the three given values force an inconsistent system for \\(a\\). Could be affine: many choices of \\(a,b\\) with \\(\\varphi(x)=a^{\\mathsf{T}}x+b\\) fit three input–output pairs.\nC3. \\(p_1^{\\mathsf{T}}q=5\\cdot 4+3\\cdot 2=26\\). \\(p_2^{\\mathsf{T}}q=4\\cdot 4+5\\cdot 2=26\\). Tie.\nC4. No net dollar holdings in pharma stocks (long positions in pharma are fully offset by non-pharma or the portfolio holds none).\nC5. Sample: prices fixed but demand may saturate; loss leaders; does not model quantity discounts; assumes all drinks sold at listed price."
+    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3Lab 1\n\n\n5\nSep 21Similar things\nSep 23Dependence\nSep 25Span\n\n\n6\nSep 28BasisQuiz 4\nSep 30Synthesis\nOct 2ReviewMidterm 1\n\n\n7\nOct 5Exam day\nOct 7Matrices\nOct 9\\(Ax\\)Lab 2\n\n\n8\nOct 12TransformsQuiz 5\nOct 14Systems\nOct 16Elimination\n\n\n9\nOct 19RREFQuiz 6\nOct 21Dynamics\nOct 23SimulationLab 3\n\n\n10\nOct 26Through timeQuiz 7\nOct 28Products\nOct 30PowersMicro-lab\n\n\n11\nNov 2Cost\nNov 4Inverses\nNov 6RankQuiz 8\n\n\n12\nNov 9Determinants\nNov 11Veterans Day — no class\nNov 13ReviewMidterm 2\n\n\n13\nNov 16Exam day\nNov 18Eigenvectors\nNov 20CharacteristicLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30EigenbehaviorQuiz 9\nDec 2Least squaresLab 5\nDec 4FittingQuiz 10Capstone\n\n\n16\nDec 7SVDCapstone\nDec 9StudioCapstone\nDec 11GalleryFinal review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
     "objectID": "syllabus.html",
@@ -189,13 +553,6 @@
     "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
   },
   {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24Vectors\nAug 26Arithmetic\nAug 28CombinationsLab 0Lab 0 ticket\n\n\n2\nAug 31Inner product\nSep 2Linear functions\nSep 4ApplicationsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Norms\nSep 11AngleQuiz 2\n\n\n4\nSep 14Neighbors\nSep 16Clustering\nSep 18Similar thingsQuiz 3Lab 1\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25Basis\n\n\n6\nSep 28SynthesisQuiz 4\nSep 30Review\nOct 2Exam dayMidterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsLab 2\n\n\n8\nOct 12SystemsQuiz 5\nOct 14Elimination\nOct 16RREF\n\n\n9\nOct 19DynamicsQuiz 6\nOct 21Simulation\nOct 23Through timeLab 3\n\n\n10\nOct 26ProductsQuiz 7\nOct 28Powers\nOct 30CostMicro-lab\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 8\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Exam dayMidterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squaresQuiz 9\nDec 2FittingLab 5\nDec 4SVDQuiz 10Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
     "objectID": "assessments.html",
     "href": "assessments.html",
     "title": "Assessments",
@@ -215,419 +572,6 @@
     "title": "Assessments",
     "section": "CLO coverage",
     "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 4\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\n\n\n\nQuiz\nDate\nFocus\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, linear combinations, Lab 0\n\n\nQuiz 2\nFri Sep 11\nDot products and linear functions\n\n\nQuiz 3\nFri Sep 18\nNorm, distance, angle, and similarity\n\n\nQuiz 4\nMon Sep 28\nClustering, dependence, span, basis, and dimension\n\n\nQuiz 5\nMon Oct 12\nMatrices, \\(Ax\\), and transformations\n\n\nQuiz 6\nMon Oct 19\nSystems, elimination, and RREF\n\n\nQuiz 7\nMon Oct 26\nDynamics and Lab 3\n\n\nQuiz 8\nFri Nov 6\nMatrix multiplication, cost, and inverses\n\n\nQuiz 9\nMon Nov 30\nEigenvalues, complex numbers, Lab 4\n\n\nQuiz 10\nFri Dec 4\nLeast squares, residuals, and Lab 5\n\n\n\nThere is no quiz on rank/determinants the week of Midterm 2; use the Midterm 2 practice packet. SVD is not on Quiz 10; use the capstone practice packet."
-  },
-  {
-    "objectID": "lectures.html",
-    "href": "lectures.html",
-    "title": "Lectures",
-    "section": "",
-    "text": "Download this page as PDF\nDaily reading is listed with each meeting. Free Strang/MIT files and the Lachniet Octave PDF are collected on Resources."
-  },
-  {
-    "objectID": "lectures.html#week-1",
-    "href": "lectures.html#week-1",
-    "title": "Lectures",
-    "section": "Week 1",
-    "text": "Week 1"
-  },
-  {
-    "objectID": "lectures.html#lecture-01",
-    "href": "lectures.html#lecture-01",
-    "title": "Lectures",
-    "section": "Mon Aug 24 — Why linear algebra? Vectors as representations",
-    "text": "Mon Aug 24 — Why linear algebra? Vectors as representations\nLecture 01 page\nReading: Boyd 1.1\nBy the end of class, students should be able to:\n\nIdentify objects that can be represented as vectors.\nInterpret vector entries, units, and indexing in context.\nDistinguish scalars from vectors.\nTranslate a small data, position, signal, or measurement problem into vector form."
-  },
-  {
-    "objectID": "lectures.html#lecture-02",
-    "href": "lectures.html#lecture-02",
-    "title": "Lectures",
-    "section": "Wed Aug 26 — Vector arithmetic and geometry",
-    "text": "Wed Aug 26 — Vector arithmetic and geometry\nLecture 02 page\nReading: Boyd 1.2–1.3\nBy the end of class, students should be able to:\n\nAdd, subtract, and scale vectors.\nInterpret those operations geometrically.\nPlot vectors in \\(\\mathbb{R}^2\\) and recognize corresponding operations in \\(\\mathbb{R}^3\\).\nCheck whether an answer has sensible dimensions and units."
-  },
-  {
-    "objectID": "lectures.html#lecture-03",
-    "href": "lectures.html#lecture-03",
-    "title": "Lectures",
-    "section": "Fri Aug 28 — Linear combinations",
-    "text": "Fri Aug 28 — Linear combinations\nLecture 03 page\nReading: Linear combinations (class notes), Lab 0, and Lachniet Ch. 1 (Getting Started).\nNote: No prior coding assumed. Lachniet is one PDF on Resources; chapters are listed here.\nBy the end of class, students should be able to:\n\nForm and interpret linear combinations.\nExplain the meaning of coefficients in context.\nEnter, index, and modify vectors in Octave or Python.\nPerform vector arithmetic and create a basic plot.\nModify supplied code and explain its output or error message."
-  },
-  {
-    "objectID": "lectures.html#week-2",
-    "href": "lectures.html#week-2",
-    "title": "Lectures",
-    "section": "Week 2",
-    "text": "Week 2"
-  },
-  {
-    "objectID": "lectures.html#lecture-04",
-    "href": "lectures.html#lecture-04",
-    "title": "Lectures",
-    "section": "Mon Aug 31 — Inner product",
-    "text": "Mon Aug 31 — Inner product\nLecture 04 page\nReading: Boyd 1.4; Boyd 1.1 stack and slice (Quiz 1 prep)\nBy the end of class, students should be able to:\n\nCompute a dot product.\nInterpret it as a weighted sum.\nInterpret its sign and magnitude as alignment.\nRecognize orthogonal vectors from a zero dot product."
-  },
-  {
-    "objectID": "lectures.html#lecture-05",
-    "href": "lectures.html#lecture-05",
-    "title": "Lectures",
-    "section": "Wed Sep 2 — Linear and affine functions",
-    "text": "Wed Sep 2 — Linear and affine functions\nLecture 05 page\nReading: Boyd 2.1 and 2.3\nNote: Boyd’s calculus-dependent Taylor-approximation material is optional.\nBy the end of class, students should be able to:\n\nDistinguish linear from affine functions in examples.\nTest superposition numerically on simple functions.\nConstruct a function \\(a^{\\mathsf{T}}x+b\\) for a contextual quantity.\nEvaluate a model by hand and computationally."
-  },
-  {
-    "objectID": "lectures.html#lecture-06",
-    "href": "lectures.html#lecture-06",
-    "title": "Lectures",
-    "section": "Fri Sep 4 — Linear functions in applications",
-    "text": "Fri Sep 4 — Linear functions in applications\nLecture 06 page\nReading: Applications of linear and affine models\nBy the end of class, students should be able to:\n\nModel a score, cost, prediction, or aggregate quantity.\nInterpret model coefficients and intercepts.\nCompare outputs from competing models.\nState a reasonable limitation or assumption of a linear model."
-  },
-  {
-    "objectID": "lectures.html#week-3",
-    "href": "lectures.html#week-3",
-    "title": "Lectures",
-    "section": "Week 3",
-    "text": "Week 3"
-  },
-  {
-    "objectID": "lectures.html#lecture-07",
-    "href": "lectures.html#lecture-07",
-    "title": "Lectures",
-    "section": "Wed Sep 9 — Norm, distance, RMS, and variation",
-    "text": "Wed Sep 9 — Norm, distance, RMS, and variation\nLecture 07 page\nReading: Boyd 3.1–3.3\nBy the end of class, students should be able to:\n\nCompute vector norms and distances.\nInterpret norm and distance geometrically and contextually.\nRelate norm to RMS and, where appropriate, variation around an average.\nUse software to calculate distances in dimensions too large for hand computation."
-  },
-  {
-    "objectID": "lectures.html#lecture-08",
-    "href": "lectures.html#lecture-08",
-    "title": "Lectures",
-    "section": "Fri Sep 11 — Angle and similarity",
-    "text": "Fri Sep 11 — Angle and similarity\nLecture 08 page\nReading: Boyd 3.4\nBy the end of class, students should be able to:\n\nCompute cosine similarity or an angle between vectors.\nDistinguish closeness in position from similarity in direction.\nChoose an appropriate similarity measure for a stated purpose.\nExplain why normalization may change a comparison."
-  },
-  {
-    "objectID": "lectures.html#week-4",
-    "href": "lectures.html#week-4",
-    "title": "Lectures",
-    "section": "Week 4",
-    "text": "Week 4"
-  },
-  {
-    "objectID": "lectures.html#lecture-09",
-    "href": "lectures.html#lecture-09",
-    "title": "Lectures",
-    "section": "Mon Sep 14 — Nearest neighbors",
-    "text": "Mon Sep 14 — Nearest neighbors\nLecture 09 page\nReading: Boyd 4.1\nNote: Possible contexts: species measurements, geographic sites, songs, or sensor readings.\nBy the end of class, students should be able to:\n\nFormulate a nearest-neighbor question using vectors.\nFind a nearest neighbor in a small dataset by hand.\nExplain how feature scale can affect the answer.\nJustify a choice of distance or similarity measure."
-  },
-  {
-    "objectID": "lectures.html#lecture-10",
-    "href": "lectures.html#lecture-10",
-    "title": "Lectures",
-    "section": "Wed Sep 16 — Clustering and \\(k\\)-means",
-    "text": "Wed Sep 16 — Clustering and \\(k\\)-means\nLecture 10 page\nReading: Boyd 4.2–4.3\nNote: Use a small dataset students can visualize.\nBy the end of class, students should be able to:\n\nExplain the goal of clustering.\nCompute one assignment/update iteration of \\(k\\)-means.\nInterpret a centroid as a vector.\nRecognize that clustering output depends on representation, scaling, and initialization."
-  },
-  {
-    "objectID": "lectures.html#lecture-11",
-    "href": "lectures.html#lecture-11",
-    "title": "Lectures",
-    "section": "Fri Sep 18 — Finding similar things",
-    "text": "Fri Sep 18 — Finding similar things\nLecture 11 page\nReading: Lab 1 and Lachniet Ch. 1 (vectors, matrix storage, indexing, plots).\nBy the end of class, students should be able to:\n\nLoad and inspect a dataset represented by vectors.\nCompute many distances with Octave or Python.\nAdapt supplied code to identify nearest observations or clusters.\nValidate computational output on a small hand-checkable subset.\nInterpret results in the original context."
-  },
-  {
-    "objectID": "lectures.html#week-5",
-    "href": "lectures.html#week-5",
-    "title": "Lectures",
-    "section": "Week 5",
-    "text": "Week 5"
-  },
-  {
-    "objectID": "lectures.html#lecture-12",
-    "href": "lectures.html#lecture-12",
-    "title": "Lectures",
-    "section": "Mon Sep 21 — Linear dependence as redundancy",
-    "text": "Mon Sep 21 — Linear dependence as redundancy\nLecture 12 page\nReading: Boyd 5.1\nBy the end of class, students should be able to:\n\nRecognize simple dependent and independent collections.\nConstruct a dependence relationship.\nInterpret dependence as redundant information.\nExplain why redundancy matters in data, measurement, and computation."
-  },
-  {
-    "objectID": "lectures.html#lecture-13",
-    "href": "lectures.html#lecture-13",
-    "title": "Lectures",
-    "section": "Wed Sep 23 — Span, independence, and subspaces",
-    "text": "Wed Sep 23 — Span, independence, and subspaces\nLecture 13 page\nReading: Traditional vocabulary supplement to Boyd\nBy the end of class, students should be able to:\n\nDefine span using linear combinations.\nDetermine whether a vector lies in a simple span.\nInterpret spans geometrically as lines, planes, or higher-dimensional collections.\nRecognize basic subspaces and distinguish them from shifted lines or planes."
-  },
-  {
-    "objectID": "lectures.html#lecture-14",
-    "href": "lectures.html#lecture-14",
-    "title": "Lectures",
-    "section": "Fri Sep 25 — Basis, dimension, and orthonormal vectors",
-    "text": "Fri Sep 25 — Basis, dimension, and orthonormal vectors\nLecture 14 page\nReading: Boyd 5.2–5.3\nNote: Gram–Schmidt is a important application.\nBy the end of class, students should be able to:\n\nExplain what a basis accomplishes.\nIdentify a basis and dimension in simple examples.\nUse linear combination, span, subspace, independence, basis, and dimension accurately.\nRecognize an orthonormal collection.\nExplain why orthonormal coordinates are convenient for measurement and reconstruction."
-  },
-  {
-    "objectID": "lectures.html#week-6",
-    "href": "lectures.html#week-6",
-    "title": "Lectures",
-    "section": "Week 6",
-    "text": "Week 6"
-  },
-  {
-    "objectID": "lectures.html#lecture-15",
-    "href": "lectures.html#lecture-15",
-    "title": "Lectures",
-    "section": "Mon Sep 28 — Unit I synthesis",
-    "text": "Mon Sep 28 — Unit I synthesis\nLecture 15 page\nReading: Unit I synthesis (no new Boyd section)\nBy the end of class, students should be able to:\n\nConnect distance, similarity, span, and independence.\nSelect an appropriate vector tool for a new problem.\nMove between algebraic, geometric, computational, and contextual representations.\nDiagnose and explain common errors."
-  },
-  {
-    "objectID": "lectures.html#lecture-16",
-    "href": "lectures.html#lecture-16",
-    "title": "Lectures",
-    "section": "Wed Sep 30 — Midterm 1 review",
-    "text": "Wed Sep 30 — Midterm 1 review\nLecture 16 page\nReading: Unit I review\nNote: Full review day.\nBy the end of class, students should be able to:\n\nRetrieve major Unit I concepts without notes.\nSolve mixed rather than chapter-isolated problems.\nExplain reasoning collaboratively.\nIdentify gaps and make a targeted study plan."
-  },
-  {
-    "objectID": "lectures.html#lecture-17",
-    "href": "lectures.html#lecture-17",
-    "title": "Lectures",
-    "section": "Fri Oct 2 — Midterm 1",
-    "text": "Fri Oct 2 — Midterm 1\nLecture 17 page\nReading: Midterm 1 (in class)\nBy the end of class, students should be able to:\n\nCompute with vectors and linear functions.\nInterpret vector operations in context.\nAnalyze distance, similarity, span, and independence.\nSelect and communicate an appropriate method."
-  },
-  {
-    "objectID": "lectures.html#week-7",
-    "href": "lectures.html#week-7",
-    "title": "Lectures",
-    "section": "Week 7",
-    "text": "Week 7"
-  },
-  {
-    "objectID": "lectures.html#lecture-18",
-    "href": "lectures.html#lecture-18",
-    "title": "Lectures",
-    "section": "Mon Oct 5 — Matrices as data and structured objects",
-    "text": "Mon Oct 5 — Matrices as data and structured objects\nLecture 18 page\nReading: Boyd 6.1–6.3\nBy the end of class, students should be able to:\n\nIdentify matrix dimensions, rows, columns, and entries.\nRepresent datasets, networks, images, or systems as matrices.\nPerform matrix addition, scaling, and transposition.\nRecognize zero, identity, diagonal, triangular, symmetric, and sparse matrices.\nExplain one practical consequence of matrix structure."
-  },
-  {
-    "objectID": "lectures.html#lecture-19",
-    "href": "lectures.html#lecture-19",
-    "title": "Lectures",
-    "section": "Wed Oct 7 — Matrix-vector multiplication",
-    "text": "Wed Oct 7 — Matrix-vector multiplication\nLecture 19 page\nReading: Boyd 6.4\nNote: Connect directly back to Week 1 linear combinations.\nBy the end of class, students should be able to:\n\nCompute \\(Ax\\) by hand for a small matrix.\nInterpret \\(Ax\\) as a linear combination of the columns of \\(A\\).\nInterpret \\(A\\) as an input-output transformation.\nExplain how the dimensions of \\(A\\) determine the input and output spaces."
-  },
-  {
-    "objectID": "lectures.html#lecture-20",
-    "href": "lectures.html#lecture-20",
-    "title": "Lectures",
-    "section": "Fri Oct 9 — Transforming space",
-    "text": "Fri Oct 9 — Transforming space\nLecture 20 page\nReading: Boyd 7.1–7.2, Lab 2, and Lachniet Ch. 2 (matrices and linear-algebra computations).\nNote: Include a 3D or coordinate-system example.\nBy the end of class, students should be able to:\n\nPredict the effect of scaling, reflection, shear, and rotation matrices.\nApply matrices to many 2D or 3D points at once.\nPlot and compare original and transformed objects.\nAdapt a short program that implements a transformation.\nInterpret a matrix as a coordinate or physical-space transformation."
-  },
-  {
-    "objectID": "lectures.html#week-8",
-    "href": "lectures.html#week-8",
-    "title": "Lectures",
-    "section": "Week 8",
-    "text": "Week 8"
-  },
-  {
-    "objectID": "lectures.html#lecture-21",
-    "href": "lectures.html#lecture-21",
-    "title": "Lectures",
-    "section": "Mon Oct 12 — Systems and \\(Ax=b\\)",
-    "text": "Mon Oct 12 — Systems and \\(Ax=b\\)\nLecture 21 page\nReading: Boyd 8.3\nBy the end of class, students should be able to:\n\nTranslate equations or contextual constraints into \\(Ax=b\\).\nInterpret \\(Ax=b\\) as asking whether \\(b\\) belongs to the span of the columns of \\(A\\).\nClassify systems as square, underdetermined, or overdetermined.\nAnticipate circumstances producing zero, one, or many solutions."
-  },
-  {
-    "objectID": "lectures.html#lecture-22",
-    "href": "lectures.html#lecture-22",
-    "title": "Lectures",
-    "section": "Wed Oct 14 — Gaussian elimination",
-    "text": "Wed Oct 14 — Gaussian elimination\nLecture 22 page\nReading: Gaussian elimination (class notes) and Lachniet Ch. 2 (solving systems, RREF).\nNote: Hand work first; software later.\nBy the end of class, students should be able to:\n\nPerform elementary row operations.\nReduce a small augmented matrix to echelon form.\nSolve a small system using back substitution.\nExplain why row operations preserve the solution set."
-  },
-  {
-    "objectID": "lectures.html#lecture-23",
-    "href": "lectures.html#lecture-23",
-    "title": "Lectures",
-    "section": "Fri Oct 16 — RREF, pivots, free variables, and software",
-    "text": "Fri Oct 16 — RREF, pivots, free variables, and software\nLecture 23 page\nReading: RREF and software solvers; Lachniet Ch. 2 (linear-system commands).\nNote: For Python, provide an RREF helper or use SymPy rather than making novices implement RREF.\nBy the end of class, students should be able to:\n\nInterpret reduced row echelon form.\nIdentify pivot and free variables.\nDescribe a solution set parametrically.\nDistinguish inconsistent, unique, and infinite-solution cases.\nUse software to solve or row-reduce a system and verify the answer using a residual."
-  },
-  {
-    "objectID": "lectures.html#week-9",
-    "href": "lectures.html#week-9",
-    "title": "Lectures",
-    "section": "Week 9",
-    "text": "Week 9"
-  },
-  {
-    "objectID": "lectures.html#lecture-24",
-    "href": "lectures.html#lecture-24",
-    "title": "Lectures",
-    "section": "Mon Oct 19 — Linear dynamical systems",
-    "text": "Mon Oct 19 — Linear dynamical systems\nLecture 24 page\nReading: Boyd 9.1–9.3\nBy the end of class, students should be able to:\n\nRepresent an evolving system as \\(x_{t+1}=Ax_t\\).\nInterpret the state vector and transition matrix.\nBuild a transition matrix from a flow description.\nCompute and interpret the next few states."
-  },
-  {
-    "objectID": "lectures.html#lecture-25",
-    "href": "lectures.html#lecture-25",
-    "title": "Lectures",
-    "section": "Wed Oct 21 — Simulation and long-run behavior",
-    "text": "Wed Oct 21 — Simulation and long-run behavior\nLecture 25 page\nReading: Simulation of linear dynamics\nNote: Do not explain the eigenvalue mechanism yet; let students form conjectures.\nBy the end of class, students should be able to:\n\nSimulate many time steps computationally.\nPlot state components through time.\nRecognize stabilization, growth, decay, or oscillation.\nConduct a simple what-if simulation.\nState limitations of a linear dynamical model."
-  },
-  {
-    "objectID": "lectures.html#lecture-26",
-    "href": "lectures.html#lecture-26",
-    "title": "Lectures",
-    "section": "Fri Oct 23 — Predict a system through time",
-    "text": "Fri Oct 23 — Predict a system through time\nLecture 26 page\nReading: Lab 3, Lachniet Ch. 2 (matrix operations), and Lachniet’s introductory programming/loops material.\nNote: This creates the eigenvalue “mystery.”\nBy the end of class, students should be able to:\n\nImplement a linear dynamical model.\nWrite or complete a short iterative calculation.\nValidate the first steps by hand.\nCompare results under altered parameters or initial states.\nRecord an unexplained long-run pattern for later investigation."
-  },
-  {
-    "objectID": "lectures.html#week-10",
-    "href": "lectures.html#week-10",
-    "title": "Lectures",
-    "section": "Week 10",
-    "text": "Week 10"
-  },
-  {
-    "objectID": "lectures.html#lecture-27",
-    "href": "lectures.html#lecture-27",
-    "title": "Lectures",
-    "section": "Mon Oct 26 — Matrix multiplication",
-    "text": "Mon Oct 26 — Matrix multiplication\nLecture 27 page\nReading: Boyd 10.1\nBy the end of class, students should be able to:\n\nDetermine whether a product is defined and give its dimensions.\nCompute a small matrix product.\nInterpret \\(ABx\\) as a sequence of transformations.\nExplain why matrix multiplication is generally not commutative."
-  },
-  {
-    "objectID": "lectures.html#lecture-28",
-    "href": "lectures.html#lecture-28",
-    "title": "Lectures",
-    "section": "Wed Oct 28 — Composition and matrix powers",
-    "text": "Wed Oct 28 — Composition and matrix powers\nLecture 28 page\nReading: Boyd 10.2–10.3\nNote: Return to the dynamics lab from a new viewpoint.\nBy the end of class, students should be able to:\n\nCombine multistage processes using a matrix product.\nConnect \\(A^k x\\) to repeated dynamics.\nInterpret selected entries of a matrix product or power.\nRecognize how network and transition information accumulates through powers."
-  },
-  {
-    "objectID": "lectures.html#lecture-29",
-    "href": "lectures.html#lecture-29",
-    "title": "Lectures",
-    "section": "Fri Oct 30 — Same mathematics, very different computational cost",
-    "text": "Fri Oct 30 — Same mathematics, very different computational cost\nLecture 29 page\nReading: Boyd’s \\(ab^{\\mathsf{T}}c\\) example (micro-lab)\nNote: Precursor to the capstone.\nBy the end of class, students should be able to:\n\nCompare algebraically equivalent orders of computation.\nCount intermediate values that must be stored.\nMeasure runtime for increasing problem sizes.\nExplain why forming a large intermediate matrix may be wasteful.\nChoose a computational order and justify it quantitatively."
-  },
-  {
-    "objectID": "lectures.html#week-11",
-    "href": "lectures.html#week-11",
-    "title": "Lectures",
-    "section": "Week 11",
-    "text": "Week 11"
-  },
-  {
-    "objectID": "lectures.html#lecture-30",
-    "href": "lectures.html#lecture-30",
-    "title": "Lectures",
-    "section": "Mon Nov 2 — Inverses and solving",
-    "text": "Mon Nov 2 — Inverses and solving\nLecture 30 page\nReading: Boyd 11.1–11.3\nBy the end of class, students should be able to:\n\nInterpret an inverse as undoing a transformation.\nDetermine whether a simple matrix is invertible.\nConnect invertibility to uniqueness of \\(Ax=b\\).\nExplain why solving \\(Ax=b\\) is generally preferable computationally to explicitly calculating \\(A^{-1}\\)."
-  },
-  {
-    "objectID": "lectures.html#lecture-31",
-    "href": "lectures.html#lecture-31",
-    "title": "Lectures",
-    "section": "Wed Nov 4 — Rank, column space, null space, and basis connections",
-    "text": "Wed Nov 4 — Rank, column space, null space, and basis connections\nLecture 31 page\nReading: Boyd plus selected portions of Strang §3.5, especially rank, column space, null space, basis, and dimension.\nNote: Not a full four-subspaces theory unit. Row space and left nullspace are enrichment, not quiz material.\nBy the end of class, students should be able to:\n\nInterpret column space and null space through \\(Ax=b\\) and \\(Ax=0\\).\nDetermine rank from pivots or independent columns.\nFind simple bases for column or null spaces.\nConnect rank to consistency, independence, and dimension.\nUse subspace, basis, dimension, rank, column space, and null space correctly."
-  },
-  {
-    "objectID": "lectures.html#lecture-32",
-    "href": "lectures.html#lecture-32",
-    "title": "Lectures",
-    "section": "Fri Nov 6 — Determinants, geometry, and invertibility",
-    "text": "Fri Nov 6 — Determinants, geometry, and invertibility\nLecture 32 page\nReading: Determinants (class notes)\nBy the end of class, students should be able to:\n\nCompute determinants of \\(2\\times 2\\) and simple triangular matrices.\nInterpret determinant magnitude as area or volume scaling.\nConnect determinant zero with lost dimension and noninvertibility.\nRecognize the determinant of a triangular matrix from its diagonal.\nConnect determinants to the coming characteristic equation."
-  },
-  {
-    "objectID": "lectures.html#week-12",
-    "href": "lectures.html#week-12",
-    "title": "Lectures",
-    "section": "Week 12",
-    "text": "Week 12"
-  },
-  {
-    "objectID": "lectures.html#lecture-33",
-    "href": "lectures.html#lecture-33",
-    "title": "Lectures",
-    "section": "Mon Nov 9 — Midterm 2 review and synthesis",
-    "text": "Mon Nov 9 — Midterm 2 review and synthesis\nLecture 33 page\nReading: Unit II review\nNote: Full review day.\nBy the end of class, students should be able to:\n\nConnect transformations, systems, dynamics, rank, inverses, and determinants.\nCompare hand and computational solution methods.\nInterpret software output instead of merely reporting it.\nSolve a new application requiring more than one concept."
-  },
-  {
-    "objectID": "lectures.html#lecture-34",
-    "href": "lectures.html#lecture-34",
-    "title": "Lectures",
-    "section": "Fri Nov 13 — Midterm 2",
-    "text": "Fri Nov 13 — Midterm 2\nLecture 34 page\nReading: Midterm 2 (in class)\nBy the end of class, students should be able to:\n\nAnalyze matrices as transformations and models.\nSolve and interpret systems.\nUse matrix products, powers, rank, inverses, and determinants appropriately.\nInterpret computational results in context."
-  },
-  {
-    "objectID": "lectures.html#week-13",
-    "href": "lectures.html#week-13",
-    "title": "Lectures",
-    "section": "Week 13",
-    "text": "Week 13"
-  },
-  {
-    "objectID": "lectures.html#lecture-35",
-    "href": "lectures.html#lecture-35",
-    "title": "Lectures",
-    "section": "Mon Nov 16 — Eigenvectors as persistent directions",
-    "text": "Mon Nov 16 — Eigenvectors as persistent directions\nLecture 35 page\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics.\nNote: Start with the unexplained behavior from Lab 3. The free PDF is only §6.1.\nBy the end of class, students should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
-  },
-  {
-    "objectID": "lectures.html#lecture-36",
-    "href": "lectures.html#lecture-36",
-    "title": "Lectures",
-    "section": "Wed Nov 18 — Characteristic equation, \\(2\\times 2\\) eigenproblems, and complex numbers",
-    "text": "Wed Nov 18 — Characteristic equation, \\(2\\times 2\\) eigenproblems, and complex numbers\nLecture 36 page\nReading: Strang §6.1, characteristic equation and the complex-eigenvalue (\\(90^\\circ\\) rotation) example.\nNote: Meets the explicit hand-calculation and complex-number CLOs. The same free §6.1 file is used Nov 16–20.\nBy the end of class, students should be able to:\n\nInterpret \\(a+bi\\) algebraically and as a point/vector in the complex plane.\nPerform the basic complex arithmetic needed for eigenvalue calculations.\nForm and solve \\(\\det(A-\\lambda I)=0\\) for a \\(2\\times 2\\) matrix.\nFind corresponding eigenvectors.\nCheck real or complex eigenpairs by substitution."
-  },
-  {
-    "objectID": "lectures.html#lecture-37",
-    "href": "lectures.html#lecture-37",
-    "title": "Lectures",
-    "section": "Fri Nov 20 — Why did the system behave that way?",
-    "text": "Fri Nov 20 — Why did the system behave that way?\nLecture 37 page\nReading: Strang §6.1, Lab 4, and Lachniet Ch. 5 (eigenvalues/eigenvectors).\nNote: Normal modes are an application/demo, not a differential-equations derivation. Students then use software in Lab 4.\nBy the end of class, students should be able to:\n\nCompute eigenvalues and eigenvectors of a general matrix with software.\nVerify \\(Av\\approx\\lambda v\\) numerically.\nUse dominant eigenbehavior to explain a simulated system.\nInterpret complex eigenvalues as rotation/oscillation behavior.\nExplore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors."
-  },
-  {
-    "objectID": "lectures.html#week-15",
-    "href": "lectures.html#week-15",
-    "title": "Lectures",
-    "section": "Week 15",
-    "text": "Week 15"
-  },
-  {
-    "objectID": "lectures.html#lecture-38",
-    "href": "lectures.html#lecture-38",
-    "title": "Lectures",
-    "section": "Mon Nov 30 — When \\(Ax=b\\) has no exact solution",
-    "text": "Mon Nov 30 — When \\(Ax=b\\) has no exact solution\nLecture 38 page\nReading: Boyd 12.1\nBy the end of class, students should be able to:\n\nRecognize an inconsistent overdetermined system.\nFormulate the least-squares objective \\(\\min_x \\lVert Ax-b\\rVert\\).\nInterpret the fitted vector as the closest attainable vector.\nInterpret the residual geometrically.\nDistinguish an exact solution from a best approximate solution."
-  },
-  {
-    "objectID": "lectures.html#lecture-39",
-    "href": "lectures.html#lecture-39",
-    "title": "Lectures",
-    "section": "Wed Dec 2 — Least squares, data fitting, and positive definiteness",
-    "text": "Wed Dec 2 — Least squares, data fitting, and positive definiteness\nLecture 39 page\nReading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, Lab 5, and Lachniet Ch. 2 (least-squares / data-fitting exercises).\nNote: Use a small real dataset. Positive definiteness is from Boyd and class notes, not later Strang sections.\nBy the end of class, students should be able to:\n\nCompute a least-squares solution with Octave or Python.\nPlot observed and fitted values.\nInterpret residuals and an RMS error in context.\nCheck the residual’s orthogonality to the columns of \\(A\\).\nEvaluate whether a fitted model is useful rather than merely reporting coefficients.\nRecognize that \\(A^{\\mathsf{T}}A\\) is symmetric positive semidefinite, explain \\(x^{\\mathsf{T}}A^{\\mathsf{T}}Ax=\\lVert Ax\\rVert^2\\), and recognize that \\(A^{\\mathsf{T}}A\\) is positive definite when \\(A\\) has linearly independent columns."
-  },
-  {
-    "objectID": "lectures.html#lecture-40",
-    "href": "lectures.html#lecture-40",
-    "title": "Lectures",
-    "section": "Fri Dec 4 — SVD, low-rank approximation, and capstone launch",
-    "text": "Fri Dec 4 — SVD, low-rank approximation, and capstone launch\nLecture 40 page\nReading: Selected slides from the Strang/MIT SVD slides (not all 17 pages), capstone launch, Lachniet Ch. 5 (SVD) and Ch. 7 (image compression).\nBy the end of class, students should be able to:\n\nInterpret \\(A=U\\Sigma V^{\\mathsf{T}}\\) conceptually.\nConstruct a rank-\\(k\\) approximation computationally.\nCompare singular-value decay for an image/frame and a frame-difference matrix.\nEncode three frames either independently or as \\(F_1\\), \\(D_2\\), \\(D_3\\).\nCompare reconstruction error and storage for the two approaches.\nFormulate a capstone question involving accuracy, storage, runtime, and resource use."
-  },
-  {
-    "objectID": "lectures.html#week-16",
-    "href": "lectures.html#week-16",
-    "title": "Lectures",
-    "section": "Week 16",
-    "text": "Week 16"
-  },
-  {
-    "objectID": "lectures.html#lecture-41",
-    "href": "lectures.html#lecture-41",
-    "title": "Lectures",
-    "section": "Mon Dec 7 — Capstone studio",
-    "text": "Mon Dec 7 — Capstone studio\nLecture 41 page\nReading: Capstone (no new mathematics)\nBy the end of class, students should be able to:\n\nImplement and validate a low-rank computational strategy.\nMeasure approximation error, storage, and runtime.\nSeparate one-time factorization cost from repeated-use cost.\nCompare theoretical operation/storage counts with empirical measurements.\nDebug and refine an analysis collaboratively while retaining individual understanding."
-  },
-  {
-    "objectID": "lectures.html#lecture-42",
-    "href": "lectures.html#lecture-42",
-    "title": "Lectures",
-    "section": "Wed Dec 9 — Capstone presentations / gallery walk",
-    "text": "Wed Dec 9 — Capstone presentations / gallery walk\nLecture 42 page\nReading: Capstone presentations\nNote: Pair lightning talks or gallery walk.\nBy the end of class, students should be able to:\n\nExplain the problem and why SVD or another linear-algebra tool was appropriate.\nPresent quantitative evidence about accuracy and cost.\nDefend a choice of rank or representation.\nEvaluate classmates’ methods constructively.\nCommunicate the practical value and limitations of the result."
-  },
-  {
-    "objectID": "lectures.html#lecture-43",
-    "href": "lectures.html#lecture-43",
-    "title": "Lectures",
-    "section": "Fri Dec 11 — Cumulative final review",
-    "text": "Fri Dec 11 — Cumulative final review\nLecture 43 page\nReading: Cumulative review\nNote: No routine quiz or new content.\nBy the end of class, students should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
   },
   {
     "objectID": "resources.html",
