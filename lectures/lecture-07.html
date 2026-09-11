@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3e9b1289f5f353c49b617ce48ad2bc38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -124,6 +153,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#software-keep-this-page-open" id="toc-software-keep-this-page-open" class="nav-link" data-scroll-target="#software-keep-this-page-open">Software (keep this page open)</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#check-yourself" id="toc-check-yourself" class="nav-link" data-scroll-target="#check-yourself">Check yourself</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-07.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -137,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lecture 07 — Norm, distance, RMS, and variation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Wed Sep 9</p>
+<p class="subtitle lead">Fri Sep 11</p>
 </div>
 
 
@@ -149,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">September 11, 2026</p>
     </div>
   </div>
     
@@ -161,9 +195,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lecture-07.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Related reading and the course-wide list of daily objectives: <a href="../lectures.html#lecture-07">Lectures</a>.</p>
+<p>Last updated: September 11, 2026.</p>
+<p>Reading: Boyd 3.1–3.3 (norm, distance, standard deviation). Quiz 3 prep: Boyd 3.1, 3.2, 3.15 and distance computations. Related objectives: <a href="../lectures.html#lecture-07">Lectures</a>. <a href="../schedule.html">Schedule</a>. <a href="../quizzes/quiz-03.html">Quiz 3</a> is Friday, September 18. Angle and cosine similarity are next class (<a href="../lectures/lecture-08.html">Lecture 08</a>).</p>
+<p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples (hand and software), and <strong>Check yourself</strong>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -173,6 +207,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Relate norm to RMS and, where appropriate, variation around an average.</li>
 <li>Use software to calculate distances in dimensions too large for hand computation.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Let <span class="math inline">\(u=(3,-4)\)</span> and <span class="math inline">\(v=(0,5)\)</span>.</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(u^{\mathsf{T}}u\)</span> and <span class="math inline">\(\sqrt{u^{\mathsf{T}}u}\)</span> by hand.</p></li>
+<li><p>Without a calculator, which is larger: <span class="math inline">\(\lVert u\rVert\)</span> or <span class="math inline">\(\lVert v\rVert\)</span>? Brief reason.</p></li>
+</ol>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p>The <strong>Euclidean norm</strong> of an <span class="math inline">\(n\)</span>-vector <span class="math inline">\(x\)</span> is <span class="math display">\[
+\lVert x\rVert = \sqrt{x_1^2+\cdots+x_n^2} = \sqrt{\underline{\hspace{2.4cm}}}.
+\]</span> It measures the <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> of <span class="math inline">\(x\)</span>. For a scalar, <span class="math inline">\(\lVert x\rVert\)</span> is the <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span>.</p>
+<p>Key properties (same size vectors; <span class="math inline">\(\beta\)</span> a scalar): - <span class="math inline">\(\lVert \beta x\rVert = \underline{\hspace{2.4cm}}\,\lVert x\rVert\)</span> - <span class="math inline">\(\lVert x+y\rVert \leq \lVert x\rVert + \lVert y\rVert\)</span> (triangle inequality) - <span class="math inline">\(\lVert x\rVert \geq 0\)</span>, and <span class="math inline">\(\lVert x\rVert=0\)</span> only when <span class="math inline">\(x=\underline{\hspace{1.2cm}}\)</span></p>
+<p>The <strong>RMS</strong> (root-mean-square) value is <span class="math display">\[
+\mathrm{rms}(x) = \frac{\lVert x\rVert}{\sqrt{n}} = \sqrt{\frac{x_1^2+\cdots+x_n^2}{n}}.
+\]</span> It describes a <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> size of an entry, and is useful when comparing vectors of different <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span>.</p>
+<p>The <strong>distance</strong> between <span class="math inline">\(n\)</span>-vectors <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> is <span class="math display">\[
+\mathrm{dist}(a,b) = \lVert a-b\rVert.
+\]</span> Geometrically this is the length of the <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> from <span class="math inline">\(a\)</span> to <span class="math inline">\(b\)</span>. Two vectors are “close” when this distance is <span class="math inline">\(\underline{\hspace{1.6cm}}\)</span> (relative to the application).</p>
+<p>The <strong>average</strong> is <span class="math inline">\(\mathrm{avg}(x)=\frac{1}{n}\mathbf{1}^{\mathsf{T}}x\)</span>. The <strong>de-meaned</strong> vector is <span class="math inline">\(\tilde{x}=x-\mathrm{avg}(x)\mathbf{1}\)</span>. The <strong>standard deviation</strong> is <span class="math display">\[
+\mathrm{std}(x)=\mathrm{rms}(\tilde{x})=\frac{\lVert x-\mathrm{avg}(x)\mathbf{1}\rVert}{\sqrt{n}},
+\]</span> which measures typical <span class="math inline">\(\underline{\hspace{2.8cm}}\)</span> of the entries from their average.</p>
+<p>Boyd’s identity: <span class="math inline">\(\mathrm{rms}(x)^2 = \mathrm{avg}(x)^2 + \mathrm{std}(x)^2\)</span>.</p>
+</section>
+<section id="software-keep-this-page-open" class="level2">
+<h2 class="anchored" data-anchor-id="software-keep-this-page-open">Software (keep this page open)</h2>
+<p>In this course we use either Octave or Python for norms and distances.</p>
+<p><strong>Octave</strong> (column vectors are fine):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">3</span><span class="op">;</span> <span class="op">-</span><span class="fl">4</span><span class="op">;</span> <span class="fl">0</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">norm</span>(<span class="va">x</span>)                 <span class="co">% Euclidean norm</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">sqrt</span>(<span class="va">x</span><span class="op">'*</span><span class="va">x</span>)              <span class="co">% same idea via the inner product</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">y</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">2</span><span class="op">;</span> <span class="op">-</span><span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">norm</span>(<span class="va">x</span><span class="op">-</span><span class="va">y</span>)               <span class="co">% distance ||x-y||</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python</strong> (NumPy):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">3.0</span>, <span class="op">-</span><span class="fl">4.0</span>, <span class="fl">0.0</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>np.linalg.norm(x)       <span class="co"># Euclidean norm</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>np.sqrt(x <span class="op">@</span> x)          <span class="co"># same idea via the inner product</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="op">-</span><span class="fl">1.0</span>])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>np.linalg.norm(x <span class="op">-</span> y)   <span class="co"># distance ||x-y||</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Handy formulas (either language): - <span class="math inline">\(\mathrm{rms}(x)=\lVert x\rVert/\sqrt{n}\)</span> - <span class="math inline">\(\mathrm{avg}(x)=\frac{1}{n}\sum_i x_i\)</span> (Octave <code>mean(x)</code>, Python <code>np.mean(x)</code>) - <span class="math inline">\(\mathrm{std}(x)\)</span> in Boyd’s sense is the RMS of the de-meaned vector (population form with divisor <span class="math inline">\(n\)</span>, not <span class="math inline">\(n-1\)</span>)</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Norm by hand and by software (Lachniet-style). Let <span class="math display">\[
+u = (2,\ -4,\ 0).
+\]</span> (a) Compute <span class="math inline">\(\lVert u\rVert\)</span> by hand using <span class="math inline">\(\sqrt{u^{\mathsf{T}}u}\)</span>.</p>
+<ol start="2" type="a">
+<li><p>Write the Octave command and the Python command that compute the same value. What should both print?</p></li>
+<li><p>Form the <strong>unit vector</strong> <span class="math inline">\(\hat{u}=u/\lVert u\rVert\)</span>. What is <span class="math inline">\(\lVert\hat{u}\rVert\)</span>?</p></li>
+</ol>
+<p><strong>W2.</strong> Distance and nearest neighbor (Quiz 3 / Boyd 3.10–3.11 style). Arcata morning temperatures (°F) for three days: <span class="math display">\[
+a=(52,51,53),\qquad b=(54,50,55),\qquad c=(60,58,59).
+\]</span> A new day is <span class="math inline">\(x=(53,52,54)\)</span>.</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(\lVert x-a\rVert\)</span>, <span class="math inline">\(\lVert x-b\rVert\)</span>, and <span class="math inline">\(\lVert x-c\rVert\)</span> by hand or with software.</p></li>
+<li><p>Which day is the nearest neighbor of <span class="math inline">\(x\)</span>?</p></li>
+<li><p>In one sentence, what does “nearest” mean here?</p></li>
+</ol>
+<p><strong>W3.</strong> Boolean distance (Boyd 3.1). Suppose <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are Boolean <span class="math inline">\(n\)</span>-vectors (entries only <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>).</p>
+<ol type="a">
+<li><p>Show that <span class="math inline">\(\lVert x-y\rVert^2\)</span> equals the number of positions where <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> disagree.</p></li>
+<li><p>Therefore <span class="math inline">\(\lVert x-y\rVert=\sqrt{k}\)</span> where <span class="math inline">\(k\)</span> is that disagreement count. For <span class="math inline">\(x=(1,0,1,1,0)\)</span> and <span class="math inline">\(y=(1,1,0,1,0)\)</span>, find <span class="math inline">\(k\)</span> and <span class="math inline">\(\lVert x-y\rVert\)</span>.</p></li>
+</ol>
+<p><strong>W4.</strong> RMS, average, and standard deviation (Boyd 3.15 setup). Let <span class="math display">\[
+x=(2,4,4,6).
+\]</span> (a) Compute <span class="math inline">\(\mathrm{avg}(x)\)</span>, <span class="math inline">\(\lVert x\rVert\)</span>, <span class="math inline">\(\mathrm{rms}(x)\)</span>, the de-meaned vector <span class="math inline">\(\tilde{x}\)</span>, and <span class="math inline">\(\mathrm{std}(x)\)</span>.</p>
+<ol start="2" type="a">
+<li><p>Check Boyd’s identity <span class="math inline">\(\mathrm{rms}(x)^2=\mathrm{avg}(x)^2+\mathrm{std}(x)^2\)</span>.</p></li>
+<li><p>Interpret <span class="math inline">\(\mathrm{std}(x)\)</span> in one short sentence for this data.</p></li>
+</ol>
+<p><strong>W5.</strong> Feature scale changes nearest neighbor (Quiz 3 C1.2 style). Two features: area (in <span class="math inline">\(1000\)</span> ft²) and bedrooms. Houses: <span class="math display">\[
+h_1=(1.6,\ 2),\qquad h_2=(1.5,\ 2),\qquad h_3=(1.6,\ 4).
+\]</span> (a) Compute <span class="math inline">\(\lVert h_1-h_2\rVert\)</span> and <span class="math inline">\(\lVert h_1-h_3\rVert\)</span>. Which house is nearer to <span class="math inline">\(h_1\)</span>?</p>
+<ol start="2" type="a">
+<li><p>Now measure area in square feet instead, so the vectors become <span class="math display">\[
+\tilde{h}_1=(1600,\ 2),\qquad \tilde{h}_2=(1500,\ 2),\qquad \tilde{h}_3=(1600,\ 4).
+\]</span> Compute <span class="math inline">\(\lVert\tilde{h}_1-\tilde{h}_2\rVert\)</span> and <span class="math inline">\(\lVert\tilde{h}_1-\tilde{h}_3\rVert\)</span>. Which house is nearer to <span class="math inline">\(\tilde{h}_1\)</span> now?</p></li>
+<li><p>What changed, and why does Boyd warn about units on heterogeneous features?</p></li>
+</ol>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<p><strong>C1.</strong> Let <span class="math inline">\(w=(1,-2,2)\)</span>. Compute <span class="math inline">\(\lVert w\rVert\)</span> by hand. Then write one Octave line and one Python line that compute it.</p>
+<p><strong>C2.</strong> Quiz 3 C1.1 style. Observation <span class="math inline">\(x=(1,2)\)</span>. Candidates: <span class="math display">\[
+z_1=(0,2),\quad z_2=(3,2),\quad z_3=(1,5),\quad z_4=(2,1),\quad z_5=(1,2.5).
+\]</span> Compute the five distances <span class="math inline">\(\lVert x-z_i\rVert\)</span> (hand or software). Which candidate is nearest?</p>
+<p><strong>C3.</strong> Boyd 3.2 style. Let <span class="math inline">\(a\)</span> be an <span class="math inline">\(n\)</span>-vector and <span class="math inline">\(b\)</span> an <span class="math inline">\(m\)</span>-vector, and set <span class="math inline">\(x=(a,b)\)</span> (stack). Express <span class="math inline">\(\mathrm{rms}(x)\)</span> in terms of <span class="math inline">\(\mathrm{rms}(a)\)</span>, <span class="math inline">\(\mathrm{rms}(b)\)</span>, <span class="math inline">\(n\)</span>, and <span class="math inline">\(m\)</span>.</p>
+<p><strong>C4.</strong> For <span class="math inline">\(t=(10,10,10,14)\)</span>, find <span class="math inline">\(\mathrm{avg}(t)\)</span> and <span class="math inline">\(\mathrm{std}(t)\)</span>. Use Boyd’s definition (RMS of the de-meaned vector).</p>
+<p><strong>C5.</strong> True or false, with one sentence: if <span class="math inline">\(\lVert x\rVert=\lVert y\rVert\)</span>, then <span class="math inline">\(x=y\)</span> or <span class="math inline">\(x=-y\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Check yourself only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>C1. <span class="math inline">\(\lVert w\rVert=\sqrt{1+4+4}=3\)</span>. Octave: <code>norm([1;-2;2])</code>. Python: <code>np.linalg.norm(np.array([1.,-2.,2.]))</code>.</p>
+<p>C2. Distances: <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, <span class="math inline">\(\sqrt{2}\approx 1.414\)</span>, <span class="math inline">\(0.5\)</span>. Nearest is <span class="math inline">\(z_5=(1,2.5)\)</span>.</p>
+<p>C3. <span class="math inline">\(\mathrm{rms}(x)=\sqrt{\dfrac{n\,\mathrm{rms}(a)^2+m\,\mathrm{rms}(b)^2}{n+m}}\)</span>.</p>
+<p>C4. <span class="math inline">\(\mathrm{avg}(t)=11\)</span>. De-meaned <span class="math inline">\((-1,-1,-1,3)\)</span>; <span class="math inline">\(\mathrm{std}(t)=\sqrt{(1+1+1+9)/4}=\sqrt{3}\)</span>.</p>
+<p>C5. <strong>False.</strong> Example: <span class="math inline">\(x=(1,0)\)</span> and <span class="math inline">\(y=(0,1)\)</span> have the same norm but are neither equal nor negatives.</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -636,31 +782,214 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 07 — Norm, distance, RMS, and variation"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Sep 9"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-07.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related reading and the course-wide list of daily objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-07)</span>.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute vector norms and distances.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret norm and distance geometrically and contextually.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Relate norm to RMS and, where appropriate, variation around an average.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Use software to calculate distances in dimensions too large for hand computation.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 07 — Norm, distance, RMS, and variation"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Sep 11"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-11</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-07.pdf)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Last updated: September 11, 2026.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 3.1–3.3 (norm, distance, standard deviation). Quiz 3 prep: Boyd 3.1, 3.2, 3.15 and distance computations. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-07)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>. <span class="co">[</span><span class="ot">Quiz 3</span><span class="co">](../quizzes/quiz-03.qmd)</span> is Friday, September 18. Angle and cosine similarity are next class (<span class="co">[</span><span class="ot">Lecture 08</span><span class="co">](lecture-08.qmd)</span>).</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples (hand and software), and **Check yourself**.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Compute vector norms and distances.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Interpret norm and distance geometrically and contextually.</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Relate norm to RMS and, where appropriate, variation around an average.</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Use software to calculate distances in dimensions too large for hand computation.</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Let $u=(3,-4)$ and $v=(0,5)$.</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>(a) Compute $u^{\mathsf{T}}u$ and $\sqrt{u^{\mathsf{T}}u}$ by hand.</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>(b) Without a calculator, which is larger: $\lVert u\rVert$ or $\lVert v\rVert$? Brief reason.</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>The **Euclidean norm** of an $n$-vector $x$ is</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>\lVert x\rVert = \sqrt{x_1^2+\cdots+x_n^2} = \sqrt{\underline{\hspace{2.4cm}}}.</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>It measures the $\underline{\hspace{2.0cm}}$ of $x$. For a scalar, $\lVert x\rVert$ is the $\underline{\hspace{2.0cm}}$.</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>Key properties (same size vectors; $\beta$ a scalar):</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\lVert \beta x\rVert = \underline{\hspace{2.4cm}}\,\lVert x\rVert$</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\lVert x+y\rVert \leq \lVert x\rVert + \lVert y\rVert$ (triangle inequality)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\lVert x\rVert \geq 0$, and $\lVert x\rVert=0$ only when $x=\underline{\hspace{1.2cm}}$</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>The **RMS** (root-mean-square) value is</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>\mathrm{rms}(x) = \frac{\lVert x\rVert}{\sqrt{n}} = \sqrt{\frac{x_1^2+\cdots+x_n^2}{n}}.</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>It describes a $\underline{\hspace{2.4cm}}$ size of an entry, and is useful when comparing vectors of different $\underline{\hspace{2.0cm}}$.</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>The **distance** between $n$-vectors $a$ and $b$ is</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>\mathrm{dist}(a,b) = \lVert a-b\rVert.</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>Geometrically this is the length of the $\underline{\hspace{2.4cm}}$ from $a$ to $b$. Two vectors are “close” when this distance is $\underline{\hspace{1.6cm}}$ (relative to the application).</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>The **average** is $\mathrm{avg}(x)=\frac{1}{n}\mathbf{1}^{\mathsf{T}}x$. The **de-meaned** vector is $\tilde{x}=x-\mathrm{avg}(x)\mathbf{1}$. The **standard deviation** is</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>\mathrm{std}(x)=\mathrm{rms}(\tilde{x})=\frac{\lVert x-\mathrm{avg}(x)\mathbf{1}\rVert}{\sqrt{n}},</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a>which measures typical $\underline{\hspace{2.8cm}}$ of the entries from their average.</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>Boyd’s identity: $\mathrm{rms}(x)^2 = \mathrm{avg}(x)^2 + \mathrm{std}(x)^2$.</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software (keep this page open)</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>In this course we use either Octave or Python for norms and distances.</span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>**Octave** (column vectors are fine):</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">3</span><span class="op">;</span> <span class="op">-</span><span class="fl">4</span><span class="op">;</span> <span class="fl">0</span>]<span class="op">;</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="va">norm</span>(<span class="va">x</span>)                 <span class="co">% Euclidean norm</span></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="va">sqrt</span>(<span class="va">x</span><span class="op">'*</span><span class="va">x</span>)              <span class="co">% same idea via the inner product</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a><span class="va">y</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">2</span><span class="op">;</span> <span class="op">-</span><span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="va">norm</span>(<span class="va">x</span><span class="op">-</span><span class="va">y</span>)               <span class="co">% distance ||x-y||</span></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">**</span> (<span class="va">NumPy</span>)<span class="op">:</span></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">3.0</span><span class="op">,</span> <span class="op">-</span><span class="fl">4.0</span><span class="op">,</span> <span class="fl">0.0</span>])</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">x</span>)       # <span class="va">Euclidean</span> <span class="va">norm</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a><span class="va">np</span>.<span class="va">sqrt</span>(<span class="va">x</span> <span class="op">@</span> <span class="va">x</span>)          # <span class="va">same</span> <span class="va">idea</span> <span class="va">via</span> <span class="va">the</span> <span class="va">inner</span> <span class="va">product</span></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="va">y</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1.0</span><span class="op">,</span> <span class="fl">2.0</span><span class="op">,</span> <span class="op">-</span><span class="fl">1.0</span>])</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">x</span> <span class="op">-</span> <span class="va">y</span>)   # <span class="va">distance</span> <span class="op">||</span><span class="va">x</span><span class="op">-</span><span class="va">y</span><span class="op">||</span></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="va">Handy</span> <span class="va">formulas</span> (<span class="va">either</span> <span class="va">language</span>)<span class="op">:</span></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">rms</span>}(<span class="va">x</span>)<span class="op">=\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">\</span><span class="va">rVert</span><span class="op">/\</span><span class="va">sqrt</span>{<span class="va">n</span>}$</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">avg</span>}(<span class="va">x</span>)<span class="op">=\</span><span class="va">frac</span>{<span class="fl">1</span>}{<span class="va">n</span>}<span class="op">\</span><span class="va">sum_i</span> <span class="va">x_i</span>$ (<span class="va">Octave</span> `<span class="va">mean</span>(<span class="va">x</span>)`<span class="op">,</span> <span class="va">Python</span> `<span class="va">np</span>.<span class="va">mean</span>(<span class="va">x</span>)`)</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a><span class="op">-</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">std</span>}(<span class="va">x</span>)$ <span class="va">in</span> <span class="va">Boyd</span>’<span class="va">s</span> <span class="va">sense</span> <span class="va">is</span> <span class="va">the</span> <span class="va">RMS</span> <span class="va">of</span> <span class="va">the</span> <span class="va">de</span><span class="op">-</span><span class="va">meaned</span> <span class="va">vector</span> (<span class="va">population</span> <span class="va">form</span> <span class="va">with</span> <span class="va">divisor</span> $<span class="va">n</span>$<span class="op">,</span> <span class="va">not</span> $<span class="va">n</span><span class="op">-</span><span class="fl">1</span>$)</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span><span class="op">-</span><span class="va">line</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>## <span class="va">Worked</span> <span class="va">in</span> <span class="va">class</span></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W1</span><span class="op">.**</span> <span class="va">Norm</span> <span class="va">by</span> <span class="va">hand</span> <span class="va">and</span> <span class="va">by</span> <span class="va">software</span> (<span class="va">Lachniet</span><span class="op">-</span><span class="va">style</span>). <span class="va">Let</span></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="va">u</span> <span class="op">=</span> (<span class="fl">2</span><span class="op">,\</span> <span class="op">-</span><span class="fl">4</span><span class="op">,\</span> <span class="fl">0</span>).</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">u</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">by</span> <span class="va">hand</span> <span class="va">using</span> $<span class="op">\</span><span class="va">sqrt</span>{<span class="va">u</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">u</span>}$.</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Write</span> <span class="va">the</span> <span class="va">Octave</span> <span class="va">command</span> <span class="va">and</span> <span class="va">the</span> <span class="va">Python</span> <span class="va">command</span> <span class="va">that</span> <span class="va">compute</span> <span class="va">the</span> <span class="va">same</span> <span class="va">value</span>. <span class="va">What</span> <span class="va">should</span> <span class="va">both</span> <span class="va">print</span>?</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">Form</span> <span class="va">the</span> <span class="op">**</span><span class="va">unit</span> <span class="va">vector</span><span class="op">**</span> $<span class="op">\</span><span class="va">hat</span>{<span class="va">u</span>}<span class="op">=</span><span class="va">u</span><span class="op">/\</span><span class="va">lVert</span> <span class="va">u</span><span class="op">\</span><span class="va">rVert</span>$. <span class="va">What</span> <span class="va">is</span> $<span class="op">\</span><span class="va">lVert</span><span class="op">\</span><span class="va">hat</span>{<span class="va">u</span>}<span class="op">\</span><span class="va">rVert</span>$?</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W2</span><span class="op">.**</span> <span class="va">Distance</span> <span class="va">and</span> <span class="va">nearest</span> <span class="va">neighbor</span> (<span class="va">Quiz</span> <span class="fl">3</span> <span class="op">/</span> <span class="va">Boyd</span> <span class="fl">3.10</span>–<span class="fl">3.11</span> <span class="va">style</span>). <span class="va">Arcata</span> <span class="va">morning</span> <span class="va">temperatures</span> (°<span class="va">F</span>) <span class="kw">for</span> <span class="va">three</span> <span class="va">days</span><span class="op">:</span></span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="va">a</span><span class="op">=</span>(<span class="fl">52</span><span class="op">,</span><span class="fl">51</span><span class="op">,</span><span class="fl">53</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="va">b</span><span class="op">=</span>(<span class="fl">54</span><span class="op">,</span><span class="fl">50</span><span class="op">,</span><span class="fl">55</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="va">c</span><span class="op">=</span>(<span class="fl">60</span><span class="op">,</span><span class="fl">58</span><span class="op">,</span><span class="fl">59</span>).</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="va">new</span> <span class="va">day</span> <span class="va">is</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">53</span><span class="op">,</span><span class="fl">52</span><span class="op">,</span><span class="fl">54</span>)$.</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">a</span><span class="op">\</span><span class="va">rVert</span>$<span class="op">,</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">b</span><span class="op">\</span><span class="va">rVert</span>$<span class="op">,</span> <span class="va">and</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">c</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">by</span> <span class="va">hand</span> <span class="va">or</span> <span class="va">with</span> <span class="va">software</span>.</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Which</span> <span class="va">day</span> <span class="va">is</span> <span class="va">the</span> <span class="va">nearest</span> <span class="va">neighbor</span> <span class="va">of</span> $<span class="va">x</span>$?</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">In</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">,</span> <span class="va">what</span> <span class="va">does</span> “<span class="va">nearest</span>” <span class="va">mean</span> <span class="va">here</span>?</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W3</span><span class="op">.**</span> <span class="va">Boolean</span> <span class="va">distance</span> (<span class="va">Boyd</span> <span class="fl">3.1</span>). <span class="va">Suppose</span> $<span class="va">x</span>$ <span class="va">and</span> $<span class="va">y</span>$ <span class="va">are</span> <span class="va">Boolean</span> $<span class="va">n</span>$<span class="op">-</span><span class="va">vectors</span> (<span class="va">entries</span> <span class="va">only</span> $<span class="fl">0</span>$ <span class="va">or</span> $<span class="fl">1</span>$).</span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Show</span> <span class="va">that</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">y</span><span class="op">\</span><span class="va">rVert</span><span class="op">^</span><span class="fl">2</span>$ <span class="va">equals</span> <span class="va">the</span> <span class="va">number</span> <span class="va">of</span> <span class="va">positions</span> <span class="va">where</span> $<span class="va">x</span>$ <span class="va">and</span> $<span class="va">y</span>$ <span class="va">disagree</span>.</span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Therefore</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">y</span><span class="op">\</span><span class="va">rVert</span><span class="op">=\</span><span class="va">sqrt</span>{<span class="va">k</span>}$ <span class="va">where</span> $<span class="va">k</span>$ <span class="va">is</span> <span class="va">that</span> <span class="va">disagreement</span> <span class="va">count</span>. <span class="va">For</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$ <span class="va">and</span> $<span class="va">y</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> <span class="va">find</span> $<span class="va">k</span>$ <span class="va">and</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">y</span><span class="op">\</span><span class="va">rVert</span>$.</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W4</span><span class="op">.**</span> <span class="va">RMS</span><span class="op">,</span> <span class="va">average</span><span class="op">,</span> <span class="va">and</span> <span class="va">standard</span> <span class="va">deviation</span> (<span class="va">Boyd</span> <span class="fl">3.15</span> <span class="va">setup</span>). <span class="va">Let</span></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a><span class="va">x</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">4</span><span class="op">,</span><span class="fl">4</span><span class="op">,</span><span class="fl">6</span>).</span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">avg</span>}(<span class="va">x</span>)$<span class="op">,</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">\</span><span class="va">rVert</span>$<span class="op">,</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">rms</span>}(<span class="va">x</span>)$<span class="op">,</span> <span class="va">the</span> <span class="va">de</span><span class="op">-</span><span class="va">meaned</span> <span class="va">vector</span> $<span class="op">\</span><span class="va">tilde</span>{<span class="va">x</span>}$<span class="op">,</span> <span class="va">and</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">std</span>}(<span class="va">x</span>)$.</span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Check</span> <span class="va">Boyd</span>’<span class="va">s</span> <span class="va">identity</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">rms</span>}(<span class="va">x</span>)<span class="op">^</span><span class="fl">2</span><span class="op">=\</span><span class="va">mathrm</span>{<span class="va">avg</span>}(<span class="va">x</span>)<span class="op">^</span><span class="fl">2</span><span class="op">+\</span><span class="va">mathrm</span>{<span class="va">std</span>}(<span class="va">x</span>)<span class="op">^</span><span class="fl">2</span>$.</span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">Interpret</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">std</span>}(<span class="va">x</span>)$ <span class="va">in</span> <span class="va">one</span> <span class="va">short</span> <span class="va">sentence</span> <span class="kw">for</span> <span class="va">this</span> <span class="va">data</span>.</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W5</span><span class="op">.**</span> <span class="va">Feature</span> <span class="va">scale</span> <span class="va">changes</span> <span class="va">nearest</span> <span class="va">neighbor</span> (<span class="va">Quiz</span> <span class="fl">3</span> <span class="va">C1</span><span class="fl">.2</span> <span class="va">style</span>). <span class="va">Two</span> <span class="va">features</span><span class="op">:</span> <span class="va">area</span> (<span class="va">in</span> $<span class="fl">1000</span>$ <span class="va">ft²</span>) <span class="va">and</span> <span class="va">bedrooms</span>. <span class="va">Houses</span><span class="op">:</span></span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a><span class="va">h_1</span><span class="op">=</span>(<span class="fl">1.6</span><span class="op">,\</span> <span class="fl">2</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="va">h_2</span><span class="op">=</span>(<span class="fl">1.5</span><span class="op">,\</span> <span class="fl">2</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="va">h_3</span><span class="op">=</span>(<span class="fl">1.6</span><span class="op">,\</span> <span class="fl">4</span>).</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">h_1</span><span class="op">-</span><span class="va">h_2</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">and</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">h_1</span><span class="op">-</span><span class="va">h_3</span><span class="op">\</span><span class="va">rVert</span>$. <span class="va">Which</span> <span class="va">house</span> <span class="va">is</span> <span class="va">nearer</span> <span class="va">to</span> $<span class="va">h_1</span>$?</span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Now</span> <span class="va">measure</span> <span class="va">area</span> <span class="va">in</span> <span class="va">square</span> <span class="va">feet</span> <span class="va">instead</span><span class="op">,</span> <span class="va">so</span> <span class="va">the</span> <span class="va">vectors</span> <span class="va">become</span></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a><span class="op">\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">1</span><span class="op">=</span>(<span class="fl">1600</span><span class="op">,\</span> <span class="fl">2</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="op">\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">2</span><span class="op">=</span>(<span class="fl">1500</span><span class="op">,\</span> <span class="fl">2</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="op">\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">3</span><span class="op">=</span>(<span class="fl">1600</span><span class="op">,\</span> <span class="fl">4</span>).</span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a><span class="va">Compute</span> $<span class="op">\</span><span class="va">lVert</span><span class="op">\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">1</span><span class="op">-\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">2</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">and</span> $<span class="op">\</span><span class="va">lVert</span><span class="op">\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">1</span><span class="op">-\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">3</span><span class="op">\</span><span class="va">rVert</span>$. <span class="va">Which</span> <span class="va">house</span> <span class="va">is</span> <span class="va">nearer</span> <span class="va">to</span> $<span class="op">\</span><span class="va">tilde</span>{<span class="va">h</span>}_<span class="fl">1</span>$ <span class="va">now</span>?</span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">What</span> <span class="va">changed</span><span class="op">,</span> <span class="va">and</span> <span class="va">why</span> <span class="va">does</span> <span class="va">Boyd</span> <span class="va">warn</span> <span class="va">about</span> <span class="va">units</span> <span class="va">on</span> <span class="va">heterogeneous</span> <span class="va">features</span>?</span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>## <span class="va">Check</span> <span class="va">yourself</span></span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C1</span><span class="op">.**</span> <span class="va">Let</span> $<span class="va">w</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,-</span><span class="fl">2</span><span class="op">,</span><span class="fl">2</span>)$. <span class="va">Compute</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">w</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">by</span> <span class="va">hand</span>. <span class="va">Then</span> <span class="va">write</span> <span class="va">one</span> <span class="va">Octave</span> <span class="va">line</span> <span class="va">and</span> <span class="va">one</span> <span class="va">Python</span> <span class="va">line</span> <span class="va">that</span> <span class="va">compute</span> <span class="va">it</span>.</span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C2</span><span class="op">.**</span> <span class="va">Quiz</span> <span class="fl">3</span> <span class="va">C1</span><span class="fl">.1</span> <span class="va">style</span>. <span class="va">Observation</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">2</span>)$. <span class="va">Candidates</span><span class="op">:</span></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a><span class="va">z_1</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">2</span>)<span class="op">,\</span><span class="va">quad</span> <span class="va">z_2</span><span class="op">=</span>(<span class="fl">3</span><span class="op">,</span><span class="fl">2</span>)<span class="op">,\</span><span class="va">quad</span> <span class="va">z_3</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">5</span>)<span class="op">,\</span><span class="va">quad</span> <span class="va">z_4</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">1</span>)<span class="op">,\</span><span class="va">quad</span> <span class="va">z_5</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">2.5</span>).</span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a><span class="va">Compute</span> <span class="va">the</span> <span class="va">five</span> <span class="va">distances</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">z_i</span><span class="op">\</span><span class="va">rVert</span>$ (<span class="va">hand</span> <span class="va">or</span> <span class="va">software</span>). <span class="va">Which</span> <span class="va">candidate</span> <span class="va">is</span> <span class="va">nearest</span>?</span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C3</span><span class="op">.**</span> <span class="va">Boyd</span> <span class="fl">3.2</span> <span class="va">style</span>. <span class="va">Let</span> $<span class="va">a</span>$ <span class="va">be</span> <span class="va">an</span> $<span class="va">n</span>$<span class="op">-</span><span class="va">vector</span> <span class="va">and</span> $<span class="va">b</span>$ <span class="va">an</span> $<span class="va">m</span>$<span class="op">-</span><span class="va">vector</span><span class="op">,</span> <span class="va">and</span> <span class="va">set</span> $<span class="va">x</span><span class="op">=</span>(<span class="va">a</span><span class="op">,</span><span class="va">b</span>)$ (<span class="va">stack</span>). <span class="va">Express</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">rms</span>}(<span class="va">x</span>)$ <span class="va">in</span> <span class="va">terms</span> <span class="va">of</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">rms</span>}(<span class="va">a</span>)$<span class="op">,</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">rms</span>}(<span class="va">b</span>)$<span class="op">,</span> $<span class="va">n</span>$<span class="op">,</span> <span class="va">and</span> $<span class="va">m</span>$.</span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C4</span><span class="op">.**</span> <span class="va">For</span> $<span class="va">t</span><span class="op">=</span>(<span class="fl">10</span><span class="op">,</span><span class="fl">10</span><span class="op">,</span><span class="fl">10</span><span class="op">,</span><span class="fl">14</span>)$<span class="op">,</span> <span class="va">find</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">avg</span>}(<span class="va">t</span>)$ <span class="va">and</span> $<span class="op">\</span><span class="va">mathrm</span>{<span class="va">std</span>}(<span class="va">t</span>)$. <span class="va">Use</span> <span class="va">Boyd</span>’<span class="va">s</span> <span class="va">definition</span> (<span class="va">RMS</span> <span class="va">of</span> <span class="va">the</span> <span class="va">de</span><span class="op">-</span><span class="va">meaned</span> <span class="va">vector</span>).</span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C5</span><span class="op">.**</span> <span class="va">True</span> <span class="va">or</span> <span class="va">false</span><span class="op">,</span> <span class="va">with</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">:</span> <span class="kw">if</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">\</span><span class="va">rVert</span><span class="op">=\</span><span class="va">lVert</span> <span class="va">y</span><span class="op">\</span><span class="va">rVert</span>$<span class="op">,</span> <span class="va">then</span> $<span class="va">x</span><span class="op">=</span><span class="va">y</span>$ <span class="va">or</span> $<span class="va">x</span><span class="op">=-</span><span class="va">y</span>$.</span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">content</span><span class="op">-</span><span class="va">visible</span> <span class="va">unless</span><span class="op">-</span><span class="va">format</span><span class="op">=</span><span class="st">"pdf"</span>}</span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">callout</span><span class="op">-</span><span class="va">note</span> <span class="va">collapse</span><span class="op">=</span><span class="st">"true"</span>}</span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a>## <span class="va">Answers</span> (<span class="va">Check</span> <span class="va">yourself</span> <span class="va">only</span>)</span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">answers</span><span class="op">-</span><span class="va">lecture</span><span class="op">-</span><span class="fl">07</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">content</span><span class="op">-</span><span class="va">visible</span> <span class="va">when</span><span class="op">-</span><span class="va">format</span><span class="op">=</span><span class="st">"pdf"</span>}</span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a><span class="op">\</span><span class="va">newpage</span></span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>## <span class="va">Answers</span> (<span class="va">Check</span> <span class="va">yourself</span>)</span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">answers</span><span class="op">-</span><span class="va">lecture</span><span class="op">-</span><span class="fl">07</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
