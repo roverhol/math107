@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3e9b1289f5f353c49b617ce48ad2bc38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -124,6 +153,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#check-yourself" id="toc-check-yourself" class="nav-link" data-scroll-target="#check-yourself">Check yourself</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-08.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -137,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lecture 08 — Angle and similarity</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Fri Sep 11</p>
+<p class="subtitle lead">Mon Sep 14</p>
 </div>
 
 
@@ -149,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">September 13, 2026</p>
     </div>
   </div>
     
@@ -161,9 +195,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lecture-08.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Related reading and the course-wide list of daily objectives: <a href="../lectures.html#lecture-08">Lectures</a>.</p>
+<p>Last updated: September 13, 2026.</p>
+<p>Reading: Boyd 3.4 (angle). Quiz 3 prep: Boyd 3.23, 3.24 (angle vs distance). Related objectives: <a href="../lectures.html#lecture-08">Lectures</a>. <a href="../schedule.html">Schedule</a>. <a href="../quizzes/quiz-03.html">Quiz 3</a> is Friday, September 18.</p>
+<p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and <strong>Check yourself</strong>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -173,6 +207,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Choose an appropriate similarity measure for a stated purpose.</li>
 <li>Explain why normalization may change a comparison.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Let <span class="math inline">\(a=(1,0)\)</span> and <span class="math inline">\(b=(1,1)\)</span>.</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(a^{\mathsf{T}}b\)</span>, <span class="math inline">\(\lVert a\rVert\)</span>, and <span class="math inline">\(\lVert b\rVert\)</span>.</p></li>
+<li><p>Without finding the angle in degrees, is <span class="math inline">\(\cos\theta = a^{\mathsf{T}}b/(\lVert a\rVert\lVert b\rVert)\)</span> closer to <span class="math inline">\(1\)</span>, to <span class="math inline">\(0\)</span>, or to <span class="math inline">\(-1\)</span>? What does that suggest about the directions?</p></li>
+</ol>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p>For nonzero <span class="math inline">\(n\)</span>-vectors <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, the <strong>angle</strong> <span class="math inline">\(\theta=\angle(a,b)\)</span> satisfies <span class="math display">\[
+\cos\theta = \frac{a^{\mathsf{T}}b}{\lVert a\rVert\,\lVert b\rVert}, \qquad \theta\in[0,\pi].
+\]</span> The quantity <span class="math inline">\(\dfrac{a^{\mathsf{T}}b}{\lVert a\rVert\,\lVert b\rVert}\)</span> is the <strong>cosine similarity</strong>.</p>
+<p>Cauchy–Schwarz says <span class="math inline">\(|a^{\mathsf{T}}b|\leq\lVert a\rVert\lVert b\rVert\)</span>, so the cosine is always between <span class="math inline">\(\underline{\hspace{1.6cm}}\)</span> and <span class="math inline">\(\underline{\hspace{1.6cm}}\)</span>.</p>
+<p>Interpretation: - <span class="math inline">\(\theta\approx 0\)</span> (cosine near <span class="math inline">\(1\)</span>): directions nearly the <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> - <span class="math inline">\(\theta=\pi/2\)</span> (cosine <span class="math inline">\(0\)</span>): vectors are <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> - <span class="math inline">\(\theta\approx\pi\)</span> (cosine near <span class="math inline">\(-1\)</span>): directions nearly <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span></p>
+<p><strong>Distance</strong> <span class="math inline">\(\lVert a-b\rVert\)</span> measures closeness of <strong>positions</strong>. <strong>Angle</strong> measures similarity of <strong>directions</strong> (independent of overall scale of each vector). Scaling <span class="math inline">\(a\)</span> by a positive constant does <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> change <span class="math inline">\(\angle(a,b)\)</span>.</p>
+<p>A <strong>normalized</strong> (unit) vector is <span class="math inline">\(\hat{a}=a/\lVert a\rVert\)</span>, which has <span class="math inline">\(\lVert\hat{a}\rVert=\underline{\hspace{1.0cm}}\)</span>. Among unit vectors, smaller distance is equivalent to <span class="math inline">\(\underline{\hspace{2.8cm}}\)</span> angle (Boyd 3.24(b)).</p>
+</section>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
+<p><strong>Octave:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">0</span>]<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">cos_th</span> <span class="op">=</span> (<span class="va">a</span><span class="op">'*</span><span class="va">b</span>)<span class="op">/</span>(<span class="va">norm</span>(<span class="va">a</span>)<span class="op">*</span><span class="va">norm</span>(<span class="va">b</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">th_deg</span> <span class="op">=</span> <span class="va">acosd</span>(<span class="va">cos_th</span>)    <span class="co">% angle in degrees</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">0.0</span>])<span class="op">;</span> b <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>cos_th <span class="op">=</span> (a <span class="op">@</span> b) <span class="op">/</span> (np.linalg.norm(a) <span class="op">*</span> np.linalg.norm(b))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>th_deg <span class="op">=</span> np.degrees(np.arccos(np.clip(cos_th, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Compute the cosine and the angle (degrees is fine) between <span class="math inline">\(u=(2,0)\)</span> and <span class="math inline">\(v=(1,1)\)</span>. Sketch both from the origin.</p>
+<p><strong>W2.</strong> Distance vs direction. Let <span class="math inline">\(p=(1,1)\)</span>, <span class="math inline">\(q=(10,10)\)</span>, and <span class="math inline">\(r=(1,-1)\)</span>.</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(\lVert p-q\rVert\)</span> and <span class="math inline">\(\lVert p-r\rVert\)</span>. Which is closer in <strong>distance</strong> to <span class="math inline">\(p\)</span>?</p></li>
+<li><p>Compute <span class="math inline">\(\angle(p,q)\)</span> and <span class="math inline">\(\angle(p,r)\)</span>. Which is more similar in <strong>direction</strong> to <span class="math inline">\(p\)</span>?</p></li>
+<li><p>In one sentence: when would you prefer angle over Euclidean distance?</p></li>
+</ol>
+<p><strong>W3.</strong> Nonnegative vectors (Boyd 3.23). Let <span class="math inline">\(x=(2,1)\)</span> and <span class="math inline">\(y=(0,3)\)</span>.</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(x^{\mathsf{T}}y\)</span>. Why must the angle be between <span class="math inline">\(0^\circ\)</span> and <span class="math inline">\(90^\circ\)</span>?</p></li>
+<li><p>When are two nonzero nonnegative vectors orthogonal?</p></li>
+</ol>
+<p><strong>W4.</strong> Distance nearest neighbor vs angle nearest neighbor (Boyd 3.24(a)). Let <span class="math display">\[
+x=(1,0),\qquad z_1=(2,0),\qquad z_2=(0.5,0.5).
+\]</span> Find the distance nearest neighbor of <span class="math inline">\(x\)</span> among <span class="math inline">\(\{z_1,z_2\}\)</span> and the angle nearest neighbor. Are they the same?</p>
+<p><strong>W5.</strong> Normalization. Replace <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span> by their unit versions <span class="math inline">\(\hat{z}_1=z_1/\lVert z_1\rVert\)</span> and <span class="math inline">\(\hat{z}_2=z_2/\lVert z_2\rVert\)</span>. Does distance-NN of <span class="math inline">\(x\)</span> among the unit vectors match angle-NN? (Boyd 3.24(b) idea.)</p>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<p><strong>C1.</strong> Cosine of the angle between <span class="math inline">\((3,4)\)</span> and <span class="math inline">\((4,-3)\)</span>. Are they orthogonal?</p>
+<p><strong>C2.</strong> True or false: if <span class="math inline">\(\lVert a-b\rVert\)</span> is small, then <span class="math inline">\(\angle(a,b)\)</span> must be near <span class="math inline">\(0\)</span>. One counterexample or reason.</p>
+<p><strong>C3.</strong> Document word-count vectors (nonnegative). Why is angle a common similarity for documents?</p>
+<p><strong>C4.</strong> Octave or Python: write one line that prints the cosine similarity of <code>a</code> and <code>b</code> (assume they already exist).</p>
+<p><strong>C5.</strong> You normalize every candidate before using Euclidean distance to a query. What comparison are you effectively making?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Check yourself only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>C1. <span class="math inline">\(a^{\mathsf{T}}b=12-12=0\)</span>, so cosine <span class="math inline">\(=0\)</span>. Yes, orthogonal (<span class="math inline">\(90^\circ\)</span>).</p>
+<p>C2. <strong>False.</strong> Example: <span class="math inline">\(a=(100,0)\)</span>, <span class="math inline">\(b=(101,0)\)</span> are close in distance but that alone does not force a general claim for arbitrary nearby pairs that point opposite ways after a shift; clearer counterexample for “small distance <span class="math inline">\(\Rightarrow\)</span> small angle”: take <span class="math inline">\(a=(0.01,0)\)</span> and <span class="math inline">\(b=(-0.01,0)\)</span> — distance <span class="math inline">\(0.02\)</span> is small, but angle is <span class="math inline">\(180^\circ\)</span>.</p>
+<p>C3. Documents can have very different lengths (total word counts). Angle / cosine ignores overall scale and focuses on the pattern of which words appear together.</p>
+<p>C4. Octave: <code>(a'*b)/(norm(a)*norm(b))</code>. Python: <code>(a @ b)/(np.linalg.norm(a)*np.linalg.norm(b))</code>.</p>
+<p>C5. Angle nearest-neighbor (among those candidates): after normalizing, Euclidean nearest matches smallest angle.</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -636,31 +747,157 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 08 — Angle and similarity"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Sep 11"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-08.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related reading and the course-wide list of daily objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-08)</span>.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute cosine similarity or an angle between vectors.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Distinguish closeness in position from similarity in direction.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Choose an appropriate similarity measure for a stated purpose.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain why normalization may change a comparison.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 08 — Angle and similarity"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Mon Sep 14"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-13</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-08.pdf)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Last updated: September 13, 2026.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 3.4 (angle). Quiz 3 prep: Boyd 3.23, 3.24 (angle vs distance). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-08)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>. <span class="co">[</span><span class="ot">Quiz 3</span><span class="co">](../quizzes/quiz-03.qmd)</span> is Friday, September 18.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and **Check yourself**.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Compute cosine similarity or an angle between vectors.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Distinguish closeness in position from similarity in direction.</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Choose an appropriate similarity measure for a stated purpose.</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Explain why normalization may change a comparison.</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Let $a=(1,0)$ and $b=(1,1)$.</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>(a) Compute $a^{\mathsf{T}}b$, $\lVert a\rVert$, and $\lVert b\rVert$.</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>(b) Without finding the angle in degrees, is $\cos\theta = a^{\mathsf{T}}b/(\lVert a\rVert\lVert b\rVert)$ closer to $1$, to $0$, or to $-1$? What does that suggest about the directions?</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>For nonzero $n$-vectors $a$ and $b$, the **angle** $\theta=\angle(a,b)$ satisfies</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>\cos\theta = \frac{a^{\mathsf{T}}b}{\lVert a\rVert\,\lVert b\rVert}, \qquad \theta\in<span class="co">[</span><span class="ot">0,\pi</span><span class="co">]</span>.</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>The quantity $\dfrac{a^{\mathsf{T}}b}{\lVert a\rVert\,\lVert b\rVert}$ is the **cosine similarity**.</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>Cauchy–Schwarz says $|a^{\mathsf{T}}b|\leq\lVert a\rVert\lVert b\rVert$, so the cosine is always between $\underline{\hspace{1.6cm}}$ and $\underline{\hspace{1.6cm}}$.</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>Interpretation:</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\theta\approx 0$ (cosine near $1$): directions nearly the $\underline{\hspace{2.0cm}}$</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\theta=\pi/2$ (cosine $0$): vectors are $\underline{\hspace{2.4cm}}$</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$\theta\approx\pi$ (cosine near $-1$): directions nearly $\underline{\hspace{2.4cm}}$</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>**Distance** $\lVert a-b\rVert$ measures closeness of **positions**. **Angle** measures similarity of **directions** (independent of overall scale of each vector). Scaling $a$ by a positive constant does $\underline{\hspace{2.4cm}}$ change $\angle(a,b)$.</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>A **normalized** (unit) vector is $\hat{a}=a/\lVert a\rVert$, which has $\lVert\hat{a}\rVert=\underline{\hspace{1.0cm}}$. Among unit vectors, smaller distance is equivalent to $\underline{\hspace{2.8cm}}$ angle (Boyd 3.24(b)).</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>**Octave:**</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">0</span>]<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="va">cos_th</span> <span class="op">=</span> (<span class="va">a</span><span class="op">'*</span><span class="va">b</span>)<span class="op">/</span>(<span class="va">norm</span>(<span class="va">a</span>)<span class="op">*</span><span class="va">norm</span>(<span class="va">b</span>))</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="va">th_deg</span> <span class="op">=</span> <span class="va">acosd</span>(<span class="va">cos_th</span>)    <span class="co">% angle in degrees</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1.0</span><span class="op">,</span> <span class="fl">0.0</span>])<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="va">cos_th</span> <span class="op">=</span> (<span class="va">a</span> <span class="op">@</span> <span class="va">b</span>) <span class="op">/</span> (<span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">a</span>) <span class="op">*</span> <span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">b</span>))</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="va">th_deg</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">degrees</span>(<span class="va">np</span>.<span class="va">arccos</span>(<span class="va">np</span>.<span class="va">clip</span>(<span class="va">cos_th</span><span class="op">,</span> <span class="op">-</span><span class="fl">1</span><span class="op">,</span> <span class="fl">1</span>)))</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span><span class="op">-</span><span class="va">line</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>## <span class="va">Worked</span> <span class="va">in</span> <span class="va">class</span></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W1</span><span class="op">.**</span> <span class="va">Compute</span> <span class="va">the</span> <span class="va">cosine</span> <span class="va">and</span> <span class="va">the</span> <span class="va">angle</span> (<span class="va">degrees</span> <span class="va">is</span> <span class="va">fine</span>) <span class="va">between</span> $<span class="va">u</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">0</span>)$ <span class="va">and</span> $<span class="va">v</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)$. <span class="va">Sketch</span> <span class="va">both</span> <span class="va">from</span> <span class="va">the</span> <span class="va">origin</span>.</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span><span class="op">-</span><span class="va">sketch</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W2</span><span class="op">.**</span> <span class="va">Distance</span> <span class="va">vs</span> <span class="va">direction</span>. <span class="va">Let</span> $<span class="va">p</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)$<span class="op">,</span> $<span class="va">q</span><span class="op">=</span>(<span class="fl">10</span><span class="op">,</span><span class="fl">10</span>)$<span class="op">,</span> <span class="va">and</span> $<span class="va">r</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,-</span><span class="fl">1</span>)$.</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">p</span><span class="op">-</span><span class="va">q</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">and</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">p</span><span class="op">-</span><span class="va">r</span><span class="op">\</span><span class="va">rVert</span>$. <span class="va">Which</span> <span class="va">is</span> <span class="va">closer</span> <span class="va">in</span> <span class="op">**</span><span class="va">distance</span><span class="op">**</span> <span class="va">to</span> $<span class="va">p</span>$?</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Compute</span> $<span class="op">\</span><span class="va">angle</span>(<span class="va">p</span><span class="op">,</span><span class="va">q</span>)$ <span class="va">and</span> $<span class="op">\</span><span class="va">angle</span>(<span class="va">p</span><span class="op">,</span><span class="va">r</span>)$. <span class="va">Which</span> <span class="va">is</span> <span class="va">more</span> <span class="va">similar</span> <span class="va">in</span> <span class="op">**</span><span class="va">direction</span><span class="op">**</span> <span class="va">to</span> $<span class="va">p</span>$?</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">In</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">:</span> <span class="va">when</span> <span class="va">would</span> <span class="va">you</span> <span class="va">prefer</span> <span class="va">angle</span> <span class="va">over</span> <span class="va">Euclidean</span> <span class="va">distance</span>?</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W3</span><span class="op">.**</span> <span class="va">Nonnegative</span> <span class="va">vectors</span> (<span class="va">Boyd</span> <span class="fl">3.23</span>). <span class="va">Let</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">1</span>)$ <span class="va">and</span> $<span class="va">y</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">3</span>)$.</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> $<span class="va">x</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">y</span>$. <span class="va">Why</span> <span class="va">must</span> <span class="va">the</span> <span class="va">angle</span> <span class="va">be</span> <span class="va">between</span> $<span class="fl">0</span><span class="op">^\</span><span class="va">circ</span>$ <span class="va">and</span> $<span class="fl">90</span><span class="op">^\</span><span class="va">circ</span>$?</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">When</span> <span class="va">are</span> <span class="va">two</span> <span class="va">nonzero</span> <span class="va">nonnegative</span> <span class="va">vectors</span> <span class="va">orthogonal</span>?</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W4</span><span class="op">.**</span> <span class="va">Distance</span> <span class="va">nearest</span> <span class="va">neighbor</span> <span class="va">vs</span> <span class="va">angle</span> <span class="va">nearest</span> <span class="va">neighbor</span> (<span class="va">Boyd</span> <span class="fl">3.24</span>(<span class="va">a</span>)). <span class="va">Let</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="va">x</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="va">z_1</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">0</span>)<span class="op">,\</span><span class="va">qquad</span> <span class="va">z_2</span><span class="op">=</span>(<span class="fl">0.5</span><span class="op">,</span><span class="fl">0.5</span>).</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="va">Find</span> <span class="va">the</span> <span class="va">distance</span> <span class="va">nearest</span> <span class="va">neighbor</span> <span class="va">of</span> $<span class="va">x</span>$ <span class="va">among</span> $<span class="op">\</span>{<span class="va">z_1</span><span class="op">,</span><span class="va">z_2</span><span class="op">\</span>}$ <span class="va">and</span> <span class="va">the</span> <span class="va">angle</span> <span class="va">nearest</span> <span class="va">neighbor</span>. <span class="va">Are</span> <span class="va">they</span> <span class="va">the</span> <span class="va">same</span>?</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W5</span><span class="op">.**</span> <span class="va">Normalization</span>. <span class="va">Replace</span> $<span class="va">z_1</span>$ <span class="va">and</span> $<span class="va">z_2</span>$ <span class="va">by</span> <span class="va">their</span> <span class="va">unit</span> <span class="va">versions</span> $<span class="op">\</span><span class="va">hat</span>{<span class="va">z</span>}_<span class="fl">1</span><span class="op">=</span><span class="va">z_1</span><span class="op">/\</span><span class="va">lVert</span> <span class="va">z_1</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">and</span> $<span class="op">\</span><span class="va">hat</span>{<span class="va">z</span>}_<span class="fl">2</span><span class="op">=</span><span class="va">z_2</span><span class="op">/\</span><span class="va">lVert</span> <span class="va">z_2</span><span class="op">\</span><span class="va">rVert</span>$. <span class="va">Does</span> <span class="va">distance</span><span class="op">-</span><span class="va">NN</span> <span class="va">of</span> $<span class="va">x</span>$ <span class="va">among</span> <span class="va">the</span> <span class="va">unit</span> <span class="va">vectors</span> <span class="va">match</span> <span class="va">angle</span><span class="op">-</span><span class="va">NN</span>? (<span class="va">Boyd</span> <span class="fl">3.24</span>(<span class="va">b</span>) <span class="va">idea</span>.)</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>## <span class="va">Check</span> <span class="va">yourself</span></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C1</span><span class="op">.**</span> <span class="va">Cosine</span> <span class="va">of</span> <span class="va">the</span> <span class="va">angle</span> <span class="va">between</span> $(<span class="fl">3</span><span class="op">,</span><span class="fl">4</span>)$ <span class="va">and</span> $(<span class="fl">4</span><span class="op">,-</span><span class="fl">3</span>)$. <span class="va">Are</span> <span class="va">they</span> <span class="va">orthogonal</span>?</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C2</span><span class="op">.**</span> <span class="va">True</span> <span class="va">or</span> <span class="va">false</span><span class="op">:</span> <span class="kw">if</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">a</span><span class="op">-</span><span class="va">b</span><span class="op">\</span><span class="va">rVert</span>$ <span class="va">is</span> <span class="va">small</span><span class="op">,</span> <span class="va">then</span> $<span class="op">\</span><span class="va">angle</span>(<span class="va">a</span><span class="op">,</span><span class="va">b</span>)$ <span class="va">must</span> <span class="va">be</span> <span class="va">near</span> $<span class="fl">0</span>$. <span class="va">One</span> <span class="va">counterexample</span> <span class="va">or</span> <span class="va">reason</span>.</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C3</span><span class="op">.**</span> <span class="va">Document</span> <span class="va">word</span><span class="op">-</span><span class="va">count</span> <span class="va">vectors</span> (<span class="va">nonnegative</span>). <span class="va">Why</span> <span class="va">is</span> <span class="va">angle</span> <span class="va">a</span> <span class="va">common</span> <span class="va">similarity</span> <span class="kw">for</span> <span class="va">documents</span>?</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C4</span><span class="op">.**</span> <span class="va">Octave</span> <span class="va">or</span> <span class="va">Python</span><span class="op">:</span> <span class="va">write</span> <span class="va">one</span> <span class="va">line</span> <span class="va">that</span> <span class="va">prints</span> <span class="va">the</span> <span class="va">cosine</span> <span class="va">similarity</span> <span class="va">of</span> `<span class="va">a</span>` <span class="va">and</span> `<span class="va">b</span>` (<span class="va">assume</span> <span class="va">they</span> <span class="va">already</span> <span class="va">exist</span>).</span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C5</span><span class="op">.**</span> <span class="va">You</span> <span class="va">normalize</span> <span class="va">every</span> <span class="va">candidate</span> <span class="va">before</span> <span class="va">using</span> <span class="va">Euclidean</span> <span class="va">distance</span> <span class="va">to</span> <span class="va">a</span> <span class="va">query</span>. <span class="va">What</span> <span class="va">comparison</span> <span class="va">are</span> <span class="va">you</span> <span class="va">effectively</span> <span class="va">making</span>?</span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">content</span><span class="op">-</span><span class="va">visible</span> <span class="va">unless</span><span class="op">-</span><span class="va">format</span><span class="op">=</span><span class="st">"pdf"</span>}</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">callout</span><span class="op">-</span><span class="va">note</span> <span class="va">collapse</span><span class="op">=</span><span class="st">"true"</span>}</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a>## <span class="va">Answers</span> (<span class="va">Check</span> <span class="va">yourself</span> <span class="va">only</span>)</span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">answers</span><span class="op">-</span><span class="va">lecture</span><span class="op">-</span><span class="fl">08</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">content</span><span class="op">-</span><span class="va">visible</span> <span class="va">when</span><span class="op">-</span><span class="va">format</span><span class="op">=</span><span class="st">"pdf"</span>}</span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a><span class="op">\</span><span class="va">newpage</span></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a>## <span class="va">Answers</span> (<span class="va">Check</span> <span class="va">yourself</span>)</span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">answers</span><span class="op">-</span><span class="va">lecture</span><span class="op">-</span><span class="fl">08</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

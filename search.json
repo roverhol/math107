@@ -42,160 +42,6 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
-    "objectID": "lectures/lecture-07.html",
-    "href": "lectures/lecture-07.html",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "",
-    "text": "Download PDF\nLast updated: September 11, 2026.\nReading: Boyd 3.1–3.3 (norm, distance, standard deviation). Quiz 3 prep: Boyd 3.1, 3.2, 3.15 and distance computations. Related objectives: Lectures. Schedule. Quiz 3 is Friday, September 18. Angle and cosine similarity are next class (Lecture 08).\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples (hand and software), and Check yourself."
-  },
-  {
-    "objectID": "lectures/lecture-07.html#learning-objectives",
-    "href": "lectures/lecture-07.html#learning-objectives",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute vector norms and distances.\nInterpret norm and distance geometrically and contextually.\nRelate norm to RMS and, where appropriate, variation around an average.\nUse software to calculate distances in dimensions too large for hand computation."
-  },
-  {
-    "objectID": "lectures/lecture-07.html#warm-up",
-    "href": "lectures/lecture-07.html#warm-up",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "Warm-up",
-    "text": "Warm-up\nLet \\(u=(3,-4)\\) and \\(v=(0,5)\\).\n\nCompute \\(u^{\\mathsf{T}}u\\) and \\(\\sqrt{u^{\\mathsf{T}}u}\\) by hand.\nWithout a calculator, which is larger: \\(\\lVert u\\rVert\\) or \\(\\lVert v\\rVert\\)? Brief reason."
-  },
-  {
-    "objectID": "lectures/lecture-07.html#fill-in",
-    "href": "lectures/lecture-07.html#fill-in",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "Fill in",
-    "text": "Fill in\nThe Euclidean norm of an \\(n\\)-vector \\(x\\) is \\[\n\\lVert x\\rVert = \\sqrt{x_1^2+\\cdots+x_n^2} = \\sqrt{\\underline{\\hspace{2.4cm}}}.\n\\] It measures the \\(\\underline{\\hspace{2.0cm}}\\) of \\(x\\). For a scalar, \\(\\lVert x\\rVert\\) is the \\(\\underline{\\hspace{2.0cm}}\\).\nKey properties (same size vectors; \\(\\beta\\) a scalar): - \\(\\lVert \\beta x\\rVert = \\underline{\\hspace{2.4cm}}\\,\\lVert x\\rVert\\) - \\(\\lVert x+y\\rVert \\leq \\lVert x\\rVert + \\lVert y\\rVert\\) (triangle inequality) - \\(\\lVert x\\rVert \\geq 0\\), and \\(\\lVert x\\rVert=0\\) only when \\(x=\\underline{\\hspace{1.2cm}}\\)\nThe RMS (root-mean-square) value is \\[\n\\mathrm{rms}(x) = \\frac{\\lVert x\\rVert}{\\sqrt{n}} = \\sqrt{\\frac{x_1^2+\\cdots+x_n^2}{n}}.\n\\] It describes a \\(\\underline{\\hspace{2.4cm}}\\) size of an entry, and is useful when comparing vectors of different \\(\\underline{\\hspace{2.0cm}}\\).\nThe distance between \\(n\\)-vectors \\(a\\) and \\(b\\) is \\[\n\\mathrm{dist}(a,b) = \\lVert a-b\\rVert.\n\\] Geometrically this is the length of the \\(\\underline{\\hspace{2.4cm}}\\) from \\(a\\) to \\(b\\). Two vectors are “close” when this distance is \\(\\underline{\\hspace{1.6cm}}\\) (relative to the application).\nThe average is \\(\\mathrm{avg}(x)=\\frac{1}{n}\\mathbf{1}^{\\mathsf{T}}x\\). The de-meaned vector is \\(\\tilde{x}=x-\\mathrm{avg}(x)\\mathbf{1}\\). The standard deviation is \\[\n\\mathrm{std}(x)=\\mathrm{rms}(\\tilde{x})=\\frac{\\lVert x-\\mathrm{avg}(x)\\mathbf{1}\\rVert}{\\sqrt{n}},\n\\] which measures typical \\(\\underline{\\hspace{2.8cm}}\\) of the entries from their average.\nBoyd’s identity: \\(\\mathrm{rms}(x)^2 = \\mathrm{avg}(x)^2 + \\mathrm{std}(x)^2\\)."
-  },
-  {
-    "objectID": "lectures/lecture-07.html#software-keep-this-page-open",
-    "href": "lectures/lecture-07.html#software-keep-this-page-open",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "Software (keep this page open)",
-    "text": "Software (keep this page open)\nIn this course we use either Octave or Python for norms and distances.\nOctave (column vectors are fine):\nx = [3; -4; 0];\nnorm(x)                 % Euclidean norm\nsqrt(x'*x)              % same idea via the inner product\ny = [1; 2; -1];\nnorm(x-y)               % distance ||x-y||\nPython (NumPy):\nimport numpy as np\nx = np.array([3.0, -4.0, 0.0])\nnp.linalg.norm(x)       # Euclidean norm\nnp.sqrt(x @ x)          # same idea via the inner product\ny = np.array([1.0, 2.0, -1.0])\nnp.linalg.norm(x - y)   # distance ||x-y||\nHandy formulas (either language): - \\(\\mathrm{rms}(x)=\\lVert x\\rVert/\\sqrt{n}\\) - \\(\\mathrm{avg}(x)=\\frac{1}{n}\\sum_i x_i\\) (Octave mean(x), Python np.mean(x)) - \\(\\mathrm{std}(x)\\) in Boyd’s sense is the RMS of the de-meaned vector (population form with divisor \\(n\\), not \\(n-1\\))"
-  },
-  {
-    "objectID": "lectures/lecture-07.html#worked-in-class",
-    "href": "lectures/lecture-07.html#worked-in-class",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Norm by hand and by software (Lachniet-style). Let \\[\nu = (2,\\ -4,\\ 0).\n\\] (a) Compute \\(\\lVert u\\rVert\\) by hand using \\(\\sqrt{u^{\\mathsf{T}}u}\\).\n\nWrite the Octave command and the Python command that compute the same value. What should both print?\nForm the unit vector \\(\\hat{u}=u/\\lVert u\\rVert\\). What is \\(\\lVert\\hat{u}\\rVert\\)?\n\nW2. Distance and nearest neighbor (Quiz 3 / Boyd 3.10–3.11 style). Arcata morning temperatures (°F) for three days: \\[\na=(52,51,53),\\qquad b=(54,50,55),\\qquad c=(60,58,59).\n\\] A new day is \\(x=(53,52,54)\\).\n\nCompute \\(\\lVert x-a\\rVert\\), \\(\\lVert x-b\\rVert\\), and \\(\\lVert x-c\\rVert\\) by hand or with software.\nWhich day is the nearest neighbor of \\(x\\)?\nIn one sentence, what does “nearest” mean here?\n\nW3. Boolean distance (Boyd 3.1). Suppose \\(x\\) and \\(y\\) are Boolean \\(n\\)-vectors (entries only \\(0\\) or \\(1\\)).\n\nShow that \\(\\lVert x-y\\rVert^2\\) equals the number of positions where \\(x\\) and \\(y\\) disagree.\nTherefore \\(\\lVert x-y\\rVert=\\sqrt{k}\\) where \\(k\\) is that disagreement count. For \\(x=(1,0,1,1,0)\\) and \\(y=(1,1,0,1,0)\\), find \\(k\\) and \\(\\lVert x-y\\rVert\\).\n\nW4. RMS, average, and standard deviation (Boyd 3.15 setup). Let \\[\nx=(2,4,4,6).\n\\] (a) Compute \\(\\mathrm{avg}(x)\\), \\(\\lVert x\\rVert\\), \\(\\mathrm{rms}(x)\\), the de-meaned vector \\(\\tilde{x}\\), and \\(\\mathrm{std}(x)\\).\n\nCheck Boyd’s identity \\(\\mathrm{rms}(x)^2=\\mathrm{avg}(x)^2+\\mathrm{std}(x)^2\\).\nInterpret \\(\\mathrm{std}(x)\\) in one short sentence for this data.\n\nW5. Feature scale changes nearest neighbor (Quiz 3 C1.2 style). Two features: area (in \\(1000\\) ft²) and bedrooms. Houses: \\[\nh_1=(1.6,\\ 2),\\qquad h_2=(1.5,\\ 2),\\qquad h_3=(1.6,\\ 4).\n\\] (a) Compute \\(\\lVert h_1-h_2\\rVert\\) and \\(\\lVert h_1-h_3\\rVert\\). Which house is nearer to \\(h_1\\)?\n\nNow measure area in square feet instead, so the vectors become \\[\n\\tilde{h}_1=(1600,\\ 2),\\qquad \\tilde{h}_2=(1500,\\ 2),\\qquad \\tilde{h}_3=(1600,\\ 4).\n\\] Compute \\(\\lVert\\tilde{h}_1-\\tilde{h}_2\\rVert\\) and \\(\\lVert\\tilde{h}_1-\\tilde{h}_3\\rVert\\). Which house is nearer to \\(\\tilde{h}_1\\) now?\nWhat changed, and why does Boyd warn about units on heterogeneous features?"
-  },
-  {
-    "objectID": "lectures/lecture-07.html#check-yourself",
-    "href": "lectures/lecture-07.html#check-yourself",
-    "title": "Lecture 07 — Norm, distance, RMS, and variation",
-    "section": "Check yourself",
-    "text": "Check yourself\nC1. Let \\(w=(1,-2,2)\\). Compute \\(\\lVert w\\rVert\\) by hand. Then write one Octave line and one Python line that compute it.\nC2. Quiz 3 C1.1 style. Observation \\(x=(1,2)\\). Candidates: \\[\nz_1=(0,2),\\quad z_2=(3,2),\\quad z_3=(1,5),\\quad z_4=(2,1),\\quad z_5=(1,2.5).\n\\] Compute the five distances \\(\\lVert x-z_i\\rVert\\) (hand or software). Which candidate is nearest?\nC3. Boyd 3.2 style. Let \\(a\\) be an \\(n\\)-vector and \\(b\\) an \\(m\\)-vector, and set \\(x=(a,b)\\) (stack). Express \\(\\mathrm{rms}(x)\\) in terms of \\(\\mathrm{rms}(a)\\), \\(\\mathrm{rms}(b)\\), \\(n\\), and \\(m\\).\nC4. For \\(t=(10,10,10,14)\\), find \\(\\mathrm{avg}(t)\\) and \\(\\mathrm{std}(t)\\). Use Boyd’s definition (RMS of the de-meaned vector).\nC5. True or false, with one sentence: if \\(\\lVert x\\rVert=\\lVert y\\rVert\\), then \\(x=y\\) or \\(x=-y\\).\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. \\(\\lVert w\\rVert=\\sqrt{1+4+4}=3\\). Octave: norm([1;-2;2]). Python: np.linalg.norm(np.array([1.,-2.,2.])).\nC2. Distances: \\(1\\), \\(2\\), \\(3\\), \\(\\sqrt{2}\\approx 1.414\\), \\(0.5\\). Nearest is \\(z_5=(1,2.5)\\).\nC3. \\(\\mathrm{rms}(x)=\\sqrt{\\dfrac{n\\,\\mathrm{rms}(a)^2+m\\,\\mathrm{rms}(b)^2}{n+m}}\\).\nC4. \\(\\mathrm{avg}(t)=11\\). De-meaned \\((-1,-1,-1,3)\\); \\(\\mathrm{std}(t)=\\sqrt{(1+1+1+9)/4}=\\sqrt{3}\\).\nC5. False. Example: \\(x=(1,0)\\) and \\(y=(0,1)\\) have the same norm but are neither equal nor negatives."
-  },
-  {
-    "objectID": "quizzes/quiz-03.html",
-    "href": "quizzes/quiz-03.html",
-    "title": "Quiz 3",
-    "section": "",
-    "text": "Download PDF\nLast updated: September 11, 2026.\nRelated lectures: Norms (norm, distance, RMS, standard deviation; Octave/Python), Angle, Neighbors.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-03.html#core",
-    "href": "quizzes/quiz-03.html#core",
-    "title": "Quiz 3",
-    "section": "Core",
-    "text": "Core\n\nB 3.1, 3.2, 3.10, 3.11, 3.12, 3.13, 3.15, 3.23, 3.24, 3.28\nL Ch. 1 Ex. 2(c–d), norm/unit-vector portions\nC1.1: Compute distances from one observation to five candidates.\nC1.2: Compare the nearest result before and after rescaling one feature."
-  },
-  {
-    "objectID": "quizzes/quiz-03.html#stretch",
-    "href": "quizzes/quiz-03.html#stretch",
-    "title": "Quiz 3",
-    "section": "Stretch",
-    "text": "Stretch\nB 3.9, 3.22, 3.26."
-  },
-  {
-    "objectID": "quizzes/quiz-03.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-03.html#what-a-quiz-item-might-change",
-    "title": "Quiz 3",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThree short vectors, one feature’s scale, or a choice between Euclidean distance and cosine similarity with a justification."
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Course Syllabus",
-    "section": "",
-    "text": "Download this page as PDF"
-  },
-  {
-    "objectID": "syllabus.html#course-information",
-    "href": "syllabus.html#course-information",
-    "title": "Course Syllabus",
-    "section": "Course Information",
-    "text": "Course Information\nCourse Number: MATH 107\nCourse Title: Introduction to Linear Algebra\nClass Number: 42493\nSection: 1\nSession: Regular Academic Session\nUnits: 3\nSemester: Fall 2026\nMode of Instruction: Face to Face Instruction ONLY\nGeneral Education: GE Area 2 — Mathematics\n\nLecture\nDays/Time: Monday, Wednesday, Friday, 10:00–10:50 a.m.\nLocation: FR 201\n\n\nFinal Exam\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m., FR 201.\n\n\nInstructor Information\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment.\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
-  },
-  {
-    "objectID": "syllabus.html#course-description-catalog-description",
-    "href": "syllabus.html#course-description-catalog-description",
-    "title": "Course Syllabus",
-    "section": "Course Description (Catalog Description)",
-    "text": "Course Description (Catalog Description)\nEuclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nDivision: Lower Division.\nWeekly: Lecture 3 hrs.\nInstruction Mode: Face to face only.\nPrerequisite: (MATH 101 and MATH 101T) or MATH 102 or ALEKS PPL assessment score 78–100 or appropriate high school coursework. All prerequisite courses must be passed with a grade of C− or higher. See Math Placement and ALEKS PPL for details.\nNote: if you plan to use MATH 107 as a prerequisite for another MATH, DATA, or STAT course, you must have a grade of C− or better in this course.\n\nCourse Learning Outcomes\nBy the end of this course, students will be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily learning objectives for each meeting are on Lectures.\n\n\nGeneral Education & Institutional Learning Outcomes\nThis course fulfills Lower Division General Education Area 2 (Mathematics) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
-  },
-  {
-    "objectID": "syllabus.html#course-materials-workload",
-    "href": "syllabus.html#course-materials-workload",
-    "title": "Course Syllabus",
-    "section": "Course Materials & Workload",
-    "text": "Course Materials & Workload\nMATH 107 includes three weekly lecture meetings. Some Fridays (and a few other days) include a lab, quiz, or exam as marked on the schedule.\nIn this 3-unit course, students should expect to spend approximately 9 hours per week on course-related work, including time in class (3 hours) and time outside of class on reading, practice, labs, and exam preparation (6 hours).\n\nRequired Materials\nCourse website: Canvas and https://roverhol.github.io/math107\nTextbooks (free):\n\nStephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares (VMLS).\nGilbert Strang, Introduction to Linear Algebra: selected free MIT samples only (§3.5, §6.1, and SVD slides), so you do not need to buy it.\n\nSoftware: Octave, free to download at https://octave.org/. I will also provide an optional Python/Colab version of each lab.\nOther Technology: A scientific calculator for in-class assessments and regular access to a computer with reliable internet. Bring a laptop on lab days, or let me know a day ahead that I should bring one for you to use. Please bring paper and a pen or pencil to class each day.\n\n\nAccess & Affordability\nStudents who do not have personal access to required technology may use computers either in campus labs or checked out from the library. Calculators are also available for check out from the library’s front desk. If you want to get a free used computer, please check to see if our campus’s Reusable Office Supply Exchange (ROSE) has one available.\n\n\nFees\nThere are no additional course fees beyond standard tuition and registration fees."
-  },
-  {
-    "objectID": "syllabus.html#course-feedback-assessment",
-    "href": "syllabus.html#course-feedback-assessment",
-    "title": "Course Syllabus",
-    "section": "Course Feedback & Assessment",
-    "text": "Course Feedback & Assessment\nStudents will receive feedback and complete assessments in a variety of ways:\n\nClass participation in daily in-class activities\nComputational labs in Octave (about every two weeks)\nIn-class quizzes (ten quizzes, first 10 minutes of class; the lowest two scores are dropped)\nTwo midterms (Friday, October 2 and Friday, November 13, in class)\nA final exam (Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201)\nA capstone project (end of the semester)\n\n\n\nGrading\n\n\n\nComponent\nWeight\n\n\n\n\nParticipation / in-class work\n5%\n\n\nLabs\n10%\n\n\nQuizzes\n25%\n\n\nTwo midterms\n35%\n\n\nCapstone\n10%\n\n\nFinal\n15%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93–100% A−: 90–92% B+: 87–89% B: 83–86% B−: 80–82% C+: 77–79% C: 73–76% C−: 70–72% D: 60–69% F: 0–59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C− is required for the course to count as a prerequisite for other MATH or DATA classes.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\nAttendance & Participation\nRegular attendance and active participation are required because they are essential for the success of everyone in this course. Up to 10 days may be missed without penalty to your course grade: these days should be reserved for use in times of illness or other obligations.\nIf you must miss class, you are responsible for obtaining notes from me or a classmate and keeping up with course material."
-  },
-  {
-    "objectID": "syllabus.html#late-or-missed-work-policies",
-    "href": "syllabus.html#late-or-missed-work-policies",
-    "title": "Course Syllabus",
-    "section": "Late or Missed Work Policies",
-    "text": "Late or Missed Work Policies\nThe policies for late or missed work are as follows:\n\nLecture attendance is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 lecture days without penalty and without contacting me. Reserve these days for emergencies. In my experience, it is rare for a student to succeed if they regularly miss class or are absent for more than two weeks, so if you find yourself in that situation, please communicate with me and your advisor so we can help you find a solution.\nQuizzes are in the first 10 minutes of class. The lowest two quiz scores are dropped. If you must miss a quiz due to illness or another emergency, please contact me to arrange a makeup.\nLabs are due on the dates on the schedule. After a week, late labs are not accepted.\nCapstone work is due on the dates on the schedule. Late project work cannot be turned in due to the end of the semester and course grades being due. If you are unable to complete the project in time, you should consider whether your situation is such that an Incomplete grade is appropriate. This would give you more time to complete the course.\nMidterms and the final exam are required. If you need to miss a midterm due to illness or another emergency, communicate with me as soon as possible to reschedule.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\nAI Policy\nMuch of your course grade will be based on work you produce in class (quizzes and exams) without having the option of using AI as a resource.\nOutside of in-class assessments, you may use AI, such as NotebookLM or ChatGPT, to help you learn the material or to get unstuck on labs or the capstone.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nIf you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\nBe responsible for the correctness and appropriateness of all (AI-assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking whether an assignment is appropriate for a college-level course or whether the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
-  },
-  {
-    "objectID": "syllabus.html#course-topics-schedule",
-    "href": "syllabus.html#course-topics-schedule",
-    "title": "Course Syllabus",
-    "section": "Course Topics & Schedule",
-    "text": "Course Topics & Schedule\n\nTopics (Approximate Order)\n\nVectors as representations; arithmetic, linear combinations, and inner products\nLinear and affine functions; norms, angle, neighbors, and clustering\nLinear dependence, span, and bases\nMatrices, \\(Ax\\), transformations, and linear systems\nDynamics, simulation, products, powers, and computational cost\nInverses, rank, and determinants\nEigenvectors and eigenvalues\nLeast squares, fitting, and SVD\nAccuracy, memory, runtime, and communication\n\n\n\nSummary of Schedule and Important Dates\nNote: The schedule has a detailed list of the course. Please check it regularly for updates.\n\n\n\nDate\nEvent\n\n\n\n\nAugust 24\nFirst class\n\n\nAugust 28\nLab 0\n\n\nSeptember 4\nQuiz 1\n\n\nSeptember 7\nLabor Day (no class)\n\n\nOctober 2\nMidterm 1\n\n\nNovember 11\nVeterans Day (no class)\n\n\nNovember 13\nMidterm 2\n\n\nNovember 23–27\nFall break (no class)\n\n\nDecember 9\nCapstone gallery\n\n\nDecember 11\nFinal review (last class meeting)\n\n\nDecember 16\nFinal exam, 10:20 a.m.–12:10 p.m., FR 201\n\n\n\nAdd/drop and other university deadlines follow the Cal Poly Humboldt academic calendar."
-  },
-  {
-    "objectID": "syllabus.html#university-policies-resources",
-    "href": "syllabus.html#university-policies-resources",
-    "title": "Course Syllabus",
-    "section": "University Policies & Resources",
-    "text": "University Policies & Resources\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\nAccommodations\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\nClassroom & Online Conduct\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
-  },
-  {
-    "objectID": "syllabus.html#changes-to-the-syllabus",
-    "href": "syllabus.html#changes-to-the-syllabus",
-    "title": "Course Syllabus",
-    "section": "Changes to the Syllabus",
-    "text": "Changes to the Syllabus\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
-  },
-  {
-    "objectID": "syllabus.html#license",
-    "href": "syllabus.html#license",
-    "title": "Course Syllabus",
-    "section": "License",
-    "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3Lab 1\n\n\n5\nSep 21Similar things\nSep 23Dependence\nSep 25Span\n\n\n6\nSep 28BasisQuiz 4\nSep 30Synthesis\nOct 2ReviewMidterm 1\n\n\n7\nOct 5Exam day\nOct 7Matrices\nOct 9\\(Ax\\)Lab 2\n\n\n8\nOct 12TransformsQuiz 5\nOct 14Systems\nOct 16Elimination\n\n\n9\nOct 19RREFQuiz 6\nOct 21Dynamics\nOct 23SimulationLab 3\n\n\n10\nOct 26Through timeQuiz 7\nOct 28Products\nOct 30PowersMicro-lab\n\n\n11\nNov 2Cost\nNov 4Inverses\nNov 6RankQuiz 8\n\n\n12\nNov 9Determinants\nNov 11Veterans Day — no class\nNov 13ReviewMidterm 2\n\n\n13\nNov 16Exam day\nNov 18Eigenvectors\nNov 20CharacteristicLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30EigenbehaviorQuiz 9\nDec 2Least squaresLab 5\nDec 4FittingQuiz 10Capstone\n\n\n16\nDec 7SVDCapstone\nDec 9StudioCapstone\nDec 11GalleryFinal review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
     "objectID": "assessments.html",
     "href": "assessments.html",
     "title": "Assessments",
@@ -215,6 +61,55 @@
     "title": "Assessments",
     "section": "CLO coverage",
     "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 4\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\n\n\n\nQuiz\nDate\nFocus\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, linear combinations, Lab 0\n\n\nQuiz 2\nFri Sep 11\nDot products and linear functions\n\n\nQuiz 3\nFri Sep 18\nNorm, distance, angle, and similarity\n\n\nQuiz 4\nMon Sep 28\nClustering, dependence, span, basis, and dimension\n\n\nQuiz 5\nMon Oct 12\nMatrices, \\(Ax\\), and transformations\n\n\nQuiz 6\nMon Oct 19\nSystems, elimination, and RREF\n\n\nQuiz 7\nMon Oct 26\nDynamics and Lab 3\n\n\nQuiz 8\nFri Nov 6\nMatrix multiplication, cost, and inverses\n\n\nQuiz 9\nMon Nov 30\nEigenvalues, complex numbers, Lab 4\n\n\nQuiz 10\nFri Dec 4\nLeast squares, residuals, and Lab 5\n\n\n\nThere is no quiz on rank/determinants the week of Midterm 2; use the Midterm 2 practice packet. SVD is not on Quiz 10; use the capstone practice packet."
+  },
+  {
+    "objectID": "labs/lab-01-ticket.html",
+    "href": "labs/lab-01-ticket.html",
+    "title": "Lab 1 ticket",
+    "section": "",
+    "text": "Download PDF\nLab 1 — Finding Similar Things · Fri Sep 18 · After Quiz 3 · Laptop · Initials after check-in\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax\n\n\n\nI needed to…\nCommand / pattern\n\n\n\n\nDistance / norm\n\n\n\nFind the minimum\n\n\n\n\n\nData: \\(x=(2,1)\\); \\(z_1=(2,2)\\), \\(z_2=(0,1)\\), \\(z_3=(3,1)\\), \\(z_4=(2,0)\\), \\(z_5=(1.5,1.5)\\).\nE1. Distances \\(\\lVert x-z_i\\rVert\\) and nearest neighbor.\nExpected: \\(1,\\ 2,\\ 1,\\ 1,\\ \\sqrt{1/2}\\); nearest \\(z_5\\).\nYours: \\(d=\\) ________________________________________________\nNearest: \\(z_{\\underline{\\hspace{1.0cm}}}\\)\nE2. Multiply every first coordinate by \\(10\\). New nearest neighbor(s)? Changed?\nExpected: tie \\(z_1\\) and \\(z_4\\); yes, changed.\nYours: nearest ________________ changed? yes / no\nOne sentence why scale matters: ________________________________________________________\n\nInstructor initials: __________\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
+    "objectID": "labs/lab-01.html",
+    "href": "labs/lab-01.html",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "",
+    "text": "Download PDF\nLast updated: September 13, 2026.\nShort lab (~15 minutes after Quiz 3). Full credit is the one-pager check-in. Date is on the schedule.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Work in Octave or Python. Handwrite on the one-pager hard copy and get initials after a short check-in.\nResources: Lecture 07 (norm, distance); Lecture 08 (angle); Lachniet Ch. 1 — Resources."
+  },
+  {
+    "objectID": "labs/lab-01.html#what-we-are-doing",
+    "href": "labs/lab-01.html#what-we-are-doing",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "What we are doing",
+    "text": "What we are doing\nPractice Euclidean distances in software and name a nearest neighbor — the same skill as Quiz 3 items C1.1–C1.2."
+  },
+  {
+    "objectID": "labs/lab-01.html#learning-objectives",
+    "href": "labs/lab-01.html#learning-objectives",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Learning objectives",
+    "text": "Learning objectives\n\nCompute several distances with Octave or Python.\nIdentify a nearest neighbor among a short list of candidates.\nNotice that rescaling one feature can change the nearest neighbor."
+  },
+  {
+    "objectID": "labs/lab-01.html#key-syntax",
+    "href": "labs/lab-01.html#key-syntax",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Key syntax",
+    "text": "Key syntax\n\n\n\nTask\nOctave\nPython\n\n\n\n\nNorm\nnorm(x)\nnp.linalg.norm(x)\n\n\nDistance\nnorm(x-y)\nnp.linalg.norm(x-y)"
+  },
+  {
+    "objectID": "labs/lab-01.html#exercises",
+    "href": "labs/lab-01.html#exercises",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Exercises",
+    "text": "Exercises\nQuery \\(x=(2,1)\\) and candidates \\[\nz_1=(2,2),\\quad z_2=(0,1),\\quad z_3=(3,1),\\quad z_4=(2,0),\\quad z_5=(1.5,1.5).\n\\]\nE1. Compute \\(\\lVert x-z_i\\rVert\\) for \\(i=1,\\ldots,5\\). Which candidate is nearest?\nOctave:\nx = [2; 1];\nZ = [2 2; 0 1; 3 1; 2 0; 1.5 1.5];   % row i is z_i\nd = sqrt(sum((Z - x').^2, 2))\n[~, j] = min(d)   % j is 1-based\nPython:\nimport numpy as np\nx = np.array([2.0, 1.0])\nZ = np.array([[2, 2], [0, 1], [3, 1], [2, 0], [1.5, 1.5]])\nd = np.linalg.norm(Z - x, axis=1)\nj = np.argmin(d)   # 0-based index\nExpected: distances \\(1,\\ 2,\\ 1,\\ 1,\\ \\sqrt{1/2}\\); nearest \\(z_5\\) (Octave j=5, Python j=4).\nE2. Rescale the first feature by \\(10\\): replace every first coordinate \\(a\\) by \\(10a\\) (so \\(x\\) becomes \\((20,1)\\), and likewise for each \\(z_i\\)). Recompute the nearest neighbor(s). Did the answer change?\nExpected: distances \\(1,\\ 20,\\ 10,\\ 1,\\ \\sqrt{25.25}\\); nearest is a tie between \\(z_1\\) and \\(z_4\\) (both distance \\(1\\)). Yes — the nearest neighbor changed."
+  },
+  {
+    "objectID": "labs/lab-01.html#one-pager",
+    "href": "labs/lab-01.html#one-pager",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "One-pager",
+    "text": "One-pager\nPreview the Lab 1 ticket; write on the hard copy in class."
   },
   {
     "objectID": "lectures.html",
@@ -326,14 +221,14 @@
     "href": "lectures.html#lecture-09",
     "title": "Lectures",
     "section": "Wed Sep 16 — Nearest neighbors",
-    "text": "Wed Sep 16 — Nearest neighbors\nLecture 09 page\nReading: Boyd 4.1\nNote: Possible contexts: species measurements, geographic sites, songs, or sensor readings.\nBy the end of class, students should be able to:\n\nFormulate a nearest-neighbor question using vectors.\nFind a nearest neighbor in a small dataset by hand.\nExplain how feature scale can affect the answer.\nJustify a choice of distance or similarity measure."
+    "text": "Wed Sep 16 — Nearest neighbors\nLecture 09 page\nReading: Boyd §3.2 nearest neighbor; exercises 3.10–3.11, 3.24\nNote: Possible contexts: species measurements, geographic sites, songs, or sensor readings. (Boyd Ch. 4 begins clustering; NN is Chapter 3.)\nBy the end of class, students should be able to:\n\nFormulate a nearest-neighbor question using vectors.\nFind a nearest neighbor in a small dataset by hand.\nExplain how feature scale can affect the answer.\nJustify a choice of distance or similarity measure."
   },
   {
     "objectID": "lectures.html#lecture-10",
     "href": "lectures.html#lecture-10",
     "title": "Lectures",
     "section": "Fri Sep 18 — Clustering and \\(k\\)-means",
-    "text": "Fri Sep 18 — Clustering and \\(k\\)-means\nLecture 10 page\nReading: Boyd 4.2–4.3\nNote: Use a small dataset students can visualize.\nBy the end of class, students should be able to:\n\nExplain the goal of clustering.\nCompute one assignment/update iteration of \\(k\\)-means.\nInterpret a centroid as a vector.\nRecognize that clustering output depends on representation, scaling, and initialization."
+    "text": "Fri Sep 18 — Clustering and \\(k\\)-means\nLecture 10 page\nReading: Boyd 4.1–4.3\nNote: Same day as Quiz 3 and short Lab 1. Use a small dataset students can visualize.\nBy the end of class, students should be able to:\n\nExplain the goal of clustering.\nCompute one assignment/update iteration of \\(k\\)-means.\nInterpret a centroid as a vector.\nRecognize that clustering output depends on representation, scaling, and initialization."
   },
   {
     "objectID": "lectures.html#week-5",
@@ -649,6 +544,251 @@
     "title": "Lectures",
     "section": "Fri Dec 11 — Cumulative final review",
     "text": "Fri Dec 11 — Cumulative final review\nLecture 43 page\nReading: Cumulative review\nNote: No routine quiz or new content.\nBy the end of class, students should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
+  },
+  {
+    "objectID": "lectures/lecture-08.html",
+    "href": "lectures/lecture-08.html",
+    "title": "Lecture 08 — Angle and similarity",
+    "section": "",
+    "text": "Download PDF\nLast updated: September 13, 2026.\nReading: Boyd 3.4 (angle). Quiz 3 prep: Boyd 3.23, 3.24 (angle vs distance). Related objectives: Lectures. Schedule. Quiz 3 is Friday, September 18.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Check yourself."
+  },
+  {
+    "objectID": "lectures/lecture-08.html#learning-objectives",
+    "href": "lectures/lecture-08.html#learning-objectives",
+    "title": "Lecture 08 — Angle and similarity",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nCompute cosine similarity or an angle between vectors.\nDistinguish closeness in position from similarity in direction.\nChoose an appropriate similarity measure for a stated purpose.\nExplain why normalization may change a comparison."
+  },
+  {
+    "objectID": "lectures/lecture-08.html#warm-up",
+    "href": "lectures/lecture-08.html#warm-up",
+    "title": "Lecture 08 — Angle and similarity",
+    "section": "Warm-up",
+    "text": "Warm-up\nLet \\(a=(1,0)\\) and \\(b=(1,1)\\).\n\nCompute \\(a^{\\mathsf{T}}b\\), \\(\\lVert a\\rVert\\), and \\(\\lVert b\\rVert\\).\nWithout finding the angle in degrees, is \\(\\cos\\theta = a^{\\mathsf{T}}b/(\\lVert a\\rVert\\lVert b\\rVert)\\) closer to \\(1\\), to \\(0\\), or to \\(-1\\)? What does that suggest about the directions?"
+  },
+  {
+    "objectID": "lectures/lecture-08.html#fill-in",
+    "href": "lectures/lecture-08.html#fill-in",
+    "title": "Lecture 08 — Angle and similarity",
+    "section": "Fill in",
+    "text": "Fill in\nFor nonzero \\(n\\)-vectors \\(a\\) and \\(b\\), the angle \\(\\theta=\\angle(a,b)\\) satisfies \\[\n\\cos\\theta = \\frac{a^{\\mathsf{T}}b}{\\lVert a\\rVert\\,\\lVert b\\rVert}, \\qquad \\theta\\in[0,\\pi].\n\\] The quantity \\(\\dfrac{a^{\\mathsf{T}}b}{\\lVert a\\rVert\\,\\lVert b\\rVert}\\) is the cosine similarity.\nCauchy–Schwarz says \\(|a^{\\mathsf{T}}b|\\leq\\lVert a\\rVert\\lVert b\\rVert\\), so the cosine is always between \\(\\underline{\\hspace{1.6cm}}\\) and \\(\\underline{\\hspace{1.6cm}}\\).\nInterpretation: - \\(\\theta\\approx 0\\) (cosine near \\(1\\)): directions nearly the \\(\\underline{\\hspace{2.0cm}}\\) - \\(\\theta=\\pi/2\\) (cosine \\(0\\)): vectors are \\(\\underline{\\hspace{2.4cm}}\\) - \\(\\theta\\approx\\pi\\) (cosine near \\(-1\\)): directions nearly \\(\\underline{\\hspace{2.4cm}}\\)\nDistance \\(\\lVert a-b\\rVert\\) measures closeness of positions. Angle measures similarity of directions (independent of overall scale of each vector). Scaling \\(a\\) by a positive constant does \\(\\underline{\\hspace{2.4cm}}\\) change \\(\\angle(a,b)\\).\nA normalized (unit) vector is \\(\\hat{a}=a/\\lVert a\\rVert\\), which has \\(\\lVert\\hat{a}\\rVert=\\underline{\\hspace{1.0cm}}\\). Among unit vectors, smaller distance is equivalent to \\(\\underline{\\hspace{2.8cm}}\\) angle (Boyd 3.24(b))."
+  },
+  {
+    "objectID": "lectures/lecture-08.html#software",
+    "href": "lectures/lecture-08.html#software",
+    "title": "Lecture 08 — Angle and similarity",
+    "section": "Software",
+    "text": "Software\nOctave:\na = [1; 0]; b = [1; 1];\ncos_th = (a'*b)/(norm(a)*norm(b))\nth_deg = acosd(cos_th)    % angle in degrees\nPython:\nimport numpy as np\na = np.array([1.0, 0.0]); b = np.array([1.0, 1.0])\ncos_th = (a @ b) / (np.linalg.norm(a) * np.linalg.norm(b))\nth_deg = np.degrees(np.arccos(np.clip(cos_th, -1, 1)))"
+  },
+  {
+    "objectID": "lectures/lecture-08.html#worked-in-class",
+    "href": "lectures/lecture-08.html#worked-in-class",
+    "title": "Lecture 08 — Angle and similarity",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. Compute the cosine and the angle (degrees is fine) between \\(u=(2,0)\\) and \\(v=(1,1)\\). Sketch both from the origin.\nW2. Distance vs direction. Let \\(p=(1,1)\\), \\(q=(10,10)\\), and \\(r=(1,-1)\\).\n\nCompute \\(\\lVert p-q\\rVert\\) and \\(\\lVert p-r\\rVert\\). Which is closer in distance to \\(p\\)?\nCompute \\(\\angle(p,q)\\) and \\(\\angle(p,r)\\). Which is more similar in direction to \\(p\\)?\nIn one sentence: when would you prefer angle over Euclidean distance?\n\nW3. Nonnegative vectors (Boyd 3.23). Let \\(x=(2,1)\\) and \\(y=(0,3)\\).\n\nCompute \\(x^{\\mathsf{T}}y\\). Why must the angle be between \\(0^\\circ\\) and \\(90^\\circ\\)?\nWhen are two nonzero nonnegative vectors orthogonal?\n\nW4. Distance nearest neighbor vs angle nearest neighbor (Boyd 3.24(a)). Let \\[\nx=(1,0),\\qquad z_1=(2,0),\\qquad z_2=(0.5,0.5).\n\\] Find the distance nearest neighbor of \\(x\\) among \\(\\{z_1,z_2\\}\\) and the angle nearest neighbor. Are they the same?\nW5. Normalization. Replace \\(z_1\\) and \\(z_2\\) by their unit versions \\(\\hat{z}_1=z_1/\\lVert z_1\\rVert\\) and \\(\\hat{z}_2=z_2/\\lVert z_2\\rVert\\). Does distance-NN of \\(x\\) among the unit vectors match angle-NN? (Boyd 3.24(b) idea.)"
+  },
+  {
+    "objectID": "lectures/lecture-08.html#check-yourself",
+    "href": "lectures/lecture-08.html#check-yourself",
+    "title": "Lecture 08 — Angle and similarity",
+    "section": "Check yourself",
+    "text": "Check yourself\nC1. Cosine of the angle between \\((3,4)\\) and \\((4,-3)\\). Are they orthogonal?\nC2. True or false: if \\(\\lVert a-b\\rVert\\) is small, then \\(\\angle(a,b)\\) must be near \\(0\\). One counterexample or reason.\nC3. Document word-count vectors (nonnegative). Why is angle a common similarity for documents?\nC4. Octave or Python: write one line that prints the cosine similarity of a and b (assume they already exist).\nC5. You normalize every candidate before using Euclidean distance to a query. What comparison are you effectively making?\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. \\(a^{\\mathsf{T}}b=12-12=0\\), so cosine \\(=0\\). Yes, orthogonal (\\(90^\\circ\\)).\nC2. False. Example: \\(a=(100,0)\\), \\(b=(101,0)\\) are close in distance but that alone does not force a general claim for arbitrary nearby pairs that point opposite ways after a shift; clearer counterexample for “small distance \\(\\Rightarrow\\) small angle”: take \\(a=(0.01,0)\\) and \\(b=(-0.01,0)\\) — distance \\(0.02\\) is small, but angle is \\(180^\\circ\\).\nC3. Documents can have very different lengths (total word counts). Angle / cosine ignores overall scale and focuses on the pattern of which words appear together.\nC4. Octave: (a'*b)/(norm(a)*norm(b)). Python: (a @ b)/(np.linalg.norm(a)*np.linalg.norm(b)).\nC5. Angle nearest-neighbor (among those candidates): after normalizing, Euclidean nearest matches smallest angle."
+  },
+  {
+    "objectID": "lectures/lecture-09.html",
+    "href": "lectures/lecture-09.html",
+    "title": "Lecture 09 — Nearest neighbors",
+    "section": "",
+    "text": "Download PDF\nLast updated: September 13, 2026.\nReading: Boyd §3.2 nearest neighbor; applications in §3.2 and exercises 3.10–3.11, 3.24. (Course hub lists Boyd 4.1 for this slot historically; nearest-neighbor ideas live in Chapter 3.) Related objectives: Lectures. Schedule. Quiz 3 is Friday, September 18.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Check yourself."
+  },
+  {
+    "objectID": "lectures/lecture-09.html#learning-objectives",
+    "href": "lectures/lecture-09.html#learning-objectives",
+    "title": "Lecture 09 — Nearest neighbors",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nFormulate a nearest-neighbor question using vectors.\nFind a nearest neighbor in a small dataset by hand.\nExplain how feature scale can affect the answer.\nJustify a choice of distance or similarity measure."
+  },
+  {
+    "objectID": "lectures/lecture-09.html#warm-up",
+    "href": "lectures/lecture-09.html#warm-up",
+    "title": "Lecture 09 — Nearest neighbors",
+    "section": "Warm-up",
+    "text": "Warm-up\nPatients as 2-vectors (fever °F above 98.6, cough score 0–10): \\[\np=(1.2,\\ 3),\\quad q=(0.1,\\ 8),\\quad r=(1.0,\\ 4).\n\\] A new patient is \\(x=(1.1,\\ 3.5)\\). Which of \\(p,q,r\\) is nearest to \\(x\\) in Euclidean distance? Compute the three distances."
+  },
+  {
+    "objectID": "lectures/lecture-09.html#fill-in",
+    "href": "lectures/lecture-09.html#fill-in",
+    "title": "Lecture 09 — Nearest neighbors",
+    "section": "Fill in",
+    "text": "Fill in\nGiven candidates \\(z_1,\\ldots,z_m\\) and a query \\(x\\), a (distance) nearest neighbor is any \\(z_j\\) with \\[\n\\lVert x-z_j\\rVert \\leq \\lVert x-z_i\\rVert \\quad\\text{for all }i.\n\\] In words: the candidate with \\(\\underline{\\hspace{2.8cm}}\\) Euclidean distance to \\(x\\).\nAn angle nearest neighbor minimizes \\(\\angle(x,z_i)\\) instead (equivalently maximizes cosine similarity when angles are in \\([0,\\pi]\\)).\nFeature vectors often mix units (age, dollars, counts). Then \\(\\lVert x-y\\rVert^2\\) adds \\(\\underline{\\hspace{3.2cm}}\\) of entrywise differences, so a large-scale feature can \\(\\underline{\\hspace{2.4cm}}\\) the distance. Remedies include choosing units carefully, \\(\\underline{\\hspace{2.0cm}}\\) features, or using a \\(\\underline{\\hspace{2.4cm}}\\) (Boyd 3.28).\nChoose Euclidean distance when “close in feature space” means similar \\(\\underline{\\hspace{2.0cm}}\\). Choose angle/cosine when overall \\(\\underline{\\hspace{2.0cm}}\\) should not matter (documents, some sensors)."
+  },
+  {
+    "objectID": "lectures/lecture-09.html#software",
+    "href": "lectures/lecture-09.html#software",
+    "title": "Lecture 09 — Nearest neighbors",
+    "section": "Software",
+    "text": "Software\nOctave — distances from x to rows of a matrix Z (one candidate per row):\nx = [1.1; 3.5];\nZ = [1.2, 3; 0.1, 8; 1.0, 4];   % each row a candidate\nd = sqrt(sum((Z - x').^2, 2))  % 3 distances\n[~, j] = min(d)                % nearest index\nPython:\nimport numpy as np\nx = np.array([1.1, 3.5])\nZ = np.array([[1.2, 3.0], [0.1, 8.0], [1.0, 4.0]])\nd = np.linalg.norm(Z - x, axis=1)\nj = np.argmin(d)"
+  },
+  {
+    "objectID": "lectures/lecture-09.html#worked-in-class",
+    "href": "lectures/lecture-09.html#worked-in-class",
+    "title": "Lecture 09 — Nearest neighbors",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. Formulate. “Among yesterday’s five Arcata weather vectors, which day is most like today?” Write this as a nearest-neighbor problem: what are \\(x\\) and \\(z_1,\\ldots,z_5\\), and what distance will you use?\nW2. Five candidates (Quiz 3 C1.1). \\(x=(2,1)\\) and \\[\nz_1=(2,2),\\ z_2=(0,1),\\ z_3=(3,1),\\ z_4=(2,0),\\ z_5=(1.5,1.5).\n\\] Compute all five distances and name the nearest neighbor.\nW3. Rescale one feature (Quiz 3 C1.2). Same points, but replace the first coordinate by \\(10\\) times its value (so \\(x\\) becomes \\((20,1)\\), etc.). Recompute nearest neighbor. Did it change?\nW4. EHR story (Boyd 3.11). In one or two sentences, give a practical use for finding the 10 nearest neighbors of a patient’s feature vector among other patients.\nW5. Nearest nonnegative vector (Boyd 3.13 idea). For \\(x=(3,-2,0.5,-4)\\), what nonnegative \\(y\\) minimizes \\(\\lVert x-y\\rVert\\)? (Entrywise: you cannot do better than clipping negatives to \\(0\\).)"
+  },
+  {
+    "objectID": "lectures/lecture-09.html#check-yourself",
+    "href": "lectures/lecture-09.html#check-yourself",
+    "title": "Lecture 09 — Nearest neighbors",
+    "section": "Check yourself",
+    "text": "Check yourself\nC1. \\(x=(0,0)\\), candidates \\((1,0)\\), \\((0,2)\\), \\((0.5,0.5)\\). Nearest?\nC2. Why might cosine similarity beat Euclidean distance for bag-of-words document vectors?\nC3. After standardizing every feature (mean \\(0\\), std \\(1\\) across the dataset), what problem with heterogeneous units have you partly addressed?\nC4. True or false: the nearest neighbor is always unique.\nC5. Write Octave or Python that prints the index of the nearest row of Z to x.\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. Distances \\(1\\), \\(2\\), \\(\\sqrt{0.5}\\approx 0.707\\). Nearest is \\((0.5,0.5)\\).\nC2. Document length (total words) varies a lot; cosine compares direction of the word pattern and ignores overall scale.\nC3. Features no longer live on wildly different numeric scales, so one feature is less likely to dominate Euclidean distance.\nC4. False. Two candidates can tie for smallest distance.\nC5. Octave: [~,j]=min(sqrt(sum((Z-x').^2,2))). Python: j=np.argmin(np.linalg.norm(Z-x,axis=1))."
+  },
+  {
+    "objectID": "lectures/lecture-10.html",
+    "href": "lectures/lecture-10.html",
+    "title": "Lecture 10 — Clustering and \\(k\\)-means",
+    "section": "",
+    "text": "Download PDF\nLast updated: September 13, 2026.\nReading: Boyd 4.1–4.3 (clustering objective and \\(k\\)-means). Related objectives: Lectures. Schedule. Same day: Quiz 3 and short Lab 1.\nBring paper. After the quiz: short lecture on clustering, then Lab 1."
+  },
+  {
+    "objectID": "lectures/lecture-10.html#learning-objectives",
+    "href": "lectures/lecture-10.html#learning-objectives",
+    "title": "Lecture 10 — Clustering and \\(k\\)-means",
+    "section": "Learning objectives",
+    "text": "Learning objectives\nBy the end of class, students should be able to:\n\nExplain the goal of clustering.\nCompute one assignment/update iteration of \\(k\\)-means.\nInterpret a centroid as a vector.\nRecognize that clustering output depends on representation, scaling, and initialization."
+  },
+  {
+    "objectID": "lectures/lecture-10.html#warm-up",
+    "href": "lectures/lecture-10.html#warm-up",
+    "title": "Lecture 10 — Clustering and \\(k\\)-means",
+    "section": "Warm-up",
+    "text": "Warm-up\nSix points in \\(\\mathbb{R}^2\\): \\[\n(0,0),\\ (0,1),\\ (1,0),\\quad (5,5),\\ (5,6),\\ (6,5).\n\\] By eye, into how many natural groups do they fall? Suggest a representative (center) for each group."
+  },
+  {
+    "objectID": "lectures/lecture-10.html#fill-in",
+    "href": "lectures/lecture-10.html#fill-in",
+    "title": "Lecture 10 — Clustering and \\(k\\)-means",
+    "section": "Fill in",
+    "text": "Fill in\nClustering partitions \\(N\\) vectors \\(x_1,\\ldots,x_N\\) into \\(k\\) groups so that vectors in the same group are \\(\\underline{\\hspace{2.0cm}}\\) to each other (small pairwise distances).\nA group representative (centroid, when we use the mean) \\(z_j\\) is a vector that stands for cluster \\(j\\). The basic clustering objective sums squared distances from each point to its group’s representative: \\[\nJ^{\\mathrm{clust}} = \\frac{1}{N}\\sum_{i=1}^N \\lVert x_i - z_{c_i}\\rVert^2,\n\\] where \\(c_i\\) is the cluster index of \\(x_i\\).\n\\(k\\)-means alternates two steps:\n\nAssignment: given representatives \\(z_1,\\ldots,z_k\\), set each \\(c_i\\) to the index of the \\(\\underline{\\hspace{2.8cm}}\\) \\(z_j\\) to \\(x_i\\).\nUpdate: given assignments, replace each \\(z_j\\) by the \\(\\underline{\\hspace{2.0cm}}\\) of the points currently in cluster \\(j\\).\n\nThe algorithm is a \\(\\underline{\\hspace{2.0cm}}\\): different initial \\(z_j\\) can yield different final clusterings. Feature \\(\\underline{\\hspace{2.0cm}}\\) and the choice of \\(k\\) also change the result."
+  },
+  {
+    "objectID": "lectures/lecture-10.html#worked-in-class",
+    "href": "lectures/lecture-10.html#worked-in-class",
+    "title": "Lecture 10 — Clustering and \\(k\\)-means",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. Goal in words. A café has purchase vectors (coffee, tea, pastry counts) for many customers. What would clustering these vectors help the café do?\nW2. One assignment step. Data: \\[\nx_1=(0,0),\\ x_2=(0,2),\\ x_3=(8,0),\\ x_4=(8,2).\n\\] Representatives \\(z_1=(1,1)\\), \\(z_2=(7,1)\\). Assign each \\(x_i\\) to the nearest \\(z_j\\). List the two clusters.\nW3. One update step. Using your clusters from W2, replace each \\(z_j\\) by the mean of its points. What are the new centroids?\nW4. Interpret a centroid. If a cluster of temperature vectors has centroid \\((54,53,55)\\) for three morning hours, what does that vector mean?\nW5. Sensitivity. Same four points as W2, but start with \\(z_1=(0,1)\\), \\(z_2=(0,0)\\). After one assignment, what goes wrong if both points near the origin grab almost everything? (One sentence on initialization.)"
+  },
+  {
+    "objectID": "lectures/lecture-10.html#check-yourself",
+    "href": "lectures/lecture-10.html#check-yourself",
+    "title": "Lecture 10 — Clustering and \\(k\\)-means",
+    "section": "Check yourself",
+    "text": "Check yourself\nC1. In \\(k\\)-means assignment, each point is assigned by a \\(\\underline{\\hspace{2.4cm}}\\) computation to the current representatives.\nC2. For points \\((0,0),(2,0)\\) in one cluster, the centroid is \\(\\underline{\\hspace{2.0cm}}\\).\nC3. True or false: running \\(k\\)-means once always finds the global minimum of \\(J^{\\mathrm{clust}}\\).\nC4. Why might you standardize features before clustering customer data that mixes age and annual spending?\nC5. If \\(k=N\\) (one cluster per point), what is \\(J^{\\mathrm{clust}}\\) after a perfect fit of representatives?\n\n\n\n\n\n\nNoteAnswers (Check yourself only)\n\n\n\n\n\nC1. nearest-neighbor (distance to each representative)\nC2. \\((1,0)\\)\nC3. False. It is a heuristic; different initializations can give different local solutions.\nC4. So spending in dollars does not dominate age in years inside Euclidean distance.\nC5. \\(J^{\\mathrm{clust}}=0\\) (each point is its own representative)."
+  },
+  {
+    "objectID": "quizzes/quiz-03.html",
+    "href": "quizzes/quiz-03.html",
+    "title": "Quiz 3",
+    "section": "",
+    "text": "Download PDF\nLast updated: September 11, 2026.\nRelated lectures: Norms (norm, distance, RMS, std; Octave/Python), Angle, Neighbors. Same day: short Lab 1.\nSchedule"
+  },
+  {
+    "objectID": "quizzes/quiz-03.html#core",
+    "href": "quizzes/quiz-03.html#core",
+    "title": "Quiz 3",
+    "section": "Core",
+    "text": "Core\n\nB 3.1, 3.2, 3.10, 3.11, 3.12, 3.13, 3.15, 3.23, 3.24, 3.28\nL Ch. 1 Ex. 2(c–d), norm/unit-vector portions\nC1.1: Compute distances from one observation to five candidates.\nC1.2: Compare the nearest result before and after rescaling one feature."
+  },
+  {
+    "objectID": "quizzes/quiz-03.html#stretch",
+    "href": "quizzes/quiz-03.html#stretch",
+    "title": "Quiz 3",
+    "section": "Stretch",
+    "text": "Stretch\nB 3.9, 3.22, 3.26."
+  },
+  {
+    "objectID": "quizzes/quiz-03.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-03.html#what-a-quiz-item-might-change",
+    "title": "Quiz 3",
+    "section": "What a quiz item might change",
+    "text": "What a quiz item might change\nThree short vectors, one feature’s scale, or a choice between Euclidean distance and cosine similarity with a justification."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3Lab 1Lab 1 ticket\n\n\n5\nSep 21Similar things\nSep 23Dependence\nSep 25Span\n\n\n6\nSep 28BasisQuiz 4\nSep 30Synthesis\nOct 2ReviewMidterm 1\n\n\n7\nOct 5Exam day\nOct 7Matrices\nOct 9\\(Ax\\)Lab 2\n\n\n8\nOct 12TransformsQuiz 5\nOct 14Systems\nOct 16Elimination\n\n\n9\nOct 19RREFQuiz 6\nOct 21Dynamics\nOct 23SimulationLab 3\n\n\n10\nOct 26Through timeQuiz 7\nOct 28Products\nOct 30PowersMicro-lab\n\n\n11\nNov 2Cost\nNov 4Inverses\nNov 6RankQuiz 8\n\n\n12\nNov 9Determinants\nNov 11Veterans Day — no class\nNov 13ReviewMidterm 2\n\n\n13\nNov 16Exam day\nNov 18Eigenvectors\nNov 20CharacteristicLab 4\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30EigenbehaviorQuiz 9\nDec 2Least squaresLab 5\nDec 4FittingQuiz 10Capstone\n\n\n16\nDec 7SVDCapstone\nDec 9StudioCapstone\nDec 11GalleryFinal review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Download this page as PDF"
+  },
+  {
+    "objectID": "syllabus.html#course-information",
+    "href": "syllabus.html#course-information",
+    "title": "Course Syllabus",
+    "section": "Course Information",
+    "text": "Course Information\nCourse Number: MATH 107\nCourse Title: Introduction to Linear Algebra\nClass Number: 42493\nSection: 1\nSession: Regular Academic Session\nUnits: 3\nSemester: Fall 2026\nMode of Instruction: Face to Face Instruction ONLY\nGeneral Education: GE Area 2 — Mathematics\n\nLecture\nDays/Time: Monday, Wednesday, Friday, 10:00–10:50 a.m.\nLocation: FR 201\n\n\nFinal Exam\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m., FR 201.\n\n\nInstructor Information\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment.\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
+  },
+  {
+    "objectID": "syllabus.html#course-description-catalog-description",
+    "href": "syllabus.html#course-description-catalog-description",
+    "title": "Course Syllabus",
+    "section": "Course Description (Catalog Description)",
+    "text": "Course Description (Catalog Description)\nEuclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nDivision: Lower Division.\nWeekly: Lecture 3 hrs.\nInstruction Mode: Face to face only.\nPrerequisite: (MATH 101 and MATH 101T) or MATH 102 or ALEKS PPL assessment score 78–100 or appropriate high school coursework. All prerequisite courses must be passed with a grade of C− or higher. See Math Placement and ALEKS PPL for details.\nNote: if you plan to use MATH 107 as a prerequisite for another MATH, DATA, or STAT course, you must have a grade of C− or better in this course.\n\nCourse Learning Outcomes\nBy the end of this course, students will be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily learning objectives for each meeting are on Lectures.\n\n\nGeneral Education & Institutional Learning Outcomes\nThis course fulfills Lower Division General Education Area 2 (Mathematics) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
+  },
+  {
+    "objectID": "syllabus.html#course-materials-workload",
+    "href": "syllabus.html#course-materials-workload",
+    "title": "Course Syllabus",
+    "section": "Course Materials & Workload",
+    "text": "Course Materials & Workload\nMATH 107 includes three weekly lecture meetings. Some Fridays (and a few other days) include a lab, quiz, or exam as marked on the schedule.\nIn this 3-unit course, students should expect to spend approximately 9 hours per week on course-related work, including time in class (3 hours) and time outside of class on reading, practice, labs, and exam preparation (6 hours).\n\nRequired Materials\nCourse website: Canvas and https://roverhol.github.io/math107\nTextbooks (free):\n\nStephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares (VMLS).\nGilbert Strang, Introduction to Linear Algebra: selected free MIT samples only (§3.5, §6.1, and SVD slides), so you do not need to buy it.\n\nSoftware: Octave, free to download at https://octave.org/. I will also provide an optional Python/Colab version of each lab.\nOther Technology: A scientific calculator for in-class assessments and regular access to a computer with reliable internet. Bring a laptop on lab days, or let me know a day ahead that I should bring one for you to use. Please bring paper and a pen or pencil to class each day.\n\n\nAccess & Affordability\nStudents who do not have personal access to required technology may use computers either in campus labs or checked out from the library. Calculators are also available for check out from the library’s front desk. If you want to get a free used computer, please check to see if our campus’s Reusable Office Supply Exchange (ROSE) has one available.\n\n\nFees\nThere are no additional course fees beyond standard tuition and registration fees."
+  },
+  {
+    "objectID": "syllabus.html#course-feedback-assessment",
+    "href": "syllabus.html#course-feedback-assessment",
+    "title": "Course Syllabus",
+    "section": "Course Feedback & Assessment",
+    "text": "Course Feedback & Assessment\nStudents will receive feedback and complete assessments in a variety of ways:\n\nClass participation in daily in-class activities\nComputational labs in Octave (about every two weeks)\nIn-class quizzes (ten quizzes, first 10 minutes of class; the lowest two scores are dropped)\nTwo midterms (Friday, October 2 and Friday, November 13, in class)\nA final exam (Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201)\nA capstone project (end of the semester)\n\n\n\nGrading\n\n\n\nComponent\nWeight\n\n\n\n\nParticipation / in-class work\n5%\n\n\nLabs\n10%\n\n\nQuizzes\n25%\n\n\nTwo midterms\n35%\n\n\nCapstone\n10%\n\n\nFinal\n15%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93–100% A−: 90–92% B+: 87–89% B: 83–86% B−: 80–82% C+: 77–79% C: 73–76% C−: 70–72% D: 60–69% F: 0–59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C− is required for the course to count as a prerequisite for other MATH or DATA classes.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\nAttendance & Participation\nRegular attendance and active participation are required because they are essential for the success of everyone in this course. Up to 10 days may be missed without penalty to your course grade: these days should be reserved for use in times of illness or other obligations.\nIf you must miss class, you are responsible for obtaining notes from me or a classmate and keeping up with course material."
+  },
+  {
+    "objectID": "syllabus.html#late-or-missed-work-policies",
+    "href": "syllabus.html#late-or-missed-work-policies",
+    "title": "Course Syllabus",
+    "section": "Late or Missed Work Policies",
+    "text": "Late or Missed Work Policies\nThe policies for late or missed work are as follows:\n\nLecture attendance is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 lecture days without penalty and without contacting me. Reserve these days for emergencies. In my experience, it is rare for a student to succeed if they regularly miss class or are absent for more than two weeks, so if you find yourself in that situation, please communicate with me and your advisor so we can help you find a solution.\nQuizzes are in the first 10 minutes of class. The lowest two quiz scores are dropped. If you must miss a quiz due to illness or another emergency, please contact me to arrange a makeup.\nLabs are due on the dates on the schedule. After a week, late labs are not accepted.\nCapstone work is due on the dates on the schedule. Late project work cannot be turned in due to the end of the semester and course grades being due. If you are unable to complete the project in time, you should consider whether your situation is such that an Incomplete grade is appropriate. This would give you more time to complete the course.\nMidterms and the final exam are required. If you need to miss a midterm due to illness or another emergency, communicate with me as soon as possible to reschedule.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\nAI Policy\nMuch of your course grade will be based on work you produce in class (quizzes and exams) without having the option of using AI as a resource.\nOutside of in-class assessments, you may use AI, such as NotebookLM or ChatGPT, to help you learn the material or to get unstuck on labs or the capstone.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nIf you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\nBe responsible for the correctness and appropriateness of all (AI-assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking whether an assignment is appropriate for a college-level course or whether the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
+  },
+  {
+    "objectID": "syllabus.html#course-topics-schedule",
+    "href": "syllabus.html#course-topics-schedule",
+    "title": "Course Syllabus",
+    "section": "Course Topics & Schedule",
+    "text": "Course Topics & Schedule\n\nTopics (Approximate Order)\n\nVectors as representations; arithmetic, linear combinations, and inner products\nLinear and affine functions; norms, angle, neighbors, and clustering\nLinear dependence, span, and bases\nMatrices, \\(Ax\\), transformations, and linear systems\nDynamics, simulation, products, powers, and computational cost\nInverses, rank, and determinants\nEigenvectors and eigenvalues\nLeast squares, fitting, and SVD\nAccuracy, memory, runtime, and communication\n\n\n\nSummary of Schedule and Important Dates\nNote: The schedule has a detailed list of the course. Please check it regularly for updates.\n\n\n\nDate\nEvent\n\n\n\n\nAugust 24\nFirst class\n\n\nAugust 28\nLab 0\n\n\nSeptember 4\nQuiz 1\n\n\nSeptember 7\nLabor Day (no class)\n\n\nOctober 2\nMidterm 1\n\n\nNovember 11\nVeterans Day (no class)\n\n\nNovember 13\nMidterm 2\n\n\nNovember 23–27\nFall break (no class)\n\n\nDecember 9\nCapstone gallery\n\n\nDecember 11\nFinal review (last class meeting)\n\n\nDecember 16\nFinal exam, 10:20 a.m.–12:10 p.m., FR 201\n\n\n\nAdd/drop and other university deadlines follow the Cal Poly Humboldt academic calendar."
+  },
+  {
+    "objectID": "syllabus.html#university-policies-resources",
+    "href": "syllabus.html#university-policies-resources",
+    "title": "Course Syllabus",
+    "section": "University Policies & Resources",
+    "text": "University Policies & Resources\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\nAccommodations\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\nClassroom & Online Conduct\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
+  },
+  {
+    "objectID": "syllabus.html#changes-to-the-syllabus",
+    "href": "syllabus.html#changes-to-the-syllabus",
+    "title": "Course Syllabus",
+    "section": "Changes to the Syllabus",
+    "text": "Changes to the Syllabus\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
+  },
+  {
+    "objectID": "syllabus.html#license",
+    "href": "syllabus.html#license",
+    "title": "Course Syllabus",
+    "section": "License",
+    "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
   },
   {
     "objectID": "resources.html",

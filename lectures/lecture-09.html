@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3e9b1289f5f353c49b617ce48ad2bc38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -124,6 +153,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#check-yourself" id="toc-check-yourself" class="nav-link" data-scroll-target="#check-yourself">Check yourself</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-09.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -137,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lecture 09 — Nearest neighbors</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Mon Sep 14</p>
+<p class="subtitle lead">Wed Sep 16</p>
 </div>
 
 
@@ -149,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">September 13, 2026</p>
     </div>
   </div>
     
@@ -161,9 +195,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lecture-09.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Related reading and the course-wide list of daily objectives: <a href="../lectures.html#lecture-09">Lectures</a>.</p>
+<p>Last updated: September 13, 2026.</p>
+<p>Reading: Boyd §3.2 nearest neighbor; applications in §3.2 and exercises 3.10–3.11, 3.24. (Course hub lists Boyd 4.1 for this slot historically; nearest-neighbor ideas live in Chapter 3.) Related objectives: <a href="../lectures.html#lecture-09">Lectures</a>. <a href="../schedule.html">Schedule</a>. <a href="../quizzes/quiz-03.html">Quiz 3</a> is Friday, September 18.</p>
+<p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and <strong>Check yourself</strong>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -173,6 +207,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Explain how feature scale can affect the answer.</li>
 <li>Justify a choice of distance or similarity measure.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Patients as 2-vectors (fever °F above 98.6, cough score 0–10): <span class="math display">\[
+p=(1.2,\ 3),\quad q=(0.1,\ 8),\quad r=(1.0,\ 4).
+\]</span> A new patient is <span class="math inline">\(x=(1.1,\ 3.5)\)</span>. Which of <span class="math inline">\(p,q,r\)</span> is nearest to <span class="math inline">\(x\)</span> in Euclidean distance? Compute the three distances.</p>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p>Given candidates <span class="math inline">\(z_1,\ldots,z_m\)</span> and a query <span class="math inline">\(x\)</span>, a <strong>(distance) nearest neighbor</strong> is any <span class="math inline">\(z_j\)</span> with <span class="math display">\[
+\lVert x-z_j\rVert \leq \lVert x-z_i\rVert \quad\text{for all }i.
+\]</span> In words: the candidate with <span class="math inline">\(\underline{\hspace{2.8cm}}\)</span> Euclidean distance to <span class="math inline">\(x\)</span>.</p>
+<p>An <strong>angle nearest neighbor</strong> minimizes <span class="math inline">\(\angle(x,z_i)\)</span> instead (equivalently maximizes cosine similarity when angles are in <span class="math inline">\([0,\pi]\)</span>).</p>
+<p>Feature vectors often mix units (age, dollars, counts). Then <span class="math inline">\(\lVert x-y\rVert^2\)</span> adds <span class="math inline">\(\underline{\hspace{3.2cm}}\)</span> of entrywise differences, so a large-scale feature can <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> the distance. Remedies include choosing units carefully, <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> features, or using a <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> (Boyd 3.28).</p>
+<p>Choose Euclidean distance when “close in feature space” means similar <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span>. Choose angle/cosine when overall <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> should not matter (documents, some sensors).</p>
+</section>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
+<p><strong>Octave</strong> — distances from <code>x</code> to rows of a matrix <code>Z</code> (one candidate per row):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">1.1</span><span class="op">;</span> <span class="fl">3.5</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">Z</span> <span class="op">=</span> [<span class="fl">1.2</span><span class="op">,</span> <span class="fl">3</span><span class="op">;</span> <span class="fl">0.1</span><span class="op">,</span> <span class="fl">8</span><span class="op">;</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">4</span>]<span class="op">;</span>   <span class="co">% each row a candidate</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">d</span> <span class="op">=</span> <span class="va">sqrt</span>(<span class="va">sum</span>((<span class="va">Z</span> <span class="op">-</span> <span class="va">x</span><span class="op">'</span>)<span class="op">.^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">2</span>))  <span class="co">% 3 distances</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>[<span class="op">~,</span> <span class="va">j</span>] <span class="op">=</span> <span class="va">min</span>(<span class="va">d</span>)                <span class="co">% nearest index</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">1.1</span>, <span class="fl">3.5</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.array([[<span class="fl">1.2</span>, <span class="fl">3.0</span>], [<span class="fl">0.1</span>, <span class="fl">8.0</span>], [<span class="fl">1.0</span>, <span class="fl">4.0</span>]])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.linalg.norm(Z <span class="op">-</span> x, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> np.argmin(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Formulate. “Among yesterday’s five Arcata weather vectors, which day is most like today?” Write this as a nearest-neighbor problem: what are <span class="math inline">\(x\)</span> and <span class="math inline">\(z_1,\ldots,z_5\)</span>, and what distance will you use?</p>
+<p><strong>W2.</strong> Five candidates (Quiz 3 C1.1). <span class="math inline">\(x=(2,1)\)</span> and <span class="math display">\[
+z_1=(2,2),\ z_2=(0,1),\ z_3=(3,1),\ z_4=(2,0),\ z_5=(1.5,1.5).
+\]</span> Compute all five distances and name the nearest neighbor.</p>
+<p><strong>W3.</strong> Rescale one feature (Quiz 3 C1.2). Same points, but replace the first coordinate by <span class="math inline">\(10\)</span> times its value (so <span class="math inline">\(x\)</span> becomes <span class="math inline">\((20,1)\)</span>, etc.). Recompute nearest neighbor. Did it change?</p>
+<p><strong>W4.</strong> EHR story (Boyd 3.11). In one or two sentences, give a practical use for finding the 10 nearest neighbors of a patient’s feature vector among other patients.</p>
+<p><strong>W5.</strong> Nearest nonnegative vector (Boyd 3.13 idea). For <span class="math inline">\(x=(3,-2,0.5,-4)\)</span>, what nonnegative <span class="math inline">\(y\)</span> minimizes <span class="math inline">\(\lVert x-y\rVert\)</span>? (Entrywise: you cannot do better than clipping negatives to <span class="math inline">\(0\)</span>.)</p>
+</section>
+<section id="check-yourself" class="level2">
+<h2 class="anchored" data-anchor-id="check-yourself">Check yourself</h2>
+<p><strong>C1.</strong> <span class="math inline">\(x=(0,0)\)</span>, candidates <span class="math inline">\((1,0)\)</span>, <span class="math inline">\((0,2)\)</span>, <span class="math inline">\((0.5,0.5)\)</span>. Nearest?</p>
+<p><strong>C2.</strong> Why might cosine similarity beat Euclidean distance for bag-of-words document vectors?</p>
+<p><strong>C3.</strong> After standardizing every feature (mean <span class="math inline">\(0\)</span>, std <span class="math inline">\(1\)</span> across the dataset), what problem with heterogeneous units have you partly addressed?</p>
+<p><strong>C4.</strong> True or false: the nearest neighbor is always unique.</p>
+<p><strong>C5.</strong> Write Octave <strong>or</strong> Python that prints the index of the nearest row of <code>Z</code> to <code>x</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Check yourself only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>C1. Distances <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(\sqrt{0.5}\approx 0.707\)</span>. Nearest is <span class="math inline">\((0.5,0.5)\)</span>.</p>
+<p>C2. Document length (total words) varies a lot; cosine compares direction of the word pattern and ignores overall scale.</p>
+<p>C3. Features no longer live on wildly different numeric scales, so one feature is less likely to dominate Euclidean distance.</p>
+<p>C4. <strong>False.</strong> Two candidates can tie for smallest distance.</p>
+<p>C5. Octave: <code>[~,j]=min(sqrt(sum((Z-x').^2,2)))</code>. Python: <code>j=np.argmin(np.linalg.norm(Z-x,axis=1))</code>.</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -636,31 +737,144 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 09 — Nearest neighbors"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Mon Sep 14"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-09.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related reading and the course-wide list of daily objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-09)</span>.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Formulate a nearest-neighbor question using vectors.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Find a nearest neighbor in a small dataset by hand.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Explain how feature scale can affect the answer.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Justify a choice of distance or similarity measure.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 09 — Nearest neighbors"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Sep 16"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-13</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-09.pdf)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Last updated: September 13, 2026.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd §3.2 nearest neighbor; applications in §3.2 and exercises 3.10–3.11, 3.24. (Course hub lists Boyd 4.1 for this slot historically; nearest-neighbor ideas live in Chapter 3.) Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-09)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>. <span class="co">[</span><span class="ot">Quiz 3</span><span class="co">](../quizzes/quiz-03.qmd)</span> is Friday, September 18.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and **Check yourself**.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Formulate a nearest-neighbor question using vectors.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Find a nearest neighbor in a small dataset by hand.</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Explain how feature scale can affect the answer.</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Justify a choice of distance or similarity measure.</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Patients as 2-vectors (fever °F above 98.6, cough score 0–10):</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>p=(1.2,\ 3),\quad q=(0.1,\ 8),\quad r=(1.0,\ 4).</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>A new patient is $x=(1.1,\ 3.5)$. Which of $p,q,r$ is nearest to $x$ in Euclidean distance? Compute the three distances.</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>Given candidates $z_1,\ldots,z_m$ and a query $x$, a **(distance) nearest neighbor** is any $z_j$ with</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>\lVert x-z_j\rVert \leq \lVert x-z_i\rVert \quad\text{for all }i.</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>In words: the candidate with $\underline{\hspace{2.8cm}}$ Euclidean distance to $x$.</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>An **angle nearest neighbor** minimizes $\angle(x,z_i)$ instead (equivalently maximizes cosine similarity when angles are in $<span class="co">[</span><span class="ot">0,\pi</span><span class="co">]</span>$).</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>Feature vectors often mix units (age, dollars, counts). Then $\lVert x-y\rVert^2$ adds $\underline{\hspace{3.2cm}}$ of entrywise differences, so a large-scale feature can $\underline{\hspace{2.4cm}}$ the distance. Remedies include choosing units carefully, $\underline{\hspace{2.0cm}}$ features, or using a $\underline{\hspace{2.4cm}}$ (Boyd 3.28).</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>Choose Euclidean distance when “close in feature space” means similar $\underline{\hspace{2.0cm}}$. Choose angle/cosine when overall $\underline{\hspace{2.0cm}}$ should not matter (documents, some sensors).</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Software</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>**Octave** — distances from <span class="in">`x`</span> to rows of a matrix <span class="in">`Z`</span> (one candidate per row):</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">1.1</span><span class="op">;</span> <span class="fl">3.5</span>]<span class="op">;</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="va">Z</span> <span class="op">=</span> [<span class="fl">1.2</span><span class="op">,</span> <span class="fl">3</span><span class="op">;</span> <span class="fl">0.1</span><span class="op">,</span> <span class="fl">8</span><span class="op">;</span> <span class="fl">1.0</span><span class="op">,</span> <span class="fl">4</span>]<span class="op">;</span>   <span class="co">% each row a candidate</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="va">d</span> <span class="op">=</span> <span class="va">sqrt</span>(<span class="va">sum</span>((<span class="va">Z</span> <span class="op">-</span> <span class="va">x</span><span class="op">'</span>)<span class="op">.^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">2</span>))  <span class="co">% 3 distances</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>[<span class="op">~,</span> <span class="va">j</span>] <span class="op">=</span> <span class="va">min</span>(<span class="va">d</span>)                <span class="co">% nearest index</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1.1</span><span class="op">,</span> <span class="fl">3.5</span>])</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="va">Z</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">1.2</span><span class="op">,</span> <span class="fl">3.0</span>]<span class="op">,</span> [<span class="fl">0.1</span><span class="op">,</span> <span class="fl">8.0</span>]<span class="op">,</span> [<span class="fl">1.0</span><span class="op">,</span> <span class="fl">4.0</span>]])</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="va">d</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">Z</span> <span class="op">-</span> <span class="va">x</span><span class="op">,</span> <span class="va">axis</span><span class="op">=</span><span class="fl">1</span>)</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="va">j</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">argmin</span>(<span class="va">d</span>)</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span><span class="op">-</span><span class="va">line</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>## <span class="va">Worked</span> <span class="va">in</span> <span class="va">class</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W1</span><span class="op">.**</span> <span class="va">Formulate</span>. “<span class="va">Among</span> <span class="va">yesterday</span>’<span class="va">s</span> <span class="va">five</span> <span class="va">Arcata</span> <span class="va">weather</span> <span class="va">vectors</span><span class="op">,</span> <span class="va">which</span> <span class="va">day</span> <span class="va">is</span> <span class="va">most</span> <span class="va">like</span> <span class="va">today</span>?” <span class="va">Write</span> <span class="va">this</span> <span class="va">as</span> <span class="va">a</span> <span class="va">nearest</span><span class="op">-</span><span class="va">neighbor</span> <span class="va">problem</span><span class="op">:</span> <span class="va">what</span> <span class="va">are</span> $<span class="va">x</span>$ <span class="va">and</span> $<span class="va">z_1</span><span class="op">,\</span><span class="va">ldots</span><span class="op">,</span><span class="va">z_5</span>$<span class="op">,</span> <span class="va">and</span> <span class="va">what</span> <span class="va">distance</span> <span class="va">will</span> <span class="va">you</span> <span class="va">use</span>?</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W2</span><span class="op">.**</span> <span class="va">Five</span> <span class="va">candidates</span> (<span class="va">Quiz</span> <span class="fl">3</span> <span class="va">C1</span><span class="fl">.1</span>). $<span class="va">x</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">1</span>)$ <span class="va">and</span></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a><span class="va">z_1</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">2</span>)<span class="op">,\</span> <span class="va">z_2</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)<span class="op">,\</span> <span class="va">z_3</span><span class="op">=</span>(<span class="fl">3</span><span class="op">,</span><span class="fl">1</span>)<span class="op">,\</span> <span class="va">z_4</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">0</span>)<span class="op">,\</span> <span class="va">z_5</span><span class="op">=</span>(<span class="fl">1.5</span><span class="op">,</span><span class="fl">1.5</span>).</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a><span class="va">Compute</span> <span class="va">all</span> <span class="va">five</span> <span class="va">distances</span> <span class="va">and</span> <span class="va">name</span> <span class="va">the</span> <span class="va">nearest</span> <span class="va">neighbor</span>.</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W3</span><span class="op">.**</span> <span class="va">Rescale</span> <span class="va">one</span> <span class="va">feature</span> (<span class="va">Quiz</span> <span class="fl">3</span> <span class="va">C1</span><span class="fl">.2</span>). <span class="va">Same</span> <span class="va">points</span><span class="op">,</span> <span class="va">but</span> <span class="va">replace</span> <span class="va">the</span> <span class="va">first</span> <span class="va">coordinate</span> <span class="va">by</span> $<span class="fl">10</span>$ <span class="va">times</span> <span class="va">its</span> <span class="va">value</span> (<span class="va">so</span> $<span class="va">x</span>$ <span class="va">becomes</span> $(<span class="fl">20</span><span class="op">,</span><span class="fl">1</span>)$<span class="op">,</span> <span class="va">etc</span>.). <span class="va">Recompute</span> <span class="va">nearest</span> <span class="va">neighbor</span>. <span class="va">Did</span> <span class="va">it</span> <span class="va">change</span>?</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W4</span><span class="op">.**</span> <span class="va">EHR</span> <span class="va">story</span> (<span class="va">Boyd</span> <span class="fl">3.11</span>). <span class="va">In</span> <span class="va">one</span> <span class="va">or</span> <span class="va">two</span> <span class="va">sentences</span><span class="op">,</span> <span class="va">give</span> <span class="va">a</span> <span class="va">practical</span> <span class="va">use</span> <span class="kw">for</span> <span class="va">finding</span> <span class="va">the</span> <span class="fl">10</span> <span class="va">nearest</span> <span class="va">neighbors</span> <span class="va">of</span> <span class="va">a</span> <span class="va">patient</span>’<span class="va">s</span> <span class="va">feature</span> <span class="va">vector</span> <span class="va">among</span> <span class="va">other</span> <span class="va">patients</span>.</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">W5</span><span class="op">.**</span> <span class="va">Nearest</span> <span class="va">nonnegative</span> <span class="va">vector</span> (<span class="va">Boyd</span> <span class="fl">3.13</span> <span class="va">idea</span>). <span class="va">For</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">3</span><span class="op">,-</span><span class="fl">2</span><span class="op">,</span><span class="fl">0.5</span><span class="op">,-</span><span class="fl">4</span>)$<span class="op">,</span> <span class="va">what</span> <span class="va">nonnegative</span> $<span class="va">y</span>$ <span class="va">minimizes</span> $<span class="op">\</span><span class="va">lVert</span> <span class="va">x</span><span class="op">-</span><span class="va">y</span><span class="op">\</span><span class="va">rVert</span>$? (<span class="va">Entrywise</span><span class="op">:</span> <span class="va">you</span> <span class="va">cannot</span> <span class="va">do</span> <span class="va">better</span> <span class="va">than</span> <span class="va">clipping</span> <span class="va">negatives</span> <span class="va">to</span> $<span class="fl">0</span>$.)</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>## <span class="va">Check</span> <span class="va">yourself</span></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C1</span><span class="op">.**</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> <span class="va">candidates</span> $(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">2</span>)$<span class="op">,</span> $(<span class="fl">0.5</span><span class="op">,</span><span class="fl">0.5</span>)$. <span class="va">Nearest</span>?</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C2</span><span class="op">.**</span> <span class="va">Why</span> <span class="va">might</span> <span class="va">cosine</span> <span class="va">similarity</span> <span class="va">beat</span> <span class="va">Euclidean</span> <span class="va">distance</span> <span class="kw">for</span> <span class="va">bag</span><span class="op">-</span><span class="va">of</span><span class="op">-</span><span class="va">words</span> <span class="va">document</span> <span class="va">vectors</span>?</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C3</span><span class="op">.**</span> <span class="va">After</span> <span class="va">standardizing</span> <span class="va">every</span> <span class="va">feature</span> (<span class="va">mean</span> $<span class="fl">0</span>$<span class="op">,</span> <span class="va">std</span> $<span class="fl">1</span>$ <span class="va">across</span> <span class="va">the</span> <span class="va">dataset</span>)<span class="op">,</span> <span class="va">what</span> <span class="va">problem</span> <span class="va">with</span> <span class="va">heterogeneous</span> <span class="va">units</span> <span class="va">have</span> <span class="va">you</span> <span class="va">partly</span> <span class="va">addressed</span>?</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C4</span><span class="op">.**</span> <span class="va">True</span> <span class="va">or</span> <span class="va">false</span><span class="op">:</span> <span class="va">the</span> <span class="va">nearest</span> <span class="va">neighbor</span> <span class="va">is</span> <span class="va">always</span> <span class="va">unique</span>.</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C5</span><span class="op">.**</span> <span class="va">Write</span> <span class="va">Octave</span> <span class="op">**</span><span class="va">or</span><span class="op">**</span> <span class="va">Python</span> <span class="va">that</span> <span class="va">prints</span> <span class="va">the</span> <span class="va">index</span> <span class="va">of</span> <span class="va">the</span> <span class="va">nearest</span> <span class="va">row</span> <span class="va">of</span> `<span class="va">Z</span>` <span class="va">to</span> `<span class="va">x</span>`.</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">work</span><span class="op">-</span><span class="va">space</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">content</span><span class="op">-</span><span class="va">visible</span> <span class="va">unless</span><span class="op">-</span><span class="va">format</span><span class="op">=</span><span class="st">"pdf"</span>}</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">callout</span><span class="op">-</span><span class="va">note</span> <span class="va">collapse</span><span class="op">=</span><span class="st">"true"</span>}</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>## <span class="va">Answers</span> (<span class="va">Check</span> <span class="va">yourself</span> <span class="va">only</span>)</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">answers</span><span class="op">-</span><span class="va">lecture</span><span class="op">-</span><span class="fl">09</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span> {.<span class="va">content</span><span class="op">-</span><span class="va">visible</span> <span class="va">when</span><span class="op">-</span><span class="va">format</span><span class="op">=</span><span class="st">"pdf"</span>}</span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a><span class="op">\</span><span class="va">newpage</span></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>## <span class="va">Answers</span> (<span class="va">Check</span> <span class="va">yourself</span>)</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>{{<span class="op">&lt;</span> <span class="va">include</span> <span class="op">/</span>_<span class="va">includes</span><span class="op">/</span><span class="va">answers</span><span class="op">-</span><span class="va">lecture</span><span class="op">-</span><span class="fl">09</span>.<span class="va">qmd</span> <span class="op">&gt;</span>}}</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a><span class="op">:::</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

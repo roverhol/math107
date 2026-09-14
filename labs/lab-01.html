@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3e9b1289f5f353c49b617ce48ad2bc38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -118,30 +147,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-we-are-doing" id="toc-what-we-are-doing" class="nav-link active" data-scroll-target="#what-we-are-doing">What we are doing</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key syntax</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-01.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-01.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lab 1 — Finding Similar Things</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Friday, September 18</p>
+<p class="subtitle lead">Friday, September 18 (short — same day as Quiz 3)</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">September 13, 2026</p>
     </div>
   </div>
     
@@ -153,13 +194,75 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lab-01.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>Due date is on the <a href="../schedule.html">schedule</a>. Instructions will be posted before class.</p>
-<p>Octave syntax: Lachniet Ch. 1 (vectors, indexing, plots). One PDF on <a href="../resources.html">Resources</a>; this handout is the assigned work.</p>
+<p>Last updated: September 13, 2026.</p>
+<p><strong>Short lab (~15 minutes after Quiz 3).</strong> Full credit is the one-pager check-in. Date is on the <a href="../schedule.html">schedule</a>.</p>
+<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work in Octave or Python. Handwrite on the <a href="../labs/lab-01-ticket.html">one-pager</a> hard copy and get initials after a short check-in.</p>
+<p><strong>Resources:</strong> <a href="../lectures/lecture-07.html">Lecture 07</a> (norm, distance); <a href="../lectures/lecture-08.html">Lecture 08</a> (angle); Lachniet Ch. 1 — <a href="../resources.html">Resources</a>.</p>
+<section id="what-we-are-doing" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-are-doing">What we are doing</h2>
+<p>Practice Euclidean distances in software and name a nearest neighbor — the same skill as Quiz 3 items C1.1–C1.2.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ol type="1">
+<li>Compute several distances with Octave or Python.</li>
+<li>Identify a nearest neighbor among a short list of candidates.</li>
+<li>Notice that rescaling one feature can change the nearest neighbor.</li>
+</ol>
+</section>
+<section id="key-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax">Key syntax</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Octave</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Norm</td>
+<td><code>norm(x)</code></td>
+<td><code>np.linalg.norm(x)</code></td>
+</tr>
+<tr class="even">
+<td>Distance</td>
+<td><code>norm(x-y)</code></td>
+<td><code>np.linalg.norm(x-y)</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Query <span class="math inline">\(x=(2,1)\)</span> and candidates <span class="math display">\[
+z_1=(2,2),\quad z_2=(0,1),\quad z_3=(3,1),\quad z_4=(2,0),\quad z_5=(1.5,1.5).
+\]</span></p>
+<p><strong>E1.</strong> Compute <span class="math inline">\(\lVert x-z_i\rVert\)</span> for <span class="math inline">\(i=1,\ldots,5\)</span>. Which candidate is nearest?</p>
+<p><strong>Octave:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">2</span><span class="op">;</span> <span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">Z</span> <span class="op">=</span> [<span class="fl">2</span> <span class="fl">2</span><span class="op">;</span> <span class="fl">0</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">3</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">2</span> <span class="fl">0</span><span class="op">;</span> <span class="fl">1.5</span> <span class="fl">1.5</span>]<span class="op">;</span>   <span class="co">% row i is z_i</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">d</span> <span class="op">=</span> <span class="va">sqrt</span>(<span class="va">sum</span>((<span class="va">Z</span> <span class="op">-</span> <span class="va">x</span><span class="op">'</span>)<span class="op">.^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">2</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>[<span class="op">~,</span> <span class="va">j</span>] <span class="op">=</span> <span class="va">min</span>(<span class="va">d</span>)   <span class="co">% j is 1-based</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">2.0</span>, <span class="fl">1.0</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Z <span class="op">=</span> np.array([[<span class="dv">2</span>, <span class="dv">2</span>], [<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">3</span>, <span class="dv">1</span>], [<span class="dv">2</span>, <span class="dv">0</span>], [<span class="fl">1.5</span>, <span class="fl">1.5</span>]])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> np.linalg.norm(Z <span class="op">-</span> x, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>j <span class="op">=</span> np.argmin(d)   <span class="co"># 0-based index</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected:</strong> distances <span class="math inline">\(1,\ 2,\ 1,\ 1,\ \sqrt{1/2}\)</span>; nearest <span class="math inline">\(z_5\)</span> (Octave <code>j=5</code>, Python <code>j=4</code>).</p>
+<p><strong>E2.</strong> Rescale the first feature by <span class="math inline">\(10\)</span>: replace every first coordinate <span class="math inline">\(a\)</span> by <span class="math inline">\(10a\)</span> (so <span class="math inline">\(x\)</span> becomes <span class="math inline">\((20,1)\)</span>, and likewise for each <span class="math inline">\(z_i\)</span>). Recompute the nearest neighbor(s). Did the answer change?</p>
+<p><strong>Expected:</strong> distances <span class="math inline">\(1,\ 20,\ 10,\ 1,\ \sqrt{25.25}\)</span>; nearest is a <strong>tie</strong> between <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_4\)</span> (both distance <span class="math inline">\(1\)</span>). Yes — the nearest neighbor changed.</p>
+</section>
+<section id="one-pager" class="level2">
+<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
+<p>Preview the <a href="../labs/lab-01-ticket.html">Lab 1 ticket</a>; write on the hard copy in class.</p>
 
 
 <!-- -->
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -618,22 +721,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 1 — Finding Similar Things"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, September 18"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-01.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Due date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Instructions will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Octave syntax: Lachniet Ch. 1 (vectors, indexing, plots). One PDF on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>; this handout is the assigned work.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 1 — Finding Similar Things"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, September 18 (short — same day as Quiz 3)"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-13</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-01.pdf)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Last updated: September 13, 2026.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>**Short lab (~15 minutes after Quiz 3).** Full credit is the one-pager check-in. Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work in Octave or Python. Handwrite on the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-01-ticket.qmd)</span> hard copy and get initials after a short check-in.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>**Resources:** <span class="co">[</span><span class="ot">Lecture 07</span><span class="co">](../lectures/lecture-07.qmd)</span> (norm, distance); <span class="co">[</span><span class="ot">Lecture 08</span><span class="co">](../lectures/lecture-08.qmd)</span> (angle); Lachniet Ch. 1 — <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we are doing</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>Practice Euclidean distances in software and name a nearest neighbor — the same skill as Quiz 3 items C1.1–C1.2.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute several distances with Octave or Python.</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identify a nearest neighbor among a short list of candidates.</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Notice that rescaling one feature can change the nearest neighbor.</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Norm <span class="pp">|</span> <span class="in">`norm(x)`</span> <span class="pp">|</span> <span class="in">`np.linalg.norm(x)`</span> <span class="pp">|</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Distance <span class="pp">|</span> <span class="in">`norm(x-y)`</span> <span class="pp">|</span> <span class="in">`np.linalg.norm(x-y)`</span> <span class="pp">|</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>Query $x=(2,1)$ and candidates</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>z_1=(2,2),\quad z_2=(0,1),\quad z_3=(3,1),\quad z_4=(2,0),\quad z_5=(1.5,1.5).</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>**E1.** Compute $\lVert x-z_i\rVert$ for $i=1,\ldots,5$. Which candidate is nearest?</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>**Octave:**</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">2</span><span class="op">;</span> <span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="va">Z</span> <span class="op">=</span> [<span class="fl">2</span> <span class="fl">2</span><span class="op">;</span> <span class="fl">0</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">3</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">2</span> <span class="fl">0</span><span class="op">;</span> <span class="fl">1.5</span> <span class="fl">1.5</span>]<span class="op">;</span>   <span class="co">% row i is z_i</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="va">d</span> <span class="op">=</span> <span class="va">sqrt</span>(<span class="va">sum</span>((<span class="va">Z</span> <span class="op">-</span> <span class="va">x</span><span class="op">'</span>)<span class="op">.^</span><span class="fl">2</span><span class="op">,</span> <span class="fl">2</span>))</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>[<span class="op">~,</span> <span class="va">j</span>] <span class="op">=</span> <span class="va">min</span>(<span class="va">d</span>)   <span class="co">% j is 1-based</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">2.0</span><span class="op">,</span> <span class="fl">1.0</span>])</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="va">Z</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">2</span><span class="op">,</span> <span class="fl">2</span>]<span class="op">,</span> [<span class="fl">0</span><span class="op">,</span> <span class="fl">1</span>]<span class="op">,</span> [<span class="fl">3</span><span class="op">,</span> <span class="fl">1</span>]<span class="op">,</span> [<span class="fl">2</span><span class="op">,</span> <span class="fl">0</span>]<span class="op">,</span> [<span class="fl">1.5</span><span class="op">,</span> <span class="fl">1.5</span>]])</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="va">d</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">Z</span> <span class="op">-</span> <span class="va">x</span><span class="op">,</span> <span class="va">axis</span><span class="op">=</span><span class="fl">1</span>)</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="va">j</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">argmin</span>(<span class="va">d</span>)   # <span class="fl">0</span><span class="op">-</span><span class="va">based</span> <span class="va">index</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">distances</span> $<span class="fl">1</span><span class="op">,\</span> <span class="fl">2</span><span class="op">,\</span> <span class="fl">1</span><span class="op">,\</span> <span class="fl">1</span><span class="op">,\</span> <span class="op">\</span><span class="va">sqrt</span>{<span class="fl">1</span><span class="op">/</span><span class="fl">2</span>}$<span class="op">;</span> <span class="va">nearest</span> $<span class="va">z_5</span>$ (<span class="va">Octave</span> `<span class="va">j</span><span class="op">=</span><span class="fl">5</span>`<span class="op">,</span> <span class="va">Python</span> `<span class="va">j</span><span class="op">=</span><span class="fl">4</span>`).</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E2</span><span class="op">.**</span> <span class="va">Rescale</span> <span class="va">the</span> <span class="va">first</span> <span class="va">feature</span> <span class="va">by</span> $<span class="fl">10</span>$<span class="op">:</span> <span class="va">replace</span> <span class="va">every</span> <span class="va">first</span> <span class="va">coordinate</span> $<span class="va">a</span>$ <span class="va">by</span> $<span class="fl">10</span><span class="va">a</span>$ (<span class="va">so</span> $<span class="va">x</span>$ <span class="va">becomes</span> $(<span class="fl">20</span><span class="op">,</span><span class="fl">1</span>)$<span class="op">,</span> <span class="va">and</span> <span class="va">likewise</span> <span class="kw">for</span> <span class="va">each</span> $<span class="va">z_i</span>$). <span class="va">Recompute</span> <span class="va">the</span> <span class="va">nearest</span> <span class="va">neighbor</span>(<span class="va">s</span>). <span class="va">Did</span> <span class="va">the</span> <span class="va">answer</span> <span class="va">change</span>?</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">distances</span> $<span class="fl">1</span><span class="op">,\</span> <span class="fl">20</span><span class="op">,\</span> <span class="fl">10</span><span class="op">,\</span> <span class="fl">1</span><span class="op">,\</span> <span class="op">\</span><span class="va">sqrt</span>{<span class="fl">25.25</span>}$<span class="op">;</span> <span class="va">nearest</span> <span class="va">is</span> <span class="va">a</span> <span class="op">**</span><span class="va">tie</span><span class="op">**</span> <span class="va">between</span> $<span class="va">z_1</span>$ <span class="va">and</span> $<span class="va">z_4</span>$ (<span class="va">both</span> <span class="va">distance</span> $<span class="fl">1</span>$). <span class="va">Yes</span> — <span class="va">the</span> <span class="va">nearest</span> <span class="va">neighbor</span> <span class="va">changed</span>.</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>## <span class="va">One</span><span class="op">-</span><span class="va">pager</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="va">Preview</span> <span class="va">the</span> [<span class="va">Lab</span> <span class="fl">1</span> <span class="va">ticket</span>](<span class="va">lab</span><span class="op">-</span><span class="fl">01</span><span class="op">-</span><span class="va">ticket</span>.<span class="va">qmd</span>)<span class="op">;</span> <span class="va">write</span> <span class="va">on</span> <span class="va">the</span> <span class="va">hard</span> <span class="va">copy</span> <span class="va">in</span> <span class="va">class</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

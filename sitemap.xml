@@ -2,38 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://roverhol.github.io/math107/index.html</loc>
-    <lastmod>2026-09-11T16:51:41.975Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roverhol.github.io/math107/lectures/lecture-07.html</loc>
-    <lastmod>2026-09-11T16:51:41.976Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roverhol.github.io/math107/quizzes/quiz-03.html</loc>
-    <lastmod>2026-09-11T16:51:41.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roverhol.github.io/math107/syllabus.html</loc>
-    <lastmod>2026-09-11T16:51:41.978Z</lastmod>
-  </url>
-  <url>
-    <loc>https://roverhol.github.io/math107/schedule.html</loc>
-    <lastmod>2026-09-11T16:51:41.978Z</lastmod>
+    <lastmod>2026-09-14T04:11:39.104Z</lastmod>
   </url>
   <url>
     <loc>https://roverhol.github.io/math107/assessments.html</loc>
-    <lastmod>2026-09-11T16:51:41.973Z</lastmod>
+    <lastmod>2026-09-14T04:11:39.102Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/labs/lab-01-ticket.html</loc>
+    <lastmod>2026-09-14T04:11:39.104Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/labs/lab-01.html</loc>
+    <lastmod>2026-09-14T04:11:39.104Z</lastmod>
   </url>
   <url>
     <loc>https://roverhol.github.io/math107/lectures.html</loc>
-    <lastmod>2026-09-11T16:51:41.976Z</lastmod>
+    <lastmod>2026-09-14T04:11:39.104Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/lectures/lecture-08.html</loc>
+    <lastmod>2026-09-14T04:11:39.105Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/lectures/lecture-09.html</loc>
+    <lastmod>2026-09-14T04:11:39.105Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/lectures/lecture-10.html</loc>
+    <lastmod>2026-09-14T04:11:39.105Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/quizzes/quiz-03.html</loc>
+    <lastmod>2026-09-14T04:11:39.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/schedule.html</loc>
+    <lastmod>2026-09-14T04:11:39.106Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roverhol.github.io/math107/syllabus.html</loc>
+    <lastmod>2026-09-14T04:11:39.107Z</lastmod>
   </url>
   <url>
     <loc>https://roverhol.github.io/math107/resources.html</loc>
-    <lastmod>2026-09-11T16:51:41.978Z</lastmod>
+    <lastmod>2026-09-14T04:11:39.106Z</lastmod>
   </url>
   <url>
     <loc>https://roverhol.github.io/math107/license.html</loc>
-    <lastmod>2026-09-11T16:51:41.977Z</lastmod>
+    <lastmod>2026-09-14T04:11:39.105Z</lastmod>
   </url>
 </urlset>
