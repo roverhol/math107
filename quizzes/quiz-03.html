@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Quiz 3</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Friday, September 18 — norm, distance, angle, and similarity</p>
+<p class="subtitle lead">Friday, September 18 — norm, distance, RMS, and variation</p>
 </div>
 
 
@@ -151,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 11, 2026</p>
+      <p class="date-modified">September 13, 2026</p>
     </div>
   </div>
     
@@ -163,25 +163,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="quiz-03.pdf">Download PDF</a></p>
-<p>Last updated: September 11, 2026.</p>
-<p>Related lectures: <a href="../lectures/lecture-07.html">Norms</a> (norm, distance, RMS, std; Octave/Python), <a href="../lectures/lecture-08.html">Angle</a>, <a href="../lectures/lecture-09.html">Neighbors</a>. Same day: short <a href="../labs/lab-01.html">Lab 1</a>.</p>
+<p>Last updated: September 13, 2026.</p>
+<p>Related lecture: <a href="../lectures/lecture-07.html">Norms</a> (norm, distance, RMS, standard deviation; Octave/Python). Same day: short <a href="../labs/lab-01.html">Lab 1</a>.</p>
+<p>Textbooks: <a href="https://web.stanford.edu/~boyd/vmls/">Boyd &amp; Vandenberghe (VMLS)</a> · <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf">Lachniet Octave PDF</a> · also on <a href="../resources.html">Resources</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
 <section id="core" class="level2">
 <h2 class="anchored" data-anchor-id="core">Core</h2>
 <ul>
-<li>B 3.1, 3.2, 3.10, 3.11, 3.12, 3.13, 3.15, 3.23, 3.24, 3.28</li>
-<li>L Ch. 1 Ex. 2(c–d), norm/unit-vector portions</li>
+<li>B 3.1, 3.2, 3.10, 3.11, 3.15</li>
+<li>L Ch. 1 Ex. 2(c–d), norm and unit-vector portions</li>
 <li>C1.1: Compute distances from one observation to five candidates.</li>
 <li>C1.2: Compare the nearest result before and after rescaling one feature.</li>
 </ul>
 </section>
 <section id="stretch" class="level2">
 <h2 class="anchored" data-anchor-id="stretch">Stretch</h2>
-<p>B 3.9, 3.22, 3.26.</p>
+<p>B 3.7, 3.9, 3.13, 3.28.</p>
 </section>
 <section id="what-a-quiz-item-might-change" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-quiz-item-might-change">What a quiz item might change</h2>
-<p>Three short vectors, one feature’s scale, or a choice between Euclidean distance and cosine similarity with a justification.</p>
+<p>Three short vectors, the units on one feature, or a Boolean pair whose disagreement count you convert to a distance.</p>
 
 
 <!-- -->
@@ -647,8 +648,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 3"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, September 18 — norm, distance, angle, and similarity"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-11</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, September 18 — norm, distance, RMS, and variation"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-13</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -656,26 +657,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](quiz-03.pdf)</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: September 11, 2026.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: September 13, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lectures: <span class="co">[</span><span class="ot">Norms</span><span class="co">](../lectures/lecture-07.qmd)</span> (norm, distance, RMS, std; Octave/Python), <span class="co">[</span><span class="ot">Angle</span><span class="co">](../lectures/lecture-08.qmd)</span>, <span class="co">[</span><span class="ot">Neighbors</span><span class="co">](../lectures/lecture-09.qmd)</span>. Same day: short <span class="co">[</span><span class="ot">Lab 1</span><span class="co">](../labs/lab-01.qmd)</span>.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lecture: <span class="co">[</span><span class="ot">Norms</span><span class="co">](../lectures/lecture-07.qmd)</span> (norm, distance, RMS, standard deviation; Octave/Python). Same day: short <span class="co">[</span><span class="ot">Lab 1</span><span class="co">](../labs/lab-01.qmd)</span>.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe (VMLS)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> · <span class="co">[</span><span class="ot">Lachniet Octave PDF</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 3.1, 3.2, 3.10, 3.11, 3.12, 3.13, 3.15, 3.23, 3.24, 3.28</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 1 Ex. 2(c–d), norm/unit-vector portions</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C1.1: Compute distances from one observation to five candidates.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C1.2: Compare the nearest result before and after rescaling one feature.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 3.1, 3.2, 3.10, 3.11, 3.15</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 1 Ex. 2(c–d), norm and unit-vector portions</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C1.1: Compute distances from one observation to five candidates.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C1.2: Compare the nearest result before and after rescaling one feature.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>B 3.9, 3.22, 3.26.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>B 3.7, 3.9, 3.13, 3.28.</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Three short vectors, one feature’s scale, or a choice between Euclidean distance and cosine similarity with a justification.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Three short vectors, the units on one feature, or a Boolean pair whose disagreement count you convert to a distance.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
