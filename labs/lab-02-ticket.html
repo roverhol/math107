@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 39 — Least squares, data fitting, and positive definiteness – MATH 107 - Introduction to Linear Algebra</title>
+<title>Lab 2 ticket – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -152,9 +152,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#new-syntax" id="toc-new-syntax" class="nav-link active" data-scroll-target="#new-syntax">New syntax</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-39.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-02-ticket.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -165,8 +165,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Lecture 39 — Least squares, data fitting, and positive definiteness</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Wed Dec 2</p>
+<div class="quarto-title-block"><div><h1 class="title">Lab 2 ticket</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Finding Similar Things (software) — Friday, September 25</p>
 </div>
 
 
@@ -178,7 +178,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">September 20, 2026</p>
     </div>
   </div>
     
@@ -189,21 +189,45 @@ window.Quarto = {
 </header>
 
 
-<p><a href="lecture-39.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Reading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, and Lachniet Ch. 2 (least squares). Software lab is Friday: <a href="../labs/lab-06.html">Lab 6</a>. Related objectives: <a href="../lectures.html#lecture-39">Lectures</a>.</p>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
-<p>By the end of class, students should be able to:</p>
-<ol type="1">
-<li>Compute a least-squares solution with Octave or Python.</li>
-<li>Plot observed and fitted values.</li>
-<li>Interpret residuals and an RMS error in context.</li>
-<li>Check the residual’s orthogonality to the columns of <span class="math inline">\(A\)</span>.</li>
-<li>Evaluate whether a fitted model is useful rather than merely reporting coefficients.</li>
-<li>Recognize that <span class="math inline">\(A^{\mathsf{T}}A\)</span> is symmetric positive semidefinite, explain <span class="math inline">\(x^{\mathsf{T}}A^{\mathsf{T}}Ax=\lVert Ax\rVert^2\)</span>, and recognize that <span class="math inline">\(A^{\mathsf{T}}A\)</span> is positive definite when <span class="math inline">\(A\)</span> has linearly independent columns.</li>
-</ol>
+<p><a href="lab-02-ticket.pdf">Download PDF</a></p>
+<p><strong>Lab 2 — Finding Similar Things (software)</strong> · Fri Sep 25 · Before Quiz 4 · Laptop · Initials after check-in</p>
+<p><strong>Name:</strong> ________________________________  <strong>Language (circle):</strong> Octave / Python</p>
+<section id="new-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="new-syntax">New syntax</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>I needed to…</th>
+<th>Command / pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Distances to many candidates</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Nearest index (note 0- vs 1-based)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Cosine similarity (if used)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>E1.</strong> Lab 1 data: distances and nearest <span class="math inline">\(z_j\)</span>.</p>
+<p><strong>Expected:</strong> <span class="math inline">\(1,\ 2,\ 1,\ 1,\ \sqrt{1/2}\)</span>; nearest <span class="math inline">\(z_5\)</span>.</p>
+<p><strong>Yours:</strong> nearest <span class="math inline">\(z_{\underline{\hspace{1.0cm}}}\)</span></p>
+<p><strong>E2.</strong> First feature <span class="math inline">\(\times 10\)</span>. New nearest? Changed?</p>
+<p><strong>Yours:</strong> nearest ________________ changed? yes / no</p>
+<p><strong>E3.</strong> Songs query <span class="math inline">\((0.28,0.18)\)</span>. Nearest row? Low- or high-energy group?</p>
+<p>Nearest row # ______ group: ______________________</p>
+<p><strong>E4 (stretch).</strong> Clusters for <span class="math inline">\(z_1=(0.25,0.15)\)</span>, <span class="math inline">\(z_2=(0.9,0.8)\)</span>:</p>
+<p>Cluster 1 rows: ________________ Cluster 2 rows: ________________</p>
+<hr>
+<p><strong>Instructor initials:</strong> __________</p>
 
 
 <!-- -->
@@ -668,32 +692,56 @@ window.Quarto = {
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 39 — Least squares, data fitting, and positive definiteness"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Dec 2"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 2 ticket"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Finding Similar Things (software) — Friday, September 25"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-20</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-39.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, and Lachniet Ch. 2 (least squares). Software lab is Friday: <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](../labs/lab-06.qmd)</span>. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-39)</span>.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute a least-squares solution with Octave or Python.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Plot observed and fitted values.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret residuals and an RMS error in context.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Check the residual’s orthogonality to the columns of $A$.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Evaluate whether a fitted model is useful rather than merely reporting coefficients.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Recognize that $A^{\mathsf{T}}A$ is symmetric positive semidefinite, explain $x^{\mathsf{T}}A^{\mathsf{T}}Ax=\lVert Ax\rVert^2$, and recognize that $A^{\mathsf{T}}A$ is positive definite when $A$ has linearly independent columns.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fontsize: 10pt</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    geometry:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">      - margin=0.6in</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-02-ticket.pdf)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Lab 2 — Finding Similar Things (software)** · Fri Sep 25 · Before Quiz 4 · Laptop · Initials after check-in</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Name:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  **Language (circle):** Octave / Python</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### New syntax</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I needed to… <span class="pp">|</span> Command / pattern <span class="pp">|</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------|-------------------|</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Distances to many candidates <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Nearest index (note 0- vs 1-based) <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Cosine similarity (if used) <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>**E1.** Lab 1 data: distances and nearest $z_j$.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>**Expected:** $1,\ 2,\ 1,\ 1,\ \sqrt{1/2}$; nearest $z_5$.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>**Yours:** nearest $z_{\underline{\hspace{1.0cm}}}$</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>**E2.** First feature $\times 10$. New nearest? Changed?</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>**Yours:** nearest <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> changed? yes / no</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>**E3.** Songs query $(0.28,0.18)$. Nearest row? Low- or high-energy group?</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>Nearest row <span class="sc">\#</span> <span class="sc">\_\_\_\_\_\_</span> group: <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**E4 (stretch).** Clusters for $z_1=(0.25,0.15)$, $z_2=(0.9,0.8)$:</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>Cluster 1 rows: <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> Cluster 2 rows: <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**Instructor initials:** <span class="sc">\_\_\_\_\_\_\_\_\_\_</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

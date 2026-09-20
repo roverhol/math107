@@ -223,9 +223,10 @@ window.Quarto = {
 </section>
 <section id="software" class="level1">
 <h1>Software</h1>
-<p>We use <strong>Octave</strong>. Each lab will have an Octave version and a Python/Colab version; pick one language and stay with it this term. Lab 0 assumes no prior coding. Bring a laptop to lab days, or let me know at least a day ahead to bring a campus one for you.</p>
+<p>We use <strong>Octave</strong> or <strong>Python</strong> (pick one for the term). Each lab hub has exercises in both languages. Credit is an in-class one-pager with instructor initials — not a Canvas file upload (see <a href="./labs/lab-00.html">Lab 0</a>). Lab 0 assumes no prior coding. Bring a laptop to lab days, or let me know at least a day ahead to bring a campus one for you. <strong>Labs meet on Fridays</strong> (same rule as quizzes).</p>
+<p>Growing cheat sheet: <a href="./resources/syntax.html">Octave / Python syntax reference</a>.</p>
 <p><strong>Primary Octave reference:</strong> Jason Lachniet, <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf"><em>Introduction to GNU Octave: A Brief Tutorial for Linear Algebra and Calculus Students</em></a> (3rd ed., 2020). Free PDF, licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Author, title, and PDF access are also listed at the <a href="https://open.umn.edu/opentextbooks/textbooks/557">Open Textbook Library</a>.</p>
-<p>Use Lachniet for syntax, commands, and selected exercises. The <strong>lab handouts</strong> are the assigned work: they tell the application story (similarity, transformations, dynamics, eigenbehavior, least squares, and the three-frame video capstone). Daily chapter assignments are on <a href="lectures">Lectures</a>; it is all one PDF, not a new link each lab.</p>
+<p>Use Lachniet for syntax, commands, and selected exercises. The <strong>lab hub pages</strong> are the assigned work (Octave and Python on the same page). Daily chapter pointers are on <a href="lectures">Lectures</a> and each lab; it is all one Lachniet PDF, not a new link each lab.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -244,26 +245,30 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td><a href="./labs/lab-02.html">Lab 2</a></td>
-<td>Ch. 2 — matrices and linear-algebra computations (plus our transformation plotting code)</td>
+<td>Ch. 1 — distances, nearest neighbors, scale (plus <a href="./resources/syntax.html">syntax sheet</a>)</td>
 </tr>
 <tr class="even">
+<td><a href="./labs/lab-03.html">Lab 3</a></td>
+<td>Ch. 2 — matrices and linear-algebra computations (plus our transformation plotting code)</td>
+</tr>
+<tr class="odd">
 <td>Systems / RREF (Oct 14–16)</td>
 <td>Ch. 2 — solving systems, Gaussian elimination/RREF, linear-system commands</td>
 </tr>
-<tr class="odd">
-<td><a href="./labs/lab-03.html">Lab 3</a></td>
-<td>Ch. 2 matrix operations, plus loops/programming from the later introductory programming portions</td>
-</tr>
 <tr class="even">
 <td><a href="./labs/lab-04.html">Lab 4</a></td>
-<td>Ch. 5 — eigenvalues/eigenvectors, Markov chains, diagonalization</td>
+<td>Ch. 2 matrix operations, plus loops/programming from the later introductory programming portions</td>
 </tr>
 <tr class="odd">
 <td><a href="./labs/lab-05.html">Lab 5</a></td>
-<td>Ch. 2, especially least-squares / data-fitting exercises</td>
+<td>Ch. 5 — eigenvalues/eigenvectors, Markov chains, diagonalization</td>
 </tr>
 <tr class="even">
-<td><a href="./projects/capstone.html">Capstone</a></td>
+<td><a href="./labs/lab-06.html">Lab 6</a></td>
+<td>Ch. 2, especially least-squares / data-fitting exercises</td>
+</tr>
+<tr class="odd">
+<td><a href="./projects/capstone.html">Capstone</a> / <a href="./labs/lab-07.html">Lab 7</a></td>
 <td>Ch. 5 SVD, plus Ch. 7 project on SVD / image compression</td>
 </tr>
 </tbody>
@@ -271,7 +276,7 @@ window.Quarto = {
 <p><strong>Optional reference:</strong> the <a href="https://docs.octave.org/">GNU Octave documentation</a> (not assigned reading). Download the program from <a href="https://octave.org/">octave.org</a>.</p>
 <section id="python-google-colab" class="level2">
 <h2 class="anchored" data-anchor-id="python-google-colab">Python / Google Colab</h2>
-<p>If you choose Python, use <a href="https://colab.google/">Google Colab</a> for all Python labs. Colab is a hosted Jupyter notebook; you do not need to install Python locally. Each lab will have a Colab version alongside the Octave version.</p>
+<p>If you choose Python, use <a href="https://colab.google/">Google Colab</a> for lab work (hosted Jupyter; no local install). Exercises appear on each lab hub next to the Octave versions.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -304,7 +309,7 @@ window.Quarto = {
 </tbody>
 </table>
 <p><strong>Polars</strong> is for real tables: reading files, selecting columns, filtering, transforming, and handing numerical columns to NumPy. <strong>NumPy</strong> is for arrays, indexing, and later <code>solve</code>, <code>eig</code>, <code>lstsq</code>, <code>svd</code>, norms, and determinants. <strong>Plotnine</strong> is for scatterplots, line plots, fitted relationships, residual plots, clustering graphics, and other standard figures; it uses a grammar-of-graphics syntax and works directly with Polars DataFrames.</p>
-<p>As with Lachniet, these pages support syntax. The lab handouts are the assigned work.</p>
+<p>As with Lachniet, these pages support syntax. The lab hub and in-class one-pager are the assigned work.</p>
 </section>
 </section>
 <section id="campus" class="level1">
@@ -806,50 +811,53 @@ window.Quarto = {
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu"># Software</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>We use **Octave**. Each lab will have an Octave version and a Python/Colab version; pick one language and stay with it this term. Lab 0 assumes no prior coding. Bring a laptop to lab days, or let me know at least a day ahead to bring a campus one for you.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>We use **Octave** or **Python** (pick one for the term). Each lab hub has exercises in both languages. Credit is an in-class one-pager with instructor initials — not a Canvas file upload (see [Lab 0](labs/lab-00.qmd)). Lab 0 assumes no prior coding. Bring a laptop to lab days, or let me know at least a day ahead to bring a campus one for you. **Labs meet on Fridays** (same rule as quizzes).</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>**Primary Octave reference:** Jason Lachniet, <span class="co">[</span><span class="ot">*Introduction to GNU Octave: A Brief Tutorial for Linear Algebra and Calculus Students*</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf)</span> (3rd ed., 2020). Free PDF, licensed <span class="co">[</span><span class="ot">CC BY-SA 4.0</span><span class="co">](https://creativecommons.org/licenses/by-sa/4.0/)</span>. Author, title, and PDF access are also listed at the <span class="co">[</span><span class="ot">Open Textbook Library</span><span class="co">](https://open.umn.edu/opentextbooks/textbooks/557)</span>.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Growing cheat sheet: <span class="co">[</span><span class="ot">Octave / Python syntax reference</span><span class="co">](resources/syntax.qmd)</span>.</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Use Lachniet for syntax, commands, and selected exercises. The **lab handouts** are the assigned work: they tell the application story (similarity, transformations, dynamics, eigenbehavior, least squares, and the three-frame video capstone). Daily chapter assignments are on <span class="co">[</span><span class="ot">Lectures</span><span class="co">](lectures)</span>; it is all one PDF, not a new link each lab.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>**Primary Octave reference:** Jason Lachniet, <span class="co">[</span><span class="ot">*Introduction to GNU Octave: A Brief Tutorial for Linear Algebra and Calculus Students*</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf)</span> (3rd ed., 2020). Free PDF, licensed <span class="co">[</span><span class="ot">CC BY-SA 4.0</span><span class="co">](https://creativecommons.org/licenses/by-sa/4.0/)</span>. Author, title, and PDF access are also listed at the <span class="co">[</span><span class="ot">Open Textbook Library</span><span class="co">](https://open.umn.edu/opentextbooks/textbooks/557)</span>.</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Lab <span class="pp">|</span> Lachniet chapters <span class="pp">|</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|-------------------|</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 0</span><span class="co">](labs/lab-00.qmd)</span> <span class="pp">|</span> Ch. 1 Getting Started — interface, variables, vectors/matrices, basic operations, plotting <span class="pp">|</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 1</span><span class="co">](labs/lab-01.qmd)</span> <span class="pp">|</span> Ch. 1 — vectors, matrix storage, indexing, plots (plus our distance/nearest-neighbor scaffold) <span class="pp">|</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 2</span><span class="co">](labs/lab-02.qmd)</span> <span class="pp">|</span> Ch. 2 — matrices and linear-algebra computations (plus our transformation plotting code) <span class="pp">|</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Systems / RREF (Oct 14–16) <span class="pp">|</span> Ch. 2 — solving systems, Gaussian elimination/RREF, linear-system commands <span class="pp">|</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 3</span><span class="co">](labs/lab-03.qmd)</span> <span class="pp">|</span> Ch. 2 matrix operations, plus loops/programming from the later introductory programming portions <span class="pp">|</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](labs/lab-04.qmd)</span> <span class="pp">|</span> Ch. 5 — eigenvalues/eigenvectors, Markov chains, diagonalization <span class="pp">|</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](labs/lab-05.qmd)</span> <span class="pp">|</span> Ch. 2, especially least-squares / data-fitting exercises <span class="pp">|</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Capstone</span><span class="co">](projects/capstone.qmd)</span> <span class="pp">|</span> Ch. 5 SVD, plus Ch. 7 project on SVD / image compression <span class="pp">|</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**Optional reference:** the <span class="co">[</span><span class="ot">GNU Octave documentation</span><span class="co">](https://docs.octave.org/)</span> (not assigned reading). Download the program from <span class="co">[</span><span class="ot">octave.org</span><span class="co">](https://octave.org/)</span>.</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Python / Google Colab</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>If you choose Python, use <span class="co">[</span><span class="ot">Google Colab</span><span class="co">](https://colab.google/)</span> for all Python labs. Colab is a hosted Jupyter notebook; you do not need to install Python locally. Each lab will have a Colab version alongside the Octave version.</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role <span class="pp">|</span> Tool <span class="pp">|</span> Link <span class="pp">|</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|------|------|</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Where we write and run Python <span class="pp">|</span> Google Colab <span class="pp">|</span> <span class="co">[</span><span class="ot">colab.google</span><span class="co">](https://colab.google/)</span> <span class="pp">|</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Organize and prepare tabular data <span class="pp">|</span> Polars <span class="pp">|</span> <span class="co">[</span><span class="ot">Getting started</span><span class="co">](https://docs.pola.rs/user-guide/getting-started/)</span> <span class="pp">|</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Vectors, matrices, and linear algebra <span class="pp">|</span> NumPy <span class="pp">|</span> <span class="co">[</span><span class="ot">Beginner guide</span><span class="co">](https://numpy.org/doc/stable/user/absolute_beginners.html)</span>; later, <span class="co">[</span><span class="ot">linear algebra</span><span class="co">](https://numpy.org/doc/stable/reference/routines.linalg.html)</span> <span class="pp">|</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Visualize and communicate results <span class="pp">|</span> Plotnine <span class="pp">|</span> <span class="co">[</span><span class="ot">Introductory guide</span><span class="co">](https://plotnine.org/guide/)</span> <span class="pp">|</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**Polars** is for real tables: reading files, selecting columns, filtering, transforming, and handing numerical columns to NumPy. **NumPy** is for arrays, indexing, and later `solve`, `eig`, `lstsq`, `svd`, norms, and determinants. **Plotnine** is for scatterplots, line plots, fitted relationships, residual plots, clustering graphics, and other standard figures; it uses a grammar-of-graphics syntax and works directly with Polars DataFrames.</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>As with Lachniet, these pages support syntax. The lab handouts are the assigned work.</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu"># Campus</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Cal Poly Humboldt</span><span class="co">](https://www.humboldt.edu/)</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Library</span><span class="co">](https://library.humboldt.edu/)</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Student Disability Resource Center</span><span class="co">](https://disability.humboldt.edu/)</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Counseling and Psychological Services</span><span class="co">](https://counseling.humboldt.edu/)</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>Tutoring and drop-in help: check the current campus learning-center listings once the term site is posted, or ask in office hours.</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Materials are licensed <span class="co">[</span><span class="ot">CC BY-NC 4.0</span><span class="co">](license)</span> unless noted. The banner photograph is credited in the footer.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Use Lachniet for syntax, commands, and selected exercises. The **lab hub pages** are the assigned work (Octave and Python on the same page). Daily chapter pointers are on <span class="co">[</span><span class="ot">Lectures</span><span class="co">](lectures)</span> and each lab; it is all one Lachniet PDF, not a new link each lab.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Lab <span class="pp">|</span> Lachniet chapters <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|-------------------|</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 0</span><span class="co">](labs/lab-00.qmd)</span> <span class="pp">|</span> Ch. 1 Getting Started — interface, variables, vectors/matrices, basic operations, plotting <span class="pp">|</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 1</span><span class="co">](labs/lab-01.qmd)</span> <span class="pp">|</span> Ch. 1 — vectors, matrix storage, indexing, plots (plus our distance/nearest-neighbor scaffold) <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 2</span><span class="co">](labs/lab-02.qmd)</span> <span class="pp">|</span> Ch. 1 — distances, nearest neighbors, scale (plus <span class="co">[</span><span class="ot">syntax sheet</span><span class="co">](resources/syntax.qmd)</span>) <span class="pp">|</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 3</span><span class="co">](labs/lab-03.qmd)</span> <span class="pp">|</span> Ch. 2 — matrices and linear-algebra computations (plus our transformation plotting code) <span class="pp">|</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Systems / RREF (Oct 14–16) <span class="pp">|</span> Ch. 2 — solving systems, Gaussian elimination/RREF, linear-system commands <span class="pp">|</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](labs/lab-04.qmd)</span> <span class="pp">|</span> Ch. 2 matrix operations, plus loops/programming from the later introductory programming portions <span class="pp">|</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](labs/lab-05.qmd)</span> <span class="pp">|</span> Ch. 5 — eigenvalues/eigenvectors, Markov chains, diagonalization <span class="pp">|</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](labs/lab-06.qmd)</span> <span class="pp">|</span> Ch. 2, especially least-squares / data-fitting exercises <span class="pp">|</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Capstone</span><span class="co">](projects/capstone.qmd)</span> / <span class="co">[</span><span class="ot">Lab 7</span><span class="co">](labs/lab-07.qmd)</span> <span class="pp">|</span> Ch. 5 SVD, plus Ch. 7 project on SVD / image compression <span class="pp">|</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**Optional reference:** the <span class="co">[</span><span class="ot">GNU Octave documentation</span><span class="co">](https://docs.octave.org/)</span> (not assigned reading). Download the program from <span class="co">[</span><span class="ot">octave.org</span><span class="co">](https://octave.org/)</span>.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Python / Google Colab</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>If you choose Python, use <span class="co">[</span><span class="ot">Google Colab</span><span class="co">](https://colab.google/)</span> for lab work (hosted Jupyter; no local install). Exercises appear on each lab hub next to the Octave versions.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Role <span class="pp">|</span> Tool <span class="pp">|</span> Link <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|------|------|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Where we write and run Python <span class="pp">|</span> Google Colab <span class="pp">|</span> <span class="co">[</span><span class="ot">colab.google</span><span class="co">](https://colab.google/)</span> <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Organize and prepare tabular data <span class="pp">|</span> Polars <span class="pp">|</span> <span class="co">[</span><span class="ot">Getting started</span><span class="co">](https://docs.pola.rs/user-guide/getting-started/)</span> <span class="pp">|</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Vectors, matrices, and linear algebra <span class="pp">|</span> NumPy <span class="pp">|</span> <span class="co">[</span><span class="ot">Beginner guide</span><span class="co">](https://numpy.org/doc/stable/user/absolute_beginners.html)</span>; later, <span class="co">[</span><span class="ot">linear algebra</span><span class="co">](https://numpy.org/doc/stable/reference/routines.linalg.html)</span> <span class="pp">|</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Visualize and communicate results <span class="pp">|</span> Plotnine <span class="pp">|</span> <span class="co">[</span><span class="ot">Introductory guide</span><span class="co">](https://plotnine.org/guide/)</span> <span class="pp">|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>**Polars** is for real tables: reading files, selecting columns, filtering, transforming, and handing numerical columns to NumPy. **NumPy** is for arrays, indexing, and later `solve`, `eig`, `lstsq`, `svd`, norms, and determinants. **Plotnine** is for scatterplots, line plots, fitted relationships, residual plots, clustering graphics, and other standard figures; it uses a grammar-of-graphics syntax and works directly with Polars DataFrames.</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>As with Lachniet, these pages support syntax. The lab hub and in-class one-pager are the assigned work.</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu"># Campus</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Cal Poly Humboldt</span><span class="co">](https://www.humboldt.edu/)</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Library</span><span class="co">](https://library.humboldt.edu/)</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Student Disability Resource Center</span><span class="co">](https://disability.humboldt.edu/)</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Counseling and Psychological Services</span><span class="co">](https://counseling.humboldt.edu/)</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Tutoring and drop-in help: check the current campus learning-center listings once the term site is posted, or ask in office hours.</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>Materials are licensed <span class="co">[</span><span class="ot">CC BY-NC 4.0</span><span class="co">](license)</span> unless noted. The banner photograph is credited in the footer.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
