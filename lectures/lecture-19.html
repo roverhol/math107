@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -153,6 +153,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-19.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -178,7 +182,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 5, 2026</p>
     </div>
   </div>
     
@@ -190,9 +194,9 @@ window.Quarto = {
 
 
 <p><a href="lecture-19.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Related reading and the course-wide list of daily objectives: <a href="../lectures.html#lecture-19">Lectures</a>.</p>
+<p>Last updated: October 5, 2026.</p>
+<p>Reading: Boyd 6.4. Related objectives: <a href="../lectures.html#lecture-19">Lectures</a>. <a href="../schedule.html">Schedule</a>. Connects directly to Week 1 linear combinations.</p>
+<p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and <strong>Your turn</strong>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -202,6 +206,69 @@ window.Quarto = {
 <li>Interpret <span class="math inline">\(A\)</span> as an input-output transformation.</li>
 <li>Explain how the dimensions of <span class="math inline">\(A\)</span> determine the input and output spaces.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Let <span class="math inline">\(a=(1,2)\)</span> and <span class="math inline">\(b=(-1,1)\)</span>. Compute <span class="math inline">\(2a-3b\)</span>. (This is the same skill as “columns of <span class="math inline">\(A\)</span> times entries of <span class="math inline">\(x\)</span>.”)</p>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p>If <span class="math inline">\(A\)</span> is <span class="math inline">\(m\times n\)</span> and <span class="math inline">\(x\)</span> is an <span class="math inline">\(n\)</span>-vector, the product <span class="math inline">\(y=Ax\)</span> is an <span class="math inline">\(\underline{\hspace{1.4cm}}\)</span>-vector.</p>
+<p><strong>Row view.</strong> The <span class="math inline">\(i\)</span>th entry of <span class="math inline">\(Ax\)</span> is the inner product of <span class="math inline">\(x\)</span> with the <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> of <span class="math inline">\(A\)</span>: <span class="math display">\[
+y_i = (\text{row }i)^{\mathsf{T}}x.
+\]</span></p>
+<p><strong>Column view (main story).</strong> If <span class="math inline">\(a_1,\ldots,a_n\)</span> are the columns of <span class="math inline">\(A\)</span>, then <span class="math display">\[
+Ax = x_1 a_1 + x_2 a_2 + \cdots + x_n a_n.
+\]</span> So <span class="math inline">\(Ax\)</span> is a <span class="math inline">\(\underline{\hspace{2.8cm}}\)</span> of the columns of <span class="math inline">\(A\)</span>, with coefficients from <span class="math inline">\(x\)</span>.</p>
+<p>Dimensions: <span class="math inline">\(A\)</span> maps inputs in <span class="math inline">\(\mathbb{R}^{\underline{\hspace{0.8cm}}}\)</span> to outputs in <span class="math inline">\(\mathbb{R}^{\underline{\hspace{0.8cm}}}\)</span>. Thinking of <span class="math inline">\(A\)</span> as a machine: feed in <span class="math inline">\(x\)</span>, get out <span class="math inline">\(Ax\)</span>.</p>
+<p>Special cases: <span class="math inline">\(Ix=x\)</span>; <span class="math inline">\(0x=0\)</span>; if <span class="math inline">\(A=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)\)</span>, then <span class="math inline">\(Ax=(\lambda_1 x_1,\ldots,\lambda_n x_n)\)</span>.</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Compute by hand. <span class="math display">\[
+A=\begin{bmatrix}1&amp;2&amp;0\\ -1&amp;3&amp;1\end{bmatrix},\quad
+x=\begin{bmatrix}2\\ 1\\ -1\end{bmatrix}.
+\]</span> Find <span class="math inline">\(Ax\)</span> using both the row-inner-product view and the column-combination view.</p>
+<p><strong>W2.</strong> Same <span class="math inline">\(A\)</span>, different <span class="math inline">\(x\)</span>. Without recomputing from scratch: if you already know <span class="math inline">\(Ax\)</span> from W1, what is <span class="math inline">\(A(2x)\)</span>? What is <span class="math inline">\(A(x+e_1)\)</span> if <span class="math inline">\(e_1=(1,0,0)\)</span>? (Use linearity / columns.)</p>
+<p><strong>W3.</strong> Input-output story. A <span class="math inline">\(2\times 2\)</span> matrix <span class="math display">\[
+A=\begin{bmatrix}0.9&amp;0.2\\ 0.1&amp;0.8\end{bmatrix}
+\]</span> sends (urban, rural) population fractions today to tomorrow. If <span class="math inline">\(x=(0.6,0.4)\)</span>, compute <span class="math inline">\(Ax\)</span> and interpret the two output entries.</p>
+<p><strong>W4.</strong> Dimension mismatch. Can you form <span class="math inline">\(Ax\)</span> if <span class="math inline">\(A\)</span> is <span class="math inline">\(3\times 2\)</span> and <span class="math inline">\(x\)</span> is a <span class="math inline">\(3\)</span>-vector? What size must <span class="math inline">\(x\)</span> be?</p>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<p><strong>Y1.</strong> Compute <span class="math display">\[
+\begin{bmatrix}
+2 &amp; -1 \\
+0 &amp; 3 \\
+1 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+4 \\ -2
+\end{bmatrix}.
+\]</span></p>
+<p><strong>Y2.</strong> Let <span class="math inline">\(A\)</span> have columns <span class="math inline">\(a_1=(1,0,1)\)</span> and <span class="math inline">\(a_2=(0,1,1)\)</span>. Write <span class="math inline">\(A\)</span> explicitly. For <span class="math inline">\(x=(3,-2)\)</span>, express <span class="math inline">\(Ax\)</span> as a linear combination of <span class="math inline">\(a_1,a_2\)</span>, then evaluate.</p>
+<p><strong>Y3.</strong> True or false: if <span class="math inline">\(A\)</span> is <span class="math inline">\(m\times n\)</span>, then <span class="math inline">\(Ax\)</span> is always in the span of the columns of <span class="math inline">\(A\)</span>.</p>
+<p><strong>Y4.</strong> A sensor turns a <span class="math inline">\(3\)</span>-vector of raw readings <span class="math inline">\(x\)</span> into a <span class="math inline">\(2\)</span>-vector of summaries via <span class="math inline">\(Ax\)</span>. What are the dimensions of <span class="math inline">\(A\)</span>? In one sentence, what do the columns of <span class="math inline">\(A\)</span> mean?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Your turn only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Y1. <span class="math inline">\((2)(4)+(-1)(-2)=10\)</span>; <span class="math inline">\((0)(4)+(3)(-2)=-6\)</span>; <span class="math inline">\((1)(4)+(1)(-2)=2\)</span>. So <span class="math inline">\(Ax=(10,-6,2)\)</span>.</p>
+<p>Y2. <span class="math inline">\(A=\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix}\)</span>. <span class="math inline">\(Ax=3a_1-2a_2=(3,-2,1)\)</span>.</p>
+<p>Y3. <strong>True.</strong> By the column interpretation, <span class="math inline">\(Ax\)</span> is always a linear combination of the columns.</p>
+<p>Y4. <span class="math inline">\(A\)</span> is <span class="math inline">\(2\times 3\)</span>. The <span class="math inline">\(j\)</span>th column is the summary <span class="math inline">\(2\)</span>-vector produced when the input is the standard unit vector <span class="math inline">\(e_j\)</span> (effect of “only feature <span class="math inline">\(j\)</span> active”).</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -668,28 +735,128 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 19 — Matrix-vector multiplication"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Oct 7"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-05</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-19.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-19.pdf)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 5, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related reading and the course-wide list of daily objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-19)</span>.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 6.4. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-19)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>. Connects directly to Week 1 linear combinations.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and **Your turn**.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute $Ax$ by hand for a small matrix.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret $Ax$ as a linear combination of the columns of $A$.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret $A$ as an input-output transformation.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain how the dimensions of $A$ determine the input and output spaces.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute $Ax$ by hand for a small matrix.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret $Ax$ as a linear combination of the columns of $A$.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret $A$ as an input-output transformation.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain how the dimensions of $A$ determine the input and output spaces.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Let $a=(1,2)$ and $b=(-1,1)$. Compute $2a-3b$. (This is the same skill as “columns of $A$ times entries of $x$.”)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>If $A$ is $m\times n$ and $x$ is an $n$-vector, the product $y=Ax$ is an $\underline{\hspace{1.4cm}}$-vector.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>**Row view.** The $i$th entry of $Ax$ is the inner product of $x$ with the $\underline{\hspace{2.0cm}}$ of $A$:</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>y_i = (\text{row }i)^{\mathsf{T}}x.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**Column view (main story).** If $a_1,\ldots,a_n$ are the columns of $A$, then</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Ax = x_1 a_1 + x_2 a_2 + \cdots + x_n a_n.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>So $Ax$ is a $\underline{\hspace{2.8cm}}$ of the columns of $A$, with coefficients from $x$.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Dimensions: $A$ maps inputs in $\mathbb{R}^{\underline{\hspace{0.8cm}}}$ to outputs in $\mathbb{R}^{\underline{\hspace{0.8cm}}}$. Thinking of $A$ as a machine: feed in $x$, get out $Ax$.</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>Special cases: $Ix=x$; $0x=0$; if $A=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)$, then $Ax=(\lambda_1 x_1,\ldots,\lambda_n x_n)$.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>**W1.** Compute by hand.</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;2&amp;0<span class="sc">\\</span> -1&amp;3&amp;1\end{bmatrix},\quad</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>x=\begin{bmatrix}2<span class="sc">\\</span> 1<span class="sc">\\</span> -1\end{bmatrix}.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>Find $Ax$ using both the row-inner-product view and the column-combination view.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**W2.** Same $A$, different $x$. Without recomputing from scratch: if you already know $Ax$ from W1, what is $A(2x)$? What is $A(x+e_1)$ if $e_1=(1,0,0)$? (Use linearity / columns.)</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>**W3.** Input-output story. A $2\times 2$ matrix</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.9&amp;0.2<span class="sc">\\</span> 0.1&amp;0.8\end{bmatrix}</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>sends (urban, rural) population fractions today to tomorrow. If $x=(0.6,0.4)$, compute $Ax$ and interpret the two output entries.</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>**W4.** Dimension mismatch. Can you form $Ax$ if $A$ is $3\times 2$ and $x$ is a $3$-vector? What size must $x$ be?</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>**Y1.** Compute</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>2 &amp; -1 <span class="sc">\\</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>0 &amp; 3 <span class="sc">\\</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>1 &amp; 1</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>4 <span class="sc">\\</span> -2</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}.</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>**Y2.** Let $A$ have columns $a_1=(1,0,1)$ and $a_2=(0,1,1)$. Write $A$ explicitly. For $x=(3,-2)$, express $Ax$ as a linear combination of $a_1,a_2$, then evaluate.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>**Y3.** True or false: if $A$ is $m\times n$, then $Ax$ is always in the span of the columns of $A$.</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>**Y4.** A sensor turns a $3$-vector of raw readings $x$ into a $2$-vector of summaries via $Ax$. What are the dimensions of $A$? In one sentence, what do the columns of $A$ mean?</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-19.qmd &gt;}}</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-19.qmd &gt;}}</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

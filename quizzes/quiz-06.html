@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -152,7 +152,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#core" id="toc-core" class="nav-link active" data-scroll-target="#core">Core</a></li>
+  <li><a href="#core" id="toc-core" class="nav-link active" data-scroll-target="#core">Core</a>
+  <ul class="collapse">
+  <li><a href="#fluency-complete-prompts-practice-these-by-hand" id="toc-fluency-complete-prompts-practice-these-by-hand" class="nav-link" data-scroll-target="#fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</a></li>
+  <li><a href="#textbook-core" id="toc-textbook-core" class="nav-link" data-scroll-target="#textbook-core">Textbook Core</a></li>
+  </ul></li>
   <li><a href="#stretch" id="toc-stretch" class="nav-link" data-scroll-target="#stretch">Stretch</a></li>
   <li><a href="#what-a-quiz-item-might-change" id="toc-what-a-quiz-item-might-change" class="nav-link" data-scroll-target="#what-a-quiz-item-might-change">What a quiz item might change</a></li>
   </ul>
@@ -168,7 +172,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Quiz 6</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Monday, October 19 — systems, elimination, RREF, and solution sets</p>
+<p class="subtitle lead">Friday, October 16 — matrices, <span class="math inline">\(Ax\)</span>, and transformations (Week 7)</p>
 </div>
 
 
@@ -180,7 +184,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 5, 2026</p>
     </div>
   </div>
     
@@ -192,29 +196,55 @@ window.Quarto = {
 
 
 <p><a href="quiz-06.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>Related lectures: <a href="../lectures/lecture-21.html">Systems</a>, <a href="../lectures/lecture-22.html">Elimination</a>, <a href="../lectures/lecture-23.html">RREF</a>.</p>
+<p>Last updated: October 5, 2026.</p>
+<p><strong>Covers the week before only:</strong> <a href="../lectures/lecture-18.html">Matrices</a>, <a href="../lectures/lecture-19.html"><span class="math inline">\(Ax\)</span></a>, <a href="../lectures/lecture-20.html">Transforms</a>, and <a href="../labs/lab-03.html">Lab 3</a> (Week 7). Same-day <a href="../lectures/lecture-23.html">RREF</a> is <strong>not</strong> on this quiz.</p>
+<p>Textbooks: <a href="https://web.stanford.edu/~boyd/vmls/">Boyd &amp; Vandenberghe (VMLS)</a> · <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf">Lachniet Octave PDF</a> · also on <a href="../resources.html">Resources</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
 <section id="core" class="level2">
 <h2 class="anchored" data-anchor-id="core">Core</h2>
+<section id="fluency-complete-prompts-practice-these-by-hand" class="level3">
+<h3 class="anchored" data-anchor-id="fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</h3>
+<p><strong>C6.1.</strong> Let <span class="math display">\[
+A=\begin{bmatrix}2&amp;-1&amp;0\\4&amp;3&amp;1\end{bmatrix}.
+\]</span> (a) What are the dimensions of <span class="math inline">\(A\)</span>? Is it tall, wide, or square? (b) What is <span class="math inline">\(A_{23}\)</span>? Write the second column as a vector.</p>
+<p><strong>C6.2.</strong> For each matrix, list every label that applies from: zero, identity, diagonal, upper triangular, lower triangular, symmetric, sparse (tiny examples: call it sparse if at least half the entries are zero).</p>
+<ol type="a">
+<li><span class="math inline">\(\begin{bmatrix}1&amp;0\\0&amp;1\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{bmatrix}2&amp;0\\0&amp;-3\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{bmatrix}1&amp;4\\0&amp;2\end{bmatrix}\)</span></li>
+<li><span class="math inline">\(\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}\)</span></li>
+</ol>
+<p><strong>C6.3.</strong> Compute <span class="math inline">\(A+A^{\mathsf{T}}\)</span> for <span class="math inline">\(A=\begin{bmatrix}1&amp;0\\2&amp;3\end{bmatrix}\)</span>. Is the result symmetric? Why or why not (one sentence)?</p>
+<p><strong>C6.4.</strong> Compute <span class="math display">\[
+\begin{bmatrix}1&amp;2&amp;0\\-1&amp;3&amp;1\end{bmatrix}
+\begin{bmatrix}2\\1\\-1\end{bmatrix}
+\]</span> two ways: (i) row-inner-product view; (ii) as a linear combination of the columns. Confirm the answers match.</p>
+<p><strong>C6.5.</strong> Let <span class="math inline">\(A\)</span> have columns <span class="math inline">\(a_1=(1,0,1)\)</span> and <span class="math inline">\(a_2=(0,1,1)\)</span>. Write <span class="math inline">\(A\)</span> explicitly. For <span class="math inline">\(x=(3,-2)\)</span>, write <span class="math inline">\(Ax\)</span> as a linear combination of <span class="math inline">\(a_1,a_2\)</span>, then evaluate.</p>
+<p><strong>C6.6.</strong> True or false, with a one-line reason: if <span class="math inline">\(A\)</span> is <span class="math inline">\(m\times n\)</span>, then <span class="math inline">\(Ax\)</span> always lies in the span of the columns of <span class="math inline">\(A\)</span>.</p>
+<p><strong>C6.7.</strong> A sensor maps a <span class="math inline">\(3\)</span>-vector of raw readings <span class="math inline">\(x\)</span> to a <span class="math inline">\(2\)</span>-vector of summaries via <span class="math inline">\(y=Ax\)</span>. What are the dimensions of <span class="math inline">\(A\)</span>? In one sentence, what does the first column of <span class="math inline">\(A\)</span> mean?</p>
+<p><strong>C6.8.</strong> Reflection through the <span class="math inline">\(x_1\)</span>-axis sends <span class="math inline">\(e_1=(1,0)\mapsto(1,0)\)</span> and <span class="math inline">\(e_2=(0,1)\mapsto(0,-1)\)</span>. Write the matrix <span class="math inline">\(A\)</span> and compute <span class="math inline">\(A(2,3)\)</span>.</p>
+<p><strong>C6.9.</strong> Write the <span class="math inline">\(2\times 2\)</span> matrix for rotation by <span class="math inline">\(90^\circ\)</span> counterclockwise. Where do <span class="math inline">\((1,0)\)</span> and <span class="math inline">\((0,1)\)</span> go?</p>
+<p><strong>C6.10.</strong> Let <span class="math inline">\(X=\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}\)</span> (columns are three points) and <span class="math inline">\(A=\operatorname{diag}(2,1)\)</span>. Compute <span class="math inline">\(AX\)</span> and describe the geometric effect in one sentence.</p>
+<p><strong>C6.11 (Lab 3).</strong> Predict where <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> sends the triangle with vertices <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((1,0)\)</span>, <span class="math inline">\((0,1)\)</span>. Then check with a short Octave or Python computation (or a careful sketch).</p>
+</section>
+<section id="textbook-core" class="level3">
+<h3 class="anchored" data-anchor-id="textbook-core">Textbook Core</h3>
 <ul>
-<li>B 8.6(a), 8.9, 8.10, 8.13, 8.15</li>
-<li>L Ch. 2 Ex. 1: Gaussian-elimination and back-substitution portions</li>
-<li>L Ch. 2 Ex. 3: Compare a direct solution and RREF</li>
-<li>L Ch. 2 Ex. 5: Inconsistent and infinite-solution cases</li>
-<li>C6.1: One small unique-solution system by hand</li>
-<li>C6.2: One infinite-solution system with a parameter</li>
-<li>C6.3: One inconsistent system</li>
-<li>C6.4: Verify a software result by computing <span class="math inline">\(Ax-b\)</span></li>
+<li>B 6.1, 6.2, 6.4, 6.6</li>
+<li>B 7.2</li>
 </ul>
+</section>
 </section>
 <section id="stretch" class="level2">
 <h2 class="anchored" data-anchor-id="stretch">Stretch</h2>
-<p>B 8.4(a–b), B 8.16, L Ch. 2 Ex. 6.</p>
+<ul>
+<li>B 6.7, 6.8, 6.9, 6.10 (longer modeling / interpretation)</li>
+<li>B 6.12, 7.1, 7.3, 7.4, 7.8</li>
+</ul>
 </section>
 <section id="what-a-quiz-item-might-change" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-quiz-item-might-change">What a quiz item might change</h2>
-<p>The right-hand side with the same coefficient matrix, an RREF whose original solution set you describe, or software output with a small residual.</p>
+<p>A small matrix or two points, which geometric map is used, whether you must name a matrix type, or whether the prompt asks for the column interpretation of <span class="math inline">\(Ax\)</span>.</p>
 
 
 <!-- -->
@@ -680,8 +710,8 @@ window.Quarto = {
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 6"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Monday, October 19 — systems, elimination, RREF, and solution sets"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 16 — matrices, $Ax$, and transformations (Week 7)"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-05</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -689,30 +719,68 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](quiz-06.pdf)</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 5, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lectures: <span class="co">[</span><span class="ot">Systems</span><span class="co">](../lectures/lecture-21.qmd)</span>, <span class="co">[</span><span class="ot">Elimination</span><span class="co">](../lectures/lecture-22.qmd)</span>, <span class="co">[</span><span class="ot">RREF</span><span class="co">](../lectures/lecture-23.qmd)</span>.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>**Covers the week before only:** [Matrices](../lectures/lecture-18.qmd), [$Ax$](../lectures/lecture-19.qmd), [Transforms](../lectures/lecture-20.qmd), and [Lab 3](../labs/lab-03.qmd) (Week 7). Same-day [RREF](../lectures/lecture-23.qmd) is **not** on this quiz.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe (VMLS)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> · <span class="co">[</span><span class="ot">Lachniet Octave PDF</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 8.6(a), 8.9, 8.10, 8.13, 8.15</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 1: Gaussian-elimination and back-substitution portions</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 3: Compare a direct solution and RREF</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 5: Inconsistent and infinite-solution cases</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C6.1: One small unique-solution system by hand</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C6.2: One infinite-solution system with a parameter</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C6.3: One inconsistent system</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C6.4: Verify a software result by computing $Ax-b$</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fluency (complete prompts — practice these by hand)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>**C6.1.** Let</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}2&amp;-1&amp;0<span class="sc">\\</span>4&amp;3&amp;1\end{bmatrix}.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>(a) What are the dimensions of $A$? Is it tall, wide, or square?</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>(b) What is $A_{23}$? Write the second column as a vector.</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>B 8.4(a–b), B 8.16, L Ch. 2 Ex. 6.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>**C6.2.** For each matrix, list every label that applies from: zero, identity, diagonal, upper triangular, lower triangular, symmetric, sparse (tiny examples: call it sparse if at least half the entries are zero).</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>The right-hand side with the same coefficient matrix, an RREF whose original solution set you describe, or software output with a small residual.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>(a) $\begin{bmatrix}1&amp;0<span class="sc">\\</span>0&amp;1\end{bmatrix}$</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>(b) $\begin{bmatrix}2&amp;0<span class="sc">\\</span>0&amp;-3\end{bmatrix}$</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>(c) $\begin{bmatrix}1&amp;4<span class="sc">\\</span>0&amp;2\end{bmatrix}$</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>(d) $\begin{bmatrix}0&amp;1<span class="sc">\\</span>1&amp;0\end{bmatrix}$</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**C6.3.** Compute $A+A^{\mathsf{T}}$ for $A=\begin{bmatrix}1&amp;0<span class="sc">\\</span>2&amp;3\end{bmatrix}$. Is the result symmetric? Why or why not (one sentence)?</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**C6.4.** Compute</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}1&amp;2&amp;0<span class="sc">\\</span>-1&amp;3&amp;1\end{bmatrix}</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}2<span class="sc">\\</span>1<span class="sc">\\</span>-1\end{bmatrix}</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>two ways: (i) row-inner-product view; (ii) as a linear combination of the columns. Confirm the answers match.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**C6.5.** Let $A$ have columns $a_1=(1,0,1)$ and $a_2=(0,1,1)$. Write $A$ explicitly. For $x=(3,-2)$, write $Ax$ as a linear combination of $a_1,a_2$, then evaluate.</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>**C6.6.** True or false, with a one-line reason: if $A$ is $m\times n$, then $Ax$ always lies in the span of the columns of $A$.</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**C6.7.** A sensor maps a $3$-vector of raw readings $x$ to a $2$-vector of summaries via $y=Ax$. What are the dimensions of $A$? In one sentence, what does the first column of $A$ mean?</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>**C6.8.** Reflection through the $x_1$-axis sends $e_1=(1,0)\mapsto(1,0)$ and $e_2=(0,1)\mapsto(0,-1)$. Write the matrix $A$ and compute $A(2,3)$.</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>**C6.9.** Write the $2\times 2$ matrix for rotation by $90^\circ$ counterclockwise. Where do $(1,0)$ and $(0,1)$ go?</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**C6.10.** Let $X=\begin{bmatrix}1&amp;0&amp;1<span class="sc">\\</span>0&amp;1&amp;1\end{bmatrix}$ (columns are three points) and $A=\operatorname{diag}(2,1)$. Compute $AX$ and describe the geometric effect in one sentence.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**C6.11 (Lab 3).** Predict where $A=\begin{bmatrix}0&amp;-1<span class="sc">\\</span>1&amp;0\end{bmatrix}$ sends the triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$. Then check with a short Octave or Python computation (or a careful sketch).</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">### Textbook Core</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 6.1, 6.2, 6.4, 6.6</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 7.2</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 6.7, 6.8, 6.9, 6.10 (longer modeling / interpretation)</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 6.12, 7.1, 7.3, 7.4, 7.8</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>A small matrix or two points, which geometric map is used, whether you must name a matrix type, or whether the prompt asks for the column interpretation of $Ax$.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

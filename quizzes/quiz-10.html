@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e9b1289f5f353c49b617ce48ad2bc38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -168,7 +168,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Quiz 10</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Friday, December 4 — least squares, residuals, fitting, and positive definiteness</p>
+<p class="subtitle lead">Friday, December 4 — eigenvalues, complex numbers, and Lab 5 (Week 13)</p>
 </div>
 
 
@@ -180,7 +180,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 5, 2026</p>
     </div>
   </div>
     
@@ -192,30 +192,30 @@ window.Quarto = {
 
 
 <p><a href="quiz-10.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>Related lectures: <a href="../lectures/lecture-38.html">Least squares</a>, <a href="../lectures/lecture-39.html">Fitting</a>.</p>
-<p>Related lab: <a href="../labs/lab-06.html">Lab 6</a>.</p>
+<p>Last updated: October 5, 2026.</p>
+<p><strong>Covers the prior instructional week only:</strong> <a href="../lectures/lecture-35.html">Eigenvectors</a>, <a href="../lectures/lecture-36.html">Characteristic</a>, <a href="../lectures/lecture-37.html">Eigenbehavior</a>, and <a href="../labs/lab-05.html">Lab 5</a> (Week 13). Fall break is skipped when choosing the prior week. Same-day <a href="../lectures/lecture-40.html">SVD</a> / <a href="../labs/lab-06.html">Lab 6</a> / least squares (Week 15) are <strong>not</strong> on this quiz.</p>
+<p>Textbooks: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf">Strang §6.1</a> · <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf">Lachniet Octave PDF</a> · also on <a href="../resources.html">Resources</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
-<p><strong>SVD is not on this quiz</strong>; it is introduced afterward. See the <a href="../projects/capstone.html">capstone packet</a> for SVD practice.</p>
+<p><strong>SVD and least squares are not on this quiz</strong>; see <a href="../labs/lab-06.html">Lab 6</a>, the <a href="../projects/capstone.html">capstone packet</a>, and the <a href="../exams/final.html">final</a>.</p>
 <section id="core" class="level2">
 <h2 class="anchored" data-anchor-id="core">Core</h2>
 <ul>
-<li>B 12.1, 12.4, 12.10, 12.12</li>
-<li>B 13.1, 13.3, 13.6, 13.11, 13.14</li>
-<li>L Ch. 2 Ex. 7: least-squares line fit</li>
-<li>L Ch. 2 Ex. 8: simulated data and fitting</li>
-<li>C10.1: Compute and interpret a residual vector.</li>
-<li>C10.2: Compare two fits using RMS residual.</li>
-<li>C10.3: Given information about the columns of <span class="math inline">\(A\)</span>, decide whether <span class="math inline">\(A^{\mathsf{T}}A\)</span> is positive definite and explain.</li>
+<li>S 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17</li>
+<li>L Ch. 5 Ex. 1: selected hand/software eigenvalue parts</li>
+<li>L Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions</li>
+<li>L Ch. 5 Ex. 5: selected matrix-power portion</li>
+<li>C10.1: Verify <span class="math inline">\(AV\approx VD\)</span> from software output.</li>
+<li>C10.2: Interpret a dominant eigenvalue and eigenvector in context.</li>
+<li>C10.3: Verify a proposed real or complex eigenpair by substitution.</li>
 </ul>
 </section>
 <section id="stretch" class="level2">
 <h2 class="anchored" data-anchor-id="stretch">Stretch</h2>
-<p>B 12.2, 12.7, 13.4.</p>
+<p>S 6.1 #3 and #4.</p>
 </section>
 <section id="what-a-quiz-item-might-change" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-quiz-item-might-change">What a quiz item might change</h2>
-<p>One observation in a tiny dataset, a fitted line whose residuals you interpret, two RMS errors to compare, or why <span class="math inline">\(A^{\mathsf{T}}A\)</span> is positive definite when <span class="math inline">\(A\)</span> has independent columns.</p>
+<p>A new <span class="math inline">\(2\times 2\)</span> matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, or a rotation matrix with complex eigenvalues.</p>
 
 
 <!-- -->
@@ -681,8 +681,8 @@ window.Quarto = {
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 10"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, December 4 — least squares, residuals, fitting, and positive definiteness"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, December 4 — eigenvalues, complex numbers, and Lab 5 (Week 13)"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-05</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -690,33 +690,33 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](quiz-10.pdf)</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 5, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lectures: <span class="co">[</span><span class="ot">Least squares</span><span class="co">](../lectures/lecture-38.qmd)</span>, <span class="co">[</span><span class="ot">Fitting</span><span class="co">](../lectures/lecture-39.qmd)</span>.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>**Covers the prior instructional week only:** [Eigenvectors](../lectures/lecture-35.qmd), [Characteristic](../lectures/lecture-36.qmd), [Eigenbehavior](../lectures/lecture-37.qmd), and [Lab 5](../labs/lab-05.qmd) (Week 13). Fall break is skipped when choosing the prior week. Same-day [SVD](../lectures/lecture-40.qmd) / [Lab 6](../labs/lab-06.qmd) / least squares (Week 15) are **not** on this quiz.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related lab: <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](../labs/lab-06.qmd)</span>.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Strang §6.1</span><span class="co">](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf)</span> · <span class="co">[</span><span class="ot">Lachniet Octave PDF</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**SVD is not on this quiz**; it is introduced afterward. See the <span class="co">[</span><span class="ot">capstone packet</span><span class="co">](../projects/capstone.qmd)</span> for SVD practice.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**SVD and least squares are not on this quiz**; see <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](../labs/lab-06.qmd)</span>, the <span class="co">[</span><span class="ot">capstone packet</span><span class="co">](../projects/capstone.qmd)</span>, and the <span class="co">[</span><span class="ot">final</span><span class="co">](../exams/final.qmd)</span>.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 12.1, 12.4, 12.10, 12.12</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 13.1, 13.3, 13.6, 13.11, 13.14</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 7: least-squares line fit</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 8: simulated data and fitting</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.1: Compute and interpret a residual vector.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.2: Compare two fits using RMS residual.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.3: Given information about the columns of $A$, decide whether $A^{\mathsf{T}}A$ is positive definite and explain.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>S 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 1: selected hand/software eigenvalue parts</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 5: selected matrix-power portion</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.1: Verify $AV\approx VD$ from software output.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.2: Interpret a dominant eigenvalue and eigenvector in context.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.3: Verify a proposed real or complex eigenpair by substitution.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>B 12.2, 12.7, 13.4.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>S 6.1 #3 and #4.</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>One observation in a tiny dataset, a fitted line whose residuals you interpret, two RMS errors to compare, or why $A^{\mathsf{T}}A$ is positive definite when $A$ has independent columns.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>A new $2\times 2$ matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, or a rotation matrix with complex eigenvalues.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3e9b1289f5f353c49b617ce48ad2bc38.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -118,13 +147,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-we-are-doing" id="toc-what-we-are-doing" class="nav-link active" data-scroll-target="#what-we-are-doing">What we are doing</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
+  <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
+  <li><a href="#demo-optional-run-once" id="toc-demo-optional-run-once" class="nav-link" data-scroll-target="#demo-optional-run-once">Demo (optional — run once)</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-03.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-03.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,14 +177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 20, 2026</p>
+      <p class="date-modified">October 5, 2026</p>
     </div>
   </div>
     
@@ -153,14 +196,127 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lab-03.pdf">Download PDF</a></p>
-<p>Last updated: August 20, 2026.</p>
-<p>Date is on the <a href="../schedule.html">schedule</a>. Full exercises (Octave and Python) will be posted before class.</p>
-<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python; handwrite answers on the one-pager hard copy and get instructor initials after a short check-in. See <a href="../labs/lab-00.html">Lab 0</a> for the pattern.</p>
-<p><strong>Resources:</strong> Lachniet Ch. 2 — <a href="../resources.html">Resources</a>.</p>
+<p>Last updated: October 5, 2026.</p>
+<p>Date is on the <a href="../schedule.html">schedule</a>. Same day: <a href="../quizzes/quiz-05.html">Quiz 5</a> (basis — not transforms) and a short <a href="../lectures/lecture-20.html">Lecture 20</a>, then this lab.</p>
+<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python on a laptop. On lab day you get a <strong>self-contained one-pager</strong> with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. Preview the <a href="../labs/lab-03-ticket.html">one-pager</a>; write on the hard copy handed out in class. Quizzes will ask about these ideas (<a href="../quizzes/quiz-06.html">Quiz 6</a> covers Week 7).</p>
+<p><strong>Resources:</strong> Lachniet Ch. 2 · <a href="../resources/syntax.html">Syntax sheets</a> · <a href="../resources.html">Resources</a> · Lectures <a href="../lectures/lecture-18.html">18</a>–<a href="../lectures/lecture-20.html">20</a>.</p>
+<section id="what-we-are-doing" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-are-doing">What we are doing</h2>
+<p>Treat a matrix as a geometric machine: predict where points go under scaling, reflection, shear, and rotation; apply <span class="math inline">\(A\)</span> to many points at once; plot before/after.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ol type="1">
+<li>Predict the effect of scaling, reflection, shear, and rotation matrices.</li>
+<li>Apply a matrix to many 2D points stored as columns (or rows) of a data matrix.</li>
+<li>Plot original and transformed shapes and compare.</li>
+<li>Adapt a short program that implements a transformation.</li>
+<li>Interpret a matrix as a coordinate or physical-space transformation.</li>
+</ol>
+</section>
+<section id="math-connections" class="level2">
+<h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
+<p>Matrix dimensions and structure (<a href="../lectures/lecture-18.html">Lecture 18</a>); <span class="math inline">\(Ax\)</span> as a linear combination of columns (<a href="../lectures/lecture-19.html">Lecture 19</a>); geometric maps and “columns = images of <span class="math inline">\(e_j\)</span>” (<a href="../lectures/lecture-20.html">Lecture 20</a>).</p>
+</section>
+<section id="key-syntax-this-lab" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Octave</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Matrix</td>
+<td><code>A = [1 0; 0 -1]</code></td>
+<td><code>A = np.array([[1., 0.], [0., -1.]])</code></td>
+</tr>
+<tr class="even">
+<td>Matrix–vector</td>
+<td><code>A*x</code></td>
+<td><code>A @ x</code></td>
+</tr>
+<tr class="odd">
+<td>Many points as columns</td>
+<td><code>Y = A*X</code></td>
+<td><code>Y = A @ X</code></td>
+</tr>
+<tr class="even">
+<td>2D scatter / line plot</td>
+<td><code>plot(X(1,:), X(2,:), 'o-')</code></td>
+<td><code>plt.plot(X[0], X[1], 'o-')</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexing reminder:</strong> Boyd <span class="math inline">\(A_{ij}\)</span> is 1-based. Octave matrices are 1-based; NumPy is 0-based.</p>
+</section>
+<section id="demo-optional-run-once" class="level2">
+<h2 class="anchored" data-anchor-id="demo-optional-run-once">Demo (optional — run once)</h2>
+<p>Triangle with vertices <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((1,0)\)</span>, <span class="math inline">\((0,1)\)</span> as columns of <span class="math inline">\(X\)</span>, then rotate <span class="math inline">\(90^\circ\)</span> CCW by <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span>.</p>
+<p><strong>Octave:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">X</span> <span class="op">=</span> [<span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span><span class="op">;</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span>]<span class="op">;</span>          <span class="co">% columns are points</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">0</span> <span class="op">-</span><span class="fl">1</span><span class="op">;</span> <span class="fl">1</span> <span class="fl">0</span>]<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">Y</span> <span class="op">=</span> <span class="va">A</span><span class="op">*</span><span class="va">X</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">X</span>(<span class="fl">1</span><span class="op">,:</span>)<span class="op">,</span> <span class="va">X</span>(<span class="fl">2</span><span class="op">,:</span>)<span class="op">,</span> <span class="ss">'bo-'</span><span class="op">,</span> <span class="va">Y</span>(<span class="fl">1</span><span class="op">,:</span>)<span class="op">,</span> <span class="va">Y</span>(<span class="fl">2</span><span class="op">,:</span>)<span class="op">,</span> <span class="ss">'rs-'</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">axis</span> <span class="va">equal</span><span class="op">;</span> <span class="va">legend</span>(<span class="ss">'original'</span><span class="op">,</span><span class="ss">'transformed'</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> np.array([[<span class="fl">0.</span>, <span class="fl">1.</span>, <span class="fl">0.</span>], [<span class="fl">0.</span>, <span class="fl">0.</span>, <span class="fl">1.</span>]])  <span class="co"># columns are points</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="fl">0.</span>, <span class="op">-</span><span class="fl">1.</span>], [<span class="fl">1.</span>, <span class="fl">0.</span>]])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> A <span class="op">@</span> X</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.plot(X[<span class="dv">0</span>], X[<span class="dv">1</span>], <span class="st">'bo-'</span>, Y[<span class="dv">0</span>], Y[<span class="dv">1</span>], <span class="st">'rs-'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)<span class="op">;</span> plt.legend([<span class="st">'original'</span>, <span class="st">'transformed'</span>])<span class="op">;</span> plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected:</strong> <span class="math inline">\(Y=\begin{bmatrix}0&amp;0&amp;-1\\0&amp;1&amp;0\end{bmatrix}\)</span> (columns <span class="math inline">\((0,0)\)</span>, <span class="math inline">\((0,1)\)</span>, <span class="math inline">\((-1,0)\)</span>).</p>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Pick Octave or Python for the term. Store points as <strong>columns</strong> of a <span class="math inline">\(2\times N\)</span> matrix unless a prompt says otherwise.</p>
+<p><strong>E1.</strong> Predict, then compute. Let <span class="math inline">\(A=\operatorname{diag}(2,1/2)\)</span> and <span class="math inline">\(x=(1,1)\)</span>.</p>
+<ol type="a">
+<li>Predict <span class="math inline">\(Ax\)</span> without software.</li>
+<li>Check with code.</li>
+<li>In one sentence: what did <span class="math inline">\(A\)</span> do geometrically?</li>
+</ol>
+<p><strong>Octave:</strong> <code>A = diag([2, 0.5]); x = [1; 1]; A*x</code></p>
+<p><strong>Python:</strong> <code>A = np.diag([2.0, 0.5]); x = np.array([1.0, 1.0]); A @ x</code></p>
+<p><strong>Expected:</strong> <span class="math inline">\((2,0.5)\)</span>; horizontal stretch by <span class="math inline">\(2\)</span>, vertical shrink by <span class="math inline">\(1/2\)</span>.</p>
+<p><strong>E2.</strong> Build from <span class="math inline">\(e_1,e_2\)</span>. Reflection through the <span class="math inline">\(x_2\)</span>-axis sends <span class="math inline">\((1,0)\mapsto(-1,0)\)</span> and <span class="math inline">\((0,1)\mapsto(0,1)\)</span>.</p>
+<ol type="a">
+<li>Write <span class="math inline">\(A\)</span> on paper.</li>
+<li>Apply <span class="math inline">\(A\)</span> to the three columns of <span class="math inline">\(X=\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}\)</span>.</li>
+<li>Sketch or plot original vs image.</li>
+</ol>
+<p><strong>Expected:</strong> <span class="math inline">\(A=\begin{bmatrix}-1&amp;0\\0&amp;1\end{bmatrix}\)</span>; <span class="math inline">\(AX=\begin{bmatrix}-1&amp;0&amp;-1\\0&amp;1&amp;1\end{bmatrix}\)</span>.</p>
+<p><strong>E3.</strong> Shear. Let <span class="math inline">\(A=\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix}\)</span> and unit-square corners as columns <span class="math display">\[
+X=\begin{bmatrix}0&amp;1&amp;1&amp;0\\0&amp;0&amp;1&amp;1\end{bmatrix}.
+\]</span> Compute <span class="math inline">\(Y=AX\)</span>. Which corner moved, and how? (Hand-check <span class="math inline">\(A e_2\)</span>.)</p>
+<p><strong>Expected:</strong> <span class="math inline">\(Y=\begin{bmatrix}0&amp;1&amp;2&amp;1\\0&amp;0&amp;1&amp;1\end{bmatrix}\)</span>; <span class="math inline">\((0,1)\mapsto(1,1)\)</span> (and <span class="math inline">\((1,1)\mapsto(2,1)\)</span>) — sheared right.</p>
+<p><strong>E4.</strong> Rotation. Use <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> (<span class="math inline">\(90^\circ\)</span> CCW) on the same unit-square <span class="math inline">\(X\)</span> from E3. Compute <span class="math inline">\(Y=AX\)</span> and plot both. Does the square stay a square?</p>
+<p><strong>Expected:</strong> <span class="math inline">\(Y=\begin{bmatrix}0&amp;0&amp;-1&amp;-1\\0&amp;1&amp;1&amp;0\end{bmatrix}\)</span>; yes — rotated square (still a square).</p>
+<p><strong>E5.</strong> Adapt the program. Change E4’s matrix to rotation by <span class="math inline">\(180^\circ\)</span> (or use <span class="math inline">\(A=-I\)</span>). Apply to <span class="math inline">\(X\)</span> from E3. Where does <span class="math inline">\((1,0)\)</span> go?</p>
+<p><strong>Expected:</strong> <span class="math inline">\((1,0)\mapsto(-1,0)\)</span>; full <span class="math inline">\(Y=\begin{bmatrix}0&amp;-1&amp;-1&amp;0\\0&amp;0&amp;-1&amp;-1\end{bmatrix}\)</span>.</p>
+<p><strong>E6 (stretch / 3D idea).</strong> Let <span class="math display">\[
+Q=\begin{bmatrix}0&amp;1&amp;0\\-1&amp;0&amp;0\\0&amp;0&amp;1\end{bmatrix}
+\]</span> (level flight heading south; Boyd-style body-to-earth axes). Compute <span class="math inline">\(Q e_1\)</span>, <span class="math inline">\(Q e_2\)</span>, <span class="math inline">\(Q e_3\)</span> and interpret each column as “where that body axis points in earth coordinates.”</p>
+<p><strong>Expected:</strong> columns <span class="math inline">\((0,-1,0)\)</span>, <span class="math inline">\((1,0,0)\)</span>, <span class="math inline">\((0,0,1)\)</span> — forward<span class="math inline">\(\to\)</span>south, left<span class="math inline">\(\to\)</span>east, up<span class="math inline">\(\to\)</span>up.</p>
+</section>
+<section id="one-pager" class="level2">
+<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
+<p>Preview the <a href="../labs/lab-03-ticket.html">Lab 3 ticket</a>; write on the hard copy in class.</p>
 
 
 <!-- -->
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -619,26 +775,131 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 3 — Transforming Space"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 9"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-20</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-03.pdf)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: August 20, 2026.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Full exercises (Octave and Python) will be posted before class.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python; handwrite answers on the one-pager hard copy and get instructor initials after a short check-in. See <span class="co">[</span><span class="ot">Lab 0</span><span class="co">](lab-00.qmd)</span> for the pattern.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Resources:** Lachniet Ch. 2 — <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 3 — Transforming Space"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 9"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-05</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-03.pdf)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 5, 2026.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Same day: <span class="co">[</span><span class="ot">Quiz 5</span><span class="co">](../quizzes/quiz-05.qmd)</span> (basis — not transforms) and a short <span class="co">[</span><span class="ot">Lecture 20</span><span class="co">](../lectures/lecture-20.qmd)</span>, then this lab.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python on a laptop. On lab day you get a **self-contained one-pager** with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-03-ticket.qmd)</span>; write on the hard copy handed out in class. Quizzes will ask about these ideas (<span class="co">[</span><span class="ot">Quiz 6</span><span class="co">](../quizzes/quiz-06.qmd)</span> covers Week 7).</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>**Resources:** Lachniet Ch. 2 · <span class="co">[</span><span class="ot">Syntax sheets</span><span class="co">](../resources/syntax.qmd)</span> · <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span> · Lectures <span class="co">[</span><span class="ot">18</span><span class="co">](../lectures/lecture-18.qmd)</span>–<span class="co">[</span><span class="ot">20</span><span class="co">](../lectures/lecture-20.qmd)</span>.</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we are doing</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>Treat a matrix as a geometric machine: predict where points go under scaling, reflection, shear, and rotation; apply $A$ to many points at once; plot before/after.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Predict the effect of scaling, reflection, shear, and rotation matrices.</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Apply a matrix to many 2D points stored as columns (or rows) of a data matrix.</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Plot original and transformed shapes and compare.</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Adapt a short program that implements a transformation.</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Interpret a matrix as a coordinate or physical-space transformation.</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>Matrix dimensions and structure (<span class="co">[</span><span class="ot">Lecture 18</span><span class="co">](../lectures/lecture-18.qmd)</span>); $Ax$ as a linear combination of columns (<span class="co">[</span><span class="ot">Lecture 19</span><span class="co">](../lectures/lecture-19.qmd)</span>); geometric maps and “columns = images of $e_j$” (<span class="co">[</span><span class="ot">Lecture 20</span><span class="co">](../lectures/lecture-20.qmd)</span>).</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Matrix <span class="pp">|</span> <span class="in">`A = [1 0; 0 -1]`</span> <span class="pp">|</span> <span class="in">`A = np.array([[1., 0.], [0., -1.]])`</span> <span class="pp">|</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Matrix–vector <span class="pp">|</span> <span class="in">`A*x`</span> <span class="pp">|</span> <span class="in">`A @ x`</span> <span class="pp">|</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Many points as columns <span class="pp">|</span> <span class="in">`Y = A*X`</span> <span class="pp">|</span> <span class="in">`Y = A @ X`</span> <span class="pp">|</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 2D scatter / line plot <span class="pp">|</span> <span class="in">`plot(X(1,:), X(2,:), 'o-')`</span> <span class="pp">|</span> <span class="in">`plt.plot(X[0], X[1], 'o-')`</span> <span class="pp">|</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>**Indexing reminder:** Boyd $A_{ij}$ is 1-based. Octave matrices are 1-based; NumPy is 0-based.</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo (optional — run once)</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>Triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$ as columns of $X$, then rotate $90^\circ$ CCW by $A=\begin{bmatrix}0&amp;-1<span class="sc">\\</span>1&amp;0\end{bmatrix}$.</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>**Octave:**</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="va">X</span> <span class="op">=</span> [<span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span><span class="op">;</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span>]<span class="op">;</span>          <span class="co">% columns are points</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">0</span> <span class="op">-</span><span class="fl">1</span><span class="op">;</span> <span class="fl">1</span> <span class="fl">0</span>]<span class="op">;</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="va">Y</span> <span class="op">=</span> <span class="va">A</span><span class="op">*</span><span class="va">X</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">X</span>(<span class="fl">1</span><span class="op">,:</span>)<span class="op">,</span> <span class="va">X</span>(<span class="fl">2</span><span class="op">,:</span>)<span class="op">,</span> <span class="ss">'bo-'</span><span class="op">,</span> <span class="va">Y</span>(<span class="fl">1</span><span class="op">,:</span>)<span class="op">,</span> <span class="va">Y</span>(<span class="fl">2</span><span class="op">,:</span>)<span class="op">,</span> <span class="ss">'rs-'</span>)<span class="op">;</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="va">axis</span> <span class="va">equal</span><span class="op">;</span> <span class="va">legend</span>(<span class="ss">'original'</span><span class="op">,</span><span class="ss">'transformed'</span>)<span class="op">;</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">matplotlib</span>.<span class="va">pyplot</span> <span class="va">as</span> <span class="va">plt</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="va">X</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">0</span>.<span class="op">,</span> <span class="fl">1</span>.<span class="op">,</span> <span class="fl">0</span>.]<span class="op">,</span> [<span class="fl">0</span>.<span class="op">,</span> <span class="fl">0</span>.<span class="op">,</span> <span class="fl">1</span>.]])  # <span class="va">columns</span> <span class="va">are</span> <span class="va">points</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">0</span>.<span class="op">,</span> <span class="op">-</span><span class="fl">1</span>.]<span class="op">,</span> [<span class="fl">1</span>.<span class="op">,</span> <span class="fl">0</span>.]])</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="va">Y</span> <span class="op">=</span> <span class="va">A</span> <span class="op">@</span> <span class="va">X</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">plot</span>(<span class="va">X</span>[<span class="fl">0</span>]<span class="op">,</span> <span class="va">X</span>[<span class="fl">1</span>]<span class="op">,</span> <span class="ss">'bo-'</span><span class="op">,</span> <span class="va">Y</span>[<span class="fl">0</span>]<span class="op">,</span> <span class="va">Y</span>[<span class="fl">1</span>]<span class="op">,</span> <span class="ss">'rs-'</span>)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="va">plt</span>.<span class="va">axis</span>(<span class="ss">'equal'</span>)<span class="op">;</span> <span class="va">plt</span>.<span class="va">legend</span>([<span class="ss">'original'</span><span class="op">,</span> <span class="ss">'transformed'</span>])<span class="op">;</span> <span class="va">plt</span>.<span class="va">show</span>()</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">Y</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$ (<span class="va">columns</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$<span class="op">,</span> $(<span class="op">-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$).</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>## <span class="va">Exercises</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a><span class="va">Pick</span> <span class="va">Octave</span> <span class="va">or</span> <span class="va">Python</span> <span class="kw">for</span> <span class="va">the</span> <span class="va">term</span>. <span class="va">Store</span> <span class="va">points</span> <span class="va">as</span> <span class="op">**</span><span class="va">columns</span><span class="op">**</span> <span class="va">of</span> <span class="va">a</span> $<span class="fl">2</span><span class="op">\</span><span class="va">times</span> <span class="va">N</span>$ <span class="va">matrix</span> <span class="va">unless</span> <span class="va">a</span> <span class="va">prompt</span> <span class="va">says</span> <span class="kw">otherwise</span>.</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E1</span><span class="op">.**</span> <span class="va">Predict</span><span class="op">,</span> <span class="va">then</span> <span class="va">compute</span>. <span class="va">Let</span> $<span class="va">A</span><span class="op">=\</span><span class="va">operatorname</span>{<span class="va">diag</span>}(<span class="fl">2</span><span class="op">,</span><span class="fl">1</span><span class="op">/</span><span class="fl">2</span>)$ <span class="va">and</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)$.</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Predict</span> $<span class="va">Ax</span>$ <span class="va">without</span> <span class="va">software</span>.</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Check</span> <span class="va">with</span> <span class="va">code</span>.</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">In</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">:</span> <span class="va">what</span> <span class="va">did</span> $<span class="va">A</span>$ <span class="va">do</span> <span class="va">geometrically</span>?</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Octave</span><span class="op">:**</span> `<span class="va">A</span> <span class="op">=</span> <span class="va">diag</span>([<span class="fl">2</span><span class="op">,</span> <span class="fl">0.5</span>])<span class="op">;</span> <span class="va">x</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">1</span>]<span class="op">;</span> <span class="va">A</span><span class="op">*</span><span class="va">x</span>`</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span> `<span class="va">A</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">diag</span>([<span class="fl">2.0</span><span class="op">,</span> <span class="fl">0.5</span>])<span class="op">;</span> <span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1.0</span><span class="op">,</span> <span class="fl">1.0</span>])<span class="op">;</span> <span class="va">A</span> <span class="op">@</span> <span class="va">x</span>`</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $(<span class="fl">2</span><span class="op">,</span><span class="fl">0.5</span>)$<span class="op">;</span> <span class="va">horizontal</span> <span class="va">stretch</span> <span class="va">by</span> $<span class="fl">2</span>$<span class="op">,</span> <span class="va">vertical</span> <span class="va">shrink</span> <span class="va">by</span> $<span class="fl">1</span><span class="op">/</span><span class="fl">2</span>$.</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E2</span><span class="op">.**</span> <span class="va">Build</span> <span class="va">from</span> $<span class="va">e_1</span><span class="op">,</span><span class="va">e_2</span>$. <span class="va">Reflection</span> <span class="va">through</span> <span class="va">the</span> $<span class="va">x_2</span>$<span class="op">-</span><span class="va">axis</span> <span class="va">sends</span> $(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)<span class="op">\</span><span class="va">mapsto</span>(<span class="op">-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$ <span class="va">and</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)<span class="op">\</span><span class="va">mapsto</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$.</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Write</span> $<span class="va">A</span>$ <span class="va">on</span> <span class="va">paper</span>.</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Apply</span> $<span class="va">A</span>$ <span class="va">to</span> <span class="va">the</span> <span class="va">three</span> <span class="va">columns</span> <span class="va">of</span> $<span class="va">X</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$.</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">Sketch</span> <span class="va">or</span> <span class="va">plot</span> <span class="va">original</span> <span class="va">vs</span> <span class="va">image</span>.</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">A</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="op">-</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$<span class="op">;</span> $<span class="va">AX</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="op">-</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$.</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E3</span><span class="op">.**</span> <span class="va">Shear</span>. <span class="va">Let</span> $<span class="va">A</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$ <span class="va">and</span> <span class="va">unit</span><span class="op">-</span><span class="va">square</span> <span class="va">corners</span> <span class="va">as</span> <span class="va">columns</span></span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="va">X</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}.</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="va">Compute</span> $<span class="va">Y</span><span class="op">=</span><span class="va">AX</span>$. <span class="va">Which</span> <span class="va">corner</span> <span class="va">moved</span><span class="op">,</span> <span class="va">and</span> <span class="va">how</span>? (<span class="va">Hand</span><span class="op">-</span><span class="va">check</span> $<span class="va">A</span> <span class="va">e_2</span>$.)</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">Y</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">2</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$<span class="op">;</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)<span class="op">\</span><span class="va">mapsto</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)$ (<span class="va">and</span> $(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)<span class="op">\</span><span class="va">mapsto</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">1</span>)$) — <span class="va">sheared</span> <span class="va">right</span>.</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E4</span><span class="op">.**</span> <span class="va">Rotation</span>. <span class="va">Use</span> $<span class="va">A</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">\\</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$ ($<span class="fl">90</span><span class="op">^\</span><span class="va">circ</span>$ <span class="va">CCW</span>) <span class="va">on</span> <span class="va">the</span> <span class="va">same</span> <span class="va">unit</span><span class="op">-</span><span class="va">square</span> $<span class="va">X</span>$ <span class="va">from</span> <span class="va">E3</span>. <span class="va">Compute</span> $<span class="va">Y</span><span class="op">=</span><span class="va">AX</span>$ <span class="va">and</span> <span class="va">plot</span> <span class="va">both</span>. <span class="va">Does</span> <span class="va">the</span> <span class="va">square</span> <span class="va">stay</span> <span class="va">a</span> <span class="va">square</span>?</span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">Y</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$<span class="op">;</span> <span class="va">yes</span> — <span class="va">rotated</span> <span class="va">square</span> (<span class="va">still</span> <span class="va">a</span> <span class="va">square</span>).</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E5</span><span class="op">.**</span> <span class="va">Adapt</span> <span class="va">the</span> <span class="va">program</span>. <span class="va">Change</span> <span class="va">E4</span>’<span class="va">s</span> <span class="va">matrix</span> <span class="va">to</span> <span class="va">rotation</span> <span class="va">by</span> $<span class="fl">180</span><span class="op">^\</span><span class="va">circ</span>$ (<span class="va">or</span> <span class="va">use</span> $<span class="va">A</span><span class="op">=-</span><span class="va">I</span>$). <span class="va">Apply</span> <span class="va">to</span> $<span class="va">X</span>$ <span class="va">from</span> <span class="va">E3</span>. <span class="va">Where</span> <span class="va">does</span> $(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$ <span class="va">go</span>?</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)<span class="op">\</span><span class="va">mapsto</span>(<span class="op">-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">;</span> <span class="va">full</span> $<span class="va">Y</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$.</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E6</span> (<span class="va">stretch</span> <span class="op">/</span> <span class="fl">3</span><span class="va">D</span> <span class="va">idea</span>)<span class="op">.**</span> <span class="va">Let</span></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a><span class="va">Q</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\\-</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>(<span class="va">level</span> <span class="va">flight</span> <span class="va">heading</span> <span class="va">south</span><span class="op">;</span> <span class="va">Boyd</span><span class="op">-</span><span class="va">style</span> <span class="va">body</span><span class="op">-</span><span class="va">to</span><span class="op">-</span><span class="va">earth</span> <span class="va">axes</span>). <span class="va">Compute</span> $<span class="va">Q</span> <span class="va">e_1</span>$<span class="op">,</span> $<span class="va">Q</span> <span class="va">e_2</span>$<span class="op">,</span> $<span class="va">Q</span> <span class="va">e_3</span>$ <span class="va">and</span> <span class="va">interpret</span> <span class="va">each</span> <span class="va">column</span> <span class="va">as</span> “<span class="va">where</span> <span class="va">that</span> <span class="va">body</span> <span class="va">axis</span> <span class="va">points</span> <span class="va">in</span> <span class="va">earth</span> <span class="va">coordinates</span>.”</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">columns</span> $(<span class="fl">0</span><span class="op">,-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> $(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$ — <span class="va">forward</span>$<span class="op">\</span><span class="va">to</span>$<span class="va">south</span><span class="op">,</span> <span class="va">left</span>$<span class="op">\</span><span class="va">to</span>$<span class="va">east</span><span class="op">,</span> <span class="va">up</span>$<span class="op">\</span><span class="va">to</span>$<span class="va">up</span>.</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>## <span class="va">One</span><span class="op">-</span><span class="va">pager</span></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a><span class="va">Preview</span> <span class="va">the</span> [<span class="va">Lab</span> <span class="fl">3</span> <span class="va">ticket</span>](<span class="va">lab</span><span class="op">-</span><span class="fl">03</span><span class="op">-</span><span class="va">ticket</span>.<span class="va">qmd</span>)<span class="op">;</span> <span class="va">write</span> <span class="va">on</span> <span class="va">the</span> <span class="va">hard</span> <span class="va">copy</span> <span class="va">in</span> <span class="va">class</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e3adbaa939bcd423dddc8c8a834270b4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -168,7 +168,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Quiz 8</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Friday, November 6 — matrix multiplication, computational order, and inverses</p>
+<p class="subtitle lead">Friday, November 6 — products, powers, and computational cost (Week 10)</p>
 </div>
 
 
@@ -180,7 +180,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 5, 2026</p>
     </div>
   </div>
     
@@ -192,26 +192,26 @@ window.Quarto = {
 
 
 <p><a href="quiz-08.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>Related lectures: <a href="../lectures/lecture-27.html">Products</a>, <a href="../lectures/lecture-28.html">Powers</a>, <a href="../lectures/lecture-29.html">Cost</a>, <a href="../lectures/lecture-30.html">Inverses</a>.</p>
-<p>Related lab: <a href="../labs/lab-cost.html">Micro-lab: computational cost</a>.</p>
+<p>Last updated: October 5, 2026.</p>
+<p><strong>Covers the week before only:</strong> <a href="../lectures/lecture-27.html">Products</a>, <a href="../lectures/lecture-28.html">Powers</a>, <a href="../lectures/lecture-29.html">Cost</a>, and the <a href="../labs/lab-cost.html">micro-lab</a> (Week 10). Same-day <a href="../lectures/lecture-32.html">determinants</a> and this week’s inverses/rank lectures are <strong>not</strong> on this quiz.</p>
+<p>Textbooks: <a href="https://web.stanford.edu/~boyd/vmls/">Boyd &amp; Vandenberghe (VMLS)</a> · also on <a href="../resources.html">Resources</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
 <section id="core" class="level2">
 <h2 class="anchored" data-anchor-id="core">Core</h2>
 <ul>
 <li>B 10.3, 10.5, 10.6, 10.7, 10.9, 10.10, 10.13, 10.14, 10.15, 10.22</li>
-<li>B 11.1, 11.2</li>
 <li>C8.1: Compare <span class="math inline">\((ab^{\mathsf{T}})c\)</span> with <span class="math inline">\(a(b^{\mathsf{T}}c)\)</span>.</li>
 <li>C8.2: Count intermediate stored values for both evaluation orders.</li>
+<li>C8.3: Interpret <span class="math inline">\(ABx\)</span> as a sequence of transformations; decide whether <span class="math inline">\(AB=BA\)</span> in a small example.</li>
 </ul>
 </section>
 <section id="stretch" class="level2">
 <h2 class="anchored" data-anchor-id="stretch">Stretch</h2>
-<p>B 10.18, 10.23, 11.10, 11.25.</p>
+<p>B 10.18, 10.23.</p>
 </section>
 <section id="what-a-quiz-item-might-change" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-quiz-item-might-change">What a quiz item might change</h2>
-<p>The order of two transformations, matrix dimensions, whether an inverse exists conceptually, or timing output from two equivalent computations.</p>
+<p>The order of two transformations, matrix dimensions, or timing output from two equivalent computations.</p>
 
 
 <!-- -->
@@ -677,8 +677,8 @@ window.Quarto = {
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 8"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, November 6 — matrix multiplication, computational order, and inverses"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, November 6 — products, powers, and computational cost (Week 10)"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-05</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -686,28 +686,28 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](quiz-08.pdf)</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 5, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lectures: <span class="co">[</span><span class="ot">Products</span><span class="co">](../lectures/lecture-27.qmd)</span>, <span class="co">[</span><span class="ot">Powers</span><span class="co">](../lectures/lecture-28.qmd)</span>, <span class="co">[</span><span class="ot">Cost</span><span class="co">](../lectures/lecture-29.qmd)</span>, <span class="co">[</span><span class="ot">Inverses</span><span class="co">](../lectures/lecture-30.qmd)</span>.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>**Covers the week before only:** [Products](../lectures/lecture-27.qmd), [Powers](../lectures/lecture-28.qmd), [Cost](../lectures/lecture-29.qmd), and the [micro-lab](../labs/lab-cost.qmd) (Week 10). Same-day [determinants](../lectures/lecture-32.qmd) and this week’s inverses/rank lectures are **not** on this quiz.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related lab: <span class="co">[</span><span class="ot">Micro-lab: computational cost</span><span class="co">](../labs/lab-cost.qmd)</span>.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe (VMLS)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 10.3, 10.5, 10.6, 10.7, 10.9, 10.10, 10.13, 10.14, 10.15, 10.22</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 11.1, 11.2</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C8.1: Compare $(ab^{\mathsf{T}})c$ with $a(b^{\mathsf{T}}c)$.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C8.2: Count intermediate stored values for both evaluation orders.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C8.1: Compare $(ab^{\mathsf{T}})c$ with $a(b^{\mathsf{T}}c)$.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C8.2: Count intermediate stored values for both evaluation orders.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C8.3: Interpret $ABx$ as a sequence of transformations; decide whether $AB=BA$ in a small example.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>B 10.18, 10.23, 11.10, 11.25.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>B 10.18, 10.23.</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>The order of two transformations, matrix dimensions, whether an inverse exists conceptually, or timing output from two equivalent computations.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>The order of two transformations, matrix dimensions, or timing output from two equivalent computations.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
