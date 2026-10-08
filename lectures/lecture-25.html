@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -124,6 +153,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-25.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -149,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -161,9 +194,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lecture-25.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Related reading and the course-wide list of daily objectives: <a href="../lectures.html#lecture-25">Lectures</a>.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Reading: Simulation of linear dynamics (class notes / Boyd 9.1–9.3 continued). Related objectives: <a href="../lectures.html#lecture-25">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and <strong>Your turn</strong>.</p>
+<p><strong>Note:</strong> Today we <strong>observe</strong> long-run patterns by simulating. We do <strong>not</strong> yet explain them with eigenvalues — that mystery returns in Week 13.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -174,6 +208,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Conduct a simple what-if simulation.</li>
 <li>State limitations of a linear dynamical model.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>With <span class="math display">\[
+A=\begin{bmatrix}0.8&amp;0.3\\ 0.2&amp;0.7\end{bmatrix},\qquad x_0=\begin{bmatrix}1\\0\end{bmatrix},
+\]</span> compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> by hand. Guess (no calculator marathon): after many steps, will <span class="math inline">\(x_t\)</span> blow up, shrink to zero, or settle somewhere nonzero?</p>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p><strong>Simulation recipe</strong> (any language):</p>
+<ol type="1">
+<li>Choose <span class="math inline">\(A\)</span> and initial state <span class="math inline">\(x_0\)</span>.</li>
+<li>For <span class="math inline">\(t=0,1,\ldots,T-1\)</span>: set <span class="math inline">\(x_{t+1}=\underline{\hspace{1.4cm}}\)</span>.</li>
+<li>Store or plot the components of <span class="math inline">\(x_0,x_1,\ldots,x_T\)</span> versus time.</li>
+</ol>
+<p><strong>Long-run patterns</strong> (names only — recognize from plots / tables):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 64%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pattern</th>
+<th>What you see</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Stabilization</td>
+<td><span class="math inline">\(x_t\)</span> approaches a fixed vector (or settles in magnitude)</td>
+</tr>
+<tr class="even">
+<td>Growth</td>
+<td>components grow without bound (often roughly geometric)</td>
+</tr>
+<tr class="odd">
+<td>Decay</td>
+<td>components shrink toward <span class="math inline">\(\underline{\hspace{1.0cm}}\)</span></td>
+</tr>
+<tr class="even">
+<td>Oscillation</td>
+<td>components bounce / cycle in sign or value</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What-if.</strong> Change one thing — a parameter inside <span class="math inline">\(A\)</span>, or the initial state <span class="math inline">\(x_0\)</span> — and re-simulate. Compare the two trajectories.</p>
+<p><strong>Limitations of <span class="math inline">\(x_{t+1}=Ax_t\)</span>.</strong> The model is <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> (no <span class="math inline">\(x^2\)</span> terms, no products of states); <span class="math inline">\(A\)</span> is assumed constant; time is discrete; there is no noise, capacity limit, or policy change unless you build it into <span class="math inline">\(A\)</span>. Real systems may only match the model for a while.</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Many steps on the board / laptop. Let <span class="math display">\[
+A=\begin{bmatrix}0.9&amp;0.2\\ 0.1&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix}1\\0\end{bmatrix}.
+\]</span> Compute (or run) <span class="math inline">\(x_1\)</span> through <span class="math inline">\(x_5\)</span>. Sketch each component versus <span class="math inline">\(t\)</span>. Does the trajectory look like growth, decay, oscillation, or stabilization?</p>
+<p><strong>W2.</strong> Recognize the pattern. Without naming any fancy theory, match each matrix to the most plausible long-run story for a generic nonzero <span class="math inline">\(x_0\)</span>:</p>
+<ol type="a">
+<li><p><span class="math inline">\(A=\operatorname{diag}(1.2,\,0.5)\)</span></p></li>
+<li><p><span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span></p></li>
+<li><p><span class="math inline">\(A=\begin{bmatrix}0.5&amp;0.5\\0.5&amp;0.5\end{bmatrix}\)</span></p></li>
+</ol>
+<p><strong>W3.</strong> What-if. Same <span class="math inline">\(A\)</span> as W1, but start from <span class="math inline">\(x_0=(0,1)\)</span> instead of <span class="math inline">\((1,0)\)</span>. Compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. Do the two initial conditions seem headed toward the <em>same</em> long-run mix, or different ones?</p>
+<p><strong>W4.</strong> Limitations. A linear infection model <span class="math inline">\(x_{t+1}=Ax_t\)</span> with fixed <span class="math inline">\(A\)</span> predicts infections forever according to the same rule. Name two real-world reasons this could fail after a few weeks (policy, behavior, medicine, saturation, …).</p>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<p><strong>Y1.</strong> Simulation plan. Write 3–4 lines of pseudocode (or Octave/Python if you prefer) that, given <span class="math inline">\(A\)</span> and <span class="math inline">\(x_0\)</span>, prints <span class="math inline">\(x_0,x_1,\ldots,x_{10}\)</span>.</p>
+<p><strong>Y2.</strong> Pattern ID. You simulate <span class="math inline">\(x_{t+1}=Ax_t\)</span> and obtain the first component sequence <span class="math display">\[
+3,\; -3,\; 3,\; -3,\; 3,\;\ldots
+\]</span> Which pattern name fits best? Give one <span class="math inline">\(2\times 2\)</span> matrix that could produce oscillation like this from <span class="math inline">\(x_0=(3,0)\)</span> (many answers OK; one simple choice is enough).</p>
+<p><strong>Y3.</strong> What-if. Let <span class="math inline">\(A=\operatorname{diag}(0.5,\,0.5)\)</span> and <span class="math inline">\(x_0=(8,2)\)</span>.</p>
+<ol type="a">
+<li>Compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> by hand.</li>
+<li>If instead <span class="math inline">\(x_0=(80,20)\)</span>, how do <span class="math inline">\(x_1,x_2\)</span> compare? What limitation / feature of <em>linearity</em> does this illustrate?</li>
+</ol>
+<p><strong>Y4.</strong> Conjecture (no proof needed). For <span class="math display">\[
+A=\begin{bmatrix}1.1&amp;0\\0&amp;0.5\end{bmatrix},
+\]</span> compare long-run behavior starting from <span class="math inline">\(x_0=(1,0)\)</span> versus <span class="math inline">\(x_0=(0,1)\)</span>. Write one sentence you want explained later in the course.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Your turn only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Y1. Example pseudocode:</p>
+<pre><code>x ← x0
+print x
+for t = 1 to 10:
+    x ← A x
+    print x</code></pre>
+<p>(Octave: <code>x = A*x</code> in a <code>for</code> loop; Python: <code>x = A @ x</code>.)</p>
+<p>Y2. <strong>Oscillation.</strong> One simple choice: <span class="math inline">\(A=\begin{bmatrix}-1&amp;0\\0&amp;1\end{bmatrix}\)</span> (or <span class="math inline">\(A=-I\)</span>, or a <span class="math inline">\(180^\circ\)</span> rotation), which sends <span class="math inline">\((3,0)\mapsto(-3,0)\mapsto(3,0)\mapsto\cdots\)</span>.</p>
+<p>Y3. (a) <span class="math inline">\(x_1=(4,1)\)</span>, <span class="math inline">\(x_2=(2,0.5)\)</span>. (b) <span class="math inline">\(x_1=(40,10)\)</span>, <span class="math inline">\(x_2=(20,5)\)</span> — exactly <span class="math inline">\(10\times\)</span> the previous trajectory. Linearity scales the whole path with the initial state; the model has no “saturation” that would break that scaling.</p>
+<p>Y4. Sample conjecture: from <span class="math inline">\((1,0)\)</span> the state grows without bound along the first axis; from <span class="math inline">\((0,1)\)</span> it decays to zero — so long-run fate seems to depend on the <em>direction</em> of <span class="math inline">\(x_0\)</span>, not just its size. (Week 13 will explain this with eigenvectors.)</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -637,32 +773,142 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 25 — Simulation and long-run behavior"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Oct 21"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-25.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related reading and the course-wide list of daily objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-25)</span>.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Simulate many time steps computationally.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Plot state components through time.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Recognize stabilization, growth, decay, or oscillation.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Conduct a simple what-if simulation.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>State limitations of a linear dynamical model.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 25 — Simulation and long-run behavior"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Oct 21"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-25.pdf)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Reading: Simulation of linear dynamics (class notes / Boyd 9.1–9.3 continued). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-25)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and **Your turn**.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>**Note:** Today we **observe** long-run patterns by simulating. We do **not** yet explain them with eigenvalues — that mystery returns in Week 13.</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Simulate many time steps computationally.</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Plot state components through time.</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Recognize stabilization, growth, decay, or oscillation.</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Conduct a simple what-if simulation.</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>State limitations of a linear dynamical model.</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>With</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.8&amp;0.3<span class="sc">\\</span> 0.2&amp;0.7\end{bmatrix},\qquad x_0=\begin{bmatrix}1<span class="sc">\\</span>0\end{bmatrix},</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>compute $x_1$ and $x_2$ by hand. Guess (no calculator marathon): after many steps, will $x_t$ blow up, shrink to zero, or settle somewhere nonzero?</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>**Simulation recipe** (any language):</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Choose $A$ and initial state $x_0$.</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>For $t=0,1,\ldots,T-1$: set $x_{t+1}=\underline{\hspace{1.4cm}}$.</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Store or plot the components of $x_0,x_1,\ldots,x_T$ versus time.</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>**Long-run patterns** (names only — recognize from plots / tables):</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Pattern <span class="pp">|</span> What you see <span class="pp">|</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|----------------|</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Stabilization <span class="pp">|</span> $x_t$ approaches a fixed vector (or settles in magnitude) <span class="pp">|</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Growth <span class="pp">|</span> components grow without bound (often roughly geometric) <span class="pp">|</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Decay <span class="pp">|</span> components shrink toward $\underline{\hspace{1.0cm}}$ <span class="pp">|</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Oscillation <span class="pp">|</span> components bounce / cycle in sign or value <span class="pp">|</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>**What-if.** Change one thing — a parameter inside $A$, or the initial state $x_0$ — and re-simulate. Compare the two trajectories.</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>**Limitations of $x_{t+1}=Ax_t$.** The model is $\underline{\hspace{2.4cm}}$ (no $x^2$ terms, no products of states); $A$ is assumed constant; time is discrete; there is no noise, capacity limit, or policy change unless you build it into $A$. Real systems may only match the model for a while.</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>**W1.** Many steps on the board / laptop. Let</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.9&amp;0.2<span class="sc">\\</span> 0.1&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix}1<span class="sc">\\</span>0\end{bmatrix}.</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>Compute (or run) $x_1$ through $x_5$. Sketch each component versus $t$. Does the trajectory look like growth, decay, oscillation, or stabilization?</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-sketch.qmd &gt;}}</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>**W2.** Recognize the pattern. Without naming any fancy theory, match each matrix to the most plausible long-run story for a generic nonzero $x_0$:</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>(a) $A=\operatorname{diag}(1.2,\,0.5)$</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>(b) $A=\begin{bmatrix}0&amp;-1<span class="sc">\\</span>1&amp;0\end{bmatrix}$</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>(c) $A=\begin{bmatrix}0.5&amp;0.5<span class="sc">\\</span>0.5&amp;0.5\end{bmatrix}$</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>**W3.** What-if. Same $A$ as W1, but start from $x_0=(0,1)$ instead of $(1,0)$. Compute $x_1$ and $x_2$. Do the two initial conditions seem headed toward the *same* long-run mix, or different ones?</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>**W4.** Limitations. A linear infection model $x_{t+1}=Ax_t$ with fixed $A$ predicts infections forever according to the same rule. Name two real-world reasons this could fail after a few weeks (policy, behavior, medicine, saturation, …).</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>**Y1.** Simulation plan. Write 3–4 lines of pseudocode (or Octave/Python if you prefer) that, given $A$ and $x_0$, prints $x_0,x_1,\ldots,x_{10}$.</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>**Y2.** Pattern ID. You simulate $x_{t+1}=Ax_t$ and obtain the first component sequence</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>3,\; -3,\; 3,\; -3,\; 3,\;\ldots</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>Which pattern name fits best? Give one $2\times 2$ matrix that could produce oscillation like this from $x_0=(3,0)$ (many answers OK; one simple choice is enough).</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>**Y3.** What-if. Let $A=\operatorname{diag}(0.5,\,0.5)$ and $x_0=(8,2)$.</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>(a) Compute $x_1$ and $x_2$ by hand.</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>(b) If instead $x_0=(80,20)$, how do $x_1,x_2$ compare? What limitation / feature of *linearity* does this illustrate?</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>**Y4.** Conjecture (no proof needed). For</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1.1&amp;0<span class="sc">\\</span>0&amp;0.5\end{bmatrix},</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>compare long-run behavior starting from $x_0=(1,0)$ versus $x_0=(0,1)$. Write one sentence you want explained later in the course.</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-25.qmd &gt;}}</span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-25.qmd &gt;}}</span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

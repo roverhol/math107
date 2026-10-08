@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -118,13 +147,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-we-are-doing" id="toc-what-we-are-doing" class="nav-link active" data-scroll-target="#what-we-are-doing">What we are doing</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
+  <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
+  <li><a href="#demo-optional-run-once" id="toc-demo-optional-run-once" class="nav-link" data-scroll-target="#demo-optional-run-once">Demo (optional — run once)</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-04.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-04.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,14 +177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 20, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -153,14 +196,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lab-04.pdf">Download PDF</a></p>
-<p>Last updated: August 20, 2026.</p>
-<p>Date is on the <a href="../schedule.html">schedule</a>. Full exercises (Octave and Python) will be posted before class.</p>
-<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python; handwrite answers on the one-pager hard copy and get instructor initials after a short check-in. See <a href="../labs/lab-00.html">Lab 0</a> for the pattern.</p>
-<p><strong>Resources:</strong> Lachniet Ch. 2 and programming/loops material — <a href="../resources.html">Resources</a>.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Date is on the <a href="../schedule.html">schedule</a>. Same day: <a href="../quizzes/quiz-07.html">Quiz 7</a> (systems / RREF — <strong>not</strong> dynamics) and a short <a href="../lectures/lecture-26.html">Lecture 26</a>, then this lab.</p>
+<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python on a laptop. On lab day you get a <strong>self-contained one-pager</strong> with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. Preview the <a href="../labs/lab-04-ticket.html">one-pager</a>; write on the hard copy handed out in class. Quizzes will ask about these ideas later; Week 9 dynamics itself is assessed mainly via Midterm 2 / Lab 5, not Quiz 7.</p>
+<p><strong>Resources:</strong> Lachniet Ch. 2 (matrix ops) · loops / introductory programming in Lachniet · <a href="../resources/syntax.html">Syntax sheets</a> · <a href="../resources.html">Resources</a> · Lectures <a href="../lectures/lecture-24.html">24</a>–<a href="../lectures/lecture-26.html">26</a>.</p>
+<section id="what-we-are-doing" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-are-doing">What we are doing</h2>
+<p>Implement a linear dynamical model <span class="math inline">\(x_{t+1}=Ax_t\)</span>, iterate many steps, hand-check the first ones, compare a parameter change, and <strong>write down</strong> a long-run pattern you cannot yet explain. That mystery returns in Week 13 (eigenvectors) — do not try to invent the theory today.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ol type="1">
+<li>Implement a linear dynamical model.</li>
+<li>Write or complete a short iterative calculation.</li>
+<li>Validate the first steps by hand.</li>
+<li>Compare results under altered parameters or initial states.</li>
+<li>Record an unexplained long-run pattern for later investigation.</li>
+</ol>
+</section>
+<section id="math-connections" class="level2">
+<h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
+<p>State and transition matrix (<a href="../lectures/lecture-24.html">Lecture 24</a>); simulation, plots, and long-run names without eigenvalues (<a href="../lectures/lecture-25.html">Lecture 25</a>); implement / validate / compare (<a href="../lectures/lecture-26.html">Lecture 26</a>). Matrix–vector product <span class="math inline">\(Ax\)</span> from Week 7.</p>
+</section>
+<section id="key-syntax-this-lab" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Octave</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Matrix</td>
+<td><code>A = [0.9 0.2; 0.1 0.8]</code></td>
+<td><code>A = np.array([[0.9, 0.2], [0.1, 0.8]])</code></td>
+</tr>
+<tr class="even">
+<td>Column vector</td>
+<td><code>x = [1000; 0]</code></td>
+<td><code>x = np.array([1000., 0.])</code></td>
+</tr>
+<tr class="odd">
+<td>One step</td>
+<td><code>x = A*x</code></td>
+<td><code>x = A @ x</code></td>
+</tr>
+<tr class="even">
+<td>Loop</td>
+<td><code>for t = 1:20, x = A*x; end</code></td>
+<td><code>for t in range(20): x = A @ x</code></td>
+</tr>
+<tr class="odd">
+<td>Plot vs time</td>
+<td><code>plot(0:T, X(1,:), 'o-')</code></td>
+<td><code>plt.plot(range(T+1), X[0], 'o-')</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexing reminder:</strong> Boyd <span class="math inline">\(x_1\)</span> is 1-based. Octave is 1-based; NumPy is 0-based.</p>
+</section>
+<section id="demo-optional-run-once" class="level2">
+<h2 class="anchored" data-anchor-id="demo-optional-run-once">Demo (optional — run once)</h2>
+<p>Two campus groups: (on-campus, off-campus). One week of flow: <span class="math display">\[
+A=\begin{bmatrix}0.85&amp;0.10\\ 0.15&amp;0.90\end{bmatrix},\qquad x_0=\begin{bmatrix}800\\200\end{bmatrix}.
+\]</span></p>
+<p><strong>Octave:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">0.85</span> <span class="fl">0.10</span><span class="op">;</span> <span class="fl">0.15</span> <span class="fl">0.90</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">800</span><span class="op">;</span> <span class="fl">200</span>]<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">A</span><span class="op">*</span><span class="va">x</span>    <span class="co">% should match hand calculation of x1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="fl">0.85</span>, <span class="fl">0.10</span>], [<span class="fl">0.15</span>, <span class="fl">0.90</span>]])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">800.</span>, <span class="fl">200.</span>])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> A <span class="op">@</span> x   <span class="co"># should match hand calculation of x1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected:</strong> <span class="math inline">\(x_1=(700,300)\)</span>.</p>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Pick Octave or Python for the term. Use column vectors for states.</p>
+<p><strong>E1.</strong> Hand-check one step. Let <span class="math display">\[
+A=\begin{bmatrix}0.9&amp;0.2\\ 0.1&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix}1000\\0\end{bmatrix}.
+\]</span></p>
+<ol type="a">
+<li>Compute <span class="math inline">\(x_1=Ax_0\)</span> on paper.</li>
+<li>Check with code.</li>
+<li>Compute <span class="math inline">\(x_2\)</span> on paper; check with one more <code>A*x</code> / <code>A @ x</code>.</li>
+</ol>
+<p><strong>Octave:</strong> <code>A = [0.9 0.2; 0.1 0.8]; x = [1000; 0]; x = A*x</code></p>
+<p><strong>Python:</strong> <code>A = np.array([[0.9, 0.2], [0.1, 0.8]]); x = np.array([1000., 0.]); x = A @ x</code></p>
+<p><strong>Expected:</strong> <span class="math inline">\(x_1=(900,100)\)</span>; <span class="math inline">\(x_2=(830,170)\)</span>.</p>
+<p><strong>E2.</strong> Iterate. Starting from the same <span class="math inline">\(A\)</span> and <span class="math inline">\(x_0\)</span> as E1, write a loop that applies <span class="math inline">\(A\)</span> twenty times. Print (or store) <span class="math inline">\(x_5\)</span> and <span class="math inline">\(x_{20}\)</span>.</p>
+<p><strong>Octave sketch:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">0.9</span> <span class="fl">0.2</span><span class="op">;</span> <span class="fl">0.1</span> <span class="fl">0.8</span>]<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">1000</span><span class="op">;</span> <span class="fl">0</span>]<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">t</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">x</span> <span class="op">=</span> <span class="va">A</span><span class="op">*</span><span class="va">x</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="va">t</span> <span class="op">==</span> <span class="fl">5</span> <span class="op">||</span> <span class="va">t</span> <span class="op">==</span> <span class="fl">20</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="va">disp</span>(<span class="va">x</span><span class="op">'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python sketch:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="fl">0.9</span>, <span class="fl">0.2</span>], [<span class="fl">0.1</span>, <span class="fl">0.8</span>]])</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">1000.</span>, <span class="fl">0.</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>):</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> A <span class="op">@</span> x</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> t <span class="kw">in</span> (<span class="dv">5</span>, <span class="dv">20</span>):</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(t, x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected (rounded):</strong> <span class="math inline">\(x_5\approx(722.7,\,277.3)\)</span>; <span class="math inline">\(x_{20}\approx(666.9,\,333.1)\)</span>. (Exact fractions not required — match to about <span class="math inline">\(1\)</span> person.)</p>
+<p><strong>E3.</strong> Plot. Modify E2 to store both components at every time <span class="math inline">\(t=0,\ldots,20\)</span>, then plot each component versus <span class="math inline">\(t\)</span>. Do the curves look like growth, decay, oscillation, or stabilization?</p>
+<p><strong>Expected answer:</strong> stabilization (approach a steady mix near two-thirds / one-third); no oscillation.</p>
+<p><strong>E4.</strong> What-if parameter. Replace <span class="math inline">\(A\)</span> by <span class="math display">\[
+A_{\mathrm{new}}=\begin{bmatrix}0.7&amp;0.2\\ 0.3&amp;0.8\end{bmatrix}
+\]</span> (same <span class="math inline">\(x_0=(1000,0)\)</span>). Recompute <span class="math inline">\(x_1\)</span> by hand and with code, then simulate to <span class="math inline">\(t=20\)</span>. In one sentence: how does the long-run on-campus share compare to E2?</p>
+<p><strong>Expected:</strong> <span class="math inline">\(x_1=(700,300)\)</span>; by <span class="math inline">\(t=20\)</span> the first component is near <span class="math inline">\(400\)</span> (lower on-campus share than E2’s <span class="math inline">\(\sim 667\)</span>).</p>
+<p><strong>E5.</strong> Mystery log (save for Week 13). Let <span class="math display">\[
+B=\begin{bmatrix}1.2&amp;0\\ 0&amp;0.5\end{bmatrix}.
+\]</span> Simulate from <span class="math inline">\(x_0=(1,0)\)</span> and from <span class="math inline">\(y_0=(0,1)\)</span> for about <span class="math inline">\(15\)</span> steps each (print a few values or sketch).</p>
+<ol type="a">
+<li>Describe the two long-run behaviors in plain language.</li>
+<li>On the ticket, write <strong>one question</strong> you cannot yet answer with a formula (eigenvalue theory is off-limits today).</li>
+</ol>
+<p><strong>Expected:</strong> from <span class="math inline">\((1,0)\)</span> the state grows; from <span class="math inline">\((0,1)\)</span> it decays toward <span class="math inline">\(0\)</span>. Sample mystery: “Why does the <em>direction</em> of the start decide growth vs decay?”</p>
+<p><strong>E6 (stretch).</strong> Oscillation. Let <span class="math inline">\(C=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> and <span class="math inline">\(x_0=(1,0)\)</span>. Compute <span class="math inline">\(x_1,\ldots,x_4\)</span> by hand or code. What geometric map is <span class="math inline">\(C\)</span>? Does <span class="math inline">\(\|x_t\|\)</span> change?</p>
+<p><strong>Expected:</strong> <span class="math inline">\(x_1=(0,1)\)</span>, <span class="math inline">\(x_2=(-1,0)\)</span>, <span class="math inline">\(x_3=(0,-1)\)</span>, <span class="math inline">\(x_4=(1,0)\)</span>; <span class="math inline">\(90^\circ\)</span> CCW rotation; norm stays <span class="math inline">\(1\)</span>.</p>
+</section>
+<section id="one-pager" class="level2">
+<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
+<p>Preview the <a href="../labs/lab-04-ticket.html">Lab 4 ticket</a>; write on the hard copy in class.</p>
 
 
 <!-- -->
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -619,26 +794,154 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 4 — Predict a System Through Time"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 23"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-20</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-04.pdf)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: August 20, 2026.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Full exercises (Octave and Python) will be posted before class.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python; handwrite answers on the one-pager hard copy and get instructor initials after a short check-in. See <span class="co">[</span><span class="ot">Lab 0</span><span class="co">](lab-00.qmd)</span> for the pattern.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Resources:** Lachniet Ch. 2 and programming/loops material — <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 4 — Predict a System Through Time"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 23"</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-04.pdf)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Same day: <span class="co">[</span><span class="ot">Quiz 7</span><span class="co">](../quizzes/quiz-07.qmd)</span> (systems / RREF — **not** dynamics) and a short <span class="co">[</span><span class="ot">Lecture 26</span><span class="co">](../lectures/lecture-26.qmd)</span>, then this lab.</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python on a laptop. On lab day you get a **self-contained one-pager** with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-04-ticket.qmd)</span>; write on the hard copy handed out in class. Quizzes will ask about these ideas later; Week 9 dynamics itself is assessed mainly via Midterm 2 / Lab 5, not Quiz 7.</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>**Resources:** Lachniet Ch. 2 (matrix ops) · loops / introductory programming in Lachniet · <span class="co">[</span><span class="ot">Syntax sheets</span><span class="co">](../resources/syntax.qmd)</span> · <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span> · Lectures <span class="co">[</span><span class="ot">24</span><span class="co">](../lectures/lecture-24.qmd)</span>–<span class="co">[</span><span class="ot">26</span><span class="co">](../lectures/lecture-26.qmd)</span>.</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we are doing</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>Implement a linear dynamical model $x_{t+1}=Ax_t$, iterate many steps, hand-check the first ones, compare a parameter change, and **write down** a long-run pattern you cannot yet explain. That mystery returns in Week 13 (eigenvectors) — do not try to invent the theory today.</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Implement a linear dynamical model.</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Write or complete a short iterative calculation.</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Validate the first steps by hand.</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare results under altered parameters or initial states.</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Record an unexplained long-run pattern for later investigation.</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>State and transition matrix (<span class="co">[</span><span class="ot">Lecture 24</span><span class="co">](../lectures/lecture-24.qmd)</span>); simulation, plots, and long-run names without eigenvalues (<span class="co">[</span><span class="ot">Lecture 25</span><span class="co">](../lectures/lecture-25.qmd)</span>); implement / validate / compare (<span class="co">[</span><span class="ot">Lecture 26</span><span class="co">](../lectures/lecture-26.qmd)</span>). Matrix–vector product $Ax$ from Week 7.</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Matrix <span class="pp">|</span> <span class="in">`A = [0.9 0.2; 0.1 0.8]`</span> <span class="pp">|</span> <span class="in">`A = np.array([[0.9, 0.2], [0.1, 0.8]])`</span> <span class="pp">|</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column vector <span class="pp">|</span> <span class="in">`x = [1000; 0]`</span> <span class="pp">|</span> <span class="in">`x = np.array([1000., 0.])`</span> <span class="pp">|</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> One step <span class="pp">|</span> <span class="in">`x = A*x`</span> <span class="pp">|</span> <span class="in">`x = A @ x`</span> <span class="pp">|</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Loop <span class="pp">|</span> <span class="in">`for t = 1:20, x = A*x; end`</span> <span class="pp">|</span> <span class="in">`for t in range(20): x = A @ x`</span> <span class="pp">|</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Plot vs time <span class="pp">|</span> <span class="in">`plot(0:T, X(1,:), 'o-')`</span> <span class="pp">|</span> <span class="in">`plt.plot(range(T+1), X[0], 'o-')`</span> <span class="pp">|</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>**Indexing reminder:** Boyd $x_1$ is 1-based. Octave is 1-based; NumPy is 0-based.</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo (optional — run once)</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>Two campus groups: (on-campus, off-campus). One week of flow:</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.85&amp;0.10<span class="sc">\\</span> 0.15&amp;0.90\end{bmatrix},\qquad x_0=\begin{bmatrix}800<span class="sc">\\</span>200\end{bmatrix}.</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>**Octave:**</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">0.85</span> <span class="fl">0.10</span><span class="op">;</span> <span class="fl">0.15</span> <span class="fl">0.90</span>]<span class="op">;</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">800</span><span class="op">;</span> <span class="fl">200</span>]<span class="op">;</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">A</span><span class="op">*</span><span class="va">x</span>    <span class="co">% should match hand calculation of x1</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">0.85</span><span class="op">,</span> <span class="fl">0.10</span>]<span class="op">,</span> [<span class="fl">0.15</span><span class="op">,</span> <span class="fl">0.90</span>]])</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">800</span>.<span class="op">,</span> <span class="fl">200</span>.])</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">A</span> <span class="op">@</span> <span class="va">x</span>   # <span class="va">should</span> <span class="va">match</span> <span class="va">hand</span> <span class="va">calculation</span> <span class="va">of</span> <span class="va">x1</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">x_1</span><span class="op">=</span>(<span class="fl">700</span><span class="op">,</span><span class="fl">300</span>)$.</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>## <span class="va">Exercises</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a><span class="va">Pick</span> <span class="va">Octave</span> <span class="va">or</span> <span class="va">Python</span> <span class="kw">for</span> <span class="va">the</span> <span class="va">term</span>. <span class="va">Use</span> <span class="va">column</span> <span class="va">vectors</span> <span class="kw">for</span> <span class="va">states</span>.</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E1</span><span class="op">.**</span> <span class="va">Hand</span><span class="op">-</span><span class="va">check</span> <span class="va">one</span> <span class="va">step</span>. <span class="va">Let</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0.9</span><span class="op">&amp;</span><span class="fl">0.2</span><span class="op">\\</span> <span class="fl">0.1</span><span class="op">&amp;</span><span class="fl">0.8</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}<span class="op">,\</span><span class="va">qquad</span> <span class="va">x_0</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1000</span><span class="op">\\</span><span class="fl">0</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}.</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> $<span class="va">x_1</span><span class="op">=</span><span class="va">Ax_0</span>$ <span class="va">on</span> <span class="va">paper</span>.</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Check</span> <span class="va">with</span> <span class="va">code</span>.</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">Compute</span> $<span class="va">x_2</span>$ <span class="va">on</span> <span class="va">paper</span><span class="op">;</span> <span class="va">check</span> <span class="va">with</span> <span class="va">one</span> <span class="va">more</span> `<span class="va">A</span><span class="op">*</span><span class="va">x</span>` <span class="op">/</span> `<span class="va">A</span> <span class="op">@</span> <span class="va">x</span>`.</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Octave</span><span class="op">:**</span> `<span class="va">A</span> <span class="op">=</span> [<span class="fl">0.9</span> <span class="fl">0.2</span><span class="op">;</span> <span class="fl">0.1</span> <span class="fl">0.8</span>]<span class="op">;</span> <span class="va">x</span> <span class="op">=</span> [<span class="fl">1000</span><span class="op">;</span> <span class="fl">0</span>]<span class="op">;</span> <span class="va">x</span> <span class="op">=</span> <span class="va">A</span><span class="op">*</span><span class="va">x</span>`</span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span> `<span class="va">A</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">0.9</span><span class="op">,</span> <span class="fl">0.2</span>]<span class="op">,</span> [<span class="fl">0.1</span><span class="op">,</span> <span class="fl">0.8</span>]])<span class="op">;</span> <span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1000</span>.<span class="op">,</span> <span class="fl">0</span>.])<span class="op">;</span> <span class="va">x</span> <span class="op">=</span> <span class="va">A</span> <span class="op">@</span> <span class="va">x</span>`</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">x_1</span><span class="op">=</span>(<span class="fl">900</span><span class="op">,</span><span class="fl">100</span>)$<span class="op">;</span> $<span class="va">x_2</span><span class="op">=</span>(<span class="fl">830</span><span class="op">,</span><span class="fl">170</span>)$.</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E2</span><span class="op">.**</span> <span class="va">Iterate</span>. <span class="va">Starting</span> <span class="va">from</span> <span class="va">the</span> <span class="va">same</span> $<span class="va">A</span>$ <span class="va">and</span> $<span class="va">x_0</span>$ <span class="va">as</span> <span class="va">E1</span><span class="op">,</span> <span class="va">write</span> <span class="va">a</span> <span class="va">loop</span> <span class="va">that</span> <span class="va">applies</span> $<span class="va">A</span>$ <span class="va">twenty</span> <span class="va">times</span>. <span class="va">Print</span> (<span class="va">or</span> <span class="va">store</span>) $<span class="va">x_5</span>$ <span class="va">and</span> $<span class="va">x_</span>{<span class="fl">20</span>}$.</span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Octave</span> <span class="va">sketch</span><span class="op">:**</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>```<span class="va">matlab</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">0.9</span> <span class="fl">0.2</span><span class="op">;</span> <span class="fl">0.1</span> <span class="fl">0.8</span>]<span class="op">;</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> [<span class="fl">1000</span><span class="op">;</span> <span class="fl">0</span>]<span class="op">;</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">t</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>  <span class="va">x</span> <span class="op">=</span> <span class="va">A</span><span class="op">*</span><span class="va">x</span><span class="op">;</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>  <span class="kw">if</span> <span class="va">t</span> <span class="op">==</span> <span class="fl">5</span> <span class="op">||</span> <span class="va">t</span> <span class="op">==</span> <span class="fl">20</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>    <span class="va">disp</span>(<span class="va">x</span><span class="op">'</span>)</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span> <span class="va">sketch</span><span class="op">:**</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">0.9</span><span class="op">,</span> <span class="fl">0.2</span>]<span class="op">,</span> [<span class="fl">0.1</span><span class="op">,</span> <span class="fl">0.8</span>]])</span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1000</span>.<span class="op">,</span> <span class="fl">0</span>.])</span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">t</span> <span class="va">in</span> <span class="va">range</span>(<span class="fl">1</span><span class="op">,</span> <span class="fl">21</span>)<span class="op">:</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>    <span class="va">x</span> <span class="op">=</span> <span class="va">A</span> <span class="op">@</span> <span class="va">x</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="va">t</span> <span class="va">in</span> (<span class="fl">5</span><span class="op">,</span> <span class="fl">20</span>)<span class="op">:</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>        <span class="va">print</span>(<span class="va">t</span><span class="op">,</span> <span class="va">x</span>)</span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span> (<span class="va">rounded</span>)<span class="op">:**</span> $<span class="va">x_5</span><span class="op">\</span><span class="va">approx</span>(<span class="fl">722.7</span><span class="op">,\,</span><span class="fl">277.3</span>)$<span class="op">;</span> $<span class="va">x_</span>{<span class="fl">20</span>}<span class="op">\</span><span class="va">approx</span>(<span class="fl">666.9</span><span class="op">,\,</span><span class="fl">333.1</span>)$. (<span class="va">Exact</span> <span class="va">fractions</span> <span class="va">not</span> <span class="va">required</span> — <span class="va">match</span> <span class="va">to</span> <span class="va">about</span> $<span class="fl">1</span>$ <span class="va">person</span>.)</span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E3</span><span class="op">.**</span> <span class="va">Plot</span>. <span class="va">Modify</span> <span class="va">E2</span> <span class="va">to</span> <span class="va">store</span> <span class="va">both</span> <span class="va">components</span> <span class="va">at</span> <span class="va">every</span> <span class="va">time</span> $<span class="va">t</span><span class="op">=</span><span class="fl">0</span><span class="op">,\</span><span class="va">ldots</span><span class="op">,</span><span class="fl">20</span>$<span class="op">,</span> <span class="va">then</span> <span class="va">plot</span> <span class="va">each</span> <span class="va">component</span> <span class="va">versus</span> $<span class="va">t</span>$. <span class="va">Do</span> <span class="va">the</span> <span class="va">curves</span> <span class="va">look</span> <span class="va">like</span> <span class="va">growth</span><span class="op">,</span> <span class="va">decay</span><span class="op">,</span> <span class="va">oscillation</span><span class="op">,</span> <span class="va">or</span> <span class="va">stabilization</span>?</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span> <span class="va">answer</span><span class="op">:**</span> <span class="va">stabilization</span> (<span class="va">approach</span> <span class="va">a</span> <span class="va">steady</span> <span class="va">mix</span> <span class="va">near</span> <span class="va">two</span><span class="op">-</span><span class="va">thirds</span> <span class="op">/</span> <span class="va">one</span><span class="op">-</span><span class="va">third</span>)<span class="op">;</span> <span class="va">no</span> <span class="va">oscillation</span>.</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E4</span><span class="op">.**</span> <span class="va">What</span><span class="op">-</span><span class="kw">if</span> <span class="va">parameter</span>. <span class="va">Replace</span> $<span class="va">A</span>$ <span class="va">by</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="va">A_</span>{<span class="op">\</span><span class="va">mathrm</span>{<span class="va">new</span>}}<span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0.7</span><span class="op">&amp;</span><span class="fl">0.2</span><span class="op">\\</span> <span class="fl">0.3</span><span class="op">&amp;</span><span class="fl">0.8</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}</span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>(<span class="va">same</span> $<span class="va">x_0</span><span class="op">=</span>(<span class="fl">1000</span><span class="op">,</span><span class="fl">0</span>)$). <span class="va">Recompute</span> $<span class="va">x_1</span>$ <span class="va">by</span> <span class="va">hand</span> <span class="va">and</span> <span class="va">with</span> <span class="va">code</span><span class="op">,</span> <span class="va">then</span> <span class="va">simulate</span> <span class="va">to</span> $<span class="va">t</span><span class="op">=</span><span class="fl">20</span>$. <span class="va">In</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">:</span> <span class="va">how</span> <span class="va">does</span> <span class="va">the</span> <span class="va">long</span><span class="op">-</span><span class="va">run</span> <span class="va">on</span><span class="op">-</span><span class="va">campus</span> <span class="va">share</span> <span class="va">compare</span> <span class="va">to</span> <span class="va">E2</span>?</span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">x_1</span><span class="op">=</span>(<span class="fl">700</span><span class="op">,</span><span class="fl">300</span>)$<span class="op">;</span> <span class="va">by</span> $<span class="va">t</span><span class="op">=</span><span class="fl">20</span>$ <span class="va">the</span> <span class="va">first</span> <span class="va">component</span> <span class="va">is</span> <span class="va">near</span> $<span class="fl">400</span>$ (<span class="va">lower</span> <span class="va">on</span><span class="op">-</span><span class="va">campus</span> <span class="va">share</span> <span class="va">than</span> <span class="va">E2</span>’<span class="va">s</span> $<span class="op">\</span><span class="va">sim</span> <span class="fl">667</span>$).</span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E5</span><span class="op">.**</span> <span class="va">Mystery</span> <span class="va">log</span> (<span class="va">save</span> <span class="kw">for</span> <span class="va">Week</span> <span class="fl">13</span>). <span class="va">Let</span></span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="va">B</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1.2</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\\</span> <span class="fl">0</span><span class="op">&amp;</span><span class="fl">0.5</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}.</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="va">Simulate</span> <span class="va">from</span> $<span class="va">x_0</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$ <span class="va">and</span> <span class="va">from</span> $<span class="va">y_0</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$ <span class="kw">for</span> <span class="va">about</span> $<span class="fl">15</span>$ <span class="va">steps</span> <span class="va">each</span> (<span class="va">print</span> <span class="va">a</span> <span class="va">few</span> <span class="va">values</span> <span class="va">or</span> <span class="va">sketch</span>).</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Describe</span> <span class="va">the</span> <span class="va">two</span> <span class="va">long</span><span class="op">-</span><span class="va">run</span> <span class="va">behaviors</span> <span class="va">in</span> <span class="va">plain</span> <span class="va">language</span>.</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">On</span> <span class="va">the</span> <span class="va">ticket</span><span class="op">,</span> <span class="va">write</span> <span class="op">**</span><span class="va">one</span> <span class="va">question</span><span class="op">**</span> <span class="va">you</span> <span class="va">cannot</span> <span class="va">yet</span> <span class="va">answer</span> <span class="va">with</span> <span class="va">a</span> <span class="va">formula</span> (<span class="va">eigenvalue</span> <span class="va">theory</span> <span class="va">is</span> <span class="va">off</span><span class="op">-</span><span class="va">limits</span> <span class="va">today</span>).</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">from</span> $(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$ <span class="va">the</span> <span class="va">state</span> <span class="va">grows</span><span class="op">;</span> <span class="va">from</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$ <span class="va">it</span> <span class="va">decays</span> <span class="va">toward</span> $<span class="fl">0</span>$. <span class="va">Sample</span> <span class="va">mystery</span><span class="op">:</span> “<span class="va">Why</span> <span class="va">does</span> <span class="va">the</span> <span class="op">*</span><span class="va">direction</span><span class="op">*</span> <span class="va">of</span> <span class="va">the</span> <span class="va">start</span> <span class="va">decide</span> <span class="va">growth</span> <span class="va">vs</span> <span class="va">decay</span>?”</span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E6</span> (<span class="va">stretch</span>)<span class="op">.**</span> <span class="va">Oscillation</span>. <span class="va">Let</span> $<span class="va">C</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">\\</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$ <span class="va">and</span> $<span class="va">x_0</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$. <span class="va">Compute</span> $<span class="va">x_1</span><span class="op">,\</span><span class="va">ldots</span><span class="op">,</span><span class="va">x_4</span>$ <span class="va">by</span> <span class="va">hand</span> <span class="va">or</span> <span class="va">code</span>. <span class="va">What</span> <span class="va">geometric</span> <span class="va">map</span> <span class="va">is</span> $<span class="va">C</span>$? <span class="va">Does</span> $<span class="op">\|</span><span class="va">x_t</span><span class="op">\|</span>$ <span class="va">change</span>?</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">x_1</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$<span class="op">,</span> $<span class="va">x_2</span><span class="op">=</span>(<span class="op">-</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> $<span class="va">x_3</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,-</span><span class="fl">1</span>)$<span class="op">,</span> $<span class="va">x_4</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">;</span> $<span class="fl">90</span><span class="op">^\</span><span class="va">circ</span>$ <span class="va">CCW</span> <span class="va">rotation</span><span class="op">;</span> <span class="va">norm</span> <span class="va">stays</span> $<span class="fl">1</span>$.</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>## <span class="va">One</span><span class="op">-</span><span class="va">pager</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="va">Preview</span> <span class="va">the</span> [<span class="va">Lab</span> <span class="fl">4</span> <span class="va">ticket</span>](<span class="va">lab</span><span class="op">-</span><span class="fl">04</span><span class="op">-</span><span class="va">ticket</span>.<span class="va">qmd</span>)<span class="op">;</span> <span class="va">write</span> <span class="va">on</span> <span class="va">the</span> <span class="va">hard</span> <span class="va">copy</span> <span class="va">in</span> <span class="va">class</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

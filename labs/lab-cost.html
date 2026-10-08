@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -118,13 +147,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-we-are-doing" id="toc-what-we-are-doing" class="nav-link active" data-scroll-target="#what-we-are-doing">What we are doing</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
+  <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
+  <li><a href="#demo-optional-run-once" id="toc-demo-optional-run-once" class="nav-link" data-scroll-target="#demo-optional-run-once">Demo (optional — run once)</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-cost.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-cost.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,14 +177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 20, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -153,13 +196,142 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lab-cost.pdf">Download PDF</a></p>
-<p>Last updated: August 20, 2026.</p>
-<p>Date is on the <a href="../schedule.html">schedule</a>. Full exercises (Octave and Python) will be posted before class.</p>
-<p><strong>Credit:</strong> Same as other labs — in-class one-pager + instructor initials, not a Canvas file upload. See <a href="../labs/lab-00.html">Lab 0</a> for the pattern.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Date is on the <a href="../schedule.html">schedule</a>. Same day: short <a href="../lectures/lecture-29.html">Lecture 29</a> (Boyd’s <span class="math inline">\(ab^{\mathsf{T}}c\)</span> example), then this micro-lab. Precursor to the <a href="../projects/capstone.html">capstone</a>: same math, different cost.</p>
+<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work in Octave or Python on a laptop (demos and both-language code are on this hub). On lab day you get a <strong>self-contained one-pager</strong> with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. The <a href="../labs/lab-cost-ticket.html">one-pager</a> is posted so you can preview it — write on the hard copy handed out in class. Quizzes will ask about these ideas (<a href="../quizzes/quiz-08.html">Quiz 8</a> covers Week 10).</p>
+<p><strong>Resources:</strong> <a href="../resources/syntax.html">Syntax sheets</a> · <a href="../resources.html">Resources</a> · <a href="../lectures/lecture-29.html">Lecture 29</a> · Boyd VMLS (matrix multiplication / complexity discussion around <span class="math inline">\(ab^{\mathsf{T}}c\)</span>).</p>
+<section id="what-we-are-doing" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-are-doing">What we are doing</h2>
+<p>Compute <span class="math inline">\(y=(ab^{\mathsf{T}})c\)</span> two ways: form the outer product first, or multiply the scalar <span class="math inline">\(b^{\mathsf{T}}c\)</span> first. Check they agree, count storage, time both for growing <span class="math inline">\(n\)</span>, and justify which order to use.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ol type="1">
+<li>Compare equivalent computation orders.</li>
+<li>Count storage (intermediate values).</li>
+<li>Measure runtime for increasing problem sizes.</li>
+<li>Justify an order quantitatively.</li>
+</ol>
+</section>
+<section id="math-connections" class="level2">
+<h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
+<p>Associativity <span class="math inline">\((XY)z=X(Yz)\)</span> and the identity <span class="math inline">\((ab^{\mathsf{T}})c=a(b^{\mathsf{T}}c)\)</span> from <a href="../lectures/lecture-29.html">Lecture 29</a>; products from <a href="../lectures/lecture-27.html">Lecture 27</a>. Capstone will again ask: same answer, cheaper path?</p>
+</section>
+<section id="key-syntax-this-lab" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Octave</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Column vectors</td>
+<td><code>a = randn(n,1);</code></td>
+<td><code>a = np.random.randn(n)</code></td>
+</tr>
+<tr class="even">
+<td>Outer product <span class="math inline">\(ab^{\mathsf{T}}\)</span></td>
+<td><code>a*b'</code></td>
+<td><code>np.outer(a, b)</code></td>
+</tr>
+<tr class="odd">
+<td>Matrix–vector</td>
+<td><code>M*c</code></td>
+<td><code>M @ c</code></td>
+</tr>
+<tr class="even">
+<td>Inner product <span class="math inline">\(b^{\mathsf{T}}c\)</span></td>
+<td><code>b'*c</code></td>
+<td><code>b @ c</code> (1D) or <code>b.T @ c</code></td>
+</tr>
+<tr class="odd">
+<td>Scale vector by scalar</td>
+<td><code>s*a</code></td>
+<td><code>s * a</code></td>
+</tr>
+<tr class="even">
+<td>Wall time</td>
+<td><code>tic; …; toc</code></td>
+<td><code>time.perf_counter()</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexing reminder:</strong> Boyd <span class="math inline">\(x_1\)</span> is 1-based. Octave is 1-based; NumPy is 0-based. Today’s work is mostly whole-vector ops.</p>
+</section>
+<section id="demo-optional-run-once" class="level2">
+<h2 class="anchored" data-anchor-id="demo-optional-run-once">Demo (optional — run once)</h2>
+<p>Small <span class="math inline">\(n\)</span> check that both orders match.</p>
+<p><strong>Octave:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">2</span>]<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> [<span class="fl">3</span><span class="op">;</span> <span class="fl">4</span>]<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="op">-</span><span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">y1</span> <span class="op">=</span> (<span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">'</span>)<span class="op">*</span><span class="va">c</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">y2</span> <span class="op">=</span> <span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">'*</span><span class="va">c</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="fl">2.0</span>])<span class="op">;</span> b <span class="op">=</span> np.array([<span class="fl">3.0</span>, <span class="fl">4.0</span>])<span class="op">;</span> c <span class="op">=</span> np.array([<span class="fl">1.0</span>, <span class="op">-</span><span class="fl">1.0</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.outer(a, b) <span class="op">@</span> c</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> a <span class="op">*</span> (b <span class="op">@</span> c)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y1, y2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected output:</strong></p>
+<pre><code>-1
+-2</code></pre>
+<p>(both orders; Python prints something like <code>[-1. -2.]</code> twice).</p>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Pick Octave or Python for the term. Use the <strong>same random</strong> <span class="math inline">\(a,b,c\)</span> when comparing two orders for a fixed <span class="math inline">\(n\)</span>.</p>
+<p><strong>E1.</strong> Tiny hand check. With <span class="math inline">\(a=(1,0,-1)\)</span>, <span class="math inline">\(b=(2,1,0)\)</span>, <span class="math inline">\(c=(1,1,1)\)</span>, compute by hand (or tiny code) both <span class="math inline">\((ab^{\mathsf{T}})c\)</span> and <span class="math inline">\(a(b^{\mathsf{T}}c)\)</span>.</p>
+<p><strong>Expected answer:</strong> both equal <span class="math inline">\((3,0,-3)\)</span> (since <span class="math inline">\(b^{\mathsf{T}}c=3\)</span>).</p>
+<p><strong>E2.</strong> Storage. For general <span class="math inline">\(n\)</span>, how many entries are stored in the intermediate <span class="math inline">\(M=ab^{\mathsf{T}}\)</span>? How many numbers is the intermediate scalar <span class="math inline">\(s=b^{\mathsf{T}}c\)</span>? For <span class="math inline">\(n=2000\)</span>, write both counts.</p>
+<p><strong>Expected answer:</strong> <span class="math inline">\(n^2\)</span> vs <span class="math inline">\(1\)</span>; for <span class="math inline">\(n=2000\)</span>: <span class="math inline">\(4{,}000{,}000\)</span> vs <span class="math inline">\(1\)</span>.</p>
+<p><strong>E3.</strong> Agree for larger <span class="math inline">\(n\)</span>. Generate random <span class="math inline">\(n\)</span>-vectors with <span class="math inline">\(n=500\)</span>. Compute <span class="math display">\[
+y_1=(ab^{\mathsf{T}})c,\qquad y_2=a(b^{\mathsf{T}}c)
+\]</span> and report a measure of agreement (e.g.&nbsp;<code>norm(y1-y2)</code> / <code>np.linalg.norm(y1-y2)</code>).</p>
+<p><strong>Octave:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">500</span><span class="op">;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">y1</span> <span class="op">=</span> (<span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">'</span>)<span class="op">*</span><span class="va">c</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">y2</span> <span class="op">=</span> <span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">'*</span><span class="va">c</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">norm</span>(<span class="va">y1</span><span class="op">-</span><span class="va">y2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">0</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> rng.standard_normal(n)<span class="op">;</span> b <span class="op">=</span> rng.standard_normal(n)<span class="op">;</span> c <span class="op">=</span> rng.standard_normal(n)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.outer(a, b) <span class="op">@</span> c</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> a <span class="op">*</span> (b <span class="op">@</span> c)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.linalg.norm(y1 <span class="op">-</span> y2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected output:</strong> a tiny number (order <span class="math inline">\(10^{-10}\)</span> or smaller — floating-point noise, not a modeling error).</p>
+<p><strong>E4.</strong> Time both orders. For <span class="math inline">\(n=200\)</span>, <span class="math inline">\(n=1000\)</span>, and <span class="math inline">\(n=3000\)</span> (skip <span class="math inline">\(3000\)</span> on a slow machine if needed), time Order 1 <code>(a*b')*c</code> / <code>np.outer(a,b)@c</code> and Order 2 <code>a*(b'*c)</code> / <code>a*(b@c)</code>. Record times on the ticket.</p>
+<p><strong>Octave pattern:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">1000</span><span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="va">tic</span><span class="op">;</span> <span class="va">y1</span> <span class="op">=</span> (<span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">'</span>)<span class="op">*</span><span class="va">c</span><span class="op">;</span> <span class="va">t1</span> <span class="op">=</span> <span class="va">toc</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="va">tic</span><span class="op">;</span> <span class="va">y2</span> <span class="op">=</span> <span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">'*</span><span class="va">c</span>)<span class="op">;</span> <span class="va">t2</span> <span class="op">=</span> <span class="va">toc</span><span class="op">;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="va">t1</span><span class="op">,</span> <span class="va">t2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python pattern:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np, time</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> rng.standard_normal(n)<span class="op">;</span> b <span class="op">=</span> rng.standard_normal(n)<span class="op">;</span> c <span class="op">=</span> rng.standard_normal(n)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()<span class="op">;</span> y1 <span class="op">=</span> np.outer(a, b) <span class="op">@</span> c<span class="op">;</span> t1 <span class="op">=</span> time.perf_counter() <span class="op">-</span> t0</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>t0 <span class="op">=</span> time.perf_counter()<span class="op">;</span> y2 <span class="op">=</span> a <span class="op">*</span> (b <span class="op">@</span> c)<span class="op">;</span> t2 <span class="op">=</span> time.perf_counter() <span class="op">-</span> t0</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t1, t2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected:</strong> Order 2 much faster; the gap grows with <span class="math inline">\(n\)</span>. Absolute times vary by machine — report yours.</p>
+<p><strong>E5.</strong> Justify. In 2–3 sentences on the ticket: which order would you use for <span class="math inline">\(n=10^4\)</span>, and what two quantitative observations (storage count + timing trend) support that choice?</p>
+<p><strong>Expected answer (idea):</strong> scalar-first — stores <span class="math inline">\(1\)</span> intermediate vs <span class="math inline">\(10^8\)</span> matrix entries; timings show Order 1 growing far faster (roughly with <span class="math inline">\(n^2\)</span>).</p>
+</section>
+<section id="one-pager" class="level2">
+<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
+<p>Preview the <a href="../labs/lab-cost-ticket.html">micro-lab ticket</a>; write on the hard copy in class.</p>
 
 
 <!-- -->
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -618,24 +790,153 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Micro-lab — Computational cost"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 30"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-20</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-cost.pdf)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: August 20, 2026.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Full exercises (Octave and Python) will be posted before class.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Same as other labs — in-class one-pager + instructor initials, not a Canvas file upload. See <span class="co">[</span><span class="ot">Lab 0</span><span class="co">](lab-00.qmd)</span> for the pattern.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Micro-lab — Computational cost"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 30"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-cost.pdf)</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Same day: short <span class="co">[</span><span class="ot">Lecture 29</span><span class="co">](../lectures/lecture-29.qmd)</span> (Boyd’s $ab^{\mathsf{T}}c$ example), then this micro-lab. Precursor to the <span class="co">[</span><span class="ot">capstone</span><span class="co">](../projects/capstone.qmd)</span>: same math, different cost.</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work in Octave or Python on a laptop (demos and both-language code are on this hub). On lab day you get a **self-contained one-pager** with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. The <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-cost-ticket.qmd)</span> is posted so you can preview it — write on the hard copy handed out in class. Quizzes will ask about these ideas (<span class="co">[</span><span class="ot">Quiz 8</span><span class="co">](../quizzes/quiz-08.qmd)</span> covers Week 10).</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>**Resources:** <span class="co">[</span><span class="ot">Syntax sheets</span><span class="co">](../resources/syntax.qmd)</span> · <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span> · <span class="co">[</span><span class="ot">Lecture 29</span><span class="co">](../lectures/lecture-29.qmd)</span> · Boyd VMLS (matrix multiplication / complexity discussion around $ab^{\mathsf{T}}c$).</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we are doing</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>Compute $y=(ab^{\mathsf{T}})c$ two ways: form the outer product first, or multiply the scalar $b^{\mathsf{T}}c$ first. Check they agree, count storage, time both for growing $n$, and justify which order to use.</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compare equivalent computation orders.</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Count storage (intermediate values).</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Measure runtime for increasing problem sizes.</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Justify an order quantitatively.</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>Associativity $(XY)z=X(Yz)$ and the identity $(ab^{\mathsf{T}})c=a(b^{\mathsf{T}}c)$ from <span class="co">[</span><span class="ot">Lecture 29</span><span class="co">](../lectures/lecture-29.qmd)</span>; products from <span class="co">[</span><span class="ot">Lecture 27</span><span class="co">](../lectures/lecture-27.qmd)</span>. Capstone will again ask: same answer, cheaper path?</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Column vectors <span class="pp">|</span> <span class="in">`a = randn(n,1);`</span> <span class="pp">|</span> <span class="in">`a = np.random.randn(n)`</span> <span class="pp">|</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Outer product $ab^{\mathsf{T}}$ <span class="pp">|</span> <span class="in">`a*b'`</span> <span class="pp">|</span> <span class="in">`np.outer(a, b)`</span> <span class="pp">|</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Matrix–vector <span class="pp">|</span> <span class="in">`M*c`</span> <span class="pp">|</span> <span class="in">`M @ c`</span> <span class="pp">|</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Inner product $b^{\mathsf{T}}c$ <span class="pp">|</span> <span class="in">`b'*c`</span> <span class="pp">|</span> <span class="in">`b @ c`</span> (1D) or <span class="in">`b.T @ c`</span> <span class="pp">|</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Scale vector by scalar <span class="pp">|</span> <span class="in">`s*a`</span> <span class="pp">|</span> <span class="in">`s * a`</span> <span class="pp">|</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wall time <span class="pp">|</span> <span class="in">`tic; …; toc`</span> <span class="pp">|</span> <span class="in">`time.perf_counter()`</span> <span class="pp">|</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>**Indexing reminder:** Boyd $x_1$ is 1-based. Octave is 1-based; NumPy is 0-based. Today’s work is mostly whole-vector ops.</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo (optional — run once)</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>Small $n$ check that both orders match.</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>**Octave:**</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="fl">2</span>]<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> [<span class="fl">3</span><span class="op">;</span> <span class="fl">4</span>]<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> [<span class="fl">1</span><span class="op">;</span> <span class="op">-</span><span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="va">y1</span> <span class="op">=</span> (<span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">'</span>)<span class="op">*</span><span class="va">c</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="va">y2</span> <span class="op">=</span> <span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">'*</span><span class="va">c</span>)</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1.0</span><span class="op">,</span> <span class="fl">2.0</span>])<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">3.0</span><span class="op">,</span> <span class="fl">4.0</span>])<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">1.0</span><span class="op">,</span> <span class="op">-</span><span class="fl">1.0</span>])</span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="va">y1</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">outer</span>(<span class="va">a</span><span class="op">,</span> <span class="va">b</span>) <span class="op">@</span> <span class="va">c</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="va">y2</span> <span class="op">=</span> <span class="va">a</span> <span class="op">*</span> (<span class="va">b</span> <span class="op">@</span> <span class="va">c</span>)</span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="va">y1</span><span class="op">,</span> <span class="va">y2</span>)</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span> <span class="va">output</span><span class="op">:**</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="fl">1</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="op">-</span><span class="fl">2</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>(<span class="va">both</span> <span class="va">orders</span><span class="op">;</span> <span class="va">Python</span> <span class="va">prints</span> <span class="va">something</span> <span class="va">like</span> `[<span class="op">-</span><span class="fl">1</span>. <span class="op">-</span><span class="fl">2</span>.]` <span class="va">twice</span>).</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>## <span class="va">Exercises</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="va">Pick</span> <span class="va">Octave</span> <span class="va">or</span> <span class="va">Python</span> <span class="kw">for</span> <span class="va">the</span> <span class="va">term</span>. <span class="va">Use</span> <span class="va">the</span> <span class="op">**</span><span class="va">same</span> <span class="va">random</span><span class="op">**</span> $<span class="va">a</span><span class="op">,</span><span class="va">b</span><span class="op">,</span><span class="va">c</span>$ <span class="va">when</span> <span class="va">comparing</span> <span class="va">two</span> <span class="va">orders</span> <span class="kw">for</span> <span class="va">a</span> <span class="va">fixed</span> $<span class="va">n</span>$.</span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E1</span><span class="op">.**</span> <span class="va">Tiny</span> <span class="va">hand</span> <span class="va">check</span>. <span class="va">With</span> $<span class="va">a</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span><span class="op">,-</span><span class="fl">1</span>)$<span class="op">,</span> $<span class="va">b</span><span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> $<span class="va">c</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)$<span class="op">,</span> <span class="va">compute</span> <span class="va">by</span> <span class="va">hand</span> (<span class="va">or</span> <span class="va">tiny</span> <span class="va">code</span>) <span class="va">both</span> $(<span class="va">ab</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}})<span class="va">c</span>$ <span class="va">and</span> $<span class="va">a</span>(<span class="va">b</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">c</span>)$.</span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span> <span class="va">answer</span><span class="op">:**</span> <span class="va">both</span> <span class="va">equal</span> $(<span class="fl">3</span><span class="op">,</span><span class="fl">0</span><span class="op">,-</span><span class="fl">3</span>)$ (<span class="va">since</span> $<span class="va">b</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">c</span><span class="op">=</span><span class="fl">3</span>$).</span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E2</span><span class="op">.**</span> <span class="va">Storage</span>. <span class="va">For</span> <span class="va">general</span> $<span class="va">n</span>$<span class="op">,</span> <span class="va">how</span> <span class="va">many</span> <span class="va">entries</span> <span class="va">are</span> <span class="va">stored</span> <span class="va">in</span> <span class="va">the</span> <span class="va">intermediate</span> $<span class="va">M</span><span class="op">=</span><span class="va">ab</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}$? <span class="va">How</span> <span class="va">many</span> <span class="va">numbers</span> <span class="va">is</span> <span class="va">the</span> <span class="va">intermediate</span> <span class="va">scalar</span> $<span class="va">s</span><span class="op">=</span><span class="va">b</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">c</span>$? <span class="va">For</span> $<span class="va">n</span><span class="op">=</span><span class="fl">2000</span>$<span class="op">,</span> <span class="va">write</span> <span class="va">both</span> <span class="va">counts</span>.</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span> <span class="va">answer</span><span class="op">:**</span> $<span class="va">n</span><span class="op">^</span><span class="fl">2</span>$ <span class="va">vs</span> $<span class="fl">1</span>$<span class="op">;</span> <span class="kw">for</span> $<span class="va">n</span><span class="op">=</span><span class="fl">2000</span>$<span class="op">:</span> $<span class="fl">4</span>{<span class="op">,</span>}<span class="fl">000</span>{<span class="op">,</span>}<span class="fl">000</span>$ <span class="va">vs</span> $<span class="fl">1</span>$.</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E3</span><span class="op">.**</span> <span class="va">Agree</span> <span class="kw">for</span> <span class="va">larger</span> $<span class="va">n</span>$. <span class="va">Generate</span> <span class="va">random</span> $<span class="va">n</span>$<span class="op">-</span><span class="va">vectors</span> <span class="va">with</span> $<span class="va">n</span><span class="op">=</span><span class="fl">500</span>$. <span class="va">Compute</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a><span class="va">y_1</span><span class="op">=</span>(<span class="va">ab</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}})<span class="va">c</span><span class="op">,\</span><span class="va">qquad</span> <span class="va">y_2</span><span class="op">=</span><span class="va">a</span>(<span class="va">b</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">c</span>)</span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a><span class="va">and</span> <span class="va">report</span> <span class="va">a</span> <span class="va">measure</span> <span class="va">of</span> <span class="va">agreement</span> (<span class="va">e</span>.<span class="va">g</span>. `<span class="va">norm</span>(<span class="va">y1</span><span class="op">-</span><span class="va">y2</span>)` <span class="op">/</span> `<span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">y1</span><span class="op">-</span><span class="va">y2</span>)`).</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Octave</span><span class="op">:**</span></span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>```<span class="va">matlab</span></span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">500</span><span class="op">;</span></span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a><span class="va">y1</span> <span class="op">=</span> (<span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">'</span>)<span class="op">*</span><span class="va">c</span><span class="op">;</span></span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a><span class="va">y2</span> <span class="op">=</span> <span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">'*</span><span class="va">c</span>)<span class="op">;</span></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="va">norm</span>(<span class="va">y1</span><span class="op">-</span><span class="va">y2</span>)</span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">500</span></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="va">rng</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">random</span>.<span class="va">default_rng</span>(<span class="fl">0</span>)</span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">rng</span>.<span class="va">standard_normal</span>(<span class="va">n</span>)<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">rng</span>.<span class="va">standard_normal</span>(<span class="va">n</span>)<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> <span class="va">rng</span>.<span class="va">standard_normal</span>(<span class="va">n</span>)</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="va">y1</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">outer</span>(<span class="va">a</span><span class="op">,</span> <span class="va">b</span>) <span class="op">@</span> <span class="va">c</span></span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a><span class="va">y2</span> <span class="op">=</span> <span class="va">a</span> <span class="op">*</span> (<span class="va">b</span> <span class="op">@</span> <span class="va">c</span>)</span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="va">np</span>.<span class="va">linalg</span>.<span class="va">norm</span>(<span class="va">y1</span> <span class="op">-</span> <span class="va">y2</span>))</span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span> <span class="va">output</span><span class="op">:**</span> <span class="va">a</span> <span class="va">tiny</span> <span class="va">number</span> (<span class="va">order</span> $<span class="fl">10</span><span class="op">^</span>{<span class="op">-</span><span class="fl">10</span>}$ <span class="va">or</span> <span class="va">smaller</span> — <span class="va">floating</span><span class="op">-</span><span class="va">point</span> <span class="va">noise</span><span class="op">,</span> <span class="va">not</span> <span class="va">a</span> <span class="va">modeling</span> <span class="va">error</span>).</span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E4</span><span class="op">.**</span> <span class="va">Time</span> <span class="va">both</span> <span class="va">orders</span>. <span class="va">For</span> $<span class="va">n</span><span class="op">=</span><span class="fl">200</span>$<span class="op">,</span> $<span class="va">n</span><span class="op">=</span><span class="fl">1000</span>$<span class="op">,</span> <span class="va">and</span> $<span class="va">n</span><span class="op">=</span><span class="fl">3000</span>$ (<span class="va">skip</span> $<span class="fl">3000</span>$ <span class="va">on</span> <span class="va">a</span> <span class="va">slow</span> <span class="va">machine</span> <span class="kw">if</span> <span class="va">needed</span>)<span class="op">,</span> <span class="va">time</span> <span class="va">Order</span> <span class="fl">1</span> `(<span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">'</span>)<span class="op">*</span><span class="va">c</span>` <span class="op">/</span> `<span class="va">np</span>.<span class="va">outer</span>(<span class="va">a</span><span class="op">,</span><span class="va">b</span>)<span class="op">@</span><span class="va">c</span>` <span class="va">and</span> <span class="va">Order</span> <span class="fl">2</span> `<span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">'*</span><span class="va">c</span>)` <span class="op">/</span> `<span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">@</span><span class="va">c</span>)`. <span class="va">Record</span> <span class="va">times</span> <span class="va">on</span> <span class="va">the</span> <span class="va">ticket</span>.</span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Octave</span> <span class="va">pattern</span><span class="op">:**</span></span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a>```<span class="va">matlab</span></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">1000</span><span class="op">;</span></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> <span class="va">randn</span>(<span class="va">n</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span></span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="va">tic</span><span class="op">;</span> <span class="va">y1</span> <span class="op">=</span> (<span class="va">a</span><span class="op">*</span><span class="va">b</span><span class="op">'</span>)<span class="op">*</span><span class="va">c</span><span class="op">;</span> <span class="va">t1</span> <span class="op">=</span> <span class="va">toc</span><span class="op">;</span></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a><span class="va">tic</span><span class="op">;</span> <span class="va">y2</span> <span class="op">=</span> <span class="va">a</span><span class="op">*</span>(<span class="va">b</span><span class="op">'*</span><span class="va">c</span>)<span class="op">;</span> <span class="va">t2</span> <span class="op">=</span> <span class="va">toc</span><span class="op">;</span></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="va">t1</span><span class="op">,</span> <span class="va">t2</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span> <span class="va">pattern</span><span class="op">:**</span></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span><span class="op">,</span> <span class="va">time</span></span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">1000</span></span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a><span class="va">rng</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">random</span>.<span class="va">default_rng</span>(<span class="fl">1</span>)</span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a><span class="va">a</span> <span class="op">=</span> <span class="va">rng</span>.<span class="va">standard_normal</span>(<span class="va">n</span>)<span class="op">;</span> <span class="va">b</span> <span class="op">=</span> <span class="va">rng</span>.<span class="va">standard_normal</span>(<span class="va">n</span>)<span class="op">;</span> <span class="va">c</span> <span class="op">=</span> <span class="va">rng</span>.<span class="va">standard_normal</span>(<span class="va">n</span>)</span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="va">t0</span> <span class="op">=</span> <span class="va">time</span>.<span class="va">perf_counter</span>()<span class="op">;</span> <span class="va">y1</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">outer</span>(<span class="va">a</span><span class="op">,</span> <span class="va">b</span>) <span class="op">@</span> <span class="va">c</span><span class="op">;</span> <span class="va">t1</span> <span class="op">=</span> <span class="va">time</span>.<span class="va">perf_counter</span>() <span class="op">-</span> <span class="va">t0</span></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a><span class="va">t0</span> <span class="op">=</span> <span class="va">time</span>.<span class="va">perf_counter</span>()<span class="op">;</span> <span class="va">y2</span> <span class="op">=</span> <span class="va">a</span> <span class="op">*</span> (<span class="va">b</span> <span class="op">@</span> <span class="va">c</span>)<span class="op">;</span> <span class="va">t2</span> <span class="op">=</span> <span class="va">time</span>.<span class="va">perf_counter</span>() <span class="op">-</span> <span class="va">t0</span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="va">t1</span><span class="op">,</span> <span class="va">t2</span>)</span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">Order</span> <span class="fl">2</span> <span class="va">much</span> <span class="va">faster</span><span class="op">;</span> <span class="va">the</span> <span class="va">gap</span> <span class="va">grows</span> <span class="va">with</span> $<span class="va">n</span>$. <span class="va">Absolute</span> <span class="va">times</span> <span class="va">vary</span> <span class="va">by</span> <span class="va">machine</span> — <span class="va">report</span> <span class="va">yours</span>.</span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E5</span><span class="op">.**</span> <span class="va">Justify</span>. <span class="va">In</span> <span class="fl">2</span>–<span class="fl">3</span> <span class="va">sentences</span> <span class="va">on</span> <span class="va">the</span> <span class="va">ticket</span><span class="op">:</span> <span class="va">which</span> <span class="va">order</span> <span class="va">would</span> <span class="va">you</span> <span class="va">use</span> <span class="kw">for</span> $<span class="va">n</span><span class="op">=</span><span class="fl">10</span><span class="op">^</span><span class="fl">4</span>$<span class="op">,</span> <span class="va">and</span> <span class="va">what</span> <span class="va">two</span> <span class="va">quantitative</span> <span class="va">observations</span> (<span class="va">storage</span> <span class="va">count</span> <span class="op">+</span> <span class="va">timing</span> <span class="va">trend</span>) <span class="va">support</span> <span class="va">that</span> <span class="va">choice</span>?</span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span> <span class="va">answer</span> (<span class="va">idea</span>)<span class="op">:**</span> <span class="va">scalar</span><span class="op">-</span><span class="va">first</span> — <span class="va">stores</span> $<span class="fl">1</span>$ <span class="va">intermediate</span> <span class="va">vs</span> $<span class="fl">10</span><span class="op">^</span><span class="fl">8</span>$ <span class="va">matrix</span> <span class="va">entries</span><span class="op">;</span> <span class="va">timings</span> <span class="va">show</span> <span class="va">Order</span> <span class="fl">1</span> <span class="va">growing</span> <span class="va">far</span> <span class="va">faster</span> (<span class="va">roughly</span> <span class="va">with</span> $<span class="va">n</span><span class="op">^</span><span class="fl">2</span>$).</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a>## <span class="va">One</span><span class="op">-</span><span class="va">pager</span></span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a><span class="va">Preview</span> <span class="va">the</span> [<span class="va">micro</span><span class="op">-</span><span class="va">lab</span> <span class="va">ticket</span>](<span class="va">lab</span><span class="op">-</span><span class="va">cost</span><span class="op">-</span><span class="va">ticket</span>.<span class="va">qmd</span>)<span class="op">;</span> <span class="va">write</span> <span class="va">on</span> <span class="va">the</span> <span class="va">hard</span> <span class="va">copy</span> <span class="va">in</span> <span class="va">class</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

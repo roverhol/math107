@@ -152,7 +152,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#core" id="toc-core" class="nav-link active" data-scroll-target="#core">Core</a></li>
+  <li><a href="#core" id="toc-core" class="nav-link active" data-scroll-target="#core">Core</a>
+  <ul class="collapse">
+  <li><a href="#fluency-complete-prompts-practice-these-by-hand" id="toc-fluency-complete-prompts-practice-these-by-hand" class="nav-link" data-scroll-target="#fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</a></li>
+  <li><a href="#textbook-core" id="toc-textbook-core" class="nav-link" data-scroll-target="#textbook-core">Textbook Core</a></li>
+  </ul></li>
   <li><a href="#stretch" id="toc-stretch" class="nav-link" data-scroll-target="#stretch">Stretch</a></li>
   <li><a href="#what-a-quiz-item-might-change" id="toc-what-a-quiz-item-might-change" class="nav-link" data-scroll-target="#what-a-quiz-item-might-change">What a quiz item might change</a></li>
   </ul>
@@ -180,7 +184,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 5, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -192,30 +196,60 @@ window.Quarto = {
 
 
 <p><a href="quiz-10.pdf">Download PDF</a></p>
-<p>Last updated: October 5, 2026.</p>
+<p>Last updated: October 8, 2026.</p>
 <p><strong>Covers the prior instructional week only:</strong> <a href="../lectures/lecture-35.html">Eigenvectors</a>, <a href="../lectures/lecture-36.html">Characteristic</a>, <a href="../lectures/lecture-37.html">Eigenbehavior</a>, and <a href="../labs/lab-05.html">Lab 5</a> (Week 13). Fall break is skipped when choosing the prior week. Same-day <a href="../lectures/lecture-40.html">SVD</a> / <a href="../labs/lab-06.html">Lab 6</a> / least squares (Week 15) are <strong>not</strong> on this quiz.</p>
 <p>Textbooks: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf">Strang §6.1</a> · <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf">Lachniet Octave PDF</a> · also on <a href="../resources.html">Resources</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
 <p><strong>SVD and least squares are not on this quiz</strong>; see <a href="../labs/lab-06.html">Lab 6</a>, the <a href="../projects/capstone.html">capstone packet</a>, and the <a href="../exams/final.html">final</a>.</p>
 <section id="core" class="level2">
 <h2 class="anchored" data-anchor-id="core">Core</h2>
+<section id="fluency-complete-prompts-practice-these-by-hand" class="level3">
+<h3 class="anchored" data-anchor-id="fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</h3>
+<p><strong>C10.1.</strong> Let <span class="math display">\[
+A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix},\qquad
+v=\begin{bmatrix}1\\1\end{bmatrix}.
+\]</span> Compute <span class="math inline">\(Av\)</span>. Is <span class="math inline">\(v\)</span> an eigenvector? If so, what is <span class="math inline">\(\lambda\)</span>?</p>
+<p><strong>C10.2.</strong> You are told that <span class="math inline">\(v=(2,-1)\)</span> is an eigenvector of <span class="math display">\[
+A=\begin{bmatrix}4&amp;2\\1&amp;3\end{bmatrix}.
+\]</span> Find <span class="math inline">\(\lambda\)</span> by comparing components of <span class="math inline">\(Av\)</span> and <span class="math inline">\(v\)</span>. Then verify <span class="math inline">\(Av=\lambda v\)</span>.</p>
+<p><strong>C10.3.</strong> Let <span class="math inline">\(A=\operatorname{diag}(1.2,\,0.5)\)</span> (Lab 4 / Lecture 35 mystery).</p>
+<ol type="a">
+<li>Name two real eigenpairs using the standard basis.</li>
+<li>If <span class="math inline">\(x_0=(1,1)\)</span>, write <span class="math inline">\(x_t=A^t x_0\)</span> componentwise. Which term dominates for large <span class="math inline">\(t\)</span>?</li>
+</ol>
+<p><strong>C10.4.</strong> Complex drill. Let <span class="math inline">\(z=2+i\)</span> and <span class="math inline">\(w=1-3i\)</span>. Compute <span class="math inline">\(z+w\)</span>, <span class="math inline">\(zw\)</span>, and <span class="math inline">\(|z|\)</span>.</p>
+<p><strong>C10.5.</strong> For <span class="math display">\[
+A=\begin{bmatrix}1&amp;2\\0&amp;3\end{bmatrix},
+\]</span> form <span class="math inline">\(\det(A-\lambda I)\)</span>, find both eigenvalues, and give one eigenvector for <span class="math inline">\(\lambda=3\)</span>.</p>
+<p><strong>C10.6.</strong> Rotation. Let <span class="math inline">\(R=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> (<span class="math inline">\(90^\circ\)</span> CCW).</p>
+<ol type="a">
+<li>Show that the characteristic polynomial is <span class="math inline">\(\lambda^2+1=0\)</span>, so <span class="math inline">\(\lambda=\pm i\)</span>.</li>
+<li>Why does this match the geometric fact that <span class="math inline">\(R\)</span> has no real eigenvector?</li>
+</ol>
+<p><strong>C10.7.</strong> Check a complex pair. With <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> and <span class="math inline">\(v=(1,-i)\)</span>, compute <span class="math inline">\(Av\)</span> and decide whether <span class="math inline">\(Av=iv\)</span> or <span class="math inline">\(Av=(-i)v\)</span>.</p>
+<p><strong>C10.8.</strong> True or false, with a one-line reason: if <span class="math inline">\(Av=2v\)</span> and <span class="math inline">\(v\neq 0\)</span>, then <span class="math inline">\(A^3 v=8v\)</span>.</p>
+<p><strong>C10.9 (Lab 5 / software).</strong> Suppose Octave/Python reports eigenvalues of a <span class="math inline">\(2\times 2\)</span> matrix as approximately <span class="math inline">\(0.9\)</span> and <span class="math inline">\(0.2\)</span>, with corresponding eigenvectors <span class="math inline">\(v_1\approx(0.7,\,0.7)\)</span> and <span class="math inline">\(v_2\approx(-0.7,\,0.7)\)</span> (normalized). For dynamics <span class="math inline">\(x_{t+1}=Ax_t\)</span> started near <span class="math inline">\(v_1+v_2\)</span>, which mode dominates for large <span class="math inline">\(t\)</span>, and does the state grow or decay?</p>
+<p><strong>C10.10 (Lab 5 / verify).</strong> Software prints <span class="math inline">\(\lambda\approx 3\)</span> and <span class="math inline">\(v\approx(0.707,\,0.707)\)</span> for <span class="math display">\[
+A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}.
+\]</span> Explain how you would verify <span class="math inline">\(Av\approx\lambda v\)</span> numerically in one or two lines of code (Octave or Python). What should <span class="math inline">\(\|Av-\lambda v\|\)</span> look like if the pair is correct?</p>
+</section>
+<section id="textbook-core" class="level3">
+<h3 class="anchored" data-anchor-id="textbook-core">Textbook Core</h3>
 <ul>
 <li>S 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17</li>
 <li>L Ch. 5 Ex. 1: selected hand/software eigenvalue parts</li>
 <li>L Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions</li>
 <li>L Ch. 5 Ex. 5: selected matrix-power portion</li>
-<li>C10.1: Verify <span class="math inline">\(AV\approx VD\)</span> from software output.</li>
-<li>C10.2: Interpret a dominant eigenvalue and eigenvector in context.</li>
-<li>C10.3: Verify a proposed real or complex eigenpair by substitution.</li>
 </ul>
+</section>
 </section>
 <section id="stretch" class="level2">
 <h2 class="anchored" data-anchor-id="stretch">Stretch</h2>
-<p>S 6.1 #3 and #4.</p>
+<p>S 6.1 #3 and #4; a complex eigenpair check beyond C10.7.</p>
 </section>
 <section id="what-a-quiz-item-might-change" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-quiz-item-might-change">What a quiz item might change</h2>
-<p>A new <span class="math inline">\(2\times 2\)</span> matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, or a rotation matrix with complex eigenvalues.</p>
+<p>A new <span class="math inline">\(2\times 2\)</span> matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, a rotation matrix with complex eigenvalues, or a software printout to interpret (dominant <span class="math inline">\(\lambda\)</span>, verify <span class="math inline">\(Av\approx\lambda v\)</span>).</p>
 
 
 <!-- -->
@@ -682,7 +716,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 10"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, December 4 — eigenvalues, complex numbers, and Lab 5 (Week 13)"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-05</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -690,7 +724,7 @@ window.Quarto = {
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](quiz-10.pdf)</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 5, 2026.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>**Covers the prior instructional week only:** [Eigenvectors](../lectures/lecture-35.qmd), [Characteristic](../lectures/lecture-36.qmd), [Eigenbehavior](../lectures/lecture-37.qmd), and [Lab 5](../labs/lab-05.qmd) (Week 13). Fall break is skipped when choosing the prior week. Same-day [SVD](../lectures/lecture-40.qmd) / [Lab 6](../labs/lab-06.qmd) / least squares (Week 15) are **not** on this quiz.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
@@ -702,21 +736,65 @@ window.Quarto = {
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>S 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 1: selected hand/software eigenvalue parts</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 5: selected matrix-power portion</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.1: Verify $AV\approx VD$ from software output.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.2: Interpret a dominant eigenvalue and eigenvector in context.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C10.3: Verify a proposed real or complex eigenpair by substitution.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>S 6.1 #3 and #4.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>A new $2\times 2$ matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, or a rotation matrix with complex eigenvalues.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fluency (complete prompts — practice these by hand)</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>**C10.1.** Let</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}2&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix},\qquad</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>v=\begin{bmatrix}1<span class="sc">\\</span>1\end{bmatrix}.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Compute $Av$. Is $v$ an eigenvector? If so, what is $\lambda$?</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>**C10.2.** You are told that $v=(2,-1)$ is an eigenvector of</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}4&amp;2<span class="sc">\\</span>1&amp;3\end{bmatrix}.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Find $\lambda$ by comparing components of $Av$ and $v$. Then verify $Av=\lambda v$.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>**C10.3.** Let $A=\operatorname{diag}(1.2,\,0.5)$ (Lab 4 / Lecture 35 mystery).</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>(a) Name two real eigenpairs using the standard basis.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>(b) If $x_0=(1,1)$, write $x_t=A^t x_0$ componentwise. Which term dominates for large $t$?</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**C10.4.** Complex drill. Let $z=2+i$ and $w=1-3i$. Compute $z+w$, $zw$, and $|z|$.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**C10.5.** For</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;2<span class="sc">\\</span>0&amp;3\end{bmatrix},</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>form $\det(A-\lambda I)$, find both eigenvalues, and give one eigenvector for $\lambda=3$.</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**C10.6.** Rotation. Let $R=\begin{bmatrix}0&amp;-1<span class="sc">\\</span>1&amp;0\end{bmatrix}$ ($90^\circ$ CCW).</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>(a) Show that the characteristic polynomial is $\lambda^2+1=0$, so $\lambda=\pm i$.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>(b) Why does this match the geometric fact that $R$ has no real eigenvector?</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**C10.7.** Check a complex pair. With $A=\begin{bmatrix}0&amp;-1<span class="sc">\\</span>1&amp;0\end{bmatrix}$ and $v=(1,-i)$, compute $Av$ and decide whether $Av=iv$ or $Av=(-i)v$.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**C10.8.** True or false, with a one-line reason: if $Av=2v$ and $v\neq 0$, then $A^3 v=8v$.</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**C10.9 (Lab 5 / software).** Suppose Octave/Python reports eigenvalues of a $2\times 2$ matrix as approximately $0.9$ and $0.2$, with corresponding eigenvectors $v_1\approx(0.7,\,0.7)$ and $v_2\approx(-0.7,\,0.7)$ (normalized). For dynamics $x_{t+1}=Ax_t$ started near $v_1+v_2$, which mode dominates for large $t$, and does the state grow or decay?</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>**C10.10 (Lab 5 / verify).** Software prints $\lambda\approx 3$ and $v\approx(0.707,\,0.707)$ for</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}2&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix}.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Explain how you would verify $Av\approx\lambda v$ numerically in one or two lines of code (Octave or Python). What should $<span class="sc">\|</span>Av-\lambda v<span class="sc">\|</span>$ look like if the pair is correct?</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### Textbook Core</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>S 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 1: selected hand/software eigenvalue parts</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 5 Ex. 5: selected matrix-power portion</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>S 6.1 #3 and #4; a complex eigenpair check beyond C10.7.</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>A new $2\times 2$ matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, a rotation matrix with complex eigenvalues, or a software printout to interpret (dominant $\lambda$, verify $Av\approx\lambda v$).</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

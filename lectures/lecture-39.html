@@ -153,6 +153,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-39.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -178,7 +182,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -190,9 +194,9 @@ window.Quarto = {
 
 
 <p><a href="lecture-39.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Reading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, and Lachniet Ch. 2 (least squares). Software lab is Friday: <a href="../labs/lab-06.html">Lab 6</a>. Related objectives: <a href="../lectures.html#lecture-39">Lectures</a>.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Reading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, and Lachniet Ch. 2 (least-squares / data-fitting exercises). Related objectives: <a href="../lectures.html#lecture-39">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Bring paper and a laptop if you have one. Warm-up, fill-in, a small real dataset on the board/software, then <strong>Your turn</strong>. Full least-squares software practice is <a href="../labs/lab-06.html">Lab 6</a> on <strong>Friday</strong> (same day as <a href="../quizzes/quiz-10.html">Quiz 10</a> — Quiz 10 is Week 13 eigenvalues, <strong>not</strong> today’s fitting).</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -204,6 +208,109 @@ window.Quarto = {
 <li>Evaluate whether a fitted model is useful rather than merely reporting coefficients.</li>
 <li>Recognize that <span class="math inline">\(A^{\mathsf{T}}A\)</span> is symmetric positive semidefinite, explain <span class="math inline">\(x^{\mathsf{T}}A^{\mathsf{T}}Ax=\lVert Ax\rVert^2\)</span>, and recognize that <span class="math inline">\(A^{\mathsf{T}}A\)</span> is positive definite when <span class="math inline">\(A\)</span> has linearly independent columns.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Monday’s setup: minimize <span class="math inline">\(\|Ax-b\|\)</span>. At a minimizer <span class="math inline">\(\hat{x}\)</span>, the residual <span class="math inline">\(r=b-A\hat{x}\)</span> is orthogonal to <span class="math inline">\(C(A)\)</span>, which is equivalent to the <strong>normal equations</strong> <span class="math display">\[
+A^{\mathsf{T}}A\,\hat{x}=A^{\mathsf{T}}b.
+\]</span></p>
+<ol type="a">
+<li><p>If <span class="math inline">\(A\)</span> is <span class="math inline">\(m\times n\)</span> with <span class="math inline">\(m&gt;n\)</span>, what size is <span class="math inline">\(A^{\mathsf{T}}A\)</span>? Why is that nicer than solving <span class="math inline">\(Ax=b\)</span> directly?</p></li>
+<li><p>True or false: <span class="math inline">\(A^{\mathsf{T}}A\)</span> is always symmetric.</p></li>
+</ol>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p><strong>Normal equations / software.</strong> Solving <span class="math inline">\(A^{\mathsf{T}}A\hat{x}=A^{\mathsf{T}}b\)</span> (when <span class="math inline">\(A\)</span> has independent columns) gives the unique least-squares <span class="math inline">\(\hat{x}\)</span>. In practice we often call a solver instead of forming <span class="math inline">\(A^{\mathsf{T}}A\)</span> by hand:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Octave</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Least-squares <span class="math inline">\(\hat{x}\)</span></td>
+<td><code>xhat = A \ b</code></td>
+<td><code>xhat = np.linalg.lstsq(A, b, rcond=None)[0]</code></td>
+</tr>
+<tr class="even">
+<td>Fitted values</td>
+<td><code>bhat = A*xhat</code></td>
+<td><code>bhat = A @ xhat</code></td>
+</tr>
+<tr class="odd">
+<td>Residual</td>
+<td><code>r = b - bhat</code></td>
+<td><code>r = b - bhat</code></td>
+</tr>
+<tr class="even">
+<td>RMS</td>
+<td><code>rms = norm(r)/sqrt(m)</code></td>
+<td><code>rms = np.linalg.norm(r)/np.sqrt(m)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Orthogonality check.</strong> At a least-squares solution, <span class="math inline">\(A^{\mathsf{T}}r \approx \underline{\hspace{1.0cm}}\)</span> (numerical noise ok).</p>
+<p><strong>RMS.</strong> Root-mean-square residual <span class="math inline">\(\mathrm{RMS}=\|r\|/\sqrt{m}\)</span> reports a typical per-equation error in the same units as <span class="math inline">\(b\)</span>.</p>
+<p><strong>Useful vs coefficients.</strong> Always ask: do fitted values track the data? Is RMS small <em>in context</em>? Blindly quoting <span class="math inline">\(\hat{x}\)</span> is not enough.</p>
+<p><strong>Positive semidefinite / definite (Boyd / class notes).</strong> A symmetric matrix <span class="math inline">\(P\)</span> is <strong>positive semidefinite (PSD)</strong> if <span class="math inline">\(x^{\mathsf{T}}Px\ge 0\)</span> for all <span class="math inline">\(x\)</span>; <strong>positive definite (PD)</strong> if <span class="math inline">\(x^{\mathsf{T}}Px&gt;0\)</span> for all <span class="math inline">\(x\neq 0\)</span>.</p>
+<p>For any <span class="math inline">\(A\)</span>: <span class="math display">\[
+x^{\mathsf{T}}(A^{\mathsf{T}}A)x = \lVert Ax\rVert^2 \ge 0,
+\]</span> so <span class="math inline">\(A^{\mathsf{T}}A\)</span> is always <span class="math inline">\(\underline{\hspace{2.8cm}}\)</span>. It is <strong>positive definite</strong> precisely when <span class="math inline">\(Ax=0\Rightarrow x=0\)</span>, i.e.&nbsp;when <span class="math inline">\(A\)</span> has <span class="math inline">\(\underline{\hspace{2.8cm}}\)</span> columns — then the normal equations have a unique solution.</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Tiny fit by hand / software. Four campus shuttle wait times (minutes) at hours <span class="math inline">\(t=1,2,3,4\)</span> after 8am: <span class="math display">\[
+b=(6,\,7,\,10,\,11).
+\]</span> Model a line <span class="math inline">\(b\approx x_1 + x_2 t\)</span> with <span class="math display">\[
+A=\begin{bmatrix}
+1&amp;1\\1&amp;2\\1&amp;3\\1&amp;4
+\end{bmatrix}.
+\]</span></p>
+<ol type="a">
+<li>Form <span class="math inline">\(A^{\mathsf{T}}A\)</span> and <span class="math inline">\(A^{\mathsf{T}}b\)</span> (or use <code>A\b</code> / <code>lstsq</code>).</li>
+<li>Report <span class="math inline">\(\hat{x}=(x_1,x_2)\)</span> and the fitted values <span class="math inline">\(\hat{b}=A\hat{x}\)</span>.</li>
+<li>Compute <span class="math inline">\(r\)</span> and RMS. In one sentence: is a linear trend reasonable here?</li>
+</ol>
+<p><strong>Expected (for checking):</strong> <span class="math inline">\(\hat{x}=(4,\,1.8)\)</span> exactly from the normal equations; <span class="math inline">\(\hat{b}=(5.8,\,7.6,\,9.4,\,11.2)\)</span>; RMS <span class="math inline">\(=\sqrt{0.2}\approx 0.45\)</span> minutes.</p>
+<p><strong>W2.</strong> Orthogonality. With your <span class="math inline">\(\hat{x}\)</span> from W1, compute <span class="math inline">\(A^{\mathsf{T}}r\)</span>. Should it be near <span class="math inline">\((0,0)\)</span>?</p>
+<p><strong>W3.</strong> Plot story. On axes “hour <span class="math inline">\(t\)</span>” vs “wait (min)”, sketch data points and the fitted line. Where is the residual for <span class="math inline">\(t=1\)</span> visible?</p>
+<p><strong>W4.</strong> PSD identity. Expand <span class="math inline">\(x^{\mathsf{T}}A^{\mathsf{T}}Ax\)</span> for <span class="math inline">\(A=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix}\)</span> and a general <span class="math inline">\(x=(x_1,x_2)\)</span>. Confirm it equals <span class="math inline">\(\|Ax\|^2\)</span> and is <span class="math inline">\(\ge 0\)</span>.</p>
+<p><strong>W5.</strong> PD vs PSD. Explain why <span class="math inline">\(A^{\mathsf{T}}A\)</span> fails to be positive definite if the two columns of <span class="math inline">\(A\)</span> are equal. What goes wrong for uniqueness of <span class="math inline">\(\hat{x}\)</span>?</p>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<p><strong>Y1.</strong> Using the W1 data, suppose software returns <span class="math inline">\(\hat{x}=(4,\,1.8)\)</span>. Compute <span class="math inline">\(\hat{b}_1=x_1+x_2\cdot 1\)</span> and the first residual <span class="math inline">\(r_1=b_1-\hat{b}_1\)</span>.</p>
+<p><strong>Y2.</strong> True or false: <span class="math inline">\(A^{\mathsf{T}}A\)</span> is always positive definite for every <span class="math inline">\(A\)</span>.</p>
+<p><strong>Y3.</strong> Why check <span class="math inline">\(A^{\mathsf{T}}r\approx 0\)</span> after a least-squares solve?</p>
+<p><strong>Y4.</strong> A fit has RMS <span class="math inline">\(=0.02\)</span> °C for outdoor temperature data that typically varies by <span class="math inline">\(10\)</span> °C across the day. Useful model, or not? One sentence.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Your turn only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Y1. <span class="math inline">\(\hat{b}_1=4+1.8=5.8\)</span>; <span class="math inline">\(r_1=6-5.8=0.2\)</span>.</p>
+<p>Y2. <strong>False.</strong> <span class="math inline">\(A^{\mathsf{T}}A\)</span> is always PSD, but PD only when <span class="math inline">\(A\)</span> has linearly independent columns (equivalently <span class="math inline">\(\ker A=\{0\}\)</span>).</p>
+<p>Y3. It is the normal-equation / geometric check that the residual is orthogonal to <span class="math inline">\(C(A)\)</span> — evidence that <span class="math inline">\(\hat{x}\)</span> really is a least-squares critical point (up to roundoff).</p>
+<p>Y4. <strong>Useful</strong> in context: RMS <span class="math inline">\(\ll\)</span> the natural scale of the data, so typical pointwise error is tiny compared with day-scale variation.</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -670,30 +777,143 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 39 — Least squares, data fitting, and positive definiteness"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Dec 2"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-39.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-39.pdf)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, and Lachniet Ch. 2 (least squares). Software lab is Friday: <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](../labs/lab-06.qmd)</span>. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-39)</span>.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, and Lachniet Ch. 2 (least-squares / data-fitting exercises). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-39)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Bring paper and a laptop if you have one. Warm-up, fill-in, a small real dataset on the board/software, then **Your turn**. Full least-squares software practice is [Lab 6](../labs/lab-06.qmd) on **Friday** (same day as [Quiz 10](../quizzes/quiz-10.qmd) — Quiz 10 is Week 13 eigenvalues, **not** today’s fitting).</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute a least-squares solution with Octave or Python.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Plot observed and fitted values.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret residuals and an RMS error in context.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Check the residual’s orthogonality to the columns of $A$.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Evaluate whether a fitted model is useful rather than merely reporting coefficients.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Recognize that $A^{\mathsf{T}}A$ is symmetric positive semidefinite, explain $x^{\mathsf{T}}A^{\mathsf{T}}Ax=\lVert Ax\rVert^2$, and recognize that $A^{\mathsf{T}}A$ is positive definite when $A$ has linearly independent columns.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute a least-squares solution with Octave or Python.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Plot observed and fitted values.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret residuals and an RMS error in context.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Check the residual’s orthogonality to the columns of $A$.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Evaluate whether a fitted model is useful rather than merely reporting coefficients.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>Recognize that $A^{\mathsf{T}}A$ is symmetric positive semidefinite, explain $x^{\mathsf{T}}A^{\mathsf{T}}Ax=\lVert Ax\rVert^2$, and recognize that $A^{\mathsf{T}}A$ is positive definite when $A$ has linearly independent columns.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Monday’s setup: minimize $<span class="sc">\|</span>Ax-b<span class="sc">\|</span>$. At a minimizer $\hat{x}$, the residual $r=b-A\hat{x}$ is orthogonal to $C(A)$, which is equivalent to the **normal equations**</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>A^{\mathsf{T}}A\,\hat{x}=A^{\mathsf{T}}b.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>(a) If $A$ is $m\times n$ with $m&gt;n$, what size is $A^{\mathsf{T}}A$? Why is that nicer than solving $Ax=b$ directly?</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>(b) True or false: $A^{\mathsf{T}}A$ is always symmetric.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**Normal equations / software.** Solving $A^{\mathsf{T}}A\hat{x}=A^{\mathsf{T}}b$ (when $A$ has independent columns) gives the unique least-squares $\hat{x}$. In practice we often call a solver instead of forming $A^{\mathsf{T}}A$ by hand:</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Least-squares $\hat{x}$ <span class="pp">|</span> <span class="in">`xhat = A \ b`</span> <span class="pp">|</span> <span class="in">`xhat = np.linalg.lstsq(A, b, rcond=None)[0]`</span> <span class="pp">|</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fitted values <span class="pp">|</span> <span class="in">`bhat = A*xhat`</span> <span class="pp">|</span> <span class="in">`bhat = A @ xhat`</span> <span class="pp">|</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Residual <span class="pp">|</span> <span class="in">`r = b - bhat`</span> <span class="pp">|</span> <span class="in">`r = b - bhat`</span> <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> RMS <span class="pp">|</span> <span class="in">`rms = norm(r)/sqrt(m)`</span> <span class="pp">|</span> <span class="in">`rms = np.linalg.norm(r)/np.sqrt(m)`</span> <span class="pp">|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>**Orthogonality check.** At a least-squares solution, $A^{\mathsf{T}}r \approx \underline{\hspace{1.0cm}}$ (numerical noise ok).</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**RMS.** Root-mean-square residual $\mathrm{RMS}=<span class="sc">\|</span>r<span class="sc">\|</span>/\sqrt{m}$ reports a typical per-equation error in the same units as $b$.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**Useful vs coefficients.** Always ask: do fitted values track the data? Is RMS small *in context*? Blindly quoting $\hat{x}$ is not enough.</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**Positive semidefinite / definite (Boyd / class notes).** A symmetric matrix $P$ is **positive semidefinite (PSD)** if $x^{\mathsf{T}}Px\ge 0$ for all $x$; **positive definite (PD)** if $x^{\mathsf{T}}Px&gt;0$ for all $x\neq 0$.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>For any $A$:</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>x^{\mathsf{T}}(A^{\mathsf{T}}A)x = \lVert Ax\rVert^2 \ge 0,</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>so $A^{\mathsf{T}}A$ is always $\underline{\hspace{2.8cm}}$. It is **positive definite** precisely when $Ax=0\Rightarrow x=0$, i.e. when $A$ has $\underline{\hspace{2.8cm}}$ columns — then the normal equations have a unique solution.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>**W1.** Tiny fit by hand / software. Four campus shuttle wait times (minutes) at hours $t=1,2,3,4$ after 8am:</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>b=(6,\,7,\,10,\,11).</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>Model a line $b\approx x_1 + x_2 t$ with</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>1&amp;1<span class="sc">\\</span>1&amp;2<span class="sc">\\</span>1&amp;3<span class="sc">\\</span>1&amp;4</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>(a) Form $A^{\mathsf{T}}A$ and $A^{\mathsf{T}}b$ (or use <span class="in">`A\b`</span> / <span class="in">`lstsq`</span>).</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>(b) Report $\hat{x}=(x_1,x_2)$ and the fitted values $\hat{b}=A\hat{x}$.</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>(c) Compute $r$ and RMS. In one sentence: is a linear trend reasonable here?</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>**Expected (for checking):** $\hat{x}=(4,\,1.8)$ exactly from the normal equations; $\hat{b}=(5.8,\,7.6,\,9.4,\,11.2)$; RMS $=\sqrt{0.2}\approx 0.45$ minutes.</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>**W2.** Orthogonality. With your $\hat{x}$ from W1, compute $A^{\mathsf{T}}r$. Should it be near $(0,0)$?</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>**W3.** Plot story. On axes “hour $t$” vs “wait (min)”, sketch data points and the fitted line. Where is the residual for $t=1$ visible?</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-sketch.qmd &gt;}}</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>**W4.** PSD identity. Expand $x^{\mathsf{T}}A^{\mathsf{T}}Ax$ for $A=\begin{bmatrix}1&amp;0<span class="sc">\\</span>1&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix}$ and a general $x=(x_1,x_2)$. Confirm it equals $<span class="sc">\|</span>Ax<span class="sc">\|</span>^2$ and is $\ge 0$.</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>**W5.** PD vs PSD. Explain why $A^{\mathsf{T}}A$ fails to be positive definite if the two columns of $A$ are equal. What goes wrong for uniqueness of $\hat{x}$?</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>**Y1.** Using the W1 data, suppose software returns $\hat{x}=(4,\,1.8)$. Compute $\hat{b}_1=x_1+x_2\cdot 1$ and the first residual $r_1=b_1-\hat{b}_1$.</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>**Y2.** True or false: $A^{\mathsf{T}}A$ is always positive definite for every $A$.</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>**Y3.** Why check $A^{\mathsf{T}}r\approx 0$ after a least-squares solve?</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>**Y4.** A fit has RMS $=0.02$ °C for outdoor temperature data that typically varies by $10$ °C across the day. Useful model, or not? One sentence.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-39.qmd &gt;}}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-39.qmd &gt;}}</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

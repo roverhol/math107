@@ -153,6 +153,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-38.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -178,7 +182,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -190,9 +194,10 @@ window.Quarto = {
 
 
 <p><a href="lecture-38.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Related reading and the course-wide list of daily objectives: <a href="../lectures.html#lecture-38">Lectures</a>.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Reading: Boyd 12.1. Related objectives: <a href="../lectures.html#lecture-38">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and <strong>Your turn</strong>.</p>
+<p><strong>Look ahead:</strong> Wednesday fits data and checks positive definiteness; Friday is <a href="../quizzes/quiz-10.html">Quiz 10</a> (Week 13 eigenvalues — <strong>not</strong> least squares), <a href="../labs/lab-06.html">Lab 6</a> (least-squares software), and a short SVD / capstone launch.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -203,6 +208,89 @@ window.Quarto = {
 <li>Interpret the residual geometrically.</li>
 <li>Distinguish an exact solution from a best approximate solution.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Consider the overdetermined system <span class="math inline">\(Ax=b\)</span> with <span class="math display">\[
+A=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix},\qquad
+b=\begin{bmatrix}1\\2\\2\end{bmatrix}.
+\]</span></p>
+<ol type="a">
+<li><p>How many equations? How many unknowns? Is <span class="math inline">\(A\)</span> tall, wide, or square?</p></li>
+<li><p>Suppose someone guesses <span class="math inline">\(x=(1,0.5)\)</span>. Compute <span class="math inline">\(Ax\)</span> and <span class="math inline">\(Ax-b\)</span>. Is <span class="math inline">\(x\)</span> an exact solution?</p></li>
+</ol>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p><strong>Overdetermined / inconsistent.</strong> When there are more independent equations than unknowns, <span class="math inline">\(Ax=b\)</span> often has <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> exact solution. The right-hand side <span class="math inline">\(b\)</span> may lie outside the column space <span class="math inline">\(C(A)\)</span>.</p>
+<p><strong>Least-squares idea.</strong> Instead of insisting on <span class="math inline">\(Ax=b\)</span>, choose <span class="math inline">\(\hat{x}\)</span> to make <span class="math inline">\(A\hat{x}\)</span> as close as possible to <span class="math inline">\(b\)</span>: <span class="math display">\[
+\hat{x}\;=\;\arg\min_x\;\lVert Ax-b\rVert.
+\]</span> The vector <span class="math inline">\(\hat{b}=A\hat{x}\)</span> is the <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> attainable right-hand side in <span class="math inline">\(C(A)\)</span>.</p>
+<p><strong>Residual.</strong> The <strong>residual</strong> is <span class="math display">\[
+r = b - A\hat{x}
+\]</span> (some texts write <span class="math inline">\(A\hat{x}-b\)</span>; same length <span class="math inline">\(\|r\|\)</span>). Geometrically, <span class="math inline">\(r\)</span> is the leftover after projecting <span class="math inline">\(b\)</span> onto <span class="math inline">\(C(A)\)</span> — it is orthogonal to every column of <span class="math inline">\(A\)</span> at a minimizer (Wednesday).</p>
+<p><strong>Exact vs approximate.</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Exact solution</td>
+<td><span class="math inline">\(Ax=b\)</span> for some <span class="math inline">\(x\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(b\in\underline{\hspace{1.6cm}}\)</span></td>
+</tr>
+<tr class="even">
+<td>Least-squares solution</td>
+<td>minimizes <span class="math inline">\(\|Ax-b\|\)</span>; residual may be <span class="math inline">\(\underline{\hspace{1.2cm}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>If an exact solution exists, it is also a least-squares solution (residual zero).</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Inconsistent check. For the warm-up <span class="math inline">\(A\)</span> and <span class="math inline">\(b\)</span>, argue that no <span class="math inline">\(x=(x_1,x_2)\)</span> can satisfy all three equations simultaneously. (Hint: equations 1–2 force <span class="math inline">\(x_2=1\)</span>; plug into equation 3.)</p>
+<p><strong>W2.</strong> Objective value. With the same <span class="math inline">\(A,b\)</span> and trial <span class="math inline">\(x=(1,0.5)\)</span>, compute <span class="math inline">\(\|Ax-b\|\)</span> (Euclidean). Is this the minimum? (You need not prove optimality yet — just evaluate the objective.)</p>
+<p><strong>W3.</strong> Closest attainable vector. Sketch (in <span class="math inline">\(\mathbb{R}^3\)</span> as a cartoon, or think in words): <span class="math inline">\(C(A)\)</span> is a plane (or line) through the origin; <span class="math inline">\(b\)</span> is off the plane; <span class="math inline">\(\hat{b}=A\hat{x}\)</span> is the foot of the perpendicular from <span class="math inline">\(b\)</span> to <span class="math inline">\(C(A)\)</span>. Label the residual <span class="math inline">\(r=b-\hat{b}\)</span>.</p>
+<p><strong>W4.</strong> Exact case. Change <span class="math inline">\(b\)</span> to <span class="math inline">\(b'=(1,2,3)\)</span>. Show that <span class="math inline">\(x=(1,1)\)</span> solves <span class="math inline">\(Ax=b'\)</span> exactly. What is the residual? What is <span class="math inline">\(\min_x\|Ax-b'\|\)</span>?</p>
+<p><strong>W5.</strong> Language check. In one sentence each, distinguish “no solution” from “best approximate solution.”</p>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<p><strong>Y1.</strong> Let <span class="math display">\[
+A=\begin{bmatrix}1&amp;1\\0&amp;1\\1&amp;0\end{bmatrix},\qquad
+b=\begin{bmatrix}3\\1\\1\end{bmatrix},\qquad
+x=\begin{bmatrix}1\\1\end{bmatrix}.
+\]</span> Compute <span class="math inline">\(Ax\)</span> and <span class="math inline">\(r=b-Ax\)</span>. Is <span class="math inline">\(x\)</span> an exact solution? What is <span class="math inline">\(\|r\|\)</span>?</p>
+<p><strong>Y2.</strong> True or false, with a one-line reason: if <span class="math inline">\(Ax=b\)</span> is inconsistent, then no vector <span class="math inline">\(\hat{x}\)</span> can make <span class="math inline">\(\|A\hat{x}-b\|\)</span> finite.</p>
+<p><strong>Y3.</strong> In words: what does <span class="math inline">\(\hat{b}=A\hat{x}\)</span> represent when <span class="math inline">\(\hat{x}\)</span> is a least-squares solution?</p>
+<p><strong>Y4.</strong> A <span class="math inline">\(4\times 2\)</span> matrix <span class="math inline">\(A\)</span> has linearly independent columns, and <span class="math inline">\(b\notin C(A)\)</span>. Can <span class="math inline">\(Ax=b\)</span> have an exact solution? Can it have a least-squares solution?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Your turn only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Y1. <span class="math inline">\(Ax=(2,1,1)\)</span>; <span class="math inline">\(r=(1,0,0)\)</span>; not exact. <span class="math inline">\(\|r\|=1\)</span>.</p>
+<p>Y2. <strong>False.</strong> The residual norm is always finite; least squares still chooses an <span class="math inline">\(\hat{x}\)</span> that minimizes it (even when the minimum is positive).</p>
+<p>Y3. <span class="math inline">\(\hat{b}\)</span> is the closest vector in the column space <span class="math inline">\(C(A)\)</span> to the observed <span class="math inline">\(b\)</span> — the attainable right-hand side under the model <span class="math inline">\(Ax\)</span>.</p>
+<p>Y4. Exact: <strong>no</strong> (<span class="math inline">\(b\notin C(A)\)</span>). Least squares: <strong>yes</strong> (minimizer of <span class="math inline">\(\|Ax-b\|\)</span> still exists; uniqueness follows from independent columns).</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -669,29 +757,136 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 38 — When $Ax=b$ has no exact solution"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Mon Nov 30"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-38.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-38.pdf)</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Related reading and the course-wide list of daily objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-38)</span>.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 12.1. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-38)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and **Your turn**.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Look ahead:** Wednesday fits data and checks positive definiteness; Friday is [Quiz 10](../quizzes/quiz-10.qmd) (Week 13 eigenvalues — **not** least squares), <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](../labs/lab-06.qmd)</span> (least-squares software), and a short SVD / capstone launch.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Recognize an inconsistent overdetermined system.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Formulate the least-squares objective $\min_x \lVert Ax-b\rVert$.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret the fitted vector as the closest attainable vector.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Interpret the residual geometrically.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Distinguish an exact solution from a best approximate solution.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Recognize an inconsistent overdetermined system.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Formulate the least-squares objective $\min_x \lVert Ax-b\rVert$.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret the fitted vector as the closest attainable vector.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Interpret the residual geometrically.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Distinguish an exact solution from a best approximate solution.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Consider the overdetermined system $Ax=b$ with</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;0<span class="sc">\\</span>1&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix},\qquad</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>b=\begin{bmatrix}1<span class="sc">\\</span>2<span class="sc">\\</span>2\end{bmatrix}.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>(a) How many equations? How many unknowns? Is $A$ tall, wide, or square?</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>(b) Suppose someone guesses $x=(1,0.5)$. Compute $Ax$ and $Ax-b$. Is $x$ an exact solution?</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**Overdetermined / inconsistent.** When there are more independent equations than unknowns, $Ax=b$ often has $\underline{\hspace{2.0cm}}$ exact solution. The right-hand side $b$ may lie outside the column space $C(A)$.</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>**Least-squares idea.** Instead of insisting on $Ax=b$, choose $\hat{x}$ to make $A\hat{x}$ as close as possible to $b$:</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>\hat{x}\;=\;\arg\min_x\;\lVert Ax-b\rVert.</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>The vector $\hat{b}=A\hat{x}$ is the $\underline{\hspace{2.4cm}}$ attainable right-hand side in $C(A)$.</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>**Residual.** The **residual** is</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>r = b - A\hat{x}</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>(some texts write $A\hat{x}-b$; same length $<span class="sc">\|</span>r<span class="sc">\|</span>$). Geometrically, $r$ is the leftover after projecting $b$ onto $C(A)$ — it is orthogonal to every column of $A$ at a minimizer (Wednesday).</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>**Exact vs approximate.**</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Situation <span class="pp">|</span> Meaning <span class="pp">|</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|-----------|---------|</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Exact solution <span class="pp">|</span> $Ax=b$ for some $x$ $\Leftrightarrow$ $b\in\underline{\hspace{1.6cm}}$ <span class="pp">|</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Least-squares solution <span class="pp">|</span> minimizes $<span class="sc">\|</span>Ax-b<span class="sc">\|</span>$; residual may be $\underline{\hspace{1.2cm}}$ <span class="pp">|</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>If an exact solution exists, it is also a least-squares solution (residual zero).</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>**W1.** Inconsistent check. For the warm-up $A$ and $b$, argue that no $x=(x_1,x_2)$ can satisfy all three equations simultaneously. (Hint: equations 1–2 force $x_2=1$; plug into equation 3.)</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>**W2.** Objective value. With the same $A,b$ and trial $x=(1,0.5)$, compute $<span class="sc">\|</span>Ax-b<span class="sc">\|</span>$ (Euclidean). Is this the minimum? (You need not prove optimality yet — just evaluate the objective.)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>**W3.** Closest attainable vector. Sketch (in $\mathbb{R}^3$ as a cartoon, or think in words): $C(A)$ is a plane (or line) through the origin; $b$ is off the plane; $\hat{b}=A\hat{x}$ is the foot of the perpendicular from $b$ to $C(A)$. Label the residual $r=b-\hat{b}$.</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-sketch.qmd &gt;}}</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>**W4.** Exact case. Change $b$ to $b'=(1,2,3)$. Show that $x=(1,1)$ solves $Ax=b'$ exactly. What is the residual? What is $\min_x<span class="sc">\|</span>Ax-b'<span class="sc">\|</span>$?</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>**W5.** Language check. In one sentence each, distinguish “no solution” from “best approximate solution.”</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>**Y1.** Let</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;1<span class="sc">\\</span>0&amp;1<span class="sc">\\</span>1&amp;0\end{bmatrix},\qquad</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>b=\begin{bmatrix}3<span class="sc">\\</span>1<span class="sc">\\</span>1\end{bmatrix},\qquad</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>x=\begin{bmatrix}1<span class="sc">\\</span>1\end{bmatrix}.</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>Compute $Ax$ and $r=b-Ax$. Is $x$ an exact solution? What is $<span class="sc">\|</span>r<span class="sc">\|</span>$?</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>**Y2.** True or false, with a one-line reason: if $Ax=b$ is inconsistent, then no vector $\hat{x}$ can make $<span class="sc">\|</span>A\hat{x}-b<span class="sc">\|</span>$ finite.</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>**Y3.** In words: what does $\hat{b}=A\hat{x}$ represent when $\hat{x}$ is a least-squares solution?</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>**Y4.** A $4\times 2$ matrix $A$ has linearly independent columns, and $b\notin C(A)$. Can $Ax=b$ have an exact solution? Can it have a least-squares solution?</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-38.qmd &gt;}}</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-38.qmd &gt;}}</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -153,6 +153,11 @@ window.Quarto = {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
+  <li><a href="#lab-5-same-day" id="toc-lab-5-same-day" class="nav-link" data-scroll-target="#lab-5-same-day">Lab 5, same day</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-37.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -166,7 +171,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lecture 37 — Why did the system behave that way?</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Fri Nov 20</p>
+<p class="subtitle lead">Fri Nov 20 — + Quiz 9 + Lab 5</p>
 </div>
 
 
@@ -178,7 +183,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -190,9 +195,10 @@ window.Quarto = {
 
 
 <p><a href="lecture-37.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Reading: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf">Strang §6.1</a>, <a href="../labs/lab-05.html">Lab 5</a>, and Lachniet Ch. 5. Related objectives: <a href="../lectures.html#lecture-37">Lectures</a>.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Reading: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf">Strang §6.1</a>, <a href="../labs/lab-05.html">Lab 5</a>, and Lachniet Ch. 5 (eigenvalues/eigenvectors). Related objectives: <a href="../lectures.html#lecture-37">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Same day: <a href="../quizzes/quiz-09.html">Quiz 9</a> (Week 11 inverses / rank / determinants — <strong>not</strong> eigenvalues) and <a href="../labs/lab-05.html">Lab 5</a>.</p>
+<p>Bring paper. After the quiz: short lecture on software eigenpairs, dominant behavior, and a normal-mode demo, then Lab 5.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -203,6 +209,64 @@ window.Quarto = {
 <li>Interpret complex eigenvalues as rotation/oscillation behavior.</li>
 <li>Explore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Let <span class="math display">\[
+A=\begin{bmatrix}1.1&amp;0.2\\0.1&amp;0.8\end{bmatrix},\qquad
+v=\begin{bmatrix}2\\1\end{bmatrix}.
+\]</span> Hand-compute <span class="math inline">\(Av\)</span>. Guess a plausible <span class="math inline">\(\lambda\)</span> so that <span class="math inline">\(Av\approx\lambda v\)</span>. (Exact eigenpairs come from software in lab.)</p>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p><strong>Software eigenpairs.</strong> Octave <code>eig(A)</code> / Python <code>np.linalg.eig(A)</code> return eigenvalues and a matrix whose columns are eigenvectors.</p>
+<p><strong>Verify.</strong> For each reported pair <span class="math inline">\((\lambda,v)\)</span>, check <span class="math display">\[
+Av \approx \underline{\hspace{1.4cm}}
+\]</span> (componentwise; floating-point noise is expected). Never trust a bare printout without this check.</p>
+<p><strong>Dominant behavior.</strong> If <span class="math inline">\(|\lambda_1|&gt;|\lambda_2|\ge\cdots\)</span> and <span class="math inline">\(x_0\)</span> has a component along the <span class="math inline">\(\lambda_1\)</span>-eigenvector, then for large <span class="math inline">\(t\)</span> <span class="math display">\[
+A^t x_0 \approx c\,\lambda_1^t\,v_1.
+\]</span> That explains Lab 4-style growth/decay/stabilization once you know the eigenpairs.</p>
+<p><strong>Complex eigenvalues.</strong> For a real matrix, nonreal eigenvalues come in conjugate pairs. In the real plane they produce <span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> (rotation / oscillation), matching Monday’s pure-rotation example.</p>
+<p><strong>Normal modes (demo, not a DE course).</strong> For a symmetric mass–spring style matrix, eigenvectors are often <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> (orthogonal). Software shows the modes; we do <strong>not</strong> derive differential equations today.</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Software sketch. On the board / laptop, for <span class="math inline">\(A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>:</p>
+<pre><code># Octave:  [V,D] = eig(A)     or    eig(A)
+# Python:  vals, vecs = np.linalg.eig(A)</code></pre>
+<p>Read off <span class="math inline">\(\lambda\)</span>’s and columns of <span class="math inline">\(V\)</span>. Verify <span class="math inline">\(A v_1=\lambda_1 v_1\)</span> for one column.</p>
+<p><strong>W2.</strong> Explain a simulation. Same <span class="math inline">\(A\)</span> as W1; <span class="math inline">\(x_0=(1,0)\)</span>. Using eigenpairs, explain in one sentence why <span class="math inline">\(x_t\)</span> grows and which direction it approaches.</p>
+<p><strong>W3.</strong> Complex / oscillation. Software on <span class="math inline">\(R=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> should report eigenvalues near <span class="math inline">\(\pm i\)</span>. Connect that to the cycling you saw in Lab 4 stretch / Lecture 35.</p>
+<p><strong>W4.</strong> Symmetric demo. Let <span class="math inline">\(S=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span> (symmetric). Check that the two eigenvectors from W1 are orthogonal (<span class="math inline">\(v_1^{\mathsf{T}}v_2=0\)</span>). Normal-mode pictures use the same idea in higher dimension.</p>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<p><strong>Y1.</strong> Pseudocode: given <span class="math inline">\(A\)</span>, obtain eigenpairs in software and write the one-line check that <span class="math inline">\(Av\approx\lambda v\)</span> for the first pair.</p>
+<p><strong>Y2.</strong> True or false: if <span class="math inline">\(|\lambda_1|=1.5\)</span> and <span class="math inline">\(|\lambda_2|=0.5\)</span>, then for generic <span class="math inline">\(x_0\)</span> the long-run direction of <span class="math inline">\(A^t x_0\)</span> is the <span class="math inline">\(\lambda_1\)</span>-eigendirection.</p>
+<p><strong>Y3.</strong> Quiz / lab reminder. In one sentence: what does Quiz 9 cover today, and what does Lab 5 cover?</p>
+</section>
+<section id="lab-5-same-day" class="level2">
+<h2 class="anchored" data-anchor-id="lab-5-same-day">Lab 5, same day</h2>
+<p>After the short lecture: <a href="../labs/lab-05.html">Lab 5 — Why Did the System Behave That Way?</a>. Compute eigenpairs with software, verify <span class="math inline">\(Av\approx\lambda v\)</span>, explain the Lab 4 mystery, interpret complex eigenvalues, and peek at a symmetric / normal-mode example. Preview the <a href="../labs/lab-05-ticket.html">one-pager</a>; write on the hard copy in class.</p>
+<p><strong>Reminder:</strong> <a href="../quizzes/quiz-09.html">Quiz 9</a> today covers Week 11 (inverses / rank / determinants), not this eigen lab.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Your turn only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Y1. Sample: <code>vals, V = np.linalg.eig(A)</code> then <code>A @ V[:,0] - vals[0]*V[:,0]</code> (should be near <span class="math inline">\(0\)</span>); Octave: <code>[V,D]=eig(A)</code> then <code>A*V(:,1) - D(1,1)*V(:,1)</code>.</p>
+<p>Y2. <strong>True.</strong> The <span class="math inline">\(\lambda_1\)</span> term grows relative to <span class="math inline">\(\lambda_2\)</span>, so the state aligns with <span class="math inline">\(v_1\)</span> (unless the <span class="math inline">\(v_1\)</span>-component of <span class="math inline">\(x_0\)</span> is exactly zero).</p>
+<p>Y3. Quiz 9 is Week 11 (inverses / rank / determinants); Lab 5 is software eigenpairs and explaining dynamics — not on the quiz.</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -666,32 +730,130 @@ window.Quarto = {
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 37 — Why did the system behave that way?"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Nov 20"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-37.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: <span class="co">[</span><span class="ot">Strang §6.1</span><span class="co">](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf)</span>, <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](../labs/lab-05.qmd)</span>, and Lachniet Ch. 5. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-37)</span>.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute eigenvalues and eigenvectors of a general matrix with software.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Verify $Av\approx\lambda v$ numerically.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Use dominant eigenbehavior to explain a simulated system.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Interpret complex eigenvalues as rotation/oscillation behavior.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Explore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 37 — Why did the system behave that way?"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Nov 20 — + Quiz 9 + Lab 5"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-37.pdf)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Reading: <span class="co">[</span><span class="ot">Strang §6.1</span><span class="co">](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf)</span>, <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](../labs/lab-05.qmd)</span>, and Lachniet Ch. 5 (eigenvalues/eigenvectors). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-37)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 9</span><span class="co">](../quizzes/quiz-09.qmd)</span> (Week 11 inverses / rank / determinants — **not** eigenvalues) and <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](../labs/lab-05.qmd)</span>.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>Bring paper. After the quiz: short lecture on software eigenpairs, dominant behavior, and a normal-mode demo, then Lab 5.</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute eigenvalues and eigenvectors of a general matrix with software.</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Verify $Av\approx\lambda v$ numerically.</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Use dominant eigenbehavior to explain a simulated system.</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Interpret complex eigenvalues as rotation/oscillation behavior.</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Explore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors.</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>Let</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1.1&amp;0.2<span class="sc">\\</span>0.1&amp;0.8\end{bmatrix},\qquad</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>v=\begin{bmatrix}2<span class="sc">\\</span>1\end{bmatrix}.</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>Hand-compute $Av$. Guess a plausible $\lambda$ so that $Av\approx\lambda v$. (Exact eigenpairs come from software in lab.)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>**Software eigenpairs.** Octave <span class="in">`eig(A)`</span> / Python <span class="in">`np.linalg.eig(A)`</span> return eigenvalues and a matrix whose columns are eigenvectors.</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>**Verify.** For each reported pair $(\lambda,v)$, check</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>Av \approx \underline{\hspace{1.4cm}}</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>(componentwise; floating-point noise is expected). Never trust a bare printout without this check.</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>**Dominant behavior.** If $|\lambda_1|&gt;|\lambda_2|\ge\cdots$ and $x_0$ has a component along the $\lambda_1$-eigenvector, then for large $t$</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>A^t x_0 \approx c\,\lambda_1^t\,v_1.</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>That explains Lab 4-style growth/decay/stabilization once you know the eigenpairs.</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>**Complex eigenvalues.** For a real matrix, nonreal eigenvalues come in conjugate pairs. In the real plane they produce $\underline{\hspace{2.4cm}}$ (rotation / oscillation), matching Monday’s pure-rotation example.</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>**Normal modes (demo, not a DE course).** For a symmetric mass–spring style matrix, eigenvectors are often $\underline{\hspace{2.0cm}}$ (orthogonal). Software shows the modes; we do **not** derive differential equations today.</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>**W1.** Software sketch. On the board / laptop, for $A=\begin{bmatrix}2&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix}$:</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="in"># Octave:  [V,D] = eig(A)     or    eig(A)</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="in"># Python:  vals, vecs = np.linalg.eig(A)</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>Read off $\lambda$’s and columns of $V$. Verify $A v_1=\lambda_1 v_1$ for one column.</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>**W2.** Explain a simulation. Same $A$ as W1; $x_0=(1,0)$. Using eigenpairs, explain in one sentence why $x_t$ grows and which direction it approaches.</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>**W3.** Complex / oscillation. Software on $R=\begin{bmatrix}0&amp;-1<span class="sc">\\</span>1&amp;0\end{bmatrix}$ should report eigenvalues near $\pm i$. Connect that to the cycling you saw in Lab 4 stretch / Lecture 35.</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>**W4.** Symmetric demo. Let $S=\begin{bmatrix}2&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix}$ (symmetric). Check that the two eigenvectors from W1 are orthogonal ($v_1^{\mathsf{T}}v_2=0$). Normal-mode pictures use the same idea in higher dimension.</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>**Y1.** Pseudocode: given $A$, obtain eigenpairs in software and write the one-line check that $Av\approx\lambda v$ for the first pair.</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>**Y2.** True or false: if $|\lambda_1|=1.5$ and $|\lambda_2|=0.5$, then for generic $x_0$ the long-run direction of $A^t x_0$ is the $\lambda_1$-eigendirection.</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>**Y3.** Quiz / lab reminder. In one sentence: what does Quiz 9 cover today, and what does Lab 5 cover?</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lab 5, same day</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>After the short lecture: <span class="co">[</span><span class="ot">Lab 5 — Why Did the System Behave That Way?</span><span class="co">](../labs/lab-05.qmd)</span>. Compute eigenpairs with software, verify $Av\approx\lambda v$, explain the Lab 4 mystery, interpret complex eigenvalues, and peek at a symmetric / normal-mode example. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](../labs/lab-05-ticket.qmd)</span>; write on the hard copy in class.</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>**Reminder:** <span class="co">[</span><span class="ot">Quiz 9</span><span class="co">](../quizzes/quiz-09.qmd)</span> today covers Week 11 (inverses / rank / determinants), not this eigen lab.</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-37.qmd &gt;}}</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-37.qmd &gt;}}</span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

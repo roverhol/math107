@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -118,13 +147,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#what-we-are-doing" id="toc-what-we-are-doing" class="nav-link active" data-scroll-target="#what-we-are-doing">What we are doing</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
+  <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
+  <li><a href="#demo-optional-run-once" id="toc-demo-optional-run-once" class="nav-link" data-scroll-target="#demo-optional-run-once">Demo (optional — run once)</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-05.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-05.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -134,14 +177,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 20, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -153,14 +196,147 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lab-05.pdf">Download PDF</a></p>
-<p>Last updated: August 20, 2026.</p>
-<p>Date is on the <a href="../schedule.html">schedule</a>. Full exercises (Octave and Python) will be posted before class.</p>
-<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python; handwrite answers on the one-pager hard copy and get instructor initials after a short check-in. See <a href="../labs/lab-00.html">Lab 0</a> for the pattern.</p>
-<p><strong>Resources:</strong> Lachniet Ch. 5 — <a href="../resources.html">Resources</a>.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Date is on the <a href="../schedule.html">schedule</a>. Same day: <a href="../quizzes/quiz-09.html">Quiz 9</a> (inverses / rank / determinants — <strong>not</strong> eigenvalues) and a short <a href="../lectures/lecture-37.html">Lecture 37</a>, then this lab.</p>
+<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python on a laptop. On lab day you get a <strong>self-contained one-pager</strong> with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. Preview the <a href="../labs/lab-05-ticket.html">one-pager</a>; write on the hard copy handed out in class. Eigenvalue fluency itself is assessed mainly via <a href="../quizzes/quiz-10.html">Quiz 10</a>, not Quiz 9.</p>
+<p><strong>Resources:</strong> Lachniet Ch. 5 (eigenvalues/eigenvectors) · <a href="../resources/syntax.html">Syntax sheets</a> · <a href="../resources.html">Resources</a> · Lectures <a href="../lectures/lecture-35.html">35</a>–<a href="../lectures/lecture-37.html">37</a> · <a href="https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf">Strang §6.1</a>.</p>
+<section id="what-we-are-doing" class="level2">
+<h2 class="anchored" data-anchor-id="what-we-are-doing">What we are doing</h2>
+<p>Compute eigenpairs with software, verify <span class="math inline">\(Av\approx\lambda v\)</span>, use them to <strong>explain</strong> the Lab 4 mystery (growth vs decay by start direction), interpret complex eigenvalues as rotation/oscillation, and observe orthogonal eigenvectors for a symmetric / normal-mode style matrix.</p>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ol type="1">
+<li>Compute eigenvalues and eigenvectors of a general matrix with software.</li>
+<li>Verify <span class="math inline">\(Av\approx\lambda v\)</span> numerically.</li>
+<li>Use dominant eigenbehavior to explain a simulated system.</li>
+<li>Interpret complex eigenvalues as rotation/oscillation behavior.</li>
+<li>Explore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors.</li>
+</ol>
+</section>
+<section id="math-connections" class="level2">
+<h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
+<p>Eigenvectors as persistent directions (<a href="../lectures/lecture-35.html">Lecture 35</a>); characteristic equation and complex eigenvalues (<a href="../lectures/lecture-36.html">Lecture 36</a>); software + dominant behavior + normal-mode demo (<a href="../lectures/lecture-37.html">Lecture 37</a>). Lab 4 recorded the mystery without eigenvalues; today we close that loop.</p>
+</section>
+<section id="key-syntax-this-lab" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Octave</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Eigenvalues only</td>
+<td><code>eig(A)</code></td>
+<td><code>np.linalg.eigvals(A)</code></td>
+</tr>
+<tr class="even">
+<td>Eigenpairs</td>
+<td><code>[V,D] = eig(A)</code></td>
+<td><code>vals, V = np.linalg.eig(A)</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(k\)</span>-th eigenvalue</td>
+<td><code>D(k,k)</code></td>
+<td><code>vals[k]</code> (0-based)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(k\)</span>-th eigenvector</td>
+<td><code>V(:,k)</code></td>
+<td><code>V[:,k]</code></td>
+</tr>
+<tr class="odd">
+<td>Check <span class="math inline">\(Av-\lambda v\)</span></td>
+<td><code>A*V(:,1) - D(1,1)*V(:,1)</code></td>
+<td><code>A @ V[:,0] - vals[0]*V[:,0]</code></td>
+</tr>
+<tr class="even">
+<td>Dot product</td>
+<td><code>v1'*v2</code></td>
+<td><code>v1 @ v2</code> (1D)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Indexing reminder:</strong> Boyd <span class="math inline">\(x_1\)</span> is 1-based. Octave is 1-based; NumPy is 0-based. Eigenvector scaling is arbitrary (software may normalize).</p>
+</section>
+<section id="demo-optional-run-once" class="level2">
+<h2 class="anchored" data-anchor-id="demo-optional-run-once">Demo (optional — run once)</h2>
+<p><span class="math display">\[
+A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}.
+\]</span></p>
+<p><strong>Octave:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">2</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">1</span> <span class="fl">2</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>[<span class="va">V</span><span class="op">,</span><span class="va">D</span>] <span class="op">=</span> <span class="va">eig</span>(<span class="va">A</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="op">*</span><span class="va">V</span>(<span class="op">:,</span><span class="fl">1</span>) <span class="op">-</span> <span class="va">D</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)<span class="op">*</span><span class="va">V</span>(<span class="op">:,</span><span class="fl">1</span>)   <span class="co">% near zero</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="fl">2.</span>, <span class="fl">1.</span>], [<span class="fl">1.</span>, <span class="fl">2.</span>]])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>vals, V <span class="op">=</span> np.linalg.eig(A)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(vals)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(V)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A <span class="op">@</span> V[:,<span class="dv">0</span>] <span class="op">-</span> vals[<span class="dv">0</span>]<span class="op">*</span>V[:,<span class="dv">0</span>])  <span class="co"># near zero</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected:</strong> eigenvalues <span class="math inline">\(3\)</span> and <span class="math inline">\(1\)</span>; residual vector near <span class="math inline">\((0,0)\)</span>.</p>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<p>Pick Octave or Python for the term.</p>
+<p><strong>E1.</strong> Lab 4 mystery explained. Let <span class="math display">\[
+B=\begin{bmatrix}1.2&amp;0\\0&amp;0.5\end{bmatrix}.
+\]</span></p>
+<ol type="a">
+<li>Use software to find eigenpairs of <span class="math inline">\(B\)</span>.</li>
+<li>Verify <span class="math inline">\(Bv=\lambda v\)</span> for each pair (hand or code).</li>
+<li>In one sentence: why does <span class="math inline">\(x_0=(1,0)\)</span> grow while <span class="math inline">\(y_0=(0,1)\)</span> decays?</li>
+</ol>
+<p><strong>Expected:</strong> <span class="math inline">\(\lambda=1.2\)</span> with <span class="math inline">\(v\sim(1,0)\)</span>; <span class="math inline">\(\lambda=0.5\)</span> with <span class="math inline">\(v\sim(0,1)\)</span>. Growth vs decay follows from <span class="math inline">\(|\lambda|&gt;1\)</span> vs <span class="math inline">\(|\lambda|&lt;1\)</span> along those persistent directions.</p>
+<p><strong>E2.</strong> Verify a nondiagonal matrix. Let <span class="math display">\[
+A=\begin{bmatrix}0.9&amp;0.2\\0.1&amp;0.8\end{bmatrix}
+\]</span> (from Lab 4 E1).</p>
+<ol type="a">
+<li>Compute eigenpairs with software.</li>
+<li>For each pair, print <span class="math inline">\(\|Av-\lambda v\|\)</span> (or the residual vector). Accept “near zero.”</li>
+<li>Which eigenvalue has larger absolute value? Predict the long-run direction of <span class="math inline">\(A^t x_0\)</span> for a generic <span class="math inline">\(x_0\)</span>.</li>
+</ol>
+<p><strong>Expected:</strong> eigenvalues <span class="math inline">\(1\)</span> and <span class="math inline">\(0.7\)</span> (exactly, up to rounding); dominant <span class="math inline">\(\lambda=1\)</span> with eigenvector along <span class="math inline">\((2,1)\)</span> (or parallel). Stabilization toward that mix matches Lab 4.</p>
+<p><strong>E3.</strong> Simulate and explain. Same <span class="math inline">\(A\)</span> as E2, <span class="math inline">\(x_0=(1000,0)\)</span>. Run about <span class="math inline">\(20\)</span> steps (reuse Lab 4 code). Using E2’s eigenpairs, explain in 2–3 sentences why the state approaches a steady mix rather than blowing up or oscillating.</p>
+<p><strong>Expected:</strong> both <span class="math inline">\(|\lambda|\le 1\)</span>; the <span class="math inline">\(\lambda=1\)</span> mode persists and the <span class="math inline">\(|\lambda|=0.7\)</span> mode decays, so <span class="math inline">\(x_t\)</span> settles along the <span class="math inline">\(\lambda=1\)</span> eigenvector.</p>
+<p><strong>E4.</strong> Complex / oscillation. Let <span class="math display">\[
+R=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}.
+\]</span></p>
+<ol type="a">
+<li>Software eigenvalues (expect near <span class="math inline">\(\pm i\)</span>).</li>
+<li>Compute <span class="math inline">\(x_0=(1,0)\)</span>, <span class="math inline">\(x_1=Rx_0\)</span>, <span class="math inline">\(x_2\)</span>, <span class="math inline">\(x_3\)</span>, <span class="math inline">\(x_4\)</span> by hand or code.</li>
+<li>In one sentence: how do complex eigenvalues relate to the cycling you see?</li>
+</ol>
+<p><strong>Expected:</strong> <span class="math inline">\(\lambda=\pm i\)</span>; states cycle every <span class="math inline">\(4\)</span> steps on the unit circle; complex eigenvalues encode pure rotation / oscillation (no real persistent direction).</p>
+<p><strong>E5.</strong> Symmetric / normal-mode peek. Let <span class="math display">\[
+S=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}
+\]</span> (symmetric; same as the demo).</p>
+<ol type="a">
+<li>Get both eigenvectors <span class="math inline">\(v_1,v_2\)</span> from software.</li>
+<li>Compute <span class="math inline">\(v_1^{\mathsf{T}}v_2\)</span>. Are they orthogonal (up to rounding)?</li>
+<li>Normal modes (application/demo): for a symmetric vibration-style matrix, orthogonal eigenvectors are the independent “shapes” that stay aligned under <span class="math inline">\(S\)</span>. No differential-equation derivation required — just observe the orthogonality.</li>
+</ol>
+<p><strong>Expected:</strong> <span class="math inline">\(v_1^{\mathsf{T}}v_2\approx 0\)</span>; yes, orthogonal.</p>
+<p><strong>E6 (stretch).</strong> Dominant growth. Let <span class="math inline">\(C=\begin{bmatrix}1.1&amp;0.2\\0.1&amp;0.8\end{bmatrix}\)</span> and <span class="math inline">\(x_0=(1,1)\)</span>. Find eigenpairs; identify the dominant <span class="math inline">\(|\lambda|\)</span>; simulate to <span class="math inline">\(t=15\)</span> and comment whether <span class="math inline">\(\|x_t\|\)</span> grows roughly like <span class="math inline">\(|\lambda_{\mathrm{dom}}|^t\)</span>.</p>
+</section>
+<section id="one-pager" class="level2">
+<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
+<p>Preview the <a href="../labs/lab-05-ticket.html">Lab 5 ticket</a>; write on the hard copy in class.</p>
 
 
 <!-- -->
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -619,26 +795,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 5 — Why Did the System Behave That Way?"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, November 20"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-20</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-05.pdf)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: August 20, 2026.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Full exercises (Octave and Python) will be posted before class.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python; handwrite answers on the one-pager hard copy and get instructor initials after a short check-in. See <span class="co">[</span><span class="ot">Lab 0</span><span class="co">](lab-00.qmd)</span> for the pattern.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Resources:** Lachniet Ch. 5 — <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 5 — Why Did the System Behave That Way?"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, November 20"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-05.pdf)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>Date is on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. Same day: <span class="co">[</span><span class="ot">Quiz 9</span><span class="co">](../quizzes/quiz-09.qmd)</span> (inverses / rank / determinants — **not** eigenvalues) and a short <span class="co">[</span><span class="ot">Lecture 37</span><span class="co">](../lectures/lecture-37.qmd)</span>, then this lab.</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Work the hub exercises in Octave or Python on a laptop. On lab day you get a **self-contained one-pager** with the exercises written out, space for answers and new syntax, and a blank for instructor initials after a short check-in. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-05-ticket.qmd)</span>; write on the hard copy handed out in class. Eigenvalue fluency itself is assessed mainly via <span class="co">[</span><span class="ot">Quiz 10</span><span class="co">](../quizzes/quiz-10.qmd)</span>, not Quiz 9.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>**Resources:** Lachniet Ch. 5 (eigenvalues/eigenvectors) · <span class="co">[</span><span class="ot">Syntax sheets</span><span class="co">](../resources/syntax.qmd)</span> · <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span> · Lectures <span class="co">[</span><span class="ot">35</span><span class="co">](../lectures/lecture-35.qmd)</span>–<span class="co">[</span><span class="ot">37</span><span class="co">](../lectures/lecture-37.qmd)</span> · <span class="co">[</span><span class="ot">Strang §6.1</span><span class="co">](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf)</span>.</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we are doing</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>Compute eigenpairs with software, verify $Av\approx\lambda v$, use them to **explain** the Lab 4 mystery (growth vs decay by start direction), interpret complex eigenvalues as rotation/oscillation, and observe orthogonal eigenvectors for a symmetric / normal-mode style matrix.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute eigenvalues and eigenvectors of a general matrix with software.</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Verify $Av\approx\lambda v$ numerically.</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Use dominant eigenbehavior to explain a simulated system.</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Interpret complex eigenvalues as rotation/oscillation behavior.</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Explore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors.</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>Eigenvectors as persistent directions (<span class="co">[</span><span class="ot">Lecture 35</span><span class="co">](../lectures/lecture-35.qmd)</span>); characteristic equation and complex eigenvalues (<span class="co">[</span><span class="ot">Lecture 36</span><span class="co">](../lectures/lecture-36.qmd)</span>); software + dominant behavior + normal-mode demo (<span class="co">[</span><span class="ot">Lecture 37</span><span class="co">](../lectures/lecture-37.qmd)</span>). Lab 4 recorded the mystery without eigenvalues; today we close that loop.</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eigenvalues only <span class="pp">|</span> <span class="in">`eig(A)`</span> <span class="pp">|</span> <span class="in">`np.linalg.eigvals(A)`</span> <span class="pp">|</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eigenpairs <span class="pp">|</span> <span class="in">`[V,D] = eig(A)`</span> <span class="pp">|</span> <span class="in">`vals, V = np.linalg.eig(A)`</span> <span class="pp">|</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $k$-th eigenvalue <span class="pp">|</span> <span class="in">`D(k,k)`</span> <span class="pp">|</span> <span class="in">`vals[k]`</span> (0-based) <span class="pp">|</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> $k$-th eigenvector <span class="pp">|</span> <span class="in">`V(:,k)`</span> <span class="pp">|</span> <span class="in">`V[:,k]`</span> <span class="pp">|</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Check $Av-\lambda v$ <span class="pp">|</span> <span class="in">`A*V(:,1) - D(1,1)*V(:,1)`</span> <span class="pp">|</span> <span class="in">`A @ V[:,0] - vals[0]*V[:,0]`</span> <span class="pp">|</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Dot product <span class="pp">|</span> <span class="in">`v1'*v2`</span> <span class="pp">|</span> <span class="in">`v1 @ v2`</span> (1D) <span class="pp">|</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>**Indexing reminder:** Boyd $x_1$ is 1-based. Octave is 1-based; NumPy is 0-based. Eigenvector scaling is arbitrary (software may normalize).</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Demo (optional — run once)</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}2&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix}.</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>**Octave:**</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">2</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">1</span> <span class="fl">2</span>]<span class="op">;</span></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>[<span class="va">V</span><span class="op">,</span><span class="va">D</span>] <span class="op">=</span> <span class="va">eig</span>(<span class="va">A</span>)</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="op">*</span><span class="va">V</span>(<span class="op">:,</span><span class="fl">1</span>) <span class="op">-</span> <span class="va">D</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)<span class="op">*</span><span class="va">V</span>(<span class="op">:,</span><span class="fl">1</span>)   <span class="co">% near zero</span></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">:**</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">2</span>.<span class="op">,</span> <span class="fl">1</span>.]<span class="op">,</span> [<span class="fl">1</span>.<span class="op">,</span> <span class="fl">2</span>.]])</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="va">vals</span><span class="op">,</span> <span class="va">V</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">linalg</span>.<span class="va">eig</span>(<span class="va">A</span>)</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="va">vals</span>)</span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="va">V</span>)</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="va">A</span> <span class="op">@</span> <span class="va">V</span>[<span class="op">:,</span><span class="fl">0</span>] <span class="op">-</span> <span class="va">vals</span>[<span class="fl">0</span>]<span class="op">*</span><span class="va">V</span>[<span class="op">:,</span><span class="fl">0</span>])  # <span class="va">near</span> <span class="va">zero</span></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">eigenvalues</span> $<span class="fl">3</span>$ <span class="va">and</span> $<span class="fl">1</span>$<span class="op">;</span> <span class="va">residual</span> <span class="va">vector</span> <span class="va">near</span> $(<span class="fl">0</span><span class="op">,</span><span class="fl">0</span>)$.</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>## <span class="va">Exercises</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a><span class="va">Pick</span> <span class="va">Octave</span> <span class="va">or</span> <span class="va">Python</span> <span class="kw">for</span> <span class="va">the</span> <span class="va">term</span>.</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E1</span><span class="op">.**</span> <span class="va">Lab</span> <span class="fl">4</span> <span class="va">mystery</span> <span class="va">explained</span>. <span class="va">Let</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a><span class="va">B</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1.2</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0.5</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}.</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Use</span> <span class="va">software</span> <span class="va">to</span> <span class="va">find</span> <span class="va">eigenpairs</span> <span class="va">of</span> $<span class="va">B</span>$.</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Verify</span> $<span class="va">Bv</span><span class="op">=\</span><span class="va">lambda</span> <span class="va">v</span>$ <span class="kw">for</span> <span class="va">each</span> <span class="va">pair</span> (<span class="va">hand</span> <span class="va">or</span> <span class="va">code</span>).</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">In</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">:</span> <span class="va">why</span> <span class="va">does</span> $<span class="va">x_0</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$ <span class="va">grow</span> <span class="kw">while</span> $<span class="va">y_0</span><span class="op">=</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$ <span class="va">decays</span>?</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="op">\</span><span class="va">lambda</span><span class="op">=</span><span class="fl">1.2</span>$ <span class="va">with</span> $<span class="va">v</span><span class="op">\</span><span class="va">sim</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">;</span> $<span class="op">\</span><span class="va">lambda</span><span class="op">=</span><span class="fl">0.5</span>$ <span class="va">with</span> $<span class="va">v</span><span class="op">\</span><span class="va">sim</span>(<span class="fl">0</span><span class="op">,</span><span class="fl">1</span>)$. <span class="va">Growth</span> <span class="va">vs</span> <span class="va">decay</span> <span class="va">follows</span> <span class="va">from</span> $<span class="op">|\</span><span class="va">lambda</span><span class="op">|&gt;</span><span class="fl">1</span>$ <span class="va">vs</span> $<span class="op">|\</span><span class="va">lambda</span><span class="op">|&lt;</span><span class="fl">1</span>$ <span class="va">along</span> <span class="va">those</span> <span class="kw">persistent</span> <span class="va">directions</span>.</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E2</span><span class="op">.**</span> <span class="va">Verify</span> <span class="va">a</span> <span class="va">nondiagonal</span> <span class="va">matrix</span>. <span class="va">Let</span></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0.9</span><span class="op">&amp;</span><span class="fl">0.2</span><span class="op">\\</span><span class="fl">0.1</span><span class="op">&amp;</span><span class="fl">0.8</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>(<span class="va">from</span> <span class="va">Lab</span> <span class="fl">4</span> <span class="va">E1</span>).</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Compute</span> <span class="va">eigenpairs</span> <span class="va">with</span> <span class="va">software</span>.</span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">For</span> <span class="va">each</span> <span class="va">pair</span><span class="op">,</span> <span class="va">print</span> $<span class="op">\|</span><span class="va">Av</span><span class="op">-\</span><span class="va">lambda</span> <span class="va">v</span><span class="op">\|</span>$ (<span class="va">or</span> <span class="va">the</span> <span class="va">residual</span> <span class="va">vector</span>). <span class="va">Accept</span> “<span class="va">near</span> <span class="va">zero</span>.”</span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">Which</span> <span class="va">eigenvalue</span> <span class="va">has</span> <span class="va">larger</span> <span class="va">absolute</span> <span class="va">value</span>? <span class="va">Predict</span> <span class="va">the</span> <span class="va">long</span><span class="op">-</span><span class="va">run</span> <span class="va">direction</span> <span class="va">of</span> $<span class="va">A</span><span class="op">^</span><span class="va">t</span> <span class="va">x_0</span>$ <span class="kw">for</span> <span class="va">a</span> <span class="va">generic</span> $<span class="va">x_0</span>$.</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">eigenvalues</span> $<span class="fl">1</span>$ <span class="va">and</span> $<span class="fl">0.7</span>$ (<span class="va">exactly</span><span class="op">,</span> <span class="va">up</span> <span class="va">to</span> <span class="va">rounding</span>)<span class="op">;</span> <span class="va">dominant</span> $<span class="op">\</span><span class="va">lambda</span><span class="op">=</span><span class="fl">1</span>$ <span class="va">with</span> <span class="va">eigenvector</span> <span class="va">along</span> $(<span class="fl">2</span><span class="op">,</span><span class="fl">1</span>)$ (<span class="va">or</span> <span class="va">parallel</span>). <span class="va">Stabilization</span> <span class="va">toward</span> <span class="va">that</span> <span class="va">mix</span> <span class="va">matches</span> <span class="va">Lab</span> <span class="fl">4</span>.</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E3</span><span class="op">.**</span> <span class="va">Simulate</span> <span class="va">and</span> <span class="va">explain</span>. <span class="va">Same</span> $<span class="va">A</span>$ <span class="va">as</span> <span class="va">E2</span><span class="op">,</span> $<span class="va">x_0</span><span class="op">=</span>(<span class="fl">1000</span><span class="op">,</span><span class="fl">0</span>)$. <span class="va">Run</span> <span class="va">about</span> $<span class="fl">20</span>$ <span class="va">steps</span> (<span class="va">reuse</span> <span class="va">Lab</span> <span class="fl">4</span> <span class="va">code</span>). <span class="va">Using</span> <span class="va">E2</span>’<span class="va">s</span> <span class="va">eigenpairs</span><span class="op">,</span> <span class="va">explain</span> <span class="va">in</span> <span class="fl">2</span>–<span class="fl">3</span> <span class="va">sentences</span> <span class="va">why</span> <span class="va">the</span> <span class="va">state</span> <span class="va">approaches</span> <span class="va">a</span> <span class="va">steady</span> <span class="va">mix</span> <span class="va">rather</span> <span class="va">than</span> <span class="va">blowing</span> <span class="va">up</span> <span class="va">or</span> <span class="va">oscillating</span>.</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">both</span> $<span class="op">|\</span><span class="va">lambda</span><span class="op">|\</span><span class="va">le</span> <span class="fl">1</span>$<span class="op">;</span> <span class="va">the</span> $<span class="op">\</span><span class="va">lambda</span><span class="op">=</span><span class="fl">1</span>$ <span class="va">mode</span> <span class="va">persists</span> <span class="va">and</span> <span class="va">the</span> $<span class="op">|\</span><span class="va">lambda</span><span class="op">|=</span><span class="fl">0.7</span>$ <span class="va">mode</span> <span class="va">decays</span><span class="op">,</span> <span class="va">so</span> $<span class="va">x_t</span>$ <span class="va">settles</span> <span class="va">along</span> <span class="va">the</span> $<span class="op">\</span><span class="va">lambda</span><span class="op">=</span><span class="fl">1</span>$ <span class="va">eigenvector</span>.</span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E4</span><span class="op">.**</span> <span class="va">Complex</span> <span class="op">/</span> <span class="va">oscillation</span>. <span class="va">Let</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a><span class="va">R</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">&amp;-</span><span class="fl">1</span><span class="op">\\</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}.</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Software</span> <span class="va">eigenvalues</span> (<span class="va">expect</span> <span class="va">near</span> $<span class="op">\</span><span class="va">pm</span> <span class="va">i</span>$).</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Compute</span> $<span class="va">x_0</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>)$<span class="op">,</span> $<span class="va">x_1</span><span class="op">=</span><span class="va">Rx_0</span>$<span class="op">,</span> $<span class="va">x_2</span>$<span class="op">,</span> $<span class="va">x_3</span>$<span class="op">,</span> $<span class="va">x_4</span>$ <span class="va">by</span> <span class="va">hand</span> <span class="va">or</span> <span class="va">code</span>.</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">In</span> <span class="va">one</span> <span class="va">sentence</span><span class="op">:</span> <span class="va">how</span> <span class="va">do</span> <span class="va">complex</span> <span class="va">eigenvalues</span> <span class="va">relate</span> <span class="va">to</span> <span class="va">the</span> <span class="va">cycling</span> <span class="va">you</span> <span class="va">see</span>?</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="op">\</span><span class="va">lambda</span><span class="op">=\</span><span class="va">pm</span> <span class="va">i</span>$<span class="op">;</span> <span class="va">states</span> <span class="va">cycle</span> <span class="va">every</span> $<span class="fl">4</span>$ <span class="va">steps</span> <span class="va">on</span> <span class="va">the</span> <span class="va">unit</span> <span class="va">circle</span><span class="op">;</span> <span class="va">complex</span> <span class="va">eigenvalues</span> <span class="va">encode</span> <span class="va">pure</span> <span class="va">rotation</span> <span class="op">/</span> <span class="va">oscillation</span> (<span class="va">no</span> <span class="va">real</span> <span class="kw">persistent</span> <span class="va">direction</span>).</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E5</span><span class="op">.**</span> <span class="va">Symmetric</span> <span class="op">/</span> <span class="va">normal</span><span class="op">-</span><span class="va">mode</span> <span class="va">peek</span>. <span class="va">Let</span></span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a><span class="va">S</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">2</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\\</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">2</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>(<span class="va">symmetric</span><span class="op">;</span> <span class="va">same</span> <span class="va">as</span> <span class="va">the</span> <span class="va">demo</span>).</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Get</span> <span class="va">both</span> <span class="va">eigenvectors</span> $<span class="va">v_1</span><span class="op">,</span><span class="va">v_2</span>$ <span class="va">from</span> <span class="va">software</span>.</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Compute</span> $<span class="va">v_1</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">v_2</span>$. <span class="va">Are</span> <span class="va">they</span> <span class="va">orthogonal</span> (<span class="va">up</span> <span class="va">to</span> <span class="va">rounding</span>)?</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) <span class="va">Normal</span> <span class="va">modes</span> (<span class="va">application</span><span class="op">/</span><span class="va">demo</span>)<span class="op">:</span> <span class="kw">for</span> <span class="va">a</span> <span class="va">symmetric</span> <span class="va">vibration</span><span class="op">-</span><span class="va">style</span> <span class="va">matrix</span><span class="op">,</span> <span class="va">orthogonal</span> <span class="va">eigenvectors</span> <span class="va">are</span> <span class="va">the</span> <span class="va">independent</span> “<span class="va">shapes</span>” <span class="va">that</span> <span class="va">stay</span> <span class="va">aligned</span> <span class="va">under</span> $<span class="va">S</span>$. <span class="va">No</span> <span class="va">differential</span><span class="op">-</span><span class="va">equation</span> <span class="va">derivation</span> <span class="va">required</span> — <span class="va">just</span> <span class="va">observe</span> <span class="va">the</span> <span class="va">orthogonality</span>.</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">v_1</span><span class="op">^</span>{<span class="op">\</span><span class="va">mathsf</span>{<span class="va">T</span>}}<span class="va">v_2</span><span class="op">\</span><span class="va">approx</span> <span class="fl">0</span>$<span class="op">;</span> <span class="va">yes</span><span class="op">,</span> <span class="va">orthogonal</span>.</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">E6</span> (<span class="va">stretch</span>)<span class="op">.**</span> <span class="va">Dominant</span> <span class="va">growth</span>. <span class="va">Let</span> $<span class="va">C</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1.1</span><span class="op">&amp;</span><span class="fl">0.2</span><span class="op">\\</span><span class="fl">0.1</span><span class="op">&amp;</span><span class="fl">0.8</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$ <span class="va">and</span> $<span class="va">x_0</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">1</span>)$. <span class="va">Find</span> <span class="va">eigenpairs</span><span class="op">;</span> <span class="va">identify</span> <span class="va">the</span> <span class="va">dominant</span> $<span class="op">|\</span><span class="va">lambda</span><span class="op">|</span>$<span class="op">;</span> <span class="va">simulate</span> <span class="va">to</span> $<span class="va">t</span><span class="op">=</span><span class="fl">15</span>$ <span class="va">and</span> <span class="va">comment</span> <span class="va">whether</span> $<span class="op">\|</span><span class="va">x_t</span><span class="op">\|</span>$ <span class="va">grows</span> <span class="va">roughly</span> <span class="va">like</span> $<span class="op">|\</span><span class="va">lambda_</span>{<span class="op">\</span><span class="va">mathrm</span>{<span class="va">dom</span>}}<span class="op">|^</span><span class="va">t</span>$.</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>## <span class="va">One</span><span class="op">-</span><span class="va">pager</span></span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a><span class="va">Preview</span> <span class="va">the</span> [<span class="va">Lab</span> <span class="fl">5</span> <span class="va">ticket</span>](<span class="va">lab</span><span class="op">-</span><span class="fl">05</span><span class="op">-</span><span class="va">ticket</span>.<span class="va">qmd</span>)<span class="op">;</span> <span class="va">write</span> <span class="va">on</span> <span class="va">the</span> <span class="va">hard</span> <span class="va">copy</span> <span class="va">in</span> <span class="va">class</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

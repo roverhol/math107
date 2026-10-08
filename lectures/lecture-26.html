@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -124,6 +153,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
+  <li><a href="#lab-4-same-day" id="toc-lab-4-same-day" class="nav-link" data-scroll-target="#lab-4-same-day">Lab 4, same day</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-26.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -149,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 18, 2026</p>
+      <p class="date-modified">October 8, 2026</p>
     </div>
   </div>
     
@@ -161,9 +195,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lecture-26.pdf">Download PDF</a></p>
-<p>Last updated: August 18, 2026.</p>
-<p>The class outline for this day will be posted before class.</p>
-<p>Reading: <a href="../labs/lab-04.html">Lab 4</a>, Lachniet Ch. 2, and introductory programming/loops. Related objectives: <a href="../lectures.html#lecture-26">Lectures</a>.</p>
+<p>Last updated: October 8, 2026.</p>
+<p>Reading: <a href="../labs/lab-04.html">Lab 4</a>, Lachniet Ch. 2 (matrix operations), and Lachniet’s introductory programming/loops material. Related objectives: <a href="../lectures.html#lecture-26">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Same day: <a href="../quizzes/quiz-07.html">Quiz 7</a> (Week 8 systems / RREF — <strong>not</strong> dynamics) and <a href="../labs/lab-04.html">Lab 4</a>.</p>
+<p>Bring paper. After the quiz: short lecture on implementing <span class="math inline">\(x_{t+1}=Ax_t\)</span>, then Lab 4.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, students should be able to:</p>
@@ -174,6 +209,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Compare results under altered parameters or initial states.</li>
 <li>Record an unexplained long-run pattern for later investigation.</li>
 </ol>
+</section>
+<section id="warm-up" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
+<p>Let <span class="math display">\[
+A=\begin{bmatrix}0.7&amp;0.2\\ 0.3&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix}10\\0\end{bmatrix}.
+\]</span> Hand-compute <span class="math inline">\(x_1=Ax_0\)</span> and <span class="math inline">\(x_2=Ax_1\)</span>. These two checks are exactly what you will use in lab to validate a loop.</p>
+</section>
+<section id="fill-in" class="level2">
+<h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
+<p><strong>Implement</strong> <span class="math inline">\(x_{t+1}=Ax_t\)</span> in software:</p>
+<ul>
+<li>Enter the matrix <span class="math inline">\(A\)</span> and the initial state <span class="math inline">\(x_0\)</span>.</li>
+<li>In a loop: replace <span class="math inline">\(x\)</span> by <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> (Octave <code>A*x</code>, Python <code>A @ x</code>).</li>
+<li>Optionally store each <span class="math inline">\(x_t\)</span> in a list / array for plotting.</li>
+</ul>
+<p><strong>Validate.</strong> Before trusting <span class="math inline">\(50\)</span> steps, check that the code’s <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> match your <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> calculation.</p>
+<p><strong>Compare.</strong> Change one parameter in <span class="math inline">\(A\)</span>, or change <span class="math inline">\(x_0\)</span>, re-run, and describe the difference in words.</p>
+<p><strong>Mystery log.</strong> When a long-run pattern surprises you, write it down — we return to it in Week 13 (eigenvectors), not today.</p>
+</section>
+<section id="worked-in-class" class="level2">
+<h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
+<p><strong>W1.</strong> Complete the iteration. Fill the blanks so this produces <span class="math inline">\(x_0,\ldots,x_5\)</span> (either language is fine on the board):</p>
+<pre><code>x = x0
+for t = 1 to 5:
+    x = ______
+    print / store x</code></pre>
+<p><strong>W2.</strong> Hand-check then compare. With <span class="math inline">\(A=\operatorname{diag}(1.2,\,0.5)\)</span> and <span class="math inline">\(x_0=(5,4)\)</span>:</p>
+<ol type="a">
+<li>Compute <span class="math inline">\(x_1\)</span> by hand.</li>
+<li>If software reports <span class="math inline">\(x_1=(6,2)\)</span>, is the code consistent?</li>
+<li>What-if: replace <span class="math inline">\(x_0\)</span> by <span class="math inline">\((5,0)\)</span>. After many steps, which component dominates?</li>
+</ol>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<p><strong>Y1.</strong> Pseudocode check. Someone writes <code>for t = 1 to 10: x = A*x</code> but never prints the initial <span class="math inline">\(x_0\)</span>. How many states after <span class="math inline">\(x_0\)</span> does the loop produce? What should they add if they also want <span class="math inline">\(x_0\)</span> recorded?</p>
+<p><strong>Y2.</strong> Validate. <span class="math inline">\(A=\begin{bmatrix}0&amp;1\\ -1&amp;0\end{bmatrix}\)</span>, <span class="math inline">\(x_0=(1,0)\)</span>. Hand-compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. If a plot of the first component reads <span class="math inline">\(1,0,-1,0,1,\ldots\)</span>, does that match?</p>
+<p><strong>Y3.</strong> Mystery sentence. In one sentence, record a long-run question from Lecture 25 or today’s warm-up that you cannot yet explain with a formula (save for Week 13).</p>
+</section>
+<section id="lab-4-same-day" class="level2">
+<h2 class="anchored" data-anchor-id="lab-4-same-day">Lab 4, same day</h2>
+<p>After the short lecture: <a href="../labs/lab-04.html">Lab 4 — Predict a System Through Time</a>. Implement <span class="math inline">\(x_{t+1}=Ax_t\)</span>, iterate, hand-check the first steps, compare parameters, and record an unexplained long-run pattern. Preview the <a href="../labs/lab-04-ticket.html">one-pager</a>; write on the hard copy in class.</p>
+<p><strong>Reminder:</strong> <a href="../quizzes/quiz-07.html">Quiz 7</a> today covers Week 8 (systems / RREF), not this dynamics lab.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Answers (Your turn only)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Y1. The loop produces <span class="math inline">\(x_1,\ldots,x_{10}\)</span> (ten states after <span class="math inline">\(x_0\)</span>). Print or store <span class="math inline">\(x\)</span> once <em>before</em> the loop to include <span class="math inline">\(x_0\)</span>.</p>
+<p>Y2. <span class="math inline">\(x_1=(0,-1)\)</span>, <span class="math inline">\(x_2=(-1,0)\)</span>. First components: <span class="math inline">\(1,\,0,\,-1,\,\ldots\)</span> — yes, matches the start of that plot sequence.</p>
+<p>Y3. Sample: “Why does <span class="math inline">\(\operatorname{diag}(1.1,0.5)\)</span> grow for some initial states and decay for others?” (Any clear unexplained pattern from class is fine.)</p>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -637,32 +733,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 26 — Predict a system through time"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Oct 23"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-08-18</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-26.pdf)</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: August 18, 2026.</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The class outline for this day will be posted before class.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Reading: <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span>, Lachniet Ch. 2, and introductory programming/loops. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-26)</span>.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Implement a linear dynamical model.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Write or complete a short iterative calculation.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Validate the first steps by hand.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare results under altered parameters or initial states.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Record an unexplained long-run pattern for later investigation.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 26 — Predict a system through time"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Oct 23"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-26.pdf)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>Reading: <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span>, Lachniet Ch. 2 (matrix operations), and Lachniet’s introductory programming/loops material. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-26)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 7</span><span class="co">](../quizzes/quiz-07.qmd)</span> (Week 8 systems / RREF — **not** dynamics) and <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span>.</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>Bring paper. After the quiz: short lecture on implementing $x_{t+1}=Ax_t$, then Lab 4.</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Implement a linear dynamical model.</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Write or complete a short iterative calculation.</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Validate the first steps by hand.</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare results under altered parameters or initial states.</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Record an unexplained long-run pattern for later investigation.</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>Let</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.7&amp;0.2<span class="sc">\\</span> 0.3&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix}10<span class="sc">\\</span>0\end{bmatrix}.</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>Hand-compute $x_1=Ax_0$ and $x_2=Ax_1$. These two checks are exactly what you will use in lab to validate a loop.</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>**Implement** $x_{t+1}=Ax_t$ in software:</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enter the matrix $A$ and the initial state $x_0$.</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>In a loop: replace $x$ by $\underline{\hspace{2.0cm}}$ (Octave <span class="in">`A*x`</span>, Python <span class="in">`A @ x`</span>).</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optionally store each $x_t$ in a list / array for plotting.</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>**Validate.** Before trusting $50$ steps, check that the code’s $x_1$ and $x_2$ match your $\underline{\hspace{2.0cm}}$ calculation.</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>**Compare.** Change one parameter in $A$, or change $x_0$, re-run, and describe the difference in words.</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>**Mystery log.** When a long-run pattern surprises you, write it down — we return to it in Week 13 (eigenvectors), not today.</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>**W1.** Complete the iteration. Fill the blanks so this produces $x_0,\ldots,x_5$ (either language is fine on the board):</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="in">x = x0</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="in">for t = 1 to 5:</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="in">    x = ______</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="in">    print / store x</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>**W2.** Hand-check then compare. With $A=\operatorname{diag}(1.2,\,0.5)$ and $x_0=(5,4)$:</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>(a) Compute $x_1$ by hand.</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>(b) If software reports $x_1=(6,2)$, is the code consistent?</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>(c) What-if: replace $x_0$ by $(5,0)$. After many steps, which component dominates?</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>**Y1.** Pseudocode check. Someone writes <span class="in">`for t = 1 to 10: x = A*x`</span> but never prints the initial $x_0$. How many states after $x_0$ does the loop produce? What should they add if they also want $x_0$ recorded?</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>**Y2.** Validate. $A=\begin{bmatrix}0&amp;1<span class="sc">\\</span> -1&amp;0\end{bmatrix}$, $x_0=(1,0)$. Hand-compute $x_1$ and $x_2$. If a plot of the first component reads $1,0,-1,0,1,\ldots$, does that match?</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>**Y3.** Mystery sentence. In one sentence, record a long-run question from Lecture 25 or today’s warm-up that you cannot yet explain with a formula (save for Week 13).</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lab 4, same day</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>After the short lecture: <span class="co">[</span><span class="ot">Lab 4 — Predict a System Through Time</span><span class="co">](../labs/lab-04.qmd)</span>. Implement $x_{t+1}=Ax_t$, iterate, hand-check the first steps, compare parameters, and record an unexplained long-run pattern. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](../labs/lab-04-ticket.qmd)</span>; write on the hard copy in class.</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>**Reminder:** <span class="co">[</span><span class="ot">Quiz 7</span><span class="co">](../quizzes/quiz-07.qmd)</span> today covers Week 8 (systems / RREF), not this dynamics lab.</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-26.qmd &gt;}}</span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-26.qmd &gt;}}</span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
