@@ -171,7 +171,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lecture 32 — Determinants, geometry, and invertibility</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Fri Nov 6 — + Quiz 8 + Lab 4</p>
+<p class="subtitle lead">Fri Nov 6 — + Quiz 9 + Lab 4</p>
 </div>
 
 
@@ -199,7 +199,7 @@ window.Quarto = {
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
 <p>Reading: Determinants (class notes). Related objectives: <a href="../lectures.html#lecture-32">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
-<p>Same day: <a href="../quizzes/quiz-08.html">Quiz 8</a> covers <strong>Week 10</strong> (products / powers / cost), <strong>not</strong> today’s determinants and <strong>not</strong> <a href="../labs/lab-04.html">Lab 4</a>.</p>
+<p>Same day: <a href="../quizzes/quiz-09.html">Quiz 9</a> covers <strong>Week 10</strong> (products / powers / cost), <strong>not</strong> today’s determinants and <strong>not</strong> <a href="../labs/lab-04.html">Lab 4</a>.</p>
 <p>Bring paper. After the quiz: determinant formulas, geometry, and invertibility; then Lab 4 (dynamics iteration from Week 9).</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
@@ -255,7 +255,7 @@ A\text{ invertible}\quad\Longleftrightarrow\quad \det A \neq \underline{\hspace{
 <p><strong>Y1.</strong> Compute <span class="math inline">\(\det\begin{bmatrix}4&amp;-1\\2&amp;3\end{bmatrix}\)</span> and <span class="math inline">\(\det\begin{bmatrix}-1&amp;0&amp;0\\2&amp;5&amp;0\\3&amp;1&amp;2\end{bmatrix}\)</span>.</p>
 <p><strong>Y2.</strong> Let <span class="math inline">\(A=\operatorname{diag}(2,-1)\)</span>. What is <span class="math inline">\(|\det A|\)</span>? Interpret as area scaling of the unit square.</p>
 <p><strong>Y3.</strong> True or false: if <span class="math inline">\(\det A=0\)</span> for square <span class="math inline">\(A\)</span>, then <span class="math inline">\(Ax=b\)</span> has either no solution or infinitely many solutions for every <span class="math inline">\(b\)</span>.</p>
-<p><strong>Y4.</strong> True or false: Quiz 8 today tests determinants from this lecture.</p>
+<p><strong>Y4.</strong> True or false: Quiz 9 today tests determinants from this lecture.</p>
 </section>
 <section id="lab-4-same-day" class="level2">
 <h2 class="anchored" data-anchor-id="lab-4-same-day">Lab 4, same day</h2>
@@ -275,7 +275,7 @@ A\text{ invertible}\quad\Longleftrightarrow\quad \det A \neq \underline{\hspace{
 <p>Y1. <span class="math inline">\(\det\begin{bmatrix}4&amp;-1\\2&amp;3\end{bmatrix}=12-(-2)=14\)</span>. Lower triangular: <span class="math inline">\(\det=(-1)(5)(2)=-10\)</span>.</p>
 <p>Y2. <span class="math inline">\(|\det A|=|(2)(-1)|=2\)</span>: the unit square is mapped to a rectangle of area <span class="math inline">\(2\)</span> (stretched by <span class="math inline">\(2\)</span> horizontally and reflected/flipped vertically).</p>
 <p>Y3. <strong>True.</strong> Singular means no unique solution for any <span class="math inline">\(b\)</span>: if <span class="math inline">\(b\in C(A)\)</span> there are infinitely many solutions; otherwise none.</p>
-<p>Y4. <strong>False.</strong> Quiz 8 is Week 10 (products / powers / cost), not today’s determinants.</p>
+<p>Y4. <strong>False.</strong> Quiz 9 is Week 10 (products / powers / cost), not today’s determinants.</p>
 </div>
 </div>
 </div>
@@ -744,7 +744,7 @@ A\text{ invertible}\quad\Longleftrightarrow\quad \det A \neq \underline{\hspace{
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 32 — Determinants, geometry, and invertibility"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Nov 6 — + Quiz 8 + Lab 4"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Nov 6 — + Quiz 9 + Lab 4"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
@@ -763,7 +763,7 @@ A\text{ invertible}\quad\Longleftrightarrow\quad \det A \neq \underline{\hspace{
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Reading: Determinants (class notes). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-32)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 8</span><span class="co">](../quizzes/quiz-08.qmd)</span> covers **Week 10** (products / powers / cost), **not** today’s determinants and **not** <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span>.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 9</span><span class="co">](../quizzes/quiz-09.qmd)</span> covers **Week 10** (products / powers / cost), **not** today’s determinants and **not** <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span>.</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Bring paper. After the quiz: determinant formulas, geometry, and invertibility; then Lab 4 (dynamics iteration from Week 9).</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
@@ -858,7 +858,7 @@ A\text{ invertible}\quad\Longleftrightarrow\quad \det A \neq \underline{\hspace{
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>**Y4.** True or false: Quiz 8 today tests determinants from this lecture.</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>**Y4.** True or false: Quiz 9 today tests determinants from this lecture.</span>
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>

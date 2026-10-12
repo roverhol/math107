@@ -171,7 +171,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lecture 37 — Why did the system behave that way?</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Fri Nov 20 — + Quiz 9 + Lab 5</p>
+<p class="subtitle lead">Fri Nov 20 — + Quiz 10 + Lab 5</p>
 </div>
 
 
@@ -202,7 +202,7 @@ window.Quarto = {
 <p><strong>Strang / MIT (optional):</strong> Reading: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf">Strang §6.1 (PDF) — eigenvalues</a><br>
 Video: <a href="https://www.youtube.com/watch?v=lXNXrLcoerU">18.06 Lec 21 — eigenvalues and eigenvectors</a> · <a href="https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D">MIT 18.06 playlist (Strang)</a> <!-- /STRANG-SUPPLEMENT --></p>
 <p>Reading: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf">Strang §6.1</a>, <a href="../labs/lab-05.html">Lab 5</a>, and Lachniet Ch. 5 (eigenvalues/eigenvectors). Related objectives: <a href="../lectures.html#lecture-37">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
-<p>Same day: <a href="../quizzes/quiz-09.html">Quiz 9</a> (Week 11 inverses / rank / determinants — <strong>not</strong> eigenvalues) and <a href="../labs/lab-05.html">Lab 5</a>.</p>
+<p>Same day: <a href="../quizzes/quiz-10.html">Quiz 10</a> (Week 11 inverses / rank / determinants — <strong>not</strong> eigenvalues) and <a href="../labs/lab-05.html">Lab 5</a>.</p>
 <p>Bring paper. After the quiz: short lecture on software eigenpairs, dominant behavior, and a normal-mode demo, then Lab 5.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
@@ -248,12 +248,12 @@ A^t x_0 \approx c\,\lambda_1^t\,v_1.
 <h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
 <p><strong>Y1.</strong> Pseudocode: given <span class="math inline">\(A\)</span>, obtain eigenpairs in software and write the one-line check that <span class="math inline">\(Av\approx\lambda v\)</span> for the first pair.</p>
 <p><strong>Y2.</strong> True or false: if <span class="math inline">\(|\lambda_1|=1.5\)</span> and <span class="math inline">\(|\lambda_2|=0.5\)</span>, then for generic <span class="math inline">\(x_0\)</span> the long-run direction of <span class="math inline">\(A^t x_0\)</span> is the <span class="math inline">\(\lambda_1\)</span>-eigendirection.</p>
-<p><strong>Y3.</strong> Quiz / lab reminder. In one sentence: what does Quiz 9 cover today, and what does Lab 5 cover?</p>
+<p><strong>Y3.</strong> Quiz / lab reminder. In one sentence: what does Quiz 10 cover today, and what does Lab 5 cover?</p>
 </section>
 <section id="lab-5-same-day" class="level2">
 <h2 class="anchored" data-anchor-id="lab-5-same-day">Lab 5, same day</h2>
 <p>After the short lecture: <a href="../labs/lab-05.html">Lab 5 — Steady State and Eigen</a>. Find a steady state / <span class="math inline">\(\lambda=1\)</span> direction, match eigenpairs to Lab 4’s long-run mix, and connect to keeping dominant directions. Preview the <a href="../labs/lab-05-ticket.html">one-pager</a>; write on the hard copy in class.</p>
-<p><strong>Reminder:</strong> <a href="../quizzes/quiz-09.html">Quiz 9</a> today covers Week 11 (inverses / rank / determinants), not this eigen lab.</p>
+<p><strong>Reminder:</strong> <a href="../quizzes/quiz-10.html">Quiz 10</a> today covers Week 11 (inverses / rank / determinants), not this eigen lab.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -268,7 +268,7 @@ A^t x_0 \approx c\,\lambda_1^t\,v_1.
 <div class="callout-body-container callout-body">
 <p>Y1. Sample: <code>vals, V = np.linalg.eig(A)</code> then <code>A @ V[:,0] - vals[0]*V[:,0]</code> (should be near <span class="math inline">\(0\)</span>); Octave: <code>[V,D]=eig(A)</code> then <code>A*V(:,1) - D(1,1)*V(:,1)</code>.</p>
 <p>Y2. <strong>True.</strong> The <span class="math inline">\(\lambda_1\)</span> term grows relative to <span class="math inline">\(\lambda_2\)</span>, so the state aligns with <span class="math inline">\(v_1\)</span> (unless the <span class="math inline">\(v_1\)</span>-component of <span class="math inline">\(x_0\)</span> is exactly zero).</p>
-<p>Y3. Quiz 9 is Week 11 (inverses / rank / determinants); Lab 5 is software eigenpairs and explaining dynamics — not on the quiz.</p>
+<p>Y3. Quiz 10 is Week 11 (inverses / rank / determinants); Lab 5 is software eigenpairs and explaining dynamics — not on the quiz.</p>
 </div>
 </div>
 </div>
@@ -737,7 +737,7 @@ A^t x_0 \approx c\,\lambda_1^t\,v_1.
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 37 — Why did the system behave that way?"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Nov 20 — + Quiz 9 + Lab 5"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Nov 20 — + Quiz 10 + Lab 5"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
@@ -761,7 +761,7 @@ A^t x_0 \approx c\,\lambda_1^t\,v_1.
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Reading: <span class="co">[</span><span class="ot">Strang §6.1</span><span class="co">](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf)</span>, <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](../labs/lab-05.qmd)</span>, and Lachniet Ch. 5 (eigenvalues/eigenvectors). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-37)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 9</span><span class="co">](../quizzes/quiz-09.qmd)</span> (Week 11 inverses / rank / determinants — **not** eigenvalues) and <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](../labs/lab-05.qmd)</span>.</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 10</span><span class="co">](../quizzes/quiz-10.qmd)</span> (Week 11 inverses / rank / determinants — **not** eigenvalues) and <span class="co">[</span><span class="ot">Lab 5</span><span class="co">](../labs/lab-05.qmd)</span>.</span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>Bring paper. After the quiz: short lecture on software eigenpairs, dominant behavior, and a normal-mode demo, then Lab 5.</span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
@@ -843,7 +843,7 @@ A^t x_0 \approx c\,\lambda_1^t\,v_1.
 <span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>**Y3.** Quiz / lab reminder. In one sentence: what does Quiz 9 cover today, and what does Lab 5 cover?</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>**Y3.** Quiz / lab reminder. In one sentence: what does Quiz 10 cover today, and what does Lab 5 cover?</span>
 <span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
@@ -851,7 +851,7 @@ A^t x_0 \approx c\,\lambda_1^t\,v_1.
 <span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>After the short lecture: <span class="co">[</span><span class="ot">Lab 5 — Steady State and Eigen</span><span class="co">](../labs/lab-05.qmd)</span>. Find a steady state / $\lambda=1$ direction, match eigenpairs to Lab 4’s long-run mix, and connect to keeping dominant directions. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](../labs/lab-05-ticket.qmd)</span>; write on the hard copy in class.</span>
 <span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>**Reminder:** <span class="co">[</span><span class="ot">Quiz 9</span><span class="co">](../quizzes/quiz-09.qmd)</span> today covers Week 11 (inverses / rank / determinants), not this eigen lab.</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>**Reminder:** <span class="co">[</span><span class="ot">Quiz 10</span><span class="co">](../quizzes/quiz-10.qmd)</span> today covers Week 11 (inverses / rank / determinants), not this eigen lab.</span>
 <span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
 <span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
