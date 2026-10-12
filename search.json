@@ -42,256 +42,179 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
-    "objectID": "assessments.html",
-    "href": "assessments.html",
-    "title": "Assessments",
+    "objectID": "labs/lab-04.html",
+    "href": "labs/lab-04.html",
+    "title": "Lab 4 — Predict Through Time",
     "section": "",
-    "text": "Download this page as PDF"
+    "text": "Download PDF\nLast updated: October 12, 2026.\nIn class Friday, November 6 (same day as Lecture 32 / Quiz 9). Quiz 9 is Week 10 products / cost — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
   },
   {
-    "objectID": "assessments.html#source-key",
-    "href": "assessments.html#source-key",
-    "title": "Assessments",
-    "section": "Source key",
-    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
-  },
-  {
-    "objectID": "assessments.html#clo-coverage",
-    "href": "assessments.html#clo-coverage",
-    "title": "Assessments",
-    "section": "CLO coverage",
-    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 5\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6 and the capstone, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\nFriday quizzes cover only the prior instructional week (skip midterm week and fall break when choosing that week). Same-day lecture/lab topics are not on that day’s quiz.\n\n\n\nQuiz\nDate\nFocus (prior week)\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, arithmetic, Lab 0 (Week 1)\n\n\nQuiz 2\nFri Sep 11\nCombinations, inner product, linear functions (Week 2)\n\n\nQuiz 3\nFri Sep 18\nApplications and norms (Week 3)\n\n\nQuiz 4\nFri Sep 25\nAngle, nearest neighbors, and clustering (Week 4)\n\n\nQuiz 5\nFri Oct 9\nDependence, span, and basis (Week 5)\n\n\nQuiz 6\nFri Oct 16\nMatrices, \\(Ax\\), and transformations (Week 7 / Lectures 18–20)\n\n\nQuiz 7\nFri Oct 23\nSystems, elimination, and RREF (Week 8 / Lectures 21–23)\n\n\nQuiz 8\nFri Oct 30\nLinear dynamical systems (Week 9 / Lectures 24–26)\n\n\nQuiz 9\nFri Nov 6\nMatrix multiplication, powers, and cost (Week 10 / Lectures 27–29)\n\n\nQuiz 10\nFri Nov 20\nInverses, rank, and determinants (Week 11 / Lectures 30–32)\n\n\nQuiz 11\nFri Dec 4\nEigenvalues, complex numbers, and Lab 5 (Week 13 / Lectures 35–37)\n\n\n\nNot on a dedicated quiz (assessed on Midterm 2, the final, and/or the capstone): same-day lecture/lab topics on quiz Fridays; Week 15 least squares / SVD. Use the Midterm 2 practice packet, final practice packet, and capstone packet as appropriate."
-  },
-  {
-    "objectID": "exams/final-study-guide.html",
-    "href": "exams/final-study-guide.html",
-    "title": "Final exam study guide",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nExam: Final exam · Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201. Practice problems: Practice packet. Schedule: Schedule."
-  },
-  {
-    "objectID": "exams/final-study-guide.html#useful-course-materials",
-    "href": "exams/final-study-guide.html#useful-course-materials",
-    "title": "Final exam study guide",
-    "section": "Useful course materials",
-    "text": "Useful course materials\n\n\n\nSource\nRole\n\n\n\n\nLectures 01–40\nFull course (skip midterm / Veterans Day / fall-break days as noted on the schedule)\n\n\nMidterm 1 study guide + practice\nUnit I refresh (Lectures 01–14)\n\n\nMidterm 2 study guide + practice\nUnit II refresh (Lectures 18–32)\n\n\nQuizzes 1–11\nFluency checkpoints across the term\n\n\nFinal practice packet\nCumulative practice (Units I–III + mixed)\n\n\nBoyd & Vandenberghe, VMLS\nTextbook (free online)\n\n\nStrang §6.1\nEigenvalues / characteristic equation\n\n\nLecture 40\nSVD and low-rank context (conceptual fluency on the final)"
-  },
-  {
-    "objectID": "exams/final-study-guide.html#unit-i-vectors-and-geometry-lectures-0114",
-    "href": "exams/final-study-guide.html#unit-i-vectors-and-geometry-lectures-0114",
-    "title": "Final exam study guide",
-    "section": "Unit I — Vectors and geometry (Lectures 01–14)",
-    "text": "Unit I — Vectors and geometry (Lectures 01–14)\nUse the Midterm 1 study guide for the full outcome list. High-priority skills for the final:\n\nRepresent data as vectors; add, scale, and form linear combinations.\nCompute and interpret inner products, norms, distances, RMS, angles, and cosine similarity.\nDistinguish linear vs affine models; evaluate \\(a^{\\mathsf{T}}x+b\\) in context.\nRun a small nearest-neighbor or \\(k\\)-means step by hand and discuss scale.\nUse dependence, span, subspace, basis, dimension, and orthonormal language accurately."
-  },
-  {
-    "objectID": "exams/final-study-guide.html#unit-ii-matrices-systems-and-dynamics-lectures-1832",
-    "href": "exams/final-study-guide.html#unit-ii-matrices-systems-and-dynamics-lectures-1832",
-    "title": "Final exam study guide",
-    "section": "Unit II — Matrices, systems, and dynamics (Lectures 18–32)",
-    "text": "Unit II — Matrices, systems, and dynamics (Lectures 18–32)\nUse the Midterm 2 study guide for the full outcome list. High-priority skills for the final:\n\nCompute \\(Ax\\), interpret columns, and recognize common 2D transforms.\nTranslate contexts into \\(Ax=b\\); solve small systems; read RREF (pivots, free variables, consistency).\nModel \\(x_{t+1}=Ax_t\\); compute a few steps; relate \\(A^k x\\) to long-run behavior.\nMultiply matrices; compose transforms; compare computational orders.\nUse invertibility, rank, column space, null space, and \\(2\\times 2\\) / triangular determinants."
-  },
-  {
-    "objectID": "exams/final-study-guide.html#unit-iii-since-midterm-2-lectures-3540",
-    "href": "exams/final-study-guide.html#unit-iii-since-midterm-2-lectures-3540",
-    "title": "Final exam study guide",
-    "section": "Unit III — Since Midterm 2 (Lectures 35–40)",
-    "text": "Unit III — Since Midterm 2 (Lectures 35–40)\n\nLecture 35 — Eigenvectors as persistent directions\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair \\((A,v,\\lambda)\\) by checking \\(Av=\\lambda v\\).\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers.\n\n\n\nLecture 36 — Characteristic equation, \\(2\\times 2\\) eigenproblems, and complex numbers\n\nInterpret \\(a+bi\\) algebraically and as a point/vector in the complex plane.\nPerform the basic complex arithmetic needed for eigenvalue calculations.\nForm and solve \\(\\det(A-\\lambda I)=0\\) for a \\(2\\times 2\\) matrix.\nFind corresponding eigenvectors (including simple complex cases at the course’s level).\nCheck real or complex eigenpairs by substitution.\n\n\n\nLecture 37 — Why did the system behave that way?\n\nCompute eigenvalues and eigenvectors with software and verify \\(Av\\approx\\lambda v\\).\nUse dominant eigenbehavior to explain growth, decay, or approach to a direction.\nInterpret complex eigenvalues as rotation / oscillation behavior.\nObserve orthogonal eigenvectors for a symmetric example when it appears.\nConnect eigen-language back to earlier dynamical simulations.\n\n\n\nLecture 38 — When \\(Ax=b\\) has no exact solution\n\nRecognize an inconsistent overdetermined system.\nFormulate the least-squares objective \\(\\min_x \\lVert Ax-b\\rVert\\).\nInterpret the fitted vector \\(\\hat{b}=A\\hat{x}\\) as the closest attainable vector in \\(C(A)\\).\nInterpret the residual \\(r=b-A\\hat{x}\\) geometrically.\nDistinguish an exact solution from a best approximate solution.\n\n\n\nLecture 39 — Least squares, data fitting, and positive definiteness\n\nCompute a least-squares solution with software (and check a tiny case by hand when asked).\nInterpret residuals and RMS error in context.\nCheck that the residual is orthogonal to the columns of \\(A\\) (normal equations idea).\nRecognize that \\(A^{\\mathsf{T}}A\\) is symmetric positive semidefinite, and positive definite when \\(A\\) has independent columns.\nEvaluate whether a fitted model is useful, not only report coefficients.\n\n\n\nLecture 40 — SVD, low-rank approximation, and capstone launch\n\nInterpret \\(A=U\\Sigma V^{\\mathsf{T}}\\) conceptually (orthogonal factors + singular values).\nExplain what a rank-\\(k\\) approximation keeps and what it discards.\nCompare singular-value decay qualitatively for different data matrices.\nRelate reconstruction error and storage to the choice of rank \\(k\\).\nState a practical limitation of a low-rank model (what structure it may miss)."
-  },
-  {
-    "objectID": "exams/final-study-guide.html#cumulative-connections-what-the-final-emphasizes",
-    "href": "exams/final-study-guide.html#cumulative-connections-what-the-final-emphasizes",
-    "title": "Final exam study guide",
-    "section": "Cumulative connections (what the final emphasizes)",
-    "text": "Cumulative connections (what the final emphasizes)\nBe ready to choose a tool and explain why, not only compute in isolation:\n\n\n\n\n\n\n\nSituation\nTools that often help\n\n\n\n\nCompare or cluster feature vectors\nNorm, distance, angle / cosine, nearest neighbor, \\(k\\)-means\n\n\n“Is \\(b\\) attainable exactly?”\nColumn space, RREF consistency, rank\n\n\n“All solutions / free variables”\nRREF, null space\n\n\n“Undo a reversible transform”\nInverse / unique solution of \\(Ax=b\\)\n\n\n“Where is the state after many steps?”\n\\(A^k x\\), eigenvalues / dominant direction\n\n\n“Best approximate fit when overdetermined”\nLeast squares, residual, RMS\n\n\n“Compress / approximate a matrix or image”\nSVD / rank-\\(k\\) idea\n\n\n“Hand vs software”\nSmall \\(2\\times 2\\) / \\(3\\times 3\\) by hand; larger or SVD/eigen via software interpretation\n\n\n\nCapstone studio and gallery (Lectures 41–42) deepen SVD practice but are not new quiz days; Friday Dec 11 is cumulative review only (no new quiz)."
-  },
-  {
-    "objectID": "exams/midterm-1-study-guide.html",
-    "href": "exams/midterm-1-study-guide.html",
-    "title": "Midterm 1 study guide",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nExam: Friday, October 2 · in class (exam not posted online) · day page. Practice problems: Practice packet. Schedule: Schedule."
-  },
-  {
-    "objectID": "exams/midterm-1-study-guide.html#useful-course-materials",
-    "href": "exams/midterm-1-study-guide.html#useful-course-materials",
-    "title": "Midterm 1 study guide",
-    "section": "Useful Course materials",
-    "text": "Useful Course materials\n\n\n\nSource\nRole\n\n\n\n\nLectures 01–14\nCore ideas and skills\n\n\nQuizzes 1–4\nFluency checkpoints (rework those styles)\n\n\nPractice packet\nDefinitions, easy computations, harder items\n\n\nBoyd & Vandenberghe, VMLS\nTextbook (free online)"
-  },
-  {
-    "objectID": "exams/midterm-1-study-guide.html#learning-outcomes-lectures-0114",
-    "href": "exams/midterm-1-study-guide.html#learning-outcomes-lectures-0114",
-    "title": "Midterm 1 study guide",
-    "section": "Learning outcomes (Lectures 01–14)",
-    "text": "Learning outcomes (Lectures 01–14)\n\nLecture 01 — Vectors as representations\n\nIdentify objects that can be represented as vectors.\nInterpret vector entries, units, and indexing in context.\nDistinguish scalars from vectors.\nTranslate a small data, position, signal, or measurement problem into vector form.\n\n\n\nLecture 02 — Vector arithmetic and geometry\n\nAdd, subtract, and scale vectors.\nInterpret those operations geometrically.\nPlot vectors in \\(\\mathbb{R}^2\\) and recognize corresponding operations in \\(\\mathbb{R}^3\\).\nCheck whether an answer has sensible dimensions and units.\n\n\n\nLecture 03 — Linear combinations (+ Lab 0)\n\nForm and interpret linear combinations.\nExplain the meaning of coefficients in context.\nEnter, index, and modify vectors in Octave or Python.\nPerform vector arithmetic and create a basic plot.\nModify supplied code and explain its output or error message.\n\n\n\nLecture 04 — Inner product\n\nCompute a dot product.\nInterpret it as a weighted sum.\nInterpret its sign and magnitude as alignment.\nRecognize orthogonal vectors from a zero dot product.\n\n\n\nLecture 05 — Linear and affine functions\n\nDistinguish linear from affine functions in examples.\nTest superposition numerically on simple functions.\nConstruct a function \\(a^{\\mathsf{T}}x+b\\) for a contextual quantity.\nEvaluate a model by hand and computationally.\n\n\n\nLecture 06 — Linear functions in applications\n\nModel a score, cost, prediction, or aggregate quantity.\nInterpret model coefficients and intercepts.\nCompare outputs from competing models.\nState a reasonable limitation or assumption of a linear model.\n\n\n\nLecture 07 — Norm, distance, RMS, and variation\n\nCompute vector norms and distances.\nInterpret norm and distance geometrically and contextually.\nRelate norm to RMS and, where appropriate, variation around an average.\nUse software to calculate distances in dimensions too large for hand computation.\n\n\n\nLecture 08 — Angle and similarity\n\nCompute cosine similarity or an angle between vectors.\nDistinguish closeness in position from similarity in direction.\nChoose an appropriate similarity measure for a stated purpose.\nExplain why normalization may change a comparison.\n\n\n\nLecture 09 — Nearest neighbors\n\nFormulate a nearest-neighbor question using vectors.\nFind a nearest neighbor in a small dataset by hand.\nExplain how feature scale can affect the answer.\nJustify a choice of distance or similarity measure.\n\n\n\nLecture 10 — Clustering and \\(k\\)-means\n\nExplain the goal of clustering.\nCompute one assignment/update iteration of \\(k\\)-means.\nInterpret a centroid as a vector.\nRecognize that clustering output depends on representation, scaling, and initialization.\n\n\n\nLecture 12 — Linear dependence as redundancy\n\nRecognize simple dependent and independent collections.\nConstruct a dependence relationship.\nInterpret dependence as redundant information.\nExplain why redundancy matters in data, measurement, and computation.\n\n\n\nLecture 13 — Span, independence, and subspaces\n\nDefine span using linear combinations.\nDetermine whether a vector lies in a simple span.\nInterpret spans geometrically as lines, planes, or higher-dimensional collections.\nRecognize basic subspaces and distinguish them from shifted lines or planes.\n\n\n\nLecture 14 — Basis, dimension, and orthonormal vectors\n\nExplain what a basis accomplishes.\nIdentify a basis and dimension in simple examples.\nUse linear combination, span, subspace, independence, basis, and dimension accurately.\nRecognize an orthonormal collection.\nExplain why orthonormal coordinates are convenient for measurement and reconstruction."
-  },
-  {
-    "objectID": "exams/midterm-2-study-guide.html",
-    "href": "exams/midterm-2-study-guide.html",
-    "title": "Midterm 2 study guide",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nExam: Midterm 2 · Friday, November 13 · in class. Practice problems: Practice packet. Schedule: Schedule."
-  },
-  {
-    "objectID": "exams/midterm-2-study-guide.html#useful-course-materials",
-    "href": "exams/midterm-2-study-guide.html#useful-course-materials",
-    "title": "Midterm 2 study guide",
-    "section": "Useful Course materials",
-    "text": "Useful Course materials\n\n\n\nSource\nRole\n\n\n\n\nLectures 18–32\nCore ideas and skills (Unit II)\n\n\nQuizzes 5–9\nFluency checkpoints (rework those styles; Quiz 5 is Unit I basis review)\n\n\nPractice packet\nDefinitions, easy computations, harder items\n\n\nBoyd & Vandenberghe, VMLS\nTextbook (free online)\n\n\nStrang §3.5\nRank, column space, null space (selected portions)"
-  },
-  {
-    "objectID": "exams/midterm-2-study-guide.html#learning-outcomes-lectures-1832",
-    "href": "exams/midterm-2-study-guide.html#learning-outcomes-lectures-1832",
-    "title": "Midterm 2 study guide",
-    "section": "Learning outcomes (Lectures 18–32)",
-    "text": "Learning outcomes (Lectures 18–32)\n\nLight review — Quiz 5 / basis (Lecture 14)\n\nExplain what a basis accomplishes and what dimension means.\nIdentify a basis and dimension in simple examples.\nUse span, independence, basis, and dimension accurately when they reappear with matrices (column space, null space, rank).\n\n\n\nLecture 18 — Matrices as data and structured objects\n\nIdentify matrix dimensions, rows, columns, and entries.\nRepresent datasets, networks, images, or systems as matrices.\nPerform matrix addition, scaling, and transposition.\nRecognize zero, identity, diagonal, triangular, symmetric, and sparse matrices.\nExplain one practical consequence of matrix structure.\n\n\n\nLecture 19 — Matrix-vector multiplication\n\nCompute \\(Ax\\) by hand for a small matrix.\nInterpret \\(Ax\\) as a linear combination of the columns of \\(A\\).\nInterpret \\(A\\) as an input-output transformation.\nExplain how the dimensions of \\(A\\) determine the input and output spaces.\n\n\n\nLecture 20 — Transforming space\n\nPredict the effect of scaling, reflection, shear, and rotation matrices.\nApply matrices to many 2D or 3D points at once.\nPlot and compare original and transformed objects.\nAdapt a short program that implements a transformation.\nInterpret a matrix as a coordinate or physical-space transformation.\n\n\n\nLecture 21 — Systems and \\(Ax=b\\)\n\nTranslate equations or contextual constraints into \\(Ax=b\\).\nInterpret \\(Ax=b\\) as asking whether \\(b\\) belongs to the span of the columns of \\(A\\).\nClassify systems as square, underdetermined, or overdetermined.\nAnticipate circumstances producing zero, one, or many solutions.\n\n\n\nLecture 22 — Gaussian elimination\n\nPerform elementary row operations.\nReduce a small augmented matrix to echelon form.\nSolve a small system using back substitution.\nExplain why row operations preserve the solution set.\n\n\n\nLecture 23 — RREF, pivots, free variables, and software\n\nInterpret reduced row echelon form.\nIdentify pivot and free variables.\nDescribe a solution set parametrically.\nDistinguish inconsistent, unique, and infinite-solution cases.\nUse software to solve or row-reduce a system and verify with a residual.\n\n\n\nLecture 24 — Linear dynamical systems\n\nRepresent an evolving system as \\(x_{t+1}=Ax_t\\).\nInterpret the state vector and transition matrix.\nBuild a transition matrix from a flow description.\nCompute and interpret the next few states.\n\n\n\nLecture 25 — Simulation and long-run behavior\n\nSimulate many time steps computationally.\nPlot state components through time.\nRecognize stabilization, growth, decay, or oscillation.\nConduct a simple what-if simulation.\nState limitations of a linear dynamical model.\n\n\n\nLecture 26 — Predict a system through time\n\nImplement a linear dynamical model.\nWrite or complete a short iterative calculation.\nValidate the first steps by hand.\nCompare results under altered parameters or initial states.\nRecord an unexplained long-run pattern for later investigation (eigenvalues come later).\n\n\n\nLecture 27 — Matrix multiplication\n\nDetermine whether a product is defined and give its dimensions.\nCompute a small matrix product.\nInterpret \\(ABx\\) as a sequence of transformations.\nExplain why matrix multiplication is generally not commutative.\n\n\n\nLecture 28 — Composition and matrix powers\n\nCombine multistage processes using a matrix product.\nConnect \\(A^k x\\) to repeated dynamics.\nInterpret selected entries of a matrix product or power.\nRecognize how network and transition information accumulates through powers.\n\n\n\nLecture 29 — Computational cost\n\nCompare algebraically equivalent orders of computation.\nCount intermediate values that must be stored.\nMeasure runtime for increasing problem sizes.\nExplain why forming a large intermediate matrix may be wasteful.\nChoose a computational order and justify it quantitatively.\n\n\n\nLecture 30 — Inverses and solving\n\nInterpret an inverse as undoing a transformation.\nDetermine whether a simple matrix is invertible.\nConnect invertibility to uniqueness of \\(Ax=b\\).\nExplain why solving \\(Ax=b\\) is generally preferable computationally to explicitly calculating \\(A^{-1}\\).\n\n\n\nLecture 31 — Rank, column space, null space\n\nInterpret column space and null space through \\(Ax=b\\) and \\(Ax=0\\).\nDetermine rank from pivots or independent columns.\nFind simple bases for column or null spaces.\nConnect rank to consistency, independence, and dimension.\nUse subspace, basis, dimension, rank, column space, and null space correctly.\n\n\n\nLecture 32 — Determinants, geometry, and invertibility\n\nCompute determinants of \\(2\\times 2\\) and simple triangular matrices.\nInterpret determinant magnitude as area or volume scaling.\nConnect determinant zero with lost dimension and noninvertibility.\nRecognize the determinant of a triangular matrix from its diagonal.\nConnect determinants to the coming characteristic equation (preview only)."
-  },
-  {
-    "objectID": "exams/midterm-2.html",
-    "href": "exams/midterm-2.html",
-    "title": "Midterm 2",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nIn class. Date is on the schedule. Covers Lectures 18–32 (Unit II; skip Veterans Day) and skills from Quizzes 5–9."
-  },
-  {
-    "objectID": "exams/midterm-2.html#prepare",
-    "href": "exams/midterm-2.html#prepare",
-    "title": "Midterm 2",
-    "section": "Prepare",
-    "text": "Prepare\n\nStudy guide — learning outcomes, how to build a definitions/formulas list, rework lecture and quiz examples.\nPractice packet — definitions, easy computations, harder problems (answers at the end)."
-  },
-  {
-    "objectID": "exams/midterm-2.html#learning-objectives",
-    "href": "exams/midterm-2.html#learning-objectives",
-    "title": "Midterm 2",
+    "objectID": "labs/lab-04.html#learning-objectives",
+    "href": "labs/lab-04.html#learning-objectives",
+    "title": "Lab 4 — Predict Through Time",
     "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of the exam, students should be able to:\n\nAnalyze matrices as transformations and models.\nSolve and interpret systems.\nUse matrix products, powers, rank, inverses, and determinants appropriately.\nInterpret computational results in context."
+    "text": "Learning objectives\n\nImplement one step of \\(x_{t+1}=Ax_t\\).\nIterate several steps and hand-check the first ones.\nDescribe a long-run pattern you observe (you will explain it in Lab 5)."
   },
   {
-    "objectID": "lectures/lecture-15.html",
-    "href": "lectures/lecture-15.html",
-    "title": "Lecture 15 — Midterm 1 prep",
+    "objectID": "labs/lab-04.html#math-connections",
+    "href": "labs/lab-04.html#math-connections",
+    "title": "Lab 4 — Predict Through Time",
+    "section": "Math connections",
+    "text": "Math connections\nLinear dynamical systems (Lectures 24–26)."
+  },
+  {
+    "objectID": "labs/lab-04.html#key-syntax-this-lab",
+    "href": "labs/lab-04.html#key-syntax-this-lab",
+    "title": "Lab 4 — Predict Through Time",
+    "section": "Key syntax (this lab)",
+    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nOne step\nx = A*x\nx = A @ x\n\n\nLoop\nfor t = 1:20 … end\nfor t in range(20):\n\n\nPlot component\nplot(0:N, X(1,:))\nplt.plot(range(N+1), X[0])"
+  },
+  {
+    "objectID": "labs/lab-04.html#ops-strip",
+    "href": "labs/lab-04.html#ops-strip",
+    "title": "Lab 4 — Predict Through Time",
+    "section": "Ops strip",
+    "text": "Ops strip\nOn-/off-campus counts \\(x_t=\\begin{bmatrix}c_t\\\\o_t\\end{bmatrix}\\). Each week: \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\nC4.0. Enter \\(A\\) and \\(x_0=(1000,0)\\). Print \\(A*x_0\\) / A @ x0 (that is \\(x_1\\)).\nExpected: \\(x_1=(700,300)\\)."
+  },
+  {
+    "objectID": "labs/lab-04.html#application",
+    "href": "labs/lab-04.html#application",
+    "title": "Lab 4 — Predict Through Time",
+    "section": "Application",
+    "text": "Application\nC4.1. By hand, compute \\(x_2=Ax_1\\). Then check in software.\nExpected: \\(x_2=(550,450)\\).\nC4.2. Starting from the same \\(x_0\\), iterate \\(20\\) steps (store or print \\(x_5\\) and \\(x_{20}\\)). Roughly where do the two populations settle?\nExpected: toward about \\((400,600)\\) (more off campus than on).\nC4.3. Restart from \\(x_0=(0,1000)\\). After \\(20\\) steps, what happens? In one sentence, what is surprising if you only look at the starting point?\nExpected: again near \\((400,600)\\). Different starts can head toward the same long-run mix — Lab 5 will name the missing idea."
+  },
+  {
+    "objectID": "labs/lab-04.html#one-pager",
+    "href": "labs/lab-04.html#one-pager",
+    "title": "Lab 4 — Predict Through Time",
+    "section": "One-pager",
+    "text": "One-pager\nPreview the Lab 4 ticket; write on the hard copy in class."
+  },
+  {
+    "objectID": "labs/lab-05-ticket.html",
+    "href": "labs/lab-05-ticket.html",
+    "title": "Lab 5 ticket",
     "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nNo separate lecture notes for today. Class time is Midterm 1 preparation using the posted study guide and practice packet. Related objectives: Lectures. Schedule."
+    "text": "Download PDF\nLab 5 — Steady State and Eigen · Fri Nov 20 · ~20 min · Laptop · Handwrite · Initials\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax\n\n\n\nI needed to…\nCommand / pattern\n\n\n\n\nEigenpairs of \\(A\\)\n\n\n\nScale / normalize \\(v\\)\n\n\n\nNullspace / \\((A-I)x=0\\)\n\n\n\n\n\nSame \\(A\\) as Lab 4. Quiz 10 = Week 11 (not this lab).\nC5.0. Steady state with entries summing to \\(1000\\): \\(x=\\) ____________ Expected: \\((400,600)\\) (or multiple of \\((2,3)\\)).\nC5.1. Eigenvalues: ________________________ Which has \\(|\\lambda|=1\\)? ____ \\(|\\lambda|&lt;1\\)? ____\nC5.2. Scaled \\(\\lambda=1\\) vector: ________ vs Lab 4 \\(x_{20}\\): ________\nWhy settle there? ________________________________________________________\nC5.3. Capstone link (one sentence): ____________________________________________________________________\nStuck on: ________________________________________________________________________\nCheck-in initials: _______________\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
-    "objectID": "lectures/lecture-15.html#prepare-work-in-class",
-    "href": "lectures/lecture-15.html#prepare-work-in-class",
-    "title": "Lecture 15 — Midterm 1 prep",
-    "section": "Prepare / work in class",
-    "text": "Prepare / work in class\n\nMidterm 1 study guide — mark each outcome confident / shaky / blank; build your definitions and formulas list.\nMidterm 1 practice — definitions, computations, and harder mixed items (answers at the end).\n\nBring questions from Quizzes 1–4 and Lab 0. Midterm 1 is Friday, October 2 (entire class period; the exam itself is not posted online)."
+    "objectID": "labs/lab-05.html",
+    "href": "labs/lab-05.html",
+    "title": "Lab 5 — Steady State and Eigen",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 12, 2026.\nIn class Friday, November 20 (same day as Lecture 37 / Quiz 10). Quiz 10 is Week 11 inverses / rank / determinants — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
   },
   {
-    "objectID": "lectures/lecture-15.html#learning-objectives",
-    "href": "lectures/lecture-15.html#learning-objectives",
-    "title": "Lecture 15 — Midterm 1 prep",
+    "objectID": "labs/lab-05.html#learning-objectives",
+    "href": "labs/lab-05.html#learning-objectives",
+    "title": "Lab 5 — Steady State and Eigen",
     "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nConnect distance, similarity, span, and independence.\nSelect an appropriate vector tool for a new problem.\nMove between algebraic, geometric, computational, and contextual representations.\nDiagnose and explain common errors.\nIdentify gaps and make a targeted study plan before Friday."
+    "text": "Learning objectives\n\nFind a steady state of \\(x=Ax\\) (or an eigenvector for \\(\\lambda=1\\)).\nUse software eigenvalues/vectors and match them to the Lab 4 long-run mix.\nState how an eigen-direction explains repeated multiplication by \\(A\\)."
   },
   {
-    "objectID": "lectures/lecture-16.html",
-    "href": "lectures/lecture-16.html",
-    "title": "Lecture 16 — Midterm 1",
+    "objectID": "labs/lab-05.html#math-connections",
+    "href": "labs/lab-05.html#math-connections",
+    "title": "Lab 5 — Steady State and Eigen",
+    "section": "Math connections",
+    "text": "Math connections\nEigenvalues and eigenvectors (Lectures 27–29); build on Lab 4’s iteration."
+  },
+  {
+    "objectID": "labs/lab-05.html#key-syntax-this-lab",
+    "href": "labs/lab-05.html#key-syntax-this-lab",
+    "title": "Lab 5 — Steady State and Eigen",
+    "section": "Key syntax (this lab)",
+    "text": "Key syntax (this lab)\n\n\n\n\n\n\n\n\nTask\nOctave\nPython\n\n\n\n\nEigenpairs\n[V,D]=eig(A)\nlam, V = np.linalg.eig(A)\n\n\nDiagonal entries\ndiag(D)\nlam\n\n\nNormalize a vector\nv/sum(v) or v/norm(v)\nsame idea with NumPy"
+  },
+  {
+    "objectID": "labs/lab-05.html#ops-strip",
+    "href": "labs/lab-05.html#ops-strip",
+    "title": "Lab 5 — Steady State and Eigen",
+    "section": "Ops strip",
+    "text": "Ops strip\nSame campus matrix as Lab 4: \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\nC5.0. Solve \\((A-I)x=0\\) (or ask software for a nullspace / eigenvector for \\(\\lambda=1\\)). Scale so the two entries sum to \\(1000\\) (total students).\nExpected: a multiple of \\((2,3)\\) — e.g. \\(x=(400,600)\\) when entries sum to \\(1000\\)."
+  },
+  {
+    "objectID": "labs/lab-05.html#application",
+    "href": "labs/lab-05.html#application",
+    "title": "Lab 5 — Steady State and Eigen",
+    "section": "Application",
+    "text": "Application\nC5.1. Compute all eigenvalues of \\(A\\) in software. Which one has magnitude \\(1\\)? Which has \\(|\\lambda|&lt;1\\)?\nExpected: \\(\\lambda_1=1\\) and \\(\\lambda_2=0.5\\) (order may differ).\nC5.2. Take the eigenvector for \\(\\lambda=1\\), scale so entries sum to \\(1000\\), and compare to your Lab 4 \\(x_{20}\\). One sentence: why does iteration settle there?\nExpected: the long-run state is (essentially) that \\(\\lambda=1\\) direction; other modes shrink because \\(|\\lambda_2|&lt;1\\).\nC5.3. Capstone preview: when you compress a matrix with SVD, you keep the largest singular values. In one sentence, how is “keep the big directions” similar to “the \\(\\lambda=1\\) mode wins the long run”?\nExpected: both stories pick the directions that dominate the object (image residual vs. iterated state)."
+  },
+  {
+    "objectID": "labs/lab-05.html#one-pager",
+    "href": "labs/lab-05.html#one-pager",
+    "title": "Lab 5 — Steady State and Eigen",
+    "section": "One-pager",
+    "text": "One-pager\nPreview the Lab 5 ticket; write on the hard copy in class."
+  },
+  {
+    "objectID": "lectures/lecture-35.html",
+    "href": "lectures/lecture-35.html",
+    "title": "Lecture 35 — Eigenvectors as persistent directions",
     "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nMidterm 1 — in class for the entire period. The exam itself is not posted online. Related objectives: Lectures. Schedule.\nNo new lecture content today. Bring something to write with."
+    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — eigenvalues\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · MIT 18.06 playlist (Strang)\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn.\nCallback: Lab 4 asked why \\(B=\\operatorname{diag}(1.2,\\,0.5)\\) grows from some starts and decays from others. Today we name the missing idea: eigenvectors."
   },
   {
-    "objectID": "lectures/lecture-16.html#coverage",
-    "href": "lectures/lecture-16.html#coverage",
-    "title": "Lecture 16 — Midterm 1",
-    "section": "Coverage",
-    "text": "Coverage\nLectures 01–14 and fluency from Quizzes 1–4, including Lab 0 ideas.\nPrep (from Wednesday): study guide, practice packet."
-  },
-  {
-    "objectID": "lectures/lecture-16.html#learning-objectives",
-    "href": "lectures/lecture-16.html#learning-objectives",
-    "title": "Lecture 16 — Midterm 1",
+    "objectID": "lectures/lecture-35.html#learning-objectives",
+    "href": "lectures/lecture-35.html#learning-objectives",
+    "title": "Lecture 35 — Eigenvectors as persistent directions",
     "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of the exam, you should be able to:\n\nCompute with vectors and linear functions.\nInterpret vector operations in context.\nAnalyze distance, similarity, span, and independence.\nSelect and communicate an appropriate method."
+    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
   },
   {
-    "objectID": "lectures/lecture-33.html",
-    "href": "lectures/lecture-33.html",
-    "title": "Lecture 33 — Midterm 2 review and synthesis",
+    "objectID": "lectures/lecture-35.html#warm-up",
+    "href": "lectures/lecture-35.html#warm-up",
+    "title": "Lecture 35 — Eigenvectors as persistent directions",
+    "section": "Warm-up",
+    "text": "Warm-up\nLab 4 mystery matrix: \\[\nB=\\begin{bmatrix}1.2&0\\\\0&0.5\\end{bmatrix}.\n\\]\n\nCompute \\(B\\begin{bmatrix}1\\\\0\\end{bmatrix}\\) and \\(B\\begin{bmatrix}0\\\\1\\end{bmatrix}\\). Is each output a scalar multiple of the input?\nStarting from \\(x_0=(1,0)\\) vs \\(y_0=(0,1)\\), which trajectory grows and which decays? Why, in one sentence using part (a)?"
+  },
+  {
+    "objectID": "lectures/lecture-35.html#fill-in",
+    "href": "lectures/lecture-35.html#fill-in",
+    "title": "Lecture 35 — Eigenvectors as persistent directions",
+    "section": "Fill in",
+    "text": "Fill in\nEigenpair. A nonzero vector \\(v\\) is an eigenvector of square \\(A\\) with eigenvalue \\(\\lambda\\) if \\[\nAv = \\underline{\\hspace{1.4cm}}.\n\\] Geometrically: \\(A\\) sends \\(v\\) to a vector on the \\(\\underline{\\hspace{2.0cm}}\\) line through \\(v\\) (scaled by \\(\\lambda\\); if \\(\\lambda&lt;0\\), also flipped).\nVerify. Given a candidate pair \\((\\lambda,v)\\), compute \\(Av\\) and \\(\\lambda v\\); they must \\(\\underline{\\hspace{1.6cm}}\\).\nFind \\(\\lambda\\) from \\(v\\). If \\(v\\neq 0\\) is known to be an eigenvector and some component \\(v_i\\neq 0\\), then \\[\n\\lambda = \\frac{(Av)_i}{v_i}\n\\] (same ratio for every nonzero component).\nDynamics. If \\(x_0=v\\) is an eigenvector with eigenvalue \\(\\lambda\\), then \\[\nx_t = A^t v = \\underline{\\hspace{2.4cm}}.\n\\] The direction of \\(v\\) is persistent: each step only rescales (and maybe flips). That is why Lab 4’s two axis starts behaved so differently.\nNo real eigenvector. A pure rotation (e.g. \\(90^\\circ\\)) moves every real nonzero vector off its own line. Then there is \\(\\underline{\\hspace{2.0cm}}\\) real eigenpair — we will need complex numbers on Wednesday."
+  },
+  {
+    "objectID": "lectures/lecture-35.html#worked-in-class",
+    "href": "lectures/lecture-35.html#worked-in-class",
+    "title": "Lecture 35 — Eigenvectors as persistent directions",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. Geometry. Sketch \\(v=(1,1)\\) and \\(Av\\) for \\(A=\\begin{bmatrix}2&0\\\\0&1\\end{bmatrix}\\). Is \\(v\\) an eigenvector? What about \\(e_1=(1,0)\\)?\nW2. Verify. Check whether \\((\\lambda,v)=(3,(1,1))\\) is an eigenpair of \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\] Compute both \\(Av\\) and \\(\\lambda v\\).\nW3. Find \\(\\lambda\\). You are told that \\(v=(1,-1)\\) is an eigenvector of \\[\nA=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}.\n\\] Find \\(\\lambda\\). Then confirm \\(Av=\\lambda v\\).\nW4. Lab 4 explained. For \\(B=\\operatorname{diag}(1.2,\\,0.5)\\):\n\nName two real eigenpairs (use the standard basis).\nIf \\(x_0=c_1 e_1+c_2 e_2\\), what is \\(x_t=B^t x_0\\)? Which term dominates for large \\(t\\) when \\(c_1\\neq 0\\)?\n\nW5. Rotation. Let \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) (\\(90^\\circ\\) CCW). For a generic \\(v=(a,b)\\neq 0\\), is \\(Rv\\) a real multiple of \\(v\\)? What does that say about real eigenvectors of \\(R\\)?"
+  },
+  {
+    "objectID": "lectures/lecture-35.html#your-turn",
+    "href": "lectures/lecture-35.html#your-turn",
+    "title": "Lecture 35 — Eigenvectors as persistent directions",
+    "section": "Your turn",
+    "text": "Your turn\nY1. Verify or reject: is \\((\\lambda,v)=(−1,(1,-1))\\) an eigenpair of \\(A=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\)?\nY2. Given that \\(v=(1,2)\\) is an eigenvector of \\(A=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\), find \\(\\lambda\\).\nY3. True or false, with a one-line reason: if \\(Av=2v\\) and \\(v\\neq 0\\), then \\(A^3 v=8v\\).\nY4. In one sentence: why did Lab 4’s diagonal mystery need eigenvectors (not just “look at the plot”)?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\(Av=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\) and \\((-1)v=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\). Yes — eigenpair.\nY2. \\(Av=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\begin{bmatrix}1\\\\2\\end{bmatrix}=\\begin{bmatrix}3\\\\4\\end{bmatrix}\\). Ratio from the first component: \\(\\lambda=3/1=3\\). Check second: \\(4=3\\cdot 2\\). So \\(\\lambda=3\\).\nY3. True. \\(A^3 v=A^2(Av)=A^2(2v)=A(4v)=8v\\) (or \\(A^t v=\\lambda^t v\\)).\nY4. Sample: The plot shows growth vs decay by start direction; eigenvectors name the persistent directions (and their growth factors \\(\\lambda\\)) that explain why."
+  },
+  {
+    "objectID": "quizzes/quiz-11.html",
+    "href": "quizzes/quiz-11.html",
+    "title": "Quiz 11",
     "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nFull review day for Midterm 2 (Friday, November 13). Related objectives: Lectures. Schedule."
+    "text": "Download PDF\nLast updated: October 12, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang �6.1 (PDF) � eigenvalues\nVideo: 18.06 Lec 21 � eigenvalues and eigenvectors � MIT 18.06 playlist (Strang)\nCovers the prior instructional week only: Eigenvectors, Characteristic, Eigenbehavior, and Lab 5 (Week 13). Fall break is skipped when choosing the prior week. Same-day SVD / Lab 6 / least squares (Week 15) are not on this quiz.\nTextbooks: Strang �6.1 � Lachniet Octave PDF � also on Resources.\nSchedule\nSVD and least squares are not on this quiz; see Lab 6, the capstone packet, and the final."
   },
   {
-    "objectID": "lectures/lecture-33.html#prepare-before-class",
-    "href": "lectures/lecture-33.html#prepare-before-class",
-    "title": "Lecture 33 — Midterm 2 review and synthesis",
-    "section": "Prepare before class",
-    "text": "Prepare before class\n\nStudy guide — mark each outcome confident / shaky / blank.\nBring your definitions/formulas list and questions from Quizzes 5–9.\nStart (or continue) the practice packet; we will work mixed items in class."
-  },
-  {
-    "objectID": "lectures/lecture-33.html#learning-objectives",
-    "href": "lectures/lecture-33.html#learning-objectives",
-    "title": "Lecture 33 — Midterm 2 review and synthesis",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nConnect transformations, systems, dynamics, rank, inverses, and determinants.\nCompare hand and computational solution methods.\nInterpret software output instead of merely reporting it.\nSolve a new application requiring more than one concept.\nIdentify gaps and make a targeted study plan before Friday."
-  },
-  {
-    "objectID": "lectures/lecture-33.html#in-class",
-    "href": "lectures/lecture-33.html#in-class",
-    "title": "Lecture 33 — Midterm 2 review and synthesis",
-    "section": "In class",
-    "text": "In class\n\nQuick scan of Unit II outcomes (matrices / \\(Ax\\) / transforms → systems / RREF → dynamics → products / powers / cost → inverses / rank / determinants).\nMixed practice from the packet (definitions, computations, harder items).\nPartner or board work on shaky topics from the study guide checklist."
-  },
-  {
-    "objectID": "lectures/lecture-34.html",
-    "href": "lectures/lecture-34.html",
-    "title": "Lecture 34 — Midterm 2",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nMidterm 2 — in class. Exam page: Midterm 2. Related objectives: Lectures. Schedule.\nNo new lecture content today. Bring something to write with; the exam covers the full class period."
-  },
-  {
-    "objectID": "lectures/lecture-34.html#coverage",
-    "href": "lectures/lecture-34.html#coverage",
-    "title": "Lecture 34 — Midterm 2",
-    "section": "Coverage",
-    "text": "Coverage\nLectures 18–32 (Unit II; Veterans Day was no class) and fluency from Quizzes 5–9. Prep materials: study guide, practice packet."
-  },
-  {
-    "objectID": "lectures/lecture-34.html#learning-objectives",
-    "href": "lectures/lecture-34.html#learning-objectives",
-    "title": "Lecture 34 — Midterm 2",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of the exam, you should be able to:\n\nAnalyze matrices as transformations and models.\nSolve and interpret systems.\nUse matrix products, powers, rank, inverses, and determinants appropriately.\nInterpret computational results in context."
-  },
-  {
-    "objectID": "quizzes/quiz-04.html",
-    "href": "quizzes/quiz-04.html",
-    "title": "Quiz 4",
-    "section": "",
-    "text": "Download PDF\nLast updated: September 20, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nCovers the week before only: Angle, Neighbors, and Clustering (Week 4). Same-day Basis is not on this quiz.\nRelated practice: Monday, September 28 is ungraded neighbors practice. Graded Lab 1 is Friday, October 16.\nTextbooks: Boyd & Vandenberghe (VMLS) · Lachniet Octave PDF · also on Resources.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-04.html#core",
-    "href": "quizzes/quiz-04.html#core",
-    "title": "Quiz 4",
+    "objectID": "quizzes/quiz-11.html#core",
+    "href": "quizzes/quiz-11.html#core",
+    "title": "Quiz 11",
     "section": "Core",
-    "text": "Core\n\nB 3.4–style angle / cosine similarity (from Lecture 08)\nB 3.24; nearest-neighbor choice of distance vs angle (Lecture 09)\nB 4.1, 4.2, 4.3\nC4.1: Compute one assignment or update step of \\(k\\)-means on a tiny dataset.\nC4.2: Explain whether a nearest-neighbor or cluster result changes under feature rescaling (Lectures 09–10)."
+    "text": "Core\n\nFluency (complete prompts � practice these by hand)\nC11.1. Let \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix},\\qquad\nv=\\begin{bmatrix}1\\\\1\\end{bmatrix}.\n\\] Compute \\(Av\\). Is \\(v\\) an eigenvector? If so, what is \\(\\lambda\\)?\nC11.2. You are told that \\(v=(1,-1)\\) is an eigenvector of \\[\nA=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}.\n\\] Find \\(\\lambda\\) by comparing components of \\(Av\\) and \\(v\\). Then verify \\(Av=\\lambda v\\).\nC11.3. Let \\(A=\\operatorname{diag}(1.2,\\,0.5)\\) (Lab 4 / Lecture 35 long-run pattern).\n\nName two real eigenpairs using the standard basis.\nIf \\(x_0=(1,1)\\), write \\(x_t=A^t x_0\\) componentwise. Which term dominates for large \\(t\\)?\n\nC11.4. Complex drill. Let \\(z=2+i\\) and \\(w=1-3i\\). Compute \\(z+w\\), \\(zw\\), and \\(|z|\\).\nC11.5. For \\[\nA=\\begin{bmatrix}1&2\\\\0&3\\end{bmatrix},\n\\] form \\(\\det(A-\\lambda I)\\), find both eigenvalues, and give one eigenvector for \\(\\lambda=3\\).\nC11.6. Rotation. Let \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) (\\(90^\\circ\\) CCW).\n\nShow that the characteristic polynomial is \\(\\lambda^2+1=0\\), so \\(\\lambda=\\pm i\\).\nWhy does this match the geometric fact that \\(R\\) has no real eigenvector?\n\nC11.7. Check a complex pair. With \\(A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) and \\(v=(1,-i)\\), compute \\(Av\\) and decide whether \\(Av=iv\\) or \\(Av=(-i)v\\).\nC11.8. True or false, with a one-line reason: if \\(Av=2v\\) and \\(v\\neq 0\\), then \\(A^3 v=8v\\).\nC11.9 (Lab 5 / software). Suppose Octave/Python reports eigenvalues of a \\(2\\times 2\\) matrix as approximately \\(0.9\\) and \\(0.2\\), with corresponding eigenvectors \\(v_1\\approx(0.7,\\,0.7)\\) and \\(v_2\\approx(-0.7,\\,0.7)\\) (normalized). For dynamics \\(x_{t+1}=Ax_t\\) started near \\(v_1+v_2\\), which mode dominates for large \\(t\\), and does the state grow or decay?\nC11.10 (Lab 5 / verify). Software prints \\(\\lambda\\approx 3\\) and \\(v\\approx(0.707,\\,0.707)\\) for \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\] Explain how you would verify \\(Av\\approx\\lambda v\\) numerically in one or two lines of code (Octave or Python). What should \\(\\|Av-\\lambda v\\|\\) look like if the pair is correct?\n\n\nTextbook Core\n\nS 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17\nL Ch. 5 Ex. 1: selected hand/software eigenvalue parts\nL Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions\nL Ch. 5 Ex. 5: selected matrix-power portion"
   },
   {
-    "objectID": "quizzes/quiz-04.html#stretch",
-    "href": "quizzes/quiz-04.html#stretch",
-    "title": "Quiz 4",
+    "objectID": "quizzes/quiz-11.html#stretch",
+    "href": "quizzes/quiz-11.html#stretch",
+    "title": "Quiz 11",
     "section": "Stretch",
-    "text": "Stretch\nB 4.4; a second \\(k\\)-means iteration or a brief interpretation of a centroid."
+    "text": "Stretch\nS 6.1 #3 and #4; a complex eigenpair check beyond C11.7."
   },
   {
-    "objectID": "quizzes/quiz-04.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-04.html#what-a-quiz-item-might-change",
-    "title": "Quiz 4",
+    "objectID": "quizzes/quiz-11.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-11.html#what-a-quiz-item-might-change",
+    "title": "Quiz 11",
     "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThree short feature vectors, which similarity measure is used, one feature’s units, or the initial cluster representatives."
-  },
-  {
-    "objectID": "quizzes/quiz-04.html#note",
-    "href": "quizzes/quiz-04.html#note",
-    "title": "Quiz 4",
-    "section": "Note",
-    "text": "Note\nDependence, span, and basis (Lectures 12–14) appear on Midterm 1 (Fri Oct 2; day page) and again on Quiz 5 (Fri Oct 9) — not required for this quiz."
+    "text": "What a quiz item might change\nA new \\(2\\times 2\\) matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, a rotation matrix with complex eigenvalues, or a software printout to interpret (dominant \\(\\lambda\\), verify \\(Av\\approx\\lambda v\\))."
   },
   {
     "objectID": "syllabus.html",
@@ -369,6 +292,27 @@
     "title": "Schedule",
     "section": "",
     "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here. Quizzes and Labs 1–6 meet on Fridays (midterms too, when scheduled). Lab 0 is Week 1 only; there is no lab on Midterm 2 Friday or during fall break.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25BasisQuiz 4\n\n\n6\nSep 28Neighbors practice\nSep 30MT1 prep\nOct 2Midterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsQuiz 5\n\n\n8\nOct 12Systems\nOct 14Elimination\nOct 16RREFQuiz 6Lab 1\n\n\n9\nOct 19Dynamics\nOct 21Simulation\nOct 23Through timeQuiz 7Lab 2\n\n\n10\nOct 26Products\nOct 28Powers\nOct 30CostQuiz 8Lab 3\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 9Lab 4\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Midterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorQuiz 10Lab 5\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squares\nDec 2Fitting\nDec 4SVDQuiz 11Lab 6Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
+    "objectID": "assessments.html",
+    "href": "assessments.html",
+    "title": "Assessments",
+    "section": "",
+    "text": "Download this page as PDF"
+  },
+  {
+    "objectID": "assessments.html#source-key",
+    "href": "assessments.html#source-key",
+    "title": "Assessments",
+    "section": "Source key",
+    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
+  },
+  {
+    "objectID": "assessments.html#clo-coverage",
+    "href": "assessments.html#clo-coverage",
+    "title": "Assessments",
+    "section": "CLO coverage",
+    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 5\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6 and the capstone, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\nFriday quizzes cover only the prior instructional week (skip midterm week and fall break when choosing that week). Same-day lecture/lab topics are not on that day’s quiz.\n\n\n\nQuiz\nDate\nFocus (prior week)\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, arithmetic, Lab 0 (Week 1)\n\n\nQuiz 2\nFri Sep 11\nCombinations, inner product, linear functions (Week 2)\n\n\nQuiz 3\nFri Sep 18\nApplications and norms (Week 3)\n\n\nQuiz 4\nFri Sep 25\nAngle, nearest neighbors, and clustering (Week 4)\n\n\nQuiz 5\nFri Oct 9\nDependence, span, and basis (Week 5)\n\n\nQuiz 6\nFri Oct 16\nMatrices, \\(Ax\\), and transformations (Week 7 / Lectures 18–20)\n\n\nQuiz 7\nFri Oct 23\nSystems, elimination, and RREF (Week 8 / Lectures 21–23)\n\n\nQuiz 8\nFri Oct 30\nLinear dynamical systems (Week 9 / Lectures 24–26)\n\n\nQuiz 9\nFri Nov 6\nMatrix multiplication, powers, and cost (Week 10 / Lectures 27–29)\n\n\nQuiz 10\nFri Nov 20\nInverses, rank, and determinants (Week 11 / Lectures 30–32)\n\n\nQuiz 11\nFri Dec 4\nEigenvalues, complex numbers, and Lab 5 (Week 13 / Lectures 35–37)\n\n\n\nNot on a dedicated quiz (assessed on Midterm 2, the final, and/or the capstone): same-day lecture/lab topics on quiz Fridays; Week 15 least squares / SVD. Use the Midterm 2 practice packet, final practice packet, and capstone packet as appropriate."
   },
   {
     "objectID": "lectures.html",
