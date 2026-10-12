@@ -194,6 +194,8 @@ window.Quarto = {
 
 <p><a href="quiz-05.pdf">Download PDF</a></p>
 <p>Last updated: October 5, 2026.</p>
+<!-- VMLS-TEXTBOOK -->
+<p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
 <p>Related lecture: <a href="../lectures/lecture-14.html">Basis</a> (Week 5). Same day: <a href="../lectures/lecture-20.html">Transforms</a> and <a href="../labs/lab-03.html">Lab 3</a> (not on this quiz).</p>
 <p>Textbooks: <a href="https://web.stanford.edu/~boyd/vmls/">Boyd &amp; Vandenberghe (VMLS)</a> · also on <a href="../resources.html">Resources</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
@@ -694,31 +696,35 @@ window.Quarto = {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 5, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Related lecture: <span class="co">[</span><span class="ot">Basis</span><span class="co">](../lectures/lecture-14.qmd)</span> (Week 5). Same day: <span class="co">[</span><span class="ot">Transforms</span><span class="co">](../lectures/lecture-20.qmd)</span> and <span class="co">[</span><span class="ot">Lab 3</span><span class="co">](../labs/lab-03.qmd)</span> (not on this quiz).</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe (VMLS)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- VMLS-TEXTBOOK --&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Related lecture: <span class="co">[</span><span class="ot">Basis</span><span class="co">](../lectures/lecture-14.qmd)</span> (Week 5). Same day: <span class="co">[</span><span class="ot">Transforms</span><span class="co">](../lectures/lecture-20.qmd)</span> and <span class="co">[</span><span class="ot">Lab 3</span><span class="co">](../labs/lab-03.qmd)</span> (not on this quiz).</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe (VMLS)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 5.3 (basis expansion / coefficients in a given basis)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 5.4 (norm of a linear combination of orthonormal vectors)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C5.1: Decide whether a short list is a basis of $\mathbb{R}^2$ or of a named subspace; if not, say whether it fails independence, spanning, or both.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C5.2: Find a basis and the dimension of a span given by three vectors with an obvious redundancy.</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C5.3: Check whether a pair is orthonormal; if it is, find the orthonormal coefficients of a given $v$.</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>B 5.5; B 5.6 (Gram–Schmidt on a structured list — light).</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 5.3 (basis expansion / coefficients in a given basis)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 5.4 (norm of a linear combination of orthonormal vectors)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C5.1: Decide whether a short list is a basis of $\mathbb{R}^2$ or of a named subspace; if not, say whether it fails independence, spanning, or both.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C5.2: Find a basis and the dimension of a span given by three vectors with an obvious redundancy.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>C5.3: Check whether a pair is orthonormal; if it is, find the orthonormal coefficients of a given $v$.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Which list is proposed as a basis, one redundant generator in a span, or a different orthonormal pair and target vector.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>B 5.5; B 5.6 (Gram–Schmidt on a structured list — light).</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Note</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**Matrices, $Ax$, and transformations** (Lectures 18–20 / Lab 3) start this week and are **not** on this quiz; they are on <span class="co">[</span><span class="ot">Quiz 6</span><span class="co">](quiz-06.qmd)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Which list is proposed as a basis, one redundant generator in a span, or a different orthonormal pair and target vector.</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Note</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>**Matrices, $Ax$, and transformations** (Lectures 18–20 / Lab 3) start this week and are **not** on this quiz; they are on <span class="co">[</span><span class="ot">Quiz 6</span><span class="co">](quiz-06.qmd)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
