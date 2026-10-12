@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 11 — Finding similar things – MATH 107 - Introduction to Linear Algebra</title>
+<title>Lecture 11 — Neighbors practice – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -118,30 +147,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#goals-for-today" id="toc-goals-for-today" class="nav-link active" data-scroll-target="#goals-for-today">Goals for today</a></li>
+  <li><a href="#warm-up-ideas" id="toc-warm-up-ideas" class="nav-link" data-scroll-target="#warm-up-ideas">Warm-up ideas</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-11.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-11.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Lecture 11 — Finding similar things</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Mon Sep 28 — see Lab 2</p>
+<div class="quarto-title-block"><div><h1 class="title">Lecture 11 — Neighbors practice</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Monday, September 28</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta column-page-right">
 
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 25, 2026</p>
+      <p class="date-modified">October 12, 2026</p>
     </div>
   </div>
     
@@ -153,16 +191,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><a href="lecture-11.pdf">Download PDF</a></p>
-<p>Last updated: September 25, 2026.</p>
+<p>Last updated: October 12, 2026.</p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
-<p><strong>This meeting is <a href="../labs/lab-02.html">Lab 2</a></strong> (computational practice on Lectures 08–10), not a new theory lecture. <a href="../quizzes/quiz-04.html">Quiz 4</a> was Friday, September 25 (with <a href="../lectures/lecture-14.html">Lecture 14</a>).</p>
-<p>Objectives, exercises, and the one-pager live on the lab hub. Syntax cheat sheet: <a href="../resources/syntax.html">Octave / Python reference</a>.</p>
-<p>Related: <a href="../lectures.html#lecture-11">Lectures</a> · <a href="../schedule.html">Schedule</a>.</p>
+<p>In class Monday, September 28. <a href="../quizzes/quiz-04.html">Quiz 4</a> was Friday, September 25. Midterm 1 is Friday, October 2 — prep materials land on <a href="../lectures/lecture-15.html">Lecture 15</a> Wednesday.</p>
+<p>This meeting is <strong>software practice</strong> on angle, nearest neighbors, and clustering from <a href="../lectures/lecture-08.html">Lectures 08</a>–<a href="../lectures/lecture-10.html">10</a>. It is <strong>not</strong> a graded lab (Labs 1–6 begin Friday, October 16). Bring a laptop if you have one.</p>
+<p>Work in Octave or Python. Use the <a href="../resources/syntax.html">syntax reference</a> and Lachniet Ch. 1 as needed.</p>
+<section id="goals-for-today" class="level2">
+<h2 class="anchored" data-anchor-id="goals-for-today">Goals for today</h2>
+<ol type="1">
+<li>Compute a few distances between feature vectors.</li>
+<li>Name a nearest neighbor and say what it means in context.</li>
+<li>Notice how rescaling one feature can change who looks “closest.”</li>
+</ol>
+</section>
+<section id="warm-up-ideas" class="level2">
+<h2 class="anchored" data-anchor-id="warm-up-ideas">Warm-up ideas</h2>
+<p>Pick three short feature vectors from class examples (or invent song / sensor features). Compute pairwise Euclidean distances, identify the nearest neighbor of a query, then multiply one coordinate by <span class="math inline">\(10\)</span> and repeat.</p>
+<p>Related: <a href="../lectures.html#lecture-11">Lectures</a> · <a href="../schedule.html">Schedule</a> · <a href="../labs/lab-01.html">Lab 1</a> (graded version later).</p>
 
 
 <!-- -->
 
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -622,9 +673,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 11 — Finding similar things"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Mon Sep 28 — see Lab 2"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-25</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 11 — Neighbors practice"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Monday, September 28"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -634,17 +685,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-11.pdf)</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: September 25, 2026.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 12, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**This meeting is [Lab 2](../labs/lab-02.qmd)** (computational practice on Lectures 08–10), not a new theory lecture. <span class="co">[</span><span class="ot">Quiz 4</span><span class="co">](../quizzes/quiz-04.qmd)</span> was Friday, September 25 (with <span class="co">[</span><span class="ot">Lecture 14</span><span class="co">](lecture-14.qmd)</span>).</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>In class Monday, September 28. <span class="co">[</span><span class="ot">Quiz 4</span><span class="co">](../quizzes/quiz-04.qmd)</span> was Friday, September 25. Midterm 1 is Friday, October 2 — prep materials land on <span class="co">[</span><span class="ot">Lecture 15</span><span class="co">](lecture-15.qmd)</span> Wednesday.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Objectives, exercises, and the one-pager live on the lab hub. Syntax cheat sheet: <span class="co">[</span><span class="ot">Octave / Python reference</span><span class="co">](../resources/syntax.qmd)</span>.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>This meeting is **software practice** on angle, nearest neighbors, and clustering from [Lectures 08](lecture-08.qmd)–[10](lecture-10.qmd). It is **not** a graded lab (Labs 1–6 begin Friday, October 16). Bring a laptop if you have one.</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Related: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-11)</span> · <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Work in Octave or Python. Use the <span class="co">[</span><span class="ot">syntax reference</span><span class="co">](../resources/syntax.qmd)</span> and Lachniet Ch. 1 as needed.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Goals for today</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute a few distances between feature vectors.</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Name a nearest neighbor and say what it means in context.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Notice how rescaling one feature can change who looks “closest.”</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up ideas</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>Pick three short feature vectors from class examples (or invent song / sensor features). Compute pairwise Euclidean distances, identify the nearest neighbor of a query, then multiply one coordinate by $10$ and repeat.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>Related: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-11)</span> · <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span> · <span class="co">[</span><span class="ot">Lab 1</span><span class="co">](../labs/lab-01.qmd)</span> (graded version later).</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

@@ -166,7 +166,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lab 1 ticket</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Finding Similar Things — Friday, September 18 (short)</p>
+<p class="subtitle lead">Finding Similar Things — Friday, October 16</p>
 </div>
 
 
@@ -178,7 +178,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 13, 2026</p>
+      <p class="date-modified">October 12, 2026</p>
     </div>
   </div>
     
@@ -190,7 +190,7 @@ window.Quarto = {
 
 
 <p><a href="lab-01-ticket.pdf">Download PDF</a></p>
-<p><strong>Lab 1 — Finding Similar Things</strong> · Fri Sep 18 · After Quiz 3 · Laptop · Initials after check-in</p>
+<p><strong>Lab 1 — Finding Similar Things</strong> · Fri Oct 16 · ~20 min · Laptop · Handwrite · Initials after check-in</p>
 <p><strong>Name:</strong> ________________________________  <strong>Language (circle):</strong> Octave / Python</p>
 <section id="new-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="new-syntax">New syntax</h3>
@@ -203,27 +203,30 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Distance / norm</td>
+<td>Enter / print a vector</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Find the minimum</td>
+<td>Length or shape</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Distance <span class="math inline">\(\lVert x-y\rVert\)</span></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <hr>
-<p><strong>Data:</strong> <span class="math inline">\(x=(2,1)\)</span>; <span class="math inline">\(z_1=(2,2)\)</span>, <span class="math inline">\(z_2=(0,1)\)</span>, <span class="math inline">\(z_3=(3,1)\)</span>, <span class="math inline">\(z_4=(2,0)\)</span>, <span class="math inline">\(z_5=(1.5,1.5)\)</span>.</p>
-<p><strong>E1.</strong> Distances <span class="math inline">\(\lVert x-z_i\rVert\)</span> and nearest neighbor.</p>
-<p><strong>Expected:</strong> <span class="math inline">\(1,\ 2,\ 1,\ 1,\ \sqrt{1/2}\)</span>; nearest <span class="math inline">\(z_5\)</span>.</p>
-<p><strong>Yours:</strong> <span class="math inline">\(d=\)</span> ________________________________________________</p>
-<p>Nearest: <span class="math inline">\(z_{\underline{\hspace{1.0cm}}}\)</span></p>
-<p><strong>E2.</strong> Multiply every first coordinate by <span class="math inline">\(10\)</span>. New nearest neighbor(s)? Changed?</p>
-<p><strong>Expected:</strong> tie <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_4\)</span>; yes, changed.</p>
-<p><strong>Yours:</strong> nearest ________________ changed? yes / no</p>
-<p>One sentence why scale matters: ________________________________________________________</p>
-<hr>
-<p><strong>Instructor initials:</strong> __________</p>
+<p><strong>Data:</strong> <span class="math inline">\(a=(1,2)\)</span>, <span class="math inline">\(b=(2,1)\)</span>, <span class="math inline">\(c=(4,3)\)</span>. Quiz 6 today is Week 7 matrices (<strong>not</strong> this lab).</p>
+<p><strong>C1.0.</strong> Enter <code>a</code>,<code>b</code>,<code>c</code>. Length of <code>a</code>: ____ <strong>Expected:</strong> <span class="math inline">\(2\)</span>.</p>
+<p><strong>C1.1.</strong> <span class="math inline">\(\lVert a-b\rVert=\)</span> ________ <span class="math inline">\(\lVert a-c\rVert=\)</span> ________<br>
+<strong>Expected:</strong> <span class="math inline">\(\approx 1.414\)</span> and <span class="math inline">\(\approx 4.243\)</span>.</p>
+<p><strong>C1.2.</strong> NN of <span class="math inline">\(a\)</span> among <span class="math inline">\(\{b,c\}\)</span>: ____ Meaning (1 sentence):<br>
+________________________________________________________________________________</p>
+<p><strong>C1.3.</strong> <span class="math inline">\(c_{\mathrm{bad}}=(4,30)\)</span>. <span class="math inline">\(\lVert a-c_{\mathrm{bad}}\rVert=\)</span> ________ NN among <span class="math inline">\(\{b,c_{\mathrm{bad}}\}\)</span>? ____<br>
+Why scale matters: ____________________________________________________________</p>
+<p><strong>Stuck on:</strong> ________________________________________________________________________</p>
+<p><strong>Check-in initials:</strong> _______________</p>
 
 
 <!-- -->
@@ -689,21 +692,21 @@ window.Quarto = {
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 1 ticket"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Finding Similar Things — Friday, September 18 (short)"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-09-13</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Finding Similar Things — Friday, October 16"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fontsize: 10pt</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fontsize: 9pt</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    geometry:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">      - margin=0.6in</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">      - margin=0.5in</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-01-ticket.pdf)</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Lab 1 — Finding Similar Things** · Fri Sep 18 · After Quiz 3 · Laptop · Initials after check-in</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Lab 1 — Finding Similar Things** · Fri Oct 16 · ~20 min · Laptop · Handwrite · Initials after check-in</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Name:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  **Language (circle):** Octave / Python</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
@@ -711,32 +714,28 @@ window.Quarto = {
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I needed to… <span class="pp">|</span> Command / pattern <span class="pp">|</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------|-------------------|</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Distance / norm <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Find the minimum <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>**Data:** $x=(2,1)$; $z_1=(2,2)$, $z_2=(0,1)$, $z_3=(3,1)$, $z_4=(2,0)$, $z_5=(1.5,1.5)$.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>**E1.** Distances $\lVert x-z_i\rVert$ and nearest neighbor.</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**Expected:** $1,\ 2,\ 1,\ 1,\ \sqrt{1/2}$; nearest $z_5$.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**Yours:** $d=$ <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Enter / print a vector <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Length or shape <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Distance $\lVert x-y\rVert$ <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>**Data:** $a=(1,2)$, $b=(2,1)$, $c=(4,3)$. Quiz 6 today is Week 7 matrices (**not** this lab).</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>**C1.0.** Enter `a`,`b`,`c`. Length of `a`: \_\_\_\_ **Expected:** $2$.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>**C1.1.** $\lVert a-b\rVert=$ <span class="sc">\_\_\_\_\_\_\_\_</span> $\lVert a-c\rVert=$ <span class="sc">\_\_\_\_\_\_\_\_</span>  </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**Expected:** $\approx 1.414$ and $\approx 4.243$.</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>Nearest: $z_{\underline{\hspace{1.0cm}}}$</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**E2.** Multiply every first coordinate by $10$. New nearest neighbor(s)? Changed?</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>**Expected:** tie $z_1$ and $z_4$; yes, changed.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**C1.2.** NN of $a$ among $<span class="sc">\{</span>b,c<span class="sc">\}</span>$: <span class="sc">\_\_\_\_</span> Meaning (1 sentence):  </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>**C1.3.** $c_{\mathrm{bad}}=(4,30)$. $\lVert a-c_{\mathrm{bad}}\rVert=$ <span class="sc">\_\_\_\_\_\_\_\_</span> NN among $<span class="sc">\{</span>b,c_{\mathrm{bad}}<span class="sc">\}</span>$? <span class="sc">\_\_\_\_</span>  </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>Why scale matters: <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**Yours:** nearest <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> changed? yes / no</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**Stuck on:** <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>One sentence why scale matters: <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>**Instructor initials:** <span class="sc">\_\_\_\_\_\_\_\_\_\_</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**Check-in initials:** _______________</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

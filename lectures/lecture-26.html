@@ -157,7 +157,7 @@ window.Quarto = {
   <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
   <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
   <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
-  <li><a href="#lab-4-same-day" id="toc-lab-4-same-day" class="nav-link" data-scroll-target="#lab-4-same-day">Lab 4, same day</a></li>
+  <li><a href="#lab-2-same-day" id="toc-lab-2-same-day" class="nav-link" data-scroll-target="#lab-2-same-day">Lab 2, same day</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-26.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -200,12 +200,12 @@ window.Quarto = {
 <p><strong>Boyd video (optional):</strong> <a href="https://www.youtube.com/watch?v=NS0jvPLtgGc">Lecture 26 — linear dynamical systems</a> · <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9">ENGR108 playlist (Boyd)</a> <!-- /BOYD-YOUTUBE --></p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
-<p>Reading: <a href="../labs/lab-04.html">Lab 4</a>, Lachniet Ch. 2 (matrix operations), and Lachniet’s introductory programming/loops material. Related objectives: <a href="../lectures.html#lecture-26">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
-<p>Same day: <a href="../quizzes/quiz-07.html">Quiz 7</a> (Week 8 systems / RREF — <strong>not</strong> dynamics) and <a href="../labs/lab-04.html">Lab 4</a>.</p>
-<p>Bring paper. After the quiz: short lecture on implementing <span class="math inline">\(x_{t+1}=Ax_t\)</span>, then Lab 4.</p>
+<p>Reading: Lachniet Ch. 2 (matrix operations) and Lachniet’s introductory programming/loops material. Related objectives: <a href="../lectures.html#lecture-26">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Same day: <a href="../quizzes/quiz-07.html">Quiz 7</a> (Week 8 systems / RREF — <strong>not</strong> dynamics) and <a href="../labs/lab-02.html">Lab 2</a> (transforms — <strong>not</strong> today’s dynamics ideas). Graded dynamics practice is <a href="../labs/lab-04.html">Lab 4</a> on Friday, November 6.</p>
+<p>Bring paper. After the quiz: short lecture on implementing <span class="math inline">\(x_{t+1}=Ax_t\)</span>, then Lab 2.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
-<p>By the end of class, students should be able to:</p>
+<p>By the end of class, you should be able to:</p>
 <ol type="1">
 <li>Implement a linear dynamical model.</li>
 <li>Write or complete a short iterative calculation.</li>
@@ -252,10 +252,10 @@ for t = 1 to 5:
 <p><strong>Y2.</strong> Validate. <span class="math inline">\(A=\begin{bmatrix}0&amp;1\\ -1&amp;0\end{bmatrix}\)</span>, <span class="math inline">\(x_0=(1,0)\)</span>. Hand-compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. If a plot of the first component reads <span class="math inline">\(1,0,-1,0,1,\ldots\)</span>, does that match?</p>
 <p><strong>Y3.</strong> Mystery sentence. In one sentence, record a long-run question from Lecture 25 or today’s warm-up that you cannot yet explain with a formula (save for Week 13).</p>
 </section>
-<section id="lab-4-same-day" class="level2">
-<h2 class="anchored" data-anchor-id="lab-4-same-day">Lab 4, same day</h2>
-<p>After the short lecture: <a href="../labs/lab-04.html">Lab 4 — Predict a System Through Time</a>. Implement <span class="math inline">\(x_{t+1}=Ax_t\)</span>, iterate, hand-check the first steps, compare parameters, and record an unexplained long-run pattern. Preview the <a href="../labs/lab-04-ticket.html">one-pager</a>; write on the hard copy in class.</p>
-<p><strong>Reminder:</strong> <a href="../quizzes/quiz-07.html">Quiz 7</a> today covers Week 8 (systems / RREF), not this dynamics lab.</p>
+<section id="lab-2-same-day" class="level2">
+<h2 class="anchored" data-anchor-id="lab-2-same-day">Lab 2, same day</h2>
+<p>After the short lecture: <a href="../labs/lab-02.html">Lab 2 — Transforming Space</a>. Build <span class="math inline">\(2\times 2\)</span> maps, predict and check <span class="math inline">\(Ax\)</span> / <span class="math inline">\(AX\)</span>. Preview the <a href="../labs/lab-02-ticket.html">one-pager</a>; write on the hard copy in class.</p>
+<p><strong>Reminder:</strong> <a href="../quizzes/quiz-07.html">Quiz 7</a> today covers Week 8 (systems / RREF), not Lab 2 and not today’s dynamics lecture.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -760,15 +760,15 @@ for t = 1 to 5:
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Reading: <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span>, Lachniet Ch. 2 (matrix operations), and Lachniet’s introductory programming/loops material. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-26)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>Reading: Lachniet Ch. 2 (matrix operations) and Lachniet’s introductory programming/loops material. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-26)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 7</span><span class="co">](../quizzes/quiz-07.qmd)</span> (Week 8 systems / RREF — **not** dynamics) and <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span>.</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Same day: <span class="co">[</span><span class="ot">Quiz 7</span><span class="co">](../quizzes/quiz-07.qmd)</span> (Week 8 systems / RREF — **not** dynamics) and [Lab 2](../labs/lab-02.qmd) (transforms — **not** today’s dynamics ideas). Graded dynamics practice is <span class="co">[</span><span class="ot">Lab 4</span><span class="co">](../labs/lab-04.qmd)</span> on Friday, November 6.</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>Bring paper. After the quiz: short lecture on implementing $x_{t+1}=Ax_t$, then Lab 4.</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>Bring paper. After the quiz: short lecture on implementing $x_{t+1}=Ax_t$, then Lab 2.</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>By the end of class, you should be able to:</span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Implement a linear dynamical model.</span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Write or complete a short iterative calculation.</span>
@@ -837,11 +837,11 @@ for t = 1 to 5:
 <span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lab 4, same day</span></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lab 2, same day</span></span>
 <span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>After the short lecture: <span class="co">[</span><span class="ot">Lab 4 — Predict a System Through Time</span><span class="co">](../labs/lab-04.qmd)</span>. Implement $x_{t+1}=Ax_t$, iterate, hand-check the first steps, compare parameters, and record an unexplained long-run pattern. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](../labs/lab-04-ticket.qmd)</span>; write on the hard copy in class.</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>After the short lecture: <span class="co">[</span><span class="ot">Lab 2 — Transforming Space</span><span class="co">](../labs/lab-02.qmd)</span>. Build $2\times 2$ maps, predict and check $Ax$ / $AX$. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](../labs/lab-02-ticket.qmd)</span>; write on the hard copy in class.</span>
 <span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>**Reminder:** <span class="co">[</span><span class="ot">Quiz 7</span><span class="co">](../quizzes/quiz-07.qmd)</span> today covers Week 8 (systems / RREF), not this dynamics lab.</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>**Reminder:** <span class="co">[</span><span class="ot">Quiz 7</span><span class="co">](../quizzes/quiz-07.qmd)</span> today covers Week 8 (systems / RREF), not Lab 2 and not today’s dynamics lecture.</span>
 <span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
 <span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>

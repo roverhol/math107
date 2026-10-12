@@ -199,7 +199,7 @@ window.Quarto = {
 <p>Last updated: October 8, 2026.</p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
-<p><strong>Covers the week before only:</strong> <a href="../lectures/lecture-27.html">Products</a>, <a href="../lectures/lecture-28.html">Powers</a>, <a href="../lectures/lecture-29.html">Cost</a>, and the <a href="../labs/lab-cost.html">micro-lab</a> (Week 10). Same-day <a href="../lectures/lecture-32.html">determinants</a> and this week’s inverses/rank lectures are <strong>not</strong> on this quiz.</p>
+<p><strong>Covers the week before only:</strong> <a href="../lectures/lecture-27.html">Products</a>, <a href="../lectures/lecture-28.html">Powers</a>, and <a href="../lectures/lecture-29.html">Cost</a> (Week 10). Same-day <a href="../lectures/lecture-32.html">determinants</a> and <a href="../labs/lab-04.html">Lab 4</a> are <strong>not</strong> on this quiz.</p>
 <p>Textbooks: <a href="https://web.stanford.edu/~boyd/vmls/">Boyd &amp; Vandenberghe (VMLS)</a> · also on <a href="../resources.html">Resources</a>.</p>
 <p><a href="../schedule.html">Schedule</a></p>
 <section id="core" class="level2">
@@ -243,7 +243,7 @@ A^2=\begin{bmatrix}
 \end{bmatrix},
 \]</span> what does <span class="math inline">\((A^2)_{31}\)</span> mean? How many length-<span class="math inline">\(2\)</span> walks from node <span class="math inline">\(1\)</span> to node <span class="math inline">\(3\)</span>?</p>
 <p><strong>C8.9.</strong> For dynamics <span class="math inline">\(x_{t+1}=Ax_t\)</span>, true or false with a one-line reason: <span class="math inline">\(x_5=A^5 x_0\)</span> and also <span class="math inline">\(x_5=A x_4\)</span>.</p>
-<p><strong>C8.10 (micro-lab / cost).</strong> You need <span class="math inline">\(y=(ab^{\mathsf{T}})c\)</span> for tall vectors of length <span class="math inline">\(n=1000\)</span>. Roughly how many numbers are stored in the intermediate <span class="math inline">\(ab^{\mathsf{T}}\)</span>? Roughly how many in the scalar <span class="math inline">\(b^{\mathsf{T}}c\)</span>? Which plan would you time in a micro-lab, and why?</p>
+<p><strong>C8.10 (cost).</strong> You need <span class="math inline">\(y=(ab^{\mathsf{T}})c\)</span> for tall vectors of length <span class="math inline">\(n=1000\)</span>. Roughly how many numbers are stored in the intermediate <span class="math inline">\(ab^{\mathsf{T}}\)</span>? Roughly how many in the scalar <span class="math inline">\(b^{\mathsf{T}}c\)</span>? Which plan would you time in software, and why?</p>
 </section>
 <section id="textbook-core" class="level3">
 <h3 class="anchored" data-anchor-id="textbook-core">Textbook Core</h3>
@@ -739,7 +739,7 @@ A^2=\begin{bmatrix}
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Covers the week before only:** [Products](../lectures/lecture-27.qmd), [Powers](../lectures/lecture-28.qmd), [Cost](../lectures/lecture-29.qmd), and the [micro-lab](../labs/lab-cost.qmd) (Week 10). Same-day [determinants](../lectures/lecture-32.qmd) and this week’s inverses/rank lectures are **not** on this quiz.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Covers the week before only:** [Products](../lectures/lecture-27.qmd), [Powers](../lectures/lecture-28.qmd), and [Cost](../lectures/lecture-29.qmd) (Week 10). Same-day [determinants](../lectures/lecture-32.qmd) and [Lab 4](../labs/lab-04.qmd) are **not** on this quiz.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe (VMLS)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
@@ -804,7 +804,7 @@ A^2=\begin{bmatrix}
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>**C8.9.** For dynamics $x_{t+1}=Ax_t$, true or false with a one-line reason: $x_5=A^5 x_0$ and also $x_5=A x_4$.</span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>**C8.10 (micro-lab / cost).** You need $y=(ab^{\mathsf{T}})c$ for tall vectors of length $n=1000$. Roughly how many numbers are stored in the intermediate $ab^{\mathsf{T}}$? Roughly how many in the scalar $b^{\mathsf{T}}c$? Which plan would you time in a micro-lab, and why?</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>**C8.10 (cost).** You need $y=(ab^{\mathsf{T}})c$ for tall vectors of length $n=1000$. Roughly how many numbers are stored in the intermediate $ab^{\mathsf{T}}$? Roughly how many in the scalar $b^{\mathsf{T}}c$? Which plan would you time in software, and why?</span>
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Textbook Core</span></span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>

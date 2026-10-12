@@ -152,7 +152,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#new-syntax-fill-as-you-go" id="toc-new-syntax-fill-as-you-go" class="nav-link active" data-scroll-target="#new-syntax-fill-as-you-go">New syntax (fill as you go)</a></li>
+  <li><a href="#new-syntax" id="toc-new-syntax" class="nav-link active" data-scroll-target="#new-syntax">New syntax</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-06-ticket.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -166,7 +166,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lab 6 ticket</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Impossible Equations — Friday, December 4</p>
+<p class="subtitle lead">Fit and Compress — Friday, December 4</p>
 </div>
 
 
@@ -178,7 +178,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 8, 2026</p>
+      <p class="date-modified">October 12, 2026</p>
     </div>
   </div>
     
@@ -190,50 +190,44 @@ window.Quarto = {
 
 
 <p><a href="lab-06-ticket.pdf">Download PDF</a></p>
-<p><strong>Lab 6 — Impossible Equations</strong> · Fri Dec 4 · Laptop required · Handwrite on this hard copy · Get initials after check-in</p>
+<p><strong>Lab 6 — Fit and Compress</strong> · Fri Dec 4 · ~20 min · Laptop · Handwrite · Initials</p>
 <p><strong>Name:</strong> ________________________________  <strong>Language (circle):</strong> Octave / Python</p>
-<section id="new-syntax-fill-as-you-go" class="level3">
-<h3 class="anchored" data-anchor-id="new-syntax-fill-as-you-go">New syntax (fill as you go)</h3>
+<section id="new-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="new-syntax">New syntax</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th>I needed to…</th>
-<th>Command / pattern (your language)</th>
+<th>Command / pattern</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Least-squares solve <span class="math inline">\(\hat{x}\)</span></td>
+<td>Least squares</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Fitted <span class="math inline">\(\hat{b}=A\hat{x}\)</span></td>
+<td>SVD</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Residual / RMS</td>
+<td>Rank-<span class="math inline">\(k\)</span> rebuild</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Check <span class="math inline">\(A^{\mathsf{T}}r\)</span></td>
+<td>Frobenius residual</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <hr>
-<p>Quiz 10 today is Week 13 eigenvalues (<strong>not</strong> this lab). SVD / capstone launch share the period; Lab 6 is least squares only.</p>
-<p><strong>E1.</strong> <span class="math inline">\(A=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix}\)</span>, <span class="math inline">\(b=(1,2,2)\)</span>. No exact sol.? <span class="math inline">\(\hat{x}\)</span>, <span class="math inline">\(\|r\|\)</span>.</p>
-<p><strong>Expected:</strong> <span class="math inline">\(\hat{x}\approx(1.167,0.500)\)</span>; <span class="math inline">\(\|r\|\approx 0.408\)</span>. <strong>Yours:</strong> <span class="math inline">\(\hat{x}=\)</span> ________________ <span class="math inline">\(\|r\|=\)</span> ________</p>
-<p><strong>E2.</strong> Focus scores <span class="math inline">\(b=(3,4.5,4,6.5,7)\)</span> vs <span class="math inline">\(t=1..5\)</span>; model <span class="math inline">\(x_1+x_2 t\)</span>. Record <span class="math inline">\(\hat{x}\)</span> and RMS.</p>
-<p><strong>Expected:</strong> <span class="math inline">\(\hat{x}=(2,1)\)</span>; RMS <span class="math inline">\(\approx 0.55\)</span>. <strong>Yours:</strong> <span class="math inline">\(\hat{x}=\)</span> ________________ RMS <span class="math inline">\(=\)</span> ________</p>
-<p>Useful on a 0–10 scale? (one phrase) ____________________________________________________</p>
-<p><strong>E3.</strong> Plot data + fitted line. Trend despite <span class="math inline">\(t=3\)</span> dip? __________________________________________</p>
-<p><strong>E4.</strong> <span class="math inline">\(A^{\mathsf{T}}r \approx\)</span> ____________________________ Why near <span class="math inline">\(0\)</span>? ________________________________________</p>
-<p><strong>E5.</strong> Two checks beyond quoting <span class="math inline">\(\hat{x}\)</span>: (1) ________________________ (2) ________________________</p>
-<p>If RMS <span class="math inline">\(=3.5\)</span> on 0–10 scale: useful? ____________________________________________________</p>
-<p><strong>Stuck on (optional):</strong> E__ ____________________________________________________</p>
-<hr>
-<p><strong>Instructor initials:</strong> _______________</p>
+<p><strong>C6.0.</strong> <span class="math inline">\(\hat c=\)</span> ____________ <span class="math inline">\(\|A\hat c-b\|=\)</span> ________ <strong>Expected:</strong> <span class="math inline">\(\approx(1.167,0.5)\)</span>, residual <span class="math inline">\(\approx0.408\)</span>.</p>
+<p><strong>C6.1.</strong> Singular values of <span class="math inline">\(M\)</span>: ________________________________________________</p>
+<p><strong>C6.2.</strong> <span class="math inline">\(\|M-M_1\|_F=\)</span> ________ <span class="math inline">\(\|M-M_2\|_F=\)</span> ________</p>
+<p><strong>C6.3.</strong> Storage <span class="math inline">\(k(m+n+1)\)</span> for this <span class="math inline">\(4\times4\)</span>: <span class="math inline">\(k=1\)</span> → ____ <span class="math inline">\(k=2\)</span> → ____<br>
+For <span class="math inline">\(100\times100\)</span>, <span class="math inline">\(k\)</span> with <span class="math inline">\(k(201)&lt;5000\)</span>: <span class="math inline">\(k\le\)</span> ____</p>
+<p><strong>Stuck on:</strong> ________________________________________________________________________</p>
+<p><strong>Check-in initials:</strong> _______________</p>
 
 
 <!-- -->
@@ -699,8 +693,8 @@ window.Quarto = {
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 6 ticket"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Impossible Equations — Friday, December 4"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fit and Compress — Friday, December 4"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
@@ -713,46 +707,33 @@ window.Quarto = {
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-06-ticket.pdf)</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Lab 6 — Impossible Equations** · Fri Dec 4 · Laptop required · Handwrite on this hard copy · Get initials after check-in</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Lab 6 — Fit and Compress** · Fri Dec 4 · ~20 min · Laptop · Handwrite · Initials</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Name:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  **Language (circle):** Octave / Python</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### New syntax (fill as you go)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### New syntax</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I needed to…                    <span class="pp">|</span> Command / pattern (your language) <span class="pp">|</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------------------------------|-----------------------------------|</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Least-squares solve $\hat{x}$   <span class="pp">|</span>                                   <span class="pp">|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fitted $\hat{b}=A\hat{x}$       <span class="pp">|</span>                                   <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Residual / RMS                  <span class="pp">|</span>                                   <span class="pp">|</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Check $A^{\mathsf{T}}r$         <span class="pp">|</span>                                   <span class="pp">|</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I needed to… <span class="pp">|</span> Command / pattern <span class="pp">|</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------|-------------------|</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Least squares <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SVD <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rank-$k$ rebuild <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Frobenius residual <span class="pp">|</span> <span class="pp">|</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>Quiz 10 today is Week 13 eigenvalues (**not** this lab). SVD / capstone launch share the period; Lab 6 is least squares only.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>**C6.0.** $\hat c=$ \_\_\_\_\_\_\_\_\_\_\_\_ $\|A\hat c-b\|=$ \_\_\_\_\_\_\_\_ **Expected:** $\approx(1.167,0.5)$, residual $\approx0.408$.</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**E1.** $A=\begin{bmatrix}1&amp;0<span class="sc">\\</span>1&amp;1<span class="sc">\\</span>1&amp;2\end{bmatrix}$, $b=(1,2,2)$. No exact sol.? $\hat{x}$, $<span class="sc">\|</span>r<span class="sc">\|</span>$.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**C6.1.** Singular values of $M$: <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**Expected:** $\hat{x}\approx(1.167,0.500)$; $\|r\|\approx 0.408$. **Yours:** $\hat{x}=$ <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> $<span class="sc">\|</span>r<span class="sc">\|</span>=$ <span class="sc">\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**C6.2.** $<span class="sc">\|</span>M-M_1<span class="sc">\|</span>_F=$ <span class="sc">\_\_\_\_\_\_\_\_</span> $<span class="sc">\|</span>M-M_2<span class="sc">\|</span>_F=$ <span class="sc">\_\_\_\_\_\_\_\_</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**E2.** Focus scores $b=(3,4.5,4,6.5,7)$ vs $t=1..5$; model $x_1+x_2 t$. Record $\hat{x}$ and RMS.</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**Expected:** $\hat{x}=(2,1)$; RMS $\approx 0.55$. **Yours:** $\hat{x}=$ <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> RMS $=$ <span class="sc">\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>Useful on a 0–10 scale? (one phrase) <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**E3.** Plot data + fitted line. Trend despite $t=3$ dip? <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**E4.** $A^{\mathsf{T}}r \approx$ <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> Why near $0$? <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**E5.** Two checks beyond quoting $\hat{x}$: (1) <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> (2) <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>If RMS $=3.5$ on 0–10 scale: useful? <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**Stuck on (optional):** E<span class="sc">\_\_</span> <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>**Instructor initials:** _______________</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**C6.3.** Storage $k(m+n+1)$ for this $4\times4$: $k=1$ → <span class="sc">\_\_\_\_</span> $k=2$ → <span class="sc">\_\_\_\_</span>  </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>For $100\times100$, $k$ with $k(201)&lt;5000$: $k\le$ <span class="sc">\_\_\_\_</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>**Stuck on:** <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>**Check-in initials:** _______________</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

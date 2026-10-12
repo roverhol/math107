@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 7 — Capstone check-ins – MATH 107 - Introduction to Linear Algebra</title>
+<title>Lab 7 (retired) – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -108,35 +108,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -147,43 +118,30 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#what-we-are-doing" id="toc-what-we-are-doing" class="nav-link active" data-scroll-target="#what-we-are-doing">What we are doing</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
-  <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
-  <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
-  <li><a href="#exercises-launch-studio-checkpoints" id="toc-exercises-launch-studio-checkpoints" class="nav-link" data-scroll-target="#exercises-launch-studio-checkpoints">Exercises (launch / studio checkpoints)</a></li>
-  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-07.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-</nav>
+  
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-07.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Lab 7 — Capstone check-ins</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Friday, December 4 launch · Monday, December 7 studio</p>
+<div class="quarto-title-block"><div><h1 class="title">Lab 7 (retired)</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Capstone check-ins live in the project packet</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-page-left">
 
     
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 8, 2026</p>
+      <p class="date-modified">October 12, 2026</p>
     </div>
   </div>
     
@@ -195,89 +153,12 @@ window.Quarto = {
 
 
 <p><a href="lab-07.pdf">Download PDF</a></p>
-<p>Last updated: October 8, 2026.</p>
-<p>Dates are on the <a href="../schedule.html">schedule</a>. The graded write-up and gallery live in the <a href="../projects/capstone.html">capstone packet</a>. This lab page is the <strong>in-class effort</strong> track: short computational checkpoints and instructor initials.</p>
-<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload on this lab assignment. Work in Octave or Python. On check-in days you use a <strong>self-contained one-pager</strong> with space for answers and new syntax; get instructor initials after a short interaction. Preview the <a href="../labs/lab-07-ticket.html">one-pager</a>; write on the hard copy handed out in class. The <strong>capstone PDF</strong> is a separate Canvas upload (25 points in the Capstone group).</p>
-<p><strong>Resources:</strong> Lachniet Ch. 5 (SVD), Ch. 7 (image compression) · <a href="../resources/syntax.html">Syntax sheets</a> · <a href="../resources.html">Resources</a> · <a href="../projects/capstone.html">Capstone</a> · <a href="../lectures/lecture-40.html">Lecture 40</a>.</p>
-<section id="what-we-are-doing" class="level2">
-<h2 class="anchored" data-anchor-id="what-we-are-doing">What we are doing</h2>
-<p>Practice the SVD / storage / error moves you need for Plan A vs Plan B (independent frames vs <span class="math inline">\(F_1,D_2,D_3\)</span>), then continue the full comparison in studio.</p>
-</section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
-<ol type="1">
-<li>Compute a small SVD and a rank-<span class="math inline">\(k\)</span> reconstruction.</li>
-<li>Count full vs rank-<span class="math inline">\(k\)</span> storage.</li>
-<li>Measure a relative reconstruction error.</li>
-<li>State a capstone question in one sentence (accuracy / storage / runtime).</li>
-<li>Make progress on Plan A vs Plan B with recorded numbers.</li>
-</ol>
-</section>
-<section id="math-connections" class="level2">
-<h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
-<p>SVD and rank-<span class="math inline">\(k\)</span> ideas from <a href="../lectures/lecture-40.html">Lecture 40</a>; cost awareness from the <a href="../labs/lab-cost.html">micro-lab</a> and <a href="../lectures/lecture-29.html">Lecture 29</a>.</p>
-</section>
-<section id="key-syntax-this-lab" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 36%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Task</th>
-<th>Octave</th>
-<th>Python</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>SVD</td>
-<td><code>[U,S,V] = svd(A)</code></td>
-<td><code>U, S, Vt = np.linalg.svd(A, full_matrices=False)</code></td>
-</tr>
-<tr class="even">
-<td>Rank-<span class="math inline">\(k\)</span> rebuild</td>
-<td>truncate <span class="math inline">\(U,S,V\)</span></td>
-<td><code>U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]</code></td>
-</tr>
-<tr class="odd">
-<td>Frobenius norm</td>
-<td><code>norm(A,'fro')</code></td>
-<td><code>np.linalg.norm(A,'fro')</code></td>
-</tr>
-<tr class="even">
-<td>Timing</td>
-<td><code>tic</code> / <code>toc</code></td>
-<td><code>time.perf_counter()</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="exercises-launch-studio-checkpoints" class="level2">
-<h2 class="anchored" data-anchor-id="exercises-launch-studio-checkpoints">Exercises (launch / studio checkpoints)</h2>
-<p>Pick Octave or Python. You may use a tiny synthetic “frame” if you do not yet have photos.</p>
-<p><strong>E1.</strong> Let <span class="math display">\[
-A=\begin{bmatrix}4&amp;0\\0&amp;1\\0&amp;0\end{bmatrix}
-\]</span> (or a small image patch). Compute the SVD. Form the rank-<span class="math inline">\(1\)</span> approximation <span class="math inline">\(A_1\)</span>. Report <span class="math inline">\(\sigma_1\)</span> and <span class="math inline">\(\lVert A-A_1\rVert_F\)</span>.</p>
-<p><strong>Expected:</strong> Depends on <span class="math inline">\(A\)</span>; for the matrix above, <span class="math inline">\(\sigma_1=4\)</span> and the rank-<span class="math inline">\(1\)</span> error involves the second singular direction (hand-check or print norms).</p>
-<p><strong>E2.</strong> Storage. For <span class="math inline">\(m=100\)</span>, <span class="math inline">\(n=80\)</span>, <span class="math inline">\(k=5\)</span>: compute <span class="math inline">\(mn\)</span> and <span class="math inline">\(k(m+n+1)\)</span>. Which is smaller?</p>
-<p><strong>Expected:</strong> <span class="math inline">\(mn=8000\)</span>; <span class="math inline">\(k(m+n+1)=5\cdot 181=905\)</span>.</p>
-<p><strong>E3.</strong> Differences. From three small matrices <span class="math inline">\(F_1,F_2,F_3\)</span>, form <span class="math inline">\(D_2=F_2-F_1\)</span> and <span class="math inline">\(D_3=F_3-F_2\)</span>. Verify <span class="math inline">\(F_2=F_1+D_2\)</span> and <span class="math inline">\(F_3=F_2+D_3\)</span> in code.</p>
-<p><strong>Expected:</strong> residuals numerically zero.</p>
-<p><strong>E4.</strong> Capstone sentence. Write one question you will answer with numbers (e.g.&nbsp;“At what <span class="math inline">\(k\)</span> does Plan B match Plan A’s error with less storage on my frames?”).</p>
-<p><strong>E5 (studio).</strong> Run Plan A and Plan B at two values of <span class="math inline">\(k\)</span>. Record two error numbers and two storage totals. (Full plots go in the capstone PDF.)</p>
-</section>
-<section id="one-pager" class="level2">
-<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
-<p>Preview the <a href="../labs/lab-07-ticket.html">Lab 7 ticket</a>; write on the hard copy in class.</p>
+<p>There is no separate Lab 7 this term. Capstone launch, studio, and gallery are described in the <a href="../projects/capstone.html">capstone packet</a>. In-class SVD practice before the project is <a href="../labs/lab-06.html">Lab 6 — Fit and Compress</a> on Friday, December 4.</p>
+<p>See the <a href="../schedule.html">schedule</a>.</p>
 
 
 <!-- -->
 
-</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div>Creative Commons Attribution-NonCommercial 4.0 International<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">(View License)</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -737,9 +618,9 @@ A=\begin{bmatrix}4&amp;0\\0&amp;1\\0&amp;0\end{bmatrix}
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 7 — Capstone check-ins"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, December 4 launch · Monday, December 7 studio"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 7 (retired)"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Capstone check-ins live in the project packet"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -749,66 +630,9 @@ A=\begin{bmatrix}4&amp;0\\0&amp;1\\0&amp;0\end{bmatrix}
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-07.pdf)</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>There is no separate Lab 7 this term. Capstone launch, studio, and gallery are described in the <span class="co">[</span><span class="ot">capstone packet</span><span class="co">](../projects/capstone.qmd)</span>. In-class SVD practice before the project is <span class="co">[</span><span class="ot">Lab 6 — Fit and Compress</span><span class="co">](lab-06.qmd)</span> on Friday, December 4.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Dates are on the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>. The graded write-up and gallery live in the <span class="co">[</span><span class="ot">capstone packet</span><span class="co">](../projects/capstone.qmd)</span>. This lab page is the **in-class effort** track: short computational checkpoints and instructor initials.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload on this lab assignment. Work in Octave or Python. On check-in days you use a **self-contained one-pager** with space for answers and new syntax; get instructor initials after a short interaction. Preview the [one-pager](lab-07-ticket.qmd); write on the hard copy handed out in class. The **capstone PDF** is a separate Canvas upload (25 points in the Capstone group).</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Resources:** Lachniet Ch. 5 (SVD), Ch. 7 (image compression) · <span class="co">[</span><span class="ot">Syntax sheets</span><span class="co">](../resources/syntax.qmd)</span> · <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span> · <span class="co">[</span><span class="ot">Capstone</span><span class="co">](../projects/capstone.qmd)</span> · <span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures/lecture-40.qmd)</span>.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## What we are doing</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Practice the SVD / storage / error moves you need for Plan A vs Plan B (independent frames vs $F_1,D_2,D_3$), then continue the full comparison in studio.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute a small SVD and a rank-$k$ reconstruction.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Count full vs rank-$k$ storage.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Measure a relative reconstruction error.</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>State a capstone question in one sentence (accuracy / storage / runtime).</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Make progress on Plan A vs Plan B with recorded numbers.</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>SVD and rank-$k$ ideas from <span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures/lecture-40.qmd)</span>; cost awareness from the <span class="co">[</span><span class="ot">micro-lab</span><span class="co">](lab-cost.qmd)</span> and <span class="co">[</span><span class="ot">Lecture 29</span><span class="co">](../lectures/lecture-29.qmd)</span>.</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SVD <span class="pp">|</span> <span class="in">`[U,S,V] = svd(A)`</span> <span class="pp">|</span> <span class="in">`U, S, Vt = np.linalg.svd(A, full_matrices=False)`</span> <span class="pp">|</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rank-$k$ rebuild <span class="pp">|</span> truncate $U,S,V$ <span class="pp">|</span> <span class="in">`U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]`</span> <span class="pp">|</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Frobenius norm <span class="pp">|</span> <span class="in">`norm(A,'fro')`</span> <span class="pp">|</span> <span class="in">`np.linalg.norm(A,'fro')`</span> <span class="pp">|</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Timing <span class="pp">|</span> <span class="in">`tic`</span> / <span class="in">`toc`</span> <span class="pp">|</span> <span class="in">`time.perf_counter()`</span> <span class="pp">|</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exercises (launch / studio checkpoints)</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>Pick Octave or Python. You may use a tiny synthetic “frame” if you do not yet have photos.</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**E1.** Let</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}4&amp;0<span class="sc">\\</span>0&amp;1<span class="sc">\\</span>0&amp;0\end{bmatrix}</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>(or a small image patch). Compute the SVD. Form the rank-$1$ approximation $A_1$. Report $\sigma_1$ and $\lVert A-A_1\rVert_F$.</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**Expected:** Depends on $A$; for the matrix above, $\sigma_1=4$ and the rank-$1$ error involves the second singular direction (hand-check or print norms).</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**E2.** Storage. For $m=100$, $n=80$, $k=5$: compute $mn$ and $k(m+n+1)$. Which is smaller?</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**Expected:** $mn=8000$; $k(m+n+1)=5\cdot 181=905$.</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>**E3.** Differences. From three small matrices $F_1,F_2,F_3$, form $D_2=F_2-F_1$ and $D_3=F_3-F_2$. Verify $F_2=F_1+D_2$ and $F_3=F_2+D_3$ in code.</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>**Expected:** residuals numerically zero.</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>**E4.** Capstone sentence. Write one question you will answer with numbers (e.g. “At what $k$ does Plan B match Plan A’s error with less storage on my frames?”).</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>**E5 (studio).** Run Plan A and Plan B at two values of $k$. Record two error numbers and two storage totals. (Full plots go in the capstone PDF.)</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-pager</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>Preview the <span class="co">[</span><span class="ot">Lab 7 ticket</span><span class="co">](lab-07-ticket.qmd)</span>; write on the hard copy in class.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>See the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

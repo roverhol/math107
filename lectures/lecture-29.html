@@ -157,7 +157,7 @@ window.Quarto = {
   <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
   <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
   <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
-  <li><a href="#micro-lab-same-day" id="toc-micro-lab-same-day" class="nav-link" data-scroll-target="#micro-lab-same-day">Micro-lab, same day</a></li>
+  <li><a href="#lab-3-same-day" id="toc-lab-3-same-day" class="nav-link" data-scroll-target="#lab-3-same-day">Lab 3, same day</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture-29.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -200,12 +200,12 @@ window.Quarto = {
 <p><strong>Boyd video (optional):</strong> <a href="https://www.youtube.com/watch?v=wqcknO3fArY">Lecture 6 — complexity</a> · <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9">ENGR108 playlist (Boyd)</a> <!-- /BOYD-YOUTUBE --></p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
-<p>Reading: Boyd’s <span class="math inline">\(ab^{\mathsf{T}}c\)</span> example; <a href="../labs/lab-cost.html">micro-lab</a>. Related objectives: <a href="../lectures.html#lecture-29">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
-<p><strong>Note:</strong> Precursor to the capstone — same mathematical answer, different storage and runtime depending on order.</p>
-<p>Bring paper. Short lecture (warm-up → fill-in → board → Your turn), then the <a href="../labs/lab-cost.html">micro-lab</a> same day.</p>
+<p>Reading: Boyd’s <span class="math inline">\(ab^{\mathsf{T}}c\)</span> example. Related objectives: <a href="../lectures.html#lecture-29">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Same mathematical answer can mean different storage and runtime depending on order — useful later for the <a href="../projects/capstone.html">capstone</a>.</p>
+<p>Bring paper. Short lecture (warm-up → fill-in → board → Your turn), then <a href="../labs/lab-03.html">Lab 3</a> same day.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
-<p>By the end of class, students should be able to:</p>
+<p>By the end of class, you should be able to:</p>
 <ol type="1">
 <li>Compare algebraically equivalent orders of computation.</li>
 <li>Count intermediate values that must be stored.</li>
@@ -238,7 +238,7 @@ window.Quarto = {
 <li>Cost idea: two inner/scale passes — order <span class="math inline">\(\underline{\hspace{1.2cm}}\)</span> work.</li>
 </ul>
 <p><strong>Why wasteful?</strong> Forming <span class="math inline">\(ab^{\mathsf{T}}\)</span> materializes a dense <span class="math inline">\(n\times n\)</span> matrix you may never need as an object; then you immediately collapse it with <span class="math inline">\(c\)</span>. Capstone theme: choose an algorithm that matches the structure, not only the formula on the page.</p>
-<p><strong>Runtime.</strong> In the micro-lab you will time both orders for growing <span class="math inline">\(n\)</span> and justify which order to use with measured times (and storage counts).</p>
+<p><strong>Runtime.</strong> In software you can time both orders for growing <span class="math inline">\(n\)</span> and justify which order to use with measured times (and storage counts).</p>
 </section>
 <section id="worked-in-class" class="level2">
 <h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
@@ -253,9 +253,9 @@ window.Quarto = {
 <p><strong>Y2.</strong> For <span class="math inline">\(n=100\)</span>, about how many intermediate entries does Order 1 store in <span class="math inline">\(ab^{\mathsf{T}}\)</span>? Order 2 in the scalar <span class="math inline">\(s\)</span>?</p>
 <p><strong>Y3.</strong> One sentence: why can two algebraically equal expressions have wildly different runtimes?</p>
 </section>
-<section id="micro-lab-same-day" class="level2">
-<h2 class="anchored" data-anchor-id="micro-lab-same-day">Micro-lab, same day</h2>
-<p>After this short lecture: <a href="../labs/lab-cost.html">Micro-lab — Computational cost</a>. Compare the two orders in Octave or Python, count storage, time growing <span class="math inline">\(n\)</span>, and justify a choice on the one-pager.</p>
+<section id="lab-3-same-day" class="level2">
+<h2 class="anchored" data-anchor-id="lab-3-same-day">Lab 3, same day</h2>
+<p>After this short lecture: <a href="../labs/lab-03.html">Lab 3 — Mixing and Balancing</a>. Write a small system, solve in software, check the residual, and prefer a solver over an explicit inverse. Preview the <a href="../labs/lab-03-ticket.html">one-pager</a>; write on the hard copy in class.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -763,15 +763,15 @@ ab^{\mathsf{T}}=\begin{bmatrix}2&amp;1&amp;3\\-2&amp;-1&amp;-3\\0&amp;0&amp;0\en
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Reading: Boyd’s $ab^{\mathsf{T}}c$ example; <span class="co">[</span><span class="ot">micro-lab</span><span class="co">](../labs/lab-cost.qmd)</span>. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-29)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Reading: Boyd’s $ab^{\mathsf{T}}c$ example. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-29)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>**Note:** Precursor to the capstone — same mathematical answer, different storage and runtime depending on order.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Same mathematical answer can mean different storage and runtime depending on order — useful later for the <span class="co">[</span><span class="ot">capstone</span><span class="co">](../projects/capstone.qmd)</span>.</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Bring paper. Short lecture (warm-up → fill-in → board → Your turn), then the <span class="co">[</span><span class="ot">micro-lab</span><span class="co">](../labs/lab-cost.qmd)</span> same day.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Bring paper. Short lecture (warm-up → fill-in → board → Your turn), then <span class="co">[</span><span class="ot">Lab 3</span><span class="co">](../labs/lab-03.qmd)</span> same day.</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>By the end of class, students should be able to:</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>By the end of class, you should be able to:</span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compare algebraically equivalent orders of computation.</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Count intermediate values that must be stored.</span>
@@ -809,7 +809,7 @@ ab^{\mathsf{T}}=\begin{bmatrix}2&amp;1&amp;3\\-2&amp;-1&amp;-3\\0&amp;0&amp;0\en
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>**Why wasteful?** Forming $ab^{\mathsf{T}}$ materializes a dense $n\times n$ matrix you may never need as an object; then you immediately collapse it with $c$. Capstone theme: choose an algorithm that matches the structure, not only the formula on the page.</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>**Runtime.** In the micro-lab you will time both orders for growing $n$ and justify which order to use with measured times (and storage counts).</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>**Runtime.** In software you can time both orders for growing $n$ and justify which order to use with measured times (and storage counts).</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
@@ -845,9 +845,9 @@ ab^{\mathsf{T}}=\begin{bmatrix}2&amp;1&amp;3\\-2&amp;-1&amp;-3\\0&amp;0&amp;0\en
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Micro-lab, same day</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lab 3, same day</span></span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>After this short lecture: <span class="co">[</span><span class="ot">Micro-lab — Computational cost</span><span class="co">](../labs/lab-cost.qmd)</span>. Compare the two orders in Octave or Python, count storage, time growing $n$, and justify a choice on the one-pager.</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>After this short lecture: <span class="co">[</span><span class="ot">Lab 3 — Mixing and Balancing</span><span class="co">](../labs/lab-03.qmd)</span>. Write a small system, solve in software, check the residual, and prefer a solver over an explicit inverse. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](../labs/lab-03-ticket.qmd)</span>; write on the hard copy in class.</span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
