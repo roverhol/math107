@@ -42,258 +42,6 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
-    "objectID": "labs/lab-04.html",
-    "href": "labs/lab-04.html",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nIn class Friday, November 6 (same day as Lecture 32 / Quiz 9). Quiz 9 is Week 10 products / cost — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
-  },
-  {
-    "objectID": "labs/lab-04.html#learning-objectives",
-    "href": "labs/lab-04.html#learning-objectives",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "Learning objectives",
-    "text": "Learning objectives\n\nImplement one step of \\(x_{t+1}=Ax_t\\).\nIterate several steps and hand-check the first ones.\nDescribe a long-run pattern you observe (you will explain it in Lab 5)."
-  },
-  {
-    "objectID": "labs/lab-04.html#math-connections",
-    "href": "labs/lab-04.html#math-connections",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "Math connections",
-    "text": "Math connections\nLinear dynamical systems (Lectures 24–26)."
-  },
-  {
-    "objectID": "labs/lab-04.html#key-syntax-this-lab",
-    "href": "labs/lab-04.html#key-syntax-this-lab",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "Key syntax (this lab)",
-    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nOne step\nx = A*x\nx = A @ x\n\n\nLoop\nfor t = 1:20 … end\nfor t in range(20):\n\n\nPlot component\nplot(0:N, X(1,:))\nplt.plot(range(N+1), X[0])"
-  },
-  {
-    "objectID": "labs/lab-04.html#ops-strip",
-    "href": "labs/lab-04.html#ops-strip",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "Ops strip",
-    "text": "Ops strip\nOn-/off-campus counts \\(x_t=\\begin{bmatrix}c_t\\\\o_t\\end{bmatrix}\\). Each week: \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\nC4.0. Enter \\(A\\) and \\(x_0=(1000,0)\\). Print \\(A*x_0\\) / A @ x0 (that is \\(x_1\\)).\nExpected: \\(x_1=(700,300)\\)."
-  },
-  {
-    "objectID": "labs/lab-04.html#application",
-    "href": "labs/lab-04.html#application",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "Application",
-    "text": "Application\nC4.1. By hand, compute \\(x_2=Ax_1\\). Then check in software.\nExpected: \\(x_2=(550,450)\\).\nC4.2. Starting from the same \\(x_0\\), iterate \\(20\\) steps (store or print \\(x_5\\) and \\(x_{20}\\)). Roughly where do the two populations settle?\nExpected: toward about \\((400,600)\\) (more off campus than on).\nC4.3. Restart from \\(x_0=(0,1000)\\). After \\(20\\) steps, what happens? In one sentence, what is surprising if you only look at the starting point?\nExpected: again near \\((400,600)\\). Different starts can head toward the same long-run mix — Lab 5 will name the missing idea."
-  },
-  {
-    "objectID": "labs/lab-04.html#one-pager",
-    "href": "labs/lab-04.html#one-pager",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "One-pager",
-    "text": "One-pager\nPreview the Lab 4 ticket; write on the hard copy in class."
-  },
-  {
-    "objectID": "labs/lab-05-ticket.html",
-    "href": "labs/lab-05-ticket.html",
-    "title": "Lab 5 ticket",
-    "section": "",
-    "text": "Download PDF\nLab 5 — Steady State and Eigen · Fri Nov 20 · ~20 min · Laptop · Handwrite · Initials\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax\n\n\n\nI needed to…\nCommand / pattern\n\n\n\n\nEigenpairs of \\(A\\)\n\n\n\nScale / normalize \\(v\\)\n\n\n\nNullspace / \\((A-I)x=0\\)\n\n\n\n\n\nSame \\(A\\) as Lab 4. Quiz 10 = Week 11 (not this lab).\nC5.0. Steady state with entries summing to \\(1000\\): \\(x=\\) ____________ Expected: \\((400,600)\\) (or multiple of \\((2,3)\\)).\nC5.1. Eigenvalues: ________________________ Which has \\(|\\lambda|=1\\)? ____ \\(|\\lambda|&lt;1\\)? ____\nC5.2. Scaled \\(\\lambda=1\\) vector: ________ vs Lab 4 \\(x_{20}\\): ________\nWhy settle there? ________________________________________________________\nC5.3. Capstone link (one sentence): ____________________________________________________________________\nStuck on: ________________________________________________________________________\nCheck-in initials: _______________\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "labs/lab-05.html",
-    "href": "labs/lab-05.html",
-    "title": "Lab 5 — Steady State and Eigen",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nIn class Friday, November 20 (same day as Lecture 37 / Quiz 10). Quiz 10 is Week 11 inverses / rank / determinants — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
-  },
-  {
-    "objectID": "labs/lab-05.html#learning-objectives",
-    "href": "labs/lab-05.html#learning-objectives",
-    "title": "Lab 5 — Steady State and Eigen",
-    "section": "Learning objectives",
-    "text": "Learning objectives\n\nFind a steady state of \\(x=Ax\\) (or an eigenvector for \\(\\lambda=1\\)).\nUse software eigenvalues/vectors and match them to the Lab 4 long-run mix.\nState how an eigen-direction explains repeated multiplication by \\(A\\)."
-  },
-  {
-    "objectID": "labs/lab-05.html#math-connections",
-    "href": "labs/lab-05.html#math-connections",
-    "title": "Lab 5 — Steady State and Eigen",
-    "section": "Math connections",
-    "text": "Math connections\nEigenvalues and eigenvectors (Lectures 27–29); build on Lab 4’s iteration."
-  },
-  {
-    "objectID": "labs/lab-05.html#key-syntax-this-lab",
-    "href": "labs/lab-05.html#key-syntax-this-lab",
-    "title": "Lab 5 — Steady State and Eigen",
-    "section": "Key syntax (this lab)",
-    "text": "Key syntax (this lab)\n\n\n\n\n\n\n\n\nTask\nOctave\nPython\n\n\n\n\nEigenpairs\n[V,D]=eig(A)\nlam, V = np.linalg.eig(A)\n\n\nDiagonal entries\ndiag(D)\nlam\n\n\nNormalize a vector\nv/sum(v) or v/norm(v)\nsame idea with NumPy"
-  },
-  {
-    "objectID": "labs/lab-05.html#ops-strip",
-    "href": "labs/lab-05.html#ops-strip",
-    "title": "Lab 5 — Steady State and Eigen",
-    "section": "Ops strip",
-    "text": "Ops strip\nSame campus matrix as Lab 4: \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\nC5.0. Solve \\((A-I)x=0\\) (or ask software for a nullspace / eigenvector for \\(\\lambda=1\\)). Scale so the two entries sum to \\(1000\\) (total students).\nExpected: a multiple of \\((2,3)\\) — e.g. \\(x=(400,600)\\) when entries sum to \\(1000\\)."
-  },
-  {
-    "objectID": "labs/lab-05.html#application",
-    "href": "labs/lab-05.html#application",
-    "title": "Lab 5 — Steady State and Eigen",
-    "section": "Application",
-    "text": "Application\nC5.1. Compute all eigenvalues of \\(A\\) in software. Which one has magnitude \\(1\\)? Which has \\(|\\lambda|&lt;1\\)?\nExpected: \\(\\lambda_1=1\\) and \\(\\lambda_2=0.5\\) (order may differ).\nC5.2. Take the eigenvector for \\(\\lambda=1\\), scale so entries sum to \\(1000\\), and compare to your Lab 4 \\(x_{20}\\). One sentence: why does iteration settle there?\nExpected: the long-run state is (essentially) that \\(\\lambda=1\\) direction; other modes shrink because \\(|\\lambda_2|&lt;1\\).\nC5.3. Capstone preview: when you compress a matrix with SVD, you keep the largest singular values. In one sentence, how is “keep the big directions” similar to “the \\(\\lambda=1\\) mode wins the long run”?\nExpected: both stories pick the directions that dominate the object (image residual vs. iterated state)."
-  },
-  {
-    "objectID": "labs/lab-05.html#one-pager",
-    "href": "labs/lab-05.html#one-pager",
-    "title": "Lab 5 — Steady State and Eigen",
-    "section": "One-pager",
-    "text": "One-pager\nPreview the Lab 5 ticket; write on the hard copy in class."
-  },
-  {
-    "objectID": "lectures/lecture-35.html",
-    "href": "lectures/lecture-35.html",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — eigenvalues\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · MIT 18.06 playlist (Strang)\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn.\nCallback: Lab 4 asked why \\(B=\\operatorname{diag}(1.2,\\,0.5)\\) grows from some starts and decays from others. Today we name the missing idea: eigenvectors."
-  },
-  {
-    "objectID": "lectures/lecture-35.html#learning-objectives",
-    "href": "lectures/lecture-35.html#learning-objectives",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
-  },
-  {
-    "objectID": "lectures/lecture-35.html#warm-up",
-    "href": "lectures/lecture-35.html#warm-up",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "Warm-up",
-    "text": "Warm-up\nLab 4 mystery matrix: \\[\nB=\\begin{bmatrix}1.2&0\\\\0&0.5\\end{bmatrix}.\n\\]\n\nCompute \\(B\\begin{bmatrix}1\\\\0\\end{bmatrix}\\) and \\(B\\begin{bmatrix}0\\\\1\\end{bmatrix}\\). Is each output a scalar multiple of the input?\nStarting from \\(x_0=(1,0)\\) vs \\(y_0=(0,1)\\), which trajectory grows and which decays? Why, in one sentence using part (a)?"
-  },
-  {
-    "objectID": "lectures/lecture-35.html#fill-in",
-    "href": "lectures/lecture-35.html#fill-in",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "Fill in",
-    "text": "Fill in\nEigenpair. A nonzero vector \\(v\\) is an eigenvector of square \\(A\\) with eigenvalue \\(\\lambda\\) if \\[\nAv = \\underline{\\hspace{1.4cm}}.\n\\] Geometrically: \\(A\\) sends \\(v\\) to a vector on the \\(\\underline{\\hspace{2.0cm}}\\) line through \\(v\\) (scaled by \\(\\lambda\\); if \\(\\lambda&lt;0\\), also flipped).\nVerify. Given a candidate pair \\((\\lambda,v)\\), compute \\(Av\\) and \\(\\lambda v\\); they must \\(\\underline{\\hspace{1.6cm}}\\).\nFind \\(\\lambda\\) from \\(v\\). If \\(v\\neq 0\\) is known to be an eigenvector and some component \\(v_i\\neq 0\\), then \\[\n\\lambda = \\frac{(Av)_i}{v_i}\n\\] (same ratio for every nonzero component).\nDynamics. If \\(x_0=v\\) is an eigenvector with eigenvalue \\(\\lambda\\), then \\[\nx_t = A^t v = \\underline{\\hspace{2.4cm}}.\n\\] The direction of \\(v\\) is persistent: each step only rescales (and maybe flips). That is why Lab 4’s two axis starts behaved so differently.\nNo real eigenvector. A pure rotation (e.g. \\(90^\\circ\\)) moves every real nonzero vector off its own line. Then there is \\(\\underline{\\hspace{2.0cm}}\\) real eigenpair — we will need complex numbers on Wednesday."
-  },
-  {
-    "objectID": "lectures/lecture-35.html#worked-in-class",
-    "href": "lectures/lecture-35.html#worked-in-class",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Geometry. Sketch \\(v=(1,1)\\) and \\(Av\\) for \\(A=\\begin{bmatrix}2&0\\\\0&1\\end{bmatrix}\\). Is \\(v\\) an eigenvector? What about \\(e_1=(1,0)\\)?\nW2. Verify. Check whether \\((\\lambda,v)=(3,(1,1))\\) is an eigenpair of \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\] Compute both \\(Av\\) and \\(\\lambda v\\).\nW3. Find \\(\\lambda\\). You are told that \\(v=(1,-1)\\) is an eigenvector of \\[\nA=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}.\n\\] Find \\(\\lambda\\). Then confirm \\(Av=\\lambda v\\).\nW4. Lab 4 explained. For \\(B=\\operatorname{diag}(1.2,\\,0.5)\\):\n\nName two real eigenpairs (use the standard basis).\nIf \\(x_0=c_1 e_1+c_2 e_2\\), what is \\(x_t=B^t x_0\\)? Which term dominates for large \\(t\\) when \\(c_1\\neq 0\\)?\n\nW5. Rotation. Let \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) (\\(90^\\circ\\) CCW). For a generic \\(v=(a,b)\\neq 0\\), is \\(Rv\\) a real multiple of \\(v\\)? What does that say about real eigenvectors of \\(R\\)?"
-  },
-  {
-    "objectID": "lectures/lecture-35.html#your-turn",
-    "href": "lectures/lecture-35.html#your-turn",
-    "title": "Lecture 35 — Eigenvectors as persistent directions",
-    "section": "Your turn",
-    "text": "Your turn\nY1. Verify or reject: is \\((\\lambda,v)=(−1,(1,-1))\\) an eigenpair of \\(A=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\)?\nY2. Given that \\(v=(1,2)\\) is an eigenvector of \\(A=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\), find \\(\\lambda\\).\nY3. True or false, with a one-line reason: if \\(Av=2v\\) and \\(v\\neq 0\\), then \\(A^3 v=8v\\).\nY4. In one sentence: why did Lab 4’s diagonal mystery need eigenvectors (not just “look at the plot”)?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\(Av=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\) and \\((-1)v=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\). Yes — eigenpair.\nY2. \\(Av=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\begin{bmatrix}1\\\\2\\end{bmatrix}=\\begin{bmatrix}3\\\\4\\end{bmatrix}\\). Ratio from the first component: \\(\\lambda=3/1=3\\). Check second: \\(4=3\\cdot 2\\). So \\(\\lambda=3\\).\nY3. True. \\(A^3 v=A^2(Av)=A^2(2v)=A(4v)=8v\\) (or \\(A^t v=\\lambda^t v\\)).\nY4. Sample: The plot shows growth vs decay by start direction; eigenvectors name the persistent directions (and their growth factors \\(\\lambda\\)) that explain why."
-  },
-  {
-    "objectID": "quizzes/quiz-11.html",
-    "href": "quizzes/quiz-11.html",
-    "title": "Quiz 11",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang �6.1 (PDF) � eigenvalues\nVideo: 18.06 Lec 21 � eigenvalues and eigenvectors � MIT 18.06 playlist (Strang)\nCovers the prior instructional week only: Eigenvectors, Characteristic, Eigenbehavior, and Lab 5 (Week 13). Fall break is skipped when choosing the prior week. Same-day SVD / Lab 6 / least squares (Week 15) are not on this quiz.\nTextbooks: Strang �6.1 � Lachniet Octave PDF � also on Resources.\nSchedule\nSVD and least squares are not on this quiz; see Lab 6, the capstone packet, and the final."
-  },
-  {
-    "objectID": "quizzes/quiz-11.html#core",
-    "href": "quizzes/quiz-11.html#core",
-    "title": "Quiz 11",
-    "section": "Core",
-    "text": "Core\n\nFluency (complete prompts � practice these by hand)\nC11.1. Let \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix},\\qquad\nv=\\begin{bmatrix}1\\\\1\\end{bmatrix}.\n\\] Compute \\(Av\\). Is \\(v\\) an eigenvector? If so, what is \\(\\lambda\\)?\nC11.2. You are told that \\(v=(1,-1)\\) is an eigenvector of \\[\nA=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}.\n\\] Find \\(\\lambda\\) by comparing components of \\(Av\\) and \\(v\\). Then verify \\(Av=\\lambda v\\).\nC11.3. Let \\(A=\\operatorname{diag}(1.2,\\,0.5)\\) (Lab 4 / Lecture 35 long-run pattern).\n\nName two real eigenpairs using the standard basis.\nIf \\(x_0=(1,1)\\), write \\(x_t=A^t x_0\\) componentwise. Which term dominates for large \\(t\\)?\n\nC11.4. Complex drill. Let \\(z=2+i\\) and \\(w=1-3i\\). Compute \\(z+w\\), \\(zw\\), and \\(|z|\\).\nC11.5. For \\[\nA=\\begin{bmatrix}1&2\\\\0&3\\end{bmatrix},\n\\] form \\(\\det(A-\\lambda I)\\), find both eigenvalues, and give one eigenvector for \\(\\lambda=3\\).\nC11.6. Rotation. Let \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) (\\(90^\\circ\\) CCW).\n\nShow that the characteristic polynomial is \\(\\lambda^2+1=0\\), so \\(\\lambda=\\pm i\\).\nWhy does this match the geometric fact that \\(R\\) has no real eigenvector?\n\nC11.7. Check a complex pair. With \\(A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) and \\(v=(1,-i)\\), compute \\(Av\\) and decide whether \\(Av=iv\\) or \\(Av=(-i)v\\).\nC11.8. True or false, with a one-line reason: if \\(Av=2v\\) and \\(v\\neq 0\\), then \\(A^3 v=8v\\).\nC11.9 (Lab 5 / software). Suppose Octave/Python reports eigenvalues of a \\(2\\times 2\\) matrix as approximately \\(0.9\\) and \\(0.2\\), with corresponding eigenvectors \\(v_1\\approx(0.7,\\,0.7)\\) and \\(v_2\\approx(-0.7,\\,0.7)\\) (normalized). For dynamics \\(x_{t+1}=Ax_t\\) started near \\(v_1+v_2\\), which mode dominates for large \\(t\\), and does the state grow or decay?\nC11.10 (Lab 5 / verify). Software prints \\(\\lambda\\approx 3\\) and \\(v\\approx(0.707,\\,0.707)\\) for \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\] Explain how you would verify \\(Av\\approx\\lambda v\\) numerically in one or two lines of code (Octave or Python). What should \\(\\|Av-\\lambda v\\|\\) look like if the pair is correct?\n\n\nTextbook Core\n\nS 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17\nL Ch. 5 Ex. 1: selected hand/software eigenvalue parts\nL Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions\nL Ch. 5 Ex. 5: selected matrix-power portion"
-  },
-  {
-    "objectID": "quizzes/quiz-11.html#stretch",
-    "href": "quizzes/quiz-11.html#stretch",
-    "title": "Quiz 11",
-    "section": "Stretch",
-    "text": "Stretch\nS 6.1 #3 and #4; a complex eigenpair check beyond C11.7."
-  },
-  {
-    "objectID": "quizzes/quiz-11.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-11.html#what-a-quiz-item-might-change",
-    "title": "Quiz 11",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nA new \\(2\\times 2\\) matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, a rotation matrix with complex eigenvalues, or a software printout to interpret (dominant \\(\\lambda\\), verify \\(Av\\approx\\lambda v\\))."
-  },
-  {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Course Syllabus",
-    "section": "",
-    "text": "Download this page as PDF"
-  },
-  {
-    "objectID": "syllabus.html#course-information",
-    "href": "syllabus.html#course-information",
-    "title": "Course Syllabus",
-    "section": "Course Information",
-    "text": "Course Information\nCourse Number: MATH 107\nCourse Title: Introduction to Linear Algebra\nClass Number: 42493\nSection: 1\nSession: Regular Academic Session\nUnits: 3\nSemester: Fall 2026\nMode of Instruction: Face to Face Instruction ONLY\nGeneral Education: GE Area 2 — Mathematics\n\nLecture\nDays/Time: Monday, Wednesday, Friday, 10:00–10:50 a.m.\nLocation: FR 201\n\n\nFinal Exam\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m., FR 201.\n\n\nInstructor Information\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment.\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
-  },
-  {
-    "objectID": "syllabus.html#course-description-catalog-description",
-    "href": "syllabus.html#course-description-catalog-description",
-    "title": "Course Syllabus",
-    "section": "Course Description (Catalog Description)",
-    "text": "Course Description (Catalog Description)\nEuclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nDivision: Lower Division.\nWeekly: Lecture 3 hrs.\nInstruction Mode: Face to face only.\nPrerequisite: (MATH 101 and MATH 101T) or MATH 102 or ALEKS PPL assessment score 78–100 or appropriate high school coursework. All prerequisite courses must be passed with a grade of C− or higher. See Math Placement and ALEKS PPL for details.\nNote: if you plan to use MATH 107 as a prerequisite for another MATH, DATA, or STAT course, you must have a grade of C− or better in this course.\n\nCourse Learning Outcomes\nBy the end of this course, students will be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily learning objectives for each meeting are on Lectures.\n\n\nGeneral Education & Institutional Learning Outcomes\nThis course fulfills Lower Division General Education Area 2 (Mathematics) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
-  },
-  {
-    "objectID": "syllabus.html#course-materials-workload",
-    "href": "syllabus.html#course-materials-workload",
-    "title": "Course Syllabus",
-    "section": "Course Materials & Workload",
-    "text": "Course Materials & Workload\nMATH 107 includes three weekly lecture meetings. Some Fridays (and a few other days) include a lab, quiz, or exam as marked on the schedule.\nIn this 3-unit course, students should expect to spend approximately 9 hours per week on course-related work, including time in class (3 hours) and time outside of class on reading, practice, labs, and exam preparation (6 hours).\n\nRequired Materials\nCourse website: Canvas and https://roverhol.github.io/math107\nTextbooks (free):\n\nStephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares (VMLS).\nGilbert Strang, Introduction to Linear Algebra: selected free MIT samples only (§3.5, §6.1, and SVD slides), so you do not need to buy it.\n\nSoftware: Octave or Python (pick one for the term). Lab hubs have both versions; see Resources and Lab 0.\n\nOther Technology: A scientific calculator for in-class assessments and regular access to a computer with reliable internet. Bring a laptop on lab days, or let me know a day ahead that I should bring one for you to use. Please bring paper and a pen or pencil to class each day.\n\n\nAccess & Affordability\nStudents who do not have personal access to required technology may use computers either in campus labs or checked out from the library. Calculators are also available for check out from the library’s front desk. If you want to get a free used computer, please check to see if our campus’s Reusable Office Supply Exchange (ROSE) has one available.\n\n\nFees\nThere are no additional course fees beyond standard tuition and registration fees."
-  },
-  {
-    "objectID": "syllabus.html#course-feedback-assessment",
-    "href": "syllabus.html#course-feedback-assessment",
-    "title": "Course Syllabus",
-    "section": "Course Feedback & Assessment",
-    "text": "Course Feedback & Assessment\nStudents will receive feedback and complete assessments in a variety of ways:\n\nClass participation in daily in-class activities\nComputational labs (Octave or Python; about every two weeks). Credit is an in-class one-pager with instructor initials; see Lab 0 on the course site.\nIn-class quizzes (ten quizzes, first 10 minutes of class; the lowest two scores are dropped)\nTwo midterms (Friday, October 2 and Friday, November 13, in class)\nA final exam (Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201)\nA capstone project (end of the semester)\n\n\n\nGrading\n\n\n\nComponent\nWeight\n\n\n\n\nParticipation / in-class work\n5%\n\n\nLabs\n10%\n\n\nQuizzes\n25%\n\n\nTwo midterms\n35%\n\n\nCapstone\n10%\n\n\nFinal\n15%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93–100% A−: 90–92% B+: 87–89% B: 83–86% B−: 80–82% C+: 77–79% C: 73–76% C−: 70–72% D: 60–69% F: 0–59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C− is required for the course to count as a prerequisite for other MATH or DATA classes.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\nAttendance & Participation\nRegular attendance and active participation are required because they are essential for the success of everyone in this course. Up to 10 days may be missed without penalty to your course grade: these days should be reserved for use in times of illness or other obligations.\nIf you must miss class, you are responsible for obtaining notes from me or a classmate and keeping up with course material."
-  },
-  {
-    "objectID": "syllabus.html#late-or-missed-work-policies",
-    "href": "syllabus.html#late-or-missed-work-policies",
-    "title": "Course Syllabus",
-    "section": "Late or Missed Work Policies",
-    "text": "Late or Missed Work Policies\nThe policies for late or missed work are as follows:\n\nLecture attendance is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 lecture days without penalty and without contacting me. Reserve these days for emergencies. In my experience, it is rare for a student to succeed if they regularly miss class or are absent for more than two weeks, so if you find yourself in that situation, please communicate with me and your advisor so we can help you find a solution.\nQuizzes are in the first 10 minutes of class. The lowest two quiz scores are dropped. If you must miss a quiz due to illness or another emergency, please contact me to arrange a makeup.\nLabs are credited in class on the dates on the schedule: complete the hub exercises, handwrite the one-pager, and get initials. After a week, missed lab credit is not made up except by arrangement (e.g. illness).\nCapstone work is due on the dates on the schedule. Late project work cannot be turned in due to the end of the semester and course grades being due. If you are unable to complete the project in time, you should consider whether your situation is such that an Incomplete grade is appropriate. This would give you more time to complete the course.\nMidterms and the final exam are required. If you need to miss a midterm due to illness or another emergency, communicate with me as soon as possible to reschedule.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\nAI Policy\nMuch of your course grade will be based on work you produce in class (quizzes and exams) without having the option of using AI as a resource.\nOutside of in-class assessments, you may use AI, such as NotebookLM or ChatGPT, to help you learn the material or to get unstuck on labs or the capstone.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nIf you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\nBe responsible for the correctness and appropriateness of all (AI-assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking whether an assignment is appropriate for a college-level course or whether the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
-  },
-  {
-    "objectID": "syllabus.html#course-topics-schedule",
-    "href": "syllabus.html#course-topics-schedule",
-    "title": "Course Syllabus",
-    "section": "Course Topics & Schedule",
-    "text": "Course Topics & Schedule\n\nTopics (Approximate Order)\n\nVectors as representations; arithmetic, linear combinations, and inner products\nLinear and affine functions; norms, angle, neighbors, and clustering\nLinear dependence, span, and bases\nMatrices, \\(Ax\\), transformations, and linear systems\nDynamics, simulation, products, powers, and computational cost\nInverses, rank, and determinants\nEigenvectors and eigenvalues\nLeast squares, fitting, and SVD\nAccuracy, memory, runtime, and communication\n\n\n\nSummary of Schedule and Important Dates\nNote: The schedule has a detailed list of the course. Please check it regularly for updates.\n\n\n\nDate\nEvent\n\n\n\n\nAugust 24\nFirst class\n\n\nAugust 28\nLab 0\n\n\nSeptember 4\nQuiz 1\n\n\nSeptember 7\nLabor Day (no class)\n\n\nOctober 2\nMidterm 1\n\n\nNovember 11\nVeterans Day (no class)\n\n\nNovember 13\nMidterm 2\n\n\nNovember 23–27\nFall break (no class)\n\n\nDecember 9\nCapstone gallery\n\n\nDecember 11\nFinal review (last class meeting)\n\n\nDecember 16\nFinal exam, 10:20 a.m.–12:10 p.m., FR 201\n\n\n\nAdd/drop and other university deadlines follow the Cal Poly Humboldt academic calendar."
-  },
-  {
-    "objectID": "syllabus.html#university-policies-resources",
-    "href": "syllabus.html#university-policies-resources",
-    "title": "Course Syllabus",
-    "section": "University Policies & Resources",
-    "text": "University Policies & Resources\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\nAccommodations\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\nClassroom & Online Conduct\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
-  },
-  {
-    "objectID": "syllabus.html#changes-to-the-syllabus",
-    "href": "syllabus.html#changes-to-the-syllabus",
-    "title": "Course Syllabus",
-    "section": "Changes to the Syllabus",
-    "text": "Changes to the Syllabus\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
-  },
-  {
-    "objectID": "syllabus.html#license",
-    "href": "syllabus.html#license",
-    "title": "Course Syllabus",
-    "section": "License",
-    "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here. Quizzes and Labs 1–6 meet on Fridays (midterms too, when scheduled). Lab 0 is Week 1 only; there is no lab on Midterm 2 Friday or during fall break.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25BasisQuiz 4\n\n\n6\nSep 28Neighbors practice\nSep 30MT1 prep\nOct 2Midterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsQuiz 5\n\n\n8\nOct 12Systems\nOct 14Elimination\nOct 16RREFQuiz 6Lab 1\n\n\n9\nOct 19Dynamics\nOct 21Simulation\nOct 23Through timeQuiz 7Lab 2\n\n\n10\nOct 26Products\nOct 28Powers\nOct 30CostQuiz 8Lab 3\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 9Lab 4\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Midterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorQuiz 10Lab 5\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squares\nDec 2Fitting\nDec 4SVDQuiz 11Lab 6Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
     "objectID": "assessments.html",
     "href": "assessments.html",
     "title": "Assessments",
@@ -312,7 +60,168 @@
     "href": "assessments.html#clo-coverage",
     "title": "Assessments",
     "section": "CLO coverage",
-    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 5\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6 and the capstone, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\nFriday quizzes cover only the prior instructional week (skip midterm week and fall break when choosing that week). Same-day lecture/lab topics are not on that day’s quiz.\n\n\n\nQuiz\nDate\nFocus (prior week)\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, arithmetic, Lab 0 (Week 1)\n\n\nQuiz 2\nFri Sep 11\nCombinations, inner product, linear functions (Week 2)\n\n\nQuiz 3\nFri Sep 18\nApplications and norms (Week 3)\n\n\nQuiz 4\nFri Sep 25\nAngle, nearest neighbors, and clustering (Week 4)\n\n\nQuiz 5\nFri Oct 9\nDependence, span, and basis (Week 5)\n\n\nQuiz 6\nFri Oct 16\nMatrices, \\(Ax\\), and transformations (Week 7 / Lectures 18–20)\n\n\nQuiz 7\nFri Oct 23\nSystems, elimination, and RREF (Week 8 / Lectures 21–23)\n\n\nQuiz 8\nFri Oct 30\nLinear dynamical systems (Week 9 / Lectures 24–26)\n\n\nQuiz 9\nFri Nov 6\nMatrix multiplication, powers, and cost (Week 10 / Lectures 27–29)\n\n\nQuiz 10\nFri Nov 20\nInverses, rank, and determinants (Week 11 / Lectures 30–32)\n\n\nQuiz 11\nFri Dec 4\nEigenvalues, complex numbers, and Lab 5 (Week 13 / Lectures 35–37)\n\n\n\nNot on a dedicated quiz (assessed on Midterm 2, the final, and/or the capstone): same-day lecture/lab topics on quiz Fridays; Week 15 least squares / SVD. Use the Midterm 2 practice packet, final practice packet, and capstone packet as appropriate."
+    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\n\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nWeek 8; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 5\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6 and the capstone, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\nFriday quizzes cover only the prior instructional week (skip midterm week and fall break when choosing that week). Same-day lecture/lab topics are not on that day’s quiz.\n\n\n\nQuiz\nDate\nFocus (prior week)\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, arithmetic, Lab 0 (Week 1)\n\n\nQuiz 2\nFri Sep 11\nCombinations, inner product, linear functions (Week 2)\n\n\nQuiz 3\nFri Sep 18\nApplications and norms (Week 3)\n\n\nQuiz 4\nFri Sep 25\nAngle, nearest neighbors, and clustering (Week 4)\n\n\nQuiz 5\nFri Oct 9\nDependence, span, and basis (Week 5)\n\n\nQuiz 6\nFri Oct 16\nMatrices and \\(Ax\\) (Week 7 / Lectures 18–19)\n\n\nQuiz 7\nFri Oct 23\nTransforms, systems, and elimination (Lectures 20–22)\n\n\nQuiz 8\nFri Oct 30\nRREF and linear dynamical systems (Lectures 23–26)\n\n\nQuiz 9\nFri Nov 6\nMatrix multiplication, powers, and cost (Week 10 / Lectures 27–29)\n\n\nQuiz 10\nFri Nov 20\nInverses, rank, and determinants (Week 11 / Lectures 30–32)\n\n\nQuiz 11\nFri Dec 4\nEigenvalues, complex numbers, and Lab 5 (Week 13 / Lectures 35–37)\n\n\n\nNot on a dedicated quiz (assessed on Midterm 2, the final, and/or the capstone): same-day lecture/lab topics on quiz Fridays; Week 15 least squares / SVD. Use the Midterm 2 practice packet, final practice packet, and capstone packet as appropriate."
+  },
+  {
+    "objectID": "labs/lab-01-ticket.html",
+    "href": "labs/lab-01-ticket.html",
+    "title": "Lab 1 ticket",
+    "section": "",
+    "text": "Download PDF\nLab 1 — Finding Similar Things · Fri Oct 16 · ~20 min · Laptop · Handwrite · Initials after check-in\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax\n\n\n\nI needed to…\nCommand / pattern\n\n\n\n\nEnter / print a vector\n\n\n\nLength or shape\n\n\n\nDistance \\(\\lVert x-y\\rVert\\)\n\n\n\n\n\nData: \\(a=(1,2)\\), \\(b=(2,1)\\), \\(c=(4,3)\\). Quiz 6 today is Week 7 matrices / \\(Ax\\) (not this lab).\nC1.0. Enter a,b,c. Length of a: ____ Expected: \\(2\\).\nC1.1. \\(\\lVert a-b\\rVert=\\) ________ \\(\\lVert a-c\\rVert=\\) ________\nExpected: \\(\\approx 1.414\\) and \\(\\approx 4.243\\).\nC1.2. NN of \\(a\\) among \\(\\{b,c\\}\\): ____ Meaning (1 sentence):\n________________________________________________________________________________\nC1.3. \\(c_{\\mathrm{bad}}=(4,30)\\). \\(\\lVert a-c_{\\mathrm{bad}}\\rVert=\\) ________ NN among \\(\\{b,c_{\\mathrm{bad}}\\}\\)? ____\nWhy scale matters: ____________________________________________________________\nStuck on: ________________________________________________________________________\nCheck-in initials: _______________\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
+    "objectID": "labs/lab-01.html",
+    "href": "labs/lab-01.html",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 12, 2026.\nIn class Friday, October 16 (same day as Lecture 23 / Quiz 6). Quiz 6 is Week 7 matrices / \\(Ax\\) — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Work in Octave or Python on a laptop. Preview the one-pager; write on the hard copy handed out in class.\nPick Octave or Python (same choice as Lab 0)."
+  },
+  {
+    "objectID": "labs/lab-01.html#learning-objectives",
+    "href": "labs/lab-01.html#learning-objectives",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Learning objectives",
+    "text": "Learning objectives\n\nPrint vectors and report dimensions/length.\nCompute distances between feature vectors.\nName a nearest neighbor and interpret it in context."
+  },
+  {
+    "objectID": "labs/lab-01.html#math-connections",
+    "href": "labs/lab-01.html#math-connections",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Math connections",
+    "text": "Math connections\nNorm and distance (Lecture 07); nearest neighbors (Lecture 09)."
+  },
+  {
+    "objectID": "labs/lab-01.html#key-syntax-this-lab",
+    "href": "labs/lab-01.html#key-syntax-this-lab",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Key syntax (this lab)",
+    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nLength / shape\nlength(x), size(A)\nlen(x), x.shape\n\n\nPrint\nx or disp(x)\nprint(x)\n\n\nSubtract\nx-y\nx-y\n\n\nEuclidean norm\nnorm(x)\nnp.linalg.norm(x)\n\n\n\nResources: Lachniet Ch. 1 · Syntax · Resources."
+  },
+  {
+    "objectID": "labs/lab-01.html#ops-strip-23-min",
+    "href": "labs/lab-01.html#ops-strip-23-min",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Ops strip (2–3 min)",
+    "text": "Ops strip (2–3 min)\nThree song feature vectors (loudness, tempo) — units already scaled for today: \\[\na=(1,2),\\quad b=(2,1),\\quad c=(4,3).\n\\]\nC1.0. Enter a, b, c. Print each and the length of a.\nExpected: length \\(2\\)."
+  },
+  {
+    "objectID": "labs/lab-01.html#application-15-min",
+    "href": "labs/lab-01.html#application-15-min",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "Application (~15 min)",
+    "text": "Application (~15 min)\nC1.1. Compute \\(\\lVert a-b\\rVert\\) and \\(\\lVert a-c\\rVert\\) (Euclidean).\nExpected: \\(\\lVert a-b\\rVert=\\sqrt{2}\\approx 1.414\\); \\(\\lVert a-c\\rVert=\\sqrt{18}=3\\sqrt{2}\\approx 4.243\\).\nOctave: norm(a-b)\nPython: np.linalg.norm(a-b)\nC1.2. Which of \\(b\\) or \\(c\\) is the nearest neighbor of query \\(a\\)? One sentence: what does that mean if these were song features?\nExpected: \\(b\\) is nearer; among these two songs, \\(b\\) is more similar to \\(a\\) in (loudness, tempo).\nC1.3 (scale warning). Replace \\(c\\) by \\(c_{\\mathrm{bad}}=(4,30)\\) (tempo mistyped \\(\\times 10\\)). Recompute \\(\\lVert a-c_{\\mathrm{bad}}\\rVert\\). Does the nearest neighbor of \\(a\\) among \\(\\{b,c_{\\mathrm{bad}}\\}\\) change?\nExpected: distance becomes large (\\(\\approx 28.16\\)); NN is still \\(b\\), but the gap is dominated by the bad scale — feature units matter."
+  },
+  {
+    "objectID": "labs/lab-01.html#one-pager",
+    "href": "labs/lab-01.html#one-pager",
+    "title": "Lab 1 — Finding Similar Things",
+    "section": "One-pager",
+    "text": "One-pager\nPreview the Lab 1 ticket; write on the hard copy in class."
+  },
+  {
+    "objectID": "labs/lab-02-ticket.html",
+    "href": "labs/lab-02-ticket.html",
+    "title": "Lab 2 ticket",
+    "section": "",
+    "text": "Download PDF\nLab 2 — Transforming Space · Fri Oct 23 · ~20 min · Laptop · Handwrite · Initials\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax\n\n\n\nI needed to…\nCommand / pattern\n\n\n\n\nEnter matrix \\(A\\)\n\n\n\n\\(Ax\\) or \\(AX\\)\n\n\n\nDimensions of \\(A\\)\n\n\n\n\n\n\\(X=\\begin{bmatrix}0&1&0\\\\0&0&1\\end{bmatrix}\\) (columns = points). Quiz 7 = transforms / systems / elimination (not this lab).\nC2.0. \\(A=\\operatorname{diag}(2,1/2)\\), \\(x=(1,1)\\). Shape of \\(A\\): ____ \\(Ax=\\) ____________\nExpected: \\(2\\times 2\\); \\((2,0.5)\\).\nC2.1. Predict \\(AX\\), then compute. \\(AX=\\) ____________________________\nGeometry: ________________________________________________________\nC2.2. \\(R=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}\\). \\(R(2,3)=\\) ________ \\(RX=\\) ______________________\nC2.3. \\(Q=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\). \\(Q(1,0)=\\) ________ Expected: \\((0,1)\\).\nStuck on: ________________________________________________________________________\nCheck-in initials: _______________\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
+    "objectID": "labs/lab-02.html",
+    "href": "labs/lab-02.html",
+    "title": "Lab 2 — Transforming Space",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 12, 2026.\nIn class Friday, October 23 (same day as Lecture 26 / Quiz 7). Quiz 7 is transforms / systems / elimination — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
+  },
+  {
+    "objectID": "labs/lab-02.html#learning-objectives",
+    "href": "labs/lab-02.html#learning-objectives",
+    "title": "Lab 2 — Transforming Space",
+    "section": "Learning objectives",
+    "text": "Learning objectives\n\nBuild a \\(2\\times 2\\) matrix and compute \\(Ax\\).\nPredict and check a geometric map (scale / reflect / rotate).\nApply one matrix to several points stored as columns."
+  },
+  {
+    "objectID": "labs/lab-02.html#math-connections",
+    "href": "labs/lab-02.html#math-connections",
+    "title": "Lab 2 — Transforming Space",
+    "section": "Math connections",
+    "text": "Math connections\nMatrices and \\(Ax\\) (Lectures 18–20)."
+  },
+  {
+    "objectID": "labs/lab-02.html#key-syntax-this-lab",
+    "href": "labs/lab-02.html#key-syntax-this-lab",
+    "title": "Lab 2 — Transforming Space",
+    "section": "Key syntax (this lab)",
+    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nMatrix\nA = [2 0; 0 1/2]\nA = np.array([[2.,0.],[0.,0.5]])\n\n\nMatrix–vector\nA*x\nA @ x\n\n\nMany points as columns\nY = A*X\nY = A @ X\n\n\nDimensions\nsize(A)\nA.shape"
+  },
+  {
+    "objectID": "labs/lab-02.html#ops-strip",
+    "href": "labs/lab-02.html#ops-strip",
+    "title": "Lab 2 — Transforming Space",
+    "section": "Ops strip",
+    "text": "Ops strip\nC2.0. Enter \\(A=\\operatorname{diag}(2,1/2)\\) and \\(x=(1,1)\\). Print size(A) / A.shape and compute \\(Ax\\).\nExpected: \\(A\\) is \\(2\\times 2\\); \\(Ax=(2,0.5)\\)."
+  },
+  {
+    "objectID": "labs/lab-02.html#application",
+    "href": "labs/lab-02.html#application",
+    "title": "Lab 2 — Transforming Space",
+    "section": "Application",
+    "text": "Application\nTriangle columns \\(X=\\begin{bmatrix}0&1&0\\\\0&0&1\\end{bmatrix}\\).\nC2.1. Predict \\(AX\\) for \\(A=\\operatorname{diag}(2,1/2)\\) without software, then compute. Geometric effect in one sentence?\nExpected: \\(AX=\\begin{bmatrix}0&2&0\\\\0&0&0.5\\end{bmatrix}\\); stretch \\(x_1\\) by \\(2\\), shrink \\(x_2\\) by \\(1/2\\).\nC2.2. Reflection through the \\(x_1\\)-axis: \\(R=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}\\). Compute \\(Rx\\) for \\(x=(2,3)\\) and \\(RX\\).\nExpected: \\(Rx=(2,-3)\\); \\(RX=\\begin{bmatrix}0&1&0\\\\0&0&-1\\end{bmatrix}\\).\nC2.3. Rotation \\(90^\\circ\\) CCW: \\(Q=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\). Where does \\((1,0)\\) go? Check \\(Q\\begin{bmatrix}1\\\\0\\end{bmatrix}\\).\nExpected: \\((1,0)\\mapsto(0,1)\\)."
+  },
+  {
+    "objectID": "labs/lab-02.html#one-pager",
+    "href": "labs/lab-02.html#one-pager",
+    "title": "Lab 2 — Transforming Space",
+    "section": "One-pager",
+    "text": "One-pager\nPreview the Lab 2 ticket; write on the hard copy in class."
+  },
+  {
+    "objectID": "labs/lab-03.html",
+    "href": "labs/lab-03.html",
+    "title": "Lab 3 — Mixing and Balancing",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 12, 2026.\nIn class Friday, October 30 (same day as Lecture 29 / Quiz 8). Quiz 8 is RREF / Week 9 dynamics — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
+  },
+  {
+    "objectID": "labs/lab-03.html#learning-objectives",
+    "href": "labs/lab-03.html#learning-objectives",
+    "title": "Lab 3 — Mixing and Balancing",
+    "section": "Learning objectives",
+    "text": "Learning objectives\n\nWrite a small contextual system as \\(Ax=b\\).\nSolve with software and check the residual \\(Ax-b\\).\nPrefer solving over forming \\(A^{-1}\\) when the goal is \\(x\\)."
+  },
+  {
+    "objectID": "labs/lab-03.html#math-connections",
+    "href": "labs/lab-03.html#math-connections",
+    "title": "Lab 3 — Mixing and Balancing",
+    "section": "Math connections",
+    "text": "Math connections\nSystems and RREF (Lectures 21–23); later you will connect this to inverses (Lecture 30)."
+  },
+  {
+    "objectID": "labs/lab-03.html#key-syntax-this-lab",
+    "href": "labs/lab-03.html#key-syntax-this-lab",
+    "title": "Lab 3 — Mixing and Balancing",
+    "section": "Key syntax (this lab)",
+    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nSolve \\(Ax=b\\)\nx = A\\b\nx = np.linalg.solve(A,b)\n\n\nResidual\nA*x - b\nA @ x - b\n\n\nInverse (avoid for solving)\ninv(A)\nnp.linalg.inv(A)"
+  },
+  {
+    "objectID": "labs/lab-03.html#ops-strip",
+    "href": "labs/lab-03.html#ops-strip",
+    "title": "Lab 3 — Mixing and Balancing",
+    "section": "Ops strip",
+    "text": "Ops strip\nCafé: tea \\(\\$2\\), coffee \\(\\$3\\). Sold \\(x_1\\) teas and \\(x_2\\) coffees; revenue \\(\\$26\\); \\(10\\) drinks total.\nC3.0. Write \\(A\\), \\(x\\), and \\(b\\) for the two equations on paper. Enter \\(A\\) and \\(b\\) in software. Print size(A) / A.shape.\nExpected: \\[\nA=\\begin{bmatrix}2&3\\\\1&1\\end{bmatrix},\\quad b=\\begin{bmatrix}26\\\\10\\end{bmatrix}\n\\] (\\(A\\) is \\(2\\times 2\\))."
+  },
+  {
+    "objectID": "labs/lab-03.html#application",
+    "href": "labs/lab-03.html#application",
+    "title": "Lab 3 — Mixing and Balancing",
+    "section": "Application",
+    "text": "Application\nC3.1. Solve \\(Ax=b\\). Report \\(x\\).\nExpected: \\(x=(4,6)\\) (4 teas, 6 coffees).\nC3.2. Compute the residual \\(Ax-b\\). Is it (numerically) zero?\nExpected: \\((0,0)\\) (or \\(\\sim 10^{-15}\\)).\nC3.3. True or false, with one line: to solve \\(Ax=b\\) you should usually compute \\(x=A^{-1}b\\) explicitly.\nThen time (roughly) A\\b vs inv(A)*b / inv(A) @ b once — which felt simpler?\nExpected: False — prefer a solver; inverse is extra work and can be less stable."
+  },
+  {
+    "objectID": "labs/lab-03.html#one-pager",
+    "href": "labs/lab-03.html#one-pager",
+    "title": "Lab 3 — Mixing and Balancing",
+    "section": "One-pager",
+    "text": "One-pager\nPreview the Lab 3 ticket; write on the hard copy in class."
   },
   {
     "objectID": "lectures.html",
@@ -515,7 +424,7 @@
     "href": "lectures.html#lecture-20",
     "title": "Lectures",
     "section": "Fri Oct 9 — Transforming space + Quiz 5",
-    "text": "Fri Oct 9 — Transforming space + Quiz 5\nLecture 20 page · Quiz 5\nReading: Boyd 7.1–7.2 and Lachniet Ch. 2 (matrices and linear-algebra computations).\nQuiz 5 is basis (Lecture 14), not transforms. Graded transform practice is Lab 2 on October 23.\nBy the end of class, you should be able to:\n\nPredict the effect of scaling, reflection, shear, and rotation matrices.\nApply matrices to many 2D or 3D points at once.\nPlot and compare original and transformed objects.\nAdapt a short program that implements a transformation.\nInterpret a matrix as a coordinate or physical-space transformation."
+    "text": "Fri Oct 9 — Transforming space + Quiz 5\nLecture 20 page · Quiz 5\nReading: Boyd 7.1–7.2 and Lachniet Ch. 2 (matrices and linear-algebra computations).\nQuiz 5 is basis (Lecture 14), not transforms. Transforms are on Quiz 7; graded transform practice is also Lab 2 on October 23.\nBy the end of class, you should be able to:\n\nPredict the effect of scaling, reflection, shear, and rotation matrices.\nApply matrices to many 2D or 3D points at once.\nPlot and compare original and transformed objects.\nAdapt a short program that implements a transformation.\nInterpret a matrix as a coordinate or physical-space transformation."
   },
   {
     "objectID": "lectures.html#week-8",
@@ -543,7 +452,7 @@
     "href": "lectures.html#lecture-23",
     "title": "Lectures",
     "section": "Fri Oct 16 — RREF, pivots, free variables, and software + Quiz 6 + Lab 1",
-    "text": "Fri Oct 16 — RREF, pivots, free variables, and software + Quiz 6 + Lab 1\nLecture 23 page · Quiz 6 · Lab 1\nReading: RREF and software solvers; Lachniet Ch. 2 (linear-system commands); Lab 1.\nQuiz 6 is Week 7 (matrices / \\(Ax\\) / transforms), not today’s RREF and not Lab 1.\nBy the end of class, you should be able to:\n\nInterpret reduced row echelon form.\nIdentify pivot and free variables.\nDescribe a solution set parametrically.\nDistinguish inconsistent, unique, and infinite-solution cases.\nUse software to solve or row-reduce a system and verify the answer using a residual."
+    "text": "Fri Oct 16 — RREF, pivots, free variables, and software + Quiz 6 + Lab 1\nLecture 23 page · Quiz 6 · Lab 1\nReading: RREF and software solvers; Lachniet Ch. 2 (linear-system commands); Lab 1.\nQuiz 6 is Week 7 (matrices / \\(Ax\\) only), not today’s RREF and not Lab 1. Transforms are on Quiz 7; RREF is on Quiz 8.\nBy the end of class, you should be able to:\n\nInterpret reduced row echelon form.\nIdentify pivot and free variables.\nDescribe a solution set parametrically.\nDistinguish inconsistent, unique, and infinite-solution cases.\nUse software to solve or row-reduce a system and verify the answer using a residual."
   },
   {
     "objectID": "lectures.html#week-9",
@@ -571,7 +480,7 @@
     "href": "lectures.html#lecture-26",
     "title": "Lectures",
     "section": "Fri Oct 23 — Predict a system through time + Quiz 7 + Lab 2",
-    "text": "Fri Oct 23 — Predict a system through time + Quiz 7 + Lab 2\nLecture 26 page · Quiz 7 · Lab 2\nReading: Lachniet Ch. 2 (matrix operations) and Lachniet’s introductory programming/loops material; Lab 2.\nQuiz 7 is Week 8 (systems / RREF), not Lab 2 and not today’s dynamics lecture. Graded dynamics practice is Lab 4 on November 6.\nBy the end of class, you should be able to:\n\nImplement a linear dynamical model.\nWrite or complete a short iterative calculation.\nValidate the first steps by hand.\nCompare results under altered parameters or initial states.\nRecord an unexplained long-run pattern for later investigation."
+    "text": "Fri Oct 23 — Predict a system through time + Quiz 7 + Lab 2\nLecture 26 page · Quiz 7 · Lab 2\nReading: Lachniet Ch. 2 (matrix operations) and Lachniet’s introductory programming/loops material; Lab 2.\nQuiz 7 is transforms / systems / elimination (Lectures 20–22), not Lab 2 and not today’s dynamics lecture. RREF is on Quiz 8. Graded dynamics practice is Lab 4 on November 6.\nBy the end of class, you should be able to:\n\nImplement a linear dynamical model.\nWrite or complete a short iterative calculation.\nValidate the first steps by hand.\nCompare results under altered parameters or initial states.\nRecord an unexplained long-run pattern for later investigation."
   },
   {
     "objectID": "lectures.html#week-10",
@@ -599,7 +508,7 @@
     "href": "lectures.html#lecture-29",
     "title": "Lectures",
     "section": "Fri Oct 30 — Same mathematics, very different computational cost + Quiz 8 + Lab 3",
-    "text": "Fri Oct 30 — Same mathematics, very different computational cost + Quiz 8 + Lab 3\nLecture 29 page · Quiz 8 · Lab 3\nReading: Boyd’s \\(ab^{\\mathsf{T}}c\\) example; Lab 3.\nQuiz 8 is Week 9 dynamics, not today’s cost lecture and not Lab 3. Order-of-computation ideas return in the capstone.\nBy the end of class, you should be able to:\n\nCompare algebraically equivalent orders of computation.\nCount intermediate values that must be stored.\nMeasure runtime for increasing problem sizes.\nExplain why forming a large intermediate matrix may be wasteful.\nChoose a computational order and justify it quantitatively."
+    "text": "Fri Oct 30 — Same mathematics, very different computational cost + Quiz 8 + Lab 3\nLecture 29 page · Quiz 8 · Lab 3\nReading: Boyd’s \\(ab^{\\mathsf{T}}c\\) example; Lab 3.\nQuiz 8 is RREF plus Week 9 dynamics (Lectures 23–26), not today’s cost lecture and not Lab 3. Order-of-computation ideas return in the capstone.\nBy the end of class, you should be able to:\n\nCompare algebraically equivalent orders of computation.\nCount intermediate values that must be stored.\nMeasure runtime for increasing problem sizes.\nExplain why forming a large intermediate matrix may be wasteful.\nChoose a computational order and justify it quantitatively."
   },
   {
     "objectID": "lectures.html#week-11",
@@ -740,6 +649,202 @@
     "title": "Lectures",
     "section": "Fri Dec 11 — Cumulative final review",
     "text": "Fri Dec 11 — Cumulative final review\nLecture 43 page\nReading: Cumulative review\nNo routine quiz or new content.\nBy the end of class, you should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
+  },
+  {
+    "objectID": "quizzes/quiz-05.html",
+    "href": "quizzes/quiz-05.html",
+    "title": "Quiz 5",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 5, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nCovers the prior instructional week only: Dependence, Span, and Basis (Week 5). Midterm 1 week is skipped when choosing the prior week. Same-day Transforms is not on this quiz.\nTextbooks: Boyd & Vandenberghe (VMLS) · also on Resources.\nSchedule"
+  },
+  {
+    "objectID": "quizzes/quiz-05.html#core",
+    "href": "quizzes/quiz-05.html#core",
+    "title": "Quiz 5",
+    "section": "Core",
+    "text": "Core\n\nB 5.3 (basis expansion / coefficients in a given basis)\nB 5.4 (norm of a linear combination of orthonormal vectors)\nC5.1: Decide whether a short list is a basis of \\(\\mathbb{R}^2\\) or of a named subspace; if not, say whether it fails independence, spanning, or both.\nC5.2: Find a basis and the dimension of a span given by three vectors with an obvious redundancy.\nC5.3: Check whether a pair is orthonormal; if it is, find the orthonormal coefficients of a given \\(v\\)."
+  },
+  {
+    "objectID": "quizzes/quiz-05.html#stretch",
+    "href": "quizzes/quiz-05.html#stretch",
+    "title": "Quiz 5",
+    "section": "Stretch",
+    "text": "Stretch\nB 5.5; B 5.6 (Gram–Schmidt on a structured list — light)."
+  },
+  {
+    "objectID": "quizzes/quiz-05.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-05.html#what-a-quiz-item-might-change",
+    "title": "Quiz 5",
+    "section": "What a quiz item might change",
+    "text": "What a quiz item might change\nWhich list is proposed as a basis, one redundant generator in a span, or a different orthonormal pair and target vector."
+  },
+  {
+    "objectID": "quizzes/quiz-05.html#note",
+    "href": "quizzes/quiz-05.html#note",
+    "title": "Quiz 5",
+    "section": "Note",
+    "text": "Note\nMatrices and \\(Ax\\) (Lectures 18–19) start this week and are not on this quiz; they are on Quiz 6. Transforms is on Quiz 7."
+  },
+  {
+    "objectID": "quizzes/quiz-06.html",
+    "href": "quizzes/quiz-06.html",
+    "title": "Quiz 6",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 13, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nCovers the week before only: Matrices and \\(Ax\\) (Week 7). Transforms is on Quiz 7. Same-day RREF and Lab 1 are not on this quiz.\nTextbooks: Boyd & Vandenberghe (VMLS) · Lachniet Octave PDF · also on Resources.\nSchedule"
+  },
+  {
+    "objectID": "quizzes/quiz-06.html#core",
+    "href": "quizzes/quiz-06.html#core",
+    "title": "Quiz 6",
+    "section": "Core",
+    "text": "Core\n\nFluency (complete prompts — practice these by hand)\nC6.1. Let \\[\nA=\\begin{bmatrix}2&-1&0\\\\4&3&1\\end{bmatrix}.\n\\] (a) What are the dimensions of \\(A\\)? Is it tall, wide, or square? (b) What is \\(A_{23}\\)? Write the second column as a vector.\nC6.2. For each matrix, list every label that applies from: zero, identity, diagonal, upper triangular, lower triangular, symmetric, sparse (tiny examples: call it sparse if at least half the entries are zero).\n\n\\(\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}\\)\n\\(\\begin{bmatrix}2&0\\\\0&-3\\end{bmatrix}\\)\n\\(\\begin{bmatrix}1&4\\\\0&2\\end{bmatrix}\\)\n\\(\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\)\n\nC6.3. Compute \\(A+A^{\\mathsf{T}}\\) for \\(A=\\begin{bmatrix}1&0\\\\2&3\\end{bmatrix}\\). Is the result symmetric? Why or why not (one sentence)?\nC6.4. Compute \\[\n\\begin{bmatrix}1&2&0\\\\-1&3&1\\end{bmatrix}\n\\begin{bmatrix}2\\\\1\\\\-1\\end{bmatrix}\n\\] two ways: (i) row-inner-product view; (ii) as a linear combination of the columns. Confirm the answers match.\nC6.5. Let \\(A\\) have columns \\(a_1=(1,0,1)\\) and \\(a_2=(0,1,1)\\). Write \\(A\\) explicitly. For \\(x=(3,-2)\\), write \\(Ax\\) as a linear combination of \\(a_1,a_2\\), then evaluate.\nC6.6. True or false, with a one-line reason: if \\(A\\) is \\(m\\times n\\), then \\(Ax\\) always lies in the span of the columns of \\(A\\).\nC6.7. A sensor maps a \\(3\\)-vector of raw readings \\(x\\) to a \\(2\\)-vector of summaries via \\(y=Ax\\). What are the dimensions of \\(A\\)? In one sentence, what does the first column of \\(A\\) mean?\n\n\nTextbook Core\n\nB 6.1, 6.2, 6.4, 6.6"
+  },
+  {
+    "objectID": "quizzes/quiz-06.html#stretch",
+    "href": "quizzes/quiz-06.html#stretch",
+    "title": "Quiz 6",
+    "section": "Stretch",
+    "text": "Stretch\n\nB 6.7, 6.8, 6.9, 6.10 (longer modeling / interpretation)\nB 6.12"
+  },
+  {
+    "objectID": "quizzes/quiz-06.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-06.html#what-a-quiz-item-might-change",
+    "title": "Quiz 6",
+    "section": "What a quiz item might change",
+    "text": "What a quiz item might change\nA small matrix, whether you must name a matrix type, or whether the prompt asks for the column interpretation of \\(Ax\\)."
+  },
+  {
+    "objectID": "quizzes/quiz-07.html",
+    "href": "quizzes/quiz-07.html",
+    "title": "Quiz 7",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 13, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nCovers: Transforms (held from Week 7), plus Systems and Elimination (Week 8). RREF is on Quiz 8. Same-day Lab 2 / dynamics lecture are not on this quiz.\nTextbooks: Boyd & Vandenberghe (VMLS) · Lachniet Octave PDF · also on Resources.\nSchedule"
+  },
+  {
+    "objectID": "quizzes/quiz-07.html#core",
+    "href": "quizzes/quiz-07.html#core",
+    "title": "Quiz 7",
+    "section": "Core",
+    "text": "Core\n\nFluency (complete prompts — practice these by hand)\nC7.1. Reflection through the \\(x_1\\)-axis sends \\(e_1=(1,0)\\mapsto(1,0)\\) and \\(e_2=(0,1)\\mapsto(0,-1)\\). Write the matrix \\(A\\) and compute \\(A(2,3)\\).\nC7.2. Write the \\(2\\times 2\\) matrix for rotation by \\(90^\\circ\\) counterclockwise. Where do \\((1,0)\\) and \\((0,1)\\) go?\nC7.3. Let \\(X=\\begin{bmatrix}1&0&1\\\\0&1&1\\end{bmatrix}\\) (columns are three points) and \\(A=\\operatorname{diag}(2,1)\\). Compute \\(AX\\) and describe the geometric effect in one sentence.\nC7.4. Predict where \\(A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) sends the triangle with vertices \\((0,0)\\), \\((1,0)\\), \\((0,1)\\). Then check with a short Octave or Python computation (or a careful sketch).\nC7.5. Write as \\(Ax=b\\) and classify square / over / under: \\[\n\\begin{aligned}\nx_1 + 2x_2 - x_3 &= 4 \\\\\n-x_1 + x_3 &= 1.\n\\end{aligned}\n\\]\nC7.6. One elimination step: clear the \\((2,1)\\) entry of \\[\n\\begin{bmatrix}\n1 & 2 & | & 3 \\\\\n2 & 1 & | & 0\n\\end{bmatrix}\n\\] by row replacement. Write the new matrix.\nC7.7. From the echelon form \\[\n\\begin{bmatrix}\n1 & 2 & | & 3 \\\\\n0 & -3 & | & -6\n\\end{bmatrix},\n\\] solve by back substitution.\nC7.8. True or false, with a one-line reason: solving \\(Ax=b\\) asks whether \\(b\\) is in the span of the columns of \\(A\\).\n\n\nTextbook Core\n\nB 7.2\nB 8.6(a), 8.9, 8.10, 8.13, 8.15\nL Ch. 2 Ex. 1: Gaussian-elimination and back-substitution portions"
+  },
+  {
+    "objectID": "quizzes/quiz-07.html#stretch",
+    "href": "quizzes/quiz-07.html#stretch",
+    "title": "Quiz 7",
+    "section": "Stretch",
+    "text": "Stretch\n\nB 7.1, 7.3, 7.4, 7.8\nB 8.4(a–b), B 8.16"
+  },
+  {
+    "objectID": "quizzes/quiz-07.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-07.html#what-a-quiz-item-might-change",
+    "title": "Quiz 7",
+    "section": "What a quiz item might change",
+    "text": "What a quiz item might change\nWhich geometric map is used, the right-hand side with the same coefficient matrix, or asking for the column interpretation of a transform versus a system \\(Ax=b\\)."
+  },
+  {
+    "objectID": "quizzes/quiz-08.html",
+    "href": "quizzes/quiz-08.html",
+    "title": "Quiz 8",
+    "section": "",
+    "text": "Download PDF\nLast updated: October 13, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nCovers: RREF (held from Week 8), plus Dynamics, Simulation, and Through time (Week 9). Same-day Cost and Lab 3 are not on this quiz.\nTextbooks: Boyd & Vandenberghe (VMLS) · Lachniet Octave PDF · also on Resources.\nSchedule"
+  },
+  {
+    "objectID": "quizzes/quiz-08.html#core",
+    "href": "quizzes/quiz-08.html#core",
+    "title": "Quiz 8",
+    "section": "Core",
+    "text": "Core\n\nFluency (complete prompts — practice these by hand)\nC8.1. The RREF of \\([A\\mid b]\\) is \\[\n\\begin{bmatrix}\n1 & 0 & 2 & | & -1 \\\\\n0 & 1 & -3 & | & 4 \\\\\n0 & 0 & 0 & | & 0\n\\end{bmatrix}.\n\\] List pivot and free variables; write the general solution.\nC8.2. Decide unique / none / infinitely many from each RREF, with one reason.\n\n\\(\\begin{bmatrix}1&0&|&2\\\\0&1&|&-1\\end{bmatrix}\\)\n\\(\\begin{bmatrix}1&3&|&0\\\\0&0&|&2\\end{bmatrix}\\)\n\\(\\begin{bmatrix}1&2&0&|&1\\\\0&0&1&|&5\\end{bmatrix}\\)\n\nC8.3. You obtain \\(x=(1,2)\\) from software for a \\(2\\times 2\\) system. Compute what residual you should check, and say what “success” looks like numerically.\nC8.4. A campus population has state \\(x_t=\\begin{bmatrix}c_t\\\\o_t\\end{bmatrix}\\) (on campus, off campus) with \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix},\\qquad x_0=\\begin{bmatrix}1000\\\\0\\end{bmatrix}.\n\\] Compute \\(x_1=Ax_0\\) by hand. In one sentence, what do the two entries of \\(x_1\\) mean?\nC8.5. With the same \\(A\\) and \\(x_1\\) from C8.4, compute \\(x_2=Ax_1\\).\nC8.6. True or false, with a one-line reason: for \\(x_{t+1}=Ax_t\\), we always have \\(x_3=A^3 x_0\\).\nC8.7. Let \\(A=\\operatorname{diag}(1.2,\\,0.5)\\) and \\(x_0=(5,4)\\).\n\nCompute \\(x_1=Ax_0\\).\nAfter many steps, which component dominates, and does it grow or decay?\n\nC8.8. Let \\(A=\\begin{bmatrix}0&1\\\\-1&0\\end{bmatrix}\\) and \\(x_0=(1,0)\\). Compute \\(x_1\\) and \\(x_2\\). Describe the long-run behavior in one sentence (no eigenvalues required).\nC8.9. Two towns exchange residents each year: - 90% of town A stays in A; 10% moves to B. - 80% of town B stays in B; 20% moves to A.\nWrite the transition matrix \\(A\\) so that \\(x_{t+1}=Ax_t\\) with \\(x=\\begin{bmatrix}a\\\\b\\end{bmatrix}\\) (population in A, then B). Compute \\(x_1\\) if \\(x_0=(100,50)\\).\nC8.10. Someone writes a loop for t = 1 to 10: x = A*x but never stores the initial \\(x_0\\). How many states after \\(x_0\\) does the loop produce? What should they add if they also want \\(x_0\\) recorded?\nC8.11. True or false, with a one-line reason: if you change \\(x_0\\) but keep the same \\(A\\), the long-run pattern of \\(x_t\\) must stay exactly the same for every \\(t\\).\nC8.12 (software sense). Octave/Python reports, after iterating \\(x\\leftarrow Ax\\) twenty times from \\(x_0=(1000,0)\\) with the campus matrix in C8.4, that \\(x_{20}\\approx(500,500)\\). What one-sentence observation would you write down for later (Week 13), without naming eigenvalues yet?\nC8.13 (cumulative, light). Dimensions: if \\(A\\) is \\(2\\times 2\\) and \\(x_t\\in\\mathbb{R}^2\\), what are the dimensions of \\(Ax_t\\)? Of \\(A^5\\)?\n\n\nTextbook Core\n\nL Ch. 2 Ex. 3: Compare a direct solution and RREF\nL Ch. 2 Ex. 5: Inconsistent and infinite-solution cases\nB 9.1, 9.2, 9.3 (linear dynamical systems / simulation ideas used in class)\nL Ch. 2: matrix–vector products and simple loops as used in Lab 4 prep"
+  },
+  {
+    "objectID": "quizzes/quiz-08.html#stretch",
+    "href": "quizzes/quiz-08.html#stretch",
+    "title": "Quiz 8",
+    "section": "Stretch",
+    "text": "Stretch\n\nL Ch. 2 Ex. 6\nSimulate five steps of a different \\(2\\times 2\\) \\(A\\) by hand; compare two initial states after many iterations and state what is surprising."
+  },
+  {
+    "objectID": "quizzes/quiz-08.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-08.html#what-a-quiz-item-might-change",
+    "title": "Quiz 8",
+    "section": "What a quiz item might change",
+    "text": "What a quiz item might change\nAn RREF whose solution set you describe, the transition matrix entries, the initial state, asking for \\(x_2\\) instead of \\(x_1\\), or a short loop / software-output interpretation."
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Course Syllabus",
+    "section": "",
+    "text": "Download this page as PDF"
+  },
+  {
+    "objectID": "syllabus.html#course-information",
+    "href": "syllabus.html#course-information",
+    "title": "Course Syllabus",
+    "section": "Course Information",
+    "text": "Course Information\nCourse Number: MATH 107\nCourse Title: Introduction to Linear Algebra\nClass Number: 42493\nSection: 1\nSession: Regular Academic Session\nUnits: 3\nSemester: Fall 2026\nMode of Instruction: Face to Face Instruction ONLY\nGeneral Education: GE Area 2 — Mathematics\n\nLecture\nDays/Time: Monday, Wednesday, Friday, 10:00–10:50 a.m.\nLocation: FR 201\n\n\nFinal Exam\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m., FR 201.\n\n\nInstructor Information\nTeacher: Dr. Rosanna Overholser\nEmail: rho3@humboldt.edu\nOffice Location: BSS 334\nOffice Phone: 707-826-4022\nOffice Hours: Thursdays 11:00–11:50 a.m. in BSS 334; Wednesdays 12:30–2:30 p.m. in the Learning Center (first floor of the library); or by appointment.\nPlease use your Cal Poly Humboldt email account to contact me and check both Canvas and your Cal Poly Humboldt email regularly for course communications."
+  },
+  {
+    "objectID": "syllabus.html#course-description-catalog-description",
+    "href": "syllabus.html#course-description-catalog-description",
+    "title": "Course Syllabus",
+    "section": "Course Description (Catalog Description)",
+    "text": "Course Description (Catalog Description)\nEuclidean spaces, matrices and matrix arithmetic, solving systems of equations, and eigenvalues and eigenvectors. Emphasis on applications and use of computation.\nDivision: Lower Division.\nWeekly: Lecture 3 hrs.\nInstruction Mode: Face to face only.\nPrerequisite: (MATH 101 and MATH 101T) or MATH 102 or ALEKS PPL assessment score 78–100 or appropriate high school coursework. All prerequisite courses must be passed with a grade of C− or higher. See Math Placement and ALEKS PPL for details.\nNote: if you plan to use MATH 107 as a prerequisite for another MATH, DATA, or STAT course, you must have a grade of C− or better in this course.\n\nCourse Learning Outcomes\nBy the end of this course, students will be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily learning objectives for each meeting are on Lectures.\n\n\nGeneral Education & Institutional Learning Outcomes\nThis course fulfills Lower Division General Education Area 2 (Mathematics) and supports Cal Poly Humboldt’s Institutional Learning Outcomes related to quantitative reasoning, critical thinking, and communication."
+  },
+  {
+    "objectID": "syllabus.html#course-materials-workload",
+    "href": "syllabus.html#course-materials-workload",
+    "title": "Course Syllabus",
+    "section": "Course Materials & Workload",
+    "text": "Course Materials & Workload\nMATH 107 includes three weekly lecture meetings. Some Fridays (and a few other days) include a lab, quiz, or exam as marked on the schedule.\nIn this 3-unit course, students should expect to spend approximately 9 hours per week on course-related work, including time in class (3 hours) and time outside of class on reading, practice, labs, and exam preparation (6 hours).\n\nRequired Materials\nCourse website: Canvas and https://roverhol.github.io/math107\nTextbooks (free):\n\nStephen Boyd and Lieven Vandenberghe, Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares (VMLS).\nGilbert Strang, Introduction to Linear Algebra: selected free MIT samples only (§3.5, §6.1, and SVD slides), so you do not need to buy it.\n\nSoftware: Octave or Python (pick one for the term). Lab hubs have both versions; see Resources and Lab 0.\n\nOther Technology: A scientific calculator for in-class assessments and regular access to a computer with reliable internet. Bring a laptop on lab days, or let me know a day ahead that I should bring one for you to use. Please bring paper and a pen or pencil to class each day.\n\n\nAccess & Affordability\nStudents who do not have personal access to required technology may use computers either in campus labs or checked out from the library. Calculators are also available for check out from the library’s front desk. If you want to get a free used computer, please check to see if our campus’s Reusable Office Supply Exchange (ROSE) has one available.\n\n\nFees\nThere are no additional course fees beyond standard tuition and registration fees."
+  },
+  {
+    "objectID": "syllabus.html#course-feedback-assessment",
+    "href": "syllabus.html#course-feedback-assessment",
+    "title": "Course Syllabus",
+    "section": "Course Feedback & Assessment",
+    "text": "Course Feedback & Assessment\nStudents will receive feedback and complete assessments in a variety of ways:\n\nClass participation in daily in-class activities\nComputational labs (Octave or Python; about every two weeks). Credit is an in-class one-pager with instructor initials; see Lab 0 on the course site.\nIn-class quizzes (ten quizzes, first 10 minutes of class; the lowest two scores are dropped)\nTwo midterms (Friday, October 2 and Friday, November 13, in class)\nA final exam (Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201)\nA capstone project (end of the semester)\n\n\n\nGrading\n\n\n\nComponent\nWeight\n\n\n\n\nParticipation / in-class work\n5%\n\n\nLabs\n10%\n\n\nQuizzes\n25%\n\n\nTwo midterms\n35%\n\n\nCapstone\n10%\n\n\nFinal\n15%\n\n\nTotal\n100%\n\n\n\nFinal letter grades will be assigned based on overall performance according to the following:\nA: 93–100% A−: 90–92% B+: 87–89% B: 83–86% B−: 80–82% C+: 77–79% C: 73–76% C−: 70–72% D: 60–69% F: 0–59%\nNote:\n\nGrade Mode: Letter grade by default. Students may elect Credit/No Credit grading according to university deadlines and procedures.\nA minimum grade of C− is required for the course to count as a prerequisite for other MATH or DATA classes.\nIf you stop attending class and stop doing assignments without communicating with me, you will receive a grade of WU (Withdrawal Unsatisfactory). Please communicate with me early if you are having difficulties: it’s possible that I can help you get back on track, or help you obtain a more appropriate grade (W or I) for your situation.\n\n\n\nAttendance & Participation\nRegular attendance and active participation are required because they are essential for the success of everyone in this course. Up to 10 days may be missed without penalty to your course grade: these days should be reserved for use in times of illness or other obligations.\nIf you must miss class, you are responsible for obtaining notes from me or a classmate and keeping up with course material."
+  },
+  {
+    "objectID": "syllabus.html#late-or-missed-work-policies",
+    "href": "syllabus.html#late-or-missed-work-policies",
+    "title": "Course Syllabus",
+    "section": "Late or Missed Work Policies",
+    "text": "Late or Missed Work Policies\nThe policies for late or missed work are as follows:\n\nLecture attendance is required, but I know that sometimes you will need to miss class due to illness or other emergencies. Each student may miss up to 10 lecture days without penalty and without contacting me. Reserve these days for emergencies. In my experience, it is rare for a student to succeed if they regularly miss class or are absent for more than two weeks, so if you find yourself in that situation, please communicate with me and your advisor so we can help you find a solution.\nQuizzes are in the first 10 minutes of class. The lowest two quiz scores are dropped. If you must miss a quiz due to illness or another emergency, please contact me to arrange a makeup.\nLabs are credited in class on the dates on the schedule: complete the hub exercises, handwrite the one-pager, and get initials. After a week, missed lab credit is not made up except by arrangement (e.g. illness).\nCapstone work is due on the dates on the schedule. Late project work cannot be turned in due to the end of the semester and course grades being due. If you are unable to complete the project in time, you should consider whether your situation is such that an Incomplete grade is appropriate. This would give you more time to complete the course.\nMidterms and the final exam are required. If you need to miss a midterm due to illness or another emergency, communicate with me as soon as possible to reschedule.\n\nNote: Technology issues (internet access, device failure, software problems) are not automatically considered valid excuses for late or missed work; students are expected to plan accordingly.\n\n\nAI Policy\nMuch of your course grade will be based on work you produce in class (quizzes and exams) without having the option of using AI as a resource.\nOutside of in-class assessments, you may use AI, such as NotebookLM or ChatGPT, to help you learn the material or to get unstuck on labs or the capstone.\nFor work that you do at home that is turned in for a grade I have two requirements:\n\nIf you used AI, acknowledge this briefly in the document (you don’t need to state in detail how you used AI or give your prompts, just the name of the AI service you used).\nBe responsible for the correctness and appropriateness of all (AI-assisted or not) materials you turn in.\n\nI may use AI to assist me in my delivery of the course material, such as asking whether an assignment is appropriate for a college-level course or whether the wording of a quiz question could be improved. I will not use AI to grade your work or use an AI detection tool to check your work."
+  },
+  {
+    "objectID": "syllabus.html#course-topics-schedule",
+    "href": "syllabus.html#course-topics-schedule",
+    "title": "Course Syllabus",
+    "section": "Course Topics & Schedule",
+    "text": "Course Topics & Schedule\n\nTopics (Approximate Order)\n\nVectors as representations; arithmetic, linear combinations, and inner products\nLinear and affine functions; norms, angle, neighbors, and clustering\nLinear dependence, span, and bases\nMatrices, \\(Ax\\), transformations, and linear systems\nDynamics, simulation, products, powers, and computational cost\nInverses, rank, and determinants\nEigenvectors and eigenvalues\nLeast squares, fitting, and SVD\nAccuracy, memory, runtime, and communication\n\n\n\nSummary of Schedule and Important Dates\nNote: The schedule has a detailed list of the course. Please check it regularly for updates.\n\n\n\nDate\nEvent\n\n\n\n\nAugust 24\nFirst class\n\n\nAugust 28\nLab 0\n\n\nSeptember 4\nQuiz 1\n\n\nSeptember 7\nLabor Day (no class)\n\n\nOctober 2\nMidterm 1\n\n\nNovember 11\nVeterans Day (no class)\n\n\nNovember 13\nMidterm 2\n\n\nNovember 23–27\nFall break (no class)\n\n\nDecember 9\nCapstone gallery\n\n\nDecember 11\nFinal review (last class meeting)\n\n\nDecember 16\nFinal exam, 10:20 a.m.–12:10 p.m., FR 201\n\n\n\nAdd/drop and other university deadlines follow the Cal Poly Humboldt academic calendar."
+  },
+  {
+    "objectID": "syllabus.html#university-policies-resources",
+    "href": "syllabus.html#university-policies-resources",
+    "title": "Course Syllabus",
+    "section": "University Policies & Resources",
+    "text": "University Policies & Resources\nStudents are responsible for reviewing the Cal Poly Humboldt Syllabus Addendum, which includes policies and resources related to:\n\nAcademic honesty\nDisability accommodations\nEmergency procedures\nTitle IX\nStudent conduct and support services\n\n\nAccommodations\nStudents who wish to request disability-related accommodations should contact the Student Disability Resource Center (SDRC) as early as possible and then email me (Rosanna Overholser, rho3@humboldt.edu) your letter of accommodation.\n\n\nClassroom & Online Conduct\nStandards of respectful and professional behavior apply to all course interactions, including in-person classes, assignments, and email communication."
+  },
+  {
+    "objectID": "syllabus.html#changes-to-the-syllabus",
+    "href": "syllabus.html#changes-to-the-syllabus",
+    "title": "Course Syllabus",
+    "section": "Changes to the Syllabus",
+    "text": "Changes to the Syllabus\nThis syllabus is subject to change. Any changes will be communicated through Canvas announcements."
+  },
+  {
+    "objectID": "syllabus.html#license",
+    "href": "syllabus.html#license",
+    "title": "Course Syllabus",
+    "section": "License",
+    "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here. Quizzes and Labs 1–6 meet on Fridays (midterms too, when scheduled). Lab 0 is Week 1 only; there is no lab on Midterm 2 Friday or during fall break.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25BasisQuiz 4\n\n\n6\nSep 28Neighbors practice\nSep 30MT1 prep\nOct 2Midterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsQuiz 5\n\n\n8\nOct 12Systems\nOct 14Elimination\nOct 16RREFQuiz 6Lab 1\n\n\n9\nOct 19Dynamics\nOct 21Simulation\nOct 23Through timeQuiz 7Lab 2\n\n\n10\nOct 26Products\nOct 28Powers\nOct 30CostQuiz 8Lab 3\n\n\n11\nNov 2Inverses\nNov 4Rank\nNov 6DeterminantsQuiz 9Lab 4\n\n\n12\nNov 9Review\nNov 11Veterans Day — no class\nNov 13Midterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorQuiz 10Lab 5\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squares\nDec 2Fitting\nDec 4SVDQuiz 11Lab 6Capstone\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
     "objectID": "resources.html",
