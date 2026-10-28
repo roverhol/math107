@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 23 — RREF, pivots, free variables, and software – MATH 107 - Introduction to Linear Algebra</title>
+<title>Lecture 23 — From row operations to matrix products – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-166690b9c768161ed89deb9505a7d440.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -154,7 +154,12 @@ window.Quarto = {
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#warm-up" id="toc-warm-up" class="nav-link" data-scroll-target="#warm-up">Warm-up</a></li>
-  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a></li>
+  <li><a href="#fill-in" id="toc-fill-in" class="nav-link" data-scroll-target="#fill-in">Fill in</a>
+  <ul class="collapse">
+  <li><a href="#solution-types-from-rref" id="toc-solution-types-from-rref" class="nav-link" data-scroll-target="#solution-types-from-rref">Solution types from RREF</a></li>
+  <li><a href="#transition-matrices-from-to" id="toc-transition-matrices-from-to" class="nav-link" data-scroll-target="#transition-matrices-from-to">Transition matrices (from / to)</a></li>
+  <li><a href="#matrixmatrix-product" id="toc-matrixmatrix-product" class="nav-link" data-scroll-target="#matrixmatrix-product">Matrix–matrix product</a></li>
+  </ul></li>
   <li><a href="#worked-in-class" id="toc-worked-in-class" class="nav-link" data-scroll-target="#worked-in-class">Worked in class</a></li>
   <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
   </ul>
@@ -169,8 +174,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Lecture 23 — RREF, pivots, free variables, and software</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Fri Oct 16</p>
+<div class="quarto-title-block"><div><h1 class="title">Lecture 23 — From row operations to matrix products</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Wed Oct 28</p>
 </div>
 
 
@@ -182,7 +187,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 12, 2026</p>
+      <p class="date-modified">October 28, 2026</p>
     </div>
   </div>
     
@@ -194,120 +199,165 @@ window.Quarto = {
 
 
 <p><a href="lecture-23.pdf">Download PDF</a></p>
-<p>Last updated: October 8, 2026.</p>
+<p>Last updated: October 28, 2026.</p>
 <!-- BOYD-YOUTUBE -->
-<p><strong>Boyd video (optional):</strong> <a href="https://www.youtube.com/watch?v=lWEJPWFIgtw">Lecture 31 — solving linear equations</a> · <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9">ENGR108 playlist (Boyd)</a> <!-- /BOYD-YOUTUBE --></p>
+<p><strong>Boyd video (optional):</strong> <a href="https://www.youtube.com/watch?v=t-G9n2uCa4k">Lecture 27 — matrix multiplication</a> · <a href="https://www.youtube.com/watch?v=NS0jvPLtgGc">Lecture 26 — linear dynamical systems</a> · <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9">ENGR108 playlist (Boyd)</a> <!-- /BOYD-YOUTUBE --></p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
-<p>Reading: RREF and software solvers; Lachniet Ch. 2 (linear-system commands). Related objectives: <a href="../lectures.html#lecture-23">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Reading: Boyd 10.1; review RREF and <span class="math inline">\(x_{t+1}=Ax_t\)</span> from <a href="../lectures/lecture-22.html">Lecture 22</a>. Related objectives: <a href="../lectures.html#lecture-23">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
 <p>Bring paper. Warm-up, fill-in notes, board examples, and <strong>Your turn</strong>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, you should be able to:</p>
 <ol type="1">
-<li>Interpret reduced row echelon form.</li>
-<li>Identify pivot and free variables.</li>
-<li>Describe a solution set parametrically.</li>
-<li>Distinguish inconsistent, unique, and infinite-solution cases.</li>
-<li>Use software to solve or row-reduce a system and verify the answer using a residual.</li>
+<li>Apply an elementary matrix to an augmented matrix and read the solution set (including a parametric form).</li>
+<li>Classify unique / none / infinitely many from RREF and write infinite families with a parameter <span class="math inline">\(t\)</span>.</li>
+<li>Build a transition matrix from a two-compartment flow using a clear from/to convention, and compute one step <span class="math inline">\(x_1=Ax_0\)</span>.</li>
+<li>Explain why two steps require <span class="math inline">\(A(Ax_0)\)</span> — a matrix–matrix idea — and compute a small product <span class="math inline">\(AB\)</span> by hand.</li>
+<li>Give an example with <span class="math inline">\(AB\neq BA\)</span>, and compute <span class="math inline">\(A^2\)</span> and a small power <span class="math inline">\(A^n x\)</span>.</li>
 </ol>
 </section>
 <section id="warm-up" class="level2">
 <h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
-<p>The RREF of an augmented matrix is <span class="math display">\[
-\begin{bmatrix}
-1 &amp; 0 &amp; 2 &amp; | &amp; 3 \\
-0 &amp; 1 &amp; -1 &amp; | &amp; 4 \\
-0 &amp; 0 &amp; 0 &amp; | &amp; 0
-\end{bmatrix}.
-\]</span> Which variables are pivots? Which are free? Write the general solution.</p>
+<p>You already multiply matrices when you left-multiply an augmented matrix by an elementary matrix. Let <span class="math display">\[
+[A\mid b]=\begin{bmatrix}1&amp;2&amp;|&amp;3\\ 2&amp;4&amp;|&amp;6\end{bmatrix},
+\qquad
+E=\begin{bmatrix}1&amp;0\\ -2&amp;1\end{bmatrix}.
+\]</span> (<span class="math inline">\(E\)</span> is “add <span class="math inline">\(-2\)</span> times row 1 to row 2,” built by doing that operation to <span class="math inline">\(I\)</span>.)</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(E\,[A\mid b]\)</span>.</p></li>
+<li><p>Read off the solution set of the resulting system. (It should be infinitely many solutions.)</p></li>
+</ol>
 </section>
 <section id="fill-in" class="level2">
 <h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
-<p><strong>Reduced row echelon form (RREF)</strong> is echelon form with these extras:</p>
-<ul>
-<li>Each pivot is <span class="math inline">\(\underline{\hspace{0.8cm}}\)</span>.</li>
-<li>Each pivot is the <span class="math inline">\(\underline{\hspace{1.6cm}}\)</span> nonzero in its column (zeros above and below).</li>
-</ul>
-<p>A <strong>pivot variable</strong> (basic variable) corresponds to a pivot column. A <strong>free variable</strong> has <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> pivot in its column; assign a parameter (e.g.&nbsp;<span class="math inline">\(x_3=t\)</span>).</p>
-<p><strong>Reading the RREF of <span class="math inline">\([A\mid b]\)</span>:</strong></p>
+<section id="solution-types-from-rref" class="level3">
+<h3 class="anchored" data-anchor-id="solution-types-from-rref">Solution types from RREF</h3>
+<p>After reducing <span class="math inline">\([A\mid b]\)</span> to RREF, one of three things happens:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 42%">
-<col style="width: 57%">
+<col style="width: 36%">
+<col style="width: 19%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Pattern</th>
+<th>What you see in RREF</th>
 <th>Conclusion</th>
+<th>How to present the answer</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>A row <span class="math inline">\([0\ \cdots\ 0\mid c]\)</span> with <span class="math inline">\(c\neq 0\)</span></td>
-<td><span class="math inline">\(\underline{\hspace{2.4cm}}\)</span></td>
+<td><span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> solution</td>
+<td>Write “inconsistent” / empty set</td>
 </tr>
 <tr class="even">
-<td>Every column of <span class="math inline">\(A\)</span> has a pivot, and consistent</td>
+<td>Pivot in every variable column; consistent</td>
 <td><span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> solution</td>
+<td>Write the unique <span class="math inline">\(x\)</span></td>
 </tr>
 <tr class="odd">
 <td>Consistent, and at least one free variable</td>
 <td><span class="math inline">\(\underline{\hspace{2.4cm}}\)</span> solutions</td>
+<td>Set each free variable equal to a parameter (<span class="math inline">\(t\)</span>, <span class="math inline">\(s\)</span>, …) and express the pivot variables in terms of those parameters</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Software.</strong> Use a solver or RREF command (Octave <code>rref</code>, Python SymPy <code>rref</code>, or a course helper). Always <strong>verify</strong> a candidate <span class="math inline">\(x\)</span> by computing the residual <span class="math inline">\(Ax-b\)</span> (should be near <span class="math inline">\(\underline{\hspace{1.0cm}}\)</span>).</p>
+<p><strong>Parametric form (one free variable).</strong> If <span class="math inline">\(x_2\)</span> is free, set <span class="math inline">\(x_2=t\)</span> and solve for the others. The solution set is all vectors of the form <span class="math display">\[
+x=\underline{\hspace{3.6cm}}
+\]</span> as <span class="math inline">\(t\)</span> runs over <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</section>
+<section id="transition-matrices-from-to" class="level3">
+<h3 class="anchored" data-anchor-id="transition-matrices-from-to">Transition matrices (from / to)</h3>
+<p>A discrete linear dynamical system is <span class="math display">\[
+x_{t+1}=Ax_t.
+\]</span></p>
+<p><strong>Convention used in this class</strong> (two compartments labeled <span class="math inline">\(1,2\)</span>):</p>
+<ul>
+<li><strong>Columns = “from.”</strong> Column <span class="math inline">\(j\)</span> is the next state if the current state is <span class="math inline">\(e_j\)</span> (everyone starts in compartment <span class="math inline">\(j\)</span>).</li>
+<li><strong>Rows = “to.”</strong> Entry <span class="math inline">\(A_{ij}\)</span> is the fraction (or amount) that goes <strong>from</strong> <span class="math inline">\(j\)</span> <strong>to</strong> <span class="math inline">\(i\)</span>.</li>
+</ul>
+<p>So: read <span class="math inline">\(A_{ij}\)</span> as “<strong>to</strong> <span class="math inline">\(i\)</span>, <strong>from</strong> <span class="math inline">\(j\)</span>.”</p>
+<p>One step is matrix–vector multiplication: <span class="math inline">\(x_1=\underline{\hspace{1.2cm}}\)</span>. Two steps: <span class="math inline">\(x_2=A x_1=A(Ax_0)\)</span>. That is the same as <span class="math inline">\((AA)x_0\)</span>, so we need the <strong>matrix–matrix</strong> product <span class="math inline">\(A^2=AA\)</span>.</p>
+</section>
+<section id="matrixmatrix-product" class="level3">
+<h3 class="anchored" data-anchor-id="matrixmatrix-product">Matrix–matrix product</h3>
+<p>If <span class="math inline">\(A\)</span> is <span class="math inline">\(m\times n\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(n\times p\)</span>, then <span class="math inline">\(AB\)</span> is the <span class="math inline">\(m\times p\)</span> matrix whose <span class="math inline">\(j\)</span>th column is <span class="math display">\[
+(AB)_j=\underline{\hspace{2.0cm}}.
+\]</span> Equivalently, entry <span class="math inline">\((i,j)\)</span> is the inner product of row <span class="math inline">\(i\)</span> of <span class="math inline">\(A\)</span> with column <span class="math inline">\(j\)</span> of <span class="math inline">\(B\)</span>.</p>
+<p><strong>Defined when?</strong> Number of <span class="math inline">\(\underline{\hspace{1.4cm}}\)</span> of <span class="math inline">\(A\)</span> equals number of <span class="math inline">\(\underline{\hspace{1.4cm}}\)</span> of <span class="math inline">\(B\)</span>.</p>
+<p><strong>Not commutative.</strong> In general <span class="math inline">\(AB\neq BA\)</span> (even when both are defined).</p>
+<p><strong>Powers.</strong> For a square matrix, <span class="math inline">\(A^2=AA\)</span>, <span class="math inline">\(A^3=A^2A=\cdots\)</span>, and <span class="math inline">\(x_n=A^n x_0\)</span>.</p>
+</section>
 </section>
 <section id="worked-in-class" class="level2">
 <h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
-<p><strong>W1.</strong> Classify from RREF (no original system needed).</p>
-<ol type="a">
-<li><p><span class="math display">\[
+<p><strong>W1.</strong> Unique solution. From the RREF <span class="math display">\[
 \begin{bmatrix}
-1 &amp; 0 &amp; | &amp; 2 \\
-0 &amp; 1 &amp; | &amp; -1
-\end{bmatrix}
-\]</span></p></li>
-<li><p><span class="math display">\[
-\begin{bmatrix}
-1 &amp; 2 &amp; | &amp; 3 \\
-0 &amp; 0 &amp; | &amp; 1
-\end{bmatrix}
-\]</span></p></li>
-<li><p><span class="math display">\[
-\begin{bmatrix}
-1 &amp; 2 &amp; 0 &amp; | &amp; 1 \\
-0 &amp; 0 &amp; 1 &amp; | &amp; 4
-\end{bmatrix}
-\]</span></p></li>
-</ol>
-<p><strong>W2.</strong> Parametric form. From <span class="math display">\[
-\begin{bmatrix}
-1 &amp; 3 &amp; 0 &amp; | &amp; 2 \\
-0 &amp; 0 &amp; 1 &amp; | &amp; -1
+1&amp;0&amp;|&amp;2\\
+0&amp;1&amp;|&amp;-1
 \end{bmatrix},
-\]</span> identify free variable(s) and write <span class="math inline">\(x=(x_1,x_2,x_3)\)</span> in terms of parameter(s).</p>
-<p><strong>W3.</strong> Software + residual. For <span class="math display">\[
-A=\begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix},\quad
-b=\begin{bmatrix}5\\11\end{bmatrix},
-\]</span> solve <span class="math inline">\(Ax=b\)</span> with Octave or Python. Compute <span class="math inline">\(Ax-b\)</span> and confirm it is (numerically) zero.</p>
-<p><strong>Octave sketch:</strong> <code>A\[b]</code> or <code>rref([A b])</code> then read <span class="math inline">\(x\)</span>.</p>
-<p><strong>Python sketch:</strong> <code>np.linalg.solve(A,b)</code> for square invertible <span class="math inline">\(A\)</span>, or SymPy <code>Matrix.hstack(A,b).rref()</code>.</p>
-<p><strong>W4.</strong> Inconsistent check. Invent a <span class="math inline">\(2\times 2\)</span> augmented RREF that is inconsistent. What would <span class="math inline">\(Ax-b\)</span> look like if software “forced” a least-squares answer? (One sentence — foreshadow Week 15.)</p>
+\]</span> write the solution.</p>
+<p><strong>W2.</strong> No solution. From the RREF <span class="math display">\[
+\begin{bmatrix}
+1&amp;2&amp;|&amp;3\\
+0&amp;0&amp;|&amp;1
+\end{bmatrix},
+\]</span> explain why there is no solution.</p>
+<p><strong>W3.</strong> Infinitely many — parametrize. From the RREF <span class="math display">\[
+\begin{bmatrix}
+1&amp;2&amp;0&amp;|&amp;3\\
+0&amp;0&amp;1&amp;|&amp;-1
+\end{bmatrix},
+\]</span> name the free variable, set it equal to <span class="math inline">\(t\)</span>, and write <span class="math inline">\(x=(x_1,x_2,x_3)\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<p><strong>W4.</strong> Transition matrix. Two towns, Arcata and Eureka:</p>
+<ul>
+<li>Of those in Arcata, <span class="math inline">\(80\%\)</span> stay and <span class="math inline">\(20\%\)</span> move to Eureka.</li>
+<li>Of those in Eureka, <span class="math inline">\(90\%\)</span> stay and <span class="math inline">\(10\%\)</span> move to Arcata.</li>
+</ul>
+<p>Order the state as <span class="math inline">\(x_t=(\text{Arcata},\text{Eureka})\)</span>. Using <strong>rows = to</strong>, <strong>columns = from</strong>, write <span class="math inline">\(A\)</span>. With <span class="math inline">\(x_0=(5000,7000)\)</span>, compute <span class="math inline">\(x_1=Ax_0\)</span>.</p>
+<p><strong>W5.</strong> One step vs two steps. Using the same <span class="math inline">\(A\)</span> and <span class="math inline">\(x_0\)</span> as W4:</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(x_2=A x_1\)</span> (another matrix–vector product).</p></li>
+<li><p>Compute <span class="math inline">\(A^2=AA\)</span> as a matrix–matrix product, then compute <span class="math inline">\(A^2 x_0\)</span>. Check that it matches <span class="math inline">\(x_2\)</span>.</p></li>
+</ol>
+<p><strong>W6.</strong> Product by hand. Let <span class="math display">\[
+A=\begin{bmatrix}1&amp;2\\0&amp;-1\end{bmatrix},\qquad
+B=\begin{bmatrix}0&amp;1\\3&amp;2\end{bmatrix}.
+\]</span> Compute <span class="math inline">\(AB\)</span> (columns <span class="math inline">\(Ab_1\)</span>, <span class="math inline">\(Ab_2\)</span>, or row–column dots).</p>
+<p><strong>W7.</strong> Order matters. With the same <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, compute <span class="math inline">\(BA\)</span>. Is <span class="math inline">\(BA=AB\)</span>?</p>
+<p><strong>W8.</strong> Powers. Let <span class="math inline">\(C=\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix}\)</span>.</p>
+<ol type="a">
+<li><p>Compute <span class="math inline">\(C^2\)</span> and <span class="math inline">\(C^3\)</span>.</p></li>
+<li><p>Guess <span class="math inline">\(C^n\)</span>, then check for <span class="math inline">\(n=2\)</span> and <span class="math inline">\(n=3\)</span>. For <span class="math inline">\(x_0=(0,1)\)</span>, compute <span class="math inline">\(C^n x_0\)</span>.</p></li>
+</ol>
 </section>
 <section id="your-turn" class="level2">
 <h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
-<p><strong>Y1.</strong> From RREF <span class="math display">\[
+<p><strong>Y1.</strong> Let <span class="math display">\[
+[A\mid b]=\begin{bmatrix}1&amp;-1&amp;|&amp;2\\ 3&amp;-3&amp;|&amp;6\end{bmatrix},\qquad
+E=\begin{bmatrix}1&amp;0\\ -3&amp;1\end{bmatrix}.
+\]</span> Compute <span class="math inline">\(E\,[A\mid b]\)</span> and write the solution set with parameter <span class="math inline">\(t\)</span>.</p>
+<p><strong>Y2.</strong> From the RREF <span class="math display">\[
 \begin{bmatrix}
-1 &amp; 0 &amp; -2 &amp; | &amp; 5 \\
-0 &amp; 1 &amp; 3 &amp; | &amp; -1 \\
-0 &amp; 0 &amp; 0 &amp; | &amp; 0
+1&amp;0&amp;-2&amp;|&amp;5\\
+0&amp;1&amp;3&amp;|&amp;-1\\
+0&amp;0&amp;0&amp;|&amp;0
 \end{bmatrix},
-\]</span> list pivot variables, free variables, and the general solution.</p>
-<p><strong>Y2.</strong> True or false: if RREF has a row of all zeros including the augmented entry, the system is inconsistent.</p>
-<p><strong>Y3.</strong> You solve <span class="math inline">\(Ax=b\)</span> in software and get <span class="math inline">\(x=(1,-1)\)</span>. You compute <span class="math inline">\(Ax-b=(0.0,\,10^{-15})\)</span>. Was the solve successful? Why check the residual?</p>
-<p><strong>Y4.</strong> A <span class="math inline">\(3\times 5\)</span> matrix <span class="math inline">\(A\)</span> (after RREF of <span class="math inline">\([A\mid b]\)</span>, consistent) has <span class="math inline">\(3\)</span> pivots. How many free variables? Unique solution or infinitely many?</p>
+\]</span> write the general solution with free variable <span class="math inline">\(t=x_3\)</span>.</p>
+<p><strong>Y3.</strong> Build <span class="math inline">\(A\)</span> for two labs, North and South:</p>
+<ul>
+<li>From North: <span class="math inline">\(70\%\)</span> stay, <span class="math inline">\(30\%\)</span> go South.</li>
+<li>From South: <span class="math inline">\(60\%\)</span> stay, <span class="math inline">\(40\%\)</span> go North.</li>
+</ul>
+<p>State order <span class="math inline">\(x_t=(\text{North},\text{South})\)</span>. Write <span class="math inline">\(A\)</span> (rows = to, columns = from). If <span class="math inline">\(x_0=(100,50)\)</span>, find <span class="math inline">\(x_1\)</span>.</p>
+<p><strong>Y4.</strong> Let <span class="math inline">\(A=\begin{bmatrix}2&amp;0\\1&amp;3\end{bmatrix}\)</span> and <span class="math inline">\(x_0=(1,0)\)</span>. Compute <span class="math inline">\(x_1=Ax_0\)</span> and <span class="math inline">\(x_2=A x_1\)</span>. Then compute <span class="math inline">\(A^2\)</span> and <span class="math inline">\(A^2 x_0\)</span>.</p>
+<p><strong>Y5.</strong> With <span class="math display">\[
+A=\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix},\qquad
+B=\begin{bmatrix}1&amp;0\\1&amp;1\end{bmatrix},
+\]</span> compute <span class="math inline">\(AB\)</span> and <span class="math inline">\(BA\)</span>. Are they equal?</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -320,12 +370,22 @@ b=\begin{bmatrix}5\\11\end{bmatrix},
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Y1. Pivot variables <span class="math inline">\(x_1,x_2\)</span>; free <span class="math inline">\(x_3=t\)</span>. Then <span class="math inline">\(x_1-2t=5\)</span> and <span class="math inline">\(x_2+3t=-1\)</span>, so <span class="math display">\[
-x=(5+2t,\,-1-3t,\,t),\quad t\in\mathbb{R}.
+<p>Y1. <span class="math inline">\(E\,[A\mid b]=\begin{bmatrix}1&amp;-1&amp;|&amp;2\\ 0&amp;0&amp;|&amp;0\end{bmatrix}\)</span>. Free variable <span class="math inline">\(x_2=t\)</span>; then <span class="math inline">\(x_1-t=2\)</span>, so <span class="math inline">\(x_1=2+t\)</span>. Solution: <span class="math inline">\(x=(2+t,\,t)\)</span> for <span class="math inline">\(t\in\mathbb{R}\)</span>.</p>
+<p>Y2. Free <span class="math inline">\(x_3=t\)</span>. Then <span class="math inline">\(x_1-2t=5\)</span> and <span class="math inline">\(x_2+3t=-1\)</span>, so <span class="math display">\[
+x=\begin{bmatrix}5+2t\\ -1-3t\\ t\end{bmatrix},\qquad t\in\mathbb{R}.
 \]</span></p>
-<p>Y2. <strong>False.</strong> A zero row including the right-hand side is consistent (redundant equation). Inconsistency needs <span class="math inline">\([0\ \cdots\ 0\mid c]\)</span> with <span class="math inline">\(c\neq 0\)</span>.</p>
-<p>Y3. Yes — residual is numerically zero (roundoff). Checking <span class="math inline">\(Ax-b\)</span> catches wrong <span class="math inline">\(x\)</span>, singular/ill-conditioned cases, and copy-paste mistakes.</p>
-<p>Y4. <span class="math inline">\(n=5\)</span> unknowns and <span class="math inline">\(3\)</span> pivots <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(2\)</span> free variables <span class="math inline">\(\Rightarrow\)</span> infinitely many solutions (when consistent).</p>
+<p>Y3. Rows = to, columns = from (order North, South): <span class="math display">\[
+A=\begin{bmatrix}0.7&amp;0.4\\ 0.3&amp;0.6\end{bmatrix}.
+\]</span> (Column 1: from North; column 2: from South.) Then <span class="math display">\[
+x_1=Ax_0=\begin{bmatrix}0.7\cdot 100+0.4\cdot 50\\ 0.3\cdot 100+0.6\cdot 50\end{bmatrix}=\begin{bmatrix}90\\ 60\end{bmatrix}.
+\]</span></p>
+<p>Y4. <span class="math inline">\(x_1=(2,1)\)</span>, <span class="math inline">\(x_2=A x_1=(4,5)\)</span>. Also <span class="math display">\[
+A^2=\begin{bmatrix}4&amp;0\\5&amp;9\end{bmatrix},\qquad A^2 x_0=(4,5),
+\]</span> same as <span class="math inline">\(x_2\)</span>.</p>
+<p>Y5. <span class="math display">\[
+AB=\begin{bmatrix}2&amp;1\\1&amp;1\end{bmatrix},\qquad
+BA=\begin{bmatrix}1&amp;1\\1&amp;2\end{bmatrix}.
+\]</span> Not equal: <span class="math inline">\(AB\neq BA\)</span>.</p>
 </div>
 </div>
 </div>
@@ -793,9 +853,9 @@ x=(5+2t,\,-1-3t,\,t),\quad t\in\mathbb{R}.
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 23 — RREF, pivots, free variables, and software"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Oct 16"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 23 — From row operations to matrix products"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Wed Oct 28"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-28</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -805,17 +865,17 @@ x=(5+2t,\,-1-3t,\,t),\quad t\in\mathbb{R}.
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-23.pdf)</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 28, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- BOYD-YOUTUBE --&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Boyd video (optional):** <span class="co">[</span><span class="ot">Lecture 31 — solving linear equations</span><span class="co">](https://www.youtube.com/watch?v=lWEJPWFIgtw)</span> · <span class="co">[</span><span class="ot">ENGR108 playlist (Boyd)</span><span class="co">](https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Boyd video (optional):** <span class="co">[</span><span class="ot">Lecture 27 — matrix multiplication</span><span class="co">](https://www.youtube.com/watch?v=t-G9n2uCa4k)</span> · <span class="co">[</span><span class="ot">Lecture 26 — linear dynamical systems</span><span class="co">](https://www.youtube.com/watch?v=NS0jvPLtgGc)</span> · <span class="co">[</span><span class="ot">ENGR108 playlist (Boyd)</span><span class="co">](https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9)</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /BOYD-YOUTUBE --&gt;</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Reading: RREF and software solvers; Lachniet Ch. 2 (linear-system commands). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-23)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 10.1; review RREF and $x_{t+1}=Ax_t$ from <span class="co">[</span><span class="ot">Lecture 22</span><span class="co">](lecture-22.qmd)</span>. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-23)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up, fill-in notes, board examples, and **Your turn**.</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
@@ -823,146 +883,212 @@ x=(5+2t,\,-1-3t,\,t),\quad t\in\mathbb{R}.
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>By the end of class, you should be able to:</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Interpret reduced row echelon form.</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Identify pivot and free variables.</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Describe a solution set parametrically.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Distinguish inconsistent, unique, and infinite-solution cases.</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use software to solve or row-reduce a system and verify the answer using a residual.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Apply an elementary matrix to an augmented matrix and read the solution set (including a parametric form).</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Classify unique / none / infinitely many from RREF and write infinite families with a parameter $t$.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Build a transition matrix from a two-compartment flow using a clear from/to convention, and compute one step $x_1=Ax_0$.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain why two steps require $A(Ax_0)$ — a matrix–matrix idea — and compute a small product $AB$ by hand.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Give an example with $AB\neq BA$, and compute $A^2$ and a small power $A^n x$.</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>The RREF of an augmented matrix is</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>You already multiply matrices when you left-multiply an augmented matrix by an elementary matrix. Let</span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>1 &amp; 0 &amp; 2 &amp; | &amp; 3 <span class="sc">\\</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>0 &amp; 1 &amp; -1 &amp; | &amp; 4 <span class="sc">\\</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>0 &amp; 0 &amp; 0 &amp; | &amp; 0</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>Which variables are pivots? Which are free? Write the general solution.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>=\begin{bmatrix}1&amp;2&amp;|&amp;3<span class="sc">\\</span> 2&amp;4&amp;|&amp;6\end{bmatrix},</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>\qquad</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>E=\begin{bmatrix}1&amp;0<span class="sc">\\</span> -2&amp;1\end{bmatrix}.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>($E$ is “add $-2$ times row 1 to row 2,” built by doing that operation to $I$.)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>(a) Compute $E\,<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$.</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>(b) Read off the solution set of the resulting system. (It should be infinitely many solutions.)</span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>**Reduced row echelon form (RREF)** is echelon form with these extras:</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each pivot is $\underline{\hspace{0.8cm}}$.</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Each pivot is the $\underline{\hspace{1.6cm}}$ nonzero in its column (zeros above and below).</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>A **pivot variable** (basic variable) corresponds to a pivot column. A **free variable** has $\underline{\hspace{2.0cm}}$ pivot in its column; assign a parameter (e.g. $x_3=t$).</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**Reading the RREF of $[A\mid b]$:**</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Pattern <span class="pp">|</span> Conclusion <span class="pp">|</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|---------|------------|</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A row $<span class="co">[</span><span class="ot">0\ \cdots\ 0\mid c</span><span class="co">]</span>$ with $c\neq 0$ <span class="pp">|</span> $\underline{\hspace{2.4cm}}$ <span class="pp">|</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Every column of $A$ has a pivot, and consistent <span class="pp">|</span> $\underline{\hspace{2.0cm}}$ solution <span class="pp">|</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Consistent, and at least one free variable <span class="pp">|</span> $\underline{\hspace{2.4cm}}$ solutions <span class="pp">|</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>**Software.** Use a solver or RREF command (Octave `rref`, Python SymPy `rref`, or a course helper). Always **verify** a candidate $x$ by computing the residual $Ax-b$ (should be near $\underline{\hspace{1.0cm}}$).</span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>**W1.** Classify from RREF (no original system needed).</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>(a)</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>1 &amp; 0 &amp; | &amp; 2 <span class="sc">\\</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>0 &amp; 1 &amp; | &amp; -1</span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>(b)</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>1 &amp; 2 &amp; | &amp; 3 <span class="sc">\\</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>0 &amp; 0 &amp; | &amp; 1</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>(c)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### Solution types from RREF</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>After reducing $<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$ to RREF, one of three things happens:</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> What you see in RREF <span class="pp">|</span> Conclusion <span class="pp">|</span> How to present the answer <span class="pp">|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------------------|------------|---------------------------|</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> A row $<span class="co">[</span><span class="ot">0\ \cdots\ 0\mid c</span><span class="co">]</span>$ with $c\neq 0$ <span class="pp">|</span> $\underline{\hspace{2.0cm}}$ solution <span class="pp">|</span> Write “inconsistent” / empty set <span class="pp">|</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Pivot in every variable column; consistent <span class="pp">|</span> $\underline{\hspace{2.0cm}}$ solution <span class="pp">|</span> Write the unique $x$ <span class="pp">|</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Consistent, and at least one free variable <span class="pp">|</span> $\underline{\hspace{2.4cm}}$ solutions <span class="pp">|</span> Set each free variable equal to a parameter ($t$, $s$, …) and express the pivot variables in terms of those parameters <span class="pp">|</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>**Parametric form (one free variable).** If $x_2$ is free, set $x_2=t$ and solve for the others. The solution set is all vectors of the form</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>x=\underline{\hspace{3.6cm}}</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>as $t$ runs over $\mathbb{R}$.</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="fu">### Transition matrices (from / to)</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>A discrete linear dynamical system is</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>x_{t+1}=Ax_t.</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>**Convention used in this class** (two compartments labeled $1,2$):</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Columns = “from.”** Column $j$ is the next state if the current state is $e_j$ (everyone starts in compartment $j$).</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Rows = “to.”** Entry $A_{ij}$ is the fraction (or amount) that goes **from** $j$ **to** $i$.</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>So: read $A_{ij}$ as “**to** $i$, **from** $j$.”</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>One step is matrix–vector multiplication: $x_1=\underline{\hspace{1.2cm}}$.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>Two steps: $x_2=A x_1=A(Ax_0)$. That is the same as $(AA)x_0$, so we need the **matrix–matrix** product $A^2=AA$.</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### Matrix–matrix product</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>If $A$ is $m\times n$ and $B$ is $n\times p$, then $AB$ is the $m\times p$ matrix whose $j$th column is</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>(AB)_j=\underline{\hspace{2.0cm}}.</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>1 &amp; 2 &amp; 0 &amp; | &amp; 1 <span class="sc">\\</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>0 &amp; 0 &amp; 1 &amp; | &amp; 4</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>Equivalently, entry $(i,j)$ is the inner product of row $i$ of $A$ with column $j$ of $B$.</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>**Defined when?** Number of $\underline{\hspace{1.4cm}}$ of $A$ equals number of $\underline{\hspace{1.4cm}}$ of $B$.</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>**Not commutative.** In general $AB\neq BA$ (even when both are defined).</span>
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>**Powers.** For a square matrix, $A^2=AA$, $A^3=A^2A=\cdots$, and $x_n=A^n x_0$.</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>**W2.** Parametric form. From</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>1 &amp; 3 &amp; 0 &amp; | &amp; 2 <span class="sc">\\</span></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>0 &amp; 0 &amp; 1 &amp; | &amp; -1</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>\end{bmatrix},</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>identify free variable(s) and write $x=(x_1,x_2,x_3)$ in terms of parameter(s).</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>**W3.** Software + residual. For</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;2<span class="sc">\\</span>3&amp;4\end{bmatrix},\quad</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>b=\begin{bmatrix}5<span class="sc">\\</span>11\end{bmatrix},</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>solve $Ax=b$ with Octave or Python. Compute $Ax-b$ and confirm it is (numerically) zero.</span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>**Octave sketch:** <span class="in">`A\[b]`</span> or <span class="in">`rref([A b])`</span> then read $x$.</span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>**Python sketch:** <span class="in">`np.linalg.solve(A,b)`</span> for square invertible $A$, or SymPy <span class="in">`Matrix.hstack(A,b).rref()`</span>.</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>**W1.** Unique solution. From the RREF</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>1&amp;0&amp;|&amp;2<span class="sc">\\</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>0&amp;1&amp;|&amp;-1</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>\end{bmatrix},</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>write the solution.</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>**W2.** No solution. From the RREF</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>1&amp;2&amp;|&amp;3<span class="sc">\\</span></span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>0&amp;0&amp;|&amp;1</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>\end{bmatrix},</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>explain why there is no solution.</span>
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>**W4.** Inconsistent check. Invent a $2\times 2$ augmented RREF that is inconsistent. What would $Ax-b$ look like if software “forced” a least-squares answer? (One sentence — foreshadow Week 15.)</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>**Y1.** From RREF</span>
-<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>1 &amp; 0 &amp; -2 &amp; | &amp; 5 <span class="sc">\\</span></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>0 &amp; 1 &amp; 3 &amp; | &amp; -1 <span class="sc">\\</span></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>0 &amp; 0 &amp; 0 &amp; | &amp; 0</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>\end{bmatrix},</span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>list pivot variables, free variables, and the general solution.</span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>**W3.** Infinitely many — parametrize. From the RREF</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>1&amp;2&amp;0&amp;|&amp;3<span class="sc">\\</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>0&amp;0&amp;1&amp;|&amp;-1</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>\end{bmatrix},</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>name the free variable, set it equal to $t$, and write $x=(x_1,x_2,x_3)$ in terms of $t$.</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>**W4.** Transition matrix. Two towns, Arcata and Eureka:</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Of those in Arcata, $80\%$ stay and $20\%$ move to Eureka.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Of those in Eureka, $90\%$ stay and $10\%$ move to Arcata.</span>
 <span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>**Y2.** True or false: if RREF has a row of all zeros including the augmented entry, the system is inconsistent.</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>Order the state as $x_t=(\text{Arcata},\text{Eureka})$. Using **rows = to**, **columns = from**, write $A$. With $x_0=(5000,7000)$, compute $x_1=Ax_0$.</span>
 <span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>**Y3.** You solve $Ax=b$ in software and get $x=(1,-1)$. You compute $Ax-b=(0.0,\,10^{-15})$. Was the solve successful? Why check the residual?</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>**W5.** One step vs two steps. Using the same $A$ and $x_0$ as W4:</span>
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>(a) Compute $x_2=A x_1$ (another matrix–vector product).</span>
 <span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>**Y4.** A $3\times 5$ matrix $A$ (after RREF of $<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$, consistent) has $3$ pivots. How many free variables? Unique solution or infinitely many?</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>(b) Compute $A^2=AA$ as a matrix–matrix product, then compute $A^2 x_0$. Check that it matches $x_2$.</span>
 <span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-23.qmd &gt;}}</span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>**W6.** Product by hand. Let</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;2<span class="sc">\\</span>0&amp;-1\end{bmatrix},\qquad</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>B=\begin{bmatrix}0&amp;1<span class="sc">\\</span>3&amp;2\end{bmatrix}.</span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>Compute $AB$ (columns $Ab_1$, $Ab_2$, or row–column dots).</span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a>**W7.** Order matters. With the same $A$ and $B$, compute $BA$. Is $BA=AB$?</span>
 <span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-23.qmd &gt;}}</span>
-<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a>**W8.** Powers. Let $C=\begin{bmatrix}1&amp;1<span class="sc">\\</span>0&amp;1\end{bmatrix}$.</span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a>(a) Compute $C^2$ and $C^3$.</span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a>(b) Guess $C^n$, then check for $n=2$ and $n=3$. For $x_0=(0,1)$, compute $C^n x_0$.</span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a>**Y1.** Let</span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>=\begin{bmatrix}1&amp;-1&amp;|&amp;2<span class="sc">\\</span> 3&amp;-3&amp;|&amp;6\end{bmatrix},\qquad</span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>E=\begin{bmatrix}1&amp;0<span class="sc">\\</span> -3&amp;1\end{bmatrix}.</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>Compute $E\,<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$ and write the solution set with parameter $t$.</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a>**Y2.** From the RREF</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>1&amp;0&amp;-2&amp;|&amp;5<span class="sc">\\</span></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>0&amp;1&amp;3&amp;|&amp;-1<span class="sc">\\</span></span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>0&amp;0&amp;0&amp;|&amp;0</span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>\end{bmatrix},</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>write the general solution with free variable $t=x_3$.</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>**Y3.** Build $A$ for two labs, North and South:</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>From North: $70\%$ stay, $30\%$ go South.</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>From South: $60\%$ stay, $40\%$ go North.</span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a>State order $x_t=(\text{North},\text{South})$. Write $A$ (rows = to, columns = from). If $x_0=(100,50)$, find $x_1$.</span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a>**Y4.** Let $A=\begin{bmatrix}2&amp;0<span class="sc">\\</span>1&amp;3\end{bmatrix}$ and $x_0=(1,0)$. Compute $x_1=Ax_0$ and $x_2=A x_1$. Then compute $A^2$ and $A^2 x_0$.</span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a>**Y5.** With</span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;1<span class="sc">\\</span>0&amp;1\end{bmatrix},\qquad</span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a>B=\begin{bmatrix}1&amp;0<span class="sc">\\</span>1&amp;1\end{bmatrix},</span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a>compute $AB$ and $BA$. Are they equal?</span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-23.qmd &gt;}}</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-23.qmd &gt;}}</span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

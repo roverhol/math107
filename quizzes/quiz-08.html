@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-166690b9c768161ed89deb9505a7d440.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -154,11 +154,13 @@ window.Quarto = {
   <ul>
   <li><a href="#core" id="toc-core" class="nav-link active" data-scroll-target="#core">Core</a>
   <ul class="collapse">
-  <li><a href="#fluency-complete-prompts-practice-these-by-hand" id="toc-fluency-complete-prompts-practice-these-by-hand" class="nav-link" data-scroll-target="#fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</a></li>
-  <li><a href="#textbook-core" id="toc-textbook-core" class="nav-link" data-scroll-target="#textbook-core">Textbook Core</a></li>
+  <li><a href="#part-a-augmented-matrix-eliminate-check" id="toc-part-a-augmented-matrix-eliminate-check" class="nav-link" data-scroll-target="#part-a-augmented-matrix-eliminate-check">Part A — Augmented matrix, eliminate, check</a></li>
+  <li><a href="#part-b-name-the-elementary-matrix" id="toc-part-b-name-the-elementary-matrix" class="nav-link" data-scroll-target="#part-b-name-the-elementary-matrix">Part B — Name the elementary matrix</a></li>
+  <li><a href="#part-c-apply-e-and-rewrite-the-system" id="toc-part-c-apply-e-and-rewrite-the-system" class="nav-link" data-scroll-target="#part-c-apply-e-and-rewrite-the-system">Part C — Apply <span class="math inline">\(E\)</span> and rewrite the system</a></li>
   </ul></li>
   <li><a href="#stretch" id="toc-stretch" class="nav-link" data-scroll-target="#stretch">Stretch</a></li>
   <li><a href="#what-a-quiz-item-might-change" id="toc-what-a-quiz-item-might-change" class="nav-link" data-scroll-target="#what-a-quiz-item-might-change">What a quiz item might change</a></li>
+  <li><a href="#elementary-matrix-templates-provided-on-the-quiz" id="toc-elementary-matrix-templates-provided-on-the-quiz" class="nav-link" data-scroll-target="#elementary-matrix-templates-provided-on-the-quiz">Elementary-matrix templates (provided on the quiz)</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quiz-08.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -172,7 +174,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Quiz 8</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Friday, October 30 — RREF and linear dynamical systems</p>
+<p class="subtitle lead">Friday, October 30 — systems, elimination, and elementary matrices</p>
 </div>
 
 
@@ -184,7 +186,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 13, 2026</p>
+      <p class="date-modified">October 28, 2026</p>
     </div>
   </div>
     
@@ -196,68 +198,96 @@ window.Quarto = {
 
 
 <p><a href="quiz-08.pdf">Download PDF</a></p>
-<p>Last updated: October 13, 2026.</p>
+<p>Last updated: October 28, 2026.</p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
-<p><strong>Covers:</strong> <a href="../lectures/lecture-23.html">RREF</a> (held from Week 8), plus <a href="../lectures/lecture-24.html">Dynamics</a>, <a href="../lectures/lecture-25.html">Simulation</a>, and <a href="../lectures/lecture-26.html">Through time</a> (Week 9). Same-day <a href="../lectures/lecture-29.html">Cost</a> and <a href="../labs/lab-03.html">Lab 3</a> are <strong>not</strong> on this quiz.</p>
-<p>Textbooks: <a href="https://web.stanford.edu/~boyd/vmls/">Boyd &amp; Vandenberghe (VMLS)</a> · <a href="https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf">Lachniet Octave PDF</a> · also on <a href="../resources.html">Resources</a>.</p>
+<p><strong>Covers:</strong> solving linear systems by elimination and elementary matrices (<a href="../lectures/lecture-21.html">Lecture 21</a>, <a href="../lectures/lecture-22.html">Lecture 22</a>, Lab 2 / RREF practice). Same-day <a href="../lectures/lecture-25.html">powers</a> and <a href="../labs/lab-03.html">Lab 3</a> are <strong>not</strong> on this quiz.</p>
 <p><a href="../schedule.html">Schedule</a></p>
+<p>Elementary-matrix templates (also provided on the quiz paper) are at the end of this page.</p>
 <section id="core" class="level2">
 <h2 class="anchored" data-anchor-id="core">Core</h2>
-<section id="fluency-complete-prompts-practice-these-by-hand" class="level3">
-<h3 class="anchored" data-anchor-id="fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</h3>
-<p><strong>C8.1.</strong> The RREF of <span class="math inline">\([A\mid b]\)</span> is <span class="math display">\[
-\begin{bmatrix}
-1 &amp; 0 &amp; 2 &amp; | &amp; -1 \\
-0 &amp; 1 &amp; -3 &amp; | &amp; 4 \\
-0 &amp; 0 &amp; 0 &amp; | &amp; 0
-\end{bmatrix}.
-\]</span> List pivot and free variables; write the general solution.</p>
-<p><strong>C8.2.</strong> Decide unique / none / infinitely many from each RREF, with one reason.</p>
-<ol type="a">
-<li><p><span class="math inline">\(\begin{bmatrix}1&amp;0&amp;|&amp;2\\0&amp;1&amp;|&amp;-1\end{bmatrix}\)</span></p></li>
-<li><p><span class="math inline">\(\begin{bmatrix}1&amp;3&amp;|&amp;0\\0&amp;0&amp;|&amp;2\end{bmatrix}\)</span></p></li>
-<li><p><span class="math inline">\(\begin{bmatrix}1&amp;2&amp;0&amp;|&amp;1\\0&amp;0&amp;1&amp;|&amp;5\end{bmatrix}\)</span></p></li>
-</ol>
-<p><strong>C8.3.</strong> You obtain <span class="math inline">\(x=(1,2)\)</span> from software for a <span class="math inline">\(2\times 2\)</span> system. Compute what residual you should check, and say what “success” looks like numerically.</p>
-<p><strong>C8.4.</strong> A campus population has state <span class="math inline">\(x_t=\begin{bmatrix}c_t\\o_t\end{bmatrix}\)</span> (on campus, off campus) with <span class="math display">\[
-A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix}1000\\0\end{bmatrix}.
-\]</span> Compute <span class="math inline">\(x_1=Ax_0\)</span> by hand. In one sentence, what do the two entries of <span class="math inline">\(x_1\)</span> mean?</p>
-<p><strong>C8.5.</strong> With the same <span class="math inline">\(A\)</span> and <span class="math inline">\(x_1\)</span> from C8.4, compute <span class="math inline">\(x_2=Ax_1\)</span>.</p>
-<p><strong>C8.6.</strong> True or false, with a one-line reason: for <span class="math inline">\(x_{t+1}=Ax_t\)</span>, we always have <span class="math inline">\(x_3=A^3 x_0\)</span>.</p>
-<p><strong>C8.7.</strong> Let <span class="math inline">\(A=\operatorname{diag}(1.2,\,0.5)\)</span> and <span class="math inline">\(x_0=(5,4)\)</span>.</p>
-<ol type="a">
-<li><p>Compute <span class="math inline">\(x_1=Ax_0\)</span>.</p></li>
-<li><p>After many steps, which component dominates, and does it grow or decay?</p></li>
-</ol>
-<p><strong>C8.8.</strong> Let <span class="math inline">\(A=\begin{bmatrix}0&amp;1\\-1&amp;0\end{bmatrix}\)</span> and <span class="math inline">\(x_0=(1,0)\)</span>. Compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. Describe the long-run behavior in one sentence (no eigenvalues required).</p>
-<p><strong>C8.9.</strong> Two towns exchange residents each year: - 90% of town A stays in A; 10% moves to B. - 80% of town B stays in B; 20% moves to A.</p>
-<p>Write the transition matrix <span class="math inline">\(A\)</span> so that <span class="math inline">\(x_{t+1}=Ax_t\)</span> with <span class="math inline">\(x=\begin{bmatrix}a\\b\end{bmatrix}\)</span> (population in A, then B). Compute <span class="math inline">\(x_1\)</span> if <span class="math inline">\(x_0=(100,50)\)</span>.</p>
-<p><strong>C8.10.</strong> Someone writes a loop <code>for t = 1 to 10: x = A*x</code> but never stores the initial <span class="math inline">\(x_0\)</span>. How many states after <span class="math inline">\(x_0\)</span> does the loop produce? What should they add if they also want <span class="math inline">\(x_0\)</span> recorded?</p>
-<p><strong>C8.11.</strong> True or false, with a one-line reason: if you change <span class="math inline">\(x_0\)</span> but keep the same <span class="math inline">\(A\)</span>, the long-run pattern of <span class="math inline">\(x_t\)</span> must stay exactly the same for every <span class="math inline">\(t\)</span>.</p>
-<p><strong>C8.12 (software sense).</strong> Octave/Python reports, after iterating <span class="math inline">\(x\leftarrow Ax\)</span> twenty times from <span class="math inline">\(x_0=(1000,0)\)</span> with the campus matrix in C8.4, that <span class="math inline">\(x_{20}\approx(500,500)\)</span>. What one-sentence observation would you write down for later (Week 13), without naming eigenvalues yet?</p>
-<p><strong>C8.13 (cumulative, light).</strong> Dimensions: if <span class="math inline">\(A\)</span> is <span class="math inline">\(2\times 2\)</span> and <span class="math inline">\(x_t\in\mathbb{R}^2\)</span>, what are the dimensions of <span class="math inline">\(Ax_t\)</span>? Of <span class="math inline">\(A^5\)</span>?</p>
+<section id="part-a-augmented-matrix-eliminate-check" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-augmented-matrix-eliminate-check">Part A — Augmented matrix, eliminate, check</h3>
+<p>For each system: (i) write the augmented matrix <span class="math inline">\([A\mid b]\)</span>; (ii) solve by elimination (row operations on the augmented matrix); (iii) check by substituting your solution into the original equations (or computing <span class="math inline">\(Ax\)</span> and comparing to <span class="math inline">\(b\)</span>).</p>
+<p><strong>C8.1.</strong> (<span class="math inline">\(2\times 2\)</span>) <span class="math display">\[
+\begin{aligned}
+x_1 + 2x_2 &amp;= 5 \\
+3x_1 - x_2 &amp;= 1.
+\end{aligned}
+\]</span></p>
+<p><strong>C8.2.</strong> (<span class="math inline">\(3\times 2\)</span> — three equations, two unknowns) <span class="math display">\[
+\begin{aligned}
+x_1 + x_2 &amp;= 3 \\
+2x_1 - x_2 &amp;= 0 \\
+3x_1 &amp;= 3.
+\end{aligned}
+\]</span></p>
+<p><strong>C8.3.</strong> (<span class="math inline">\(2\times 3\)</span> — two equations, three unknowns) <span class="math display">\[
+\begin{aligned}
+x_1 + 2x_2 + x_3 &amp;= 4 \\
+2x_1 + 4x_2 + 2x_3 &amp;= 8.
+\end{aligned}
+\]</span> If there are infinitely many solutions, introduce a parameter <span class="math inline">\(t\)</span> and write the general solution.</p>
 </section>
-<section id="textbook-core" class="level3">
-<h3 class="anchored" data-anchor-id="textbook-core">Textbook Core</h3>
-<ul>
-<li>L Ch. 2 Ex. 3: Compare a direct solution and RREF</li>
-<li>L Ch. 2 Ex. 5: Inconsistent and infinite-solution cases</li>
-<li>B 9.1, 9.2, 9.3 (linear dynamical systems / simulation ideas used in class)</li>
-<li>L Ch. 2: matrix–vector products and simple loops as used in Lab 4 prep</li>
-</ul>
+<section id="part-b-name-the-elementary-matrix" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-name-the-elementary-matrix">Part B — Name the elementary matrix</h3>
+<p>Use the templates at the end of the quiz (they will be provided). For each stated row operation on a system with the given number of equations, write the corresponding elementary matrix <span class="math inline">\(E\)</span>.</p>
+<p><strong>C8.4.</strong> Two equations: add <span class="math inline">\(-3\)</span> times row 1 to row 2.</p>
+<p><strong>C8.5.</strong> Two equations: swap row 1 and row 2.</p>
+<p><strong>C8.6.</strong> Three equations: multiply row 2 by <span class="math inline">\(1/2\)</span>.</p>
+<p><strong>C8.7.</strong> Three equations: add <span class="math inline">\(2\)</span> times row 1 to row 3.</p>
+</section>
+<section id="part-c-apply-e-and-rewrite-the-system" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-apply-e-and-rewrite-the-system">Part C — Apply <span class="math inline">\(E\)</span> and rewrite the system</h3>
+<p><strong>C8.8.</strong> Let <span class="math display">\[
+[A\mid b]=\begin{bmatrix}1&amp;2&amp;|&amp;3\\ 2&amp;1&amp;|&amp;0\end{bmatrix},
+\qquad
+E=\begin{bmatrix}1&amp;0\\ -2&amp;1\end{bmatrix}.
+\]</span> (a) Compute <span class="math inline">\(E\,[A\mid b]\)</span> by hand.<br>
+(b) Rewrite the result as a system of equations.</p>
+<p><strong>C8.9.</strong> Let <span class="math display">\[
+[A\mid b]=\begin{bmatrix}1&amp;1&amp;0&amp;|&amp;2\\ 0&amp;1&amp;1&amp;|&amp;3\\ 2&amp;0&amp;1&amp;|&amp;1\end{bmatrix},
+\qquad
+E=\begin{bmatrix}1&amp;0&amp;0\\ 0&amp;1&amp;0\\ -2&amp;0&amp;1\end{bmatrix}.
+\]</span> (a) Compute <span class="math inline">\(E\,[A\mid b]\)</span> by hand.<br>
+(b) Rewrite the result as a system of equations in <span class="math inline">\(x_1,x_2,x_3\)</span>.</p>
 </section>
 </section>
 <section id="stretch" class="level2">
 <h2 class="anchored" data-anchor-id="stretch">Stretch</h2>
-<ul>
-<li>L Ch. 2 Ex. 6</li>
-<li>Simulate five steps of a different <span class="math inline">\(2\times 2\)</span> <span class="math inline">\(A\)</span> by hand; compare two initial states after many iterations and state what is surprising.</li>
-</ul>
+<p><strong>S8.1.</strong> Continue C8.8: from your new matrix, finish elimination and solve the <span class="math inline">\(2\times 2\)</span> system. Check <span class="math inline">\(Ax=b\)</span>.</p>
+<p><strong>S8.2.</strong> For C8.3, write one particular solution (a specific numerical vector) and one nontrivial nullspace direction (homogeneous solution).</p>
 </section>
 <section id="what-a-quiz-item-might-change" class="level2">
 <h2 class="anchored" data-anchor-id="what-a-quiz-item-might-change">What a quiz item might change</h2>
-<p>An RREF whose solution set you describe, the transition matrix entries, the initial state, asking for <span class="math inline">\(x_2\)</span> instead of <span class="math inline">\(x_1\)</span>, or a short loop / software-output interpretation.</p>
+<p>The right-hand side, which row operation is named, or whether the system is <span class="math inline">\(2\times 2\)</span>, <span class="math inline">\(3\times 2\)</span>, or <span class="math inline">\(2\times 3\)</span>.</p>
+<hr>
+</section>
+<section id="elementary-matrix-templates-provided-on-the-quiz" class="level2">
+<h2 class="anchored" data-anchor-id="elementary-matrix-templates-provided-on-the-quiz">Elementary-matrix templates (provided on the quiz)</h2>
+<p>Left-multiplying <span class="math inline">\([A\mid b]\)</span> by <span class="math inline">\(E\)</span> performs the row operation. Build <span class="math inline">\(E\)</span> by doing that same operation to the identity.</p>
+<p><strong>Two equations</strong> (<span class="math inline">\(2\times 2\)</span> templates):</p>
+<p>Swap the two rows: <span class="math display">\[
+\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}.
+\]</span></p>
+<p>Multiply row 1 by <span class="math inline">\(c\neq 0\)</span>, or multiply row 2 by <span class="math inline">\(c\neq 0\)</span>: <span class="math display">\[
+\begin{bmatrix}c&amp;0\\0&amp;1\end{bmatrix},
+\qquad
+\begin{bmatrix}1&amp;0\\0&amp;c\end{bmatrix}.
+\]</span></p>
+<p>Add <span class="math inline">\(c\)</span> times row 1 to row 2, or add <span class="math inline">\(c\)</span> times row 2 to row 1: <span class="math display">\[
+\begin{bmatrix}1&amp;0\\c&amp;1\end{bmatrix},
+\qquad
+\begin{bmatrix}1&amp;c\\0&amp;1\end{bmatrix}.
+\]</span></p>
+<p><strong>Three equations:</strong> start from <span class="math inline">\(I_3\)</span> and edit the same spot. Examples:</p>
+<p>Multiply row 2 by <span class="math inline">\(c\neq 0\)</span>: <span class="math display">\[
+\begin{bmatrix}1&amp;0&amp;0\\0&amp;c&amp;0\\0&amp;0&amp;1\end{bmatrix}.
+\]</span></p>
+<p>Add <span class="math inline">\(c\)</span> times row 1 to row 3: <span class="math display">\[
+\begin{bmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\c&amp;0&amp;1\end{bmatrix}.
+\]</span></p>
+<p>(The extra number sits in the row you change, in the column of the row you copy from.)</p>
 
 
 <!-- -->
@@ -723,8 +753,8 @@ A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Quiz 8"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 30 — RREF and linear dynamical systems"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-13</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 30 — systems, elimination, and elementary matrices"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-28</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -732,89 +762,132 @@ A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](quiz-08.pdf)</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 13, 2026.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Last updated: October 28, 2026.</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Covers:** [RREF](../lectures/lecture-23.qmd) (held from Week 8), plus [Dynamics](../lectures/lecture-24.qmd), [Simulation](../lectures/lecture-25.qmd), and [Through time](../lectures/lecture-26.qmd) (Week 9). Same-day [Cost](../lectures/lecture-29.qmd) and [Lab 3](../labs/lab-03.qmd) are **not** on this quiz.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Covers:** solving linear systems by elimination and elementary matrices ([Lecture 21](../lectures/lecture-21.qmd), [Lecture 22](../lectures/lecture-22.qmd), Lab 2 / RREF practice). Same-day [powers](../lectures/lecture-25.qmd) and [Lab 3](../labs/lab-03.qmd) are **not** on this quiz.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Textbooks: <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe (VMLS)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> · <span class="co">[</span><span class="ot">Lachniet Octave PDF</span><span class="co">](https://upload.wikimedia.org/wikipedia/commons/7/79/Introduction_to_GNU_Octave.pdf)</span> · also on <span class="co">[</span><span class="ot">Resources</span><span class="co">](../resources.qmd)</span>.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Elementary-matrix templates (also provided on the quiz paper) are at the end of this page.</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Core</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Fluency (complete prompts — practice these by hand)</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part A — Augmented matrix, eliminate, check</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>**C8.1.** The RREF of $<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$ is</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>1 &amp; 0 &amp; 2 &amp; | &amp; -1 <span class="sc">\\</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>0 &amp; 1 &amp; -3 &amp; | &amp; 4 <span class="sc">\\</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>0 &amp; 0 &amp; 0 &amp; | &amp; 0</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>List pivot and free variables; write the general solution.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>For each system: (i) write the augmented matrix $<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$; (ii) solve by elimination (row operations on the augmented matrix); (iii) check by substituting your solution into the original equations (or computing $Ax$ and comparing to $b$).</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>**C8.1.** ($2\times 2$)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>x_1 + 2x_2 &amp;= 5 <span class="sc">\\</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>3x_1 - x_2 &amp;= 1.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**C8.2.** Decide unique / none / infinitely many from each RREF, with one reason.</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>(a) $\begin{bmatrix}1&amp;0&amp;|&amp;2<span class="sc">\\</span>0&amp;1&amp;|&amp;-1\end{bmatrix}$</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>(b) $\begin{bmatrix}1&amp;3&amp;|&amp;0<span class="sc">\\</span>0&amp;0&amp;|&amp;2\end{bmatrix}$</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>(c) $\begin{bmatrix}1&amp;2&amp;0&amp;|&amp;1<span class="sc">\\</span>0&amp;0&amp;1&amp;|&amp;5\end{bmatrix}$</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>**C8.3.** You obtain $x=(1,2)$ from software for a $2\times 2$ system. Compute what residual you should check, and say what “success” looks like numerically.</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**C8.4.** A campus population has state $x_t=\begin{bmatrix}c_t<span class="sc">\\</span>o_t\end{bmatrix}$ (on campus, off campus) with</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.7&amp;0.2<span class="sc">\\</span>0.3&amp;0.8\end{bmatrix},\qquad x_0=\begin{bmatrix}1000<span class="sc">\\</span>0\end{bmatrix}.</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>Compute $x_1=Ax_0$ by hand. In one sentence, what do the two entries of $x_1$ mean?</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>**C8.5.** With the same $A$ and $x_1$ from C8.4, compute $x_2=Ax_1$.</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**C8.2.** ($3\times 2$ — three equations, two unknowns)</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>x_1 + x_2 &amp;= 3 <span class="sc">\\</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>2x_1 - x_2 &amp;= 0 <span class="sc">\\</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>3x_1 &amp;= 3.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**C8.3.** ($2\times 3$ — two equations, three unknowns)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>x_1 + 2x_2 + x_3 &amp;= 4 <span class="sc">\\</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>2x_1 + 4x_2 + 2x_3 &amp;= 8.</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>If there are infinitely many solutions, introduce a parameter $t$ and write the general solution.</span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>**C8.6.** True or false, with a one-line reason: for $x_{t+1}=Ax_t$, we always have $x_3=A^3 x_0$.</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part B — Name the elementary matrix</span></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>**C8.7.** Let $A=\operatorname{diag}(1.2,\,0.5)$ and $x_0=(5,4)$.</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Use the templates at the end of the quiz (they will be provided). For each stated row operation on a system with the given number of equations, write the corresponding elementary matrix $E$.</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>(a) Compute $x_1=Ax_0$.</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>**C8.4.** Two equations: add $-3$ times row 1 to row 2.</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>(b) After many steps, which component dominates, and does it grow or decay?</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>**C8.5.** Two equations: swap row 1 and row 2.</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>**C8.8.** Let $A=\begin{bmatrix}0&amp;1<span class="sc">\\</span>-1&amp;0\end{bmatrix}$ and $x_0=(1,0)$. Compute $x_1$ and $x_2$. Describe the long-run behavior in one sentence (no eigenvalues required).</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>**C8.6.** Three equations: multiply row 2 by $1/2$.</span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>**C8.9.** Two towns exchange residents each year:</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>90% of town A stays in A; 10% moves to B.</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>80% of town B stays in B; 20% moves to A.</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>**C8.7.** Three equations: add $2$ times row 1 to row 3.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="fu">### Part C — Apply $E$ and rewrite the system</span></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>Write the transition matrix $A$ so that $x_{t+1}=Ax_t$ with $x=\begin{bmatrix}a<span class="sc">\\</span>b\end{bmatrix}$ (population in A, then B). Compute $x_1$ if $x_0=(100,50)$.</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>**C8.10.** Someone writes a loop <span class="in">`for t = 1 to 10: x = A*x`</span> but never stores the initial $x_0$. How many states after $x_0$ does the loop produce? What should they add if they also want $x_0$ recorded?</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>**C8.11.** True or false, with a one-line reason: if you change $x_0$ but keep the same $A$, the long-run pattern of $x_t$ must stay exactly the same for every $t$.</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>**C8.12 (software sense).** Octave/Python reports, after iterating $x\leftarrow Ax$ twenty times from $x_0=(1000,0)$ with the campus matrix in C8.4, that $x_{20}\approx(500,500)$. What one-sentence observation would you write down for later (Week 13), without naming eigenvalues yet?</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>**C8.13 (cumulative, light).** Dimensions: if $A$ is $2\times 2$ and $x_t\in\mathbb{R}^2$, what are the dimensions of $Ax_t$? Of $A^5$?</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="fu">### Textbook Core</span></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 3: Compare a direct solution and RREF</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 5: Inconsistent and infinite-solution cases</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>B 9.1, 9.2, 9.3 (linear dynamical systems / simulation ideas used in class)</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2: matrix–vector products and simple loops as used in Lab 4 prep</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>L Ch. 2 Ex. 6</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Simulate five steps of a different $2\times 2$ $A$ by hand; compare two initial states after many iterations and state what is surprising.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>**C8.8.** Let</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>=\begin{bmatrix}1&amp;2&amp;|&amp;3<span class="sc">\\</span> 2&amp;1&amp;|&amp;0\end{bmatrix},</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>\qquad</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>E=\begin{bmatrix}1&amp;0<span class="sc">\\</span> -2&amp;1\end{bmatrix}.</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>(a) Compute $E\,<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$ by hand.  </span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>(b) Rewrite the result as a system of equations.</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>**C8.9.** Let</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>=\begin{bmatrix}1&amp;1&amp;0&amp;|&amp;2<span class="sc">\\</span> 0&amp;1&amp;1&amp;|&amp;3<span class="sc">\\</span> 2&amp;0&amp;1&amp;|&amp;1\end{bmatrix},</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>\qquad</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>E=\begin{bmatrix}1&amp;0&amp;0<span class="sc">\\</span> 0&amp;1&amp;0<span class="sc">\\</span> -2&amp;0&amp;1\end{bmatrix}.</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>(a) Compute $E\,<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$ by hand.  </span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>(b) Rewrite the result as a system of equations in $x_1,x_2,x_3$.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stretch</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>**S8.1.** Continue C8.8: from your new matrix, finish elimination and solve the $2\times 2$ system. Check $Ax=b$.</span>
 <span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>**S8.2.** For C8.3, write one particular solution (a specific numerical vector) and one nontrivial nullspace direction (homogeneous solution).</span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>An RREF whose solution set you describe, the transition matrix entries, the initial state, asking for $x_2$ instead of $x_1$, or a short loop / software-output interpretation.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## What a quiz item might change</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>The right-hand side, which row operation is named, or whether the system is $2\times 2$, $3\times 2$, or $2\times 3$.</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## Elementary-matrix templates (provided on the quiz)</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>Left-multiplying $<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$ by $E$ performs the row operation. Build $E$ by doing that same operation to the identity.</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>**Two equations** ($2\times 2$ templates):</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>Swap the two rows:</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}0&amp;1<span class="sc">\\</span>1&amp;0\end{bmatrix}.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>Multiply row 1 by $c\neq 0$, or multiply row 2 by $c\neq 0$:</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}c&amp;0<span class="sc">\\</span>0&amp;1\end{bmatrix},</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>\qquad</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}1&amp;0<span class="sc">\\</span>0&amp;c\end{bmatrix}.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>Add $c$ times row 1 to row 2, or add $c$ times row 2 to row 1:</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}1&amp;0<span class="sc">\\</span>c&amp;1\end{bmatrix},</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>\qquad</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}1&amp;c<span class="sc">\\</span>0&amp;1\end{bmatrix}.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>**Three equations:** start from $I_3$ and edit the same spot. Examples:</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>Multiply row 2 by $c\neq 0$:</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}1&amp;0&amp;0<span class="sc">\\</span>0&amp;c&amp;0<span class="sc">\\</span>0&amp;0&amp;1\end{bmatrix}.</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>Add $c$ times row 1 to row 3:</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>\begin{bmatrix}1&amp;0&amp;0<span class="sc">\\</span>0&amp;1&amp;0<span class="sc">\\</span>c&amp;0&amp;1\end{bmatrix}.</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>(The extra number sits in the row you change, in the column of the row you copy from.)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
