@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lecture 24 — Linear dynamical systems – MATH 107 - Introduction to Linear Algebra</title>
+<title>Lecture 24 — Matrix multiplication – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-166690b9c768161ed89deb9505a7d440.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -169,8 +169,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Lecture 24 — Linear dynamical systems</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Mon Oct 19</p>
+<div class="quarto-title-block"><div><h1 class="title">Lecture 24 — Matrix multiplication</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Mon Oct 26</p>
 </div>
 
 
@@ -182,7 +182,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 8, 2026</p>
+      <p class="date-modified">October 19, 2026</p>
     </div>
   </div>
     
@@ -194,77 +194,72 @@ window.Quarto = {
 
 
 <p><a href="lecture-24.pdf">Download PDF</a></p>
-<p>Last updated: October 8, 2026.</p>
+<p>Last updated: October 19, 2026.</p>
 <!-- BOYD-YOUTUBE -->
-<p><strong>Boyd video (optional):</strong> <a href="https://www.youtube.com/watch?v=NS0jvPLtgGc">Lecture 26 — linear dynamical systems</a> · <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9">ENGR108 playlist (Boyd)</a> <!-- /BOYD-YOUTUBE --></p>
+<p><strong>Boyd video (optional):</strong> <a href="https://www.youtube.com/watch?v=t-G9n2uCa4k">Lecture 27 — matrix multiplication</a> · <a href="https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9">ENGR108 playlist (Boyd)</a> <!-- /BOYD-YOUTUBE --></p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
-<p>Reading: Boyd 9.1–9.3. Related objectives: <a href="../lectures.html#lecture-24">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
+<p>Reading: Boyd 10.1. Related objectives: <a href="../lectures.html#lecture-24">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
 <p>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and <strong>Your turn</strong>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, you should be able to:</p>
 <ol type="1">
-<li>Represent an evolving system as <span class="math inline">\(x_{t+1}=Ax_t\)</span>.</li>
-<li>Interpret the state vector and transition matrix.</li>
-<li>Build a transition matrix from a flow description.</li>
-<li>Compute and interpret the next few states.</li>
+<li>Determine whether a product is defined and give its dimensions.</li>
+<li>Compute a small matrix product.</li>
+<li>Interpret <span class="math inline">\(ABx\)</span> as a sequence of transformations.</li>
+<li>Explain why matrix multiplication is generally not commutative.</li>
 </ol>
 </section>
 <section id="warm-up" class="level2">
 <h2 class="anchored" data-anchor-id="warm-up">Warm-up</h2>
-<p>From Lecture 19, the matrix <span class="math display">\[
-A=\begin{bmatrix}0.9&amp;0.2\\ 0.1&amp;0.8\end{bmatrix}
-\]</span> sends (urban, rural) population fractions today to tomorrow. If today’s state is <span class="math inline">\(x_0=(0.6,0.4)\)</span>, compute <span class="math inline">\(x_1=Ax_0\)</span>. In one sentence: what do the two entries of <span class="math inline">\(x_1\)</span> mean?</p>
+<p>Let <span class="math display">\[
+A=\begin{bmatrix}1&amp;2\\0&amp;-1\end{bmatrix},\qquad
+B=\begin{bmatrix}0&amp;1\\3&amp;2\end{bmatrix},\qquad
+x=\begin{bmatrix}1\\-1\end{bmatrix}.
+\]</span></p>
+<ol type="a">
+<li><p>What are the dimensions of <span class="math inline">\(A\)</span> and of <span class="math inline">\(B\)</span>? Is <span class="math inline">\(AB\)</span> defined? If so, what size is it?</p></li>
+<li><p>Compute <span class="math inline">\(Bx\)</span> (a <span class="math inline">\(2\)</span>-vector). You will need this later as “<span class="math inline">\(B\)</span> first, then <span class="math inline">\(A\)</span>.”</p></li>
+</ol>
 </section>
 <section id="fill-in" class="level2">
 <h2 class="anchored" data-anchor-id="fill-in">Fill in</h2>
-<p>A <strong>linear dynamical system</strong> (discrete time) has the form <span class="math display">\[
-x_{t+1}=\underline{\hspace{1.6cm}},
-\]</span> where <span class="math inline">\(t=0,1,2,\ldots\)</span> is the time index.</p>
-<ul>
-<li>The <strong>state</strong> <span class="math inline">\(x_t\)</span> is an <span class="math inline">\(n\)</span>-vector that completely describes the system at time <span class="math inline">\(t\)</span>.</li>
-<li>The matrix <span class="math inline">\(A\)</span> is the <strong>dynamics</strong> / <strong>transition</strong> matrix. Its size is <span class="math inline">\(\underline{\hspace{1.6cm}}\)</span> (same <span class="math inline">\(n\)</span> as the state).</li>
-</ul>
-<p><strong>Interpretation of columns.</strong> The <span class="math inline">\(j\)</span>th column of <span class="math inline">\(A\)</span> is the next state if the current state is <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> (one unit in compartment <span class="math inline">\(j\)</span>, nothing elsewhere).</p>
-<p><strong>A few steps by hand.</strong> <span class="math display">\[
-x_1=Ax_0,\qquad x_2=Ax_1=A(Ax_0),\qquad x_3=Ax_2=\cdots.
-\]</span> (We will package “<span class="math inline">\(t\)</span> steps at once” as <span class="math inline">\(A^t\)</span> later; today focus on one step at a time.)</p>
-<p><strong>Building <span class="math inline">\(A\)</span> from a flow story.</strong> For each compartment <span class="math inline">\(j\)</span>, ask: if everything starts in <span class="math inline">\(j\)</span>, where does it go next? Those destinations become column <span class="math inline">\(j\)</span>.</p>
+<p>If <span class="math inline">\(A\)</span> is <span class="math inline">\(m\times n\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(n\times p\)</span>, the product <span class="math inline">\(AB\)</span> is the <span class="math inline">\(m\times p\)</span> matrix whose <span class="math inline">\(j\)</span>th column is <span class="math display">\[
+(AB)_j = \underline{\hspace{2.4cm}}.
+\]</span> Equivalently, entry <span class="math inline">\((i,j)\)</span> is the inner product of <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> of <span class="math inline">\(A\)</span> with <span class="math inline">\(\underline{\hspace{2.0cm}}\)</span> of <span class="math inline">\(B\)</span>: <span class="math display">\[
+(AB)_{ij} = a_i^{\mathsf{T}} b_j.
+\]</span></p>
+<p><strong>When is <span class="math inline">\(AB\)</span> defined?</strong> The inner dimensions must match: number of <span class="math inline">\(\underline{\hspace{1.6cm}}\)</span> of <span class="math inline">\(A\)</span> equals number of <span class="math inline">\(\underline{\hspace{1.6cm}}\)</span> of <span class="math inline">\(B\)</span>.</p>
+<p><strong>Associativity (for vectors).</strong> For a compatible <span class="math inline">\(p\)</span>-vector <span class="math inline">\(x\)</span>, <span class="math display">\[
+(AB)x = A(Bx).
+\]</span> Reading right to left: apply <span class="math inline">\(\underline{\hspace{1.0cm}}\)</span> first, then <span class="math inline">\(\underline{\hspace{1.0cm}}\)</span>. So <span class="math inline">\(ABx\)</span> is a <strong>sequence of transformations</strong>.</p>
+<p><strong>Not commutative.</strong> In general <span class="math inline">\(AB\neq BA\)</span> (even when both products are defined). Order of maps matters: “rotate then reflect” is not the same as “reflect then rotate.”</p>
 </section>
 <section id="worked-in-class" class="level2">
 <h2 class="anchored" data-anchor-id="worked-in-class">Worked in class</h2>
-<p><strong>W1.</strong> State and matrix. A campus tracks (on-campus residents, off-campus) each week as a <span class="math inline">\(2\)</span>-vector <span class="math inline">\(x_t\)</span>. Someone proposes <span class="math display">\[
-A=\begin{bmatrix}0.7&amp;0.15\\ 0.3&amp;0.85\end{bmatrix}.
-\]</span> (a) What does entry <span class="math inline">\(A_{12}\)</span> mean in words? (b) What does the first column of <span class="math inline">\(A\)</span> represent? (c) If <span class="math inline">\(x_0=(800,200)\)</span>, compute <span class="math inline">\(x_1\)</span> and interpret both entries (people, not fractions).</p>
-<p><strong>W2.</strong> Build <span class="math inline">\(A\)</span> from flows. Two towns, Arcata and Eureka, exchange residents each year:</p>
-<ul>
-<li>Of those in Arcata, <span class="math inline">\(80\%\)</span> stay and <span class="math inline">\(20\%\)</span> move to Eureka.</li>
-<li>Of those in Eureka, <span class="math inline">\(90\%\)</span> stay and <span class="math inline">\(10\%\)</span> move to Arcata.</li>
-</ul>
-<p>Order the state as <span class="math inline">\(x_t=(\text{Arcata},\text{Eureka})\)</span>. Write the <span class="math inline">\(2\times 2\)</span> transition matrix <span class="math inline">\(A\)</span>.</p>
-<p><strong>W3.</strong> Next few states. With <span class="math inline">\(A\)</span> from W2 and <span class="math inline">\(x_0=(5000,7000)\)</span>, compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> by hand. Does the Arcata population rise or fall over these two years?</p>
-<p><strong>W4.</strong> Epidemic sketch (Boyd-style). Let <span class="math inline">\(x_t=(S_t,I_t)\)</span> be (susceptible, infected) counts among a fixed population of size <span class="math inline">\(N=S_t+I_t\)</span>. A simple model uses <span class="math display">\[
-A=\begin{bmatrix}0.95&amp;0.10\\ 0.05&amp;0.90\end{bmatrix}.
-\]</span> (a) Check that each column sums to <span class="math inline">\(1\)</span>. Why is that natural here? (b) If <span class="math inline">\(x_0=(190,10)\)</span>, compute <span class="math inline">\(x_1\)</span>. Did infections go up or down?</p>
+<p><strong>W1.</strong> Dimensions. For each pair, decide whether <span class="math inline">\(AB\)</span> is defined and give the size of <span class="math inline">\(AB\)</span> if it is.</p>
+<ol type="a">
+<li><p><span class="math inline">\(A\)</span> is <span class="math inline">\(3\times 2\)</span>, <span class="math inline">\(B\)</span> is <span class="math inline">\(2\times 4\)</span>.</p></li>
+<li><p><span class="math inline">\(A\)</span> is <span class="math inline">\(2\times 3\)</span>, <span class="math inline">\(B\)</span> is <span class="math inline">\(2\times 4\)</span>.</p></li>
+<li><p><span class="math inline">\(A\)</span> is <span class="math inline">\(2\times 2\)</span>, <span class="math inline">\(B\)</span> is <span class="math inline">\(2\times 2\)</span>.</p></li>
+</ol>
+<p><strong>W2.</strong> Compute a product. With <span class="math display">\[
+A=\begin{bmatrix}1&amp;2\\0&amp;-1\end{bmatrix},\qquad
+B=\begin{bmatrix}0&amp;1\\3&amp;2\end{bmatrix},
+\]</span> compute <span class="math inline">\(AB\)</span> by forming columns <span class="math inline">\(Ab_1\)</span> and <span class="math inline">\(Ab_2\)</span> (or by row–column inner products).</p>
+<p><strong>W3.</strong> Sequence of maps. Using the same <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(x=(1,-1)\)</span> from the warm-up, compute <span class="math inline">\(Bx\)</span>, then <span class="math inline">\(A(Bx)\)</span>. Compare with <span class="math inline">\((AB)x\)</span> using your <span class="math inline">\(AB\)</span> from W2. Same answer?</p>
+<p><strong>W4.</strong> Non-commutativity. With the same <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, compute <span class="math inline">\(BA\)</span>. Is <span class="math inline">\(BA=AB\)</span>?</p>
 </section>
 <section id="your-turn" class="level2">
 <h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
-<p><strong>Y1.</strong> True or false, with a one-line reason: if <span class="math inline">\(x_{t+1}=Ax_t\)</span>, then knowing <span class="math inline">\(x_t\)</span> and <span class="math inline">\(A\)</span> determines <span class="math inline">\(x_{t+1}\)</span> uniquely.</p>
-<p><strong>Y2.</strong> Three age groups (youth, adult, senior) with transition <span class="math display">\[
-A=\begin{bmatrix}
-0.6 &amp; 0 &amp; 0 \\
-0.4 &amp; 0.7 &amp; 0 \\
-0 &amp; 0.3 &amp; 0.8
-\end{bmatrix}.
-\]</span> Interpret <span class="math inline">\(A_{21}\)</span> and <span class="math inline">\(A_{33}\)</span> in one phrase each. If <span class="math inline">\(x_0=(100,200,50)\)</span>, compute <span class="math inline">\(x_1\)</span>.</p>
-<p><strong>Y3.</strong> Build <span class="math inline">\(A\)</span>. Two warehouse inventory levels <span class="math inline">\(x_t=(\text{A},\text{B})\)</span>. Each day:</p>
-<ul>
-<li>Warehouse A keeps <span class="math inline">\(70\%\)</span> of its stock and ships <span class="math inline">\(30\%\)</span> to B.</li>
-<li>Warehouse B keeps <span class="math inline">\(60\%\)</span> and ships <span class="math inline">\(40\%\)</span> to A.</li>
-</ul>
-<p>Write <span class="math inline">\(A\)</span>. Then with <span class="math inline">\(x_0=(100,50)\)</span>, find <span class="math inline">\(x_1\)</span>.</p>
-<p><strong>Y4.</strong> With <span class="math inline">\(A=\begin{bmatrix}1.1&amp;0\\0&amp;0.5\end{bmatrix}\)</span> and <span class="math inline">\(x_0=(2,8)\)</span>, compute <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>. Which component is growing? Which is shrinking?</p>
+<p><strong>Y1.</strong> Let <span class="math display">\[
+C=\begin{bmatrix}1&amp;0&amp;-1\\2&amp;1&amp;0\end{bmatrix},\qquad
+D=\begin{bmatrix}0&amp;1\\1&amp;0\\2&amp;-1\end{bmatrix}.
+\]</span> Is <span class="math inline">\(CD\)</span> defined? Size? Compute <span class="math inline">\(CD\)</span>.</p>
+<p><strong>Y2.</strong> Is <span class="math inline">\(DC\)</span> defined? If so, give its size (you need not compute every entry unless time allows). What does this say about “<span class="math inline">\(CD\)</span> vs <span class="math inline">\(DC\)</span>”?</p>
+<p><strong>Y3.</strong> Let <span class="math inline">\(R=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> (<span class="math inline">\(90^\circ\)</span> CCW) and <span class="math inline">\(S=\operatorname{diag}(2,1)\)</span> (horizontal stretch). Compute <span class="math inline">\(RSx\)</span> and <span class="math inline">\(SRx\)</span> for <span class="math inline">\(x=(1,0)\)</span>. Same point? Interpret in one sentence.</p>
+<p><strong>Y4.</strong> True or false, with a one-line reason: if <span class="math inline">\(AB\)</span> and <span class="math inline">\(BA\)</span> are both defined, then <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> must be square of the same size.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -277,15 +272,12 @@ A=\begin{bmatrix}
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Y1. <strong>True.</strong> The rule <span class="math inline">\(x_{t+1}=Ax_t\)</span> is a function of the current state: one matrix–vector product gives the unique next state.</p>
-<p>Y2. <span class="math inline">\(A_{21}=0.4\)</span>: fraction (or count factor) of youth that become adults in one step. <span class="math inline">\(A_{33}=0.8\)</span>: fraction of seniors that remain seniors. <span class="math display">\[
-x_1=Ax_0=\begin{bmatrix}60\\180\\100\end{bmatrix}.
-\]</span></p>
-<p>Y3. <span class="math display">\[
-A=\begin{bmatrix}0.7&amp;0.4\\ 0.3&amp;0.6\end{bmatrix},\qquad
-x_1=\begin{bmatrix}90\\60\end{bmatrix}.
-\]</span> (Column 1: keep <span class="math inline">\(70\%\)</span> in A, ship <span class="math inline">\(30\%\)</span> to B. Column 2: ship <span class="math inline">\(40\%\)</span> of B to A, keep <span class="math inline">\(60\%\)</span> in B.)</p>
-<p>Y4. <span class="math inline">\(x_1=(2.2,4)\)</span>, <span class="math inline">\(x_2=(2.42,2)\)</span>. First component grows (factor <span class="math inline">\(1.1\)</span> each step); second shrinks (factor <span class="math inline">\(0.5\)</span>).</p>
+<p>Y1. <span class="math inline">\(C\)</span> is <span class="math inline">\(2\times 3\)</span>, <span class="math inline">\(D\)</span> is <span class="math inline">\(3\times 2\)</span>, so <span class="math inline">\(CD\)</span> is defined and <span class="math inline">\(2\times 2\)</span>: <span class="math display">\[
+CD=\begin{bmatrix}-2&amp;2\\1&amp;2\end{bmatrix}.
+\]</span> (Columns: <span class="math inline">\(Cd_1=(-2,1)\)</span>, <span class="math inline">\(Cd_2=(2,2)\)</span>.)</p>
+<p>Y2. Yes — <span class="math inline">\(D\)</span> is <span class="math inline">\(3\times 2\)</span> and <span class="math inline">\(C\)</span> is <span class="math inline">\(2\times 3\)</span>, so <span class="math inline">\(DC\)</span> is <span class="math inline">\(3\times 3\)</span>. Even when both products exist they need not have the same size, so they cannot be equal as matrices. Order matters.</p>
+<p>Y3. <span class="math inline">\(Sx=(2,0)\)</span>, then <span class="math inline">\(RSx=(0,2)\)</span>. Meanwhile <span class="math inline">\(Rx=(0,1)\)</span>, then <span class="math inline">\(SRx=(0,1)\)</span>. Different: stretch-then-rotate <span class="math inline">\(\neq\)</span> rotate-then-stretch for this <span class="math inline">\(x\)</span>.</p>
+<p>Y4. <strong>False.</strong> Example: <span class="math inline">\(A\)</span> is <span class="math inline">\(2\times 3\)</span> and <span class="math inline">\(B\)</span> is <span class="math inline">\(3\times 2\)</span> — both <span class="math inline">\(AB\)</span> (<span class="math inline">\(2\times 2\)</span>) and <span class="math inline">\(BA\)</span> (<span class="math inline">\(3\times 3\)</span>) are defined, but neither factor is square. (They become the same size only when <span class="math inline">\(m=n\)</span>.)</p>
 </div>
 </div>
 </div>
@@ -753,9 +745,9 @@ x_1=\begin{bmatrix}90\\60\end{bmatrix}.
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 24 — Linear dynamical systems"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Mon Oct 19"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-08</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 24 — Matrix multiplication"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Mon Oct 26"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-19</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -765,17 +757,17 @@ x_1=\begin{bmatrix}90\\60\end{bmatrix}.
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-24.pdf)</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 19, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- BOYD-YOUTUBE --&gt;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Boyd video (optional):** <span class="co">[</span><span class="ot">Lecture 26 — linear dynamical systems</span><span class="co">](https://www.youtube.com/watch?v=NS0jvPLtgGc)</span> · <span class="co">[</span><span class="ot">ENGR108 playlist (Boyd)</span><span class="co">](https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9)</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Boyd video (optional):** <span class="co">[</span><span class="ot">Lecture 27 — matrix multiplication</span><span class="co">](https://www.youtube.com/watch?v=t-G9n2uCa4k)</span> · <span class="co">[</span><span class="ot">ENGR108 playlist (Boyd)</span><span class="co">](https://www.youtube.com/playlist?list=PLoROMvodv4rMz-WbFQtNUsUElIh2cPmN9)</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /BOYD-YOUTUBE --&gt;</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- /VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 9.1–9.3. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-24)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Reading: Boyd 10.1. Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-24)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Bring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and **Your turn**.</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
@@ -783,124 +775,116 @@ x_1=\begin{bmatrix}90\\60\end{bmatrix}.
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>By the end of class, you should be able to:</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Represent an evolving system as $x_{t+1}=Ax_t$.</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret the state vector and transition matrix.</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Build a transition matrix from a flow description.</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compute and interpret the next few states.</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Determine whether a product is defined and give its dimensions.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Compute a small matrix product.</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret $ABx$ as a sequence of transformations.</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain why matrix multiplication is generally not commutative.</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Warm-up</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>From Lecture 19, the matrix</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Let</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.9&amp;0.2<span class="sc">\\</span> 0.1&amp;0.8\end{bmatrix}</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>sends (urban, rural) population fractions today to tomorrow. If today’s state is $x_0=(0.6,0.4)$, compute $x_1=Ax_0$. In one sentence: what do the two entries of $x_1$ mean?</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>A **linear dynamical system** (discrete time) has the form</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>x_{t+1}=\underline{\hspace{1.6cm}},</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>where $t=0,1,2,\ldots$ is the time index.</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The **state** $x_t$ is an $n$-vector that completely describes the system at time $t$.</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The matrix $A$ is the **dynamics** / **transition** matrix. Its size is $\underline{\hspace{1.6cm}}$ (same $n$ as the state).</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>**Interpretation of columns.** The $j$th column of $A$ is the next state if the current state is $\underline{\hspace{2.0cm}}$ (one unit in compartment $j$, nothing elsewhere).</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>**A few steps by hand.**</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;2<span class="sc">\\</span>0&amp;-1\end{bmatrix},\qquad</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>B=\begin{bmatrix}0&amp;1<span class="sc">\\</span>3&amp;2\end{bmatrix},\qquad</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>x=\begin{bmatrix}1<span class="sc">\\</span>-1\end{bmatrix}.</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>(a) What are the dimensions of $A$ and of $B$? Is $AB$ defined? If so, what size is it?</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>(b) Compute $Bx$ (a $2$-vector). You will need this later as “$B$ first, then $A$.”</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fill in</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>If $A$ is $m\times n$ and $B$ is $n\times p$, the product $AB$ is the $m\times p$ matrix whose $j$th column is</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>(AB)_j = \underline{\hspace{2.4cm}}.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>Equivalently, entry $(i,j)$ is the inner product of $\underline{\hspace{2.0cm}}$ of $A$ with $\underline{\hspace{2.0cm}}$ of $B$:</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>(AB)_{ij} = a_i^{\mathsf{T}} b_j.</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>x_1=Ax_0,\qquad x_2=Ax_1=A(Ax_0),\qquad x_3=Ax_2=\cdots.</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>(We will package “$t$ steps at once” as $A^t$ later; today focus on one step at a time.)</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>**Building $A$ from a flow story.** For each compartment $j$, ask: if everything starts in $j$, where does it go next? Those destinations become column $j$.</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>**W1.** State and matrix. A campus tracks (on-campus residents, off-campus) each week as a $2$-vector $x_t$. Someone proposes</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.7&amp;0.15<span class="sc">\\</span> 0.3&amp;0.85\end{bmatrix}.</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>(a) What does entry $A_{12}$ mean in words?</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>(b) What does the first column of $A$ represent?</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>(c) If $x_0=(800,200)$, compute $x_1$ and interpret both entries (people, not fractions).</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>**W2.** Build $A$ from flows. Two towns, Arcata and Eureka, exchange residents each year:</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Of those in Arcata, $80\%$ stay and $20\%$ move to Eureka.</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Of those in Eureka, $90\%$ stay and $10\%$ move to Arcata.</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>**When is $AB$ defined?** The inner dimensions must match: number of $\underline{\hspace{1.6cm}}$ of $A$ equals number of $\underline{\hspace{1.6cm}}$ of $B$.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>**Associativity (for vectors).** For a compatible $p$-vector $x$,</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>(AB)x = A(Bx).</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>Reading right to left: apply $\underline{\hspace{1.0cm}}$ first, then $\underline{\hspace{1.0cm}}$. So $ABx$ is a **sequence of transformations**.</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>**Not commutative.** In general $AB\neq BA$ (even when both products are defined). Order of maps matters: “rotate then reflect” is not the same as “reflect then rotate.”</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>**W1.** Dimensions. For each pair, decide whether $AB$ is defined and give the size of $AB$ if it is.</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>(a) $A$ is $3\times 2$, $B$ is $2\times 4$.</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>(b) $A$ is $2\times 3$, $B$ is $2\times 4$.</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>(c) $A$ is $2\times 2$, $B$ is $2\times 2$.</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>Order the state as $x_t=(\text{Arcata},\text{Eureka})$. Write the $2\times 2$ transition matrix $A$.</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>**W3.** Next few states. With $A$ from W2 and $x_0=(5000,7000)$, compute $x_1$ and $x_2$ by hand. Does the Arcata population rise or fall over these two years?</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>**W4.** Epidemic sketch (Boyd-style). Let $x_t=(S_t,I_t)$ be (susceptible, infected) counts among a fixed population of size $N=S_t+I_t$. A simple model uses</span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.95&amp;0.10<span class="sc">\\</span> 0.05&amp;0.90\end{bmatrix}.</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>(a) Check that each column sums to $1$. Why is that natural here?</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>(b) If $x_0=(190,10)$, compute $x_1$. Did infections go up or down?</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>**W2.** Compute a product. With</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;2<span class="sc">\\</span>0&amp;-1\end{bmatrix},\qquad</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>B=\begin{bmatrix}0&amp;1<span class="sc">\\</span>3&amp;2\end{bmatrix},</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>compute $AB$ by forming columns $Ab_1$ and $Ab_2$ (or by row–column inner products).</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>**W3.** Sequence of maps. Using the same $A$, $B$, and $x=(1,-1)$ from the warm-up, compute $Bx$, then $A(Bx)$. Compare with $(AB)x$ using your $AB$ from W2. Same answer?</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>**W4.** Non-commutativity. With the same $A$ and $B$, compute $BA$. Is $BA=AB$?</span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>**Y1.** True or false, with a one-line reason: if $x_{t+1}=Ax_t$, then knowing $x_t$ and $A$ determines $x_{t+1}$ uniquely.</span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>**Y2.** Three age groups (youth, adult, senior) with transition</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}</span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>0.6 &amp; 0 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>0.4 &amp; 0.7 &amp; 0 <span class="sc">\\</span></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>0 &amp; 0.3 &amp; 0.8</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>\end{bmatrix}.</span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>Interpret $A_{21}$ and $A_{33}$ in one phrase each. If $x_0=(100,200,50)$, compute $x_1$.</span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>**Y3.** Build $A$. Two warehouse inventory levels $x_t=(\text{A},\text{B})$. Each day:</span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Warehouse A keeps $70\%$ of its stock and ships $30\%$ to B.</span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Warehouse B keeps $60\%$ and ships $40\%$ to A.</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>**Y1.** Let</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>C=\begin{bmatrix}1&amp;0&amp;-1<span class="sc">\\</span>2&amp;1&amp;0\end{bmatrix},\qquad</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>D=\begin{bmatrix}0&amp;1<span class="sc">\\</span>1&amp;0<span class="sc">\\</span>2&amp;-1\end{bmatrix}.</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>Is $CD$ defined? Size? Compute $CD$.</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>**Y2.** Is $DC$ defined? If so, give its size (you need not compute every entry unless time allows). What does this say about “$CD$ vs $DC$”?</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>**Y3.** Let $R=\begin{bmatrix}0&amp;-1<span class="sc">\\</span>1&amp;0\end{bmatrix}$ ($90^\circ$ CCW) and $S=\operatorname{diag}(2,1)$ (horizontal stretch). Compute $RSx$ and $SRx$ for $x=(1,0)$. Same point? Interpret in one sentence.</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>**Y4.** True or false, with a one-line reason: if $AB$ and $BA$ are both defined, then $A$ and $B$ must be square of the same size.</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>Write $A$. Then with $x_0=(100,50)$, find $x_1$.</span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>**Y4.** With $A=\begin{bmatrix}1.1&amp;0<span class="sc">\\</span>0&amp;0.5\end{bmatrix}$ and $x_0=(2,8)$, compute $x_1$ and $x_2$. Which component is growing? Which is shrinking?</span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-24.qmd &gt;}}</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-24.qmd &gt;}}</span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>\newpage</span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-24.qmd &gt;}}</span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-24.qmd &gt;}}</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
