@@ -183,7 +183,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 12, 2026</p>
+      <p class="date-modified">October 29, 2026</p>
     </div>
   </div>
     
@@ -195,15 +195,16 @@ window.Quarto = {
 
 
 <p><a href="lab-05.pdf">Download PDF</a></p>
-<p>Last updated: October 12, 2026.</p>
+<p>Last updated: October 29, 2026.</p>
 <p>In class Friday, November 20 (same day as <a href="../lectures/lecture-37.html">Lecture 37</a> / <a href="../quizzes/quiz-10.html">Quiz 10</a>). Quiz 10 is Week 11 inverses / rank / determinants — <strong>not</strong> this lab.</p>
 <p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Preview the <a href="../labs/lab-05-ticket.html">one-pager</a>; write on the hard copy handed out in class.</p>
+<p><strong>Payoff.</strong> Lab 4 asked why different starts share a long-run mix. Today: that mix is the <strong><span class="math inline">\(\lambda=1\)</span> eigenvector</strong> (scaled); the other eigenvalue has <span class="math inline">\(|\lambda|&lt;1\)</span>, so its mode fades. Same story as Lecture 37’s dominant-eigenbehavior fill-in.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ol type="1">
 <li>Find a steady state of <span class="math inline">\(x=Ax\)</span> (or an eigenvector for <span class="math inline">\(\lambda=1\)</span>).</li>
 <li>Use software eigenvalues/vectors and match them to the Lab 4 long-run mix.</li>
-<li>State how an eigen-direction explains repeated multiplication by <span class="math inline">\(A\)</span>.</li>
+<li>State how an eigen-direction explains repeated multiplication by <span class="math inline">\(A\)</span> (<span class="math inline">\(A^tv=\lambda^tv\)</span>).</li>
 </ol>
 </section>
 <section id="math-connections" class="level2">
@@ -730,7 +731,7 @@ A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix}.
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 5 — Steady State and Eigen"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, November 20 (~20 min)"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-29</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -740,58 +741,60 @@ A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix}.
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-05.pdf)</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 12, 2026.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 29, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>In class Friday, November 20 (same day as <span class="co">[</span><span class="ot">Lecture 37</span><span class="co">](../lectures/lecture-37.qmd)</span> / <span class="co">[</span><span class="ot">Quiz 10</span><span class="co">](../quizzes/quiz-10.qmd)</span>). Quiz 10 is Week 11 inverses / rank / determinants — **not** this lab.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-05-ticket.qmd)</span>; write on the hard copy handed out in class.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Payoff.** Lab 4 asked why different starts share a long-run mix. Today: that mix is the **$\lambda=1$ eigenvector** (scaled); the other eigenvalue has $|\lambda|&lt;1$, so its mode fades. Same story as Lecture 37’s dominant-eigenbehavior fill-in.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Find a steady state of $x=Ax$ (or an eigenvector for $\lambda=1$).</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Use software eigenvalues/vectors and match them to the Lab 4 long-run mix.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>State how an eigen-direction explains repeated multiplication by $A$.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Find a steady state of $x=Ax$ (or an eigenvector for $\lambda=1$).</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Use software eigenvalues/vectors and match them to the Lab 4 long-run mix.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>State how an eigen-direction explains repeated multiplication by $A$ ($A^tv=\lambda^tv$).</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Eigenvalues and eigenvectors (<span class="co">[</span><span class="ot">Lectures 35</span><span class="co">](../lectures/lecture-35.qmd)</span>–<span class="co">[</span><span class="ot">37</span><span class="co">](../lectures/lecture-37.qmd)</span>); build on Lab 4’s iteration.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Eigenvalues and eigenvectors (<span class="co">[</span><span class="ot">Lectures 35</span><span class="co">](../lectures/lecture-35.qmd)</span>–<span class="co">[</span><span class="ot">37</span><span class="co">](../lectures/lecture-37.qmd)</span>); build on Lab 4’s iteration.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eigenpairs <span class="pp">|</span> <span class="in">`[V,D]=eig(A)`</span> <span class="pp">|</span> <span class="in">`lam, V = np.linalg.eig(A)`</span> <span class="pp">|</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Diagonal entries <span class="pp">|</span> <span class="in">`diag(D)`</span> <span class="pp">|</span> <span class="in">`lam`</span> <span class="pp">|</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Normalize a vector <span class="pp">|</span> <span class="in">`v/sum(v)`</span> or <span class="in">`v/norm(v)`</span> <span class="pp">|</span> same idea with NumPy <span class="pp">|</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ops strip</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Eigenpairs <span class="pp">|</span> <span class="in">`[V,D]=eig(A)`</span> <span class="pp">|</span> <span class="in">`lam, V = np.linalg.eig(A)`</span> <span class="pp">|</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Diagonal entries <span class="pp">|</span> <span class="in">`diag(D)`</span> <span class="pp">|</span> <span class="in">`lam`</span> <span class="pp">|</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Normalize a vector <span class="pp">|</span> <span class="in">`v/sum(v)`</span> or <span class="in">`v/norm(v)`</span> <span class="pp">|</span> same idea with NumPy <span class="pp">|</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Same campus matrix as Lab 4:</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.7&amp;0.2<span class="sc">\\</span>0.3&amp;0.8\end{bmatrix}.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ops strip</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>Same campus matrix as Lab 4:</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**C5.0.** Solve $(A-I)x=0$ (or ask software for a nullspace / eigenvector for $\lambda=1$). Scale so the two entries sum to $1000$ (total students).</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}0.7&amp;0.2<span class="sc">\\</span>0.3&amp;0.8\end{bmatrix}.</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**Expected:** a multiple of $(2,3)$ — e.g. $x=(400,600)$ when entries sum to $1000$.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**C5.0.** Solve $(A-I)x=0$ (or ask software for a nullspace / eigenvector for $\lambda=1$). Scale so the two entries sum to $1000$ (total students).</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Application</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>**Expected:** a multiple of $(2,3)$ — e.g. $x=(400,600)$ when entries sum to $1000$.</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>**C5.1.** Compute all eigenvalues of $A$ in software. Which one has magnitude $1$? Which has $|\lambda|&lt;1$?</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## Application</span></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>**Expected:** $\lambda_1=1$ and $\lambda_2=0.5$ (order may differ).</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>**C5.1.** Compute all eigenvalues of $A$ in software. Which one has magnitude $1$? Which has $|\lambda|&lt;1$?</span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>**C5.2.** Take the eigenvector for $\lambda=1$, scale so entries sum to $1000$, and compare to your Lab 4 $x_{20}$. One sentence: why does iteration settle there?</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>**Expected:** $\lambda_1=1$ and $\lambda_2=0.5$ (order may differ).</span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**Expected:** the long-run state is (essentially) that $\lambda=1$ direction; other modes shrink because $|\lambda_2|&lt;1$.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>**C5.2.** Take the eigenvector for $\lambda=1$, scale so entries sum to $1000$, and compare to your Lab 4 $x_{20}$. One sentence: why does iteration settle there?</span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**C5.3.** Capstone preview: when you compress a matrix with SVD, you keep the **largest** singular values. In one sentence, how is “keep the big directions” similar to “the $\lambda=1$ mode wins the long run”?</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>**Expected:** the long-run state is (essentially) that $\lambda=1$ direction; other modes shrink because $|\lambda_2|&lt;1$.</span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**Expected:** both stories pick the directions that dominate the object (image residual vs. iterated state).</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>**C5.3.** Capstone preview: when you compress a matrix with SVD, you keep the **largest** singular values. In one sentence, how is “keep the big directions” similar to “the $\lambda=1$ mode wins the long run”?</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-pager</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>**Expected:** both stories pick the directions that dominate the object (image residual vs. iterated state).</span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>Preview the <span class="co">[</span><span class="ot">Lab 5 ticket</span><span class="co">](lab-05-ticket.qmd)</span>; write on the hard copy in class.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-pager</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Preview the <span class="co">[</span><span class="ot">Lab 5 ticket</span><span class="co">](lab-05-ticket.qmd)</span>; write on the hard copy in class.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

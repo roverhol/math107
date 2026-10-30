@@ -167,12 +167,11 @@ window.Quarto = {
   <li><a href="#lecture-22-continued-linear-dynamical-systems" id="toc-lecture-22-continued-linear-dynamical-systems" class="nav-link" data-scroll-target="#lecture-22-continued-linear-dynamical-systems">Lecture 22, continued — Linear dynamical systems</a></li>
   <li><a href="#lecture-23-iteration-simulation-and-long-run-behavior" id="toc-lecture-23-iteration-simulation-and-long-run-behavior" class="nav-link" data-scroll-target="#lecture-23-iteration-simulation-and-long-run-behavior">Lecture 23 — Iteration, simulation, and long-run behavior</a></li>
   <li><a href="#lecture-23-continued-predict-a-system-through-time" id="toc-lecture-23-continued-predict-a-system-through-time" class="nav-link" data-scroll-target="#lecture-23-continued-predict-a-system-through-time">Lecture 23, continued — Predict a system through time</a></li>
-  <li><a href="#lecture-24-matrix-multiplication" id="toc-lecture-24-matrix-multiplication" class="nav-link" data-scroll-target="#lecture-24-matrix-multiplication">Lecture 24 — Matrix multiplication</a></li>
-  <li><a href="#lecture-25-composition-and-matrix-powers" id="toc-lecture-25-composition-and-matrix-powers" class="nav-link" data-scroll-target="#lecture-25-composition-and-matrix-powers">Lecture 25 — Composition and matrix powers</a></li>
-  <li><a href="#lecture-26-computational-cost" id="toc-lecture-26-computational-cost" class="nav-link" data-scroll-target="#lecture-26-computational-cost">Lecture 26 — Computational cost</a></li>
-  <li><a href="#lecture-27-inverses-and-solving" id="toc-lecture-27-inverses-and-solving" class="nav-link" data-scroll-target="#lecture-27-inverses-and-solving">Lecture 27 — Inverses and solving</a></li>
-  <li><a href="#lecture-28-rank-column-space-null-space" id="toc-lecture-28-rank-column-space-null-space" class="nav-link" data-scroll-target="#lecture-28-rank-column-space-null-space">Lecture 28 — Rank, column space, null space</a></li>
-  <li><a href="#lecture-29-determinants-geometry-and-invertibility" id="toc-lecture-29-determinants-geometry-and-invertibility" class="nav-link" data-scroll-target="#lecture-29-determinants-geometry-and-invertibility">Lecture 29 — Determinants, geometry, and invertibility</a></li>
+  <li><a href="#lecture-23-matrix-products-and-powers" id="toc-lecture-23-matrix-products-and-powers" class="nav-link" data-scroll-target="#lecture-23-matrix-products-and-powers">Lecture 23 — Matrix products and powers</a></li>
+  <li><a href="#lab-3-computational-cost-and-solve-syntax" id="toc-lab-3-computational-cost-and-solve-syntax" class="nav-link" data-scroll-target="#lab-3-computational-cost-and-solve-syntax">Lab 3 — Computational cost and solve syntax</a></li>
+  <li><a href="#lecture-24-inverses-from-elementary-matrices" id="toc-lecture-24-inverses-from-elementary-matrices" class="nav-link" data-scroll-target="#lecture-24-inverses-from-elementary-matrices">Lecture 24 — Inverses from elementary matrices</a></li>
+  <li><a href="#lecture-25-rank-column-space-null-space" id="toc-lecture-25-rank-column-space-null-space" class="nav-link" data-scroll-target="#lecture-25-rank-column-space-null-space">Lecture 25 — Rank, column space, null space</a></li>
+  <li><a href="#lecture-26-determinants-geometry-and-invertibility" id="toc-lecture-26-determinants-geometry-and-invertibility" class="nav-link" data-scroll-target="#lecture-26-determinants-geometry-and-invertibility">Lecture 26 — Determinants, geometry, and invertibility</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -218,7 +217,7 @@ window.Quarto = {
 <h1>Recommended study plan</h1>
 <ol type="1">
 <li><strong>Scan the learning outcomes below.</strong> Mark each as: confident / shaky / blank.</li>
-<li><strong>Go through the lecture notes (18–29).</strong> For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 30; the exam day page is Lecture 31.)</li>
+<li><strong>Go through the lecture notes (18–26) plus Lab 3.</strong> For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 27; the exam day page is Lecture 28.)</li>
 <li><strong>Build your own “important definitions and formulas” list.</strong> As you read, write down every definition or formula you might need on the exam (matrix sizes, <span class="math inline">\(Ax\)</span>, RREF language, <span class="math inline">\(A^k\)</span>, inverse tests, rank/null/col, determinants).</li>
 <li><strong>Rework examples from lecture and quizzes.</strong> Cover the solution, redo Warm-up / Worked / Check yourself / quiz-prep items by hand, then uncover and check using the filled-in notes in Canvas.</li>
 <li><strong>Start memorizing your list of definitions and formulas.</strong></li>
@@ -358,45 +357,32 @@ window.Quarto = {
 <li>Record an unexplained long-run pattern for later investigation (eigenvalues come later).</li>
 </ol>
 </section>
-<section id="lecture-24-matrix-multiplication" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-24-matrix-multiplication">Lecture 24 — Matrix multiplication</h3>
+<section id="lecture-23-matrix-products-and-powers" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-23-matrix-products-and-powers">Lecture 23 — Matrix products and powers</h3>
 <ol type="1">
-<li>Determine whether a product is defined and give its dimensions.</li>
-<li>Compute a small matrix product.</li>
-<li>Interpret <span class="math inline">\(ABx\)</span> as a sequence of transformations.</li>
-<li>Explain why matrix multiplication is generally not commutative.</li>
-</ol>
-</section>
-<section id="lecture-25-composition-and-matrix-powers" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-25-composition-and-matrix-powers">Lecture 25 — Composition and matrix powers</h3>
-<ol type="1">
-<li>Combine multistage processes using a matrix product.</li>
+<li>Determine whether a product is defined and give its dimensions; compute a small product.</li>
+<li>Interpret <span class="math inline">\(ABx\)</span> as a sequence of transformations; note <span class="math inline">\(AB\neq BA\)</span> in general.</li>
 <li>Connect <span class="math inline">\(A^k x\)</span> to repeated dynamics.</li>
-<li>Interpret selected entries of a matrix product or power.</li>
-<li>Recognize how network and transition information accumulates through powers.</li>
 </ol>
 </section>
-<section id="lecture-26-computational-cost" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-26-computational-cost">Lecture 26 — Computational cost</h3>
+<section id="lab-3-computational-cost-and-solve-syntax" class="level3">
+<h3 class="anchored" data-anchor-id="lab-3-computational-cost-and-solve-syntax">Lab 3 — Computational cost and solve syntax</h3>
 <ol type="1">
-<li>Compare algebraically equivalent orders of computation.</li>
-<li>Count intermediate values that must be stored.</li>
-<li>Measure runtime for increasing problem sizes.</li>
-<li>Explain why forming a large intermediate matrix may be wasteful.</li>
-<li>Choose a computational order and justify it quantitatively.</li>
+<li>Distinguish storage, processing work, and wall-clock time.</li>
+<li>Count ops on a small elimination; recognize <span class="math inline">\(O(n^3)\)</span> scaling (doubling <span class="math inline">\(n\)</span> <span class="math inline">\(\approx\times 8\)</span>).</li>
+<li>Solve <span class="math inline">\(Ax=b\)</span> in software and check the residual; compute a small matrix power.</li>
 </ol>
 </section>
-<section id="lecture-27-inverses-and-solving" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-27-inverses-and-solving">Lecture 27 — Inverses and solving</h3>
+<section id="lecture-24-inverses-from-elementary-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-24-inverses-from-elementary-matrices">Lecture 24 — Inverses from elementary matrices</h3>
 <ol type="1">
-<li>Interpret an inverse as undoing a transformation.</li>
-<li>Determine whether a simple matrix is invertible.</li>
-<li>Connect invertibility to uniqueness of <span class="math inline">\(Ax=b\)</span>.</li>
-<li>Explain why solving <span class="math inline">\(Ax=b\)</span> is generally preferable computationally to explicitly calculating <span class="math inline">\(A^{-1}\)</span>.</li>
+<li>Explain <span class="math inline">\(A^{-1}\)</span> as the product of elementary matrices that reduce <span class="math inline">\(A\)</span> to <span class="math inline">\(I\)</span>.</li>
+<li>Compute inverses via <span class="math inline">\([A\mid I]\)</span> and the <span class="math inline">\(2\times 2\)</span> formula.</li>
+<li>Connect invertibility to unique solvability of <span class="math inline">\(Ax=b\)</span> for every <span class="math inline">\(b\)</span>.</li>
 </ol>
 </section>
-<section id="lecture-28-rank-column-space-null-space" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-28-rank-column-space-null-space">Lecture 28 — Rank, column space, null space</h3>
+<section id="lecture-25-rank-column-space-null-space" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-25-rank-column-space-null-space">Lecture 25 — Rank, column space, null space</h3>
 <ol type="1">
 <li>Interpret column space and null space through <span class="math inline">\(Ax=b\)</span> and <span class="math inline">\(Ax=0\)</span>.</li>
 <li>Determine rank from pivots or independent columns.</li>
@@ -405,8 +391,8 @@ window.Quarto = {
 <li>Use subspace, basis, dimension, rank, column space, and null space correctly.</li>
 </ol>
 </section>
-<section id="lecture-29-determinants-geometry-and-invertibility" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-29-determinants-geometry-and-invertibility">Lecture 29 — Determinants, geometry, and invertibility</h3>
+<section id="lecture-26-determinants-geometry-and-invertibility" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-26-determinants-geometry-and-invertibility">Lecture 26 — Determinants, geometry, and invertibility</h3>
 <ol type="1">
 <li>Compute determinants of <span class="math inline">\(2\times 2\)</span> and simple triangular matrices.</li>
 <li>Interpret determinant magnitude as area or volume scaling.</li>
@@ -900,7 +886,7 @@ window.Quarto = {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Recommended study plan</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Scan the learning outcomes below.** Mark each as: confident / shaky / blank.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Go through the lecture notes (18–29).** For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 30; the exam day page is Lecture 31.)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Go through the lecture notes (18–26) plus Lab 3.** For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 27; the exam day page is Lecture 28.)</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Build your own “important definitions and formulas” list.** As you read, write down every definition or formula you might need on the exam (matrix sizes, $Ax$, RREF language, $A^k$, inverse tests, rank/null/col, determinants).</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Rework examples from lecture and quizzes.** Cover the solution, redo Warm-up / Worked / Check yourself / quiz-prep items by hand, then uncover and check using the filled-in notes in Canvas.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Start memorizing your list of definitions and formulas.**</span>
@@ -1000,53 +986,42 @@ window.Quarto = {
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Compare results under altered parameters or initial states.</span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Record an unexplained long-run pattern for later investigation (eigenvalues come later).</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 24 — Matrix multiplication</span></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 23 — Matrix products and powers</span></span>
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Determine whether a product is defined and give its dimensions.</span>
-<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Compute a small matrix product.</span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret $ABx$ as a sequence of transformations.</span>
-<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain why matrix multiplication is generally not commutative.</span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 25 — Composition and matrix powers</span></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Combine multistage processes using a matrix product.</span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Connect $A^k x$ to repeated dynamics.</span>
-<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Interpret selected entries of a matrix product or power.</span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Recognize how network and transition information accumulates through powers.</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Determine whether a product is defined and give its dimensions; compute a small product.</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret $ABx$ as a sequence of transformations; note $AB\neq BA$ in general.</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Connect $A^k x$ to repeated dynamics.</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lab 3 — Computational cost and solve syntax</span></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Distinguish storage, processing work, and wall-clock time.</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Count ops on a small elimination; recognize $O(n^3)$ scaling (doubling $n$ $\approx\times 8$).</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Solve $Ax=b$ in software and check the residual; compute a small matrix power.</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 24 — Inverses from elementary matrices</span></span>
 <span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 26 — Computational cost</span></span>
-<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compare algebraically equivalent orders of computation.</span>
-<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Count intermediate values that must be stored.</span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Measure runtime for increasing problem sizes.</span>
-<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain why forming a large intermediate matrix may be wasteful.</span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Choose a computational order and justify it quantitatively.</span>
-<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 27 — Inverses and solving</span></span>
-<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Interpret an inverse as undoing a transformation.</span>
-<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Determine whether a simple matrix is invertible.</span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Connect invertibility to uniqueness of $Ax=b$.</span>
-<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Explain why solving $Ax=b$ is generally preferable computationally to explicitly calculating $A^{-1}$.</span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 28 — Rank, column space, null space</span></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Interpret column space and null space through $Ax=b$ and $Ax=0$.</span>
-<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Determine rank from pivots or independent columns.</span>
-<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Find simple bases for column or null spaces.</span>
-<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Connect rank to consistency, independence, and dimension.</span>
-<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use subspace, basis, dimension, rank, column space, and null space correctly.</span>
-<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 29 — Determinants, geometry, and invertibility</span></span>
-<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute determinants of $2\times 2$ and simple triangular matrices.</span>
-<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret determinant magnitude as area or volume scaling.</span>
-<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Connect determinant zero with lost dimension and noninvertibility.</span>
-<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Recognize the determinant of a triangular matrix from its diagonal.</span>
-<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Connect determinants to the coming characteristic equation (preview only).</span>
-<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>---</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Explain $A^{-1}$ as the product of elementary matrices that reduce $A$ to $I$.</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Compute inverses via $<span class="co">[</span><span class="ot">A\mid I</span><span class="co">]</span>$ and the $2\times 2$ formula.</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Connect invertibility to unique solvability of $Ax=b$ for every $b$.</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 25 — Rank, column space, null space</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Interpret column space and null space through $Ax=b$ and $Ax=0$.</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Determine rank from pivots or independent columns.</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Find simple bases for column or null spaces.</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Connect rank to consistency, independence, and dimension.</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use subspace, basis, dimension, rank, column space, and null space correctly.</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 26 — Determinants, geometry, and invertibility</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute determinants of $2\times 2$ and simple triangular matrices.</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret determinant magnitude as area or volume scaling.</span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Connect determinant zero with lost dimension and noninvertibility.</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Recognize the determinant of a triangular matrix from its diagonal.</span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Connect determinants to the coming characteristic equation (preview only).</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>---</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

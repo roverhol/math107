@@ -166,7 +166,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Lab 3 ticket</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Mixing and Balancing — Friday, October 30</p>
+<p class="subtitle lead">Nutrients, LU, coded RREF — Friday, October 30</p>
 </div>
 
 
@@ -178,7 +178,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 12, 2026</p>
+      <p class="date-modified">October 30, 2026</p>
     </div>
   </div>
     
@@ -190,8 +190,10 @@ window.Quarto = {
 
 
 <p><a href="lab-03-ticket.pdf">Download PDF</a></p>
-<p><strong>Lab 3 — Mixing and Balancing</strong> · Fri Oct 30 · ~20 min · Laptop · Handwrite · Initials</p>
+<p><strong>Lab 3</strong> · Fri Oct 30 · ~20–30 min · Laptop + paper · Initials</p>
 <p><strong>Name:</strong> ________________________________  <strong>Language (circle):</strong> Octave / Python</p>
+<p>Oats/yogurt; protein/fiber. <span class="math inline">\(A=\begin{bmatrix}2&amp;3\\1&amp;1\end{bmatrix}\)</span>. Mon want <span class="math inline">\((26,10)\)</span>; Tue want <span class="math inline">\((31,12)\)</span>.<br>
+Lab 2 system later: <span class="math inline">\(A=\begin{bmatrix}1&amp;1&amp;1\\2&amp;3&amp;1\\1&amp;2&amp;3\end{bmatrix}\)</span>, <span class="math inline">\(b=(6,11,14)\)</span>.</p>
 <section id="new-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="new-syntax">New syntax</h3>
 <table class="caption-top table">
@@ -203,27 +205,36 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Enter <span class="math inline">\(A\)</span>, <span class="math inline">\(b\)</span></td>
+<td>One entry <span class="math inline">\(M_{ij}\)</span> / <code>E(k,k)</code> or <code>E[k,k]</code></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Solve <span class="math inline">\(Ax=b\)</span></td>
+<td>Last column <code>M(:,end)</code> or <code>M[:,-1]</code></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>Residual <span class="math inline">\(Ax-b\)</span></td>
+<td><code>for</code> loop (+ <code>end</code> / indent)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Print (<code>disp</code>/<code>print</code>, <code>num2str</code> / f-string)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Augmented <span class="math inline">\(M\)</span>; build <span class="math inline">\(E\)</span>; left-multiply</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <hr>
-<p>Tea <span class="math inline">\(\$2\)</span>, coffee <span class="math inline">\(\$3\)</span>; revenue <span class="math inline">\(\$26\)</span>; <span class="math inline">\(10\)</span> drinks.</p>
-<p><strong>C3.0.</strong> <span class="math inline">\(A=\)</span> ________________ <span class="math inline">\(b=\)</span> ________ Shape of <span class="math inline">\(A\)</span>: ____<br>
-<strong>Expected:</strong> <span class="math inline">\(\begin{bmatrix}2&amp;3\\1&amp;1\end{bmatrix}\)</span>, <span class="math inline">\((26,10)\)</span>, <span class="math inline">\(2\times 2\)</span>.</p>
-<p><strong>C3.1.</strong> <span class="math inline">\(x=\)</span> ____________ <strong>Expected:</strong> <span class="math inline">\((4,6)\)</span>.</p>
-<p><strong>C3.2.</strong> <span class="math inline">\(Ax-b=\)</span> ____________ Near zero? Y / N</p>
-<p><strong>C3.3.</strong> Usually compute <span class="math inline">\(x=A^{-1}b\)</span> explicitly? T / F Reason:<br>
-________________________________________________________________________</p>
+<p><strong>C3.1 Mon.</strong> Want 26 g protein, 10 g fiber. Servings <span class="math inline">\(x=\)</span> _______ <strong>Exp:</strong> <span class="math inline">\((4,6)\)</span></p>
+<p><strong>C3.2 Tue.</strong> Want 31 g protein, 12 g fiber. Servings <span class="math inline">\(x'=\)</span> _______ <strong>Exp:</strong> <span class="math inline">\((5,7)\)</span></p>
+<p><strong>C3.3 LU.</strong> <span class="math inline">\(LU=A\)</span>? Y / N Mon: <span class="math inline">\(Ly=b\)</span> then <span class="math inline">\(Ux=y\)</span> gives same <span class="math inline">\(x\)</span>? Y / N</p>
+<p><strong>C3.4 RREF code.</strong> Your <span class="math inline">\(x=\)</span> _______ <code>A\b</code> / <code>solve</code> same? Y / N <strong>Exp:</strong> <span class="math inline">\((1,2,3)\)</span><br>
+One line: <code>A\b</code> is really ________________________________________________</p>
+<p><strong>C3.5 <span class="math inline">\([A\mid I]\)</span>.</strong> <span class="math inline">\(BA=I\)</span>? Y / N <span class="math inline">\(Bb=x\)</span>? Y / N <span class="math inline">\(B=\)</span> product of <span class="math inline">\(E_i\)</span>? Y / N<br>
+Why prefer solver / LU over forming <span class="math inline">\(A^{-1}\)</span>? ____________________________________________</p>
+<p><strong>C3.6 Powers.</strong> <span class="math inline">\(A^3 x_0=\)</span> ____ <strong>Exp:</strong> <span class="math inline">\((6,1)\)</span></p>
 <p><strong>Stuck on:</strong> ________________________________________________________________________</p>
 <p><strong>Check-in initials:</strong> _______________</p>
 
@@ -691,8 +702,8 @@ ________________________________________________________________________</p>
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 3 ticket"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Mixing and Balancing — Friday, October 30"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Nutrients, LU, coded RREF — Friday, October 30"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-30</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
@@ -705,35 +716,42 @@ ________________________________________________________________________</p>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-03-ticket.pdf)</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Lab 3 — Mixing and Balancing** · Fri Oct 30 · ~20 min · Laptop · Handwrite · Initials</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Lab 3** · Fri Oct 30 · ~20–30 min · Laptop + paper · Initials</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>**Name:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_  **Language (circle):** Octave / Python</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### New syntax</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I needed to… <span class="pp">|</span> Command / pattern <span class="pp">|</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------|-------------------|</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Enter $A$, $b$ <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Solve $Ax=b$ <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Residual $Ax-b$ <span class="pp">|</span> <span class="pp">|</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>Tea $\$2$, coffee $\$3$; revenue $\$26$; $10$ drinks.</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>**C3.0.** $A=$ <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span> $b=$ <span class="sc">\_\_\_\_\_\_\_\_</span> Shape of $A$: <span class="sc">\_\_\_\_</span>  </span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>**Expected:** $\begin{bmatrix}2&amp;3<span class="sc">\\</span>1&amp;1\end{bmatrix}$, $(26,10)$, $2\times 2$.</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>Oats/yogurt; protein/fiber. $A=\begin{bmatrix}2&amp;3<span class="sc">\\</span>1&amp;1\end{bmatrix}$. Mon want $(26,10)$; Tue want $(31,12)$.  </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Lab 2 system later: $A=\begin{bmatrix}1&amp;1&amp;1<span class="sc">\\</span>2&amp;3&amp;1<span class="sc">\\</span>1&amp;2&amp;3\end{bmatrix}$, $b=(6,11,14)$.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">### New syntax</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> I needed to… <span class="pp">|</span> Command / pattern <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------------|-------------------|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> One entry $M_{ij}$ / <span class="in">`E(k,k)`</span> or <span class="in">`E[k,k]`</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Last column <span class="in">`M(:,end)`</span> or <span class="in">`M[:,-1]`</span> <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`for`</span> loop (+ <span class="in">`end`</span> / indent) <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Print (<span class="in">`disp`</span>/<span class="in">`print`</span>, <span class="in">`num2str`</span> / f-string) <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Augmented $M$; build $E$; left-multiply <span class="pp">|</span> <span class="pp">|</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**C3.1.** $x=$ \_\_\_\_\_\_\_\_\_\_\_\_ **Expected:** $(4,6)$.</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>**C3.1 Mon.** Want 26 g protein, 10 g fiber. Servings $x=$ \_\_\_\_\_\_\_ **Exp:** $(4,6)$</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**C3.2.** $Ax-b=$ <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_</span> Near zero? Y / N</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>**C3.2 Tue.** Want 31 g protein, 12 g fiber. Servings $x'=$ \_\_\_\_\_\_\_ **Exp:** $(5,7)$</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**C3.3.** Usually compute $x=A^{-1}b$ explicitly? T / F Reason:  </span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>**Stuck on:** <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>**C3.3 LU.** $LU=A$? Y / N Mon: $Ly=b$ then $Ux=y$ gives same $x$? Y / N</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>**C3.4 RREF code.** Your $x=$ \_\_\_\_\_\_\_ `A\b` / `solve` same? Y / N **Exp:** $(1,2,3)$  </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>One line: <span class="in">`A\b`</span> is really <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**Check-in initials:** _______________</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**C3.5 $[A\mid I]$.** $BA=I$? Y / N $Bb=x$? Y / N $B=$ product of $E_i$? Y / N  </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Why prefer solver / LU over forming $A^{-1}$? <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**C3.6 Powers.** $A^3 x_0=$ \_\_\_\_ **Exp:** $(6,1)$</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>**Stuck on:** <span class="sc">\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**Check-in initials:** _______________</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

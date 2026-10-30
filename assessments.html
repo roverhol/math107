@@ -223,9 +223,9 @@ window.Quarto = {
 <td>Eliminate with elementary matrices; back-substitute by hand; solve and check <span class="math inline">\(Ax=b\)</span> in Octave or Python.</td>
 </tr>
 <tr class="even">
-<td><a href="./labs/lab-03.html">Lab 3: Mixing and Balancing</a></td>
+<td><a href="./labs/lab-03.html">Lab 3: Nutrients, cost, LU</a></td>
 <td>Fri Oct 30</td>
-<td>Write a small system <span class="math inline">\(Ax=b\)</span>; solve in software; check the residual; prefer a solver over an explicit inverse.</td>
+<td>Same nutrient matrix, two meal targets; count ops; package elimination as <span class="math inline">\(LU\)</span>; peek at <span class="math inline">\([A\mid I]\)</span>; power syntax.</td>
 </tr>
 <tr class="odd">
 <td><a href="./labs/lab-04.html">Lab 4: Predict Through Time</a></td>
@@ -240,11 +240,11 @@ window.Quarto = {
 <tr class="odd">
 <td><a href="./labs/lab-06.html">Lab 6: Fit and Compress</a></td>
 <td>Fri Dec 4</td>
-<td>Least-squares fit; truncated SVD; residual and storage <span class="math inline">\(k(m+n+1)\)</span> — warm-up for the capstone.</td>
+<td>Least-squares fit; truncated SVD; residual and storage <span class="math inline">\(k(m+n+1)\)</span> — same-day warm-up with the SVD lecture / <strong>project launch</strong>.</td>
 </tr>
 </tbody>
 </table>
-<p>Labs 1–6 (and quizzes) meet on <strong>Fridays</strong>. There is no lab on Midterm 2 day or during fall break. Capstone work uses the <a href="./projects/capstone.html">capstone packet</a>, not a separate Lab 7.</p>
+<p>Labs 1–6 (and quizzes) meet on <strong>Fridays</strong>. There is no lab on Midterm 2 day or during fall break. Friday Dec 4 is titled <strong>project launch</strong> (<a href="./projects/capstone.html">capstone packet</a>); Lab 6 is the LS + SVD warm-up that same day.</p>
 </section>
 <section id="quizzes" class="level1">
 <h1>Quizzes</h1>
@@ -951,12 +951,12 @@ window.Quarto = {
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 0: Computers Speak Vectors</span><span class="co">](labs/lab-00.qmd)</span> <span class="pp">|</span> Fri Aug 28 <span class="pp">|</span> Enter, index, and modify vectors in Octave or Python; plot and debug supplied code. <span class="pp">|</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 1: Finding Similar Things</span><span class="co">](labs/lab-01.qmd)</span> <span class="pp">|</span> Fri Oct 16 <span class="pp">|</span> Compute distances; name a nearest neighbor; see the effect of a bad feature scale. <span class="pp">|</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 2: Gaussian elimination</span><span class="co">](labs/lab-02.qmd)</span> <span class="pp">|</span> Fri Oct 23 <span class="pp">|</span> Eliminate with elementary matrices; back-substitute by hand; solve and check $Ax=b$ in Octave or Python. <span class="pp">|</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 3: Mixing and Balancing</span><span class="co">](labs/lab-03.qmd)</span> <span class="pp">|</span> Fri Oct 30 <span class="pp">|</span> Write a small system $Ax=b$; solve in software; check the residual; prefer a solver over an explicit inverse. <span class="pp">|</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 3: Nutrients, cost, LU</span><span class="co">](labs/lab-03.qmd)</span> <span class="pp">|</span> Fri Oct 30 <span class="pp">|</span> Same nutrient matrix, two meal targets; count ops; package elimination as $LU$; peek at $<span class="co">[</span><span class="ot">A\mid I</span><span class="co">]</span>$; power syntax. <span class="pp">|</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 4: Predict Through Time</span><span class="co">](labs/lab-04.qmd)</span> <span class="pp">|</span> Fri Nov 6 <span class="pp">|</span> Implement $x_{t+1}=Ax_t$; iterate; hand-check early steps; describe a long-run pattern. <span class="pp">|</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 5: Steady State and Eigen</span><span class="co">](labs/lab-05.qmd)</span> <span class="pp">|</span> Fri Nov 20 <span class="pp">|</span> Find a steady state / $\lambda=1$ direction; match eigenpairs to Lab 4’s long-run mix. <span class="pp">|</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 6: Fit and Compress</span><span class="co">](labs/lab-06.qmd)</span> <span class="pp">|</span> Fri Dec 4 <span class="pp">|</span> Least-squares fit; truncated SVD; residual and storage $k(m+n+1)$ — warm-up for the capstone. <span class="pp">|</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lab 6: Fit and Compress</span><span class="co">](labs/lab-06.qmd)</span> <span class="pp">|</span> Fri Dec 4 <span class="pp">|</span> Least-squares fit; truncated SVD; residual and storage $k(m+n+1)$ — same-day warm-up with the SVD lecture / **project launch**. <span class="pp">|</span></span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Labs 1–6 (and quizzes) meet on **Fridays**. There is no lab on Midterm 2 day or during fall break. Capstone work uses the <span class="co">[</span><span class="ot">capstone packet</span><span class="co">](projects/capstone.qmd)</span>, not a separate Lab 7.</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Labs 1–6 (and quizzes) meet on **Fridays**. There is no lab on Midterm 2 day or during fall break. Friday Dec 4 is titled **project launch** (<span class="co">[</span><span class="ot">capstone packet</span><span class="co">](projects/capstone.qmd)</span>); Lab 6 is the LS + SVD warm-up that same day.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu"># Quizzes</span></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>

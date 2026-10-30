@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 3 — Mixing and Balancing – MATH 107 - Introduction to Linear Algebra</title>
+<title>Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -154,9 +154,19 @@ window.Quarto = {
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
-  <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
-  <li><a href="#ops-strip" id="toc-ops-strip" class="nav-link" data-scroll-target="#ops-strip">Ops strip</a></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
+  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key syntax</a></li>
+  <li><a href="#same-pantry-two-meal-targets" id="toc-same-pantry-two-meal-targets" class="nav-link" data-scroll-target="#same-pantry-two-meal-targets">Same pantry, two meal targets</a></li>
+  <li><a href="#first-factorization-alu" id="toc-first-factorization-alu" class="nav-link" data-scroll-target="#first-factorization-alu">First factorization: <span class="math inline">\(A=LU\)</span></a>
+  <ul class="collapse">
+  <li><a href="#from-lab-2s-e_i-to-two-triangular-factors" id="toc-from-lab-2s-e_i-to-two-triangular-factors" class="nav-link" data-scroll-target="#from-lab-2s-e_i-to-two-triangular-factors">From Lab 2’s <span class="math inline">\(E_i\)</span> to two triangular factors</a></li>
+  <li><a href="#using-lu-to-solve-axb" id="toc-using-lu-to-solve-axb" class="nav-link" data-scroll-target="#using-lu-to-solve-axb">Using <span class="math inline">\(LU\)</span> to solve <span class="math inline">\(Ax=b\)</span></a></li>
+  </ul></li>
+  <li><a href="#bridge-from-lab-2-program-the-algorithm-no-zero-pivots" id="toc-bridge-from-lab-2-program-the-algorithm-no-zero-pivots" class="nav-link" data-scroll-target="#bridge-from-lab-2-program-the-algorithm-no-zero-pivots">Bridge from Lab 2: program the algorithm (no zero pivots)</a>
+  <ul class="collapse">
+  <li><a href="#pattern-for-one-step" id="toc-pattern-for-one-step" class="nav-link" data-scroll-target="#pattern-for-one-step">Pattern for one step</a></li>
+  </ul></li>
+  <li><a href="#same-algorithm-i-instead-of-b" id="toc-same-algorithm-i-instead-of-b" class="nav-link" data-scroll-target="#same-algorithm-i-instead-of-b">Same algorithm, <span class="math inline">\(I\)</span> instead of <span class="math inline">\(b\)</span></a></li>
+  <li><a href="#powers-syntax-practice" id="toc-powers-syntax-practice" class="nav-link" data-scroll-target="#powers-syntax-practice">Powers (syntax practice)</a></li>
   <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-03.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -170,8 +180,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Lab 3 — Mixing and Balancing</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">Friday, October 30 (~20 min)</p>
+<div class="quarto-title-block"><div><h1 class="title">Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<p class="subtitle lead">Friday, October 30 (~20–40 min with Quiz 8)</p>
 </div>
 
 
@@ -183,7 +193,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 12, 2026</p>
+      <p class="date-modified">October 30, 2026</p>
     </div>
   </div>
     
@@ -195,24 +205,32 @@ window.Quarto = {
 
 
 <p><a href="lab-03.pdf">Download PDF</a></p>
-<p>Last updated: October 12, 2026.</p>
-<p>In class Friday, October 30 (same day as <a href="../lectures/lecture-26.html">Lecture 26</a> / <a href="../quizzes/quiz-08.html">Quiz 8</a>). Quiz 8 is Lectures 21–23 — <strong>not</strong> this lab and not today’s cost lecture.</p>
-<p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Preview the <a href="../labs/lab-03-ticket.html">one-pager</a>; write on the hard copy handed out in class.</p>
+<p>Last updated: October 30, 2026.</p>
+<p>In class Friday, October 30 with <a href="../quizzes/quiz-08.html">Quiz 8</a>.</p>
+<p><strong>Credit:</strong> Lab points are for effort. Preview the <a href="../labs/lab-03-ticket.html">one-pager</a>; write on the hard copy handed out in class.</p>
+<p><strong>Story of the lab.</strong> Use the one-liner <code>A\b</code> / <code>solve</code> → same <span class="math inline">\(A\)</span>, two targets → <strong><span class="math inline">\(A=LU\)</span></strong> (what solvers often save) → <strong>program</strong> Lab 2’s algorithm through <strong>RREF</strong> and see the same <span class="math inline">\(x\)</span> → <span class="math inline">\([A\mid I]\)</span> saves the <span class="math inline">\(E_i\)</span> product as <span class="math inline">\(A^{-1}\)</span> (not what <code>A\b</code> prefers) → short power syntax.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ol type="1">
-<li>Write a small contextual system as <span class="math inline">\(Ax=b\)</span>.</li>
-<li>Solve with software and check the residual <span class="math inline">\(Ax-b\)</span>.</li>
-<li>Prefer solving over forming <span class="math inline">\(A^{-1}\)</span> when the goal is <span class="math inline">\(x\)</span>.</li>
+<li>Turn a nutrient word problem into <span class="math inline">\(Ax=b\)</span>, solve twice with the same <span class="math inline">\(A\)</span>, and check answers.</li>
+<li>Package elimination as an <strong>LU factorization</strong> (this our first useful matrix factorization).</li>
+<li>Code Lab 2’s algorithm (nonzero pivots only): build each elementary matrix, left-multiply, update <span class="math inline">\(M\)</span> until <strong>RREF</strong>.</li>
+<li>Run the same process on <span class="math inline">\([A\mid I]\)</span> and see that the right block is the product of the <span class="math inline">\(E_i\)</span>’s.</li>
+<li>Compute a matrix power <span class="math inline">\(A^k\)</span> and <span class="math inline">\(A^k x_0\)</span> in software.</li>
 </ol>
 </section>
 <section id="math-connections" class="level2">
 <h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
-<p>Systems, elimination, and RREF (<a href="../lectures/lecture-21.html">Lectures 21</a>–<a href="../lectures/lecture-22.html">22</a>); later you will connect this to inverses (<a href="../lectures/lecture-27.html">Lecture 27</a>).</p>
+<p><a href="../labs/lab-02.html">Lab 2</a> algorithm and elementary matrices; systems (<a href="../lectures/lecture-21.html">Lectures 21</a>–<a href="../lectures/lecture-22.html">22</a>); products (<a href="../lectures/lecture-23.html">Lecture 23</a>). Monday: inverses (<a href="../lectures/lecture-24.html">Lecture 24</a>).</p>
 </section>
-<section id="key-syntax-this-lab" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
+<section id="key-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax">Key syntax</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 36%">
+<col style="width: 36%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Task</th>
@@ -222,40 +240,287 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Solve <span class="math inline">\(Ax=b\)</span></td>
-<td><code>x = A\b</code></td>
-<td><code>x = np.linalg.solve(A,b)</code></td>
+<td>Augmented <span class="math inline">\([A\mid b]\)</span></td>
+<td><code>M = [A b]</code></td>
+<td><code>M = np.column_stack((A, b))</code></td>
 </tr>
 <tr class="even">
+<td>Identity</td>
+<td><code>eye(3)</code></td>
+<td><code>np.eye(3)</code></td>
+</tr>
+<tr class="odd">
+<td>One entry (row <span class="math inline">\(i\)</span>, col <span class="math inline">\(j\)</span>)</td>
+<td><code>M(i,j)</code> — <strong>1-based</strong></td>
+<td><code>M[i, j]</code> — <strong>0-based</strong></td>
+</tr>
+<tr class="even">
+<td>Whole column <span class="math inline">\(j\)</span> / last column</td>
+<td><code>M(:, j)</code> / <code>M(:, end)</code></td>
+<td><code>M[:, j]</code> / <code>M[:, -1]</code></td>
+</tr>
+<tr class="odd">
+<td><code>for</code> loop</td>
+<td><code>for k = 1:n ... end</code></td>
+<td><code>for k in range(n):</code> (body indented)</td>
+</tr>
+<tr class="even">
+<td>Skip this pass of a loop</td>
+<td><code>continue</code></td>
+<td><code>continue</code></td>
+</tr>
+<tr class="odd">
+<td>Print text / a matrix</td>
+<td><code>disp(...)</code></td>
+<td><code>print(...)</code></td>
+</tr>
+<tr class="even">
+<td>Number → text (for messages)</td>
+<td><code>num2str(k)</code></td>
+<td><code>f"... {k} ..."</code> or <code>str(k)</code></td>
+</tr>
+<tr class="odd">
+<td>Left-multiply</td>
+<td><code>M = E * M</code></td>
+<td><code>M = E @ M</code></td>
+</tr>
+<tr class="even">
+<td>Solve <span class="math inline">\(Ax=b\)</span></td>
+<td><code>x = A \ b</code></td>
+<td><code>x = np.linalg.solve(A,b)</code></td>
+</tr>
+<tr class="odd">
 <td>Residual</td>
 <td><code>A*x - b</code></td>
 <td><code>A @ x - b</code></td>
 </tr>
+<tr class="even">
+<td>Power <span class="math inline">\(A^k\)</span></td>
+<td><code>A^k</code></td>
+<td><code>np.linalg.matrix_power(A, k)</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading the new bits.</strong></p>
+<ul>
+<li><strong>Indexing:</strong> Octave <code>M(2,3)</code> is row 2, column 3 (counting from 1). Python <code>M[1, 2]</code> is the same entry (counting from 0).</li>
+<li><strong>Colon <code>:</code>:</strong> “all rows” or “all columns.” So <code>M(:, end)</code> = every row, last column (the <span class="math inline">\(b\)</span> / solution column in <span class="math inline">\([A\mid b]\)</span>). In Python, <code>-1</code> means last index: <code>M[:, -1]</code>.</li>
+<li><strong><code>end</code> (Octave):</strong> last index in that dimension — here, last column of <span class="math inline">\(M\)</span>.</li>
+<li><strong><code>for</code>:</strong> repeat a block. Octave wraps the block with <code>end</code>. Python uses indentation instead of <code>end</code>.</li>
+<li><strong><code>disp</code> / <code>num2str</code>:</strong> <code>disp</code> prints; <code>num2str(k)</code> turns the number <span class="math inline">\(k\)</span> into text so you can paste it into a message. Python’s <code>print</code> and f-strings do the same job.</li>
+</ul>
+<p>In NumPy, <code>A**3</code> is <strong>entrywise</strong> — use <code>matrix_power</code> for <span class="math inline">\(A^3=AAA\)</span>.</p>
+<p>In Lab 2 we typed <code>A \ b</code> / <code>np.linalg.solve(A,b)</code> and got an answer. Today we’ll code up the algorithm from Lab 2: those commands are doing <strong>elimination</strong>.</p>
+</section>
+<section id="same-pantry-two-meal-targets" class="level2">
+<h2 class="anchored" data-anchor-id="same-pantry-two-meal-targets">Same pantry, two meal targets</h2>
+<p>You are planning meals from <strong>two foods</strong> only:</p>
+<ul>
+<li><span class="math inline">\(x_1\)</span> = number of servings of <strong>oats</strong></li>
+<li><span class="math inline">\(x_2\)</span> = number of servings of <strong>yogurt</strong></li>
+</ul>
+<p>Each serving contributes (toy numbers, not a real diet plan):</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>Protein (g)</th>
+<th>Fiber (g)</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
-<td>Inverse (avoid for solving)</td>
-<td><code>inv(A)</code></td>
-<td><code>np.linalg.inv(A)</code></td>
+<td>1 serving oats</td>
+<td>2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1 serving yogurt</td>
+<td>3</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>So if you eat <span class="math inline">\(x_1\)</span> oats and <span class="math inline">\(x_2\)</span> yogurt, the <strong>total</strong> protein and fiber are <span class="math display">\[
+\begin{aligned}
+\text{protein} &amp;= 2x_1 + 3x_2,\\
+\text{fiber} &amp;= 1x_1 + 1x_2.
+\end{aligned}
+\]</span> In matrix form that is <span class="math inline">\(Ax=b\)</span>, where <span class="math display">\[
+A=\begin{bmatrix}2&amp;3\\1&amp;1\end{bmatrix},\qquad
+x=\begin{bmatrix}x_1\\x_2\end{bmatrix},\qquad
+b=\begin{bmatrix}\text{protein target}\\\text{fiber target}\end{bmatrix}.
+\]</span> The pantry (matrix <span class="math inline">\(A\)</span>) stays the same every day. What changes is the <strong>target</strong> vector <span class="math inline">\(b\)</span> — how much protein and fiber you want that day.</p>
+<p><strong>C3.1 — Monday.</strong> You want <strong>26 g protein</strong> and <strong>10 g fiber</strong>.<br>
+How many servings of oats and yogurt should you eat?<br>
+Write <span class="math inline">\(b\)</span>, solve <span class="math inline">\(Ax=b\)</span> with the one-liner (<code>A \ b</code> / <code>solve</code>), and check with <span class="math inline">\(Ax-b\)</span> (should be near zero).</p>
+<p><strong>Expected:</strong> <span class="math inline">\(b=(26,10)\)</span>, <span class="math inline">\(x=(4,6)\)</span> — 4 oats, 6 yogurt.</p>
+<p><strong>C3.2 — Tuesday.</strong> Same two foods (same <span class="math inline">\(A\)</span>). Today you want <strong>31 g protein</strong> and <strong>12 g fiber</strong>.<br>
+How many servings of each? Solve <span class="math inline">\(Ax'=b'\)</span> and check <span class="math inline">\(Ax'-b'\)</span>.</p>
+<p><strong>Expected:</strong> <span class="math inline">\(b'=(31,12)\)</span>, <span class="math inline">\(x'=(5,7)\)</span>.</p>
+<p><strong>Pause.</strong> You solved <strong>two</strong> systems that share the same <span class="math inline">\(A\)</span> and differ only in <span class="math inline">\(b\)</span>. Was calling the one-liner twice the smartest use of work? What information about <span class="math inline">\(A\)</span> could a computer <strong>reuse</strong> on Tuesday instead of starting over?</p>
+</section>
+<section id="first-factorization-alu" class="level2">
+<h2 class="anchored" data-anchor-id="first-factorization-alu">First factorization: <span class="math inline">\(A=LU\)</span></h2>
+<section id="from-lab-2s-e_i-to-two-triangular-factors" class="level3">
+<h3 class="anchored" data-anchor-id="from-lab-2s-e_i-to-two-triangular-factors">From Lab 2’s <span class="math inline">\(E_i\)</span> to two triangular factors</h3>
+<p>Lab 2 cleared below pivots by left-multiplying elementary matrices <span class="math inline">\(E_i\)</span>. <strong>Stop when <span class="math inline">\(A\)</span> is upper triangular</strong> — call that matrix <span class="math inline">\(U\)</span>. Do <strong>not</strong> scale pivots to <span class="math inline">\(1\)</span> or clear above (that is RREF / inverse territory).</p>
+<p>For the nutrient matrix, one step does it. Subtract <span class="math inline">\(\tfrac12\)</span> times row 1 from row 2: <span class="math display">\[
+E=\begin{bmatrix}1&amp;0\\-\tfrac12&amp;1\end{bmatrix}
+\quad\Rightarrow\quad
+EA=U=\begin{bmatrix}2&amp;3\\0&amp;-\tfrac12\end{bmatrix}.
+\]</span> So <span class="math inline">\(EA=U\)</span>. Multiply on the left by <span class="math inline">\(E^{-1}\)</span>: <span class="math display">\[
+A=E^{-1}U.
+\]</span> The inverse of “subtract <span class="math inline">\(\tfrac12\cdot\)</span>(row 1) from row 2” is “<strong>add</strong> <span class="math inline">\(\tfrac12\cdot\)</span>(row 1) to row 2”: <span class="math display">\[
+E^{-1}=\begin{bmatrix}1&amp;0\\\tfrac12&amp;1\end{bmatrix}=L
+\]</span> (lower triangular; the multiplier <span class="math inline">\(\tfrac12\)</span> sits where we cleared). Thus <span class="math display">\[
+A=LU.
+\]</span></p>
+<p><strong>Larger <span class="math inline">\(n\)</span> (same idea, more <span class="math inline">\(E_i\)</span>).</strong> Clearing below the pivots is a product <span class="math display">\[
+E_k\cdots E_2 E_1 A = U
+\]</span> (upper triangular). Those <span class="math inline">\(E_i\)</span> are the “go down to <span class="math inline">\(U\)</span>” group. Invert and reverse order: <span class="math display">\[
+A = \underbrace{E_1^{-1}E_2^{-1}\cdots E_k^{-1}}_{L} U.
+\]</span> Each <span class="math inline">\(E_i^{-1}\)</span> puts the multiplier <strong>back</strong> (same spot, opposite sign), so <span class="math inline">\(L\)</span> is lower triangular with <span class="math inline">\(1\)</span>s on the diagonal. A second group of elementary matrices (scale pivots to <span class="math inline">\(1\)</span>, clear <strong>above</strong>) would finish RREF / <span class="math inline">\([A\mid I]\)</span> — solvers usually <strong>skip</strong> that group when they only need <span class="math inline">\(x\)</span>.</p>
+</section>
+<section id="using-lu-to-solve-axb" class="level3">
+<h3 class="anchored" data-anchor-id="using-lu-to-solve-axb">Using <span class="math inline">\(LU\)</span> to solve <span class="math inline">\(Ax=b\)</span></h3>
+<p>If <span class="math inline">\(A=LU\)</span>, then <span class="math inline">\(Ax=b\)</span> means <span class="math inline">\(LUx=b\)</span>. Introduce <span class="math inline">\(y=Ux\)</span>:</p>
+<ol type="1">
+<li><strong>Forward substitution:</strong> solve <span class="math inline">\(Ly=b\)</span> for <span class="math inline">\(y\)</span> (easy: <span class="math inline">\(L\)</span> lower triangular).</li>
+<li><strong>Back substitution:</strong> solve <span class="math inline">\(Ux=y\)</span> for <span class="math inline">\(x\)</span> (easy: <span class="math inline">\(U\)</span> upper triangular).</li>
+</ol>
+<p>Same <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> work for every new <span class="math inline">\(b\)</span> (Monday, Tuesday, …). Factor once; each day is two triangular solves.</p>
+<p><strong>C3.3.</strong></p>
+<ol type="a">
+<li>Form <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span> for the nutrient <span class="math inline">\(A\)</span>; check <span class="math inline">\(LU=A\)</span>.<br>
+</li>
+<li>For Monday’s <span class="math inline">\(b=(26,10)\)</span>, solve <span class="math inline">\(Ly=b\)</span>, then <span class="math inline">\(Ux=y\)</span>, by hand or in software. Check that <span class="math inline">\(x\)</span> matches C3.1.</li>
+</ol>
+<p><strong>Behind <code>A \ b</code> (part 1).</strong> A typical dense solver does this bookkeeping (often with row swaps: <span class="math inline">\(PA=LU\)</span> if a pivot is <span class="math inline">\(0\)</span>/tiny). This nutrient <span class="math inline">\(A\)</span> needs no swap. Full RREF every time would redo extra work you do not need for one <span class="math inline">\(x\)</span>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 60%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Goal</th>
+<th>Package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Many <span class="math inline">\(Ax=b\)</span> (same foods, new targets)</td>
+<td><strong><span class="math inline">\(A=LU\)</span></strong>, then <span class="math inline">\(Ly=b\)</span>, <span class="math inline">\(Ux=y\)</span> — close to what <code>A \ b</code> reuses</td>
+</tr>
+<tr class="even">
+<td>Undo map for every <span class="math inline">\(b\)</span></td>
+<td><strong><span class="math inline">\([A\mid I]\to A^{-1}\)</span></strong> (extra <span class="math inline">\(E_i\)</span> group) — useful, but usually <em>not</em> how <code>A \ b</code> works</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="ops-strip" class="level2">
-<h2 class="anchored" data-anchor-id="ops-strip">Ops strip</h2>
-<p>Café: tea <span class="math inline">\(\$2\)</span>, coffee <span class="math inline">\(\$3\)</span>. Sold <span class="math inline">\(x_1\)</span> teas and <span class="math inline">\(x_2\)</span> coffees; revenue <span class="math inline">\(\$26\)</span>; <span class="math inline">\(10\)</span> drinks total.</p>
-<p><strong>C3.0.</strong> Write <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span>, and <span class="math inline">\(b\)</span> for the two equations on paper. Enter <span class="math inline">\(A\)</span> and <span class="math inline">\(b\)</span> in software. Print <code>size(A)</code> / <code>A.shape</code>.</p>
-<p><strong>Expected:</strong> <span class="math display">\[
-A=\begin{bmatrix}2&amp;3\\1&amp;1\end{bmatrix},\quad b=\begin{bmatrix}26\\10\end{bmatrix}
-\]</span> (<span class="math inline">\(A\)</span> is <span class="math inline">\(2\times 2\)</span>).</p>
 </section>
-<section id="application" class="level2">
-<h2 class="anchored" data-anchor-id="application">Application</h2>
-<p><strong>C3.1.</strong> Solve <span class="math inline">\(Ax=b\)</span>. Report <span class="math inline">\(x\)</span>.</p>
-<p><strong>Expected:</strong> <span class="math inline">\(x=(4,6)\)</span> (4 teas, 6 coffees).</p>
-<p><strong>C3.2.</strong> Compute the residual <span class="math inline">\(Ax-b\)</span>. Is it (numerically) zero?</p>
-<p><strong>Expected:</strong> <span class="math inline">\((0,0)\)</span> (or <span class="math inline">\(\sim 10^{-15}\)</span>).</p>
-<p><strong>C3.3.</strong> True or false, with one line: to solve <span class="math inline">\(Ax=b\)</span> you should usually compute <span class="math inline">\(x=A^{-1}b\)</span> explicitly.<br>
-Then time (roughly) <code>A\b</code> vs <code>inv(A)*b</code> / <code>inv(A) @ b</code> once — which felt simpler?</p>
-<p><strong>Expected:</strong> <strong>False</strong> — prefer a solver; inverse is extra work and can be less stable.</p>
+<section id="bridge-from-lab-2-program-the-algorithm-no-zero-pivots" class="level2">
+<h2 class="anchored" data-anchor-id="bridge-from-lab-2-program-the-algorithm-no-zero-pivots">Bridge from Lab 2: program the algorithm (no zero pivots)</h2>
+<p>Lab 2 listed an algorithm while every pivot is nonzero, and walked a <span class="math inline">\(3\times 3\)</span> system by hand to echelon (then sketched full RREF). <strong>Today: put that algorithm on the machine</strong> and push all the way to <strong>RREF</strong> (pivots <span class="math inline">\(=1\)</span>, zeros above and below).</p>
+<p>Reuse Lab 2’s system: <span class="math display">\[
+A=\begin{bmatrix}1&amp;1&amp;1\\2&amp;3&amp;1\\1&amp;2&amp;3\end{bmatrix},\qquad
+b=\begin{bmatrix}6\\11\\14\end{bmatrix},\qquad
+M=[A\mid b]\in\mathbb{R}^{3\times 4}.
+\]</span> (You already know the answer will be <span class="math inline">\(x=(1,2,3)\)</span>.)</p>
+<section id="pattern-for-one-step" class="level3">
+<h3 class="anchored" data-anchor-id="pattern-for-one-step">Pattern for one step</h3>
+<p>Pivot at position <span class="math inline">\((k,k)\)</span> (1-based). To clear entry <span class="math inline">\((i,k)\)</span>: <span class="math display">\[
+c=\frac{M_{ik}}{M_{kk}},\qquad
+E = I_3\text{ with }{-c}\text{ in row }i,\text{ column }k,\qquad
+M \leftarrow EM.
+\]</span> To make the pivot <span class="math inline">\(1\)</span>: scale row <span class="math inline">\(k\)</span> by <span class="math inline">\(1/M_{kk}\)</span> (elementary matrix = <span class="math inline">\(I\)</span> with that factor on the diagonal).</p>
+<p><strong>C3.4 — Run RREF (nonzero pivots).</strong> Copy–paste <strong>one</strong> of the blocks below, run it, and watch <span class="math inline">\(M\)</span> become <span class="math inline">\([I\mid x]\)</span>. Then compare to the one-liner on the same <span class="math inline">\(A,b\)</span>.</p>
+<p>For each pivot column <span class="math inline">\(k\)</span>: scale the pivot to <span class="math inline">\(1\)</span> with an elementary matrix, then clear every other entry in that column the same way (Lab 2’s <span class="math inline">\(E\)</span>, left-multiply, replace <span class="math inline">\(M\)</span>).</p>
+<p><strong>Octave</strong> (copy all):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">1</span> <span class="fl">1</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">2</span> <span class="fl">3</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span>]<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">b</span> <span class="op">=</span> [<span class="fl">6</span><span class="op">;</span> <span class="fl">11</span><span class="op">;</span> <span class="fl">14</span>]<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> [<span class="va">A</span> <span class="va">b</span>]<span class="op">;</span>          <span class="co">% 3x4 augmented matrix</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">3</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">% for k = 1:n ... end  →  repeat with k = 1, then 2, then 3</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">k</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">% M(k,k) = entry in row k, column k (1-based)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="va">E</span> <span class="op">=</span> <span class="va">eye</span>(<span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="va">E</span>(<span class="va">k</span><span class="op">,</span><span class="va">k</span>) <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="va">M</span>(<span class="va">k</span><span class="op">,</span><span class="va">k</span>)<span class="op">;</span>   <span class="co">% put the scale factor on the diagonal of E</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="va">M</span> <span class="op">=</span> <span class="va">E</span> <span class="op">*</span> <span class="va">M</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">% disp prints; num2str(k) turns k into text for the message</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="va">disp</span>([<span class="st">"after scale pivot "</span><span class="op">,</span> <span class="va">num2str</span>(<span class="va">k</span>)])<span class="op">;</span> <span class="va">disp</span>(<span class="va">M</span>)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="va">i</span> <span class="op">==</span> <span class="va">k</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="kw">continue</span><span class="op">;</span>          <span class="co">% skip the pivot row itself</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="va">E</span> <span class="op">=</span> <span class="va">eye</span>(<span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="va">E</span>(<span class="va">i</span><span class="op">,</span><span class="va">k</span>) <span class="op">=</span> <span class="op">-</span><span class="va">M</span>(<span class="va">i</span><span class="op">,</span><span class="va">k</span>)<span class="op">;</span>    <span class="co">% -c in row i, column k</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="va">M</span> <span class="op">=</span> <span class="va">E</span> <span class="op">*</span> <span class="va">M</span><span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="va">disp</span>([<span class="st">"after clear column "</span><span class="op">,</span> <span class="va">num2str</span>(<span class="va">k</span>)])<span class="op">;</span> <span class="va">disp</span>(<span class="va">M</span>)<span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">M</span>(<span class="op">:,</span> <span class="kw">end</span>)            <span class="co">% all rows (:), last column (end) = solution</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="va">x_solver</span> <span class="op">=</span> <span class="va">A</span> <span class="op">\</span> <span class="va">b</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="va">residual</span> <span class="op">=</span> <span class="va">A</span> <span class="op">*</span> <span class="va">x</span> <span class="op">-</span> <span class="va">b</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Python</strong> (copy all):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="fl">1.</span>, <span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="fl">6.</span>, <span class="dv">11</span>, <span class="dv">14</span>])</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.column_stack((A, b))  <span class="co"># 3x4 augmented matrix</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># for k in range(n):  →  k = 0, then 1, then 2  (0-based)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># M[k, k] = entry in row k, column k (0-based)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    E <span class="op">=</span> np.eye(n)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    E[k, k] <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> M[k, k]  <span class="co"># put the scale factor on the diagonal of E</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> E <span class="op">@</span> M</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"after scale pivot </span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>, M)  <span class="co"># f-string inserts k+1 into the text</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">==</span> k:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span>          <span class="co"># skip the pivot row itself</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        E <span class="op">=</span> np.eye(n)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        E[i, k] <span class="op">=</span> <span class="op">-</span>M[i, k]    <span class="co"># -c in row i, column k</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        M <span class="op">=</span> E <span class="op">@</span> M</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"after clear column </span><span class="sc">{</span>k<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ch">\n</span><span class="ss">"</span>, M)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> M[:, <span class="op">-</span><span class="dv">1</span>]                  <span class="co"># all rows (:), last column (-1) = solution</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x from RREF:"</span>, x)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x from solve:"</span>, np.linalg.solve(A, b))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"residual:"</span>, A <span class="op">@</span> x <span class="op">-</span> b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Expected:</strong> final <span class="math inline">\(M=\begin{bmatrix}1&amp;0&amp;0&amp;|&amp;1\\0&amp;1&amp;0&amp;|&amp;2\\0&amp;0&amp;1&amp;|&amp;3\end{bmatrix}\)</span>, so <span class="math inline">\(x=(1,2,3)\)</span> — matching <code>A \ b</code> / <code>solve</code>, residual <span class="math inline">\(\approx 0\)</span>.</p>
+<p><strong>Behind <code>A\b</code> (part 2).</strong> Your coded RREF is the Lab 2 algorithm made explicit. Production solvers usually <strong>stop earlier</strong> (LU / <span class="math inline">\(PA=LU\)</span>, then triangular solves) instead of forming full RREF every time — same family of row operations, better bookkeeping when only <span class="math inline">\(b\)</span> changes.</p>
+</section>
+</section>
+<section id="same-algorithm-i-instead-of-b" class="level2">
+<h2 class="anchored" data-anchor-id="same-algorithm-i-instead-of-b">Same algorithm, <span class="math inline">\(I\)</span> instead of <span class="math inline">\(b\)</span></h2>
+<p>Replace the right-hand column by an identity: form the <span class="math inline">\(3\times 6\)</span> matrix <span class="math inline">\([A\mid I]\)</span>. Run <strong>the same</strong> elementary updates until the left block is <span class="math inline">\(I\)</span>. Call the right <span class="math inline">\(3\times 3\)</span> block <span class="math inline">\(B\)</span>.</p>
+<p><strong>C3.5.</strong></p>
+<ol type="a">
+<li>Obtain <span class="math inline">\(B\)</span>. Check <span class="math inline">\(B*A\)</span> / <code>B @ A</code> equals <span class="math inline">\(I\)</span> (within rounding).<br>
+</li>
+<li>Check <span class="math inline">\(B*b\)</span> equals the <span class="math inline">\(x\)</span> from C3.4 — so <span class="math inline">\(x=Bb\)</span> also works.<br>
+</li>
+<li><span class="math inline">\(B\)</span> is the product of all the elementary matrices you left-multiplied so we’ve saved the whole reduction as one matrix.<br>
+</li>
+<li>One sentence: why solvers still prefer <code>A\b</code> / LU over “form <span class="math inline">\(B=A^{-1}\)</span>, then <span class="math inline">\(Bb\)</span>” for a single (or few) right-hand side(s).</li>
+</ol>
+<p><strong>Expected:</strong> <span class="math inline">\(BA=I\)</span>, <span class="math inline">\(Bb=x\)</span>. Monday’s name for <span class="math inline">\(B\)</span> is <span class="math inline">\(A^{-1}\)</span>. Forming <span class="math inline">\(A^{-1}\)</span> does extra work when you only need one <span class="math inline">\(x\)</span>.</p>
+</section>
+<section id="powers-syntax-practice" class="level2">
+<h2 class="anchored" data-anchor-id="powers-syntax-practice">Powers (syntax practice)</h2>
+<p><strong>C3.6.</strong> Separate from the diet / Lab 2 matrices, enter <span class="math display">\[
+A=\begin{bmatrix}1&amp;2\\0&amp;1\end{bmatrix},\qquad x_0=\begin{bmatrix}0\\1\end{bmatrix}.
+\]</span> Compute <span class="math inline">\(A^2\)</span>, <span class="math inline">\(A^3\)</span>, and <span class="math inline">\(A^3 x_0\)</span>. Spot-check: <span class="math inline">\(A^3=\begin{bmatrix}1&amp;6\\0&amp;1\end{bmatrix}\)</span>, <span class="math inline">\(A^3 x_0=(6,1)\)</span>.</p>
 </section>
 <section id="one-pager" class="level2">
 <h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
@@ -723,73 +988,287 @@ Then time (roughly) <code>A\b</code> vs <code>inv(A)*b</code> / <code>inv(A) @ b
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 3 — Mixing and Balancing"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 30 (~20 min)"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-03.pdf)</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 12, 2026.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>In class Friday, October 30 (same day as <span class="co">[</span><span class="ot">Lecture 26</span><span class="co">](../lectures/lecture-26.qmd)</span> / <span class="co">[</span><span class="ot">Quiz 8</span><span class="co">](../quizzes/quiz-08.qmd)</span>). Quiz 8 is Lectures 21–23 — **not** this lab and not today’s cost lecture.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-03-ticket.qmd)</span>; write on the hard copy handed out in class.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Write a small contextual system as $Ax=b$.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Solve with software and check the residual $Ax-b$.</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Prefer solving over forming $A^{-1}$ when the goal is $x$.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Systems, elimination, and RREF (<span class="co">[</span><span class="ot">Lectures 21</span><span class="co">](../lectures/lecture-21.qmd)</span>–<span class="co">[</span><span class="ot">22</span><span class="co">](../lectures/lecture-22.qmd)</span>); later you will connect this to inverses (<span class="co">[</span><span class="ot">Lecture 27</span><span class="co">](../lectures/lecture-27.qmd)</span>).</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Solve $Ax=b$ <span class="pp">|</span> <span class="in">`x = A\b`</span> <span class="pp">|</span> <span class="in">`x = np.linalg.solve(A,b)`</span> <span class="pp">|</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Residual <span class="pp">|</span> <span class="in">`A*x - b`</span> <span class="pp">|</span> <span class="in">`A @ x - b`</span> <span class="pp">|</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Inverse (avoid for solving) <span class="pp">|</span> <span class="in">`inv(A)`</span> <span class="pp">|</span> <span class="in">`np.linalg.inv(A)`</span> <span class="pp">|</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ops strip</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>Café: tea $\$2$, coffee $\$3$. Sold $x_1$ teas and $x_2$ coffees; revenue $\$26$; $10$ drinks total.</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>**C3.0.** Write $A$, $x$, and $b$ for the two equations on paper. Enter $A$ and $b$ in software. Print <span class="in">`size(A)`</span> / <span class="in">`A.shape`</span>.</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>**Expected:**</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}2&amp;3<span class="sc">\\</span>1&amp;1\end{bmatrix},\quad b=\begin{bmatrix}26<span class="sc">\\</span>10\end{bmatrix}</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>($A$ is $2\times 2$).</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="fu">## Application</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>**C3.1.** Solve $Ax=b$. Report $x$.</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>**Expected:** $x=(4,6)$ (4 teas, 6 coffees).</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>**C3.2.** Compute the residual $Ax-b$. Is it (numerically) zero?</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>**Expected:** $(0,0)$ (or $\sim 10^{-15}$).</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>**C3.3.** True or false, with one line: to solve $Ax=b$ you should usually compute $x=A^{-1}b$ explicitly.  </span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>Then time (roughly) <span class="in">`A\b`</span> vs <span class="in">`inv(A)*b`</span> / <span class="in">`inv(A) @ b`</span> once — which felt simpler?</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>**Expected:** **False** — prefer a solver; inverse is extra work and can be less stable.</span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-pager</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>Preview the <span class="co">[</span><span class="ot">Lab 3 ticket</span><span class="co">](lab-03-ticket.qmd)</span>; write on the hard copy in class.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Friday, October 30 (~20–40 min with Quiz 8)"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-30</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lab-03.pdf)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 30, 2026.</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>In class Friday, October 30 with <span class="co">[</span><span class="ot">Quiz 8</span><span class="co">](../quizzes/quiz-08.qmd)</span>. </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-03-ticket.qmd)</span>; write on the hard copy handed out in class.</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>**Story of the lab.** Use the one-liner `A\b` / `solve` → same $A$, two targets → **$A=LU$** (what solvers often save) → **program** Lab 2’s algorithm through **RREF** and see the same $x$ → $<span class="co">[</span><span class="ot">A\mid I</span><span class="co">]</span>$ saves the $E_i$ product as $A^{-1}$ (not what <span class="in">`A\b`</span> prefers) → short power syntax.</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Turn a nutrient word problem into $Ax=b$, solve twice with the same $A$, and check answers.</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Package elimination as an **LU factorization** (this our first useful matrix factorization).</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Code Lab 2’s algorithm (nonzero pivots only): build each elementary matrix, left-multiply, update $M$ until **RREF**.</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Run the same process on $<span class="co">[</span><span class="ot">A\mid I</span><span class="co">]</span>$ and see that the right block is the product of the $E_i$’s.</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Compute a matrix power $A^k$ and $A^k x_0$ in software.</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Lab 2</span><span class="co">](lab-02.qmd)</span> algorithm and elementary matrices; systems (<span class="co">[</span><span class="ot">Lectures 21</span><span class="co">](../lectures/lecture-21.qmd)</span>–<span class="co">[</span><span class="ot">22</span><span class="co">](../lectures/lecture-22.qmd)</span>); products (<span class="co">[</span><span class="ot">Lecture 23</span><span class="co">](../lectures/lecture-23.qmd)</span>). Monday: inverses (<span class="co">[</span><span class="ot">Lecture 24</span><span class="co">](../lectures/lecture-24.qmd)</span>).</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Augmented $<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$ <span class="pp">|</span> <span class="in">`M = [A b]`</span> <span class="pp">|</span> <span class="in">`M = np.column_stack((A, b))`</span> <span class="pp">|</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Identity <span class="pp">|</span> <span class="in">`eye(3)`</span> <span class="pp">|</span> <span class="in">`np.eye(3)`</span> <span class="pp">|</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> One entry (row $i$, col $j$) <span class="pp">|</span> <span class="in">`M(i,j)`</span> — **1-based** | `M[i, j]` — **0-based** <span class="pp">|</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Whole column $j$ / last column <span class="pp">|</span> <span class="in">`M(:, j)`</span> / <span class="in">`M(:, end)`</span> <span class="pp">|</span> <span class="in">`M[:, j]`</span> / <span class="in">`M[:, -1]`</span> <span class="pp">|</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="in">`for`</span> loop <span class="pp">|</span> <span class="in">`for k = 1:n ... end`</span> <span class="pp">|</span> <span class="in">`for k in range(n):`</span> (body indented) <span class="pp">|</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Skip this pass of a loop <span class="pp">|</span> <span class="in">`continue`</span> <span class="pp">|</span> <span class="in">`continue`</span> <span class="pp">|</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Print text / a matrix <span class="pp">|</span> <span class="in">`disp(...)`</span> <span class="pp">|</span> <span class="in">`print(...)`</span> <span class="pp">|</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Number → text (for messages) <span class="pp">|</span> <span class="in">`num2str(k)`</span> <span class="pp">|</span> <span class="in">`f"... {k} ..."`</span> or <span class="in">`str(k)`</span> <span class="pp">|</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Left-multiply <span class="pp">|</span> <span class="in">`M = E * M`</span> <span class="pp">|</span> <span class="in">`M = E @ M`</span> <span class="pp">|</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Solve $Ax=b$ <span class="pp">|</span> <span class="in">`x = A \ b`</span> <span class="pp">|</span> <span class="in">`x = np.linalg.solve(A,b)`</span> <span class="pp">|</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Residual <span class="pp">|</span> <span class="in">`A*x - b`</span> <span class="pp">|</span> <span class="in">`A @ x - b`</span> <span class="pp">|</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Power $A^k$ <span class="pp">|</span> <span class="in">`A^k`</span> <span class="pp">|</span> <span class="in">`np.linalg.matrix_power(A, k)`</span> <span class="pp">|</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>**Reading the new bits.**</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Indexing:** Octave <span class="in">`M(2,3)`</span> is row 2, column 3 (counting from 1). Python <span class="in">`M[1, 2]`</span> is the same entry (counting from 0).</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Colon `:`:** “all rows” or “all columns.” So <span class="in">`M(:, end)`</span> = every row, last column (the $b$ / solution column in $<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>$). In Python, <span class="in">`-1`</span> means last index: <span class="in">`M[:, -1]`</span>.</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`end` (Octave):** last index in that dimension — here, last column of $M$.</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`for`:** repeat a block. Octave wraps the block with <span class="in">`end`</span>. Python uses indentation instead of <span class="in">`end`</span>.</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**`disp` / `num2str`:** <span class="in">`disp`</span> prints; <span class="in">`num2str(k)`</span> turns the number $k$ into text so you can paste it into a message. Python’s <span class="in">`print`</span> and f-strings do the same job.</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>In NumPy, <span class="in">`A**3`</span> is **entrywise** — use <span class="in">`matrix_power`</span> for $A^3=AAA$.</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>In Lab 2 we typed <span class="in">`A \ b`</span> / <span class="in">`np.linalg.solve(A,b)`</span> and got an answer. Today we'll code up the algorithm from Lab 2: those commands are doing **elimination**. </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Same pantry, two meal targets</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>You are planning meals from **two foods** only:</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x_1$ = number of servings of **oats**</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>$x_2$ = number of servings of **yogurt**</span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>Each serving contributes (toy numbers, not a real diet plan):</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="pp">|</span> Protein (g) <span class="pp">|</span> Fiber (g) <span class="pp">|</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span>--<span class="pp">|-------------|-----------|</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 serving oats <span class="pp">|</span> 2 <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> 1 serving yogurt <span class="pp">|</span> 3 <span class="pp">|</span> 1 <span class="pp">|</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>So if you eat $x_1$ oats and $x_2$ yogurt, the **total** protein and fiber are</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>\begin{aligned}</span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>\text{protein} &amp;= 2x_1 + 3x_2,<span class="sc">\\</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>\text{fiber} &amp;= 1x_1 + 1x_2.</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>\end{aligned}</span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>In matrix form that is $Ax=b$, where</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}2&amp;3<span class="sc">\\</span>1&amp;1\end{bmatrix},\qquad</span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>x=\begin{bmatrix}x_1<span class="sc">\\</span>x_2\end{bmatrix},\qquad</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a>b=\begin{bmatrix}\text{protein target}<span class="sc">\\</span>\text{fiber target}\end{bmatrix}.</span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a>The pantry (matrix $A$) stays the same every day. What changes is the **target** vector $b$ — how much protein and fiber you want that day.</span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>**C3.1 — Monday.** You want **26 g protein** and **10 g fiber**.  </span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>How many servings of oats and yogurt should you eat?  </span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>Write $b$, solve $Ax=b$ with the one-liner (<span class="in">`A \ b`</span> / <span class="in">`solve`</span>), and check with $Ax-b$ (should be near zero).</span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>**Expected:** $b=(26,10)$, $x=(4,6)$ — 4 oats, 6 yogurt.</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a>**C3.2 — Tuesday.** Same two foods (same $A$). Today you want **31 g protein** and **12 g fiber**.  </span>
+<span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a>How many servings of each? Solve $Ax'=b'$ and check $Ax'-b'$.</span>
+<span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>**Expected:** $b'=(31,12)$, $x'=(5,7)$.</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a>**Pause.** You solved **two** systems that share the same $A$ and differ only in $b$. Was calling the one-liner twice the smartest use of work? What information about $A$ could a computer **reuse** on Tuesday instead of starting over?</span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="fu">## First factorization: $A=LU$</span></span>
+<span id="cb3-106"><a href="#cb3-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-107"><a href="#cb3-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### From Lab 2’s $E_i$ to two triangular factors</span></span>
+<span id="cb3-108"><a href="#cb3-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-109"><a href="#cb3-109" aria-hidden="true" tabindex="-1"></a>Lab 2 cleared below pivots by left-multiplying elementary matrices $E_i$. **Stop when $A$ is upper triangular** — call that matrix $U$. Do **not** scale pivots to $1$ or clear above (that is RREF / inverse territory).</span>
+<span id="cb3-110"><a href="#cb3-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-111"><a href="#cb3-111" aria-hidden="true" tabindex="-1"></a>For the nutrient matrix, one step does it. Subtract $\tfrac12$ times row 1 from row 2:</span>
+<span id="cb3-112"><a href="#cb3-112" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-113"><a href="#cb3-113" aria-hidden="true" tabindex="-1"></a>E=\begin{bmatrix}1&amp;0<span class="sc">\\</span>-\tfrac12&amp;1\end{bmatrix}</span>
+<span id="cb3-114"><a href="#cb3-114" aria-hidden="true" tabindex="-1"></a>\quad\Rightarrow\quad</span>
+<span id="cb3-115"><a href="#cb3-115" aria-hidden="true" tabindex="-1"></a>EA=U=\begin{bmatrix}2&amp;3<span class="sc">\\</span>0&amp;-\tfrac12\end{bmatrix}.</span>
+<span id="cb3-116"><a href="#cb3-116" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-117"><a href="#cb3-117" aria-hidden="true" tabindex="-1"></a>So $EA=U$. Multiply on the left by $E^{-1}$:</span>
+<span id="cb3-118"><a href="#cb3-118" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>A=E^{-1}U.</span>
+<span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>The inverse of “subtract $\tfrac12\cdot$(row 1) from row 2” is “**add** $\tfrac12\cdot$(row 1) to row 2”:</span>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-123"><a href="#cb3-123" aria-hidden="true" tabindex="-1"></a>E^{-1}=\begin{bmatrix}1&amp;0<span class="sc">\\</span>\tfrac12&amp;1\end{bmatrix}=L</span>
+<span id="cb3-124"><a href="#cb3-124" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-125"><a href="#cb3-125" aria-hidden="true" tabindex="-1"></a>(lower triangular; the multiplier $\tfrac12$ sits where we cleared). Thus</span>
+<span id="cb3-126"><a href="#cb3-126" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-127"><a href="#cb3-127" aria-hidden="true" tabindex="-1"></a>A=LU.</span>
+<span id="cb3-128"><a href="#cb3-128" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-129"><a href="#cb3-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-130"><a href="#cb3-130" aria-hidden="true" tabindex="-1"></a>**Larger $n$ (same idea, more $E_i$).** Clearing below the pivots is a product</span>
+<span id="cb3-131"><a href="#cb3-131" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-132"><a href="#cb3-132" aria-hidden="true" tabindex="-1"></a>E_k\cdots E_2 E_1 A = U</span>
+<span id="cb3-133"><a href="#cb3-133" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-134"><a href="#cb3-134" aria-hidden="true" tabindex="-1"></a>(upper triangular). Those $E_i$ are the “go down to $U$” group. Invert and reverse order:</span>
+<span id="cb3-135"><a href="#cb3-135" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-136"><a href="#cb3-136" aria-hidden="true" tabindex="-1"></a>A = \underbrace{E_1^{-1}E_2^{-1}\cdots E_k^{-1}}_{L} U.</span>
+<span id="cb3-137"><a href="#cb3-137" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-138"><a href="#cb3-138" aria-hidden="true" tabindex="-1"></a>Each $E_i^{-1}$ puts the multiplier **back** (same spot, opposite sign), so $L$ is lower triangular with $1$s on the diagonal. A second group of elementary matrices (scale pivots to $1$, clear **above**) would finish RREF / $[A\mid I]$ — solvers usually **skip** that group when they only need $x$.</span>
+<span id="cb3-139"><a href="#cb3-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-140"><a href="#cb3-140" aria-hidden="true" tabindex="-1"></a><span class="fu">### Using $LU$ to solve $Ax=b$</span></span>
+<span id="cb3-141"><a href="#cb3-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-142"><a href="#cb3-142" aria-hidden="true" tabindex="-1"></a>If $A=LU$, then $Ax=b$ means $LUx=b$. Introduce $y=Ux$:</span>
+<span id="cb3-143"><a href="#cb3-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-144"><a href="#cb3-144" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Forward substitution:** solve $Ly=b$ for $y$ (easy: $L$ lower triangular).</span>
+<span id="cb3-145"><a href="#cb3-145" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Back substitution:** solve $Ux=y$ for $x$ (easy: $U$ upper triangular).</span>
+<span id="cb3-146"><a href="#cb3-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-147"><a href="#cb3-147" aria-hidden="true" tabindex="-1"></a>Same $L$ and $U$ work for every new $b$ (Monday, Tuesday, …). Factor once; each day is two triangular solves.</span>
+<span id="cb3-148"><a href="#cb3-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-149"><a href="#cb3-149" aria-hidden="true" tabindex="-1"></a>**C3.3.**</span>
+<span id="cb3-150"><a href="#cb3-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-151"><a href="#cb3-151" aria-hidden="true" tabindex="-1"></a>(a) Form $L$ and $U$ for the nutrient $A$; check $LU=A$.  </span>
+<span id="cb3-152"><a href="#cb3-152" aria-hidden="true" tabindex="-1"></a>(b) For Monday’s $b=(26,10)$, solve $Ly=b$, then $Ux=y$, by hand or in software. Check that $x$ matches C3.1.</span>
+<span id="cb3-153"><a href="#cb3-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-154"><a href="#cb3-154" aria-hidden="true" tabindex="-1"></a>**Behind `A \ b` (part 1).** A typical dense solver does this bookkeeping (often with row swaps: $PA=LU$ if a pivot is $0$/tiny). This nutrient $A$ needs no swap. Full RREF every time would redo extra work you do not need for one $x$.</span>
+<span id="cb3-155"><a href="#cb3-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-156"><a href="#cb3-156" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Goal <span class="pp">|</span> Package <span class="pp">|</span></span>
+<span id="cb3-157"><a href="#cb3-157" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|---------|</span></span>
+<span id="cb3-158"><a href="#cb3-158" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Many $Ax=b$ (same foods, new targets) <span class="pp">|</span> **$A=LU$**, then $Ly=b$, $Ux=y$ — close to what <span class="in">`A \ b`</span> reuses <span class="pp">|</span></span>
+<span id="cb3-159"><a href="#cb3-159" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Undo map for every $b$ <span class="pp">|</span> **$[A\mid I]\to A^{-1}$** (extra $E_i$ group) — useful, but usually *not* how <span class="in">`A \ b`</span> works <span class="pp">|</span></span>
+<span id="cb3-160"><a href="#cb3-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bridge from Lab 2: program the algorithm (no zero pivots)</span></span>
+<span id="cb3-162"><a href="#cb3-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-163"><a href="#cb3-163" aria-hidden="true" tabindex="-1"></a>Lab 2 listed an algorithm while every pivot is nonzero, and walked a $3\times 3$ system by hand to echelon (then sketched full RREF). **Today: put that algorithm on the machine** and push all the way to **RREF** (pivots $=1$, zeros above and below).</span>
+<span id="cb3-164"><a href="#cb3-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-165"><a href="#cb3-165" aria-hidden="true" tabindex="-1"></a>Reuse Lab 2’s system:</span>
+<span id="cb3-166"><a href="#cb3-166" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-167"><a href="#cb3-167" aria-hidden="true" tabindex="-1"></a>A=\begin{bmatrix}1&amp;1&amp;1<span class="sc">\\</span>2&amp;3&amp;1<span class="sc">\\</span>1&amp;2&amp;3\end{bmatrix},\qquad</span>
+<span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a>b=\begin{bmatrix}6<span class="sc">\\</span>11<span class="sc">\\</span>14\end{bmatrix},\qquad</span>
+<span id="cb3-169"><a href="#cb3-169" aria-hidden="true" tabindex="-1"></a>M=<span class="co">[</span><span class="ot">A\mid b</span><span class="co">]</span>\in\mathbb{R}^{3\times 4}.</span>
+<span id="cb3-170"><a href="#cb3-170" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-171"><a href="#cb3-171" aria-hidden="true" tabindex="-1"></a>(You already know the answer will be $x=(1,2,3)$.)</span>
+<span id="cb3-172"><a href="#cb3-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-173"><a href="#cb3-173" aria-hidden="true" tabindex="-1"></a><span class="fu">### Pattern for one step</span></span>
+<span id="cb3-174"><a href="#cb3-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-175"><a href="#cb3-175" aria-hidden="true" tabindex="-1"></a>Pivot at position $(k,k)$ (1-based). To clear entry $(i,k)$:</span>
+<span id="cb3-176"><a href="#cb3-176" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-177"><a href="#cb3-177" aria-hidden="true" tabindex="-1"></a>c=\frac{M_{ik}}{M_{kk}},\qquad</span>
+<span id="cb3-178"><a href="#cb3-178" aria-hidden="true" tabindex="-1"></a>E = I_3\text{ with }{-c}\text{ in row }i,\text{ column }k,\qquad</span>
+<span id="cb3-179"><a href="#cb3-179" aria-hidden="true" tabindex="-1"></a>M \leftarrow EM.</span>
+<span id="cb3-180"><a href="#cb3-180" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-181"><a href="#cb3-181" aria-hidden="true" tabindex="-1"></a>To make the pivot $1$: scale row $k$ by $1/M_{kk}$ (elementary matrix = $I$ with that factor on the diagonal).</span>
+<span id="cb3-182"><a href="#cb3-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-183"><a href="#cb3-183" aria-hidden="true" tabindex="-1"></a>**C3.4 — Run RREF (nonzero pivots).** Copy–paste **one** of the blocks below, run it, and watch $M$ become $<span class="co">[</span><span class="ot">I\mid x</span><span class="co">]</span>$. Then compare to the one-liner on the same $A,b$.</span>
+<span id="cb3-184"><a href="#cb3-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-185"><a href="#cb3-185" aria-hidden="true" tabindex="-1"></a>For each pivot column $k$: scale the pivot to $1$ with an elementary matrix, then clear every other entry in that column the same way (Lab 2’s $E$, left-multiply, replace $M$).</span>
+<span id="cb3-186"><a href="#cb3-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-187"><a href="#cb3-187" aria-hidden="true" tabindex="-1"></a>**Octave** (copy all):</span>
+<span id="cb3-188"><a href="#cb3-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-189"><a href="#cb3-189" aria-hidden="true" tabindex="-1"></a><span class="in">```matlab</span></span>
+<span id="cb3-190"><a href="#cb3-190" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> [<span class="fl">1</span> <span class="fl">1</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">2</span> <span class="fl">3</span> <span class="fl">1</span><span class="op">;</span> <span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span>]<span class="op">;</span></span>
+<span id="cb3-191"><a href="#cb3-191" aria-hidden="true" tabindex="-1"></a><span class="va">b</span> <span class="op">=</span> [<span class="fl">6</span><span class="op">;</span> <span class="fl">11</span><span class="op">;</span> <span class="fl">14</span>]<span class="op">;</span></span>
+<span id="cb3-192"><a href="#cb3-192" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> [<span class="va">A</span> <span class="va">b</span>]<span class="op">;</span>          <span class="co">% 3x4 augmented matrix</span></span>
+<span id="cb3-193"><a href="#cb3-193" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">3</span><span class="op">;</span></span>
+<span id="cb3-194"><a href="#cb3-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-195"><a href="#cb3-195" aria-hidden="true" tabindex="-1"></a><span class="co">% for k = 1:n ... end  →  repeat with k = 1, then 2, then 3</span></span>
+<span id="cb3-196"><a href="#cb3-196" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">k</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span></span>
+<span id="cb3-197"><a href="#cb3-197" aria-hidden="true" tabindex="-1"></a>  <span class="co">% M(k,k) = entry in row k, column k (1-based)</span></span>
+<span id="cb3-198"><a href="#cb3-198" aria-hidden="true" tabindex="-1"></a>  <span class="va">E</span> <span class="op">=</span> <span class="va">eye</span>(<span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb3-199"><a href="#cb3-199" aria-hidden="true" tabindex="-1"></a>  <span class="va">E</span>(<span class="va">k</span><span class="op">,</span><span class="va">k</span>) <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="va">M</span>(<span class="va">k</span><span class="op">,</span><span class="va">k</span>)<span class="op">;</span>   <span class="co">% put the scale factor on the diagonal of E</span></span>
+<span id="cb3-200"><a href="#cb3-200" aria-hidden="true" tabindex="-1"></a>  <span class="va">M</span> <span class="op">=</span> <span class="va">E</span> <span class="op">*</span> <span class="va">M</span><span class="op">;</span></span>
+<span id="cb3-201"><a href="#cb3-201" aria-hidden="true" tabindex="-1"></a>  <span class="co">% disp prints; num2str(k) turns k into text for the message</span></span>
+<span id="cb3-202"><a href="#cb3-202" aria-hidden="true" tabindex="-1"></a>  <span class="va">disp</span>([<span class="st">"after scale pivot "</span><span class="op">,</span> <span class="va">num2str</span>(<span class="va">k</span>)])<span class="op">;</span> <span class="va">disp</span>(<span class="va">M</span>)<span class="op">;</span></span>
+<span id="cb3-203"><a href="#cb3-203" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-204"><a href="#cb3-204" aria-hidden="true" tabindex="-1"></a>  <span class="kw">for</span> <span class="va">i</span> <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">n</span></span>
+<span id="cb3-205"><a href="#cb3-205" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="va">i</span> <span class="op">==</span> <span class="va">k</span></span>
+<span id="cb3-206"><a href="#cb3-206" aria-hidden="true" tabindex="-1"></a>      <span class="kw">continue</span><span class="op">;</span>          <span class="co">% skip the pivot row itself</span></span>
+<span id="cb3-207"><a href="#cb3-207" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span>
+<span id="cb3-208"><a href="#cb3-208" aria-hidden="true" tabindex="-1"></a>    <span class="va">E</span> <span class="op">=</span> <span class="va">eye</span>(<span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb3-209"><a href="#cb3-209" aria-hidden="true" tabindex="-1"></a>    <span class="va">E</span>(<span class="va">i</span><span class="op">,</span><span class="va">k</span>) <span class="op">=</span> <span class="op">-</span><span class="va">M</span>(<span class="va">i</span><span class="op">,</span><span class="va">k</span>)<span class="op">;</span>    <span class="co">% -c in row i, column k</span></span>
+<span id="cb3-210"><a href="#cb3-210" aria-hidden="true" tabindex="-1"></a>    <span class="va">M</span> <span class="op">=</span> <span class="va">E</span> <span class="op">*</span> <span class="va">M</span><span class="op">;</span></span>
+<span id="cb3-211"><a href="#cb3-211" aria-hidden="true" tabindex="-1"></a>  <span class="kw">end</span></span>
+<span id="cb3-212"><a href="#cb3-212" aria-hidden="true" tabindex="-1"></a>  <span class="va">disp</span>([<span class="st">"after clear column "</span><span class="op">,</span> <span class="va">num2str</span>(<span class="va">k</span>)])<span class="op">;</span> <span class="va">disp</span>(<span class="va">M</span>)<span class="op">;</span></span>
+<span id="cb3-213"><a href="#cb3-213" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb3-214"><a href="#cb3-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-215"><a href="#cb3-215" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">M</span>(<span class="op">:,</span> <span class="kw">end</span>)            <span class="co">% all rows (:), last column (end) = solution</span></span>
+<span id="cb3-216"><a href="#cb3-216" aria-hidden="true" tabindex="-1"></a><span class="va">x_solver</span> <span class="op">=</span> <span class="va">A</span> <span class="op">\</span> <span class="va">b</span></span>
+<span id="cb3-217"><a href="#cb3-217" aria-hidden="true" tabindex="-1"></a><span class="va">residual</span> <span class="op">=</span> <span class="va">A</span> <span class="op">*</span> <span class="va">x</span> <span class="op">-</span> <span class="va">b</span></span>
+<span id="cb3-218"><a href="#cb3-218" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-219"><a href="#cb3-219" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-220"><a href="#cb3-220" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Python</span><span class="op">**</span> (<span class="va">copy</span> <span class="va">all</span>)<span class="op">:</span></span>
+<span id="cb3-221"><a href="#cb3-221" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-222"><a href="#cb3-222" aria-hidden="true" tabindex="-1"></a>```<span class="va">python</span></span>
+<span id="cb3-223"><a href="#cb3-223" aria-hidden="true" tabindex="-1"></a><span class="va">import</span> <span class="va">numpy</span> <span class="va">as</span> <span class="va">np</span></span>
+<span id="cb3-224"><a href="#cb3-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-225"><a href="#cb3-225" aria-hidden="true" tabindex="-1"></a><span class="va">A</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([[<span class="fl">1</span>.<span class="op">,</span> <span class="fl">1</span><span class="op">,</span> <span class="fl">1</span>]<span class="op">,</span></span>
+<span id="cb3-226"><a href="#cb3-226" aria-hidden="true" tabindex="-1"></a>              [<span class="fl">2</span><span class="op">,</span> <span class="fl">3</span><span class="op">,</span> <span class="fl">1</span>]<span class="op">,</span></span>
+<span id="cb3-227"><a href="#cb3-227" aria-hidden="true" tabindex="-1"></a>              [<span class="fl">1</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">3</span>]])</span>
+<span id="cb3-228"><a href="#cb3-228" aria-hidden="true" tabindex="-1"></a><span class="va">b</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">array</span>([<span class="fl">6</span>.<span class="op">,</span> <span class="fl">11</span><span class="op">,</span> <span class="fl">14</span>])</span>
+<span id="cb3-229"><a href="#cb3-229" aria-hidden="true" tabindex="-1"></a><span class="va">M</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">column_stack</span>((<span class="va">A</span><span class="op">,</span> <span class="va">b</span>))  # <span class="fl">3</span><span class="va">x4</span> <span class="va">augmented</span> <span class="va">matrix</span></span>
+<span id="cb3-230"><a href="#cb3-230" aria-hidden="true" tabindex="-1"></a><span class="va">n</span> <span class="op">=</span> <span class="fl">3</span></span>
+<span id="cb3-231"><a href="#cb3-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-232"><a href="#cb3-232" aria-hidden="true" tabindex="-1"></a># <span class="kw">for</span> <span class="va">k</span> <span class="va">in</span> <span class="va">range</span>(<span class="va">n</span>)<span class="op">:</span>  →  <span class="va">k</span> <span class="op">=</span> <span class="fl">0</span><span class="op">,</span> <span class="va">then</span> <span class="fl">1</span><span class="op">,</span> <span class="va">then</span> <span class="fl">2</span>  (<span class="fl">0</span><span class="op">-</span><span class="va">based</span>)</span>
+<span id="cb3-233"><a href="#cb3-233" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="va">k</span> <span class="va">in</span> <span class="va">range</span>(<span class="va">n</span>)<span class="op">:</span></span>
+<span id="cb3-234"><a href="#cb3-234" aria-hidden="true" tabindex="-1"></a>    # <span class="va">M</span>[<span class="va">k</span><span class="op">,</span> <span class="va">k</span>] <span class="op">=</span> <span class="va">entry</span> <span class="va">in</span> <span class="va">row</span> <span class="va">k</span><span class="op">,</span> <span class="va">column</span> <span class="va">k</span> (<span class="fl">0</span><span class="op">-</span><span class="va">based</span>)</span>
+<span id="cb3-235"><a href="#cb3-235" aria-hidden="true" tabindex="-1"></a>    <span class="va">E</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">eye</span>(<span class="va">n</span>)</span>
+<span id="cb3-236"><a href="#cb3-236" aria-hidden="true" tabindex="-1"></a>    <span class="va">E</span>[<span class="va">k</span><span class="op">,</span> <span class="va">k</span>] <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> <span class="va">M</span>[<span class="va">k</span><span class="op">,</span> <span class="va">k</span>]  # <span class="va">put</span> <span class="va">the</span> <span class="va">scale</span> <span class="va">factor</span> <span class="va">on</span> <span class="va">the</span> <span class="va">diagonal</span> <span class="va">of</span> <span class="va">E</span></span>
+<span id="cb3-237"><a href="#cb3-237" aria-hidden="true" tabindex="-1"></a>    <span class="va">M</span> <span class="op">=</span> <span class="va">E</span> <span class="op">@</span> <span class="va">M</span></span>
+<span id="cb3-238"><a href="#cb3-238" aria-hidden="true" tabindex="-1"></a>    <span class="va">print</span>(<span class="va">f</span><span class="st">"after scale pivot {k+1}\n"</span><span class="op">,</span> <span class="va">M</span>)  # <span class="va">f</span><span class="op">-</span><span class="va">string</span> <span class="va">inserts</span> <span class="va">k</span><span class="op">+</span><span class="fl">1</span> <span class="va">into</span> <span class="va">the</span> <span class="va">text</span></span>
+<span id="cb3-239"><a href="#cb3-239" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-240"><a href="#cb3-240" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="va">i</span> <span class="va">in</span> <span class="va">range</span>(<span class="va">n</span>)<span class="op">:</span></span>
+<span id="cb3-241"><a href="#cb3-241" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="va">i</span> <span class="op">==</span> <span class="va">k</span><span class="op">:</span></span>
+<span id="cb3-242"><a href="#cb3-242" aria-hidden="true" tabindex="-1"></a>            <span class="kw">continue</span>          # <span class="va">skip</span> <span class="va">the</span> <span class="va">pivot</span> <span class="va">row</span> <span class="va">itself</span></span>
+<span id="cb3-243"><a href="#cb3-243" aria-hidden="true" tabindex="-1"></a>        <span class="va">E</span> <span class="op">=</span> <span class="va">np</span>.<span class="va">eye</span>(<span class="va">n</span>)</span>
+<span id="cb3-244"><a href="#cb3-244" aria-hidden="true" tabindex="-1"></a>        <span class="va">E</span>[<span class="va">i</span><span class="op">,</span> <span class="va">k</span>] <span class="op">=</span> <span class="op">-</span><span class="va">M</span>[<span class="va">i</span><span class="op">,</span> <span class="va">k</span>]    # <span class="op">-</span><span class="va">c</span> <span class="va">in</span> <span class="va">row</span> <span class="va">i</span><span class="op">,</span> <span class="va">column</span> <span class="va">k</span></span>
+<span id="cb3-245"><a href="#cb3-245" aria-hidden="true" tabindex="-1"></a>        <span class="va">M</span> <span class="op">=</span> <span class="va">E</span> <span class="op">@</span> <span class="va">M</span></span>
+<span id="cb3-246"><a href="#cb3-246" aria-hidden="true" tabindex="-1"></a>    <span class="va">print</span>(<span class="va">f</span><span class="st">"after clear column {k+1}\n"</span><span class="op">,</span> <span class="va">M</span>)</span>
+<span id="cb3-247"><a href="#cb3-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-248"><a href="#cb3-248" aria-hidden="true" tabindex="-1"></a><span class="va">x</span> <span class="op">=</span> <span class="va">M</span>[<span class="op">:,</span> <span class="op">-</span><span class="fl">1</span>]                  # <span class="va">all</span> <span class="va">rows</span> (<span class="op">:</span>)<span class="op">,</span> <span class="va">last</span> <span class="va">column</span> (<span class="op">-</span><span class="fl">1</span>) <span class="op">=</span> <span class="va">solution</span></span>
+<span id="cb3-249"><a href="#cb3-249" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="st">"x from RREF:"</span><span class="op">,</span> <span class="va">x</span>)</span>
+<span id="cb3-250"><a href="#cb3-250" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="st">"x from solve:"</span><span class="op">,</span> <span class="va">np</span>.<span class="va">linalg</span>.<span class="va">solve</span>(<span class="va">A</span><span class="op">,</span> <span class="va">b</span>))</span>
+<span id="cb3-251"><a href="#cb3-251" aria-hidden="true" tabindex="-1"></a><span class="va">print</span>(<span class="st">"residual:"</span><span class="op">,</span> <span class="va">A</span> <span class="op">@</span> <span class="va">x</span> <span class="op">-</span> <span class="va">b</span>)</span>
+<span id="cb3-252"><a href="#cb3-252" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb3-253"><a href="#cb3-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-254"><a href="#cb3-254" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> <span class="va">final</span> $<span class="va">M</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;|&amp;</span><span class="fl">1</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;|&amp;</span><span class="fl">2</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">&amp;|&amp;</span><span class="fl">3</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$<span class="op">,</span> <span class="va">so</span> $<span class="va">x</span><span class="op">=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">3</span>)$ — <span class="va">matching</span> `<span class="va">A</span> <span class="op">\</span> <span class="va">b</span>` <span class="op">/</span> `<span class="va">solve</span>`<span class="op">,</span> <span class="va">residual</span> $<span class="op">\</span><span class="va">approx</span> <span class="fl">0</span>$.</span>
+<span id="cb3-255"><a href="#cb3-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-256"><a href="#cb3-256" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Behind</span> `<span class="va">A</span><span class="op">\</span><span class="va">b</span>` (<span class="va">part</span> <span class="fl">2</span>)<span class="op">.**</span> <span class="va">Your</span> <span class="va">coded</span> <span class="va">RREF</span> <span class="va">is</span> <span class="va">the</span> <span class="va">Lab</span> <span class="fl">2</span> <span class="va">algorithm</span> <span class="va">made</span> <span class="va">explicit</span>. <span class="va">Production</span> <span class="va">solvers</span> <span class="va">usually</span> <span class="op">**</span><span class="va">stop</span> <span class="va">earlier</span><span class="op">**</span> (<span class="va">LU</span> <span class="op">/</span> $<span class="va">PA</span><span class="op">=</span><span class="va">LU</span>$<span class="op">,</span> <span class="va">then</span> <span class="va">triangular</span> <span class="va">solves</span>) <span class="va">instead</span> <span class="va">of</span> <span class="va">forming</span> <span class="va">full</span> <span class="va">RREF</span> <span class="va">every</span> <span class="va">time</span> — <span class="va">same</span> <span class="va">family</span> <span class="va">of</span> <span class="va">row</span> <span class="va">operations</span><span class="op">,</span> <span class="va">better</span> <span class="va">bookkeeping</span> <span class="va">when</span> <span class="va">only</span> $<span class="va">b</span>$ <span class="va">changes</span>. </span>
+<span id="cb3-257"><a href="#cb3-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-258"><a href="#cb3-258" aria-hidden="true" tabindex="-1"></a>## <span class="va">Same</span> <span class="va">algorithm</span><span class="op">,</span> $<span class="va">I</span>$ <span class="va">instead</span> <span class="va">of</span> $<span class="va">b</span>$</span>
+<span id="cb3-259"><a href="#cb3-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-260"><a href="#cb3-260" aria-hidden="true" tabindex="-1"></a><span class="va">Replace</span> <span class="va">the</span> <span class="va">right</span><span class="op">-</span><span class="va">hand</span> <span class="va">column</span> <span class="va">by</span> <span class="va">an</span> <span class="va">identity</span><span class="op">:</span> <span class="va">form</span> <span class="va">the</span> $<span class="fl">3</span><span class="op">\</span><span class="va">times</span> <span class="fl">6</span>$ <span class="va">matrix</span> $[<span class="va">A</span><span class="op">\</span><span class="va">mid</span> <span class="va">I</span>]$. <span class="va">Run</span> <span class="op">**</span><span class="va">the</span> <span class="va">same</span><span class="op">**</span> <span class="va">elementary</span> <span class="va">updates</span> <span class="va">until</span> <span class="va">the</span> <span class="va">left</span> <span class="va">block</span> <span class="va">is</span> $<span class="va">I</span>$. <span class="va">Call</span> <span class="va">the</span> <span class="va">right</span> $<span class="fl">3</span><span class="op">\</span><span class="va">times</span> <span class="fl">3</span>$ <span class="va">block</span> $<span class="va">B</span>$.</span>
+<span id="cb3-261"><a href="#cb3-261" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-262"><a href="#cb3-262" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C3</span><span class="fl">.5</span><span class="op">.**</span></span>
+<span id="cb3-263"><a href="#cb3-263" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-264"><a href="#cb3-264" aria-hidden="true" tabindex="-1"></a>(<span class="va">a</span>) <span class="va">Obtain</span> $<span class="va">B</span>$. <span class="va">Check</span> $<span class="va">B</span><span class="op">*</span><span class="va">A</span>$ <span class="op">/</span> `<span class="va">B</span> <span class="op">@</span> <span class="va">A</span>` <span class="va">equals</span> $<span class="va">I</span>$ (<span class="va">within</span> <span class="va">rounding</span>).  </span>
+<span id="cb3-265"><a href="#cb3-265" aria-hidden="true" tabindex="-1"></a>(<span class="va">b</span>) <span class="va">Check</span> $<span class="va">B</span><span class="op">*</span><span class="va">b</span>$ <span class="va">equals</span> <span class="va">the</span> $<span class="va">x</span>$ <span class="va">from</span> <span class="va">C3</span><span class="fl">.4</span> — <span class="va">so</span> $<span class="va">x</span><span class="op">=</span><span class="va">Bb</span>$ <span class="va">also</span> <span class="va">works</span>.  </span>
+<span id="cb3-266"><a href="#cb3-266" aria-hidden="true" tabindex="-1"></a>(<span class="va">c</span>) $<span class="va">B</span>$ <span class="va">is</span> <span class="va">the</span> <span class="va">product</span> <span class="va">of</span> <span class="va">all</span> <span class="va">the</span> <span class="va">elementary</span> <span class="va">matrices</span> <span class="va">you</span> <span class="va">left</span><span class="op">-</span><span class="va">multiplied</span> <span class="va">so</span> <span class="va">we</span><span class="op">'</span><span class="va">ve</span> <span class="va">saved</span> <span class="va">the</span> <span class="va">whole</span> <span class="va">reduction</span> <span class="va">as</span> <span class="va">one</span> <span class="va">matrix</span>.  </span>
+<span id="cb3-267"><a href="#cb3-267" aria-hidden="true" tabindex="-1"></a>(<span class="va">d</span>) <span class="va">One</span> <span class="va">sentence</span><span class="op">:</span> <span class="va">why</span> <span class="va">solvers</span> <span class="va">still</span> <span class="va">prefer</span> `<span class="va">A</span><span class="op">\</span><span class="va">b</span>` <span class="op">/</span> <span class="va">LU</span> <span class="va">over</span> “<span class="va">form</span> $<span class="va">B</span><span class="op">=</span><span class="va">A</span><span class="op">^</span>{<span class="op">-</span><span class="fl">1</span>}$<span class="op">,</span> <span class="va">then</span> $<span class="va">Bb</span>$” <span class="kw">for</span> <span class="va">a</span> <span class="va">single</span> (<span class="va">or</span> <span class="va">few</span>) <span class="va">right</span><span class="op">-</span><span class="va">hand</span> <span class="va">side</span>(<span class="va">s</span>).</span>
+<span id="cb3-268"><a href="#cb3-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-269"><a href="#cb3-269" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">Expected</span><span class="op">:**</span> $<span class="va">BA</span><span class="op">=</span><span class="va">I</span>$<span class="op">,</span> $<span class="va">Bb</span><span class="op">=</span><span class="va">x</span>$. <span class="va">Monday</span>’<span class="va">s</span> <span class="va">name</span> <span class="kw">for</span> $<span class="va">B</span>$ <span class="va">is</span> $<span class="va">A</span><span class="op">^</span>{<span class="op">-</span><span class="fl">1</span>}$. <span class="va">Forming</span> $<span class="va">A</span><span class="op">^</span>{<span class="op">-</span><span class="fl">1</span>}$ <span class="va">does</span> <span class="va">extra</span> <span class="va">work</span> <span class="va">when</span> <span class="va">you</span> <span class="va">only</span> <span class="va">need</span> <span class="va">one</span> $<span class="va">x</span>$.</span>
+<span id="cb3-270"><a href="#cb3-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-271"><a href="#cb3-271" aria-hidden="true" tabindex="-1"></a>## <span class="va">Powers</span> (<span class="va">syntax</span> <span class="va">practice</span>)</span>
+<span id="cb3-272"><a href="#cb3-272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-273"><a href="#cb3-273" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="va">C3</span><span class="fl">.6</span><span class="op">.**</span> <span class="va">Separate</span> <span class="va">from</span> <span class="va">the</span> <span class="va">diet</span> <span class="op">/</span> <span class="va">Lab</span> <span class="fl">2</span> <span class="va">matrices</span><span class="op">,</span> <span class="va">enter</span></span>
+<span id="cb3-274"><a href="#cb3-274" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-275"><a href="#cb3-275" aria-hidden="true" tabindex="-1"></a><span class="va">A</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1</span><span class="op">&amp;</span><span class="fl">2</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}<span class="op">,\</span><span class="va">qquad</span> <span class="va">x_0</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">0</span><span class="op">\\</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}.</span>
+<span id="cb3-276"><a href="#cb3-276" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb3-277"><a href="#cb3-277" aria-hidden="true" tabindex="-1"></a><span class="va">Compute</span> $<span class="va">A</span><span class="op">^</span><span class="fl">2</span>$<span class="op">,</span> $<span class="va">A</span><span class="op">^</span><span class="fl">3</span>$<span class="op">,</span> <span class="va">and</span> $<span class="va">A</span><span class="op">^</span><span class="fl">3</span> <span class="va">x_0</span>$. <span class="va">Spot</span><span class="op">-</span><span class="va">check</span><span class="op">:</span> $<span class="va">A</span><span class="op">^</span><span class="fl">3</span><span class="op">=\</span><span class="va">begin</span>{<span class="va">bmatrix</span>}<span class="fl">1</span><span class="op">&amp;</span><span class="fl">6</span><span class="op">\\</span><span class="fl">0</span><span class="op">&amp;</span><span class="fl">1</span><span class="op">\</span><span class="kw">end</span>{<span class="va">bmatrix</span>}$<span class="op">,</span> $<span class="va">A</span><span class="op">^</span><span class="fl">3</span> <span class="va">x_0</span><span class="op">=</span>(<span class="fl">6</span><span class="op">,</span><span class="fl">1</span>)$.</span>
+<span id="cb3-278"><a href="#cb3-278" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-279"><a href="#cb3-279" aria-hidden="true" tabindex="-1"></a>## <span class="va">One</span><span class="op">-</span><span class="va">pager</span></span>
+<span id="cb3-280"><a href="#cb3-280" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-281"><a href="#cb3-281" aria-hidden="true" tabindex="-1"></a><span class="va">Preview</span> <span class="va">the</span> [<span class="va">Lab</span> <span class="fl">3</span> <span class="va">ticket</span>](<span class="va">lab</span><span class="op">-</span><span class="fl">03</span><span class="op">-</span><span class="va">ticket</span>.<span class="va">qmd</span>)<span class="op">;</span> <span class="va">write</span> <span class="va">on</span> <span class="va">the</span> <span class="va">hard</span> <span class="va">copy</span> <span class="va">in</span> <span class="va">class</span>.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

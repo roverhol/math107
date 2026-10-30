@@ -182,7 +182,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 12, 2026</p>
+      <p class="date-modified">October 29, 2026</p>
     </div>
   </div>
     
@@ -194,14 +194,14 @@ window.Quarto = {
 
 
 <p><a href="lecture-40.pdf">Download PDF</a></p>
-<p>Last updated: October 8, 2026.</p>
+<p>Last updated: October 29, 2026.</p>
 <!-- VMLS-TEXTBOOK -->
 <p><strong>Textbook:</strong> <a href="https://web.stanford.edu/~boyd/vmls/vmls.pdf">Boyd &amp; Vandenberghe, <em>VMLS</em> (PDF)</a> <!-- /VMLS-TEXTBOOK --></p>
 <!-- STRANG-SUPPLEMENT -->
 <p><strong>Strang / MIT (optional):</strong> Reading: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/SVD_Slides.pdf">Strang/MIT SVD slides (PDF)</a><br>
 Video: <a href="https://www.youtube.com/watch?v=TX_vooSnhm8">18.06 Lec 29 — singular value decomposition</a> · <a href="https://www.youtube.com/watch?v=mBcLRGuAFUk">Short SVD overview (Strang)</a> · <a href="https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D">MIT 18.06 playlist (Strang)</a> <!-- /STRANG-SUPPLEMENT --></p>
 <p>Reading: selected slides from the <a href="https://math.mit.edu/~gs/linearalgebra/ila6/SVD_Slides.pdf">Strang/MIT SVD slides</a> (not all 17 pages), capstone launch, Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). Related objectives: <a href="../lectures.html#lecture-40">Lectures</a>. <a href="../schedule.html">Schedule</a>.</p>
-<p>Bring paper and a laptop. Warm-up, fill-in notes, board examples, and <strong>Your turn</strong>. See the <a href="../schedule.html">schedule</a> for today’s quiz, lab, and capstone launch.</p>
+<p>Bring paper and a laptop. Warm-up, fill-in notes, board examples, and <strong>Your turn</strong>. Today is <strong>SVD + <a href="../labs/lab-06.html">Lab 6</a> (Fit and Compress) + project launch</strong> after <a href="../quizzes/quiz-11.html">Quiz 11</a>. See the <a href="../schedule.html">schedule</a>.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <p>By the end of class, you should be able to:</p>
@@ -230,10 +230,14 @@ A = U\Sigma V^{\mathsf{T}},
 \]</span> where the columns of <span class="math inline">\(U\)</span> and <span class="math inline">\(V\)</span> are orthonormal (left / right <strong>singular vectors</strong>) and <span class="math inline">\(\Sigma\)</span> is rectangular “diagonal” with nonnegative <strong>singular values</strong> <span class="math display">\[
 \sigma_1\ge\sigma_2\ge\cdots\ge 0
 \]</span> on its main diagonal. Think: <span class="math inline">\(A\)</span> = rotate/reflect → stretch by <span class="math inline">\(\sigma_i\)</span> → rotate/reflect.</p>
+<p><strong>Factorizations in this course.</strong> <a href="../labs/lab-03.html">Lab 3</a> introduced a first useful factorization: <strong><span class="math inline">\(A=LU\)</span></strong> (elimination saved as a product — built to <strong>solve</strong> <span class="math inline">\(Ax=b\)</span>). Today’s <strong>SVD</strong> is a second: built from <strong>orthonormal</strong> directions and singular values — built to <strong>approximate</strong>, <strong>compress</strong>, and <strong>compute least squares stably</strong>.</p>
+<p><strong>Orthonormal payoff (<a href="../lectures/lecture-14.html">Lecture 14</a>).</strong> “Orthonormal” still means <span class="math inline">\(q_i^{\mathsf{T}}q_j=0\)</span> for <span class="math inline">\(i\neq j\)</span> and <span class="math inline">\(\|q_i\|=1\)</span>. The SVD <strong>hands you</strong> orthonormal bases (columns of <span class="math inline">\(U\)</span> and of <span class="math inline">\(V\)</span>). That is why those bases were worth defining earlier: coordinates via inner products, and this factorization, both use them.</p>
+<p><strong>Two jobs for SVD.</strong> (1) <strong>Stable LS:</strong> the LS solution is still <span class="math inline">\(\hat{b}=\operatorname{proj}_{C(A)}(b)\)</span> (<a href="../lectures/lecture-38.html">Lectures 38</a>–<a href="../lectures/lecture-39.html">39</a>); SVD is a reliable way to <strong>compute</strong> <span class="math inline">\(\hat{x}\)</span> (software’s <code>lstsq</code> often uses this family). (2) <strong>Compression:</strong> keep only the largest <span class="math inline">\(\sigma_i\)</span> for a rank-<span class="math inline">\(k\)</span> picture (capstone).</p>
+<p><strong>Callback — eigenvectors (<a href="../lectures/lecture-35.html">Lectures 35</a>–<a href="../lectures/lecture-37.html">37</a>, <a href="../labs/lab-05.html">Lab 5</a>).</strong> Eigenvectors name directions that <span class="math inline">\(A\)</span> only <strong>rescales</strong> (<span class="math inline">\(Av=\lambda v\)</span>); the largest <span class="math inline">\(|\lambda|\)</span> wins the long run. Singular vectors / singular values name directions that <span class="math inline">\(A\)</span> <strong>stretches</strong> the most (<span class="math inline">\(\sigma_1\ge\sigma_2\ge\cdots\)</span>). Different jobs, same “<strong>keep the dominant directions</strong>” instinct: Lab 5’s <span class="math inline">\(\lambda=1\)</span> mode vs today’s keep-large-<span class="math inline">\(\sigma_i\)</span> compression. (For square symmetric cases the two stories are closely related; we do not need that theorem to use either tool.)</p>
 <p><strong>Rank-<span class="math inline">\(k\)</span> approximation.</strong> Keep the largest <span class="math inline">\(k\)</span> singular values (and matching singular-vector columns); set the rest to zero. The truncated product <span class="math display">\[
 A_k = U_k\Sigma_k V_k^{\mathsf{T}}
-\]</span> is the best rank-<span class="math inline">\(k\)</span> approximation in the usual 2-norm / Frobenius sense (details in the slides / capstone).</p>
-<p><strong>Software sketch</strong> (capstone / later):</p>
+\]</span> is the best rank-<span class="math inline">\(k\)</span> approximation in the usual 2-norm / Frobenius sense (details in the slides / capstone). Same idea as “keep the important orthonormal directions.”</p>
+<p><strong>Software sketch</strong> (lab / capstone):</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 27%">
@@ -258,6 +262,11 @@ A_k = U_k\Sigma_k V_k^{\mathsf{T}}
 <td>use first <span class="math inline">\(k\)</span> columns / <span class="math inline">\(\sigma\)</span>’s</td>
 <td><code>U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]</code></td>
 </tr>
+<tr class="odd">
+<td>Least squares</td>
+<td><code>A\b</code></td>
+<td><code>np.linalg.lstsq(A,b,rcond=None)[0]</code></td>
+</tr>
 </tbody>
 </table>
 <p><strong>Capstone launch (one question).</strong> For a short clip of frames: when is it better to compress each frame alone versus encode <span class="math inline">\(F_1\)</span> and differences <span class="math inline">\(D_2=F_2-F_1\)</span>, <span class="math inline">\(D_3=F_3-F_2\)</span>? Trade off <strong>accuracy</strong>, <strong>storage</strong>, <strong>runtime</strong>, and <strong>resource use</strong> — including the cost of computing the SVD itself. Full prompts live in the <a href="../projects/capstone.html">capstone packet</a>; studio is Mon Dec 7.</p>
@@ -265,14 +274,17 @@ A_k = U_k\Sigma_k V_k^{\mathsf{T}}
 <section id="worked-in-class-short" class="level2">
 <h2 class="anchored" data-anchor-id="worked-in-class-short">Worked in class (short)</h2>
 <p><strong>W1.</strong> Read <span class="math inline">\(\Sigma\)</span>. Suppose a <span class="math inline">\(4\times 3\)</span> matrix has singular values <span class="math inline">\(\sigma=(10,\,2,\,0.1)\)</span>. What is <span class="math inline">\(\operatorname{rank}(A)\)</span> (numerically “full” vs tiny)? For a rank-<span class="math inline">\(1\)</span> approximation, which <span class="math inline">\(\sigma\)</span> do you keep?</p>
-<p><strong>W2.</strong> Storage cartoon. Full <span class="math inline">\(m\times n\)</span> needs <span class="math inline">\(mn\)</span> entries. A rank-<span class="math inline">\(k\)</span> factorization stores about <span class="math inline">\(k(m+n+1)\)</span> numbers (columns of <span class="math inline">\(U_k\)</span>, <span class="math inline">\(V_k\)</span>, and <span class="math inline">\(k\)</span> singular values). When is <span class="math inline">\(k(m+n+1)\ll mn\)</span>?</p>
-<p><strong>W3.</strong> Frames vs differences (launch). Three frames <span class="math inline">\(F_1,F_2,F_3\)</span>. Plan A: compress each. Plan B: compress <span class="math inline">\(F_1\)</span>, <span class="math inline">\(D_2=F_2-F_1\)</span>, <span class="math inline">\(D_3=F_3-F_2\)</span>. In one sentence each: when might Plan B win on storage? What must you still check (error / runtime)?</p>
+<p><strong>W2.</strong> Orthonormal check (Lecture 14 vocabulary). If <span class="math inline">\(u_1,u_2\)</span> are two columns of <span class="math inline">\(U\)</span>, what should <span class="math inline">\(u_1^{\mathsf{T}}u_2\)</span> and <span class="math inline">\(\|u_1\|\)</span> be?</p>
+<p><strong>W3.</strong> Storage cartoon. Full <span class="math inline">\(m\times n\)</span> needs <span class="math inline">\(mn\)</span> entries. A rank-<span class="math inline">\(k\)</span> factorization stores about <span class="math inline">\(k(m+n+1)\)</span> numbers. When is <span class="math inline">\(k(m+n+1)\ll mn\)</span>?</p>
+<p><strong>W4.</strong> Frames vs differences (launch). Three frames <span class="math inline">\(F_1,F_2,F_3\)</span>. Plan A: compress each. Plan B: compress <span class="math inline">\(F_1\)</span>, <span class="math inline">\(D_2=F_2-F_1\)</span>, <span class="math inline">\(D_3=F_3-F_2\)</span>. In one sentence each: when might Plan B win on storage? What must you still check (error / runtime)?</p>
 </section>
 <section id="your-turn" class="level2">
 <h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
 <p><strong>Y1.</strong> In <span class="math inline">\(A=U\Sigma V^{\mathsf{T}}\)</span>, what do the singular values measure conceptually (one phrase)?</p>
 <p><strong>Y2.</strong> True or false: computing an SVD is always “free,” so low-rank multiplication is always faster overall.</p>
-<p><strong>Y3.</strong> Write one capstone question you care about (accuracy, storage, runtime, or resource use) for frames vs frame-differences. One sentence is enough — expand in studio.</p>
+<p><strong>Y3.</strong> One sentence: how does the SVD connect to Monday’s least-squares picture (projection onto <span class="math inline">\(C(A)\)</span>) without changing what <span class="math inline">\(\hat{x}\)</span> means?</p>
+<p><strong>Y4.</strong> One sentence: how is “keep the largest singular values” like “the largest <span class="math inline">\(|\lambda|\)</span> wins” from the eigen week / Lab 5?</p>
+<p><strong>Y5.</strong> Write one capstone question you care about (accuracy, storage, runtime, or resource use) for frames vs frame-differences.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -287,7 +299,9 @@ A_k = U_k\Sigma_k V_k^{\mathsf{T}}
 <div class="callout-body-container callout-body">
 <p>Y1. Stretch factors / importance of each singular-vector mode (how strongly <span class="math inline">\(A\)</span> amplifies that direction).</p>
 <p>Y2. <strong>False.</strong> The factorization itself can be expensive; low-rank reuse only pays off when approximation quality is good <strong>and</strong> you reuse the factors enough (see capstone notes).</p>
-<p>Y3. Any clear tradeoff question is fine — e.g.&nbsp;“For my three frames, does difference encoding cut storage at the same relative error, after counting SVD time?”</p>
+<p>Y3. SVD is a stable way to <strong>compute</strong> the same LS <span class="math inline">\(\hat{x}\)</span> (projection onto <span class="math inline">\(C(A)\)</span>); it does not change the geometric meaning from Lectures 38–39. Columns of <span class="math inline">\(U\)</span>/<span class="math inline">\(V\)</span> are the orthonormal bases that make that computation convenient.</p>
+<p>Y4. Both pick the <strong>dominant directions</strong> of a linear map — largest <span class="math inline">\(|\lambda|\)</span> for repeated <span class="math inline">\(A^t\)</span>, largest <span class="math inline">\(\sigma_i\)</span> for compression / energy in <span class="math inline">\(A\)</span> (Lab 5 preview).</p>
+<p>Y5. Any clear tradeoff question is fine — e.g.&nbsp;“For my three frames, does difference encoding cut storage at the same relative error, after counting SVD time?”</p>
 </div>
 </div>
 </div>
@@ -757,7 +771,7 @@ A_k = U_k\Sigma_k V_k^{\mathsf{T}}
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Lecture 40 — SVD and capstone launch"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "Fri Dec 4"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-12</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2026-10-29</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf: default</span></span>
@@ -767,7 +781,7 @@ A_k = U_k\Sigma_k V_k^{\mathsf{T}}
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Download PDF</span><span class="co">](lecture-40.pdf)</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 8, 2026.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 29, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- VMLS-TEXTBOOK --&gt;</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>**Textbook:** <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS* (PDF)</span><span class="co">](https://web.stanford.edu/~boyd/vmls/vmls.pdf)</span></span>
@@ -780,7 +794,7 @@ A_k = U_k\Sigma_k V_k^{\mathsf{T}}
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Reading: selected slides from the <span class="co">[</span><span class="ot">Strang/MIT SVD slides</span><span class="co">](https://math.mit.edu/~gs/linearalgebra/ila6/SVD_Slides.pdf)</span> (not all 17 pages), capstone launch, Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). Related objectives: <span class="co">[</span><span class="ot">Lectures</span><span class="co">](../lectures.qmd#lecture-40)</span>. <span class="co">[</span><span class="ot">Schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Bring paper and a laptop. Warm-up, fill-in notes, board examples, and **Your turn**. See the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span> for today’s quiz, lab, and capstone launch.</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Bring paper and a laptop. Warm-up, fill-in notes, board examples, and **Your turn**. Today is **SVD + [Lab 6](../labs/lab-06.qmd) (Fit and Compress) + project launch** after <span class="co">[</span><span class="ot">Quiz 11</span><span class="co">](../quizzes/quiz-11.qmd)</span>. See the <span class="co">[</span><span class="ot">schedule</span><span class="co">](../schedule.qmd)</span>.</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
@@ -817,66 +831,87 @@ A_k = U_k\Sigma_k V_k^{\mathsf{T}}
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>on its main diagonal. Think: $A$ = rotate/reflect → stretch by $\sigma_i$ → rotate/reflect.</span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>**Rank-$k$ approximation.** Keep the largest $k$ singular values (and matching singular-vector columns); set the rest to zero. The truncated product</span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>A_k = U_k\Sigma_k V_k^{\mathsf{T}}</span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>$$</span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>is the best rank-$k$ approximation in the usual 2-norm / Frobenius sense (details in the slides / capstone).</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>**Factorizations in this course.** [Lab 3](../labs/lab-03.qmd) introduced a first useful factorization: **$A=LU$** (elimination saved as a product — built to **solve** $Ax=b$). Today’s **SVD** is a second: built from **orthonormal** directions and singular values — built to **approximate**, **compress**, and **compute least squares stably**.</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>**Orthonormal payoff ([Lecture 14](lecture-14.qmd)).** “Orthonormal” still means $q_i^{\mathsf{T}}q_j=0$ for $i\neq j$ and $\|q_i\|=1$. The SVD **hands you** orthonormal bases (columns of $U$ and of $V$). That is why those bases were worth defining earlier: coordinates via inner products, and this factorization, both use them.</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>**Two jobs for SVD.** (1) **Stable LS:** the LS solution is still $\hat{b}=\operatorname{proj}_{C(A)}(b)$ ([Lectures 38](lecture-38.qmd)–[39](lecture-39.qmd)); SVD is a reliable way to **compute** $\hat{x}$ (software’s `lstsq` often uses this family). (2) **Compression:** keep only the largest $\sigma_i$ for a rank-$k$ picture (capstone).</span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>**Software sketch** (capstone / later):</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>**Callback — eigenvectors ([Lectures 35](lecture-35.qmd)–[37](lecture-37.qmd), [Lab 5](../labs/lab-05.qmd)).** Eigenvectors name directions that $A$ only **rescales** ($Av=\lambda v$); the largest $|\lambda|$ wins the long run. Singular vectors / singular values name directions that $A$ **stretches** the most ($\sigma_1\ge\sigma_2\ge\cdots$). Different jobs, same “**keep the dominant directions**” instinct: Lab 5’s $\lambda=1$ mode vs today’s keep-large-$\sigma_i$ compression. (For square symmetric cases the two stories are closely related; we do not need that theorem to use either tool.)</span>
 <span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SVD <span class="pp">|</span> <span class="in">`[U,S,V] = svd(A)`</span> <span class="pp">|</span> <span class="in">`U, S, Vt = np.linalg.svd(A, full_matrices=False)`</span> <span class="pp">|</span></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rank-$k$ rebuild <span class="pp">|</span> use first $k$ columns / $\sigma$'s <span class="pp">|</span> <span class="in">`U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]`</span> <span class="pp">|</span></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>**Capstone launch (one question).** For a short clip of frames: when is it better to compress each frame alone versus encode $F_1$ and differences $D_2=F_2-F_1$, $D_3=F_3-F_2$? Trade off **accuracy**, **storage**, **runtime**, and **resource use** — including the cost of computing the SVD itself. Full prompts live in the <span class="co">[</span><span class="ot">capstone packet</span><span class="co">](../projects/capstone.qmd)</span>; studio is Mon Dec 7.</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class (short)</span></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>**W1.** Read $\Sigma$. Suppose a $4\times 3$ matrix has singular values $\sigma=(10,\,2,\,0.1)$. What is $\operatorname{rank}(A)$ (numerically “full” vs tiny)? For a rank-$1$ approximation, which $\sigma$ do you keep?</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>**W2.** Storage cartoon. Full $m\times n$ needs $mn$ entries. A rank-$k$ factorization stores about $k(m+n+1)$ numbers (columns of $U_k$, $V_k$, and $k$ singular values). When is $k(m+n+1)\ll mn$?</span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>**W3.** Frames vs differences (launch). Three frames $F_1,F_2,F_3$. Plan A: compress each. Plan B: compress $F_1$, $D_2=F_2-F_1$, $D_3=F_3-F_2$. In one sentence each: when might Plan B win on storage? What must you still check (error / runtime)?</span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>**Y1.** In $A=U\Sigma V^{\mathsf{T}}$, what do the singular values measure conceptually (one phrase)?</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>**Y2.** True or false: computing an SVD is always “free,” so low-rank multiplication is always faster overall.</span>
-<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>**Y3.** Write one capstone question you care about (accuracy, storage, runtime, or resource use) for frames vs frame-differences. One sentence is enough — expand in studio.</span>
-<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
-<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
-<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
-<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-40.qmd &gt;}}</span>
-<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
-<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>**Rank-$k$ approximation.** Keep the largest $k$ singular values (and matching singular-vector columns); set the rest to zero. The truncated product</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>A_k = U_k\Sigma_k V_k^{\mathsf{T}}</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>is the best rank-$k$ approximation in the usual 2-norm / Frobenius sense (details in the slides / capstone). Same idea as “keep the important orthonormal directions.”</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>**Software sketch** (lab / capstone):</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Task <span class="pp">|</span> Octave <span class="pp">|</span> Python <span class="pp">|</span></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|--------|--------|</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> SVD <span class="pp">|</span> <span class="in">`[U,S,V] = svd(A)`</span> <span class="pp">|</span> <span class="in">`U, S, Vt = np.linalg.svd(A, full_matrices=False)`</span> <span class="pp">|</span></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Rank-$k$ rebuild <span class="pp">|</span> use first $k$ columns / $\sigma$'s <span class="pp">|</span> <span class="in">`U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]`</span> <span class="pp">|</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Least squares <span class="pp">|</span> <span class="in">`A\b`</span> <span class="pp">|</span> <span class="in">`np.linalg.lstsq(A,b,rcond=None)[0]`</span> <span class="pp">|</span></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>**Capstone launch (one question).** For a short clip of frames: when is it better to compress each frame alone versus encode $F_1$ and differences $D_2=F_2-F_1$, $D_3=F_3-F_2$? Trade off **accuracy**, **storage**, **runtime**, and **resource use** — including the cost of computing the SVD itself. Full prompts live in the <span class="co">[</span><span class="ot">capstone packet</span><span class="co">](../projects/capstone.qmd)</span>; studio is Mon Dec 7.</span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space-line.qmd &gt;}}</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="fu">## Worked in class (short)</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>**W1.** Read $\Sigma$. Suppose a $4\times 3$ matrix has singular values $\sigma=(10,\,2,\,0.1)$. What is $\operatorname{rank}(A)$ (numerically “full” vs tiny)? For a rank-$1$ approximation, which $\sigma$ do you keep?</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>**W2.** Orthonormal check (Lecture 14 vocabulary). If $u_1,u_2$ are two columns of $U$, what should $u_1^{\mathsf{T}}u_2$ and $<span class="sc">\|</span>u_1<span class="sc">\|</span>$ be?</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>**W3.** Storage cartoon. Full $m\times n$ needs $mn$ entries. A rank-$k$ factorization stores about $k(m+n+1)$ numbers. When is $k(m+n+1)\ll mn$?</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>**W4.** Frames vs differences (launch). Three frames $F_1,F_2,F_3$. Plan A: compress each. Plan B: compress $F_1$, $D_2=F_2-F_1$, $D_3=F_3-F_2$. In one sentence each: when might Plan B win on storage? What must you still check (error / runtime)?</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Your turn</span></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>**Y1.** In $A=U\Sigma V^{\mathsf{T}}$, what do the singular values measure conceptually (one phrase)?</span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>**Y2.** True or false: computing an SVD is always “free,” so low-rank multiplication is always faster overall.</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>**Y3.** One sentence: how does the SVD connect to Monday’s least-squares picture (projection onto $C(A)$) without changing what $\hat{x}$ means?</span>
 <span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
 <span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-40.qmd &gt;}}</span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>**Y4.** One sentence: how is “keep the largest singular values” like “the largest $|\lambda|$ wins” from the eigen week / Lab 5?</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>**Y5.** Write one capstone question you care about (accuracy, storage, runtime, or resource use) for frames vs frame-differences.</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/work-space.qmd &gt;}}</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>::: {.content-visible unless-format="pdf"}</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn only)</span></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-40.qmd &gt;}}</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a>::: {.content-visible when-format="pdf"}</span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>\newpage</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Answers (Your turn)</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>{{&lt; include /_includes/answers-lecture-40.qmd &gt;}}</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
