@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quiz-11 – MATH 107 - Introduction to Linear Algebra</title>
+<title>Quiz 11 – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -108,6 +108,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/css/fickle-hill-theme.css">
 </head>
@@ -123,7 +152,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#core" id="toc-core" class="nav-link active" data-scroll-target="#core">Core</a></li>
+  <li><a href="#core" id="toc-core" class="nav-link active" data-scroll-target="#core">Core</a>
+  <ul class="collapse">
+  <li><a href="#fluency-complete-prompts-practice-these-by-hand" id="toc-fluency-complete-prompts-practice-these-by-hand" class="nav-link" data-scroll-target="#fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</a></li>
+  <li><a href="#textbook-core" id="toc-textbook-core" class="nav-link" data-scroll-target="#textbook-core">Textbook Core</a></li>
+  </ul></li>
+  <li><a href="#stretch" id="toc-stretch" class="nav-link" data-scroll-target="#stretch">Stretch</a></li>
+  <li><a href="#what-a-quiz-item-might-change" id="toc-what-a-quiz-item-might-change" class="nav-link" data-scroll-target="#what-a-quiz-item-might-change">What a quiz item might change</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quiz-11.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -149,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2026-10-12</p>
+      <p class="date-modified">October 12, 2026</p>
     </div>
   </div>
     
@@ -173,6 +208,53 @@ Video: <a href="https://www.youtube.com/watch?v=lXNXrLcoerU">18.06 Lec 21 — ei
 <p><strong>SVD and least squares are not on this quiz</strong>; see <a href="../labs/lab-06.html">Lab 6</a>, the <a href="../projects/capstone.html">capstone packet</a>, and the <a href="../exams/final.html">final</a>.</p>
 <section id="core" class="level2">
 <h2 class="anchored" data-anchor-id="core">Core</h2>
+<section id="fluency-complete-prompts-practice-these-by-hand" class="level3">
+<h3 class="anchored" data-anchor-id="fluency-complete-prompts-practice-these-by-hand">Fluency (complete prompts — practice these by hand)</h3>
+<p><strong>C11.1.</strong> Let <span class="math display">\[
+A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix},\qquad
+v=\begin{bmatrix}1\\1\end{bmatrix}.
+\]</span> Compute <span class="math inline">\(Av\)</span>. Is <span class="math inline">\(v\)</span> an eigenvector? If so, what is <span class="math inline">\(\lambda\)</span>?</p>
+<p><strong>C11.2.</strong> You are told that <span class="math inline">\(v=(1,-1)\)</span> is an eigenvector of <span class="math display">\[
+A=\begin{bmatrix}4&amp;2\\1&amp;3\end{bmatrix}.
+\]</span> Find <span class="math inline">\(\lambda\)</span> by comparing components of <span class="math inline">\(Av\)</span> and <span class="math inline">\(v\)</span>. Then verify <span class="math inline">\(Av=\lambda v\)</span>.</p>
+<p><strong>C11.3.</strong> Let <span class="math inline">\(A=\operatorname{diag}(1.2,\,0.5)\)</span> (Lecture 28 / Lab 5 long-run pattern).</p>
+<ol type="a">
+<li>Name two real eigenpairs using the standard basis.</li>
+<li>If <span class="math inline">\(x_0=(1,1)\)</span>, write <span class="math inline">\(x_t=A^t x_0\)</span> componentwise. Which term dominates for large <span class="math inline">\(t\)</span>?</li>
+</ol>
+<p><strong>C11.4.</strong> Complex drill. Let <span class="math inline">\(z=2+i\)</span> and <span class="math inline">\(w=1-3i\)</span>. Compute <span class="math inline">\(z+w\)</span>, <span class="math inline">\(zw\)</span>, and <span class="math inline">\(|z|\)</span>.</p>
+<p><strong>C11.5.</strong> For <span class="math display">\[
+A=\begin{bmatrix}1&amp;2\\0&amp;3\end{bmatrix},
+\]</span> form <span class="math inline">\(\det(A-\lambda I)\)</span>, find both eigenvalues, and give one eigenvector for <span class="math inline">\(\lambda=3\)</span>.</p>
+<p><strong>C11.6.</strong> Rotation. Let <span class="math inline">\(R=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> (<span class="math inline">\(90^\circ\)</span> CCW).</p>
+<ol type="a">
+<li>Show that the characteristic polynomial is <span class="math inline">\(\lambda^2+1=0\)</span>, so <span class="math inline">\(\lambda=\pm i\)</span>.</li>
+<li>Why does this match the geometric fact that <span class="math inline">\(R\)</span> has no real eigenvector?</li>
+</ol>
+<p><strong>C11.7.</strong> Check a complex pair. With <span class="math inline">\(A=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> and <span class="math inline">\(v=(1,-i)\)</span>, compute <span class="math inline">\(Av\)</span> and decide whether <span class="math inline">\(Av=iv\)</span> or <span class="math inline">\(Av=(-i)v\)</span>.</p>
+<p><strong>C11.8.</strong> True or false, with a one-line reason: if <span class="math inline">\(Av=2v\)</span> and <span class="math inline">\(v\neq 0\)</span>, then <span class="math inline">\(A^3 v=8v\)</span>.</p>
+<p><strong>C11.9 (Lab 5 / software).</strong> Suppose Octave/Python reports eigenvalues of a <span class="math inline">\(2\times 2\)</span> matrix as approximately <span class="math inline">\(0.9\)</span> and <span class="math inline">\(0.2\)</span>, with corresponding eigenvectors <span class="math inline">\(v_1\approx(0.7,\,0.7)\)</span> and <span class="math inline">\(v_2\approx(-0.7,\,0.7)\)</span> (normalized). For dynamics <span class="math inline">\(x_{t+1}=Ax_t\)</span> started near <span class="math inline">\(v_1+v_2\)</span>, which mode dominates for large <span class="math inline">\(t\)</span>, and does the state grow or decay?</p>
+<p><strong>C11.10 (Lab 5 / verify).</strong> Software prints <span class="math inline">\(\lambda\approx 3\)</span> and <span class="math inline">\(v\approx(0.707,\,0.707)\)</span> for <span class="math display">\[
+A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}.
+\]</span> Explain how you would verify <span class="math inline">\(Av\approx\lambda v\)</span> numerically in one or two lines of code (Octave or Python). What should <span class="math inline">\(\|Av-\lambda v\|\)</span> look like if the pair is correct?</p>
+</section>
+<section id="textbook-core" class="level3">
+<h3 class="anchored" data-anchor-id="textbook-core">Textbook Core</h3>
+<ul>
+<li>S 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17</li>
+<li>L Ch. 5 Ex. 1: selected hand/software eigenvalue parts</li>
+<li>L Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions</li>
+<li>L Ch. 5 Ex. 5: selected matrix-power portion</li>
+</ul>
+</section>
+</section>
+<section id="stretch" class="level2">
+<h2 class="anchored" data-anchor-id="stretch">Stretch</h2>
+<p>S 6.1 #3 and #4; a complex eigenpair check beyond C11.7.</p>
+</section>
+<section id="what-a-quiz-item-might-change" class="level2">
+<h2 class="anchored" data-anchor-id="what-a-quiz-item-might-change">What a quiz item might change</h2>
+<p>A new <span class="math inline">\(2\times 2\)</span> matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, a rotation matrix with complex eigenvalues, or a software printout to interpret (dominant <span class="math inline">\(\lambda\)</span>, verify <span class="math inline">\(Av\approx\lambda v\)</span>).</p>
 
 
 <!-- -->
@@ -683,7 +765,7 @@ Video: <a href="https://www.youtube.com/watch?v=lXNXrLcoerU">18.06 Lec 21 — ei
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>$$</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>Find $\lambda$ by comparing components of $Av$ and $v$. Then verify $Av=\lambda v$.</span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**C11.3.** Let $A=\operatorname{diag}(1.2,\,0.5)$ (Lab 4 / Lecture 28 long-run pattern).</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>**C11.3.** Let $A=\operatorname{diag}(1.2,\,0.5)$ (Lecture 28 / Lab 5 long-run pattern).</span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>(a) Name two real eigenpairs using the standard basis.</span>
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>(b) If $x_0=(1,1)$, write $x_t=A^t x_0$ componentwise. Which term dominates for large $t$?</span>

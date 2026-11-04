@@ -63,242 +63,116 @@
     "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nLectures 21–22 and Lab 2; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 5\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6 and the capstone, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\nFriday quizzes cover only the prior instructional week (skip midterm week and fall break when choosing that week). Same-day lecture/lab topics are not on that day’s quiz.\n\n\n\nQuiz\nDate\nFocus (prior week)\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, arithmetic, Lab 0 (Week 1)\n\n\nQuiz 2\nFri Sep 11\nCombinations, inner product, linear functions (Week 2)\n\n\nQuiz 3\nFri Sep 18\nApplications and norms (Week 3)\n\n\nQuiz 4\nFri Sep 25\nAngle, nearest neighbors, and clustering (Week 4)\n\n\nQuiz 5\nFri Oct 9\nDependence, span, and basis (Week 5)\n\n\nQuiz 6\nFri Oct 16\nMatrices and \\(Ax\\) (Week 7 / Lectures 18–19)\n\n\nQuiz 7\nFri Oct 23\nTransforms only (Lecture 20). Online in Canvas.\n\n\nQuiz 8\nFri Oct 30\nSystems, elimination, RREF, dynamics, and iteration (Lectures 21–23)\n\n\nQuiz 9\nFri Nov 6\nRREF and one-step dynamics (Lecture 22)\n\n\nQuiz 10\nFri Nov 20\nInverses, rank, and determinants (Lectures 27–29)\n\n\nQuiz 11\nFri Dec 4\nEigenvalues, complex numbers, and Lab 5 (Week 13 / Lectures 35–37)\n\n\n\nNot on a dedicated quiz (assessed on Midterm 2, the final, and/or the capstone): same-day lecture/lab topics on quiz Fridays; Week 15 least squares / SVD. Use the Midterm 2 practice packet, final practice packet, and capstone packet as appropriate."
   },
   {
-    "objectID": "exams/final-study-guide.html",
-    "href": "exams/final-study-guide.html",
-    "title": "Final exam study guide",
+    "objectID": "labs/lab-04-ticket.html",
+    "href": "labs/lab-04-ticket.html",
+    "title": "Lab 4 ticket",
     "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nExam: Final exam · Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201. Practice problems: Practice packet. Schedule: Schedule."
-  },
-  {
-    "objectID": "exams/final-study-guide.html#useful-course-materials",
-    "href": "exams/final-study-guide.html#useful-course-materials",
-    "title": "Final exam study guide",
-    "section": "Useful course materials",
-    "text": "Useful course materials\n\n\n\nSource\nRole\n\n\n\n\nLectures 01–40\nFull course (skip midterm / Veterans Day / fall-break days as noted on the schedule)\n\n\nMidterm 1 study guide + practice\nUnit I refresh (Lectures 01–14)\n\n\nMidterm 2 study guide + practice\nUnit II refresh (Lectures 18–29)\n\n\nQuizzes 1–11\nFluency checkpoints across the term\n\n\nFinal practice packet\nCumulative practice (Units I–III + mixed)\n\n\nBoyd & Vandenberghe, VMLS\nTextbook (free online)\n\n\nStrang §6.1\nEigenvalues / characteristic equation\n\n\nLecture 33\nSVD and low-rank context (conceptual fluency on the final)"
-  },
-  {
-    "objectID": "exams/final-study-guide.html#unit-i-vectors-and-geometry-lectures-0114",
-    "href": "exams/final-study-guide.html#unit-i-vectors-and-geometry-lectures-0114",
-    "title": "Final exam study guide",
-    "section": "Unit I — Vectors and geometry (Lectures 01–14)",
-    "text": "Unit I — Vectors and geometry (Lectures 01–14)\nUse the Midterm 1 study guide for the full outcome list. High-priority skills for the final:\n\nRepresent data as vectors; add, scale, and form linear combinations.\nCompute and interpret inner products, norms, distances, RMS, angles, and cosine similarity.\nDistinguish linear vs affine models; evaluate \\(a^{\\mathsf{T}}x+b\\) in context.\nRun a small nearest-neighbor or \\(k\\)-means step by hand and discuss scale.\nUse dependence, span, subspace, basis, dimension, and orthonormal language accurately."
-  },
-  {
-    "objectID": "exams/final-study-guide.html#unit-ii-matrices-systems-and-dynamics-lectures-1829",
-    "href": "exams/final-study-guide.html#unit-ii-matrices-systems-and-dynamics-lectures-1829",
-    "title": "Final exam study guide",
-    "section": "Unit II — Matrices, systems, and dynamics (Lectures 18–29)",
-    "text": "Unit II — Matrices, systems, and dynamics (Lectures 18–29)\nUse the Midterm 2 study guide for the full outcome list. High-priority skills for the final:\n\nCompute \\(Ax\\), interpret columns, and recognize common 2D transforms.\nTranslate contexts into \\(Ax=b\\); solve small systems; read RREF (pivots, free variables, consistency).\nModel \\(x_{t+1}=Ax_t\\); compute a few steps; relate \\(A^k x\\) to long-run behavior.\nMultiply matrices; compose transforms; compare computational orders.\nUse invertibility, rank, column space, null space, and \\(2\\times 2\\) / triangular determinants."
-  },
-  {
-    "objectID": "exams/final.html",
-    "href": "exams/final.html",
-    "title": "Final exam",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nWednesday, December 16, 2026, 10:20 a.m.–12:10 p.m. in FR 201. See the schedule. Cumulative over the course (Units I–III), with emphasis on choosing tools and interpreting results as well as hand fluency.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "exams/midterm-2-study-guide.html",
-    "href": "exams/midterm-2-study-guide.html",
-    "title": "Midterm 2 study guide",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 19, 2026.\nExam: Midterm 2 · Friday, November 13 · in class. Practice problems: Practice packet. Schedule: Schedule."
-  },
-  {
-    "objectID": "exams/midterm-2-study-guide.html#useful-course-materials",
-    "href": "exams/midterm-2-study-guide.html#useful-course-materials",
-    "title": "Midterm 2 study guide",
-    "section": "Useful Course materials",
-    "text": "Useful Course materials\n\n\n\nSource\nRole\n\n\n\n\nLectures 18–29\nCore ideas and skills (Unit II)\n\n\nQuizzes 5–9\nFluency checkpoints (rework those styles; Quiz 5 is Unit I basis review)\n\n\nPractice packet\nDefinitions, easy computations, harder items\n\n\nBoyd & Vandenberghe, VMLS\nTextbook (free online)\n\n\nStrang §3.5\nRank, column space, null space (selected portions)"
-  },
-  {
-    "objectID": "exams/midterm-2-study-guide.html#learning-outcomes-lectures-1829",
-    "href": "exams/midterm-2-study-guide.html#learning-outcomes-lectures-1829",
-    "title": "Midterm 2 study guide",
-    "section": "Learning outcomes (Lectures 18–29)",
-    "text": "Learning outcomes (Lectures 18–29)\n\nLight review — Quiz 5 / basis (Lecture 14)\n\nExplain what a basis accomplishes and what dimension means.\nIdentify a basis and dimension in simple examples.\nUse span, independence, basis, and dimension accurately when they reappear with matrices (column space, null space, rank).\n\n\n\nLecture 18 — Matrices as data and structured objects\n\nIdentify matrix dimensions, rows, columns, and entries.\nRepresent datasets, networks, images, or systems as matrices.\nPerform matrix addition, scaling, and transposition.\nRecognize zero, identity, diagonal, triangular, symmetric, and sparse matrices.\nExplain one practical consequence of matrix structure.\n\n\n\nLecture 19 — Matrix-vector multiplication\n\nCompute \\(Ax\\) by hand for a small matrix.\nInterpret \\(Ax\\) as a linear combination of the columns of \\(A\\).\nInterpret \\(A\\) as an input-output transformation.\nExplain how the dimensions of \\(A\\) determine the input and output spaces.\n\n\n\nLecture 20 — Transforming space\n\nPredict the effect of scaling, reflection, shear, and rotation matrices.\nApply matrices to many 2D or 3D points at once.\nPlot and compare original and transformed objects.\nAdapt a short program that implements a transformation.\nInterpret a matrix as a coordinate or physical-space transformation.\n\nFrom October 19 through the midterm, class meetings are Lectures 21–31. The bullets below are grouped by those lecture numbers. Nothing from the old lists was removed; systems and elimination share Lecture 21, RREF and one-step dynamics share Lecture 22, and iteration and long-run patterns share Lecture 23.\n\n\nLecture 21 — Systems, elimination, and \\(Ax=b\\)\n\nTranslate equations or contextual constraints into \\(Ax=b\\).\nInterpret \\(Ax=b\\) as asking whether \\(b\\) belongs to the span of the columns of \\(A\\)."
-  },
-  {
-    "objectID": "labs/lab-03.html",
-    "href": "labs/lab-03.html",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 30, 2026.\nIn class Friday, October 30 with Quiz 8.\nCredit: Lab points are for effort. Preview the one-pager; write on the hard copy handed out in class.\nStory of the lab. Use the one-liner A\\b / solve → same \\(A\\), two targets → \\(A=LU\\) (what solvers often save) → program Lab 2’s algorithm through RREF and see the same \\(x\\) → \\([A\\mid I]\\) saves the \\(E_i\\) product as \\(A^{-1}\\) (not what A\\b prefers) → short power syntax."
-  },
-  {
-    "objectID": "labs/lab-03.html#learning-objectives",
-    "href": "labs/lab-03.html#learning-objectives",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "Learning objectives",
-    "text": "Learning objectives\n\nTurn a nutrient word problem into \\(Ax=b\\), solve twice with the same \\(A\\), and check answers.\nPackage elimination as an LU factorization (this our first useful matrix factorization).\nCode Lab 2’s algorithm (nonzero pivots only): build each elementary matrix, left-multiply, update \\(M\\) until RREF.\nRun the same process on \\([A\\mid I]\\) and see that the right block is the product of the \\(E_i\\)’s.\nCompute a matrix power \\(A^k\\) and \\(A^k x_0\\) in software."
-  },
-  {
-    "objectID": "labs/lab-03.html#math-connections",
-    "href": "labs/lab-03.html#math-connections",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "Math connections",
-    "text": "Math connections\nLab 2 algorithm and elementary matrices; systems (Lectures 21–22); products (Lecture 23). After Lab 3 (including Monday’s continuation): inverses + rank (Lecture 24)."
-  },
-  {
-    "objectID": "labs/lab-03.html#key-syntax",
-    "href": "labs/lab-03.html#key-syntax",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "Key syntax",
-    "text": "Key syntax\n\n\n\n\n\n\n\n\nTask\nOctave\nPython\n\n\n\n\nAugmented \\([A\\mid b]\\)\nM = [A b]\nM = np.column_stack((A, b))\n\n\nIdentity\neye(3)\nnp.eye(3)\n\n\nOne entry (row \\(i\\), col \\(j\\))\nM(i,j) — 1-based\nM[i, j] — 0-based\n\n\nWhole column \\(j\\) / last column\nM(:, j) / M(:, end)\nM[:, j] / M[:, -1]\n\n\nfor loop\nfor k = 1:n ... end\nfor k in range(n): (body indented)\n\n\nSkip this pass of a loop\ncontinue\ncontinue\n\n\nPrint text / a matrix\ndisp(...)\nprint(...)\n\n\nNumber → text (for messages)\nnum2str(k)\nf\"... {k} ...\" or str(k)\n\n\nLeft-multiply\nM = E * M\nM = E @ M\n\n\nSolve \\(Ax=b\\)\nx = A \\ b\nx = np.linalg.solve(A,b)\n\n\nResidual\nA*x - b\nA @ x - b\n\n\nPower \\(A^k\\)\nA^k\nnp.linalg.matrix_power(A, k)\n\n\n\nReading the new bits.\n\nIndexing: Octave M(2,3) is row 2, column 3 (counting from 1). Python M[1, 2] is the same entry (counting from 0).\nColon :: “all rows” or “all columns.” So M(:, end) = every row, last column (the \\(b\\) / solution column in \\([A\\mid b]\\)). In Python, -1 means last index: M[:, -1].\nend (Octave): last index in that dimension — here, last column of \\(M\\).\nfor: repeat a block. Octave wraps the block with end. Python uses indentation instead of end.\ndisp / num2str: disp prints; num2str(k) turns the number \\(k\\) into text so you can paste it into a message. Python’s print and f-strings do the same job.\n\nIn NumPy, A**3 is entrywise — use matrix_power for \\(A^3=AAA\\).\nIn Lab 2 we typed A \\ b / np.linalg.solve(A,b) and got an answer. Today we’ll code up the algorithm from Lab 2: those commands are doing elimination."
-  },
-  {
-    "objectID": "labs/lab-03.html#same-pantry-two-meal-targets",
-    "href": "labs/lab-03.html#same-pantry-two-meal-targets",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "Same pantry, two meal targets",
-    "text": "Same pantry, two meal targets\nYou are planning meals from two foods only:\n\n\\(x_1\\) = number of servings of oats\n\\(x_2\\) = number of servings of yogurt\n\nEach serving contributes (toy numbers, not a real diet plan):\n\n\n\n\nProtein (g)\nFiber (g)\n\n\n\n\n1 serving oats\n2\n1\n\n\n1 serving yogurt\n3\n1\n\n\n\nSo if you eat \\(x_1\\) oats and \\(x_2\\) yogurt, the total protein and fiber are \\[\n\\begin{aligned}\n\\text{protein} &= 2x_1 + 3x_2,\\\\\n\\text{fiber} &= 1x_1 + 1x_2.\n\\end{aligned}\n\\] In matrix form that is \\(Ax=b\\), where \\[\nA=\\begin{bmatrix}2&3\\\\1&1\\end{bmatrix},\\qquad\nx=\\begin{bmatrix}x_1\\\\x_2\\end{bmatrix},\\qquad\nb=\\begin{bmatrix}\\text{protein target}\\\\\\text{fiber target}\\end{bmatrix}.\n\\] The pantry (matrix \\(A\\)) stays the same every day. What changes is the target vector \\(b\\) — how much protein and fiber you want that day.\nC3.1 — Monday. You want 26 g protein and 10 g fiber.\nHow many servings of oats and yogurt should you eat?\nWrite \\(b\\), solve \\(Ax=b\\) with the one-liner (A \\ b / solve), and check with \\(Ax-b\\) (should be near zero).\nExpected: \\(b=(26,10)\\), \\(x=(4,6)\\) — 4 oats, 6 yogurt.\nC3.2 — Tuesday. Same two foods (same \\(A\\)). Today you want 31 g protein and 12 g fiber.\nHow many servings of each? Solve \\(Ax'=b'\\) and check \\(Ax'-b'\\).\nExpected: \\(b'=(31,12)\\), \\(x'=(5,7)\\).\nPause. You solved two systems that share the same \\(A\\) and differ only in \\(b\\). Was calling the one-liner twice the smartest use of work? What information about \\(A\\) could a computer reuse on Tuesday instead of starting over?"
-  },
-  {
-    "objectID": "labs/lab-03.html#first-factorization-alu",
-    "href": "labs/lab-03.html#first-factorization-alu",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "First factorization: \\(A=LU\\)",
-    "text": "First factorization: \\(A=LU\\)\n\nFrom Lab 2’s \\(E_i\\) to two triangular factors\nLab 2 cleared below pivots by left-multiplying elementary matrices \\(E_i\\). Stop when \\(A\\) is upper triangular — call that matrix \\(U\\). Do not scale pivots to \\(1\\) or clear above (that is RREF / inverse territory).\nFor the nutrient matrix, one step does it. Subtract \\(\\tfrac12\\) times row 1 from row 2: \\[\nE=\\begin{bmatrix}1&0\\\\-\\tfrac12&1\\end{bmatrix}\n\\quad\\Rightarrow\\quad\nEA=U=\\begin{bmatrix}2&3\\\\0&-\\tfrac12\\end{bmatrix}.\n\\] So \\(EA=U\\). Multiply on the left by \\(E^{-1}\\): \\[\nA=E^{-1}U.\n\\] The inverse of “subtract \\(\\tfrac12\\cdot\\)(row 1) from row 2” is “add \\(\\tfrac12\\cdot\\)(row 1) to row 2”: \\[\nE^{-1}=\\begin{bmatrix}1&0\\\\\\tfrac12&1\\end{bmatrix}=L\n\\] (lower triangular; the multiplier \\(\\tfrac12\\) sits where we cleared). Thus \\[\nA=LU.\n\\]\nLarger \\(n\\) (same idea, more \\(E_i\\)). Clearing below the pivots is a product \\[\nE_k\\cdots E_2 E_1 A = U\n\\] (upper triangular). Those \\(E_i\\) are the “go down to \\(U\\)” group. Invert and reverse order: \\[\nA = \\underbrace{E_1^{-1}E_2^{-1}\\cdots E_k^{-1}}_{L} U.\n\\] Each \\(E_i^{-1}\\) puts the multiplier back (same spot, opposite sign), so \\(L\\) is lower triangular with \\(1\\)s on the diagonal. A second group of elementary matrices (scale pivots to \\(1\\), clear above) would finish RREF / \\([A\\mid I]\\) — solvers usually skip that group when they only need \\(x\\).\n\n\nUsing \\(LU\\) to solve \\(Ax=b\\)\nIf \\(A=LU\\), then \\(Ax=b\\) means \\(LUx=b\\). Introduce \\(y=Ux\\):\n\nForward substitution: solve \\(Ly=b\\) for \\(y\\) (easy: \\(L\\) lower triangular).\nBack substitution: solve \\(Ux=y\\) for \\(x\\) (easy: \\(U\\) upper triangular).\n\nSame \\(L\\) and \\(U\\) work for every new \\(b\\) (Monday, Tuesday, …). Factor once; each day is two triangular solves.\nC3.3.\n\nForm \\(L\\) and \\(U\\) for the nutrient \\(A\\); check \\(LU=A\\).\n\nFor Monday’s \\(b=(26,10)\\), solve \\(Ly=b\\), then \\(Ux=y\\), by hand or in software. Check that \\(x\\) matches C3.1.\n\nBehind A \\ b (part 1). A typical dense solver does this bookkeeping (often with row swaps: \\(PA=LU\\) if a pivot is \\(0\\)/tiny). This nutrient \\(A\\) needs no swap. Full RREF every time would redo extra work you do not need for one \\(x\\).\n\n\n\n\n\n\n\nGoal\nPackage\n\n\n\n\nMany \\(Ax=b\\) (same foods, new targets)\n\\(A=LU\\), then \\(Ly=b\\), \\(Ux=y\\) — close to what A \\ b reuses\n\n\nUndo map for every \\(b\\)\n\\([A\\mid I]\\to A^{-1}\\) (extra \\(E_i\\) group) — useful, but usually not how A \\ b works"
-  },
-  {
-    "objectID": "labs/lab-03.html#bridge-from-lab-2-program-the-algorithm-no-zero-pivots",
-    "href": "labs/lab-03.html#bridge-from-lab-2-program-the-algorithm-no-zero-pivots",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "Bridge from Lab 2: program the algorithm (no zero pivots)",
-    "text": "Bridge from Lab 2: program the algorithm (no zero pivots)\nLab 2 listed an algorithm while every pivot is nonzero, and walked a \\(3\\times 3\\) system by hand to echelon (then sketched full RREF). Today: put that algorithm on the machine and push all the way to RREF (pivots \\(=1\\), zeros above and below).\nReuse Lab 2’s system: \\[\nA=\\begin{bmatrix}1&1&1\\\\2&3&1\\\\1&2&3\\end{bmatrix},\\qquad\nb=\\begin{bmatrix}6\\\\11\\\\14\\end{bmatrix},\\qquad\nM=[A\\mid b]\\in\\mathbb{R}^{3\\times 4}.\n\\] (You already know the answer will be \\(x=(1,2,3)\\).)\n\nPattern for one step\nPivot at position \\((k,k)\\) (1-based). To clear entry \\((i,k)\\): \\[\nc=\\frac{M_{ik}}{M_{kk}},\\qquad\nE = I_3\\text{ with }{-c}\\text{ in row }i,\\text{ column }k,\\qquad\nM \\leftarrow EM.\n\\] To make the pivot \\(1\\): scale row \\(k\\) by \\(1/M_{kk}\\) (elementary matrix = \\(I\\) with that factor on the diagonal).\nC3.4 — Run RREF (nonzero pivots). Copy–paste one of the blocks below, run it, and watch \\(M\\) become \\([I\\mid x]\\). Then compare to the one-liner on the same \\(A,b\\).\nFor each pivot column \\(k\\): scale the pivot to \\(1\\) with an elementary matrix, then clear every other entry in that column the same way (Lab 2’s \\(E\\), left-multiply, replace \\(M\\)).\nOctave (copy all):\nA = [1 1 1; 2 3 1; 1 2 3];\nb = [6; 11; 14];\nM = [A b];          % 3x4 augmented matrix\nn = 3;\n\n% for k = 1:n ... end  →  repeat with k = 1, then 2, then 3\nfor k = 1:n\n  % M(k,k) = entry in row k, column k (1-based)\n  E = eye(n);\n  E(k,k) = 1 / M(k,k);   % put the scale factor on the diagonal of E\n  M = E * M;\n  % disp prints; num2str(k) turns k into text for the message\n  disp([\"after scale pivot \", num2str(k)]); disp(M);\n\n  for i = 1:n\n    if i == k\n      continue;          % skip the pivot row itself\n    end\n    E = eye(n);\n    E(i,k) = -M(i,k);    % -c in row i, column k\n    M = E * M;\n  end\n  disp([\"after clear column \", num2str(k)]); disp(M);\nend\n\nx = M(:, end)            % all rows (:), last column (end) = solution\nx_solver = A \\ b\nresidual = A * x - b\nPython (copy all):\nimport numpy as np\n\nA = np.array([[1., 1, 1],\n              [2, 3, 1],\n              [1, 2, 3]])\nb = np.array([6., 11, 14])\nM = np.column_stack((A, b))  # 3x4 augmented matrix\nn = 3\n\n# for k in range(n):  →  k = 0, then 1, then 2  (0-based)\nfor k in range(n):\n    # M[k, k] = entry in row k, column k (0-based)\n    E = np.eye(n)\n    E[k, k] = 1.0 / M[k, k]  # put the scale factor on the diagonal of E\n    M = E @ M\n    print(f\"after scale pivot {k+1}\\n\", M)  # f-string inserts k+1 into the text\n\n    for i in range(n):\n        if i == k:\n            continue          # skip the pivot row itself\n        E = np.eye(n)\n        E[i, k] = -M[i, k]    # -c in row i, column k\n        M = E @ M\n    print(f\"after clear column {k+1}\\n\", M)\n\nx = M[:, -1]                  # all rows (:), last column (-1) = solution\nprint(\"x from RREF:\", x)\nprint(\"x from solve:\", np.linalg.solve(A, b))\nprint(\"residual:\", A @ x - b)\nExpected: final \\(M=\\begin{bmatrix}1&0&0&|&1\\\\0&1&0&|&2\\\\0&0&1&|&3\\end{bmatrix}\\), so \\(x=(1,2,3)\\) — matching A \\ b / solve, residual \\(\\approx 0\\).\nBehind A\\b (part 2). Your coded RREF is the Lab 2 algorithm made explicit. Production solvers usually stop earlier (LU / \\(PA=LU\\), then triangular solves) instead of forming full RREF every time — same family of row operations, better bookkeeping when only \\(b\\) changes."
-  },
-  {
-    "objectID": "labs/lab-03.html#same-algorithm-i-instead-of-b",
-    "href": "labs/lab-03.html#same-algorithm-i-instead-of-b",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "Same algorithm, \\(I\\) instead of \\(b\\)",
-    "text": "Same algorithm, \\(I\\) instead of \\(b\\)\nReplace the right-hand column by an identity: form the \\(3\\times 6\\) matrix \\([A\\mid I]\\). Run the same elementary updates until the left block is \\(I\\). Call the right \\(3\\times 3\\) block \\(B\\).\nC3.5.\n\nObtain \\(B\\). Check \\(B*A\\) / B @ A equals \\(I\\) (within rounding).\n\nCheck \\(B*b\\) equals the \\(x\\) from C3.4 — so \\(x=Bb\\) also works.\n\n\\(B\\) is the product of all the elementary matrices you left-multiplied so we’ve saved the whole reduction as one matrix.\n\nOne sentence: why solvers still prefer A\\b / LU over “form \\(B=A^{-1}\\), then \\(Bb\\)” for a single (or few) right-hand side(s).\n\nExpected: \\(BA=I\\), \\(Bb=x\\). Monday’s name for \\(B\\) is \\(A^{-1}\\). Forming \\(A^{-1}\\) does extra work when you only need one \\(x\\)."
-  },
-  {
-    "objectID": "labs/lab-03.html#powers-syntax-practice",
-    "href": "labs/lab-03.html#powers-syntax-practice",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "Powers (syntax practice)",
-    "text": "Powers (syntax practice)\nC3.6. Separate from the diet / Lab 2 matrices, enter \\[\nA=\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix},\\qquad x_0=\\begin{bmatrix}0\\\\1\\end{bmatrix}.\n\\] Compute \\(A^2\\), \\(A^3\\), and \\(A^3 x_0\\). Spot-check: \\(A^3=\\begin{bmatrix}1&6\\\\0&1\\end{bmatrix}\\), \\(A^3 x_0=(6,1)\\)."
-  },
-  {
-    "objectID": "labs/lab-03.html#one-pager",
-    "href": "labs/lab-03.html#one-pager",
-    "title": "Lab 3 — Nutrients, LU, and Lab 2’s algorithm on the machine",
-    "section": "One-pager",
-    "text": "One-pager\nPreview the Lab 3 ticket; write on the hard copy in class."
+    "text": "Download PDF\nLab 4 — Inverses, Rank, and Determinants · Fri Nov 6 · ~25 min · Laptop · Handwrite · Initials\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax\n\n\n\nI needed to…\nCommand / pattern\n\n\n\n\nInverse\n\n\n\nDeterminant\n\n\n\nRank / null space\n\n\n\nCheck \\(A^{-1}A\\)\n\n\n\n\n\n\\(A=\\begin{bmatrix}1&1\\\\2&3\\end{bmatrix}\\),\\(B=\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\\). Quiz 9 = Lecture 22 (not this lab).\nC4.0. \\(A^{-1}=\\) ______________________ \\(A^{-1}A\\approx\\) ____________ Expected: \\(I\\).\nC4.1. \\(\\det A=\\) ________ Formula matches software? ________\nC4.2. inv(B) — what happens? ________________________________________________\nC4.3. \\(\\operatorname{rank}(B)=\\) ____ Nonzero \\(n\\in N(B)\\): ____________ Nullity \\(=\\) ____ (\\(n-\\operatorname{rank}\\))\nC4.4. \\(\\det A=\\) ______ \\(\\det B=\\) ______\nMeaning (\\(\\neq 0\\) vs \\(=0\\)): ________________________________________________________\nOptional triangular det: ____________\nStuck on: ________________________________________________________________________\nCheck-in initials: _______________\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
     "objectID": "labs/lab-04.html",
     "href": "labs/lab-04.html",
-    "title": "Lab 4 — Predict Through Time",
+    "title": "Lab 4 — Inverses, Rank, and Determinants",
     "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nIn class Friday, November 6 (same day as Lecture 25 / Quiz 9). Quiz 9 is Lecture 22 only (RREF / one-step dynamics) — not this lab and not today’s determinants.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class.\nCliffhanger for later. After Midterm 2, Lecture 28–37 + Lab 5 explain today’s long-run mix with eigenvectors (\\(\\lambda=1\\) direction wins)."
+    "text": "Download PDF\nLast updated: November 4, 2026.\nIn class Friday, November 6 (same day as Lecture 25 / Quiz 9). Quiz 9 is Lecture 22 only — not this lab. Today’s lab practices Lecture 24 (inverses / rank / null space) and Lecture 25 (determinants) in software.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
   },
   {
     "objectID": "labs/lab-04.html#learning-objectives",
     "href": "labs/lab-04.html#learning-objectives",
-    "title": "Lab 4 — Predict Through Time",
+    "title": "Lab 4 — Inverses, Rank, and Determinants",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nImplement one step of \\(x_{t+1}=Ax_t\\).\nIterate several steps and hand-check the first ones.\nDescribe a long-run pattern you observe (you will explain it with eigenpairs in Lab 5)."
+    "text": "Learning objectives\n\nCompute a matrix inverse in software and check \\(A^{-1}A=I\\).\nRecognize failure of inv / a singular matrix, and connect that to a nontrivial null space.\nRead rank and nullity (\\(\\dim N(A)=n-\\operatorname{rank}(A)\\)) from software or RREF ideas.\nCompute determinants and interpret \\(\\det A\\neq 0\\) vs \\(\\det A=0\\)."
   },
   {
     "objectID": "labs/lab-04.html#math-connections",
     "href": "labs/lab-04.html#math-connections",
-    "title": "Lab 4 — Predict Through Time",
+    "title": "Lab 4 — Inverses, Rank, and Determinants",
     "section": "Math connections",
-    "text": "Math connections\nLinear dynamical systems (Lecture 22 and Lecture 23). Powers \\(A^k x\\) appear in Lecture 23 and Lab 3."
+    "text": "Math connections\nLecture 24 and Lecture 25. Good Midterm 2 practice for inverses, rank, and determinants."
   },
   {
     "objectID": "labs/lab-04.html#key-syntax-this-lab",
     "href": "labs/lab-04.html#key-syntax-this-lab",
-    "title": "Lab 4 — Predict Through Time",
+    "title": "Lab 4 — Inverses, Rank, and Determinants",
     "section": "Key syntax (this lab)",
-    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nOne step\nx = A*x\nx = A @ x\n\n\nLoop\nfor t = 1:20 … end\nfor t in range(20):\n\n\nPlot component\nplot(0:N, X(1,:))\nplt.plot(range(N+1), X[0])"
+    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nInverse\ninv(A)\nnp.linalg.inv(A)\n\n\nDeterminant\ndet(A)\nnp.linalg.det(A)\n\n\nRank\nrank(A)\nnp.linalg.matrix_rank(A)\n\n\nNull space (optional)\nnull(A)\nscipy.linalg.null_space(A)\n\n\nCheck\nAinv*A\nAinv @ A\n\n\n\n(If null / SciPy is unavailable: solve \\(Ax=0\\) by hand or with RREF for the singular example.)"
   },
   {
-    "objectID": "labs/lab-04.html#ops-strip",
-    "href": "labs/lab-04.html#ops-strip",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "Ops strip",
-    "text": "Ops strip\nOn-/off-campus counts \\(x_t=\\begin{bmatrix}c_t\\\\o_t\\end{bmatrix}\\). Each week: \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\nC4.0. Enter \\(A\\) and \\(x_0=(1000,0)\\). Print \\(A*x_0\\) / A @ x0 (that is \\(x_1\\)).\nExpected: \\(x_1=(700,300)\\)."
+    "objectID": "labs/lab-04.html#ops-strip-an-invertible-2times-2",
+    "href": "labs/lab-04.html#ops-strip-an-invertible-2times-2",
+    "title": "Lab 4 — Inverses, Rank, and Determinants",
+    "section": "Ops strip — an invertible \\(2\\times 2\\)",
+    "text": "Ops strip — an invertible \\(2\\times 2\\)\nUse the Lecture 24 example \\[\nA=\\begin{bmatrix}1&1\\\\2&3\\end{bmatrix}.\n\\]\nC4.0. Enter \\(A\\). Compute \\(A^{-1}\\) in software. Print \\(A^{-1}A\\) (or \\(AA^{-1}\\)). What should you see?\nExpected: \\(A^{-1}=\\begin{bmatrix}3&-1\\\\-2&1\\end{bmatrix}\\); product is (numerically) \\(I\\).\nC4.1. Check against the \\(2\\times 2\\) formula \\[\nA^{-1}=\\frac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}.\n\\] Does software match? What is \\(\\det A\\)?\nExpected: \\(\\det A=1\\); formula matches C4.0."
   },
   {
-    "objectID": "labs/lab-04.html#application",
-    "href": "labs/lab-04.html#application",
-    "title": "Lab 4 — Predict Through Time",
-    "section": "Application",
-    "text": "Application\nC4.1. By hand, compute \\(x_2=Ax_1\\). Then check in software.\nExpected: \\(x_2=(550,450)\\).\nC4.2. Starting from the same \\(x_0\\), iterate \\(20\\) steps (store or print \\(x_5\\) and \\(x_{20}\\)). Roughly where do the two populations settle?\nExpected: toward about \\((400,600)\\) (more off campus than on).\nC4.3. Restart from \\(x_0=(0,1000)\\). After \\(20\\) steps, what happens? In one sentence, what is surprising if you only look at the starting point?\nExpected: again near \\((400,600)\\). Different starts can head toward the same long-run mix — Lab 5 will name the missing idea."
+    "objectID": "labs/lab-04.html#application-singular-matrix-ranknullity-determinants",
+    "href": "labs/lab-04.html#application-singular-matrix-ranknullity-determinants",
+    "title": "Lab 4 — Inverses, Rank, and Determinants",
+    "section": "Application — singular matrix, rank–nullity, determinants",
+    "text": "Application — singular matrix, rank–nullity, determinants\nC4.2. Let \\[\nB=\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\n\\] (Lecture 24’s non-invertible example). Try inv(B). What happens (error, warning, or huge numbers)?\nExpected: failure / singular warning — \\(B\\) has no inverse.\nC4.3. For the same \\(B\\): find \\(\\operatorname{rank}(B)\\) and a nonzero vector in \\(N(B)\\) (hand or software). How many free variables? Check rank–nullity: \\(\\dim N(B)=2-\\operatorname{rank}(B)\\).\nExpected: \\(\\operatorname{rank}(B)=1\\), nullity \\(1\\), e.g. \\((2,-1)^T\\) (or \\((-2,1)^T\\)) in \\(N(B)\\).\nC4.4. Determinants and meaning.\n\nCompute \\(\\det A\\) and \\(\\det B\\) (hand or software).\n\nOne sentence each: what does \\(\\det A\\neq 0\\) tell you? What does \\(\\det B=0\\) tell you?\n\n(Optional stretch.) \\(\\det\\begin{bmatrix}2&0&0\\\\1&-3&0\\\\4&5&1\\end{bmatrix}\\) — use the triangular shortcut.\n\nExpected: (a) \\(\\det A=1\\), \\(\\det B=0\\). (b) \\(A\\) invertible / full area scale; \\(B\\) singular, image of the unit square has area \\(0\\), no \\(B^{-1}\\). (c) product of diagonal \\(=2\\cdot(-3)\\cdot 1=-6\\)."
   },
   {
     "objectID": "labs/lab-04.html#one-pager",
     "href": "labs/lab-04.html#one-pager",
-    "title": "Lab 4 — Predict Through Time",
+    "title": "Lab 4 — Inverses, Rank, and Determinants",
     "section": "One-pager",
     "text": "One-pager\nPreview the Lab 4 ticket; write on the hard copy in class."
   },
   {
+    "objectID": "labs/lab-05-ticket.html",
+    "href": "labs/lab-05-ticket.html",
+    "title": "Lab 5 ticket",
+    "section": "",
+    "text": "Download PDF\nLab 5 — Long-Run Mix and Eigen · Fri Nov 20 · ~25–30 min · Laptop · Handwrite · Initials\nName: ________________________________  Language (circle): Octave / Python\n\nNew syntax\n\n\n\nI needed to…\nCommand / pattern\n\n\n\n\nLoop \\(x\\leftarrow Ax\\)\n\n\n\nEigenpairs of \\(A\\)\n\n\n\nScale / normalize \\(v\\)\n\n\n\n\n\n\\(A=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}\\). Quiz 10 = Week 11 (not this lab).\nPart A — Discover\nC5.0. \\(x_0=(1000,0)\\). \\(x_1=\\) ________ \\(x_5\\approx\\) ________ \\(x_{20}\\approx\\) ________\nExpected: \\(x_1=(700,300)\\); settle near \\((400,600)\\).\nC5.1. From \\(x_0=(0,1000)\\), after \\(20\\) steps: \\(\\approx\\) ____________\nSurprising? ________________________________________________________\nPart B — Explain\nC5.2. Eigenvalues: ________________________ \\(|\\lambda|=1\\)? ____ \\(|\\lambda|&lt;1\\)? ____\nC5.3. Scaled \\(\\lambda=1\\) vector (sum \\(1000\\)): ________ vs \\(x_{20}\\): ________\nWhy settle there? ________________________________________________________\nC5.4. (If time.) Capstone link: ____________________________________________________________________\nStuck on: ________________________________________________________________________\nCheck-in initials: _______________\n\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
+  },
+  {
     "objectID": "labs/lab-05.html",
     "href": "labs/lab-05.html",
-    "title": "Lab 5 — Steady State and Eigen",
+    "title": "Lab 5 — Long-Run Mix and Eigen",
     "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nIn class Friday, November 20 (same day as Lecture 30 / Quiz 10). Quiz 10 is Week 11 inverses / rank / determinants — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class.\nPayoff. Lab 4 asked why different starts share a long-run mix. Today: that mix is the \\(\\lambda=1\\) eigenvector (scaled); the other eigenvalue has \\(|\\lambda|&lt;1\\), so its mode fades. Same story as Lecture 30’s dominant-eigenbehavior fill-in."
+    "text": "Download PDF\nLast updated: November 4, 2026.\nIn class Friday, November 20 (same day as Lecture 30 / Quiz 10). Quiz 10 is Week 11 inverses / rank / determinants — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class.\nToday’s story (discover, then explain). First iterate a campus model and notice that different starts share a long-run mix. Then use eigenvalues/vectors: that mix is the \\(\\lambda=1\\) eigenvector (scaled); the other mode has \\(|\\lambda|&lt;1\\) and fades. Same ideas as Lecture 30."
   },
   {
     "objectID": "labs/lab-05.html#learning-objectives",
     "href": "labs/lab-05.html#learning-objectives",
-    "title": "Lab 5 — Steady State and Eigen",
+    "title": "Lab 5 — Long-Run Mix and Eigen",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nFind a steady state of \\(x=Ax\\) (or an eigenvector for \\(\\lambda=1\\)).\nUse software eigenvalues/vectors and match them to the Lab 4 long-run mix.\nState how an eigen-direction explains repeated multiplication by \\(A\\) (\\(A^tv=\\lambda^tv\\))."
+    "text": "Learning objectives\n\nIterate \\(x_{t+1}=Ax_t\\) in software and describe a long-run pattern from two different starts.\nFind a steady state / eigenvector for \\(\\lambda=1\\) and scale it to a total population.\nMatch software eigenpairs to the long-run mix and explain why other modes fade."
   },
   {
     "objectID": "labs/lab-05.html#math-connections",
     "href": "labs/lab-05.html#math-connections",
-    "title": "Lab 5 — Steady State and Eigen",
+    "title": "Lab 5 — Long-Run Mix and Eigen",
     "section": "Math connections",
-    "text": "Math connections\nEigenvalues and eigenvectors (Lectures 35–37); build on Lab 4’s iteration."
+    "text": "Math connections\nLectures 28–30 (eigenvectors, characteristic equation, dominant behavior). Loop syntax from earlier labs / Lecture 22–23 dynamics."
   },
   {
     "objectID": "labs/lab-05.html#key-syntax-this-lab",
     "href": "labs/lab-05.html#key-syntax-this-lab",
-    "title": "Lab 5 — Steady State and Eigen",
+    "title": "Lab 5 — Long-Run Mix and Eigen",
     "section": "Key syntax (this lab)",
-    "text": "Key syntax (this lab)\nTask | Octave | Python |"
+    "text": "Key syntax (this lab)\n\n\n\nTask\nOctave\nPython\n\n\n\n\nOne step / loop\nx = A*x\nx = A @ x\n\n\nEigenpairs\n[V,D]=eig(A)\nlam, V = np.linalg.eig(A)\n\n\nDiagonal entries\ndiag(D)\nlam\n\n\nNormalize / scale\nv/sum(v)\nsame idea with NumPy"
   },
   {
-    "objectID": "labs/lab-06.html",
-    "href": "labs/lab-06.html",
-    "title": "Lab 6 — Fit and Compress",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nFriday, December 4 is project launch (capstone) with Lecture 33 (SVD) and Quiz 11. This lab is the same-day LS + truncated-SVD software warm-up — fine to meet SVD in lecture and practice it here. Quiz 11 is Week 13 eigenvalues — not this lab.\nCredit: Lab points are for effort in class, not for a Canvas file upload. Preview the one-pager; write on the hard copy handed out in class."
+    "objectID": "labs/lab-05.html#part-a-discover-the-long-run-mix",
+    "href": "labs/lab-05.html#part-a-discover-the-long-run-mix",
+    "title": "Lab 5 — Long-Run Mix and Eigen",
+    "section": "Part A — Discover the long-run mix",
+    "text": "Part A — Discover the long-run mix\nCampus on/off counts \\(x_t=\\begin{bmatrix}c_t\\\\o_t\\end{bmatrix}\\) with \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\nC5.0. Enter \\(A\\) and \\(x_0=(1000,0)\\). Print \\(x_1=Ax_0\\). Then iterate about \\(20\\) steps; record \\(x_5\\) and \\(x_{20}\\) (or the last state). Roughly where do the populations settle?\nExpected: \\(x_1=(700,300)\\); toward about \\((400,600)\\) by \\(t=20\\).\nC5.1. Restart from \\(x_0=(0,1000)\\). After \\(20\\) steps, what happens? In one sentence, what is surprising if you only look at the starting point?\nExpected: again near \\((400,600)\\). Different starts can head toward the same long-run mix."
   },
   {
-    "objectID": "labs/lab-06.html#learning-objectives",
-    "href": "labs/lab-06.html#learning-objectives",
-    "title": "Lab 6 — Fit and Compress",
-    "section": "Learning objectives",
-    "text": "Learning objectives\n\nSolve a small least-squares / fit problem in software.\nRun a truncated SVD on a small matrix and rebuild a rank-\\(k\\) approximation.\nCompute residual size and storage count \\(k(m+n+1)\\) for two values of \\(k\\)."
+    "objectID": "labs/lab-05.html#part-b-explain-with-eigenpairs",
+    "href": "labs/lab-05.html#part-b-explain-with-eigenpairs",
+    "title": "Lab 5 — Long-Run Mix and Eigen",
+    "section": "Part B — Explain with eigenpairs",
+    "text": "Part B — Explain with eigenpairs\nC5.2. Compute all eigenvalues of \\(A\\) in software. Which one has magnitude \\(1\\)? Which has \\(|\\lambda|&lt;1\\)?\nExpected: \\(\\lambda_1=1\\) and \\(\\lambda_2=0.5\\) (order may differ).\nC5.3. Find an eigenvector for \\(\\lambda=1\\) (or solve \\((A-I)x=0\\)). Scale so the two entries sum to \\(1000\\). Compare to your \\(x_{20}\\) from Part A. One sentence: why does iteration settle there?\nExpected: a multiple of \\((2,3)\\) — e.g. \\((400,600)\\). The long-run state is that \\(\\lambda=1\\) direction; the other mode shrinks because \\(|\\lambda_2|&lt;1\\).\nC5.4. (If time.) Capstone preview: SVD keeps the largest singular values. In one sentence, how is “keep the big directions” similar to “the \\(\\lambda=1\\) mode wins the long run”?\nExpected: both pick the directions that dominate the object (image vs. iterated state)."
   },
   {
-    "objectID": "labs/lab-06.html#math-connections",
-    "href": "labs/lab-06.html#math-connections",
-    "title": "Lab 6 — Fit and Compress",
-    "section": "Math connections",
-    "text": "Math connections\nLeast squares (Lectures 38–39); SVD and the orthonormal / LS bridge (Lecture 33); warm-up for the image-compression capstone."
-  },
-  {
-    "objectID": "labs/lab-06.html#key-syntax-this-lab",
-    "href": "labs/lab-06.html#key-syntax-this-lab",
-    "title": "Lab 6 — Fit and Compress",
-    "section": "Key syntax (this lab)",
-    "text": "Key syntax (this lab)\n\n\n\n\n\n\n\n\nTask\nOctave\nPython\n\n\n\n\nLeast squares\nA\\b (overdetermined)\nnp.linalg.lstsq(A,b,rcond=None)\n\n\nFull SVD\n[U,S,V]=svd(A)\nU,s,Vt=np.linalg.svd(A,full_matrices=False)\n\n\nRank-\\(k\\) rebuild\nU(:,1:k)*S(1:k,1:k)*V(:,1:k)'\nU[:,:k] @ np.diag(s[:k]) @ Vt[:k,:]\n\n\nFrobenius norm\nnorm(A-Ak,'fro')\nnp.linalg.norm(A-Ak,'fro')"
-  },
-  {
-    "objectID": "labs/lab-06.html#ops-strip",
-    "href": "labs/lab-06.html#ops-strip",
-    "title": "Lab 6 — Fit and Compress",
-    "section": "Ops strip",
-    "text": "Ops strip"
+    "objectID": "labs/lab-05.html#one-pager",
+    "href": "labs/lab-05.html#one-pager",
+    "title": "Lab 5 — Long-Run Mix and Eigen",
+    "section": "One-pager",
+    "text": "One-pager\nPreview the Lab 5 ticket; write on the hard copy in class."
   },
   {
     "objectID": "lectures.html",
@@ -606,7 +480,7 @@
     "href": "lectures.html#lecture-25",
     "title": "Lectures",
     "section": "Fri Nov 6 — Determinants, geometry, and invertibility + Quiz 9 + Lab 4",
-    "text": "Fri Nov 6 — Determinants, geometry, and invertibility + Quiz 9 + Lab 4\nLecture 25 page · Quiz 9 · Lab 4\nReading: Determinants (class notes); Lab 4.\nQuiz 9 is Lecture 22 only (RREF / one-step dynamics), not today’s determinants and not Lab 4.\nBy the end of class, you should be able to:\n\nCompute determinants of \\(2\\times 2\\) and simple triangular matrices.\nInterpret determinant magnitude as area or volume scaling.\nConnect determinant zero with lost dimension and noninvertibility.\nRecognize the determinant of a triangular matrix from its diagonal.\nConnect determinants to the coming characteristic equation."
+    "text": "Fri Nov 6 — Determinants, geometry, and invertibility + Quiz 9 + Lab 4\nLecture 25 page · Quiz 9 · Lab 4\nReading: Determinants (class notes); Lab 4 practices inverses / rank / determinants in software.\nQuiz 9 is Lecture 22 only (RREF / one-step dynamics), not today’s determinants and not Lab 4.\nBy the end of class, you should be able to:\n\nCompute determinants of \\(2\\times 2\\) and simple triangular matrices.\nInterpret determinant magnitude as area or volume scaling.\nConnect determinant zero with lost dimension and noninvertibility.\nRecognize the determinant of a triangular matrix from its diagonal.\nConnect determinants to the coming characteristic equation."
   },
   {
     "objectID": "lectures.html#week-12",
@@ -648,7 +522,7 @@
     "href": "lectures.html#lecture-28",
     "title": "Lectures",
     "section": "Mon Nov 16 — Eigenvectors as persistent directions",
-    "text": "Mon Nov 16 — Eigenvectors as persistent directions\nLecture 28 page\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics.\nArc: Lab 4 campus long-run mix (unexplained) → L28 name eigen / \\(A^tv=\\lambda^tv\\) → L29 hand \\(2\\times 2\\) + complex → L30 + Lab 5 explain Lab 4 (\\(\\lambda=1\\) wins). The free PDF is only §6.1.\nBy the end of class, you should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
+    "text": "Mon Nov 16 — Eigenvectors as persistent directions\nLecture 28 page\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics.\nArc: L28 name eigen / \\(A^tv=\\lambda^tv\\) (campus matrix preview) → L29 hand \\(2\\times 2\\) + complex → L30 + Lab 5 discover the long-run mix by iteration, then explain (\\(\\lambda=1\\) wins). The free PDF is only §6.1.\nBy the end of class, you should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect eigenvectors to repeated transformations and steady directions.\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
   },
   {
     "objectID": "lectures.html#lecture-29",
@@ -721,102 +595,11 @@
     "text": "Fri Dec 11 — Cumulative final review\nLecture 36 page\nReading: Cumulative review\nNo routine quiz or new content.\nBy the end of class, you should be able to:\n\nConnect vectors, systems, transformations, dynamics, eigenvectors, least squares, and SVD.\nSelect an appropriate method for a new situation.\nDecide what should be done by hand and what should be delegated to software.\nInterpret mathematical and computational results.\nCreate a targeted final-exam study plan."
   },
   {
-    "objectID": "lectures/lecture-24.html",
-    "href": "lectures/lecture-24.html",
-    "title": "Lecture 24 — Inverses, rank, and solvability",
-    "section": "",
-    "text": "Download PDF\nLast updated: November 4, 2026.\nBoyd video (optional): Lecture 30 — left & right inverses · Lecture 15 — linear independence (rank ideas) · ENGR108 playlist (Boyd)\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §3.5 (PDF) — rank / column space / nullspace\nVideo: 18.06 Lec 6 — column space and nullspace · MIT 18.06 playlist (Strang)\nReading: Boyd 11.1–11.3; class notes + selected Strang §3.5 (rank, \\(C(A)\\), \\(N(A)\\)). Related objectives: Lectures. Schedule.\nMonday continued Lab 3 (including the \\([A\\mid I]\\) peek). Today names that right block \\(A^{-1}\\), then connects invertibility to the RREF language you already use: column space, null space, and rank. An inverse is the square case where every \\(b\\) has exactly one \\(x\\). Not a four-subspaces theory day.\nBring paper. Warm-up, fill-in notes, board examples, and Your turn."
-  },
-  {
-    "objectID": "lectures/lecture-24.html#learning-objectives",
-    "href": "lectures/lecture-24.html#learning-objectives",
-    "title": "Lecture 24 — Inverses, rank, and solvability",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nExplain why reducing \\([A\\mid I]\\) to \\([I\\mid B]\\) gives \\(B=A^{-1}\\), and use an inverse to solve \\(Ax=b\\).\nInterpret \\(C(A)\\) as the possible outputs \\(Ax\\) and \\(N(A)\\) as the inputs sent to zero.\nFind rank from pivots and relate it to free variables and \\(\\dim N(A)\\).\nExplain when \\(Ax=b\\) is solvable and when a solution, if it exists, is unique.\nDistinguish square invertibility from full column rank for a tall matrix."
-  },
-  {
-    "objectID": "lectures/lecture-24.html#warm-up",
-    "href": "lectures/lecture-24.html#warm-up",
-    "title": "Lecture 24 — Inverses, rank, and solvability",
-    "section": "Warm-up",
-    "text": "Warm-up\nRecall \\(A=\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}\\) and \\(E=\\begin{bmatrix}1&-2\\\\0&1\\end{bmatrix}\\).\n\nWhat row operation does multiplying by \\(E\\) perform?\nCompute \\(EA\\).\nWhat does this tell us about solving \\(Ax=b\\)?"
-  },
-  {
-    "objectID": "lectures/lecture-24.html#fill-in",
-    "href": "lectures/lecture-24.html#fill-in",
-    "title": "Lecture 24 — Inverses, rank, and solvability",
-    "section": "Fill in",
-    "text": "Fill in\n\nInverse from elementary matrices\nIf elementary matrices \\(E_1,\\ldots,E_k\\) reduce a square matrix \\(A\\) to \\(I\\), then \\[\nE_k\\cdots E_1A=I,\\qquad A^{-1}=E_k\\cdots E_1.\n\\] Row-reducing \\([A\\mid I]\\) to \\([I\\mid B]\\) therefore gives \\(B=\\underline{\\hspace{1.6cm}}\\). The same matrix solves every right-hand side: if \\(Ax=b\\), then \\(x=\\underline{\\hspace{2.0cm}}\\).\nCheck. After you find a candidate \\(A^{-1}\\), multiply: \\[\nA^{-1}A=\\underline{\\hspace{1.0cm}}\n\\qquad\\text{(and/or $AA^{-1}=I$)}.\n\\] If the product is not \\(I\\), you made an arithmetic error — or \\(A\\) was not invertible.\n\n\nColumn space and null space\nThe column space \\(C(A)\\) is the span of the columns of \\(A\\) — every vector of the form \\(Ax\\). So \\[\nAx=b\\text{ is solvable}\\quad\\Longleftrightarrow\\quad b\\in\\underline{\\hspace{1.6cm}}.\n\\]\nThe null space is \\(N(A)=\\{x:Ax=\\underline{\\hspace{0.8cm}}\\}\\). If \\(Ax_p=b\\), every other solution has the form \\(\\underline{\\hspace{3.2cm}}\\). A solution, when one exists, is unique exactly when \\(\\underline{\\hspace{2.4cm}}\\).\n\n\nRank from pivots\nA pivot in \\(\\operatorname{rref}(A)\\) is the leading \\(1\\) in a nonzero row. Pivot columns of \\(A\\) are the corresponding columns of the original matrix. Example: \\[\n\\operatorname{rref}(A)=\\begin{bmatrix}1&0&2&0\\\\0&1&-3&0\\\\0&0&0&1\\end{bmatrix}\n\\] has pivots in columns \\(\\underline{\\hspace{2.4cm}}\\); column \\(\\underline{\\hspace{0.8cm}}\\) is free.\nBasis / dimension (recall). A basis is a linearly independent spanning set; dimension is how many vectors sit in any basis.\nRank. \\(\\operatorname{rank}(A)=\\dim C(A)=\\) the \\(\\underline{\\hspace{3.6cm}}\\) of \\(A\\). For an \\(m\\times n\\) matrix, \\[\n\\dim N(A)=n-\\operatorname{rank}(A)\n\\qquad\\text{(rank--nullity).}\n\\]\n\n\nSquare case (Monday’s inverse, restated)\nFor \\(n\\times n\\) matrices, \\[\nA\\text{ invertible}\\iff \\operatorname{rank}(A)=n\n\\iff C(A)=\\mathbb R^n\\iff N(A)=\\{0\\}.\n\\] Rectangular matrices never have a two-sided inverse; we still use \\(C(A)\\), \\(N(A)\\), and rank. Later, least squares asks for the closest \\(Ax\\) when \\(b\\notin C(A)\\)."
-  },
-  {
-    "objectID": "lectures/lecture-24.html#worked-in-class",
-    "href": "lectures/lecture-24.html#worked-in-class",
-    "title": "Lecture 24 — Inverses, rank, and solvability",
-    "section": "Worked in class",
-    "text": "Worked in class\n\nThree \\(2\\times 2\\) inverses\nW1. Find \\(A^{-1}\\) by reducing \\([A\\mid I]\\). Let \\[\nA=\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}.\n\\] (a) Form \\([A\\mid I]\\) and row-reduce to \\([I\\mid A^{-1}]\\).\n(b) Check: compute \\(A^{-1}A\\) and confirm you get \\(I\\).\nW2. Another \\(2\\times 2\\). Let \\[\nA=\\begin{bmatrix}1&1\\\\2&3\\end{bmatrix}.\n\\] (a) Find \\(A^{-1}\\) by reducing \\([A\\mid I]\\).\n(b) Check: compute \\(A^{-1}A\\) (should be \\(I\\)).\n(c) Solve \\(Ax=b\\) for \\(b=(5,13)^T\\) using \\(x=A^{-1}b\\), then verify \\(Ax=b\\).\nW3. When the inverse does not exist. Let \\[\nA=\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}.\n\\] (a) Try to reduce \\([A\\mid I]\\) to \\([I\\mid ?]\\). What goes wrong?\n(b) Find a nonzero vector in \\(N(A)\\). If \\(Ax=b\\) has one solution, how many does it have?\nW3b. General \\(2\\times 2\\) formula. For \\[\nA=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix},\n\\] row-reducing \\([A\\mid I]\\) (when it works) always produces \\[\nA^{-1}=\\frac{1}{\\underline{\\hspace{2.0cm}}}\\begin{bmatrix}\\underline{\\hspace{0.8cm}}&\\underline{\\hspace{0.8cm}}\\\\ \\underline{\\hspace{0.8cm}}&\\underline{\\hspace{0.8cm}}\\end{bmatrix}.\n\\] The scalar in the denominator is \\(ad-bc\\) (the determinant of \\(A\\) — more Friday). If \\(ad-bc=0\\), there is no inverse (same failure as W3).\nQuick check: apply the formula to W1 and W2 and match what you already found.\n\n\nColumn space, rank, and synthesis\nW4. Column space. Let \\[\nA=\\begin{bmatrix}1&0\\\\2&0\\\\0&1\\end{bmatrix}.\n\\] Describe \\(C(A)\\). Is \\(b=(1,2,3)^T\\) in \\(C(A)\\)? Is \\(b'=(1,3,0)^T\\)?\nW5. Rank from RREF. Let \\[\nA=\\begin{bmatrix}1&2&3\\\\2&4&6\\\\0&1&1\\end{bmatrix},\n\\qquad\n\\operatorname{rref}(A)=\\begin{bmatrix}1&0&1\\\\0&1&1\\\\0&0&0\\end{bmatrix}.\n\\] What is \\(\\operatorname{rank}(A)\\)? Give a basis vector for \\(N(A)\\).\nW6. Synthesis. For an \\(m\\times n\\) matrix, match: existence of a solution; uniqueness (when solvable); rank; when an inverse can exist."
-  },
-  {
-    "objectID": "lectures/lecture-24.html#your-turn",
-    "href": "lectures/lecture-24.html#your-turn",
-    "title": "Lecture 24 — Inverses, rank, and solvability",
-    "section": "Your turn",
-    "text": "Your turn\nY1. Find \\(A^{-1}\\) for \\(A=\\begin{bmatrix}2&1\\\\0&3\\end{bmatrix}\\) by reducing \\([A\\mid I]\\). Check by computing \\(A^{-1}A\\).\nY2. For \\(A=\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\\), give one nonzero vector in \\(N(A)\\) and explain what it means for uniqueness.\nY3. For \\(A=\\begin{bmatrix}1&0\\\\2&0\\\\0&1\\end{bmatrix}\\), is \\(b=(2,4,-1)^T\\) in \\(C(A)\\)? Is \\(b'=(2,5,-1)^T\\)?\nY4. An \\(A\\in\\mathbb R^{3\\times2}\\) has rank \\(2\\). Is \\(N(A)=\\{0\\}\\)? Does every \\(b\\in\\mathbb R^3\\) have a solution? If a solution exists, is it unique? Is \\(A\\) invertible?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. Row-reduce \\([A\\mid I]\\) to get \\[\nA^{-1}=\\frac16\\begin{bmatrix}3&-1\\\\0&2\\end{bmatrix}.\n\\] Check: \\(A^{-1}A=I\\).\nY2. \\((2,-1)^T\\) (or any nonzero multiple). Any consistent system has infinitely many solutions: add \\(t(2,-1)^T\\).\nY3. Yes — \\(b\\) with \\(x=(2,-1)^T\\). No — the second entry must equal twice the first.\nY4. Yes (\\(N(A)=\\{0\\}\\)); no (not every \\(b\\in\\mathbb R^3\\)); yes (unique when solvable); no, \\(A\\) is not square, so not invertible."
-  },
-  {
-    "objectID": "lectures/lecture-25.html",
-    "href": "lectures/lecture-25.html",
-    "title": "Lecture 25 — Determinants, geometry, and invertibility",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 19, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nReading: Determinants (class notes). Related objectives: Lectures. Schedule.\nBring paper. Warm-up, fill-in notes, board examples, and Your turn."
-  },
-  {
-    "objectID": "lectures/lecture-25.html#learning-objectives",
-    "href": "lectures/lecture-25.html#learning-objectives",
-    "title": "Lecture 25 — Determinants, geometry, and invertibility",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nCompute determinants of \\(2\\times 2\\) and simple triangular matrices.\nInterpret determinant magnitude as area or volume scaling.\nConnect determinant zero with lost dimension and noninvertibility.\nRecognize the determinant of a triangular matrix from its diagonal.\nConnect determinants to the coming characteristic equation."
-  },
-  {
-    "objectID": "lectures/lecture-25.html#warm-up",
-    "href": "lectures/lecture-25.html#warm-up",
-    "title": "Lecture 25 — Determinants, geometry, and invertibility",
-    "section": "Warm-up",
-    "text": "Warm-up\nLet \\[\nA=\\begin{bmatrix}2&0\\\\0&3\\end{bmatrix},\\qquad\nB=\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}.\n\\]\n\nWhat does \\(x\\mapsto Ax\\) do to the unit square? What is the area of the image?\nAre the columns of \\(B\\) independent? Guess whether \\(B\\) is invertible."
-  },
-  {
-    "objectID": "lectures/lecture-25.html#fill-in",
-    "href": "lectures/lecture-25.html#fill-in",
-    "title": "Lecture 25 — Determinants, geometry, and invertibility",
-    "section": "Fill in",
-    "text": "Fill in\nFor \\(A=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}\\), \\[\n\\det A = ad-bc.\n\\] Geometrically, \\(|\\det A|\\) is the \\(\\underline{\\hspace{2.4cm}}\\) scaling factor of the unit square under \\(x\\mapsto Ax\\) (signed area encodes orientation).\nTriangular / diagonal. If \\(T\\) is upper or lower triangular (including diagonal), \\[\n\\det T = \\underline{\\hspace{3.2cm}}.\n\\]\nInvertibility. For square \\(A\\): \\[\nA\\text{ invertible}\\quad\\Longleftrightarrow\\quad \\det A \\neq \\underline{\\hspace{0.8cm}}.\n\\] If \\(\\det A=0\\), the image of the unit cube/square is \\(\\underline{\\hspace{2.0cm}}\\) (lost dimension): columns are dependent, \\(Ax=b\\) fails for some \\(b\\), and \\(N(A)\\) is nontrivial.\nProduct rule (preview). \\(\\det(AB)=(\\det A)(\\det B)\\). Useful later for compositions.\nComing attraction. Eigenvalues solve \\(\\det(A-\\lambda I)=0\\) — the characteristic equation. Today’s \\(\\det\\) is the tool; Week 13 builds the theory."
-  },
-  {
-    "objectID": "lectures/lecture-25.html#worked-in-class",
-    "href": "lectures/lecture-25.html#worked-in-class",
-    "title": "Lecture 25 — Determinants, geometry, and invertibility",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Compute.\n\n\\(\\det\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}\\)\n\\(\\det\\begin{bmatrix}1&4&0\\\\0&-2&5\\\\0&0&3\\end{bmatrix}\\)\n\\(\\det\\begin{bmatrix}2&1\\\\4&2\\end{bmatrix}\\)\n\nW2. Area scaling. Let \\(A=\\begin{bmatrix}0&-2\\\\1&0\\end{bmatrix}\\). Compute \\(\\det A\\). Where do \\(e_1\\) and \\(e_2\\) go? What area does the unit square map to?"
-  },
-  {
-    "objectID": "lectures/lecture-26.html",
-    "href": "lectures/lecture-26.html",
-    "title": "Lecture 26 — Midterm 2 review and synthesis",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 19, 2026.\n\nTextbook: Boyd & Vandenberghe, VMLS (PDF) \nFull review day for Midterm 2 (Friday, November 13). Related objectives: Lectures. Schedule.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "lectures/lecture-27.html",
-    "href": "lectures/lecture-27.html",
-    "title": "Lecture 27 — Midterm 2",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 19, 2026.\n\nTextbook: Boyd & Vandenberghe, VMLS (PDF) \n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
     "objectID": "lectures/lecture-28.html",
     "href": "lectures/lecture-28.html",
     "title": "Lecture 28 — Eigenvectors as persistent directions",
     "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — eigenvalues\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · MIT 18.06 playlist (Strang)\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn.\nStory of the eigen week."
+    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — eigenvalues\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · MIT 18.06 playlist (Strang)\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
   },
   {
     "objectID": "lectures/lecture-28.html#learning-objectives",
@@ -830,21 +613,35 @@
     "href": "lectures/lecture-28.html#warm-up",
     "title": "Lecture 28 — Eigenvectors as persistent directions",
     "section": "Warm-up",
-    "text": "Warm-up\nLab 4’s campus matrix (same every week): \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\] You saw \\(x_0=(1000,0)\\) and \\(x_0=(0,1000)\\) both head toward about \\((400,600)\\).\n\nIn one sentence: what was surprising?\nPreview: if some nonzero \\(v\\) satisfied \\(Av=v\\) (eigenvalue \\(1\\)), why would iterating from that \\(v\\) stay put (up to scaling of total population)?"
+    "text": "Warm-up\nCampus on/off model (Lab 5 will iterate this Friday): \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\n\nIf \\(x\\) is a population vector and \\(Ax=x\\), what does that mean in words for next week’s counts?\nPreview: if some nonzero \\(v\\) satisfied \\(Av=v\\) (eigenvalue \\(1\\)), why would iterating from that \\(v\\) stay put (up to scaling of total population)?om that \\(v\\) stay put (up to scaling of total population)?"
   },
   {
     "objectID": "lectures/lecture-28.html#fill-in",
     "href": "lectures/lecture-28.html#fill-in",
     "title": "Lecture 28 — Eigenvectors as persistent directions",
     "section": "Fill in",
-    "text": "Fill in\nEigenpair. A nonzero vector \\(v\\) is an eigenvector of square \\(A\\) with eigenvalue \\(\\lambda\\) if \\[\nAv = \\underline{\\hspace{1.4cm}}.\n\\] Geometrically: \\(A\\) sends \\(v\\) to a vector on the \\(\\underline{\\hspace{2.0cm}}\\) line through \\(v\\) (scaled by \\(\\lambda\\); if \\(\\lambda&lt;0\\), also flipped).\nVerify. Given a candidate pair \\((\\lambda,v)\\), compute \\(Av\\) and \\(\\lambda v\\); they must \\(\\underline{\\hspace{1.6cm}}\\).\nFind \\(\\lambda\\) from \\(v\\). If \\(v\\neq 0\\) is known to be an eigenvector and some component \\(v_i\\neq 0\\), then $$"
+    "text": "Fill in\nEigenpair. A nonzero vector \\(v\\) is an eigenvector of square \\(A\\) with eigenvalue \\(\\lambda\\) if \\[\nAv = \\underline{\\hspace{1.4cm}}.\n\\] Geometrically: \\(A\\) sends \\(v\\) to a vector on the \\(\\underline{\\hspace{2.0cm}}\\) line through \\(v\\) (scaled by \\(\\lambda\\); if \\(\\lambda&lt;0\\), also flipped).\nVerify. Given a candidate pair \\((\\lambda,v)\\), compute \\(Av\\) and \\(\\lambda v\\); they must \\(\\underline{\\hspace{1.6cm}}\\).\nFind \\(\\lambda\\) from \\(v\\). If \\(v\\neq 0\\) is known to be an eigenvector and some component \\(v_i\\neq 0\\), then \\[\n\\lambda = \\frac{(Av)_i}{v_i}\n\\] (same ratio for every nonzero component).\nDynamics / powers. If \\(x_0=v\\) is an eigenvector with eigenvalue \\(\\lambda\\), then \\[\nx_t = A^t v = \\underline{\\hspace{2.4cm}}.\n\\] The direction of \\(v\\) is persistent: each step only rescales (and maybe flips). Friday’s Lab 5 long-run campus mix will turn out to be (a scale of) an eigenvector for \\(\\lambda=1\\).\nNo real eigenvector. A pure rotation (e.g. \\(90^\\circ\\)) moves every real nonzero vector off its own line. Then there is \\(\\underline{\\hspace{2.0cm}}\\) real eigenpair — we will need complex numbers on Wednesday."
+  },
+  {
+    "objectID": "lectures/lecture-28.html#worked-in-class",
+    "href": "lectures/lecture-28.html#worked-in-class",
+    "title": "Lecture 28 — Eigenvectors as persistent directions",
+    "section": "Worked in class",
+    "text": "Worked in class\nW1. Geometry. Sketch \\(v=(1,1)\\) and \\(Av\\) for \\(A=\\begin{bmatrix}2&0\\\\0&1\\end{bmatrix}\\). Is \\(v\\) an eigenvector? What about \\(e_1=(1,0)\\)?\nW2. Verify. Check whether \\((\\lambda,v)=(3,(1,1))\\) is an eigenpair of \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\] Compute both \\(Av\\) and \\(\\lambda v\\).\nW3. Find \\(\\lambda\\). You are told that \\(v=(1,-1)\\) is an eigenvector of \\[\nA=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}.\n\\] Find \\(\\lambda\\). Then confirm \\(Av=\\lambda v\\).\nW4. Clean diagonal example (builds intuition for Lab 5). Let \\(B=\\operatorname{diag}(1.2,\\,0.5)\\).\n\nName two real eigenpairs (use the standard basis).\nIf \\(x_0=c_1 e_1+c_2 e_2\\), what is \\(x_t=B^t x_0\\)? Which term dominates for large \\(t\\) when \\(c_1\\neq 0\\)?\n\nW5. Campus preview. Check that \\(v=(2,3)\\) is an eigenvector of \\(A=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}\\). What is \\(\\lambda\\)? (Friday in Lab 5: iterate, then scale this direction to total \\(1000\\).)\nW6. Rotation. Let \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) (\\(90^\\circ\\) CCW). For a generic \\(v=(a,b)\\neq 0\\), is \\(Rv\\) a real multiple of \\(v\\)? What does that say about real eigenvectors of \\(R\\)?"
+  },
+  {
+    "objectID": "lectures/lecture-28.html#your-turn",
+    "href": "lectures/lecture-28.html#your-turn",
+    "title": "Lecture 28 — Eigenvectors as persistent directions",
+    "section": "Your turn",
+    "text": "Your turn\nY1. Verify or reject: is \\((\\lambda,v)=(−1,(1,-1))\\) an eigenpair of \\(A=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\)?\nY2. Given that \\(v=(1,2)\\) is an eigenvector of \\(A=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\), find \\(\\lambda\\).\nY3. True or false, with a one-line reason: if \\(Av=2v\\) and \\(v\\neq 0\\), then \\(A^3 v=8v\\).\nY4. In one sentence: how will an eigenvector for \\(\\lambda=1\\) help explain Friday’s Lab 5 “same long-run mix from different starts”?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\(Av=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\) and \\((-1)v=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\). Yes — eigenpair.\nY2. \\(Av=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\begin{bmatrix}1\\\\2\\end{bmatrix}=\\begin{bmatrix}3\\\\4\\end{bmatrix}\\). Ratio from the first component: \\(\\lambda=3/1=3\\). Check second: \\(4=3\\cdot 2\\). So \\(\\lambda=3\\).\nY3. True. \\(A^3 v=A^2(Av)=A^2(2v)=A(4v)=8v\\) (or \\(A^t v=\\lambda^t v\\)).\nY4. Sample: A \\(\\lambda=1\\) direction is a steady mix; other modes shrink, so many starts collapse onto (a scale of) that same eigenvector — the long-run campus mix."
   },
   {
     "objectID": "lectures/lecture-29.html",
     "href": "lectures/lecture-29.html",
     "title": "Lecture 29 — Characteristic equation, \\(2\times 2\\) eigenproblems, and complex numbers",
     "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — characteristic equation / complex example\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · 18.06 Lec 22 — diagonalization and powers of A · MIT 18.06 playlist (Strang)\nReading: Strang §6.1, characteristic equation and the complex-eigenvalue (\\(90^\\circ\\) rotation) example. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn.\nIn the story. Monday: eigenvectors = persistent directions (\\(A^tv=\\lambda^tv\\)). Today: compute them for \\(2\\times 2\\) via \\(\\det(A-\\lambda I)=0\\), including the complex case when there is no real eigenpair. Friday: software + Lab 4’s campus matrix explained."
+    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — characteristic equation / complex example\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · 18.06 Lec 22 — diagonalization and powers of A · MIT 18.06 playlist (Strang)\nReading: Strang §6.1, characteristic equation and the complex-eigenvalue (\\(90^\\circ\\) rotation) example. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn.\nIn the story. Monday: eigenvectors = persistent directions (\\(A^tv=\\lambda^tv\\)). Today: compute them for \\(2\\times 2\\) via \\(\\det(A-\\lambda I)=0\\), including the complex case when there is no real eigenpair. Friday: Lab 5 iterates the campus matrix and explains the long-run mix with \\(\\lambda=1\\)."
   },
   {
     "objectID": "lectures/lecture-29.html#learning-objectives",
@@ -872,21 +669,28 @@
     "href": "lectures/lecture-29.html#worked-in-class",
     "title": "Lecture 29 — Characteristic equation, \\(2\times 2\\) eigenproblems, and complex numbers",
     "section": "Worked in class",
-    "text": "Worked in class\nW1. Complex drill. Let \\(z=2+i\\) and \\(w=1-3i\\).\n\nCompute \\(z+w\\), \\(zw\\), and \\(\\overline{z}\\).\nPlot \\(z\\) and \\(\\overline{z}\\) in the complex plane.\n\nW2. Real \\(2\\times 2\\) by hand. Let \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\]\n\nExpand \\(\\det(A-\\lambda I)\\) and solve for \\(\\lambda\\).\nFor each eigenvalue, find one eigenvector.\nCheck one pair by computing \\(Av\\) and \\(\\lambda v\\)."
+    "text": "Worked in class\nW1. Complex drill. Let \\(z=2+i\\) and \\(w=1-3i\\).\n\nCompute \\(z+w\\), \\(zw\\), and \\(\\overline{z}\\).\nPlot \\(z\\) and \\(\\overline{z}\\) in the complex plane.\n\nW2. Real \\(2\\times 2\\) by hand. Let \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\]\n\nExpand \\(\\det(A-\\lambda I)\\) and solve for \\(\\lambda\\).\nFor each eigenvalue, find one eigenvector.\nCheck one pair by computing \\(Av\\) and \\(\\lambda v\\).\n\nW3. Rotation eigenvalues. For \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\):\n\nConfirm the characteristic polynomial is \\(\\lambda^2+1=0\\), so \\(\\lambda=\\pm i\\).\nFor \\(\\lambda=i\\), solve \\((R-iI)v=0\\) and give one complex eigenvector.\nCheck \\(Rv=iv\\) by matrix–vector multiplication (complex arithmetic).\n\nW4. Interpretation preview. Complex conjugate eigenvalues of a real matrix often signal \\(\\underline{\\hspace{2.4cm}}\\) (rotation / oscillation) in the real plane — Friday’s lab makes this concrete with software."
+  },
+  {
+    "objectID": "lectures/lecture-29.html#your-turn",
+    "href": "lectures/lecture-29.html#your-turn",
+    "title": "Lecture 29 — Characteristic equation, \\(2\times 2\\) eigenproblems, and complex numbers",
+    "section": "Your turn",
+    "text": "Your turn\nY1. Compute \\((3-2i)(1+i)\\) and \\(|3-2i|\\).\nY2. For \\(A=\\begin{bmatrix}1&2\\\\0&3\\end{bmatrix}\\), form \\(\\det(A-\\lambda I)\\), find both eigenvalues, and an eigenvector for \\(\\lambda=3\\).\nY3. Check: with \\(A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) and \\(v=(1,-i)\\), verify \\(Av=iv\\) (or explain the correct \\(\\lambda\\) if this \\(v\\) is for \\(\\lambda=-i\\)).\nY4. True or false: every real \\(2\\times 2\\) matrix has two real eigenvalues.\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\((3-2i)(1+i)=3+3i-2i-2i^2=5+i\\). Magnitude: \\(|3-2i|=\\sqrt{9+4}=\\sqrt{13}\\).\nY2. \\(A-\\lambda I=\\begin{bmatrix}1-\\lambda&2\\\\0&3-\\lambda\\end{bmatrix}\\), so \\(\\det=(1-\\lambda)(3-\\lambda)\\). Eigenvalues \\(\\lambda=1\\) and \\(\\lambda=3\\). For \\(\\lambda=3\\): \\((A-3I)v=\\begin{bmatrix}-2&2\\\\0&0\\end{bmatrix}v=0\\) gives \\(v_1=v_2\\), e.g. \\(v=(1,1)\\).\nY3. \\(Av=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\begin{bmatrix}1\\\\-i\\end{bmatrix}=\\begin{bmatrix}i\\\\1\\end{bmatrix}\\) and \\(iv=\\begin{bmatrix}i\\\\1\\end{bmatrix}\\). Yes — \\(Av=iv\\) (so this \\(v\\) matches \\(\\lambda=i\\)).\nY4. False. The characteristic polynomial may have complex roots (e.g. \\(90^\\circ\\) rotation: \\(\\lambda=\\pm i\\))."
   },
   {
     "objectID": "lectures/lecture-30.html",
     "href": "lectures/lecture-30.html",
     "title": "Lecture 30 — Why did the system behave that way?",
     "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — eigenvalues\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · MIT 18.06 playlist (Strang)\nReading: Strang §6.1 and Lachniet Ch. 5 (eigenvalues/eigenvectors). Related objectives: Lectures. Schedule.\nBring paper. Warm-up, fill-in notes, board examples, and Your turn. Same day: Lab 5 closes the Lab 4 campus mystery with \\(\\lambda=1\\).\nIn the story. We can name eigenpairs (Mon) and find them by hand (Wed). Today: software, dominant \\(|\\lambda|\\) explains long-run \\(A^tx_0\\), and Lab 5 matches campus \\(x_{20}\\) to the \\(\\lambda=1\\) direction."
+    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — eigenvalues\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · MIT 18.06 playlist (Strang)\nReading: Strang §6.1 and Lachniet Ch. 5 (eigenvalues/eigenvectors). Related objectives: Lectures. Schedule.\nBring paper. Warm-up, fill-in notes, board examples, and Your turn. Same day: Lab 5 discovers the campus long-run mix by iteration, then explains it with \\(\\lambda=1\\).\nIn the story. We can name eigenpairs (Mon) and find them by hand (Wed). Today: software, dominant \\(|\\lambda|\\) explains long-run \\(A^tx_0\\), and Lab 5 matches campus \\(x_{20}\\) to the \\(\\lambda=1\\) direction."
   },
   {
     "objectID": "lectures/lecture-30.html#learning-objectives",
     "href": "lectures/lecture-30.html#learning-objectives",
     "title": "Lecture 30 — Why did the system behave that way?",
     "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nCompute eigenvalues and eigenvectors of a general matrix with software.\nVerify \\(Av\\approx\\lambda v\\) numerically.\nUse dominant eigenbehavior to explain a simulated system (including Lab 4).\nInterpret complex eigenvalues as rotation/oscillation behavior.\nExplore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors."
+    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nCompute eigenvalues and eigenvectors of a general matrix with software.\nVerify \\(Av\\approx\\lambda v\\) numerically.\nUse dominant eigenbehavior to explain a simulated system (including Lab 5’s campus model).\nInterpret complex eigenvalues as rotation/oscillation behavior.\nExplore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors."
   },
   {
     "objectID": "lectures/lecture-30.html#warm-up",
@@ -900,280 +704,21 @@
     "href": "lectures/lecture-30.html#fill-in",
     "title": "Lecture 30 — Why did the system behave that way?",
     "section": "Fill in",
-    "text": "Fill in\nSoftware eigenpairs. Octave eig(A) / Python np.linalg.eig(A) return eigenvalues and a matrix whose columns are eigenvectors.\nVerify. For each reported pair \\((\\lambda,v)\\), check \\[\nAv \\approx \\underline{\\hspace{1.4cm}}\n\\] (componentwise; floating-point noise is expected). Never trust a bare printout without this check.\nDominant behavior. If \\(|\\lambda_1|&gt;|\\lambda_2|\\ge\\cdots\\) and \\(x_0\\) has a component along the \\(\\lambda_1\\)-eigenvector, then for large \\(t\\) \\[\nA^t x_0 \\approx c\\,\\lambda_1^t\\,v_1.\n\\] That explains Lab 4-style growth/decay/stabilization once you know the eigenpairs.\nComplex eigenvalues. For a real matrix, nonreal eigenvalues come in conjugate pairs. In the real plane they produce \\(\\underline{\\hspace{2.4cm}}\\) (rotation / oscillation), matching Monday’s pure-rotation example.\nNormal modes (demo, not a DE course). For a symmetric mass–spring style matrix, eigenvectors are often \\(\\underline{\\hspace{2.0cm}}\\) (orthogonal). Software shows the modes; we do not derive differential equations today."
+    "text": "Fill in\nSoftware eigenpairs. Octave eig(A) / Python np.linalg.eig(A) return eigenvalues and a matrix whose columns are eigenvectors.\nVerify. For each reported pair \\((\\lambda,v)\\), check \\[\nAv \\approx \\underline{\\hspace{1.4cm}}\n\\] (componentwise; floating-point noise is expected). Never trust a bare printout without this check.\nDominant behavior. If \\(|\\lambda_1|&gt;|\\lambda_2|\\ge\\cdots\\) and \\(x_0\\) has a component along the \\(\\lambda_1\\)-eigenvector, then for large \\(t\\) \\[\nA^t x_0 \\approx c\\,\\lambda_1^t\\,v_1.\n\\] That explains Lab 5–style growth/decay/stabilization once you know the eigenpairs.\nComplex eigenvalues. For a real matrix, nonreal eigenvalues come in conjugate pairs. In the real plane they produce \\(\\underline{\\hspace{2.4cm}}\\) (rotation / oscillation), matching Monday’s pure-rotation example.\nNormal modes (demo, not a DE course). For a symmetric mass–spring style matrix, eigenvectors are often \\(\\underline{\\hspace{2.0cm}}\\) (orthogonal). Software shows the modes; we do not derive differential equations today."
   },
   {
     "objectID": "lectures/lecture-30.html#worked-in-class",
     "href": "lectures/lecture-30.html#worked-in-class",
     "title": "Lecture 30 — Why did the system behave that way?",
     "section": "Worked in class",
-    "text": "Worked in class\nW1. Software sketch. On the board / laptop, for \\(A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}\\):\n# Octave:  [V,D] = eig(A)     or    eig(A)\n\n\n\n:::{#quarto-navigation-envelope .hidden}\n[MATH 107 - Introduction to Linear Algebra]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1zaWRlYmFyLXRpdGxl\"}\n\n[MATH 107 - Introduction to Linear Algebra]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLWludC1uYXZiYXItdGl0bGU=\"}\n:::\n\n\n\n:::{#quarto-meta-markdown .hidden}\n[MATH 107 - Introduction to Linear Algebra]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGF0aXRsZQ==\"}\n\n[MATH 107 - Introduction to Linear Algebra]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkdGl0bGU=\"}\n\n[MATH 107 - Introduction to Linear Algebra]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZHRpdGxl\"}\n\n[MATH 107 - Introduction to Linear Algebra]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW1ldGFzaXRlbmFtZQ==\"}\n\n[]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLXR3aXR0ZXJjYXJkZGVzYw==\"}\n\n[]{.hidden .quarto-markdown-envelope-contents render-id=\"cXVhcnRvLW9nY2FyZGRkZXNj\"}\n:::\n\n\n\n\n&lt;!-- --&gt;\n\n::: {.quarto-embedded-source-code}\n```````````````````{.markdown shortcodes=\"false\"}\n---\ntitle: \"Lecture 30 — Why did the system behave that way?\"\nsubtitle: \"Fri Nov 20\"\ndate-modified: 2026-10-29\nformat:\n  html: default\n  pdf: default\n---\n\n::: {.content-visible unless-format=\"pdf\"}\n[Download PDF](lecture-30.pdf)\n:::\n\nLast updated: October 29, 2026.\n\n&lt;!-- VMLS-TEXTBOOK --&gt;\n**Textbook:** [Boyd & Vandenberghe, *VMLS* (PDF)](https://web.stanford.edu/~boyd/vmls/vmls.pdf)\n&lt;!-- /VMLS-TEXTBOOK --&gt;\n\n&lt;!-- STRANG-SUPPLEMENT --&gt;\n**Strang / MIT (optional):** Reading: [Strang §6.1 (PDF) — eigenvalues](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf)  \nVideo: [18.06 Lec 21 — eigenvalues and eigenvectors](https://www.youtube.com/watch?v=lXNXrLcoerU) · [MIT 18.06 playlist (Strang)](https://www.youtube.com/playlist?list=PL49CF3715CB9EF31D)\n&lt;!-- /STRANG-SUPPLEMENT --&gt;\n\nReading: [Strang §6.1](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf) and Lachniet Ch. 5 (eigenvalues/eigenvectors). Related objectives: [Lectures](../lectures.qmd#lecture-30). [Schedule](../schedule.qmd).\n\nBring paper. Warm-up, fill-in notes, board examples, and **Your turn**. Same day: [Lab 5](../labs/lab-05.qmd) closes the Lab 4 campus mystery with $\\lambda=1$.\n\n**In the story.** We can name eigenpairs (Mon) and find them by hand (Wed). Today: **software**, **dominant** $|\\lambda|$ explains long-run $A^tx_0$, and Lab 5 matches campus $x_{20}$ to the $\\lambda=1$ direction.\n\n## Learning objectives\n\nBy the end of class, you should be able to:\n\n1. Compute eigenvalues and eigenvectors of a general matrix with software.\n2. Verify $Av\\approx\\lambda v$ numerically.\n3. Use dominant eigenbehavior to explain a simulated system (including Lab 4).\n4. Interpret complex eigenvalues as rotation/oscillation behavior.\n5. Explore a symmetric-matrix or normal-mode example and observe orthogonal eigenvectors.\n\n## Warm-up\n\nLet\n$$\nA=\\begin{bmatrix}1.1&0.2\\\\0.1&0.8\\end{bmatrix},\\qquad\nv=\\begin{bmatrix}2\\\\1\\end{bmatrix}.\n$$\nHand-compute $Av$. Guess a plausible $\\lambda$ so that $Av\\approx\\lambda v$. (Exact eigenpairs come from software in lab.)\n\n{{&lt; include /_includes/work-space.qmd &gt;}}\n\n## Fill in\n\n**Software eigenpairs.** Octave `eig(A)` / Python `np.linalg.eig(A)` return eigenvalues and a matrix whose columns are eigenvectors.\n\n**Verify.** For each reported pair $(\\lambda,v)$, check\n$$\nAv \\approx \\underline{\\hspace{1.4cm}}\n$$\n(componentwise; floating-point noise is expected). Never trust a bare printout without this check.\n\n**Dominant behavior.** If $|\\lambda_1|&gt;|\\lambda_2|\\ge\\cdots$ and $x_0$ has a component along the $\\lambda_1$-eigenvector, then for large $t$\n$$\nA^t x_0 \\approx c\\,\\lambda_1^t\\,v_1.\n$$\nThat explains Lab 4-style growth/decay/stabilization once you know the eigenpairs.\n\n**Complex eigenvalues.** For a real matrix, nonreal eigenvalues come in conjugate pairs. In the real plane they produce $\\underline{\\hspace{2.4cm}}$ (rotation / oscillation), matching Monday’s pure-rotation example.\n\n**Normal modes (demo, not a DE course).** For a symmetric mass–spring style matrix, eigenvectors are often $\\underline{\\hspace{2.0cm}}$ (orthogonal). Software shows the modes; we do **not** derive differential equations today.\n\n{{&lt; include /_includes/work-space-line.qmd &gt;}}\n\n## Worked in class\n\n**W1.** Software sketch. On the board / laptop, for $A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}$:"
+    "text": "Worked in class\nW1. Software sketch. On the board / laptop, for \\(A=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}\\):\n# Octave:  [V,D] = eig(A)     or    eig(A)\n# Python:  vals, vecs = np.linalg.eig(A)\nRead off \\(\\lambda\\)’s and columns of \\(V\\). Verify \\(A v_1=\\lambda_1 v_1\\) for one column.\nW2. Explain a simulation. Same \\(A\\) as W1; \\(x_0=(1,0)\\). Using eigenpairs, explain in one sentence why \\(x_t\\) grows and which direction it approaches.\nW3. Complex / oscillation. Software on \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) should report eigenvalues near \\(\\pm i\\). Connect that to the cycling / no-real-eigenpair idea from Lecture 28.\nW4. Symmetric demo. Let \\(S=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}\\) (symmetric). Check that the two eigenvectors from W1 are orthogonal (\\(v_1^{\\mathsf{T}}v_2=0\\)). Normal-mode pictures use the same idea in higher dimension."
   },
   {
-    "objectID": "lectures/lecture-31.html",
-    "href": "lectures/lecture-31.html",
-    "title": "Lecture 31 — When \\(Ax=b\\) has no exact solution",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nBoyd video (optional): Lecture 33 — least squares · ENGR108 playlist (Boyd)\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nReading: Boyd 12.1. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn.\nLook ahead: Wednesday turns the projection picture into normal equations, software fits, and positive definiteness; Friday’s quiz / lab / SVD launch are on the schedule."
-  },
-  {
-    "objectID": "lectures/lecture-31.html#learning-objectives",
-    "href": "lectures/lecture-31.html#learning-objectives",
-    "title": "Lecture 31 — When \\(Ax=b\\) has no exact solution",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nRecognize an inconsistent overdetermined system.\nFormulate the least-squares objective \\(\\min_x \\lVert Ax-b\\rVert\\).\nInterpret \\(\\hat{b}=A\\hat{x}\\) as the orthogonal projection of \\(b\\) onto \\(C(A)\\).\nInterpret the residual \\(r=b-\\hat{b}\\) as orthogonal to \\(C(A)\\) at a minimizer.\nDistinguish an exact solution from a best approximate solution."
-  },
-  {
-    "objectID": "lectures/lecture-31.html#warm-up",
-    "href": "lectures/lecture-31.html#warm-up",
-    "title": "Lecture 31 — When \\(Ax=b\\) has no exact solution",
-    "section": "Warm-up",
-    "text": "Warm-up\nConsider the overdetermined system \\(Ax=b\\) with \\[\nA=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\end{bmatrix},\\qquad\nb=\\begin{bmatrix}1\\\\2\\\\2\\end{bmatrix}.\n\\]\n\nHow many equations? How many unknowns? Is \\(A\\) tall, wide, or square?\nSuppose someone guesses \\(x=(1,0.5)\\). Compute \\(Ax\\) and \\(Ax-b\\). Is \\(x\\) an exact solution?"
-  },
-  {
-    "objectID": "lectures/lecture-31.html#fill-in",
-    "href": "lectures/lecture-31.html#fill-in",
-    "title": "Lecture 31 — When \\(Ax=b\\) has no exact solution",
-    "section": "Fill in",
-    "text": "Fill in\nOverdetermined / inconsistent. When there are more independent equations than unknowns, \\(Ax=b\\) often has \\(\\underline{\\hspace{2.0cm}}\\) exact solution. The right-hand side \\(b\\) may lie outside the column space \\(C(A)\\).\nLeast-squares idea. Instead of insisting on \\(Ax=b\\), choose \\(\\hat{x}\\) to make \\(A\\hat{x}\\) as close as possible to \\(b\\): \\[\n\\hat{x}\\;=\\;\\arg\\min_x\\;\\lVert Ax-b\\rVert.\n\\] The vector \\(\\hat{b}=A\\hat{x}\\) is the \\(\\underline{\\hspace{2.4cm}}\\) attainable right-hand side in \\(C(A)\\).\nProjection picture. Among all vectors in the subspace \\(C(A)\\), the closest one to \\(b\\) is the orthogonal projection of \\(b\\) onto \\(C(A)\\). Least squares is exactly that geometry in disguise: \\[\n\\hat{b}\\;=\\;\\operatorname{proj}_{C(A)}(b),\\qquad\n\\hat{b}=A\\hat{x}\\text{ for some }\\hat{x}.\n\\] (So \\(\\hat{x}\\) are the coordinates of that projection in the columns of \\(A\\).)\nRecall — orthogonal vectors (Lecture 4). Two vectors \\(u,v\\) are orthogonal when their inner product is zero: \\(u^{\\mathsf{T}}v=0\\) (a right angle). Same vocabulary as early in the semester; now one vector is the residual and the other lives in \\(C(A)\\).\nResidual. The residual is \\[\nr = b - A\\hat{x} = b - \\hat{b}\n\\] (some texts write \\(A\\hat{x}-b\\); same length \\(\\|r\\|\\)). At a minimizer, \\(r\\) is \\(\\underline{\\hspace{2.0cm}}\\) to every vector in \\(C(A)\\): for every column \\(a_j\\) of \\(A\\), \\[\na_j^{\\mathsf{T}}r = \\underline{\\hspace{1.0cm}}.\n\\] (That stack of \\(n\\) equations is \\(A^{\\mathsf{T}}r=0\\) — Wednesday’s bridge to the normal equations.)\nExact vs approximate.\n\n\n\n\n\n\n\nSituation\nMeaning\n\n\n\n\nExact solution\n\\(Ax=b\\) for some \\(x\\) \\(\\Leftrightarrow\\) \\(b\\in\\underline{\\hspace{1.6cm}}\\) \\(\\Leftrightarrow\\) \\(\\hat{b}=b\\)\n\n\nLeast-squares solution\n\\(\\hat{b}=\\operatorname{proj}_{C(A)}(b)\\); residual may be \\(\\underline{\\hspace{1.2cm}}\\)\n\n\n\nIf an exact solution exists, it is also a least-squares solution (residual zero — \\(b\\) already lives in \\(C(A)\\))."
-  },
-  {
-    "objectID": "lectures/lecture-31.html#worked-in-class",
-    "href": "lectures/lecture-31.html#worked-in-class",
-    "title": "Lecture 31 — When \\(Ax=b\\) has no exact solution",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Inconsistent check. For the warm-up \\(A\\) and \\(b\\), argue that no \\(x=(x_1,x_2)\\) can satisfy all three equations simultaneously. (Hint: equations 1–2 force \\(x_2=1\\); plug into equation 3.)\nW2. Objective value. With the same \\(A,b\\) and trial \\(x=(1,0.5)\\), compute \\(\\|Ax-b\\|\\) (Euclidean). Is this the minimum? (You need not prove optimality yet — just evaluate the objective.)"
-  },
-  {
-    "objectID": "lectures/lecture-32.html",
-    "href": "lectures/lecture-32.html",
-    "title": "Lecture 32 — Least squares, data fitting, and positive definiteness",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nBoyd video (optional): Lecture 34 — least squares examples · Lecture 29 — least-squares data fitting · ENGR108 playlist (Boyd)\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nReading: Boyd 12.2–12.4 and 13.1, class notes on symmetric and positive-definite matrices, and Lachniet Ch. 2 (least-squares / data-fitting exercises). Related objectives: Lectures. Schedule.\nBring paper and a laptop if you have one. Warm-up, fill-in, a small real dataset on the board/software, then Your turn. Full least-squares software practice is on Friday (see the schedule)."
-  },
-  {
-    "objectID": "lectures/lecture-32.html#learning-objectives",
-    "href": "lectures/lecture-32.html#learning-objectives",
-    "title": "Lecture 32 — Least squares, data fitting, and positive definiteness",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nCompute a least-squares solution with Octave or Python.\nPlot observed and fitted values.\nInterpret residuals and an RMS error in context.\nCheck the residual’s orthogonality to the columns of \\(A\\).\nEvaluate whether a fitted model is useful rather than merely reporting coefficients.\nRecognize that choosing different basis columns for \\(A\\) (monomials vs a truncated-power / knot basis) changes the model, not the LS geometry.\nRecognize that \\(A^{\\mathsf{T}}A\\) is symmetric positive semidefinite, explain \\(x^{\\mathsf{T}}A^{\\mathsf{T}}Ax=\\lVert Ax\\rVert^2\\), and recognize that \\(A^{\\mathsf{T}}A\\) is positive definite when \\(A\\) has linearly independent columns."
-  },
-  {
-    "objectID": "lectures/lecture-32.html#warm-up",
-    "href": "lectures/lecture-32.html#warm-up",
-    "title": "Lecture 32 — Least squares, data fitting, and positive definiteness",
-    "section": "Warm-up",
-    "text": "Warm-up\nMonday: \\(\\hat{b}=A\\hat{x}=\\operatorname{proj}_{C(A)}(b)\\), so the residual \\(r=b-\\hat{b}\\) is orthogonal to every column of \\(A\\) in the Lecture 4 sense: each \\(a_j^{\\mathsf{T}}r=0\\). Stacked, that is \\(A^{\\mathsf{T}}r=0\\), which rearranges to the normal equations \\[\nA^{\\mathsf{T}}A\\,\\hat{x}=A^{\\mathsf{T}}b.\n\\]\n\nIf \\(A\\) is \\(m\\times n\\) with \\(m&gt;n\\), what size is \\(A^{\\mathsf{T}}A\\)? Why is that nicer than solving \\(Ax=b\\) directly?\nTrue or false: \\(A^{\\mathsf{T}}A\\) is always symmetric."
-  },
-  {
-    "objectID": "lectures/lecture-32.html#fill-in",
-    "href": "lectures/lecture-32.html#fill-in",
-    "title": "Lecture 32 — Least squares, data fitting, and positive definiteness",
-    "section": "Fill in",
-    "text": "Fill in\nFrom projection to algebra (no calculus). “\\(r\\perp C(A)\\)” means \\(A^{\\mathsf{T}}r=0\\). Substitute \\(r=b-A\\hat{x}\\) to get \\(A^{\\mathsf{T}}A\\hat{x}=A^{\\mathsf{T}}b\\). So the normal equations are the algebraic form of the projection picture — we never need derivatives of \\(\\|Ax-b\\|^2\\); the Lecture 4 right-angle condition is enough.\nNormal equations / software. Solving \\(A^{\\mathsf{T}}A\\hat{x}=A^{\\mathsf{T}}b\\) (when \\(A\\) has independent columns) gives the unique least-squares \\(\\hat{x}\\). In practice we often call a solver instead of forming \\(A^{\\mathsf{T}}A\\) by hand:\n\n\n\n\n\n\n\n\nTask\nOctave\nPython\n\n\n\n\nLeast-squares \\(\\hat{x}\\)\nxhat = A \\ b\nxhat = np.linalg.lstsq(A, b, rcond=None)[0]\n\n\nFitted values\nbhat = A*xhat\nbhat = A @ xhat\n\n\nResidual\nr = b - bhat\nr = b - bhat\n\n\nRMS\nrms = norm(r)/sqrt(m)\nrms = np.linalg.norm(r)/np.sqrt(m)\n\n\n\nOrthogonality check. At a least-squares solution, \\(A^{\\mathsf{T}}r \\approx \\underline{\\hspace{1.0cm}}\\) (numerical noise ok).\nRMS. Root-mean-square residual \\(\\mathrm{RMS}=\\|r\\|/\\sqrt{m}\\) reports a typical per-equation error in the same units as \\(b\\).\nUseful vs coefficients. Always ask: do fitted values track the data? Is RMS small in context? Blindly quoting \\(\\hat{x}\\) is not enough.\nBasis choice = columns of \\(A\\) (Lecture 14 vocabulary). A “nice” curve is often approximated by a finite combination of basis functions. Two useful choices:\n\n\n\n\n\n\n\n\nBasis idea\nTypical columns of \\(A\\) (one row per sample \\(t_i\\))\nGood for\n\n\n\n\nMonomials\n\\(1\\), \\(t\\), \\(t^2\\), \nSmooth global trends (polynomials)\n\n\nTruncated powers (order 1)\n\\(1\\), \\(t\\), \\((t-\\xi)_+\\) where \\((t-\\xi)_+=\\max(t-\\xi,0)\\)\nA kink / change of slope at a knot \\(\\xi\\)\n\n\n\nSame LS projection onto \\(C(A)\\) either way — you just changed the subspace by changing the basis. Higher-order truncated powers \\((t-\\xi)_+^k\\) exist; we only need the picture that “turn on after \\(\\xi\\)” can beat a global polynomial when the data bend once.\nNeural networks (one honest sentence). A ReLU unit is the truncated-linear ray \\((z)_+=\\max(z,0)\\). With a bias, \\(\\operatorname{ReLU}(t-\\xi)=\\max(t-\\xi,0)\\) is exactly our order-\\(1\\) truncated power with knot \\(\\xi\\) — the bias chooses where the ray starts. In a network those knots / directions are data-driven (learned), then combined with coefficients, just as we combine columns of \\(A\\) in least squares. Stacking enough such ReLU features is a standard route to universal approximation: rich enough ramp bases can approximate a wide class of nice functions. We will not prove that theorem; the takeaway is that “choose a basis, fit coefficients” is the same skeleton — monomials, fixed knots, or learned ReLU biases.\nWhere this shows up in the news. Large language models such as ChatGPT are built from neural networks. The “T” in GPT stands for Transformer — a particular network architecture (attention layers stacked deep), not a different kind of mathematics. Same broad idea: learned features + linear combinations at enormous scale. We will not study Transformers in this course.\nPositive semidefinite / definite (Boyd / class notes). A symmetric matrix \\(P\\) is positive semidefinite (PSD) if \\(x^{\\mathsf{T}}Px\\ge 0\\) for all \\(x\\); positive definite (PD) if \\(x^{\\mathsf{T}}Px&gt;0\\) for all \\(x\\neq 0\\).\nFor any \\(A\\): \\[\nx^{\\mathsf{T}}(A^{\\mathsf{T}}A)x = \\lVert Ax\\rVert^2 \\ge 0,\n\\] so \\(A^{\\mathsf{T}}A\\) is always \\(\\underline{\\hspace{2.8cm}}\\). It is positive definite precisely when \\(Ax=0\\Rightarrow x=0\\), i.e. when \\(A\\) has \\(\\underline{\\hspace{2.8cm}}\\) columns — then the normal equations have a unique solution."
-  },
-  {
-    "objectID": "lectures/lecture-32.html#worked-in-class",
-    "href": "lectures/lecture-32.html#worked-in-class",
-    "title": "Lecture 32 — Least squares, data fitting, and positive definiteness",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Tiny fit by hand / software. Four campus shuttle wait times (minutes) at hours \\(t=1,2,3,4\\) after 8am: \\[\nb=(6,\\,7,\\,10,\\,11).\n\\] Model a line \\(b\\approx x_1 + x_2 t\\) with \\[\nA=\\begin{bmatrix}\n1&1\\\\1&2\\\\1&3\\\\1&4\n\\end{bmatrix}.\n\\]\n\nForm \\(A^{\\mathsf{T}}A\\) and \\(A^{\\mathsf{T}}b\\) (or use A\\b / lstsq).\nReport \\(\\hat{x}=(x_1,x_2)\\) and the fitted values \\(\\hat{b}=A\\hat{x}\\).\nCompute \\(r\\) and RMS. In one sentence: is a linear trend reasonable here?\n\nExpected (for checking): \\(\\hat{x}=(4,\\,1.8)\\) exactly from the normal equations; \\(\\hat{b}=(5.8,\\,7.6,\\,9.4,\\,11.2)\\); RMS \\(=\\sqrt{0.2}\\approx 0.45\\) minutes.\nW2. Orthogonality. With your \\(\\hat{x}\\) from W1, compute \\(A^{\\mathsf{T}}r\\). Should it be near \\((0,0)\\)?\nW3. Plot story. On axes “hour \\(t\\)” vs “wait (min)”, sketch data points and the fitted line. Where is the residual for \\(t=1\\) visible?\nW4. PSD identity. Expand \\(x^{\\mathsf{T}}A^{\\mathsf{T}}Ax\\) for \\(A=\\begin{bmatrix}1&0\\\\1&1\\\\1&2\\end{bmatrix}\\) and a general \\(x=(x_1,x_2)\\). Confirm it equals \\(\\|Ax\\|^2\\) and is \\(\\ge 0\\)."
-  },
-  {
-    "objectID": "lectures/lecture-33.html",
-    "href": "lectures/lecture-33.html",
-    "title": "Lecture 33 — SVD and capstone launch",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang/MIT SVD slides (PDF)\nVideo: 18.06 Lec 29 — singular value decomposition · Short SVD overview (Strang) · MIT 18.06 playlist (Strang)\nReading: selected slides from the Strang/MIT SVD slides (not all 17 pages), capstone launch, Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). Related objectives: Lectures. Schedule.\nBring paper and a laptop. Warm-up, fill-in notes, board examples, and Your turn. Today is SVD + Lab 6 (Fit and Compress) + project launch after Quiz 11. See the schedule."
-  },
-  {
-    "objectID": "lectures/lecture-33.html#learning-objectives",
-    "href": "lectures/lecture-33.html#learning-objectives",
-    "title": "Lecture 33 — SVD and capstone launch",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nInterpret \\(A=U\\Sigma V^{\\mathsf{T}}\\) conceptually.\nConstruct a rank-\\(k\\) approximation computationally.\nCompare singular-value decay for an image/frame and a frame-difference matrix.\nEncode three frames either independently or as \\(F_1\\), \\(D_2\\), \\(D_3\\).\nCompare reconstruction error and storage for the two approaches.\nFormulate a capstone question involving accuracy, storage, runtime, and resource use.\n\n(Objectives 3–6 are launched today and carried in the capstone packet.)"
-  },
-  {
-    "objectID": "lectures/lecture-33.html#warm-up-after-quiz",
-    "href": "lectures/lecture-33.html#warm-up-after-quiz",
-    "title": "Lecture 33 — SVD and capstone launch",
-    "section": "Warm-up (after quiz)",
-    "text": "Warm-up (after quiz)\nA grayscale image (or one video frame) is an \\(m\\times n\\) matrix of pixel intensities.\n\nRoughly how many numbers store the full matrix?\nIf most “information” lived in a few patterns, why might a factored low-rank form save storage?"
-  },
-  {
-    "objectID": "lectures/lecture-33.html#fill-in",
-    "href": "lectures/lecture-33.html#fill-in",
-    "title": "Lecture 33 — SVD and capstone launch",
-    "section": "Fill in",
-    "text": "Fill in\nSVD (conceptual). Every real \\(m\\times n\\) matrix factors as \\[\nA = U\\Sigma V^{\\mathsf{T}},\n\\] where the columns of \\(U\\) and \\(V\\) are orthonormal (left / right singular vectors) and \\(\\Sigma\\) is rectangular “diagonal” with nonnegative singular values \\[\n\\sigma_1\\ge\\sigma_2\\ge\\cdots\\ge 0\n\\] on its main diagonal. Think: \\(A\\) = rotate/reflect → stretch by \\(\\sigma_i\\) → rotate/reflect.\nFactorizations in this course. Lab 3 introduced a first useful factorization: \\(A=LU\\) (elimination saved as a product — built to solve \\(Ax=b\\)). Today’s SVD is a second: built from orthonormal directions and singular values — built to approximate, compress, and compute least squares stably.\nOrthonormal payoff (Lecture 14). “Orthonormal” still means \\(q_i^{\\mathsf{T}}q_j=0\\) for \\(i\\neq j\\) and \\(\\|q_i\\|=1\\). The SVD hands you orthonormal bases (columns of \\(U\\) and of \\(V\\)). That is why those bases were worth defining earlier: coordinates via inner products, and this factorization, both use them.\nTwo jobs for SVD. (1) Stable LS: the LS solution is still \\(\\hat{b}=\\operatorname{proj}_{C(A)}(b)\\) (Lectures 38–39); SVD is a reliable way to compute \\(\\hat{x}\\) (software’s lstsq often uses this family). (2) Compression: keep only the largest \\(\\sigma_i\\) for a rank-\\(k\\) picture (capstone).\nCallback — eigenvectors (Lectures 35–37, Lab 5). Eigenvectors name directions that \\(A\\) only rescales (\\(Av=\\lambda v\\)); the largest \\(|\\lambda|\\) wins the long run. Singular vectors / singular values name directions that \\(A\\) stretches the most (\\(\\sigma_1\\ge\\sigma_2\\ge\\cdots\\)). Different jobs, same “keep the dominant directions” instinct: Lab 5’s \\(\\lambda=1\\) mode vs today’s keep-large-\\(\\sigma_i\\) compression. (For square symmetric cases the two stories are closely related; we do not need that theorem to use either tool.)\nRank-\\(k\\) approximation. Keep the largest \\(k\\) singular values (and matching singular-vector columns); set the rest to zero. The truncated product \\[\nA_k = U_k\\Sigma_k V_k^{\\mathsf{T}}\n\\] is the best rank-\\(k\\) approximation in the usual 2-norm / Frobenius sense (details in the slides / capstone). Same idea as “keep the important orthonormal directions.”\nSoftware sketch (lab / capstone):\n\n\n\n\n\n\n\n\nTask\nOctave\nPython\n\n\n\n\nSVD\n[U,S,V] = svd(A)\nU, S, Vt = np.linalg.svd(A, full_matrices=False)\n\n\nRank-\\(k\\) rebuild\nuse first \\(k\\) columns / \\(\\sigma\\)’s\nU[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]\n\n\nLeast squares\nA\\b\nnp.linalg.lstsq(A,b,rcond=None)[0]\n\n\n\nCapstone launch (one question). For a short clip of frames: when is it better to compress each frame alone versus encode \\(F_1\\) and differences \\(D_2=F_2-F_1\\), \\(D_3=F_3-F_2\\)? Trade off accuracy, storage, runtime, and resource use — including the cost of computing the SVD itself. Full prompts live in the capstone packet; studio is Mon Dec 7."
-  },
-  {
-    "objectID": "lectures/lecture-33.html#worked-in-class-short",
-    "href": "lectures/lecture-33.html#worked-in-class-short",
-    "title": "Lecture 33 — SVD and capstone launch",
-    "section": "Worked in class (short)",
-    "text": "Worked in class (short)\nW1. Read \\(\\Sigma\\). Suppose a \\(4\\times 3\\) matrix has singular values \\(\\sigma=(10,\\,2,\\,0.1)\\). What is \\(\\operatorname{rank}(A)\\) (numerically “full” vs tiny)? For a rank-\\(1\\) approximation, which \\(\\sigma\\) do you keep?\nW2. Orthonormal check (Lecture 14 vocabulary). If \\(u_1,u_2\\) are two columns of \\(U\\), what should \\(u_1^{\\mathsf{T}}u_2\\) and \\(\\|u_1\\|\\) be?"
-  },
-  {
-    "objectID": "lectures/lecture-34.html",
-    "href": "lectures/lecture-34.html",
-    "title": "Lecture 34 — Capstone studio",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStudio day for the capstone (no new mathematics lecture). Related objectives: Lectures. Schedule."
-  },
-  {
-    "objectID": "lectures/lecture-34.html#prepare-before-class",
-    "href": "lectures/lecture-34.html#prepare-before-class",
-    "title": "Lecture 34 — Capstone studio",
-    "section": "Prepare before class",
-    "text": "Prepare before class"
-  },
-  {
-    "objectID": "lectures/lecture-35.html",
-    "href": "lectures/lecture-35.html",
-    "title": "Lecture 35 — Capstone presentations / gallery walk",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nGallery / presentation day for the capstone (no new mathematics lecture). Related objectives: Lectures. Schedule."
-  },
-  {
-    "objectID": "lectures/lecture-35.html#prepare-before-class",
-    "href": "lectures/lecture-35.html#prepare-before-class",
-    "title": "Lecture 35 — Capstone presentations / gallery walk",
-    "section": "Prepare before class",
-    "text": "Prepare before class"
-  },
-  {
-    "objectID": "lectures/lecture-36.html",
-    "href": "lectures/lecture-36.html",
-    "title": "Lecture 36 — Cumulative final review",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nFull review day for the Final exam (Wednesday, December 16, 10:20 a.m.–12:10 p.m., FR 201). No new quiz today (labs/quizzes stay on their Friday schedule elsewhere). Related objectives: Lectures. Schedule."
-  },
-  {
-    "objectID": "lectures/lecture-36.html#prepare-before-class",
-    "href": "lectures/lecture-36.html#prepare-before-class",
-    "title": "Lecture 36 — Cumulative final review",
-    "section": "Prepare before class",
-    "text": "Prepare before class"
-  },
-  {
-    "objectID": "projects/capstone.html",
-    "href": "projects/capstone.html",
-    "title": "Capstone — Low-rank frames vs differences",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 8, 2026.\nDates are on the schedule. There is no quiz on SVD. Friday Dec 4 is project launch (this packet) with the SVD lecture and Lab 6 (Fit and Compress). The graded product is this project (Canvas file upload).\nOctave: Lachniet Ch. 5 (SVD) and Ch. 7 (image compression). Python: NumPy svd plus a simple image/array load. Syntax pointers: Resources."
-  },
-  {
-    "objectID": "projects/capstone.html#the-question",
-    "href": "projects/capstone.html#the-question",
-    "title": "Capstone — Low-rank frames vs differences",
-    "section": "The question",
-    "text": "The question\nYou get (or build) three grayscale frames \\(F_1,F_2,F_3\\), each an \\(m\\times n\\) matrix of intensities.\nCompare two encoding strategies with rank-\\(k\\) SVD approximations:\n\n\n\n\n\n\n\nPlan\nWhat you compress with a rank-\\(k\\) SVD\n\n\n\n\nA — Independent frames\n\\(F_1\\), \\(F_2\\), and \\(F_3\\) separately\n\n\nB — Frame + differences\n\\(F_1\\), then \\(D_2=F_2-F_1\\), then \\(D_3=F_3-F_2\\)\n\n\n\nDriving question: For your data, when (if ever) is Plan B better than Plan A on accuracy, storage, and runtime / resource use — including the cost of computing the SVDs?\nComputing an SVD is not free. Low-rank storage or faster later multiplies only help when the matrix is well approximated at modest \\(k\\) and you reuse the representation enough (or care enough about storage/transmission) to justify the factorization cost. Image examples are instructional."
-  },
-  {
-    "objectID": "projects/capstone.html#timeline",
-    "href": "projects/capstone.html#timeline",
-    "title": "Capstone — Low-rank frames vs differences",
-    "section": "Timeline",
-    "text": "Timeline\n\n\n\nWhen\nWhat\n\n\n\n\nFri Dec 4\nProject launch in Lecture 33 (after Quiz 11 / with Lab 6). Skim this packet; start choosing data.\n\n\nMon Dec 7\nStudio — implement, measure, debug.\n\n\nWed Dec 9\nGallery — short presentation or station; Canvas upload due (end of day unless announced otherwise)."
-  },
-  {
-    "objectID": "projects/capstone.html#what-to-turn-in-canvas",
-    "href": "projects/capstone.html#what-to-turn-in-canvas",
-    "title": "Capstone — Low-rank frames vs differences",
-    "section": "What to turn in (Canvas)",
-    "text": "What to turn in (Canvas)\nOne PDF (or short report + clearly labeled figures), individual submission, about 1–2 pages of writing plus figures/tables:\n\nData. Where the three frames came from (phone stills, course sample, synthetic frames, etc.) and size \\(m\\times n\\).\nMethods. Rank(s) \\(k\\) you tried; how you formed \\(D_2,D_3\\); how you rebuilt approximate frames under Plan B.\nEvidence (required numbers).\n\nRelative reconstruction error vs \\(k\\) for Plan A and Plan B (plot or table).\nStorage count: full \\(mn\\) vs rank-\\(k\\) cost \\(\\approx k(m+n+1)\\) per compressed matrix (and totals for A vs B).\nTiming: at least one honest runtime comparison (e.g. SVD time vs applying a low-rank map, or Plan A vs B factorization time for the same \\(k\\)).\n\nConclusion. One clear recommendation: for your frames, prefer A, prefer B, or “depends,” with a quantitative reason and one limitation.\n\nGallery: 2–3 minute lightning talk or a station with one figure people can read in 30 seconds. Peers may ask about your numbers."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html",
-    "href": "quizzes/quiz-08.html",
-    "title": "Quiz 8",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 28, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nCovers: solving linear systems by elimination and elementary matrices (Lecture 21, Lecture 22, Lab 2 / RREF practice). Same-day Lab 3 (cost / LU / powers syntax) is not on this quiz.\nSchedule\nElementary-matrix templates (also provided on the quiz paper) are at the end of this page."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html#core",
-    "href": "quizzes/quiz-08.html#core",
-    "title": "Quiz 8",
-    "section": "Core",
-    "text": "Core\n\nPart A — Augmented matrix, eliminate, check\nFor each system: (i) write the augmented matrix \\([A\\mid b]\\); (ii) solve by elimination (row operations on the augmented matrix); (iii) check by substituting your solution into the original equations (or computing \\(Ax\\) and comparing to \\(b\\)).\nC8.1. (\\(2\\times 2\\)) \\[\n\\begin{aligned}\nx_1 + 2x_2 &= 5 \\\\\n3x_1 - x_2 &= 1.\n\\end{aligned}\n\\]\nC8.2. (\\(3\\times 2\\) — three equations, two unknowns) \\[\n\\begin{aligned}\nx_1 + x_2 &= 3 \\\\\n2x_1 - x_2 &= 0 \\\\\n3x_1 &= 3.\n\\end{aligned}\n\\]\nC8.3. (\\(2\\times 3\\) — two equations, three unknowns) \\[\n\\begin{aligned}\nx_1 + 2x_2 + x_3 &= 4 \\\\\n2x_1 + 4x_2 + 2x_3 &= 8.\n\\end{aligned}\n\\] If there are infinitely many solutions, introduce a parameter \\(t\\) and write the general solution.\n\n\nPart B — Name the elementary matrix\nUse the templates at the end of the quiz (they will be provided). For each stated row operation on a system with the given number of equations, write the corresponding elementary matrix \\(E\\).\nC8.4. Two equations: add \\(-3\\) times row 1 to row 2.\nC8.5. Two equations: swap row 1 and row 2.\nC8.6. Three equations: multiply row 2 by \\(1/2\\).\nC8.7. Three equations: add \\(2\\) times row 1 to row 3.\n\n\nPart C — Apply \\(E\\) and rewrite the system\nC8.8. Let \\[\n[A\\mid b]=\\begin{bmatrix}1&2&|&3\\\\ 2&1&|&0\\end{bmatrix},\n\\qquad\nE=\\begin{bmatrix}1&0\\\\ -2&1\\end{bmatrix}.\n\\] (a) Compute \\(E\\,[A\\mid b]\\) by hand.\n(b) Rewrite the result as a system of equations.\nC8.9. Let \\[\n[A\\mid b]=\\begin{bmatrix}1&1&0&|&2\\\\ 0&1&1&|&3\\\\ 2&0&1&|&1\\end{bmatrix},\n\\qquad\nE=\\begin{bmatrix}1&0&0\\\\ 0&1&0\\\\ -2&0&1\\end{bmatrix}.\n\\] (a) Compute \\(E\\,[A\\mid b]\\) by hand.\n(b) Rewrite the result as a system of equations in \\(x_1,x_2,x_3\\)."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html#stretch",
-    "href": "quizzes/quiz-08.html#stretch",
-    "title": "Quiz 8",
-    "section": "Stretch",
-    "text": "Stretch\nS8.1. Continue C8.8: from your new matrix, finish elimination and solve the \\(2\\times 2\\) system. Check \\(Ax=b\\).\nS8.2. For C8.3, write one particular solution (a specific numerical vector) and one nontrivial nullspace direction (homogeneous solution)."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-08.html#what-a-quiz-item-might-change",
-    "title": "Quiz 8",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThe right-hand side, which row operation is named, or whether the system is \\(2\\times 2\\), \\(3\\times 2\\), or \\(2\\times 3\\)."
-  },
-  {
-    "objectID": "quizzes/quiz-08.html#elementary-matrix-templates-provided-on-the-quiz",
-    "href": "quizzes/quiz-08.html#elementary-matrix-templates-provided-on-the-quiz",
-    "title": "Quiz 8",
-    "section": "Elementary-matrix templates (provided on the quiz)",
-    "text": "Elementary-matrix templates (provided on the quiz)\nLeft-multiplying \\([A\\mid b]\\) by \\(E\\) performs the row operation. Build \\(E\\) by doing that same operation to the identity.\nTwo equations (\\(2\\times 2\\) templates):\nSwap the two rows: \\[\n\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}.\n\\]\nMultiply row 1 by \\(c\\neq 0\\), or multiply row 2 by \\(c\\neq 0\\): \\[\n\\begin{bmatrix}c&0\\\\0&1\\end{bmatrix},\n\\qquad\n\\begin{bmatrix}1&0\\\\0&c\\end{bmatrix}.\n\\]\nAdd \\(c\\) times row 1 to row 2, or add \\(c\\) times row 2 to row 1: \\[\n\\begin{bmatrix}1&0\\\\c&1\\end{bmatrix},\n\\qquad\n\\begin{bmatrix}1&c\\\\0&1\\end{bmatrix}.\n\\]\nThree equations: start from \\(I_3\\) and edit the same spot. Examples:\nMultiply row 2 by \\(c\\neq 0\\): \\[\n\\begin{bmatrix}1&0&0\\\\0&c&0\\\\0&0&1\\end{bmatrix}.\n\\]\nAdd \\(c\\) times row 1 to row 3: \\[\n\\begin{bmatrix}1&0&0\\\\0&1&0\\\\c&0&1\\end{bmatrix}.\n\\]\n(The extra number sits in the row you change, in the column of the row you copy from.)"
-  },
-  {
-    "objectID": "quizzes/quiz-09.html",
-    "href": "quizzes/quiz-09.html",
-    "title": "Quiz 9",
-    "section": "",
-    "text": "Download PDF\nLast updated: November 4, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nCovers Lecture 22 only: reading RREF (pivot / free variables; unique / none / infinitely many) and one-step linear dynamics \\(x_{t+1}=Ax_t\\) (build \\(A\\), compute \\(x_1\\)). Same-day determinants and Lab 4 are not on this quiz. Matrix products / powers (Lecture 23) and Lab 3 are not on this quiz.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-09.html#core",
-    "href": "quizzes/quiz-09.html#core",
-    "title": "Quiz 9",
-    "section": "Core",
-    "text": "Core\n\nFluency\nC9.1. The RREF of an augmented matrix is \\[\n\\begin{bmatrix}\n1 & 0 & 2 & | & 3 \\\\\n0 & 1 & -1 & | & 4 \\\\\n0 & 0 & 0 & | & 0\n\\end{bmatrix}.\n\\] (a) Which variables are pivots? Which are free?\n(b) Write the general solution \\(x=(x_1,x_2,x_3)\\) in terms of a parameter \\(t\\).\nC9.2. Classify each RREF as unique, none, or infinitely many solutions. One short reason each.\n\n\\[\n\\begin{bmatrix}\n1 & 0 & | & 2 \\\\\n0 & 1 & | & -1\n\\end{bmatrix}\n\\]\n\\[\n\\begin{bmatrix}\n1 & 2 & | & 3 \\\\\n0 & 0 & | & 1\n\\end{bmatrix}\n\\]\n\\[\n\\begin{bmatrix}\n1 & 2 & 0 & | & 1 \\\\\n0 & 0 & 1 & | & 4\n\\end{bmatrix}\n\\]\n\nC9.3. From the RREF \\[\n\\begin{bmatrix}\n1 & 3 & 0 & | & 2 \\\\\n0 & 0 & 1 & | & -1\n\\end{bmatrix},\n\\] name the free variable and write \\(x=(x_1,x_2,x_3)\\) with a parameter.\nC9.4. True or false, with a one-line reason: if RREF has a row of all zeros including the right-hand side, the system is inconsistent.\nC9.5. A consistent RREF of \\([A\\mid b]\\) for a \\(3\\times 5\\) matrix \\(A\\) has \\(3\\) pivots. How many free variables? Unique solution or infinitely many?\n\n\nMeaning / dynamics\nC9.6. Two towns, Arcata and Eureka, exchange residents each year. Order \\(x_t=(\\text{Arcata},\\text{Eureka})\\).\n\nOf those in Arcata, \\(80\\%\\) stay and \\(20\\%\\) move to Eureka.\nOf those in Eureka, \\(90\\%\\) stay and \\(10\\%\\) move to Arcata.\n\n\nWrite the transition matrix \\(A\\) so that \\(x_{t+1}=Ax_t\\).\n\nWith \\(x_0=(5000,7000)\\), compute \\(x_1\\). Does Arcata�s population rise or fall that year?\n\nC9.7. True or false, with a one-line reason: if \\(x_{t+1}=Ax_t\\), then knowing \\(x_t\\) and \\(A\\) determines \\(x_{t+1}\\) uniquely.\nC9.8. Two warehouses, \\(x_t=(\\text{A},\\text{B})\\). Each day, A keeps \\(70\\%\\) and ships \\(30\\%\\) to B; B keeps \\(60\\%\\) and ships \\(40\\%\\) to A.\n\nWrite \\(A\\).\n\nWith \\(x_0=(100,50)\\), find \\(x_1\\).\n\nC9.9. With \\(A=\\begin{bmatrix}1.1&0\\\\0&0.5\\end{bmatrix}\\) and \\(x_0=(2,8)\\), compute \\(x_1\\) and \\(x_2\\). Which component is growing? Which is shrinking?\nC9.10. You solve \\(Ax=b\\) in software and get \\(x=(1,-1)\\). You compute \\(Ax-b=(0.0,\\,10^{-15})\\). Was the solve successful? Why check the residual? (One or two sentences.)\n\n\nTextbook Core\n\nBoyd 9.1�9.3 (linear dynamical systems); review RREF ideas from class notes / Lecture 22."
-  },
-  {
-    "objectID": "quizzes/quiz-09.html#stretch",
-    "href": "quizzes/quiz-09.html#stretch",
-    "title": "Quiz 9",
-    "section": "Stretch",
-    "text": "Stretch\nS9.1. Three age groups (youth, adult, senior): \\[\nA=\\begin{bmatrix}\n0.6 & 0 & 0 \\\\\n0.4 & 0.7 & 0 \\\\\n0 & 0.3 & 0.8\n\\end{bmatrix},\\qquad\nx_0=(100,200,50).\n\\] Interpret \\(A_{21}\\) and \\(A_{33}\\) in one phrase each, and compute \\(x_1\\).\nS9.2. From \\[\n\\begin{bmatrix}\n1 & 0 & -2 & | & 5 \\\\\n0 & 1 & 3 & | & -1 \\\\\n0 & 0 & 0 & | & 0\n\\end{bmatrix},\n\\] list pivot variables, free variables, and the general solution (same skill as C9.1 with different numbers)."
-  },
-  {
-    "objectID": "quizzes/quiz-09.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-09.html#what-a-quiz-item-might-change",
-    "title": "Quiz 9",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nThe RREF entries, which variable is free, the stay/move percentages in a two-compartment story, or the starting state \\(x_0\\)."
-  },
-  {
-    "objectID": "quizzes/quiz-10.html",
-    "href": "quizzes/quiz-10.html",
-    "title": "Quiz 10",
-    "section": "",
-    "text": "Download PDF\nLast updated: October 12, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §3.5 (PDF) — rank / subspaces (Week 11)\nVideo: 18.06 Lec 10 — four fundamental subspaces · MIT 18.06 playlist (Strang)\nCovers the prior instructional week only: Inverses / rank and Determinants (Week 11). Midterm 2 week is skipped when choosing the prior week. Same-day Lab 5 / eigenvectors are not on this quiz.\nTextbooks: Boyd & Vandenberghe (VMLS) · Strang §3.5 · Lachniet Octave PDF · also on Resources.\nSchedule"
-  },
-  {
-    "objectID": "quizzes/quiz-10.html#core",
-    "href": "quizzes/quiz-10.html#core",
-    "title": "Quiz 10",
-    "section": "Core",
-    "text": "Core\n\nFluency (complete prompts — practice these by hand)\nC10.1. Let \\[\nA=\\begin{bmatrix}2&1\\\\0&3\\end{bmatrix}.\n\\] (a) Compute \\(A^{-1}\\) using the \\(2\\times 2\\) formula (or by solving \\(AB=I\\)). (b) Check \\(A^{-1}A=I\\). (c) Solve \\(Ax=(4,3)\\) using \\(x=A^{-1}b\\).\nC10.2. Decide whether each matrix is invertible. Give a one-line reason (dependent columns, \\(Ax=0\\), or \\(\\det\\)).\n\n\\(\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}\\)\n\\(\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\\)\n\\(\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\)\n\nC10.3. True or false, with a one-line reason: for a single right-hand side \\(b\\), forming \\(A^{-1}\\) explicitly and then computing \\(A^{-1}b\\) is generally preferable to solving \\(Ax=b\\) with a solver / elimination.\nC10.4. Let \\[\nA=\\begin{bmatrix}\n1 & 2 & 0 \\\\\n2 & 4 & 0 \\\\\n0 & 0 & 1\n\\end{bmatrix}.\n\\] The RREF of \\(A\\) is \\[\n\\begin{bmatrix}\n1 & 2 & 0 \\\\\n0 & 0 & 1 \\\\\n0 & 0 & 0\n\\end{bmatrix}\n\\] (after row swaps / scaling as needed — use this RREF). Find \\(\\operatorname{rank}(A)\\), a basis for \\(C(A)\\) using original columns, and a basis for \\(N(A)\\).\nC10.5. Let \\[\nA=\\begin{bmatrix}\n1 & 0 \\\\\n2 & 0 \\\\\n0 & 1\n\\end{bmatrix}.\n\\] Describe \\(C(A)\\) in words. Is \\(b=(1,2,3)\\) in \\(C(A)\\)? Find a basis for \\(N(A)\\) (or state that \\(N(A)=\\{0\\}\\)).\nC10.6. True or false, with a one-line reason: if \\(\\operatorname{rank}(A)=n\\) for an \\(m\\times n\\) matrix with \\(m\\ge n\\), then \\(Ax=0\\) has only the zero solution.\nC10.7. Compute each determinant.\n\n\\(\\det\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}\\)\n\\(\\det\\begin{bmatrix}1&4&0\\\\0&-2&5\\\\0&0&3\\end{bmatrix}\\)\n\\(\\det\\begin{bmatrix}2&1\\\\4&2\\end{bmatrix}\\)\n\nC10.8. Let \\(A=\\begin{bmatrix}0&-2\\\\1&0\\end{bmatrix}\\). Compute \\(\\det A\\). Where do \\(e_1\\) and \\(e_2\\) go under \\(x\\mapsto Ax\\)? What area does the unit square map to?\nC10.9. True or false, with a one-line reason: if \\(\\det A=0\\) for square \\(A\\), then \\(A\\) is not invertible and \\(Ax=b\\) fails to have a unique solution for every \\(b\\).\nC10.10. Connect the ideas. For square \\(A\\), match each statement to the equivalent view (write the letter):\n\n\n\\(A\\) is invertible\n\n\n\\(\\operatorname{rank}(A)=n\\) (full)\n\n\n\\(\\det A\\neq 0\\)\n\n\n\\(N(A)=\\{0\\}\\)\n\n\nWhich of (ii)–(iv) are equivalent to (i)?\nC10.11 (cumulative, light). Let \\(A=\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}\\). What geometric map is \\(x\\mapsto Ax\\)? Is \\(A\\) invertible? What is \\(\\det A\\)?\n\n\nTextbook Core\n\nB 11.1, 11.2, 11.4, 11.10\nS 3.5 #1 and #2 (rank / subspace portions used in class)\nL Ch. 1 Ex. 3(a), 3(b), and 3(d): determinant, rank, and inverse portions"
-  },
-  {
-    "objectID": "quizzes/quiz-10.html#stretch",
-    "href": "quizzes/quiz-10.html#stretch",
-    "title": "Quiz 10",
-    "section": "Stretch",
-    "text": "Stretch\nB 11.15, 11.25; area scaling from \\(|\\det A|\\) for a new \\(2\\times 2\\) map (C-M2 style)."
-  },
-  {
-    "objectID": "quizzes/quiz-10.html#what-a-quiz-item-might-change",
-    "href": "quizzes/quiz-10.html#what-a-quiz-item-might-change",
-    "title": "Quiz 10",
-    "section": "What a quiz item might change",
-    "text": "What a quiz item might change\nA new \\(2\\times 2\\) matrix, an RREF with a free variable, whether \\(\\det A=0\\) in context, or asking for \\(C(A)\\) vs \\(N(A)\\) from the same matrix."
+    "objectID": "lectures/lecture-30.html#your-turn",
+    "href": "lectures/lecture-30.html#your-turn",
+    "title": "Lecture 30 — Why did the system behave that way?",
+    "section": "Your turn",
+    "text": "Your turn\nY1. Pseudocode: given \\(A\\), obtain eigenpairs in software and write the one-line check that \\(Av\\approx\\lambda v\\) for the first pair.\nY2. True or false: if \\(|\\lambda_1|=1.5\\) and \\(|\\lambda_2|=0.5\\), then for generic \\(x_0\\) the long-run direction of \\(A^t x_0\\) is the \\(\\lambda_1\\)-eigendirection.\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. Sample: vals, V = np.linalg.eig(A) then A @ V[:,0] - vals[0]*V[:,0] (should be near \\(0\\)); Octave: [V,D]=eig(A) then A*V(:,1) - D(1,1)*V(:,1).\nY2. True. The \\(\\lambda_1\\) term grows relative to \\(\\lambda_2\\), so the state aligns with \\(v_1\\) (unless the \\(v_1\\)-component of \\(x_0\\) is exactly zero)."
   },
   {
     "objectID": "quizzes/quiz-11.html",
@@ -1187,7 +732,21 @@
     "href": "quizzes/quiz-11.html#core",
     "title": "Quiz 11",
     "section": "Core",
-    "text": "Core"
+    "text": "Core\n\nFluency (complete prompts — practice these by hand)\nC11.1. Let \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix},\\qquad\nv=\\begin{bmatrix}1\\\\1\\end{bmatrix}.\n\\] Compute \\(Av\\). Is \\(v\\) an eigenvector? If so, what is \\(\\lambda\\)?\nC11.2. You are told that \\(v=(1,-1)\\) is an eigenvector of \\[\nA=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}.\n\\] Find \\(\\lambda\\) by comparing components of \\(Av\\) and \\(v\\). Then verify \\(Av=\\lambda v\\).\nC11.3. Let \\(A=\\operatorname{diag}(1.2,\\,0.5)\\) (Lecture 28 / Lab 5 long-run pattern).\n\nName two real eigenpairs using the standard basis.\nIf \\(x_0=(1,1)\\), write \\(x_t=A^t x_0\\) componentwise. Which term dominates for large \\(t\\)?\n\nC11.4. Complex drill. Let \\(z=2+i\\) and \\(w=1-3i\\). Compute \\(z+w\\), \\(zw\\), and \\(|z|\\).\nC11.5. For \\[\nA=\\begin{bmatrix}1&2\\\\0&3\\end{bmatrix},\n\\] form \\(\\det(A-\\lambda I)\\), find both eigenvalues, and give one eigenvector for \\(\\lambda=3\\).\nC11.6. Rotation. Let \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) (\\(90^\\circ\\) CCW).\n\nShow that the characteristic polynomial is \\(\\lambda^2+1=0\\), so \\(\\lambda=\\pm i\\).\nWhy does this match the geometric fact that \\(R\\) has no real eigenvector?\n\nC11.7. Check a complex pair. With \\(A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) and \\(v=(1,-i)\\), compute \\(Av\\) and decide whether \\(Av=iv\\) or \\(Av=(-i)v\\).\nC11.8. True or false, with a one-line reason: if \\(Av=2v\\) and \\(v\\neq 0\\), then \\(A^3 v=8v\\).\nC11.9 (Lab 5 / software). Suppose Octave/Python reports eigenvalues of a \\(2\\times 2\\) matrix as approximately \\(0.9\\) and \\(0.2\\), with corresponding eigenvectors \\(v_1\\approx(0.7,\\,0.7)\\) and \\(v_2\\approx(-0.7,\\,0.7)\\) (normalized). For dynamics \\(x_{t+1}=Ax_t\\) started near \\(v_1+v_2\\), which mode dominates for large \\(t\\), and does the state grow or decay?\nC11.10 (Lab 5 / verify). Software prints \\(\\lambda\\approx 3\\) and \\(v\\approx(0.707,\\,0.707)\\) for \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\] Explain how you would verify \\(Av\\approx\\lambda v\\) numerically in one or two lines of code (Octave or Python). What should \\(\\|Av-\\lambda v\\|\\) look like if the pair is correct?\n\n\nTextbook Core\n\nS 6.1 #1, #2, #5, #8, #10, #12, #14, #16, #17\nL Ch. 5 Ex. 1: selected hand/software eigenvalue parts\nL Ch. 5 Ex. 2: Markov equilibrium/eigenvector portions\nL Ch. 5 Ex. 5: selected matrix-power portion"
+  },
+  {
+    "objectID": "quizzes/quiz-11.html#stretch",
+    "href": "quizzes/quiz-11.html#stretch",
+    "title": "Quiz 11",
+    "section": "Stretch",
+    "text": "Stretch\nS 6.1 #3 and #4; a complex eigenpair check beyond C11.7."
+  },
+  {
+    "objectID": "quizzes/quiz-11.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-11.html#what-a-quiz-item-might-change",
+    "title": "Quiz 11",
+    "section": "What a quiz item might change",
+    "text": "What a quiz item might change\nA new \\(2\\times 2\\) matrix with a factorable characteristic polynomial, a proposed eigenpair to verify, a Markov transition probability, a rotation matrix with complex eigenvalues, or a software printout to interpret (dominant \\(\\lambda\\), verify \\(Av\\approx\\lambda v\\))."
   },
   {
     "objectID": "resources.html",
@@ -1202,13 +761,6 @@
     "title": "Resources",
     "section": "Python / Google Colab",
     "text": "Python / Google Colab\nIf you choose Python, use Google Colab for lab work (hosted Jupyter; no local install). Exercises appear on each lab hub next to the Octave versions.\n\n\n\nRole\nTool\nLink\n\n\n\n\nWhere we write and run Python\nGoogle Colab\ncolab.google\n\n\nOrganize and prepare tabular data\nPolars\nGetting started\n\n\nVectors, matrices, and linear algebra\nNumPy\nBeginner guide; later, linear algebra\n\n\nVisualize and communicate results\nPlotnine\nIntroductory guide\n\n\n\nPolars is for real tables: reading files, selecting columns, filtering, transforming, and handing numerical columns to NumPy. NumPy is for arrays, indexing, and later solve, eig, lstsq, svd, norms, and determinants. Plotnine is for scatterplots, line plots, fitted relationships, residual plots, clustering graphics, and other standard figures; it uses a grammar-of-graphics syntax and works directly with Polars DataFrames.\nAs with Lachniet, these pages support syntax. The lab hub and in-class one-pager are the assigned work."
-  },
-  {
-    "objectID": "schedule.html",
-    "href": "schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here. Quizzes and Labs 1–6 meet on Fridays (midterms too, when scheduled). Lab 0 is Week 1 only; there is no lab on Midterm 2 Friday or during fall break. Friday Dec 4 is project launch (SVD + Quiz 11 + capstone); Lab 6 (Fit and Compress) is the same-day LS + SVD warm-up.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25BasisQuiz 4\n\n\n6\nSep 28Neighbors practice\nSep 30MT1 prep\nOct 2Midterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsQuiz 5\n\n\n8\nOct 12No class\nOct 14Transforms (start)\nOct 16Transforms (finish)Quiz 6Lab 1\n\n\n9\nOct 19Systems\nOct 21RREF & dynamics\nOct 23Quiz 7 (Canvas)Lab 2 (RREF)\n\n\n10\nOct 26Lab 2 / RREF catch-up\nOct 28Products\nOct 30Quiz 8Lab 3 (cost, L\n\n\n12\nNov 9L26 Review\nNov 11Veterans Day — no class\nNov 13L27 Midterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorQuiz 10Lab 5\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squares\nDec 2Fitting\nDec 4SVDQuiz 11Project launch\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\nCatch-up. Oct 12 was no class; Lecture 20 ran Oct 14–16. Oct 23–26: Lab 2 / RREF practice (plus Quiz 7 on Canvas Oct 23). Wed Oct 28 is Lecture 23 (products + short \\(A^k\\) bridge). Fri Oct 30 is Quiz 8 + Lab 3 only (cost / LU / \\([A\\mid I]\\) peek / powers — not a numbered lecture). Mon Nov 2 continued Lab 3. Wed Nov 4 is Lecture 24 (inverses + rank / solvability). Then L25–L27 are determinants → review → Midterm 2.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
     "objectID": "syllabus.html",
@@ -1279,6 +831,13 @@
     "title": "Course Syllabus",
     "section": "License",
     "text": "License\nUnless otherwise noted, these materials are CC BY-NC 4.0."
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here. Quizzes and Labs 1–6 meet on Fridays (midterms too, when scheduled). Lab 0 is Week 1 only; there is no lab on Midterm 2 Friday or during fall break. Friday Dec 4 is project launch (SVD + Quiz 11 + capstone); Lab 6 (Fit and Compress) is the same-day LS + SVD warm-up.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25BasisQuiz 4\n\n\n6\nSep 28Neighbors practice\nSep 30MT1 prep\nOct 2Midterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsQuiz 5\n\n\n8\nOct 12No class\nOct 14Transforms (start)\nOct 16Transforms (finish)Quiz 6Lab 1\n\n\n9\nOct 19Systems\nOct 21RREF & dynamics\nOct 23Quiz 7 (Canvas)Lab 2 (RREF)\n\n\n10\nOct 26Lab 2 / RREF catch-up\nOct 28Products\nOct 30Quiz 8Lab 3 (cost, L\n\n\n12\nNov 9L26 Review\nNov 11Veterans Day — no class\nNov 13L27 Midterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorQuiz 10Lab 5\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squares\nDec 2Fitting\nDec 4SVDQuiz 11Project launch\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\nCatch-up. Oct 12 was no class; Lecture 20 ran Oct 14–16. Oct 23–26: Lab 2 / RREF practice (plus Quiz 7 on Canvas Oct 23). Wed Oct 28 is Lecture 23 (products + short \\(A^k\\) bridge). Fri Oct 30 is Quiz 8 + Lab 3 only (cost / LU / \\([A\\mid I]\\) peek / powers — not a numbered lecture). Mon Nov 2 continued Lab 3. Wed Nov 4 is Lecture 24 (inverses + rank / solvability). Then L25–L27 are determinants → review → Midterm 2.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
   },
   {
     "objectID": "license.html",
