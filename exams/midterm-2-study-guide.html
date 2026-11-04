@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Midterm 2 study guide – MATH 107 - Introduction to Linear Algebra</title>
+<title>midterm-2-study-guide – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -162,16 +162,6 @@ window.Quarto = {
   <li><a href="#lecture-19-matrix-vector-multiplication" id="toc-lecture-19-matrix-vector-multiplication" class="nav-link" data-scroll-target="#lecture-19-matrix-vector-multiplication">Lecture 19 — Matrix-vector multiplication</a></li>
   <li><a href="#lecture-20-transforming-space" id="toc-lecture-20-transforming-space" class="nav-link" data-scroll-target="#lecture-20-transforming-space">Lecture 20 — Transforming space</a></li>
   <li><a href="#lecture-21-systems-elimination-and-axb" id="toc-lecture-21-systems-elimination-and-axb" class="nav-link" data-scroll-target="#lecture-21-systems-elimination-and-axb">Lecture 21 — Systems, elimination, and <span class="math inline">\(Ax=b\)</span></a></li>
-  <li><a href="#lecture-21-continued-gaussian-elimination" id="toc-lecture-21-continued-gaussian-elimination" class="nav-link" data-scroll-target="#lecture-21-continued-gaussian-elimination">Lecture 21, continued — Gaussian elimination</a></li>
-  <li><a href="#lecture-22-rref-pivots-free-variables-and-software" id="toc-lecture-22-rref-pivots-free-variables-and-software" class="nav-link" data-scroll-target="#lecture-22-rref-pivots-free-variables-and-software">Lecture 22 — RREF, pivots, free variables, and software</a></li>
-  <li><a href="#lecture-22-continued-linear-dynamical-systems" id="toc-lecture-22-continued-linear-dynamical-systems" class="nav-link" data-scroll-target="#lecture-22-continued-linear-dynamical-systems">Lecture 22, continued — Linear dynamical systems</a></li>
-  <li><a href="#lecture-23-iteration-simulation-and-long-run-behavior" id="toc-lecture-23-iteration-simulation-and-long-run-behavior" class="nav-link" data-scroll-target="#lecture-23-iteration-simulation-and-long-run-behavior">Lecture 23 — Iteration, simulation, and long-run behavior</a></li>
-  <li><a href="#lecture-23-continued-predict-a-system-through-time" id="toc-lecture-23-continued-predict-a-system-through-time" class="nav-link" data-scroll-target="#lecture-23-continued-predict-a-system-through-time">Lecture 23, continued — Predict a system through time</a></li>
-  <li><a href="#lecture-23-matrix-products-and-powers" id="toc-lecture-23-matrix-products-and-powers" class="nav-link" data-scroll-target="#lecture-23-matrix-products-and-powers">Lecture 23 — Matrix products and powers</a></li>
-  <li><a href="#lab-3-computational-cost-and-solve-syntax" id="toc-lab-3-computational-cost-and-solve-syntax" class="nav-link" data-scroll-target="#lab-3-computational-cost-and-solve-syntax">Lab 3 — Computational cost and solve syntax</a></li>
-  <li><a href="#lecture-24-inverses-from-elementary-matrices" id="toc-lecture-24-inverses-from-elementary-matrices" class="nav-link" data-scroll-target="#lecture-24-inverses-from-elementary-matrices">Lecture 24 — Inverses from elementary matrices</a></li>
-  <li><a href="#lecture-25-rank-column-space-null-space" id="toc-lecture-25-rank-column-space-null-space" class="nav-link" data-scroll-target="#lecture-25-rank-column-space-null-space">Lecture 25 — Rank, column space, null space</a></li>
-  <li><a href="#lecture-26-determinants-geometry-and-invertibility" id="toc-lecture-26-determinants-geometry-and-invertibility" class="nav-link" data-scroll-target="#lecture-26-determinants-geometry-and-invertibility">Lecture 26 — Determinants, geometry, and invertibility</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -199,7 +189,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 19, 2026</p>
+      <p class="date-modified">2026-10-19</p>
     </div>
   </div>
     
@@ -217,7 +207,7 @@ window.Quarto = {
 <h1>Recommended study plan</h1>
 <ol type="1">
 <li><strong>Scan the learning outcomes below.</strong> Mark each as: confident / shaky / blank.</li>
-<li><strong>Go through the lecture notes (18–26) plus Lab 3.</strong> For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 27; the exam day page is Lecture 28.)</li>
+<li><strong>Go through the lecture notes (18–26) plus Lab 3.</strong> For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 26; the exam day page is Lecture 27.)</li>
 <li><strong>Build your own “important definitions and formulas” list.</strong> As you read, write down every definition or formula you might need on the exam (matrix sizes, <span class="math inline">\(Ax\)</span>, RREF language, <span class="math inline">\(A^k\)</span>, inverse tests, rank/null/col, determinants).</li>
 <li><strong>Rework examples from lecture and quizzes.</strong> Cover the solution, redo Warm-up / Worked / Check yourself / quiz-prep items by hand, then uncover and check using the filled-in notes in Canvas.</li>
 <li><strong>Start memorizing your list of definitions and formulas.</strong></li>
@@ -304,103 +294,7 @@ window.Quarto = {
 <ol type="1">
 <li>Translate equations or contextual constraints into <span class="math inline">\(Ax=b\)</span>.</li>
 <li>Interpret <span class="math inline">\(Ax=b\)</span> as asking whether <span class="math inline">\(b\)</span> belongs to the span of the columns of <span class="math inline">\(A\)</span>.</li>
-<li>Classify systems as square, underdetermined, or overdetermined.</li>
-<li>Anticipate circumstances producing zero, one, or many solutions.</li>
 </ol>
-</section>
-<section id="lecture-21-continued-gaussian-elimination" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-21-continued-gaussian-elimination">Lecture 21, continued — Gaussian elimination</h3>
-<ol type="1">
-<li>Perform elementary row operations.</li>
-<li>Match each row operation with the elementary matrix that performs it.</li>
-<li>Reduce a small augmented matrix to echelon form, including by left-multiplying those matrices.</li>
-<li>Solve a small system using back substitution.</li>
-<li>Explain why row operations preserve the solution set.</li>
-</ol>
-</section>
-<section id="lecture-22-rref-pivots-free-variables-and-software" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-22-rref-pivots-free-variables-and-software">Lecture 22 — RREF, pivots, free variables, and software</h3>
-<ol type="1">
-<li>Interpret reduced row echelon form.</li>
-<li>Identify pivot and free variables.</li>
-<li>Describe a solution set parametrically.</li>
-<li>Distinguish inconsistent, unique, and infinite-solution cases.</li>
-<li>Use software to solve or row-reduce a system and verify with a residual.</li>
-</ol>
-</section>
-<section id="lecture-22-continued-linear-dynamical-systems" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-22-continued-linear-dynamical-systems">Lecture 22, continued — Linear dynamical systems</h3>
-<ol type="1">
-<li>Represent an evolving system as <span class="math inline">\(x_{t+1}=Ax_t\)</span>.</li>
-<li>Interpret the state vector and transition matrix.</li>
-<li>Build a transition matrix from a flow description.</li>
-<li>Compute and interpret the next few states.</li>
-</ol>
-</section>
-<section id="lecture-23-iteration-simulation-and-long-run-behavior" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-23-iteration-simulation-and-long-run-behavior">Lecture 23 — Iteration, simulation, and long-run behavior</h3>
-<ol type="1">
-<li>Simulate many time steps computationally.</li>
-<li>Plot state components through time.</li>
-<li>Recognize stabilization, growth, decay, or oscillation.</li>
-<li>Conduct a simple what-if simulation.</li>
-<li>State limitations of a linear dynamical model.</li>
-</ol>
-</section>
-<section id="lecture-23-continued-predict-a-system-through-time" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-23-continued-predict-a-system-through-time">Lecture 23, continued — Predict a system through time</h3>
-<ol type="1">
-<li>Implement a linear dynamical model.</li>
-<li>Write or complete a short iterative calculation.</li>
-<li>Validate the first steps by hand.</li>
-<li>Compare results under altered parameters or initial states.</li>
-<li>Record an unexplained long-run pattern for later investigation (eigenvalues come later).</li>
-</ol>
-</section>
-<section id="lecture-23-matrix-products-and-powers" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-23-matrix-products-and-powers">Lecture 23 — Matrix products and powers</h3>
-<ol type="1">
-<li>Determine whether a product is defined and give its dimensions; compute a small product.</li>
-<li>Interpret <span class="math inline">\(ABx\)</span> as a sequence of transformations; note <span class="math inline">\(AB\neq BA\)</span> in general.</li>
-<li>Connect <span class="math inline">\(A^k x\)</span> to repeated dynamics.</li>
-</ol>
-</section>
-<section id="lab-3-computational-cost-and-solve-syntax" class="level3">
-<h3 class="anchored" data-anchor-id="lab-3-computational-cost-and-solve-syntax">Lab 3 — Computational cost and solve syntax</h3>
-<ol type="1">
-<li>Distinguish storage, processing work, and wall-clock time.</li>
-<li>Count ops on a small elimination; recognize <span class="math inline">\(O(n^3)\)</span> scaling (doubling <span class="math inline">\(n\)</span> <span class="math inline">\(\approx\times 8\)</span>).</li>
-<li>Solve <span class="math inline">\(Ax=b\)</span> in software and check the residual; compute a small matrix power.</li>
-</ol>
-</section>
-<section id="lecture-24-inverses-from-elementary-matrices" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-24-inverses-from-elementary-matrices">Lecture 24 — Inverses from elementary matrices</h3>
-<ol type="1">
-<li>Explain <span class="math inline">\(A^{-1}\)</span> as the product of elementary matrices that reduce <span class="math inline">\(A\)</span> to <span class="math inline">\(I\)</span>.</li>
-<li>Compute inverses via <span class="math inline">\([A\mid I]\)</span> and the <span class="math inline">\(2\times 2\)</span> formula.</li>
-<li>Connect invertibility to unique solvability of <span class="math inline">\(Ax=b\)</span> for every <span class="math inline">\(b\)</span>.</li>
-</ol>
-</section>
-<section id="lecture-25-rank-column-space-null-space" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-25-rank-column-space-null-space">Lecture 25 — Rank, column space, null space</h3>
-<ol type="1">
-<li>Interpret column space and null space through <span class="math inline">\(Ax=b\)</span> and <span class="math inline">\(Ax=0\)</span>.</li>
-<li>Determine rank from pivots or independent columns.</li>
-<li>Find simple bases for column or null spaces.</li>
-<li>Connect rank to consistency, independence, and dimension.</li>
-<li>Use subspace, basis, dimension, rank, column space, and null space correctly.</li>
-</ol>
-</section>
-<section id="lecture-26-determinants-geometry-and-invertibility" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-26-determinants-geometry-and-invertibility">Lecture 26 — Determinants, geometry, and invertibility</h3>
-<ol type="1">
-<li>Compute determinants of <span class="math inline">\(2\times 2\)</span> and simple triangular matrices.</li>
-<li>Interpret determinant magnitude as area or volume scaling.</li>
-<li>Connect determinant zero with lost dimension and noninvertibility.</li>
-<li>Recognize the determinant of a triangular matrix from its diagonal.</li>
-<li>Connect determinants to the coming characteristic equation (preview only).</li>
-</ol>
-<hr>
 
 
 <!-- -->
@@ -886,7 +780,7 @@ window.Quarto = {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># Recommended study plan</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Scan the learning outcomes below.** Mark each as: confident / shaky / blank.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Go through the lecture notes (18–26) plus Lab 3.** For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 27; the exam day page is Lecture 28.)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Go through the lecture notes (18–26) plus Lab 3.** For each outcome you marked shaky or blank, find the matching fill-in, worked example, or Check yourself item. (Skip Veterans Day — no new lecture. Review on Nov 9 is Lecture 26; the exam day page is Lecture 27.)</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Build your own “important definitions and formulas” list.** As you read, write down every definition or formula you might need on the exam (matrix sizes, $Ax$, RREF language, $A^k$, inverse tests, rank/null/col, determinants).</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Rework examples from lecture and quizzes.** Cover the solution, redo Warm-up / Worked / Check yourself / quiz-prep items by hand, then uncover and check using the filled-in notes in Canvas.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Start memorizing your list of definitions and formulas.**</span>
@@ -1012,7 +906,7 @@ window.Quarto = {
 <span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Connect rank to consistency, independence, and dimension.</span>
 <span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Use subspace, basis, dimension, rank, column space, and null space correctly.</span>
 <span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 26 — Determinants, geometry, and invertibility</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 25 — Determinants, geometry, and invertibility</span></span>
 <span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute determinants of $2\times 2$ and simple triangular matrices.</span>
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret determinant magnitude as area or volume scaling.</span>

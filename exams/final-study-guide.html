@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Final exam study guide – MATH 107 - Introduction to Linear Algebra</title>
+<title>final-study-guide – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -157,16 +157,6 @@ window.Quarto = {
   <li><a href="#useful-course-materials" id="toc-useful-course-materials" class="nav-link" data-scroll-target="#useful-course-materials">Useful course materials</a></li>
   <li><a href="#unit-i-vectors-and-geometry-lectures-0114" id="toc-unit-i-vectors-and-geometry-lectures-0114" class="nav-link" data-scroll-target="#unit-i-vectors-and-geometry-lectures-0114">Unit I — Vectors and geometry (Lectures 01–14)</a></li>
   <li><a href="#unit-ii-matrices-systems-and-dynamics-lectures-1829" id="toc-unit-ii-matrices-systems-and-dynamics-lectures-1829" class="nav-link" data-scroll-target="#unit-ii-matrices-systems-and-dynamics-lectures-1829">Unit II — Matrices, systems, and dynamics (Lectures 18–29)</a></li>
-  <li><a href="#unit-iii-since-midterm-2-lectures-3540" id="toc-unit-iii-since-midterm-2-lectures-3540" class="nav-link" data-scroll-target="#unit-iii-since-midterm-2-lectures-3540">Unit III — Since Midterm 2 (Lectures 35–40)</a>
-  <ul class="collapse">
-  <li><a href="#lecture-35-eigenvectors-as-persistent-directions" id="toc-lecture-35-eigenvectors-as-persistent-directions" class="nav-link" data-scroll-target="#lecture-35-eigenvectors-as-persistent-directions">Lecture 35 — Eigenvectors as persistent directions</a></li>
-  <li><a href="#lecture-36-characteristic-equation-2times-2-eigenproblems-and-complex-numbers" id="toc-lecture-36-characteristic-equation-2times-2-eigenproblems-and-complex-numbers" class="nav-link" data-scroll-target="#lecture-36-characteristic-equation-2times-2-eigenproblems-and-complex-numbers">Lecture 36 — Characteristic equation, <span class="math inline">\(2\times 2\)</span> eigenproblems, and complex numbers</a></li>
-  <li><a href="#lecture-37-why-did-the-system-behave-that-way" id="toc-lecture-37-why-did-the-system-behave-that-way" class="nav-link" data-scroll-target="#lecture-37-why-did-the-system-behave-that-way">Lecture 37 — Why did the system behave that way?</a></li>
-  <li><a href="#lecture-38-when-axb-has-no-exact-solution" id="toc-lecture-38-when-axb-has-no-exact-solution" class="nav-link" data-scroll-target="#lecture-38-when-axb-has-no-exact-solution">Lecture 38 — When <span class="math inline">\(Ax=b\)</span> has no exact solution</a></li>
-  <li><a href="#lecture-39-least-squares-data-fitting-and-positive-definiteness" id="toc-lecture-39-least-squares-data-fitting-and-positive-definiteness" class="nav-link" data-scroll-target="#lecture-39-least-squares-data-fitting-and-positive-definiteness">Lecture 39 — Least squares, data fitting, and positive definiteness</a></li>
-  <li><a href="#lecture-40-svd-low-rank-approximation-and-capstone-launch" id="toc-lecture-40-svd-low-rank-approximation-and-capstone-launch" class="nav-link" data-scroll-target="#lecture-40-svd-low-rank-approximation-and-capstone-launch">Lecture 40 — SVD, low-rank approximation, and capstone launch</a></li>
-  </ul></li>
-  <li><a href="#cumulative-connections-what-the-final-emphasizes" id="toc-cumulative-connections-what-the-final-emphasizes" class="nav-link" data-scroll-target="#cumulative-connections-what-the-final-emphasizes">Cumulative connections (what the final emphasizes)</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="final-study-guide.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -193,7 +183,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 12, 2026</p>
+      <p class="date-modified">2026-10-12</p>
     </div>
   </div>
     
@@ -259,7 +249,7 @@ window.Quarto = {
 <td>Eigenvalues / characteristic equation</td>
 </tr>
 <tr class="even">
-<td><a href="../lectures/lecture-40.html">Lecture 40</a></td>
+<td><a href="../lectures/lecture-33.html">Lecture 33</a></td>
 <td>SVD and low-rank context (conceptual fluency on the final)</td>
 </tr>
 </tbody>
@@ -289,121 +279,6 @@ window.Quarto = {
 <li>Use invertibility, rank, column space, null space, and <span class="math inline">\(2\times 2\)</span> / triangular determinants.</li>
 </ol>
 <hr>
-</section>
-<section id="unit-iii-since-midterm-2-lectures-3540" class="level2">
-<h2 class="anchored" data-anchor-id="unit-iii-since-midterm-2-lectures-3540">Unit III — Since Midterm 2 (Lectures 35–40)</h2>
-<section id="lecture-35-eigenvectors-as-persistent-directions" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-35-eigenvectors-as-persistent-directions">Lecture 35 — Eigenvectors as persistent directions</h3>
-<ol type="1">
-<li>Explain geometrically what makes <span class="math inline">\(v\)</span> an eigenvector.</li>
-<li>Verify a proposed eigenpair <span class="math inline">\((A,v,\lambda)\)</span> by checking <span class="math inline">\(Av=\lambda v\)</span>.</li>
-<li>Find <span class="math inline">\(\lambda\)</span> when an eigenvector is given.</li>
-<li>Connect eigenvectors to repeated transformations and steady directions.</li>
-<li>Recognize that a rotation may have no real eigenvector, motivating complex numbers.</li>
-</ol>
-</section>
-<section id="lecture-36-characteristic-equation-2times-2-eigenproblems-and-complex-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-36-characteristic-equation-2times-2-eigenproblems-and-complex-numbers">Lecture 36 — Characteristic equation, <span class="math inline">\(2\times 2\)</span> eigenproblems, and complex numbers</h3>
-<ol type="1">
-<li>Interpret <span class="math inline">\(a+bi\)</span> algebraically and as a point/vector in the complex plane.</li>
-<li>Perform the basic complex arithmetic needed for eigenvalue calculations.</li>
-<li>Form and solve <span class="math inline">\(\det(A-\lambda I)=0\)</span> for a <span class="math inline">\(2\times 2\)</span> matrix.</li>
-<li>Find corresponding eigenvectors (including simple complex cases at the course’s level).</li>
-<li>Check real or complex eigenpairs by substitution.</li>
-</ol>
-</section>
-<section id="lecture-37-why-did-the-system-behave-that-way" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-37-why-did-the-system-behave-that-way">Lecture 37 — Why did the system behave that way?</h3>
-<ol type="1">
-<li>Compute eigenvalues and eigenvectors with software and verify <span class="math inline">\(Av\approx\lambda v\)</span>.</li>
-<li>Use dominant eigenbehavior to explain growth, decay, or approach to a direction.</li>
-<li>Interpret complex eigenvalues as rotation / oscillation behavior.</li>
-<li>Observe orthogonal eigenvectors for a symmetric example when it appears.</li>
-<li>Connect eigen-language back to earlier dynamical simulations.</li>
-</ol>
-</section>
-<section id="lecture-38-when-axb-has-no-exact-solution" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-38-when-axb-has-no-exact-solution">Lecture 38 — When <span class="math inline">\(Ax=b\)</span> has no exact solution</h3>
-<ol type="1">
-<li>Recognize an inconsistent overdetermined system.</li>
-<li>Formulate the least-squares objective <span class="math inline">\(\min_x \lVert Ax-b\rVert\)</span>.</li>
-<li>Interpret the fitted vector <span class="math inline">\(\hat{b}=A\hat{x}\)</span> as the closest attainable vector in <span class="math inline">\(C(A)\)</span>.</li>
-<li>Interpret the residual <span class="math inline">\(r=b-A\hat{x}\)</span> geometrically.</li>
-<li>Distinguish an exact solution from a best approximate solution.</li>
-</ol>
-</section>
-<section id="lecture-39-least-squares-data-fitting-and-positive-definiteness" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-39-least-squares-data-fitting-and-positive-definiteness">Lecture 39 — Least squares, data fitting, and positive definiteness</h3>
-<ol type="1">
-<li>Compute a least-squares solution with software (and check a tiny case by hand when asked).</li>
-<li>Interpret residuals and RMS error in context.</li>
-<li>Check that the residual is orthogonal to the columns of <span class="math inline">\(A\)</span> (normal equations idea).</li>
-<li>Recognize that <span class="math inline">\(A^{\mathsf{T}}A\)</span> is symmetric positive semidefinite, and positive definite when <span class="math inline">\(A\)</span> has independent columns.</li>
-<li>Evaluate whether a fitted model is useful, not only report coefficients.</li>
-</ol>
-</section>
-<section id="lecture-40-svd-low-rank-approximation-and-capstone-launch" class="level3">
-<h3 class="anchored" data-anchor-id="lecture-40-svd-low-rank-approximation-and-capstone-launch">Lecture 40 — SVD, low-rank approximation, and capstone launch</h3>
-<ol type="1">
-<li>Interpret <span class="math inline">\(A=U\Sigma V^{\mathsf{T}}\)</span> conceptually (orthogonal factors + singular values).</li>
-<li>Explain what a rank-<span class="math inline">\(k\)</span> approximation keeps and what it discards.</li>
-<li>Compare singular-value decay qualitatively for different data matrices.</li>
-<li>Relate reconstruction error and storage to the choice of rank <span class="math inline">\(k\)</span>.</li>
-<li>State a practical limitation of a low-rank model (what structure it may miss).</li>
-</ol>
-<hr>
-</section>
-</section>
-<section id="cumulative-connections-what-the-final-emphasizes" class="level2">
-<h2 class="anchored" data-anchor-id="cumulative-connections-what-the-final-emphasizes">Cumulative connections (what the final emphasizes)</h2>
-<p>Be ready to <strong>choose a tool</strong> and <strong>explain why</strong>, not only compute in isolation:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Situation</th>
-<th>Tools that often help</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Compare or cluster feature vectors</td>
-<td>Norm, distance, angle / cosine, nearest neighbor, <span class="math inline">\(k\)</span>-means</td>
-</tr>
-<tr class="even">
-<td>“Is <span class="math inline">\(b\)</span> attainable exactly?”</td>
-<td>Column space, RREF consistency, rank</td>
-</tr>
-<tr class="odd">
-<td>“All solutions / free variables”</td>
-<td>RREF, null space</td>
-</tr>
-<tr class="even">
-<td>“Undo a reversible transform”</td>
-<td>Inverse / unique solution of <span class="math inline">\(Ax=b\)</span></td>
-</tr>
-<tr class="odd">
-<td>“Where is the state after many steps?”</td>
-<td><span class="math inline">\(A^k x\)</span>, eigenvalues / dominant direction</td>
-</tr>
-<tr class="even">
-<td>“Best approximate fit when overdetermined”</td>
-<td>Least squares, residual, RMS</td>
-</tr>
-<tr class="odd">
-<td>“Compress / approximate a matrix or image”</td>
-<td>SVD / rank-<span class="math inline">\(k\)</span> idea</td>
-</tr>
-<tr class="even">
-<td>“Hand vs software”</td>
-<td>Small <span class="math inline">\(2\times 2\)</span> / <span class="math inline">\(3\times 3\)</span> by hand; larger or SVD/eigen via software interpretation</td>
-</tr>
-</tbody>
-</table>
-<p>Capstone studio and gallery (Lectures 41–42) deepen SVD practice but are <strong>not</strong> new quiz days; Friday Dec 11 is <strong>cumulative review only</strong> (no new quiz).</p>
 
 
 <!-- -->
@@ -908,7 +783,7 @@ window.Quarto = {
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Final practice packet</span><span class="co">](final-practice.qmd)</span> <span class="pp">|</span> Cumulative practice (Units I–III + mixed) <span class="pp">|</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS*</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> <span class="pp">|</span> Textbook (free online) <span class="pp">|</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Strang §6.1</span><span class="co">](https://math.mit.edu/~gs/linearalgebra/ila6/ila6_6_1.pdf)</span> <span class="pp">|</span> Eigenvalues / characteristic equation <span class="pp">|</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures/lecture-40.qmd)</span> <span class="pp">|</span> SVD and low-rank context (conceptual fluency on the final) <span class="pp">|</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lecture 33</span><span class="co">](../lectures/lecture-33.qmd)</span> <span class="pp">|</span> SVD and low-rank context (conceptual fluency on the final) <span class="pp">|</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
@@ -938,7 +813,7 @@ window.Quarto = {
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">## Unit III — Since Midterm 2 (Lectures 35–40)</span></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 35 — Eigenvectors as persistent directions</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 28 — Eigenvectors as persistent directions</span></span>
 <span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Explain geometrically what makes $v$ an eigenvector.</span>
 <span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Verify a proposed eigenpair $(A,v,\lambda)$ by checking $Av=\lambda v$.</span>
@@ -946,7 +821,7 @@ window.Quarto = {
 <span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Connect eigenvectors to repeated transformations and steady directions.</span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Recognize that a rotation may have no real eigenvector, motivating complex numbers.</span>
 <span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 36 — Characteristic equation, $2\times 2$ eigenproblems, and complex numbers</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 29 — Characteristic equation, $2\times 2$ eigenproblems, and complex numbers</span></span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Interpret $a+bi$ algebraically and as a point/vector in the complex plane.</span>
 <span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Perform the basic complex arithmetic needed for eigenvalue calculations.</span>
@@ -954,7 +829,7 @@ window.Quarto = {
 <span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Find corresponding eigenvectors (including simple complex cases at the course’s level).</span>
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Check real or complex eigenpairs by substitution.</span>
 <span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 37 — Why did the system behave that way?</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 30 — Why did the system behave that way?</span></span>
 <span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute eigenvalues and eigenvectors with software and verify $Av\approx\lambda v$.</span>
 <span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Use dominant eigenbehavior to explain growth, decay, or approach to a direction.</span>
@@ -962,7 +837,7 @@ window.Quarto = {
 <span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Observe orthogonal eigenvectors for a symmetric example when it appears.</span>
 <span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Connect eigen-language back to earlier dynamical simulations.</span>
 <span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 38 — When $Ax=b$ has no exact solution</span></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 31 — When $Ax=b$ has no exact solution</span></span>
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Recognize an inconsistent overdetermined system.</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Formulate the least-squares objective $\min_x \lVert Ax-b\rVert$.</span>
@@ -970,7 +845,7 @@ window.Quarto = {
 <span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Interpret the residual $r=b-A\hat{x}$ geometrically.</span>
 <span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Distinguish an exact solution from a best approximate solution.</span>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 39 — Least squares, data fitting, and positive definiteness</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 32 — Least squares, data fitting, and positive definiteness</span></span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Compute a least-squares solution with software (and check a tiny case by hand when asked).</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Interpret residuals and RMS error in context.</span>
@@ -978,7 +853,7 @@ window.Quarto = {
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>Recognize that $A^{\mathsf{T}}A$ is symmetric positive semidefinite, and positive definite when $A$ has independent columns.</span>
 <span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Evaluate whether a fitted model is useful, not only report coefficients.</span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 40 — SVD, low-rank approximation, and capstone launch</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">### Lecture 33 — SVD, low-rank approximation, and capstone launch</span></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Interpret $A=U\Sigma V^{\mathsf{T}}$ conceptually (orthogonal factors + singular values).</span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Explain what a rank-$k$ approximation keeps and what it discards.</span>

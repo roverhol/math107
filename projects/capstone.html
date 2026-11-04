@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Capstone — Low-rank frames vs differences – MATH 107 - Introduction to Linear Algebra</title>
+<title>capstone – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -155,10 +155,6 @@ window.Quarto = {
   <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question">The question</a></li>
   <li><a href="#timeline" id="toc-timeline" class="nav-link" data-scroll-target="#timeline">Timeline</a></li>
   <li><a href="#what-to-turn-in-canvas" id="toc-what-to-turn-in-canvas" class="nav-link" data-scroll-target="#what-to-turn-in-canvas">What to turn in (Canvas)</a></li>
-  <li><a href="#success-criteria-how-it-is-graded-25-points" id="toc-success-criteria-how-it-is-graded-25-points" class="nav-link" data-scroll-target="#success-criteria-how-it-is-graded-25-points">Success criteria (how it is graded, 25 points)</a></li>
-  <li><a href="#technical-notes" id="toc-technical-notes" class="nav-link" data-scroll-target="#technical-notes">Technical notes</a></li>
-  <li><a href="#practice-packet-warm-up-before-studio" id="toc-practice-packet-warm-up-before-studio" class="nav-link" data-scroll-target="#practice-packet-warm-up-before-studio">Practice packet (warm-up before studio)</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="capstone.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -184,7 +180,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 8, 2026</p>
+      <p class="date-modified">2026-10-08</p>
     </div>
   </div>
     
@@ -240,15 +236,15 @@ window.Quarto = {
 <tbody>
 <tr class="odd">
 <td>Fri Dec 4</td>
-<td><strong>Project launch</strong> in <a href="../lectures/lecture-40.html">Lecture 40</a> (after Quiz 11 / with <a href="../labs/lab-06.html">Lab 6</a>). Skim this packet; start choosing data.</td>
+<td><strong>Project launch</strong> in <a href="../lectures/lecture-33.html">Lecture 33</a> (after Quiz 11 / with <a href="../labs/lab-06.html">Lab 6</a>). Skim this packet; start choosing data.</td>
 </tr>
 <tr class="even">
 <td>Mon Dec 7</td>
-<td><a href="../lectures/lecture-41.html">Studio</a> — implement, measure, debug.</td>
+<td><a href="../lectures/lecture-34.html">Studio</a> — implement, measure, debug.</td>
 </tr>
 <tr class="odd">
 <td>Wed Dec 9</td>
-<td><a href="../lectures/lecture-42.html">Gallery</a> — short presentation or station; <strong>Canvas upload due</strong> (end of day unless announced otherwise).</td>
+<td><a href="../lectures/lecture-35.html">Gallery</a> — short presentation or station; <strong>Canvas upload due</strong> (end of day unless announced otherwise).</td>
 </tr>
 </tbody>
 </table>
@@ -268,115 +264,6 @@ window.Quarto = {
 <li><strong>Conclusion.</strong> One clear recommendation: for <em>your</em> frames, prefer A, prefer B, or “depends,” with a quantitative reason and <strong>one limitation</strong>.</li>
 </ol>
 <p>Gallery: 2–3 minute lightning talk <strong>or</strong> a station with one figure people can read in 30 seconds. Peers may ask about your numbers.</p>
-</section>
-<section id="success-criteria-how-it-is-graded-25-points" class="level2">
-<h2 class="anchored" data-anchor-id="success-criteria-how-it-is-graded-25-points">Success criteria (how it is graded, 25 points)</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 18%">
-<col style="width: 55%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Criterion</th>
-<th style="text-align: right;">Points</th>
-<th>What “good” looks like</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Question &amp; setup</td>
-<td style="text-align: right;">5</td>
-<td>Clear Plan A vs B; data and <span class="math inline">\(k\)</span> choices stated</td>
-</tr>
-<tr class="even">
-<td>Correct SVD / rebuild</td>
-<td style="text-align: right;">5</td>
-<td>Rank-<span class="math inline">\(k\)</span> approximation used correctly; Plan B rebuilds <span class="math inline">\(F_2,F_3\)</span> from <span class="math inline">\(F_1,D_2,D_3\)</span></td>
-</tr>
-<tr class="odd">
-<td>Quantitative evidence</td>
-<td style="text-align: right;">8</td>
-<td>Error, storage, and at least one runtime/resource comparison with readable figure or table</td>
-</tr>
-<tr class="even">
-<td>Interpretation</td>
-<td style="text-align: right;">5</td>
-<td>Recommendation tied to numbers; names the payback / limitation of computing SVDs</td>
-</tr>
-<tr class="odd">
-<td>Communication</td>
-<td style="text-align: right;">2</td>
-<td>Gallery contribution intelligible; write-up readable</td>
-</tr>
-</tbody>
-</table>
-<p><a href="../labs/lab-06.html">Lab 6</a> check-in initials (Fit and Compress on launch day) are <strong>effort credit</strong> in the Labs group (separate from these 25 capstone points).</p>
-</section>
-<section id="technical-notes" class="level2">
-<h2 class="anchored" data-anchor-id="technical-notes">Technical notes</h2>
-<p><strong>Storage (order of magnitude).</strong></p>
-<ul>
-<li>One full frame: <span class="math inline">\(mn\)</span> numbers.</li>
-<li>One rank-<span class="math inline">\(k\)</span> factorization: about <span class="math inline">\(k(m+n+1)\)</span> numbers (columns of <span class="math inline">\(U_k\)</span>, <span class="math inline">\(V_k\)</span>, and <span class="math inline">\(k\)</span> singular values).</li>
-<li>Plan A total (three frames): about <span class="math inline">\(3k(m+n+1)\)</span>.</li>
-<li>Plan B total (three matrices): also about <span class="math inline">\(3k(m+n+1)\)</span> at the same <span class="math inline">\(k\)</span> — so Plan B wins on <em>storage</em> only if you can use a <strong>smaller</strong> <span class="math inline">\(k\)</span> for differences while matching Plan A’s error, or if you choose different <span class="math inline">\(k\)</span> per matrix on purpose.</li>
-</ul>
-<p><strong>Error.</strong> For a matrix <span class="math inline">\(A\)</span> and approximation <span class="math inline">\(A_k\)</span>, a standard relative Frobenius error is <span class="math display">\[
-\frac{\lVert A-A_k\rVert_F}{\lVert A\rVert_F}.
-\]</span> Under Plan B, measure error on the <strong>reconstructed frames</strong> <span class="math inline">\(\widehat F_2=\widehat F_1+\widehat D_2\)</span>, etc., not only on the difference matrices.</p>
-<p><strong>Software sketch</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 36%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Task</th>
-<th>Octave</th>
-<th>Python</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>SVD</td>
-<td><code>[U,S,V] = svd(A)</code></td>
-<td><code>U, S, Vt = np.linalg.svd(A, full_matrices=False)</code></td>
-</tr>
-<tr class="even">
-<td>Rank-<span class="math inline">\(k\)</span> rebuild</td>
-<td>first <span class="math inline">\(k\)</span> columns / <span class="math inline">\(\sigma\)</span>’s</td>
-<td><code>U[:,:k] @ np.diag(S[:k]) @ Vt[:k,:]</code></td>
-</tr>
-<tr class="odd">
-<td>Frobenius norm</td>
-<td><code>norm(A,'fro')</code></td>
-<td><code>np.linalg.norm(A, 'fro')</code></td>
-</tr>
-</tbody>
-</table>
-<p>Use grayscale (2D arrays). Color is optional enrichment only.</p>
-</section>
-<section id="practice-packet-warm-up-before-studio" class="level2">
-<h2 class="anchored" data-anchor-id="practice-packet-warm-up-before-studio">Practice packet (warm-up before studio)</h2>
-<p>About 14 prompts. Source key: <a href="../assessments.html#source-key">Assessments</a>.</p>
-<ul>
-<li>S 7.1 #1, #2, #3, #5, #6</li>
-<li>L Ch. 5 Ex. 7: small SVD</li>
-<li>L Ch. 5 Ex. 8: pseudoinverse/least-squares connection</li>
-<li>L Ch. 7 Project 7.1, Problems 1–3: image compression</li>
-<li>C-Cap.1: Derive full storage <span class="math inline">\(mn\)</span>.</li>
-<li>C-Cap.2: Derive rank-<span class="math inline">\(k\)</span> storage <span class="math inline">\(k(m+n+1)\)</span>.</li>
-<li>C-Cap.3: Plot relative reconstruction error versus <span class="math inline">\(k\)</span>.</li>
-<li>C-Cap.4: Compare full and factorized matrix-vector multiplication times and estimate when the initial SVD cost pays for itself.</li>
-</ul>
-</section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
-<p>See <a href="../lectures.html#lecture-40">Lecture 40</a> (launch), <a href="../lectures.html#lecture-41">Lecture 41</a> (studio), and <a href="../lectures.html#lecture-42">Lecture 42</a> (gallery).</p>
 
 
 <!-- -->
@@ -878,9 +765,9 @@ window.Quarto = {
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> When <span class="pp">|</span> What <span class="pp">|</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|------|------|</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fri Dec 4 <span class="pp">|</span> **Project launch** in <span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures/lecture-40.qmd)</span> (after Quiz 11 / with <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](../labs/lab-06.qmd)</span>). Skim this packet; start choosing data. <span class="pp">|</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mon Dec 7 <span class="pp">|</span> <span class="co">[</span><span class="ot">Studio</span><span class="co">](../lectures/lecture-41.qmd)</span> — implement, measure, debug. <span class="pp">|</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wed Dec 9 <span class="pp">|</span> <span class="co">[</span><span class="ot">Gallery</span><span class="co">](../lectures/lecture-42.qmd)</span> — short presentation or station; **Canvas upload due** (end of day unless announced otherwise). <span class="pp">|</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Fri Dec 4 <span class="pp">|</span> **Project launch** in <span class="co">[</span><span class="ot">Lecture 33</span><span class="co">](../lectures/lecture-33.qmd)</span> (after Quiz 11 / with <span class="co">[</span><span class="ot">Lab 6</span><span class="co">](../labs/lab-06.qmd)</span>). Skim this packet; start choosing data. <span class="pp">|</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Mon Dec 7 <span class="pp">|</span> <span class="co">[</span><span class="ot">Studio</span><span class="co">](../lectures/lecture-34.qmd)</span> — implement, measure, debug. <span class="pp">|</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Wed Dec 9 <span class="pp">|</span> <span class="co">[</span><span class="ot">Gallery</span><span class="co">](../lectures/lecture-35.qmd)</span> — short presentation or station; **Canvas upload due** (end of day unless announced otherwise). <span class="pp">|</span></span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to turn in (Canvas)</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
@@ -948,7 +835,7 @@ window.Quarto = {
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures.qmd#lecture-40)</span> (launch), <span class="co">[</span><span class="ot">Lecture 41</span><span class="co">](../lectures.qmd#lecture-41)</span> (studio), and <span class="co">[</span><span class="ot">Lecture 42</span><span class="co">](../lectures.qmd#lecture-42)</span> (gallery).</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">Lecture 33</span><span class="co">](../lectures.qmd#lecture-33)</span> (launch), <span class="co">[</span><span class="ot">Lecture 34</span><span class="co">](../lectures.qmd#lecture-34)</span> (studio), and <span class="co">[</span><span class="ot">Lecture 35</span><span class="co">](../lectures.qmd#lecture-35)</span> (gallery).</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

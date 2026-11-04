@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 5 — Steady State and Eigen – MATH 107 - Introduction to Linear Algebra</title>
+<title>lab-05 – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -155,9 +155,6 @@ window.Quarto = {
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
   <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
-  <li><a href="#ops-strip" id="toc-ops-strip" class="nav-link" data-scroll-target="#ops-strip">Ops strip</a></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
-  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-05.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -183,7 +180,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 29, 2026</p>
+      <p class="date-modified">2026-10-29</p>
     </div>
   </div>
     
@@ -196,9 +193,9 @@ window.Quarto = {
 
 <p><a href="lab-05.pdf">Download PDF</a></p>
 <p>Last updated: October 29, 2026.</p>
-<p>In class Friday, November 20 (same day as <a href="../lectures/lecture-37.html">Lecture 37</a> / <a href="../quizzes/quiz-10.html">Quiz 10</a>). Quiz 10 is Week 11 inverses / rank / determinants — <strong>not</strong> this lab.</p>
+<p>In class Friday, November 20 (same day as <a href="../lectures/lecture-30.html">Lecture 30</a> / <a href="../quizzes/quiz-10.html">Quiz 10</a>). Quiz 10 is Week 11 inverses / rank / determinants — <strong>not</strong> this lab.</p>
 <p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Preview the <a href="../labs/lab-05-ticket.html">one-pager</a>; write on the hard copy handed out in class.</p>
-<p><strong>Payoff.</strong> Lab 4 asked why different starts share a long-run mix. Today: that mix is the <strong><span class="math inline">\(\lambda=1\)</span> eigenvector</strong> (scaled); the other eigenvalue has <span class="math inline">\(|\lambda|&lt;1\)</span>, so its mode fades. Same story as Lecture 37’s dominant-eigenbehavior fill-in.</p>
+<p><strong>Payoff.</strong> Lab 4 asked why different starts share a long-run mix. Today: that mix is the <strong><span class="math inline">\(\lambda=1\)</span> eigenvector</strong> (scaled); the other eigenvalue has <span class="math inline">\(|\lambda|&lt;1\)</span>, so its mode fades. Same story as Lecture 30’s dominant-eigenbehavior fill-in.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ol type="1">
@@ -209,62 +206,11 @@ window.Quarto = {
 </section>
 <section id="math-connections" class="level2">
 <h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
-<p>Eigenvalues and eigenvectors (<a href="../lectures/lecture-35.html">Lectures 35</a>–<a href="../lectures/lecture-37.html">37</a>); build on Lab 4’s iteration.</p>
+<p>Eigenvalues and eigenvectors (<a href="../lectures/lecture-28.html">Lectures 35</a>–<a href="../lectures/lecture-30.html">37</a>); build on Lab 4’s iteration.</p>
 </section>
 <section id="key-syntax-this-lab" class="level2">
 <h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 36%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Task</th>
-<th>Octave</th>
-<th>Python</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Eigenpairs</td>
-<td><code>[V,D]=eig(A)</code></td>
-<td><code>lam, V = np.linalg.eig(A)</code></td>
-</tr>
-<tr class="even">
-<td>Diagonal entries</td>
-<td><code>diag(D)</code></td>
-<td><code>lam</code></td>
-</tr>
-<tr class="odd">
-<td>Normalize a vector</td>
-<td><code>v/sum(v)</code> or <code>v/norm(v)</code></td>
-<td>same idea with NumPy</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="ops-strip" class="level2">
-<h2 class="anchored" data-anchor-id="ops-strip">Ops strip</h2>
-<p>Same campus matrix as Lab 4: <span class="math display">\[
-A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix}.
-\]</span></p>
-<p><strong>C5.0.</strong> Solve <span class="math inline">\((A-I)x=0\)</span> (or ask software for a nullspace / eigenvector for <span class="math inline">\(\lambda=1\)</span>). Scale so the two entries sum to <span class="math inline">\(1000\)</span> (total students).</p>
-<p><strong>Expected:</strong> a multiple of <span class="math inline">\((2,3)\)</span> — e.g.&nbsp;<span class="math inline">\(x=(400,600)\)</span> when entries sum to <span class="math inline">\(1000\)</span>.</p>
-</section>
-<section id="application" class="level2">
-<h2 class="anchored" data-anchor-id="application">Application</h2>
-<p><strong>C5.1.</strong> Compute all eigenvalues of <span class="math inline">\(A\)</span> in software. Which one has magnitude <span class="math inline">\(1\)</span>? Which has <span class="math inline">\(|\lambda|&lt;1\)</span>?</p>
-<p><strong>Expected:</strong> <span class="math inline">\(\lambda_1=1\)</span> and <span class="math inline">\(\lambda_2=0.5\)</span> (order may differ).</p>
-<p><strong>C5.2.</strong> Take the eigenvector for <span class="math inline">\(\lambda=1\)</span>, scale so entries sum to <span class="math inline">\(1000\)</span>, and compare to your Lab 4 <span class="math inline">\(x_{20}\)</span>. One sentence: why does iteration settle there?</p>
-<p><strong>Expected:</strong> the long-run state is (essentially) that <span class="math inline">\(\lambda=1\)</span> direction; other modes shrink because <span class="math inline">\(|\lambda_2|&lt;1\)</span>.</p>
-<p><strong>C5.3.</strong> Capstone preview: when you compress a matrix with SVD, you keep the <strong>largest</strong> singular values. In one sentence, how is “keep the big directions” similar to “the <span class="math inline">\(\lambda=1\)</span> mode wins the long run”?</p>
-<p><strong>Expected:</strong> both stories pick the directions that dominate the object (image residual vs.&nbsp;iterated state).</p>
-</section>
-<section id="one-pager" class="level2">
-<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
-<p>Preview the <a href="../labs/lab-05-ticket.html">Lab 5 ticket</a>; write on the hard copy in class.</p>
+<div class="line-block">Task | Octave | Python |</div>
 
 
 <!-- -->
@@ -743,11 +689,11 @@ A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix}.
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 29, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>In class Friday, November 20 (same day as <span class="co">[</span><span class="ot">Lecture 37</span><span class="co">](../lectures/lecture-37.qmd)</span> / <span class="co">[</span><span class="ot">Quiz 10</span><span class="co">](../quizzes/quiz-10.qmd)</span>). Quiz 10 is Week 11 inverses / rank / determinants — **not** this lab.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>In class Friday, November 20 (same day as <span class="co">[</span><span class="ot">Lecture 30</span><span class="co">](../lectures/lecture-30.qmd)</span> / <span class="co">[</span><span class="ot">Quiz 10</span><span class="co">](../quizzes/quiz-10.qmd)</span>). Quiz 10 is Week 11 inverses / rank / determinants — **not** this lab.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-05-ticket.qmd)</span>; write on the hard copy handed out in class.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Payoff.** Lab 4 asked why different starts share a long-run mix. Today: that mix is the **$\lambda=1$ eigenvector** (scaled); the other eigenvalue has $|\lambda|&lt;1$, so its mode fades. Same story as Lecture 37’s dominant-eigenbehavior fill-in.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>**Payoff.** Lab 4 asked why different starts share a long-run mix. Today: that mix is the **$\lambda=1$ eigenvector** (scaled); the other eigenvalue has $|\lambda|&lt;1$, so its mode fades. Same story as Lecture 30’s dominant-eigenbehavior fill-in.</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning objectives</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
@@ -757,7 +703,7 @@ A=\begin{bmatrix}0.7&amp;0.2\\0.3&amp;0.8\end{bmatrix}.
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Eigenvalues and eigenvectors (<span class="co">[</span><span class="ot">Lectures 35</span><span class="co">](../lectures/lecture-35.qmd)</span>–<span class="co">[</span><span class="ot">37</span><span class="co">](../lectures/lecture-37.qmd)</span>); build on Lab 4’s iteration.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Eigenvalues and eigenvectors (<span class="co">[</span><span class="ot">Lectures 35</span><span class="co">](../lectures/lecture-28.qmd)</span>–<span class="co">[</span><span class="ot">37</span><span class="co">](../lectures/lecture-30.qmd)</span>); build on Lab 4’s iteration.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>

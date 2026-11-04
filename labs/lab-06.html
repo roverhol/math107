@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Lab 6 — Fit and Compress – MATH 107 - Introduction to Linear Algebra</title>
+<title>lab-06 – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -156,8 +156,6 @@ window.Quarto = {
   <li><a href="#math-connections" id="toc-math-connections" class="nav-link" data-scroll-target="#math-connections">Math connections</a></li>
   <li><a href="#key-syntax-this-lab" id="toc-key-syntax-this-lab" class="nav-link" data-scroll-target="#key-syntax-this-lab">Key syntax (this lab)</a></li>
   <li><a href="#ops-strip" id="toc-ops-strip" class="nav-link" data-scroll-target="#ops-strip">Ops strip</a></li>
-  <li><a href="#application" id="toc-application" class="nav-link" data-scroll-target="#application">Application</a></li>
-  <li><a href="#one-pager" id="toc-one-pager" class="nav-link" data-scroll-target="#one-pager">One-pager</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lab-06.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
@@ -183,7 +181,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">October 29, 2026</p>
+      <p class="date-modified">2026-10-29</p>
     </div>
   </div>
     
@@ -196,7 +194,7 @@ window.Quarto = {
 
 <p><a href="lab-06.pdf">Download PDF</a></p>
 <p>Last updated: October 29, 2026.</p>
-<p>Friday, December 4 is <strong>project launch</strong> (<a href="../projects/capstone.html">capstone</a>) with <a href="../lectures/lecture-40.html">Lecture 40</a> (SVD) and <a href="../quizzes/quiz-11.html">Quiz 11</a>. This lab is the same-day LS + truncated-SVD software warm-up — fine to meet SVD in lecture and practice it here. Quiz 11 is Week 13 eigenvalues — <strong>not</strong> this lab.</p>
+<p>Friday, December 4 is <strong>project launch</strong> (<a href="../projects/capstone.html">capstone</a>) with <a href="../lectures/lecture-33.html">Lecture 33</a> (SVD) and <a href="../quizzes/quiz-11.html">Quiz 11</a>. This lab is the same-day LS + truncated-SVD software warm-up — fine to meet SVD in lecture and practice it here. Quiz 11 is Week 13 eigenvalues — <strong>not</strong> this lab.</p>
 <p><strong>Credit:</strong> Lab points are for effort in class, not for a Canvas file upload. Preview the <a href="../labs/lab-06-ticket.html">one-pager</a>; write on the hard copy handed out in class.</p>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
@@ -208,7 +206,7 @@ window.Quarto = {
 </section>
 <section id="math-connections" class="level2">
 <h2 class="anchored" data-anchor-id="math-connections">Math connections</h2>
-<p>Least squares (<a href="../lectures/lecture-38.html">Lectures 38</a>–<a href="../lectures/lecture-39.html">39</a>); SVD and the orthonormal / LS bridge (<a href="../lectures/lecture-40.html">Lecture 40</a>); warm-up for the image-compression capstone.</p>
+<p>Least squares (<a href="../lectures/lecture-31.html">Lectures 38</a>–<a href="../lectures/lecture-32.html">39</a>); SVD and the orthonormal / LS bridge (<a href="../lectures/lecture-33.html">Lecture 33</a>); warm-up for the image-compression capstone.</p>
 </section>
 <section id="key-syntax-this-lab" class="level2">
 <h2 class="anchored" data-anchor-id="key-syntax-this-lab">Key syntax (this lab)</h2>
@@ -251,32 +249,6 @@ window.Quarto = {
 </section>
 <section id="ops-strip" class="level2">
 <h2 class="anchored" data-anchor-id="ops-strip">Ops strip</h2>
-<p>Fit a line <span class="math inline">\(y\approx c_1+c_2 t\)</span> to points <span class="math inline">\((t,y)=(0,1)\)</span>, <span class="math inline">\((1,2)\)</span>, <span class="math inline">\((2,2)\)</span>.</p>
-<p><strong>C6.0.</strong> Build <span class="math inline">\(A=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix}\)</span> and <span class="math inline">\(b=(1,2,2)\)</span>. Solve for <span class="math inline">\(\hat c\)</span> with least squares (<code>A\b</code> / <code>lstsq</code>). Print <span class="math inline">\(\hat c\)</span> and the residual <span class="math inline">\(\|A\hat c-b\|\)</span>.</p>
-<p><strong>Expected:</strong> <span class="math inline">\(\hat c=(7/6,1/2)\)</span> (about <span class="math inline">\((1.167,0.5)\)</span>); residual about <span class="math inline">\(0.408\)</span>.</p>
-<p><strong>C6.0b (bridge).</strong> Compute the SVD of this same <span class="math inline">\(A\)</span>. Spot-check that the first two left singular vectors (columns of <span class="math inline">\(U\)</span>) look orthonormal: products <span class="math inline">\(\approx 0\)</span> off-diagonal, norms <span class="math inline">\(\approx 1\)</span> (Lecture 14 vocabulary; Lecture 40 bridge). No need to rebuild <span class="math inline">\(\hat c\)</span> by hand from <span class="math inline">\(\Sigma\)</span> — just notice SVD is the orthonormal toolkit behind a sturdy LS solve.</p>
-<p><strong>Expected:</strong> <span class="math inline">\(u_i^{\mathsf{T}}u_j\approx 0\)</span> (<span class="math inline">\(i\neq j\)</span>), <span class="math inline">\(\|u_i\|\approx 1\)</span>.</p>
-</section>
-<section id="application" class="level2">
-<h2 class="anchored" data-anchor-id="application">Application</h2>
-<p>Work with the <span class="math inline">\(4\times 4\)</span> matrix <span class="math display">\[
-M=\begin{bmatrix}
-4&amp;2&amp;2&amp;0\\
-2&amp;4&amp;0&amp;2\\
-2&amp;0&amp;4&amp;2\\
-0&amp;2&amp;2&amp;4
-\end{bmatrix}.
-\]</span></p>
-<p><strong>C6.1.</strong> Compute the SVD of <span class="math inline">\(M\)</span>. List the singular values (largest to smallest).</p>
-<p><strong>Expected:</strong> singular values <span class="math inline">\(8,4,4,0\)</span> (or equivalent ordering with a zero).</p>
-<p><strong>C6.2.</strong> Build the rank-<span class="math inline">\(k=1\)</span> approximation <span class="math inline">\(M_1\)</span> and the rank-<span class="math inline">\(k=2\)</span> approximation <span class="math inline">\(M_2\)</span>. Report <span class="math inline">\(\|M-M_k\|_F\)</span> for each <span class="math inline">\(k\)</span>.</p>
-<p><strong>Expected:</strong> residual drops when <span class="math inline">\(k\)</span> goes from <span class="math inline">\(1\)</span> to <span class="math inline">\(2\)</span> (exact numbers depend on rounding; <span class="math inline">\(k=2\)</span> should be clearly smaller).</p>
-<p><strong>C6.3.</strong> Storage: for an <span class="math inline">\(m\times n\)</span> matrix, truncated SVD stores about <span class="math inline">\(k(m+n+1)\)</span> numbers. For this <span class="math inline">\(4\times4\)</span> matrix, compute <span class="math inline">\(k(m+n+1)\)</span> for <span class="math inline">\(k=1\)</span> and <span class="math inline">\(k=2\)</span>. For a <span class="math inline">\(100\times 100\)</span> grayscale image, which <span class="math inline">\(k\)</span> values stay under half of <span class="math inline">\(100\cdot 100=10000\)</span> entries?</p>
-<p><strong>Expected:</strong> here <span class="math inline">\(k(4+4+1)=9k\)</span>, so <span class="math inline">\(9\)</span> and <span class="math inline">\(18\)</span>. For <span class="math inline">\(100\times 100\)</span>, <span class="math inline">\(k(201)&lt;5000\)</span> ⇒ <span class="math inline">\(k\le 24\)</span>.</p>
-</section>
-<section id="one-pager" class="level2">
-<h2 class="anchored" data-anchor-id="one-pager">One-pager</h2>
-<p>Preview the <a href="../labs/lab-06-ticket.html">Lab 6 ticket</a>; write on the hard copy in class.</p>
 
 
 <!-- -->
@@ -755,7 +727,7 @@ M=\begin{bmatrix}
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Last updated: October 29, 2026.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Friday, December 4 is **project launch** ([capstone](../projects/capstone.qmd)) with [Lecture 40](../lectures/lecture-40.qmd) (SVD) and [Quiz 11](../quizzes/quiz-11.qmd). This lab is the same-day LS + truncated-SVD software warm-up — fine to meet SVD in lecture and practice it here. Quiz 11 is Week 13 eigenvalues — **not** this lab.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>Friday, December 4 is **project launch** ([capstone](../projects/capstone.qmd)) with [Lecture 33](../lectures/lecture-33.qmd) (SVD) and [Quiz 11](../quizzes/quiz-11.qmd). This lab is the same-day LS + truncated-SVD software warm-up — fine to meet SVD in lecture and practice it here. Quiz 11 is Week 13 eigenvalues — **not** this lab.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>**Credit:** Lab points are for effort in class, not for a Canvas file upload. Preview the <span class="co">[</span><span class="ot">one-pager</span><span class="co">](lab-06-ticket.qmd)</span>; write on the hard copy handed out in class.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
@@ -767,7 +739,7 @@ M=\begin{bmatrix}
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## Math connections</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Least squares (<span class="co">[</span><span class="ot">Lectures 38</span><span class="co">](../lectures/lecture-38.qmd)</span>–<span class="co">[</span><span class="ot">39</span><span class="co">](../lectures/lecture-39.qmd)</span>); SVD and the orthonormal / LS bridge (<span class="co">[</span><span class="ot">Lecture 40</span><span class="co">](../lectures/lecture-40.qmd)</span>); warm-up for the image-compression capstone.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>Least squares (<span class="co">[</span><span class="ot">Lectures 38</span><span class="co">](../lectures/lecture-31.qmd)</span>–<span class="co">[</span><span class="ot">39</span><span class="co">](../lectures/lecture-32.qmd)</span>); SVD and the orthonormal / LS bridge (<span class="co">[</span><span class="ot">Lecture 33</span><span class="co">](../lectures/lecture-33.qmd)</span>); warm-up for the image-compression capstone.</span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Key syntax (this lab)</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
@@ -786,7 +758,7 @@ M=\begin{bmatrix}
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>**Expected:** $\hat c=(7/6,1/2)$ (about $(1.167,0.5)$); residual about $0.408$.</span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**C6.0b (bridge).** Compute the SVD of this same $A$. Spot-check that the first two left singular vectors (columns of $U$) look orthonormal: products $\approx 0$ off-diagonal, norms $\approx 1$ (Lecture 14 vocabulary; Lecture 40 bridge). No need to rebuild $\hat c$ by hand from $\Sigma$ — just notice SVD is the orthonormal toolkit behind a sturdy LS solve.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>**C6.0b (bridge).** Compute the SVD of this same $A$. Spot-check that the first two left singular vectors (columns of $U$) look orthonormal: products $\approx 0$ off-diagonal, norms $\approx 1$ (Lecture 14 vocabulary; Lecture 33 bridge). No need to rebuild $\hat c$ by hand from $\Sigma$ — just notice SVD is the orthonormal toolkit behind a sturdy LS solve.</span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>**Expected:** $u_i^{\mathsf{T}}u_j\approx 0$ ($i\neq j$), $<span class="sc">\|</span>u_i<span class="sc">\|</span>\approx 1$.</span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
