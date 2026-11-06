@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>final-study-guide – MATH 107 - Introduction to Linear Algebra</title>
+<title>Final exam study guide – MATH 107 - Introduction to Linear Algebra</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-166690b9c768161ed89deb9505a7d440.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7d8f8980687bae4b33d568d349153310.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -156,7 +156,17 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#useful-course-materials" id="toc-useful-course-materials" class="nav-link" data-scroll-target="#useful-course-materials">Useful course materials</a></li>
   <li><a href="#unit-i-vectors-and-geometry-lectures-0114" id="toc-unit-i-vectors-and-geometry-lectures-0114" class="nav-link" data-scroll-target="#unit-i-vectors-and-geometry-lectures-0114">Unit I — Vectors and geometry (Lectures 01–14)</a></li>
-  <li><a href="#unit-ii-matrices-systems-and-dynamics-lectures-1829" id="toc-unit-ii-matrices-systems-and-dynamics-lectures-1829" class="nav-link" data-scroll-target="#unit-ii-matrices-systems-and-dynamics-lectures-1829">Unit II — Matrices, systems, and dynamics (Lectures 18–29)</a></li>
+  <li><a href="#unit-ii-matrices-systems-and-dynamics-lectures-1825" id="toc-unit-ii-matrices-systems-and-dynamics-lectures-1825" class="nav-link" data-scroll-target="#unit-ii-matrices-systems-and-dynamics-lectures-1825">Unit II — Matrices, systems, and dynamics (Lectures 18–25)</a></li>
+  <li><a href="#unit-iii-since-midterm-2-lectures-3540" id="toc-unit-iii-since-midterm-2-lectures-3540" class="nav-link" data-scroll-target="#unit-iii-since-midterm-2-lectures-3540">Unit III — Since Midterm 2 (Lectures 35–40)</a>
+  <ul class="collapse">
+  <li><a href="#lecture-28-eigenvectors-as-persistent-directions" id="toc-lecture-28-eigenvectors-as-persistent-directions" class="nav-link" data-scroll-target="#lecture-28-eigenvectors-as-persistent-directions">Lecture 28 — Eigenvectors as persistent directions</a></li>
+  <li><a href="#lecture-29-characteristic-equation-2times-2-eigenproblems-and-complex-numbers" id="toc-lecture-29-characteristic-equation-2times-2-eigenproblems-and-complex-numbers" class="nav-link" data-scroll-target="#lecture-29-characteristic-equation-2times-2-eigenproblems-and-complex-numbers">Lecture 29 — Characteristic equation, <span class="math inline">\(2\times 2\)</span> eigenproblems, and complex numbers</a></li>
+  <li><a href="#lecture-30-why-did-the-system-behave-that-way" id="toc-lecture-30-why-did-the-system-behave-that-way" class="nav-link" data-scroll-target="#lecture-30-why-did-the-system-behave-that-way">Lecture 30 — Why did the system behave that way?</a></li>
+  <li><a href="#lecture-31-when-axb-has-no-exact-solution" id="toc-lecture-31-when-axb-has-no-exact-solution" class="nav-link" data-scroll-target="#lecture-31-when-axb-has-no-exact-solution">Lecture 31 — When <span class="math inline">\(Ax=b\)</span> has no exact solution</a></li>
+  <li><a href="#lecture-32-least-squares-data-fitting-and-positive-definiteness" id="toc-lecture-32-least-squares-data-fitting-and-positive-definiteness" class="nav-link" data-scroll-target="#lecture-32-least-squares-data-fitting-and-positive-definiteness">Lecture 32 — Least squares, data fitting, and positive definiteness</a></li>
+  <li><a href="#lecture-33-svd-low-rank-approximation-and-capstone-launch" id="toc-lecture-33-svd-low-rank-approximation-and-capstone-launch" class="nav-link" data-scroll-target="#lecture-33-svd-low-rank-approximation-and-capstone-launch">Lecture 33 — SVD, low-rank approximation, and capstone launch</a></li>
+  </ul></li>
+  <li><a href="#cumulative-connections-what-the-final-emphasizes" id="toc-cumulative-connections-what-the-final-emphasizes" class="nav-link" data-scroll-target="#cumulative-connections-what-the-final-emphasizes">Cumulative connections (what the final emphasizes)</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="final-study-guide.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -183,7 +193,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">2026-10-12</p>
+      <p class="date-modified">October 12, 2026</p>
     </div>
   </div>
     
@@ -230,7 +240,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td><a href="../exams/midterm-2-study-guide.html">Midterm 2 study guide</a> + <a href="../exams/midterm-2-practice.html">practice</a></td>
-<td>Unit II refresh (Lectures 18–29)</td>
+<td>Unit II refresh (Lectures 18–25)</td>
 </tr>
 <tr class="even">
 <td><a href="../assessments.html">Quizzes 1–11</a></td>
@@ -268,8 +278,8 @@ window.Quarto = {
 </ol>
 <hr>
 </section>
-<section id="unit-ii-matrices-systems-and-dynamics-lectures-1829" class="level2">
-<h2 class="anchored" data-anchor-id="unit-ii-matrices-systems-and-dynamics-lectures-1829">Unit II — Matrices, systems, and dynamics (Lectures 18–29)</h2>
+<section id="unit-ii-matrices-systems-and-dynamics-lectures-1825" class="level2">
+<h2 class="anchored" data-anchor-id="unit-ii-matrices-systems-and-dynamics-lectures-1825">Unit II — Matrices, systems, and dynamics (Lectures 18–25)</h2>
 <p>Use the <a href="../exams/midterm-2-study-guide.html">Midterm 2 study guide</a> for the full outcome list. High-priority skills for the final:</p>
 <ol type="1">
 <li>Compute <span class="math inline">\(Ax\)</span>, interpret columns, and recognize common 2D transforms.</li>
@@ -279,6 +289,121 @@ window.Quarto = {
 <li>Use invertibility, rank, column space, null space, and <span class="math inline">\(2\times 2\)</span> / triangular determinants.</li>
 </ol>
 <hr>
+</section>
+<section id="unit-iii-since-midterm-2-lectures-3540" class="level2">
+<h2 class="anchored" data-anchor-id="unit-iii-since-midterm-2-lectures-3540">Unit III — Since Midterm 2 (Lectures 35–40)</h2>
+<section id="lecture-28-eigenvectors-as-persistent-directions" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-28-eigenvectors-as-persistent-directions">Lecture 28 — Eigenvectors as persistent directions</h3>
+<ol type="1">
+<li>Explain geometrically what makes <span class="math inline">\(v\)</span> an eigenvector.</li>
+<li>Verify a proposed eigenpair <span class="math inline">\((A,v,\lambda)\)</span> by checking <span class="math inline">\(Av=\lambda v\)</span>.</li>
+<li>Find <span class="math inline">\(\lambda\)</span> when an eigenvector is given.</li>
+<li>Connect eigenvectors to repeated transformations and steady directions.</li>
+<li>Recognize that a rotation may have no real eigenvector, motivating complex numbers.</li>
+</ol>
+</section>
+<section id="lecture-29-characteristic-equation-2times-2-eigenproblems-and-complex-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-29-characteristic-equation-2times-2-eigenproblems-and-complex-numbers">Lecture 29 — Characteristic equation, <span class="math inline">\(2\times 2\)</span> eigenproblems, and complex numbers</h3>
+<ol type="1">
+<li>Interpret <span class="math inline">\(a+bi\)</span> algebraically and as a point/vector in the complex plane.</li>
+<li>Perform the basic complex arithmetic needed for eigenvalue calculations.</li>
+<li>Form and solve <span class="math inline">\(\det(A-\lambda I)=0\)</span> for a <span class="math inline">\(2\times 2\)</span> matrix.</li>
+<li>Find corresponding eigenvectors (including simple complex cases at the course’s level).</li>
+<li>Check real or complex eigenpairs by substitution.</li>
+</ol>
+</section>
+<section id="lecture-30-why-did-the-system-behave-that-way" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-30-why-did-the-system-behave-that-way">Lecture 30 — Why did the system behave that way?</h3>
+<ol type="1">
+<li>Compute eigenvalues and eigenvectors with software and verify <span class="math inline">\(Av\approx\lambda v\)</span>.</li>
+<li>Use dominant eigenbehavior to explain growth, decay, or approach to a direction.</li>
+<li>Interpret complex eigenvalues as rotation / oscillation behavior.</li>
+<li>Observe orthogonal eigenvectors for a symmetric example when it appears.</li>
+<li>Connect eigen-language back to earlier dynamical simulations.</li>
+</ol>
+</section>
+<section id="lecture-31-when-axb-has-no-exact-solution" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-31-when-axb-has-no-exact-solution">Lecture 31 — When <span class="math inline">\(Ax=b\)</span> has no exact solution</h3>
+<ol type="1">
+<li>Recognize an inconsistent overdetermined system.</li>
+<li>Formulate the least-squares objective <span class="math inline">\(\min_x \lVert Ax-b\rVert\)</span>.</li>
+<li>Interpret the fitted vector <span class="math inline">\(\hat{b}=A\hat{x}\)</span> as the closest attainable vector in <span class="math inline">\(C(A)\)</span>.</li>
+<li>Interpret the residual <span class="math inline">\(r=b-A\hat{x}\)</span> geometrically.</li>
+<li>Distinguish an exact solution from a best approximate solution.</li>
+</ol>
+</section>
+<section id="lecture-32-least-squares-data-fitting-and-positive-definiteness" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-32-least-squares-data-fitting-and-positive-definiteness">Lecture 32 — Least squares, data fitting, and positive definiteness</h3>
+<ol type="1">
+<li>Compute a least-squares solution with software (and check a tiny case by hand when asked).</li>
+<li>Interpret residuals and RMS error in context.</li>
+<li>Check that the residual is orthogonal to the columns of <span class="math inline">\(A\)</span> (normal equations idea).</li>
+<li>Recognize that <span class="math inline">\(A^{\mathsf{T}}A\)</span> is symmetric positive semidefinite, and positive definite when <span class="math inline">\(A\)</span> has independent columns.</li>
+<li>Evaluate whether a fitted model is useful, not only report coefficients.</li>
+</ol>
+</section>
+<section id="lecture-33-svd-low-rank-approximation-and-capstone-launch" class="level3">
+<h3 class="anchored" data-anchor-id="lecture-33-svd-low-rank-approximation-and-capstone-launch">Lecture 33 — SVD, low-rank approximation, and capstone launch</h3>
+<ol type="1">
+<li>Interpret <span class="math inline">\(A=U\Sigma V^{\mathsf{T}}\)</span> conceptually (orthogonal factors + singular values).</li>
+<li>Explain what a rank-<span class="math inline">\(k\)</span> approximation keeps and what it discards.</li>
+<li>Compare singular-value decay qualitatively for different data matrices.</li>
+<li>Relate reconstruction error and storage to the choice of rank <span class="math inline">\(k\)</span>.</li>
+<li>State a practical limitation of a low-rank model (what structure it may miss).</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="cumulative-connections-what-the-final-emphasizes" class="level2">
+<h2 class="anchored" data-anchor-id="cumulative-connections-what-the-final-emphasizes">Cumulative connections (what the final emphasizes)</h2>
+<p>Be ready to <strong>choose a tool</strong> and <strong>explain why</strong>, not only compute in isolation:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Tools that often help</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Compare or cluster feature vectors</td>
+<td>Norm, distance, angle / cosine, nearest neighbor, <span class="math inline">\(k\)</span>-means</td>
+</tr>
+<tr class="even">
+<td>“Is <span class="math inline">\(b\)</span> attainable exactly?”</td>
+<td>Column space, RREF consistency, rank</td>
+</tr>
+<tr class="odd">
+<td>“All solutions / free variables”</td>
+<td>RREF, null space</td>
+</tr>
+<tr class="even">
+<td>“Undo a reversible transform”</td>
+<td>Inverse / unique solution of <span class="math inline">\(Ax=b\)</span></td>
+</tr>
+<tr class="odd">
+<td>“Where is the state after many steps?”</td>
+<td><span class="math inline">\(A^k x\)</span>, eigenvalues / dominant direction</td>
+</tr>
+<tr class="even">
+<td>“Best approximate fit when overdetermined”</td>
+<td>Least squares, residual, RMS</td>
+</tr>
+<tr class="odd">
+<td>“Compress / approximate a matrix or image”</td>
+<td>SVD / rank-<span class="math inline">\(k\)</span> idea</td>
+</tr>
+<tr class="even">
+<td>“Hand vs software”</td>
+<td>Small <span class="math inline">\(2\times 2\)</span> / <span class="math inline">\(3\times 3\)</span> by hand; larger or SVD/eigen via software interpretation</td>
+</tr>
+</tbody>
+</table>
+<p>Capstone studio and gallery (Lectures 41–42) deepen SVD practice but are <strong>not</strong> new quiz days; Friday Dec 11 is <strong>cumulative review only</strong> (no new quiz).</p>
 
 
 <!-- -->
@@ -778,7 +903,7 @@ window.Quarto = {
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="pp">|--------|------|</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Lectures 01–40</span><span class="co">](../lectures.qmd)</span> <span class="pp">|</span> Full course (skip midterm / Veterans Day / fall-break days as noted on the schedule) <span class="pp">|</span></span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Midterm 1 study guide</span><span class="co">](midterm-1-study-guide.qmd)</span> + <span class="co">[</span><span class="ot">practice</span><span class="co">](midterm-1-practice.qmd)</span> <span class="pp">|</span> Unit I refresh (Lectures 01–14) <span class="pp">|</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Midterm 2 study guide</span><span class="co">](midterm-2-study-guide.qmd)</span> + <span class="co">[</span><span class="ot">practice</span><span class="co">](midterm-2-practice.qmd)</span> <span class="pp">|</span> Unit II refresh (Lectures 18–29) <span class="pp">|</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Midterm 2 study guide</span><span class="co">](midterm-2-study-guide.qmd)</span> + <span class="co">[</span><span class="ot">practice</span><span class="co">](midterm-2-practice.qmd)</span> <span class="pp">|</span> Unit II refresh (Lectures 18–25) <span class="pp">|</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Quizzes 1–11</span><span class="co">](../assessments.qmd)</span> <span class="pp">|</span> Fluency checkpoints across the term <span class="pp">|</span></span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Final practice packet</span><span class="co">](final-practice.qmd)</span> <span class="pp">|</span> Cumulative practice (Units I–III + mixed) <span class="pp">|</span></span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Boyd &amp; Vandenberghe, *VMLS*</span><span class="co">](https://web.stanford.edu/~boyd/vmls/)</span> <span class="pp">|</span> Textbook (free online) <span class="pp">|</span></span>
@@ -799,7 +924,7 @@ window.Quarto = {
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>---</span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Unit II — Matrices, systems, and dynamics (Lectures 18–29)</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Unit II — Matrices, systems, and dynamics (Lectures 18–25)</span></span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>Use the <span class="co">[</span><span class="ot">Midterm 2 study guide</span><span class="co">](midterm-2-study-guide.qmd)</span> for the full outcome list. High-priority skills for the final:</span>
 <span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
