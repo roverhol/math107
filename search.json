@@ -42,46 +42,53 @@
     "text": "What you’ll learn\nBy the end of the course you should be able to:\n\nInterpret matrices, vectors, and complex numbers, both algebraically and geometrically.\nSolve systems of linear equations using row-reduction techniques by hand and with software.\nFind eigenvalues and eigenvectors of a matrix by hand for a \\(2\\times 2\\) matrix and with software for general cases.\nUnderstand and apply eigenvalues and eigenvectors to solve problems.\nRecognize special types of matrices and their properties, such as triangular, symmetric, and positive definite matrices.\nCommunicate in the language of linear algebra, including linear combination, subspace, span, independence, basis, and dimension.\nWrite or adapt programs to implement linear algebra concepts, such as matrix arithmetic, vectors, and plotting.\nApply linear algebra to real-world problems.\nLearn independently as well as collaboratively. Develop study techniques that include pre- and post-reading of class materials and be able to critically analyze and implement solutions in a team setting.\n\nDaily objectives for each meeting are on the lectures page."
   },
   {
-    "objectID": "lectures/lecture-28.html",
-    "href": "lectures/lecture-28.html",
-    "title": "Lecture 28 — Eigenvectors as persistent directions",
+    "objectID": "assessments.html",
+    "href": "assessments.html",
+    "title": "Assessments",
     "section": "",
-    "text": "Download PDF\nLast updated: October 29, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §6.1 (PDF) — eigenvalues\nVideo: 18.06 Lec 21 — eigenvalues and eigenvectors · MIT 18.06 playlist (Strang)\nInteractive (optional): eigshow — drag a vector to compare \\(Av\\) with eigenvectors / eigenvalues.\nReading: Beginning of Strang §6.1 — \\(Ax=\\lambda x\\), eigenvectors, and dynamics. Related objectives: Lectures. Schedule.\nBring paper. Warm-up while attendance is taken, then fill-in notes, board examples, and Your turn."
+    "text": "Download this page as PDF"
   },
   {
-    "objectID": "lectures/lecture-28.html#learning-objectives",
-    "href": "lectures/lecture-28.html#learning-objectives",
-    "title": "Lecture 28 — Eigenvectors as persistent directions",
-    "section": "Learning objectives",
-    "text": "Learning objectives\nBy the end of class, you should be able to:\n\nExplain geometrically what makes \\(v\\) an eigenvector.\nVerify a proposed eigenpair.\nFind \\(\\lambda\\) when an eigenvector is given.\nConnect \\(A^t v=\\lambda^t v\\) to repeated dynamics (powers from Lecture 23).\nRecognize that a rotation may have no real eigenvector, motivating complex numbers."
+    "objectID": "assessments.html#source-key",
+    "href": "assessments.html#source-key",
+    "title": "Assessments",
+    "section": "Source key",
+    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
   },
   {
-    "objectID": "lectures/lecture-28.html#warm-up",
-    "href": "lectures/lecture-28.html#warm-up",
-    "title": "Lecture 28 — Eigenvectors as persistent directions",
-    "section": "Warm-up",
-    "text": "Warm-up\nCampus on/off model (Lab 5 will iterate this Friday): \\[\nA=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}.\n\\]\n\nIf \\(x\\) is a population vector and \\(Ax=x\\), what does that mean in words for next week’s counts?\nPreview: if some nonzero \\(v\\) satisfied \\(Av=v\\) (eigenvalue \\(1\\)), why would iterating from that \\(v\\) stay put (up to scaling of total population)?"
+    "objectID": "assessments.html#clo-coverage",
+    "href": "assessments.html#clo-coverage",
+    "title": "Assessments",
+    "section": "CLO coverage",
+    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nLectures 21–22 and Lab 2; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 5\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6 and the capstone, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\nFriday quizzes cover only the prior instructional week (skip midterm week and fall break when choosing that week). Same-day lecture/lab topics are not on that day’s quiz.\n\n\n\nQuiz\nDate\nFocus (prior week)\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, arithmetic, Lab 0 (Week 1)\n\n\nQuiz 2\nFri Sep 11\nCombinations, inner product, linear functions (Week 2)\n\n\nQuiz 3\nFri Sep 18\nApplications and norms (Week 3)\n\n\nQuiz 4\nFri Sep 25\nAngle, nearest neighbors, and clustering (Week 4)\n\n\nQuiz 5\nFri Oct 9\nDependence, span, and basis (Week 5)\n\n\nQuiz 6\nFri Oct 16\nMatrices and \\(Ax\\) (Week 7 / Lectures 18–19)\n\n\nQuiz 7\nFri Oct 23\nTransforms only (Lecture 20). Online in Canvas.\n\n\nQuiz 8\nFri Oct 30\nSystems, elimination, RREF, dynamics, and iteration (Lectures 21–23)\n\n\nQuiz 9\nFri Nov 6\nRREF and one-step dynamics (Lecture 22)\n\n\nQuiz 10\nFri Nov 20\nInverses, rank, and determinants (Lectures 24–25)\n\n\nQuiz 11\nFri Dec 4\nEigenvalues, complex numbers, and Lab 5 (Week 13 / Lectures 35–37)\n\n\n\nNot on a dedicated quiz (assessed on Midterm 2, the final, and/or the capstone): same-day lecture/lab topics on quiz Fridays; Week 15 least squares / SVD. Use the Midterm 2 practice packet, final practice packet, and capstone packet as appropriate."
   },
   {
-    "objectID": "lectures/lecture-28.html#fill-in",
-    "href": "lectures/lecture-28.html#fill-in",
-    "title": "Lecture 28 — Eigenvectors as persistent directions",
-    "section": "Fill in",
-    "text": "Fill in\nEigenpair. A nonzero vector \\(v\\) is an eigenvector of square \\(A\\) with eigenvalue \\(\\lambda\\) if \\[\nAv = \\underline{\\hspace{1.4cm}}.\n\\] Geometrically: \\(A\\) sends \\(v\\) to a vector on the \\(\\underline{\\hspace{2.0cm}}\\) line through \\(v\\) (scaled by \\(\\lambda\\); if \\(\\lambda&lt;0\\), also flipped).\nVerify. Given a candidate pair \\((\\lambda,v)\\), compute \\(Av\\) and \\(\\lambda v\\); they must \\(\\underline{\\hspace{1.6cm}}\\).\nFind \\(\\lambda\\) from \\(v\\). If \\(v\\neq 0\\) is known to be an eigenvector and some component \\(v_i\\neq 0\\), then \\[\n\\lambda = \\frac{(Av)_i}{v_i}\n\\] (same ratio for every nonzero component).\nDynamics / powers. If \\(x_0=v\\) is an eigenvector with eigenvalue \\(\\lambda\\), then \\[\nx_t = A^t v = \\underline{\\hspace{2.4cm}}.\n\\] The direction of \\(v\\) is persistent: each step only rescales (and maybe flips). Friday’s Lab 5 long-run campus mix will turn out to be (a scale of) an eigenvector for \\(\\lambda=1\\).\nNo real eigenvector. A pure rotation (e.g. \\(90^\\circ\\)) moves every real nonzero vector off its own line. Then there is \\(\\underline{\\hspace{2.0cm}}\\) real eigenpair — we will need complex numbers on Wednesday."
+    "objectID": "quizzes/quiz-10.html",
+    "href": "quizzes/quiz-10.html",
+    "title": "Quiz 10",
+    "section": "",
+    "text": "Download PDF\nLast updated: November 17, 2026.\nTextbook: Boyd & Vandenberghe, VMLS (PDF)\nStrang / MIT (optional): Reading: Strang §3.5 (PDF) — rank / subspaces (Week 11)\nVideo: 18.06 Lec 10 — four fundamental subspaces · MIT 18.06 playlist (Strang)\nCovers the prior instructional week only: Inverses / rank and Determinants (Week 11). Midterm 2 week is skipped when choosing the prior week. Same-day Lab 5 / eigenvectors are not on this quiz.\nTextbooks: Boyd & Vandenberghe (VMLS) · Strang §3.5 · Lachniet Octave PDF · also on Resources.\nSchedule"
   },
   {
-    "objectID": "lectures/lecture-28.html#worked-in-class",
-    "href": "lectures/lecture-28.html#worked-in-class",
-    "title": "Lecture 28 — Eigenvectors as persistent directions",
-    "section": "Worked in class",
-    "text": "Worked in class\nW1. Geometry. Sketch \\(v=(1,1)\\) and \\(Av\\) for \\(A=\\begin{bmatrix}2&0\\\\0&1\\end{bmatrix}\\). Is \\(v\\) an eigenvector? What about \\(e_1=(1,0)\\)?\nW2. Verify. Check whether \\((\\lambda,v)=(3,(1,1))\\) is an eigenpair of \\[\nA=\\begin{bmatrix}2&1\\\\1&2\\end{bmatrix}.\n\\] Compute both \\(Av\\) and \\(\\lambda v\\).\nW3. Find \\(\\lambda\\). You are told that \\(v=(1,-1)\\) is an eigenvector of \\[\nA=\\begin{bmatrix}4&2\\\\1&3\\end{bmatrix}.\n\\] Find \\(\\lambda\\). Then confirm \\(Av=\\lambda v\\).\nW4. Clean diagonal example (builds intuition for Lab 5). Let \\(B=\\operatorname{diag}(1.2,\\,0.5)\\).\n\nName two real eigenpairs (use the standard basis).\nIf \\(x_0=c_1 e_1+c_2 e_2\\), what is \\(x_t=B^t x_0\\)? Which term dominates for large \\(t\\) when \\(c_1\\neq 0\\)?\n\nW5. Campus preview. Check that \\(v=(2,3)\\) is an eigenvector of \\(A=\\begin{bmatrix}0.7&0.2\\\\0.3&0.8\\end{bmatrix}\\). What is \\(\\lambda\\)? (Friday in Lab 5: iterate, then scale this direction to total \\(1000\\).)\nW6. Rotation. Let \\(R=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\) (\\(90^\\circ\\) CCW). For a generic \\(v=(a,b)\\neq 0\\), is \\(Rv\\) a real multiple of \\(v\\)? What does that say about real eigenvectors of \\(R\\)?"
+    "objectID": "quizzes/quiz-10.html#core",
+    "href": "quizzes/quiz-10.html#core",
+    "title": "Quiz 10",
+    "section": "Core",
+    "text": "Core\n\nFluency (complete prompts — practice these by hand)\nC10.1. Compute each determinant.\n\n\\(\\det\\begin{bmatrix}3&1\\\\0&2\\end{bmatrix}\\)\n\\(\\det\\begin{bmatrix}1&4&0\\\\0&-2&5\\\\0&0&3\\end{bmatrix}\\)\n\\(\\det\\begin{bmatrix}2&1\\\\4&2\\end{bmatrix}\\)\n\nC10.2. True or false, with a one-line reason: for square \\(A\\), \\(\\det A\\neq 0\\) means \\(A\\) is invertible.\nC10.3. Let \\[\nA=\\begin{bmatrix}2&1\\\\0&3\\end{bmatrix}.\n\\] (a) Compute \\(A^{-1}\\) using the \\(2\\times 2\\) formula (or by solving \\(AB=I\\)).\n(b) Check \\(A^{-1}A=I\\).\n(c) Solve \\(Ax=(4,3)\\) using \\(x=A^{-1}b\\).\nC10.4. Define (one short sentence or formula each):\n\nthe column space \\(C(A)\\)\n\nthe null space \\(N(A)\\)\n\nC10.5. Let \\[\nA=\\begin{bmatrix}\n1 & 2 & 0 \\\\\n2 & 4 & 0 \\\\\n0 & 0 & 1\n\\end{bmatrix}.\n\\] The RREF of \\(A\\) is \\[\n\\begin{bmatrix}\n1 & 2 & 0 \\\\\n0 & 0 & 1 \\\\\n0 & 0 & 0\n\\end{bmatrix}\n\\] (use this RREF). Find a basis for \\(C(A)\\) using original columns of \\(A\\), and a basis for \\(N(A)\\).\nC10.6. True or false, with a one-line reason: if \\(T\\) is upper or lower triangular, then \\(\\det T\\) equals the product of the entries on the main diagonal.\nC10.7. One computational route to \\(\\det A\\) is to row-reduce \\(A\\) to triangular (echelon) form and then multiply along the main diagonal.\n\nWhat happens to \\(\\det\\) if you swap two rows during elimination?\n\nUsing the triangular idea (no row swaps needed), compute \\[\n\\det\\begin{bmatrix}2&1&0\\\\0&3&1\\\\0&0&4\\end{bmatrix}.\n\\]\n\nC10.8. Decide whether each matrix is invertible. Give a one-line reason using \\(\\det\\).\n\n\\(\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}\\)\n\\(\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\\)\n\\(\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\)\n\n\n\nTextbook Core\n\nB 11.1, 11.2, 11.4 (inverses; solve \\(Ax=b\\) with \\(A^{-1}\\))\nS 3.5 #1–#2 (rank / \\(C(A)\\) / \\(N(A)\\) portions used in class)\nL Ch. 1 Ex. 3(a), 3(b), and 3(d): determinant, rank, and inverse portions"
   },
   {
-    "objectID": "lectures/lecture-28.html#your-turn",
-    "href": "lectures/lecture-28.html#your-turn",
-    "title": "Lecture 28 — Eigenvectors as persistent directions",
-    "section": "Your turn",
-    "text": "Your turn\nY1. Verify or reject: is \\((\\lambda,v)=(−1,(1,-1))\\) an eigenpair of \\(A=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\)?\nY2. Given that \\(v=(1,2)\\) is an eigenvector of \\(A=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\), find \\(\\lambda\\).\nY3. True or false, with a one-line reason: if \\(Av=2v\\) and \\(v\\neq 0\\), then \\(A^3 v=8v\\).\nY4. In one sentence: how will an eigenvector for \\(\\lambda=1\\) help explain Friday’s Lab 5 “same long-run mix from different starts”?\n\n\n\n\n\n\nNoteAnswers (Your turn only)\n\n\n\n\n\nY1. \\(Av=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\begin{bmatrix}1\\\\-1\\end{bmatrix}=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\) and \\((-1)v=\\begin{bmatrix}-1\\\\1\\end{bmatrix}\\). Yes — eigenpair.\nY2. \\(Av=\\begin{bmatrix}3&0\\\\2&1\\end{bmatrix}\\begin{bmatrix}1\\\\2\\end{bmatrix}=\\begin{bmatrix}3\\\\4\\end{bmatrix}\\). Ratio from the first component: \\(\\lambda=3/1=3\\). Check second: \\(4=3\\cdot 2\\). So \\(\\lambda=3\\).\nY3. True. \\(A^3 v=A^2(Av)=A^2(2v)=A(4v)=8v\\) (or \\(A^t v=\\lambda^t v\\)).\nY4. Sample: A \\(\\lambda=1\\) direction is a steady mix; other modes shrink, so many starts collapse onto (a scale of) that same eigenvector — the long-run campus mix."
+    "objectID": "quizzes/quiz-10.html#stretch",
+    "href": "quizzes/quiz-10.html#stretch",
+    "title": "Quiz 10",
+    "section": "Stretch",
+    "text": "Stretch\nB 11.15, 11.25; area scaling from \\(|\\det A|\\) for a new \\(2\\times 2\\) map; expand \\(\\det(A-\\lambda I)\\) for a diagonal \\(2\\times 2\\) (characteristic preview only)."
+  },
+  {
+    "objectID": "quizzes/quiz-10.html#what-a-quiz-item-might-change",
+    "href": "quizzes/quiz-10.html#what-a-quiz-item-might-change",
+    "title": "Quiz 10",
+    "section": "What a quiz item might change",
+    "text": "What a quiz item might change\nA new \\(2\\times 2\\) for the inverse or \\(\\det\\), a different RREF for \\(C(A)\\) / \\(N(A)\\) bases, or a new triangular matrix for the diagonal-product shortcut."
   },
   {
     "objectID": "syllabus.html",
@@ -159,27 +166,6 @@
     "title": "Schedule",
     "section": "",
     "text": "Download this page as PDF\nMonday, Wednesday, Friday, 10:00–10:50 a.m. in FR 201. Short titles link to that day’s lecture. Assessment names link to the due-date page. Learning objectives live on Lectures, not here. Quizzes and Labs 1–6 meet on Fridays (midterms too, when scheduled). Lab 0 is Week 1 only; there is no lab on Midterm 2 Friday or during fall break. Friday Dec 4 is project launch (SVD + Quiz 11 + capstone); Lab 6 (Fit and Compress) is the same-day LS + SVD warm-up.\n\n\n\nWeek\nMonday\nWednesday\nFriday\n\n\n\n\n1\nAug 24First day\nAug 26Vectors\nAug 28ArithmeticLab 0Lab 0 ticket\n\n\n2\nAug 31Combinations\nSep 2Inner product\nSep 4Linear functionsQuiz 1\n\n\n3\nSep 7Labor Day — no class\nSep 9Applications\nSep 11NormsQuiz 2\n\n\n4\nSep 14Angle\nSep 16Neighbors\nSep 18ClusteringQuiz 3\n\n\n5\nSep 21Dependence\nSep 23Span\nSep 25BasisQuiz 4\n\n\n6\nSep 28Neighbors practice\nSep 30MT1 prep\nOct 2Midterm 1\n\n\n7\nOct 5Matrices\nOct 7\\(Ax\\)\nOct 9TransformsQuiz 5\n\n\n8\nOct 12No class\nOct 14Transforms (start)\nOct 16Transforms (finish)Quiz 6Lab 1\n\n\n9\nOct 19Systems\nOct 21RREF & dynamics\nOct 23Quiz 7 (Canvas)Lab 2 (RREF)\n\n\n10\nOct 26Lab 2 / RREF catch-up\nOct 28Products\nOct 30Quiz 8Lab 3 (cost, L\n\n\n12\nNov 9L26 Review\nNov 11Veterans Day — no class\nNov 13L27 Midterm 2\n\n\n13\nNov 16Eigenvectors\nNov 18Characteristic\nNov 20EigenbehaviorQuiz 10Lab 5\n\n\n14\nNov 23Fall break — no class\nNov 25Fall break — no class\nNov 27Fall break — no class\n\n\n15\nNov 30Least squares\nDec 2Fitting\nDec 4SVDQuiz 11Project launch\n\n\n16\nDec 7StudioCapstone\nDec 9GalleryCapstone\nDec 11Final review\n\n\n17\n\nDec 16Final exam10:20 a.m.–12:10 p.m., FR 201\n\n\n\n\nCatch-up. Oct 12 was no class; Lecture 20 ran Oct 14–16. Oct 23–26: Lab 2 / RREF practice (plus Quiz 7 on Canvas Oct 23). Wed Oct 28 is Lecture 23 (products + short \\(A^k\\) bridge). Fri Oct 30 is Quiz 8 + Lab 3 only (cost / LU / \\([A\\mid I]\\) peek / powers — not a numbered lecture). Mon Nov 2 continued Lab 3. Wed Nov 4 is Lecture 24 (inverses + rank / solvability). Then L25–L27 are determinants → review → Midterm 2.\n\n\n\n\n\nReuseCreative Commons Attribution-NonCommercial 4.0 International(View License)"
-  },
-  {
-    "objectID": "assessments.html",
-    "href": "assessments.html",
-    "title": "Assessments",
-    "section": "",
-    "text": "Download this page as PDF"
-  },
-  {
-    "objectID": "assessments.html#source-key",
-    "href": "assessments.html#source-key",
-    "title": "Assessments",
-    "section": "Source key",
-    "text": "Source key\n\n\n\n\n\n\n\nCode\nSource\n\n\n\n\nB 3.10\nBoyd and Vandenberghe, Exercise 3.10\n\n\nS 6.1 #10\nStrang, Section 6.1, Problem 10\n\n\nL Ch. 2 Ex. 3\nLachniet, Introduction to GNU Octave (3rd ed., 2020), Chapter 2, Exercise 3\n\n\nC\nCourse-created bridge or lab checkpoint\n\n\n\nA “prompt” can be one selected part of a multi-part textbook exercise."
-  },
-  {
-    "objectID": "assessments.html#clo-coverage",
-    "href": "assessments.html#clo-coverage",
-    "title": "Assessments",
-    "section": "CLO coverage",
-    "text": "CLO coverage\nOfficial course learning outcomes are assessed more than once; nothing important is a single-day checklist item.\n\n\n\nRequired outcome\nWhere it is developed and assessed\n\n\n\n\nInterpret vectors, matrices, and complex numbers algebraically and geometrically\nWeeks 1–3, 7, and 13\n\n\nSolve systems by row reduction by hand and with software\nLectures 21–22 and Lab 2; Midterm 2; cumulative final\n\n\nFind \\(2\\times 2\\) eigenpairs by hand and general eigenpairs with software\nNovember 18 and Lab 5\n\n\nApply eigenvalues and eigenvectors\nDynamics in Week 9, explained in Week 13; Markov/normal-mode applications\n\n\nRecognize triangular, symmetric, and positive-definite matrices\nOctober 5, November 6, and December 2\n\n\nUse linear combination, subspace, span, independence, basis, and dimension\nWeeks 1 and 5, revisited in Weeks 8 and 11\n\n\nWrite or adapt programs involving matrices, vectors, and plotting\nLabs 0–6 and the capstone, with steadily reduced scaffolding\n\n\nApply linear algebra to real-world problems\nEvery lab and most class examples\n\n\nLearn independently and collaboratively\nPractice banks, low-stakes quizzes, paired work, lab studio, and capstone presentation\n\n\nILO/GEAR quantitative reasoning in context\nInterpretation questions throughout; least-squares and capstone conclusions\n\n\n\n\nQuiz dates\nFriday quizzes cover only the prior instructional week (skip midterm week and fall break when choosing that week). Same-day lecture/lab topics are not on that day’s quiz.\n\n\n\nQuiz\nDate\nFocus (prior week)\n\n\n\n\nQuiz 1\nFri Sep 4\nVectors, arithmetic, Lab 0 (Week 1)\n\n\nQuiz 2\nFri Sep 11\nCombinations, inner product, linear functions (Week 2)\n\n\nQuiz 3\nFri Sep 18\nApplications and norms (Week 3)\n\n\nQuiz 4\nFri Sep 25\nAngle, nearest neighbors, and clustering (Week 4)\n\n\nQuiz 5\nFri Oct 9\nDependence, span, and basis (Week 5)\n\n\nQuiz 6\nFri Oct 16\nMatrices and \\(Ax\\) (Week 7 / Lectures 18–19)\n\n\nQuiz 7\nFri Oct 23\nTransforms only (Lecture 20). Online in Canvas.\n\n\nQuiz 8\nFri Oct 30\nSystems, elimination, RREF, dynamics, and iteration (Lectures 21–23)\n\n\nQuiz 9\nFri Nov 6\nRREF and one-step dynamics (Lecture 22)\n\n\nQuiz 10\nFri Nov 20\nInverses, rank, and determinants (Lectures 27–29)\n\n\nQuiz 11\nFri Dec 4\nEigenvalues, complex numbers, and Lab 5 (Week 13 / Lectures 35–37)\n\n\n\nNot on a dedicated quiz (assessed on Midterm 2, the final, and/or the capstone): same-day lecture/lab topics on quiz Fridays; Week 15 least squares / SVD. Use the Midterm 2 practice packet, final practice packet, and capstone packet as appropriate."
   },
   {
     "objectID": "lectures.html",
